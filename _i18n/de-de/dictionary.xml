@@ -5,7 +5,6 @@
   <block id="334d532e95c8088dda41b2e55290b233" category="paragraph">Cloud Backup ist ein Service für BlueXP (früher Cloud Manager) Arbeitsumgebungen, die Backup- und Restore-Funktionen zum Schutz und zur langfristigen Archivierung Ihrer Daten bieten. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.</block>
   <block id="1619bac39deaef2fc2adb60633af222f" category="paragraph">Bei Bedarf können Sie ein ganzes _Volume_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherstellen. Beim Backup von ONTAP-Daten können Sie auch auswählen, eine oder mehrere _Dateien_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherzustellen.</block>
   <block id="b8d82fc8540bcb0b292930e59ebdd4dd" category="inline-link">Weitere Informationen zu Cloud Backup</block>
-  <block id="58ba7a61ebb07a1d7ec3d3aac8a698c7" category="paragraph"><block ref="2557c337dfecad402162dac53d872fb6" category="inline-link-rx"></block>.</block>
   <block id="44eb910aad595ba9500cebcb52445bcf" category="paragraph">Mit Backup &amp; Restore können folgende Aufgaben ausgeführt werden:</block>
   <block id="02fe91ecafd3cfc37675f0776294605f" category="inline-link-macro">Detaillierte Funktionen finden Sie hier</block>
   <block id="ef288ee793660dc823a897c059e4319e" category="list-text">Erstellen Sie Backups und Restores von ONTAP Volumes von Cloud Volumes ONTAP und lokalen ONTAP Systemen. <block ref="3033f928f79d30b4398dcd6d1b71f659" category="inline-link-macro-rx"></block>.</block>
@@ -142,7 +141,6 @@
   <block id="497968cf7f565b72a034d69215ab9754" category="paragraph"><block ref="497968cf7f565b72a034d69215ab9754" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c7a220fc58ccea879a68f706ca98ac0c" category="list-text">Klicken Sie auf *Speichern*, um Ihre Änderungen zu speichern.</block>
   <block id="8764d766d622ae40812776b15d742a79" category="inline-xref">Löschen Sie die Backups</block>
-  <block id="1cdf12d909faca3295263dc58dc5d4b8" category="paragraph">*Hinweis:* Wenn ein Volume nicht gesichert werden soll, werden Sie Ihrem Cloud Provider weiterhin die Kosten für die Objektspeicherung für die Kapazität in Rechnung gestellt, die die Backups nutzen, es sei denn, Sie <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>.</block>
   <block id="370b82ce2e3ba80cd6ec552891697236" category="section-title">Bearbeiten einer vorhandenen Backup-Richtlinie</block>
   <block id="666a7dbcb8fbb40415b3646ab93b9692" category="paragraph">Sie können die Attribute für eine Backup-Richtlinie ändern, die derzeit auf Volumes in einer Arbeitsumgebung angewendet wird. Die Änderung der Backup-Richtlinie wirkt sich auf alle vorhandenen Volumes aus, die diese Richtlinie verwenden.</block>
   <block id="0be2c78c9d9743f1e0ca96b2de59d98b" category="inline-image-macro">Ein Screenshot, in dem die Schaltfläche Backup Settings auf der Registerkarte Volumes angezeigt wird.</block>
@@ -2492,11 +2490,6 @@
   <block id="739f8a5ac1453fdcd33ce781cd333914" category="section-title">Neuer Job Monitor ist verfügbar, um den Prozessstatus aller Backup- und Wiederherstellungsaufträge anzuzeigen</block>
   <block id="7a99d9487fc9540fa7bee7c2eb717413" category="inline-link-macro">Lesen Sie, wie Sie den Job Monitor verwenden</block>
   <block id="9d20a5735dc25af92271eea8fa797bf7" category="paragraph">Der Job Monitor kann sehr hilfreich sein, wenn Sie eine Operation gegen mehrere Volumes eingeleitet haben, z. B. das Ändern der Backup-Richtlinie oder das Löschen von Backups, so dass Sie sehen können, wann der Vorgang auf allen Volumes abgeschlossen ist. <block ref="41d368101275ff882313a6db3fc29812" category="inline-link-macro-rx"></block>.</block>
-  <block id="586301717819197e24001cac47efdaaa" category="section-title">Januar 2022</block>
-  <block id="3d83253385058dc12afb77a2f730e4c2" category="section-title">Möglichkeit zur Sicherung persistenter Volumes von AKS Kubernetes-Clustern auf Azure Blob Storage</block>
-  <block id="8b0675f2bcc5bb7f00dbceec71509372" category="paragraph">Wenn in Ihrem AKS Cluster NetApp Astra Trident installiert ist und Cloud Volumes ONTAP für Azure als Back-End-Storage für den Cluster genutzt wird, können Sie Volumes mit Backups und Restores von und aus dem Azure Blob-Storage durchführen. <block ref="dedf276821ed6d29dbf4b6c6ac7e23c3" category="inline-link-macro-rx"></block>.</block>
-  <block id="14c8359231c23d6f5c54ca5cd66b7645" category="section-title">In dieser Version wurden die Cloud Backup Service-Gebühren geändert, um sich stärker an die Branchenstandards anzupassen</block>
-  <block id="8f26fba202051bdab8552c6642789714" category="paragraph">Anstatt NetApp für die Kapazität auf Basis der Größe der Backup-Dateien zu bezahlen, zahlen Sie jetzt nur für die gesicherten Daten, berechnet anhand der verwendeten logischen Kapazität (vor der ONTAP-Effizienz) der zu sichernden ONTAP Quell-Volumes. Diese Kapazität wird auch als Front-End Terabyte (FETB) bezeichnet.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Rechtliche Hinweise</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Rechtliche Hinweise ermöglichen den Zugriff auf Copyright-Erklärungen, Marken, Patente und mehr.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Urheberrecht</block>
@@ -3444,4 +3437,7 @@
   <block id="b1e78dfdd8adc3005cff56ffd24b2af1" category="inline-xref">Lesen Sie, wie Sie Ihre Systeme für diese Funktion konfigurieren</block>
   <block id="57e477fd9dd6f84cb8ac24711869c4f5" category="list-text">Wenn in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird und Sie StorageGRID 11.3 oder höher verwenden, können Sie ältere Backups nach einer bestimmten Anzahl von Tagen entweder auf AWS S3 Glacier oder in den Deep Archive Storage von S3 Glacier verschieben, um die Kosten weiter zu optimieren. <block ref="c2797d22435b48dabeada89d48523cd9" category="inline-xref-macro-rx"></block>.</block>
   <block id="8b1fecd8a08d1d10ad201653d8d4088f" category="sidebar">Sichern Sie die Cloud Backup-Datenbank an einem dunklen Standort</block>
+  <block id="fe3f1bd257c4451d8f8bcbf9a1a58d34" category="paragraph"><block ref="1247b899b5e6800d8fd9e850903ad55a" category="inline-link-rx"></block>.</block>
+  <block id="275b9b785d71f45bb8f134005ece056a" category="paragraph">*Hinweis:* beim Beenden des Backups eines Volumes wird Ihrem Cloud-Provider weiterhin die Kosten für Objekt-Storage für die Kapazität berechnet, die die Backups verwenden, es sei denn, Sie werden von Ihrem Cloud-Provider in Rechnung gestellt <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>.</block>
+  <block id="46fb0ddeabbcb2b9784add28928cfe7a" category="paragraph">Beachten Sie, dass die Richtlinie, die Sie auf die Volumes anwenden möchten, bereits vorhanden sein muss.</block>
 </blocks>

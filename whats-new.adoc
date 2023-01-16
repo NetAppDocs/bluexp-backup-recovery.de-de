@@ -473,19 +473,3 @@ Diese Option steht zur Verfügung, wenn Sie das Backup in einer neuen Arbeitsumg
 === Neuer Job Monitor ist verfügbar, um den Prozessstatus aller Backup- und Wiederherstellungsaufträge anzuzeigen
 
 Der Job Monitor kann sehr hilfreich sein, wenn Sie eine Operation gegen mehrere Volumes eingeleitet haben, z. B. das Ändern der Backup-Richtlinie oder das Löschen von Backups, so dass Sie sehen können, wann der Vorgang auf allen Volumes abgeschlossen ist. link:task-monitor-backup-jobs.html["Lesen Sie, wie Sie den Job Monitor verwenden"].
-
-
-
-== Januar 2022
-
-
-
-=== Möglichkeit zur Sicherung persistenter Volumes von AKS Kubernetes-Clustern auf Azure Blob Storage
-
-Wenn in Ihrem AKS Cluster NetApp Astra Trident installiert ist und Cloud Volumes ONTAP für Azure als Back-End-Storage für den Cluster genutzt wird, können Sie Volumes mit Backups und Restores von und aus dem Azure Blob-Storage durchführen. link:task-backup-kubernetes-to-azure.html["Weitere Informationen finden Sie hier"].
-
-
-
-=== In dieser Version wurden die Cloud Backup Service-Gebühren geändert, um sich stärker an die Branchenstandards anzupassen
-
-Anstatt NetApp für die Kapazität auf Basis der Größe der Backup-Dateien zu bezahlen, zahlen Sie jetzt nur für die gesicherten Daten, berechnet anhand der verwendeten logischen Kapazität (vor der ONTAP-Effizienz) der zu sichernden ONTAP Quell-Volumes. Diese Kapazität wird auch als Front-End Terabyte (FETB) bezeichnet.

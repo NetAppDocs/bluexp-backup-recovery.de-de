@@ -57,7 +57,7 @@ image:screenshot_backup_manage_volumes_page_k8s.png["Die Seite Volumes managen, 
 . Klicken Sie auf *Speichern*, um Ihre Änderungen zu speichern.
 
 
-*Hinweis:* Wenn ein Volume nicht gesichert werden soll, werden Sie Ihrem Cloud Provider weiterhin die Kosten für die Objektspeicherung für die Kapazität in Rechnung gestellt, die die Backups nutzen, es sei denn, Sie <<Backups werden gelöscht,Löschen Sie die Backups>>.
+*Hinweis:* beim Beenden des Backups eines Volumes wird Ihrem Cloud-Provider weiterhin die Kosten für Objekt-Storage für die Kapazität berechnet, die die Backups verwenden, es sei denn, Sie werden von Ihrem Cloud-Provider in Rechnung gestellt <<Backups werden gelöscht,Löschen Sie die Backups>>.
 
 
 
@@ -90,7 +90,7 @@ image:screenshot_backup_edit_policy_k8s.png["Ein Screenshot, der die Einstellung
 
 Falls Sie beim ersten Aktivieren von Cloud Backup auf Ihrem Kubernetes Cluster nicht die Option zum automatischen Zuweisen einer Backup-Richtlinie zu neu erstellten Volumes gewählt haben, können Sie diese Option später auf der Seite „_Backup Settings_ “ auswählen. Eine Backup-Richtlinie, die neu erstellten Volumes zugewiesen wurde, stellt sicher, dass alle Ihre Daten geschützt sind.
 
-Beachten Sie, dass die Richtlinie, die Sie auf die Volumes anwenden möchten, bereits vorhanden sein muss. <<Hinzufügen einer neuen Backup-Richtlinie,Erfahren Sie, wie Sie eine neue Backup-Richtlinie für eine Arbeitsumgebung hinzufügen>>.
+Beachten Sie, dass die Richtlinie, die Sie auf die Volumes anwenden möchten, bereits vorhanden sein muss.
 
 Sie können diese Einstellung auch deaktivieren, damit neu erstellte Volumes nicht automatisch gesichert werden. In diesem Fall müssen Sie Backups manuell für alle spezifischen Volumes aktivieren, die Sie in Zukunft sichern möchten.
 
