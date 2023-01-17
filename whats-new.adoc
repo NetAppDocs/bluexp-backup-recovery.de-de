@@ -42,6 +42,14 @@ In früheren Versionen war die Rolle „Storage Admin“ für das Service-Konto 
 
 
 
+=== Unterstützung wurde hinzugefügt, um Daten mithilfe von Suchen & Wiederherstellen in Websites ohne Internetzugang wiederherzustellen
+
+Wenn Sie Daten von einem lokalen ONTAP-Cluster auf StorageGRID sichern, einer Website ohne Internetzugang, auch als dunkle oder Offline-Site bekannt, können Sie jetzt die Option zum Wiederherstellen von Daten verwenden, wenn erforderlich. Für diese Funktionalität muss der BlueXP Connector (Version 3.9.25 oder höher) auf der Offline-Website bereitgestellt werden.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["Erfahren Sie, wie Sie ONTAP-Daten mithilfe von Search  Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen"].https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Lesen Sie, wie Sie den Connector in Ihrer Offline-Website installieren"].
+
+
+
 === Die Seite Ergebnisse der Jobüberwachung kann als CSV-Bericht heruntergeladen werden
 
 Nachdem Sie die Seite Jobüberwachung gefiltert haben, um die gewünschten Jobs und Aktionen anzuzeigen, können Sie nun eine .csv-Datei dieser Daten generieren und herunterladen. Anschließend können Sie die Informationen analysieren oder den Bericht an andere Personen in Ihrem Unternehmen senden. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["Erfahren Sie, wie Sie einen Bericht zur Jobüberwachung erstellen"].

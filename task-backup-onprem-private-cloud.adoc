@@ -216,7 +216,7 @@ Anforderungen::
 * Ihr StorageGRID muss 11.3 oder höher verwenden
 * Ihr StorageGRID muss sein https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["Entdeckt und verfügbar im BlueXP Canvas"^]
 * Archiv-Storage wird derzeit nur für AWS S3-Storage-Klassen unterstützt. Zudem stehen für das Tiering von Backups AWS S3 Glacier oder S3 Glacier Deep Archive Storage zur Verfügung. link:reference-aws-backup-tiers.html["Weitere Informationen zu AWS Archivierungs-Tiers"^].
-* Sie müssen sich für ein AWS S3 Abonnement anmelden, um den Speicherplatz zu nutzen, auf dem sich Ihre Backups befinden.
+* Sie müssen sich für den Speicherplatz, auf dem sich Ihre Backups befinden, bei einem Amazon S3-Konto anmelden.
 
 
 --

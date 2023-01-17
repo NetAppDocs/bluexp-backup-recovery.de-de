@@ -1030,7 +1030,6 @@
   <block id="7a035a915239cf76211880a31a8e3764" category="cell">Suchen Sie nach einem Volume, einem Ordner oder einer Datei über *alle Backup-Dateien* nach einem partiellen oder vollständigen Volume-Namen, einem Teil- oder vollständigen Ordner-/Dateinamen, einem Größenbereich und zusätzlichen Suchfiltern</block>
   <block id="c97292ed2a85b61c46eda83c997f6a9a" category="cell">Die Wiederherstellung von Volumes und Dateien erfolgt mit Backup-Dateien, die in Amazon S3, Azure Blob, Google Cloud und NetApp StorageGRID gespeichert sind</block>
   <block id="4b41d0742a9aae0ba9c0d4a963b3f0d8" category="cell">Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her</block>
-  <block id="2deb7493de6dd6e8fd3126d72d730f68" category="cell">Wird nicht in dunklen Seiten unterstützt</block>
   <block id="fa6009564cbbb803ab9e939ec7396236" category="cell">Behandelt keine Dateien, die umbenannt oder gelöscht wurden</block>
   <block id="609c9e9bd29468f2ba84839f3741b886" category="cell">Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien</block>
   <block id="7676f4eb0750d027aaf39357e74a6f0a" category="cell">Durchsuchen Sie nach Ergebnissen über Public und Private Clouds hinweg</block>
@@ -1064,7 +1063,6 @@
   <block id="e191225ef89ae4b4097edff77c5ad2a5" category="list-text">Bei Amazon S3 kann der Connector in AWS oder lokal implementiert werden</block>
   <block id="2bdfeeb4dec8a7b723d287568533182e" category="list-text">Für Azure Blob kann der Connector in Azure oder in Ihrem Standort implementiert werden</block>
   <block id="477b6dc7ebfe6a69105359bdce55f421" category="list-text">Für Google Cloud Storage muss der Connector in Ihrer Google Cloud Platform VPC implementiert werden</block>
-  <block id="e379a23dde4555ac0507594521c2f485" category="list-text">Für StorageGRID muss der Connector in Ihrem Haus bereitgestellt werden</block>
   <block id="b1b998a9bc88754640934520205257d6" category="paragraph">Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.</block>
   <block id="2e43b583329f5406f8eb83df6ec39874" category="admonition">Sie können keine Ordner oder Dateien wiederherstellen, wenn die Sicherungsdatei mit DataLock &amp; Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und anschließend auf die von Ihnen benötigten Dateien zugreifen.</block>
   <block id="515ab291ab79ec8cfa9e1523b5a9a8ef" category="section-title">Wiederherstellen von Volumes mit Durchsuchen und Wiederherstellen</block>
@@ -1161,7 +1159,6 @@
   <block id="08f59a930621019b7b2d289b74ed3bf2" category="section-title">Unterstützte Arbeitsumgebungen und Objektspeicheranbieter suchen und wiederherstellen</block>
   <block id="e1ddf1ac9e59a50d9ac5683a1d33e13a" category="cell">Zielarbeitsumgebung ifdef::aws[]</block>
   <block id="1c01241cf7c3489f40f6f12fb4239c09" category="paragraph">Für die Suche und Wiederherstellung kann der Connector an folgenden Orten installiert werden:</block>
-  <block id="b3099050d137cae2d6b32ee13fa2a9a2" category="list-text">Für StorageGRID muss der Connector in Ihrem Haus bereitgestellt werden; mit Internetverbindung</block>
   <block id="7c9a067ed7fc3d318d415405ab0cb349" category="list-text">Cluster-Anforderungen:</block>
   <block id="042e2868bd27cf0f2d07239f80a976dd" category="list-text">Die ONTAP-Version muss 9.8 oder höher sein.</block>
   <block id="6f0cd96277bd61a1a3f4c2504033ded7" category="list-text">Die Storage-VM (SVM), auf der sich das Volume befindet, muss über eine konfigurierte Daten-LIF verfügen.</block>
@@ -1765,7 +1762,6 @@
   <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">Search &amp; Restore kann 1 Datei gleichzeitig wiederherstellen.</block>
   <block id="7a6f7d393f4de35501272976e1ba9e03" category="list-text">Suchen und Wiederherstellen und Suchen und Wiederherstellen können 1 Ordner gleichzeitig wiederherstellen.</block>
   <block id="5f5966e9da5716290dfc2b88ceeb2217" category="list-text">Die wiederherzustellende Datei muss die gleiche Sprache verwenden wie die Sprache auf dem Zielvolume. Wenn die Sprachen nicht identisch sind, wird eine Fehlermeldung angezeigt.</block>
-  <block id="012009e84c36a8660d26e3a3201d2fe9" category="list-text">Wiederherstellung auf Dateiebene mithilfe von Suchen &amp; Wiederherstellen wird nicht unterstützt, wenn der Connector auf einer Website ohne Internetzugang installiert wird (dunkle Seite).</block>
   <block id="9608aa854ca5f36a89549c7fae2a8010" category="summary">Führen Sie einige Schritte aus, um mit dem Backup von Daten von Cloud Volumes ONTAP in Amazon S3 zu beginnen.</block>
   <block id="9d811f8ab4335c82eeb7d1477874bc1c" category="doc">Sichern von Cloud Volumes ONTAP-Daten in Amazon S3</block>
   <block id="77f3b81e1d7c5ed627835fb76acd97c6" category="inline-link">AWS Jahresvertrag</block>
@@ -2756,7 +2752,6 @@
   <block id="373e31603b5a78ab3bc84cbe57c892b5" category="paragraph">Jede Backup-Richtlinie enthält einen Abschnitt zur „ _Archivierungsrichtlinie_“, den Sie auf Ihre Backup-Dateien anwenden können.</block>
   <block id="0776412162b9ad0d387bbf818146d659" category="sidebar">Unterstützte Google-Archiv-Storage Tiers</block>
   <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">Was ist neu</block>
-  <block id="442630401ddd0f14988d739183c35505" category="list-text">WORM-/Compliance-Modus auf einem Objektspeicher wird derzeit nur von Amazon S3 und StorageGRID unterstützt. Dies wird als DataLock-Funktion bezeichnet und muss mit Cloud Backup-Einstellungen verwaltet werden.</block>
   <block id="b2ff0fb046b03e40e599f1561ed5ebd3" category="list-text">Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.</block>
   <block id="c911798e68210cf43e7a5a85f31ebebe" category="paragraph">Für den Einstieg in die Cloud Backup APIs benötigen Sie ein Benutzertoken, Ihre BlueXP Konto-ID und die BlueXP Connector-ID.</block>
   <block id="30bc6b6cbbb254a1299f2544d8a09731" category="paragraph">Wenn Sie API-Aufrufe tätigen, fügen Sie das Benutzer-Token in die Autorisierungskopfzeile und die BlueXP Connector-ID in der X-Agent-id-Kopfzeile hinzu. Sie sollten die BlueXP-Konto-ID in den APIs verwenden.</block>
@@ -2778,7 +2773,6 @@
   <block id="ad28f8f849480a4631fcbda2422f9afa" category="paragraph">Cloud Backup bietet eine nutzungsbasierte Lizenzierung in einem Pay-as-you-go-Modell. Wenn Sie den Markt Ihres Cloud-Providers abonniert haben, bezahlen Sie pro gib für Daten, die gesichert werden. Es erfolgt keine Vorauszahlung. Die Abrechnung erfolgt von Ihrem Cloud-Provider über Ihre monatliche Abrechnung.</block>
   <block id="2802742de18e4e6fd33742e9f320577d" category="paragraph">Backup-Kopien werden in einem Objektspeicher gespeichert, den BlueXP in Ihrem Cloud-Konto erstellt. Pro Cluster und Arbeitsumgebung gibt es einen Objektspeicher, und BlueXP benennt den Objektspeicher wie folgt: „netapp-Backup-clusterUUID“. Stellen Sie sicher, dass Sie diesen Objektspeicher nicht löschen.</block>
   <block id="bea14d044add005ebbc3ac7671a9bac7" category="list-text">Wenn Sie lokale Kopien der Snapshots auf dem SnapMirror Ziel-Volume erstellen (unabhängig von den verwendeten SnapMirror Bezeichnungen), werden diese Snapshots nicht als Backups in die Cloud verschoben. Derzeit müssen Sie eine Snapshot-Richtlinie mit den gewünschten Etiketten auf dem Quell-DP-Volume erstellen, damit Cloud Backup sie sichern kann.</block>
-  <block id="a5de9c26eaee9b57d8bcd1ff4d49f888" category="list-text">FlexGroup Volumes Backups können nicht in Archiv-Storage verschoben oder nicht DataLock und Ransomware-Schutz verwendet werden.</block>
   <block id="9defdde711056fe7bbfd4e7bfc21de90" category="inline-link">Weitere Informationen zu Gateway-Endpunkten</block>
   <block id="5395d21beaf13b09f8644c9586a34bbb" category="paragraph">Der VPC-Gateway-Endpunkt muss bereits in der VPC vorhanden sein.<block ref="efccbdf33ae534e50311d23fe5ad227e" category="inline-link-rx"></block>.</block>
   <block id="172483accc796d1a4b4deb4fe01ad8d4" category="list-text">Stellen Sie sicher, dass die Berechtigungen „s3:PutBucketPolicy“ und „s3:PutBucketOwnershipControls“ Teil der IAM-Rolle sind, die dem BlueXP Connector Berechtigungen erteilt.</block>
@@ -3427,7 +3421,6 @@
   <block id="98c4206e171ce9b62f1dadef4f4da528" category="list-text">Ihr StorageGRID muss sein<block ref="a62572fc02ca2a884f6a1e42d38d1d55" category="inline-link-rx"></block></block>
   <block id="68aa7e5e44b2aff449b0543b49e563bd" category="inline-link-macro">Weitere Informationen zu AWS Archivierungs-Tiers</block>
   <block id="9ac50560d5fb673e5d33906e46dd98c6" category="list-text">Archiv-Storage wird derzeit nur für AWS S3-Storage-Klassen unterstützt. Zudem stehen für das Tiering von Backups AWS S3 Glacier oder S3 Glacier Deep Archive Storage zur Verfügung. <block ref="99a80ab47f2b3c111e86aba05224c42e" category="inline-link-macro-rx"></block>.</block>
-  <block id="ec1bc3c970d4b572c193f7ae566018d4" category="list-text">Sie müssen sich für ein AWS S3 Abonnement anmelden, um den Speicherplatz zu nutzen, auf dem sich Ihre Backups befinden.</block>
   <block id="832d0ea7eab67f52faa651ad1475e14a" category="paragraph">Wenn Sie die Archivierungseinstellungen für die Backup-Richtlinie für Ihren Cluster definieren, geben Sie Ihre Zugangsdaten für den Cloud-Provider ein und wählen die gewünschte Storage-Klasse aus. Cloud Backup erstellt bei der Aktivierung des Backups für den Cluster den Cloud-Bucket. Nachfolgend sind die für AWS Archiv-Storage benötigten Informationen aufgeführt.</block>
   <block id="1561c5b8437cf775ebce2ca08e284b68" category="inline-image-macro">Einen Screenshot der Informationen, die Sie zur Archivierung von Backup-Dateien von StorageGRID in AWS S3 benötigen</block>
   <block id="4e82138d6097530281cd6cb668514613" category="paragraph"><block ref="4e82138d6097530281cd6cb668514613" category="inline-image-macro-rx" type="image"></block></block>
@@ -3440,4 +3433,13 @@
   <block id="fe3f1bd257c4451d8f8bcbf9a1a58d34" category="paragraph"><block ref="1247b899b5e6800d8fd9e850903ad55a" category="inline-link-rx"></block>.</block>
   <block id="275b9b785d71f45bb8f134005ece056a" category="paragraph">*Hinweis:* beim Beenden des Backups eines Volumes wird Ihrem Cloud-Provider weiterhin die Kosten für Objekt-Storage für die Kapazität berechnet, die die Backups verwenden, es sei denn, Sie werden von Ihrem Cloud-Provider in Rechnung gestellt <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>.</block>
   <block id="46fb0ddeabbcb2b9784add28928cfe7a" category="paragraph">Beachten Sie, dass die Richtlinie, die Sie auf die Volumes anwenden möchten, bereits vorhanden sein muss.</block>
+  <block id="da241970bf8ab518d4b9fd4ec20e3a48" category="list-text">Sie müssen sich für den Speicherplatz, auf dem sich Ihre Backups befinden, bei einem Amazon S3-Konto anmelden.</block>
+  <block id="3c6238f54517e5cf7923ae4c33a5eff9" category="list-text">Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden</block>
+  <block id="cd1cceb157b5982d899b66d18217af64" category="list-text">Wenn Sie einen Connector in einer dunklen Site verwenden, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert (Connector Version 3.9.25 oder höher erforderlich).</block>
+  <block id="e083799711dc9b588bbb440525564506" category="section-title">Unterstützung wurde hinzugefügt, um Daten mithilfe von Suchen &amp; Wiederherstellen in Websites ohne Internetzugang wiederherzustellen</block>
+  <block id="7582bcce7533bd53ab590d04904ea75b" category="paragraph">Wenn Sie Daten von einem lokalen ONTAP-Cluster auf StorageGRID sichern, einer Website ohne Internetzugang, auch als dunkle oder Offline-Site bekannt, können Sie jetzt die Option zum Wiederherstellen von Daten verwenden, wenn erforderlich. Für diese Funktionalität muss der BlueXP Connector (Version 3.9.25 oder höher) auf der Offline-Website bereitgestellt werden.</block>
+  <block id="c9ec78264dce9938676b736265201e28" category="inline-link">Erfahren Sie, wie Sie ONTAP-Daten mithilfe von Search &amp;amp; Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen</block>
+  <block id="74aacc002c6d6d85e9786012bf71af08" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>.<block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>.</block>
+  <block id="4f60787e5fe87ac0aa425be67237edec" category="list-text">Volume Backups von FlexGroup können nicht in Archiv-Storage verschoben oder nicht DataLock und Ransomware-Schutz verwendet werden.</block>
+  <block id="1f973e0276bdcc7629141de9466f59f2" category="list-text">WORM-/Compliance-Modus auf einem Objektspeicher wird derzeit nur von Amazon S3 und StorageGRID unterstützt. Dies wird als DataLock-Funktion bezeichnet und muss mithilfe von Cloud Backup-Einstellungen gemanagt werden, nicht über die Cloud-Provider-Schnittstelle.</block>
 </blocks>

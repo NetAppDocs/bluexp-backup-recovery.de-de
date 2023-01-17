@@ -56,7 +56,7 @@ Diese Tabelle enthält einen Vergleich der beiden Methoden.
 | Die Wiederherstellung von Volumes und Dateien erfolgt mit Backup-Dateien, die in Amazon S3, Azure Blob, Google Cloud und NetApp StorageGRID gespeichert sind | Die Wiederherstellung von Volumes und Dateien erfolgt mit Backup-Dateien, die in Amazon S3, Azure Blob, Google Cloud und NetApp StorageGRID gespeichert sind 
 
 
-| Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her | Wird nicht in dunklen Seiten unterstützt 
+| Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her | Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her 
 
 
 | Behandelt keine Dateien, die umbenannt oder gelöscht wurden | Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien 
@@ -150,7 +150,7 @@ ifdef::gcp[]
 
 endif::gcp[]
 
-* Für StorageGRID muss der Connector in Ihrem Haus bereitgestellt werden
+* Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden
 
 
 Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.
@@ -505,7 +505,7 @@ ifdef::gcp[]
 
 endif::gcp[]
 
-* Für StorageGRID muss der Connector in Ihrem Haus bereitgestellt werden; mit Internetverbindung
+* Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden
 
 
 Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.
@@ -574,6 +574,7 @@ Je nach Konfiguration gibt es zwei Möglichkeiten, die Suche und Wiederherstellu
 
 +
 ** Wenn Ihr Konto keine Anmeldedaten für Cloud-Provider enthält, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert.
+** Wenn Sie einen Connector in einer dunklen Site verwenden, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert (Connector Version 3.9.25 oder höher erforderlich).
 ** Wenn Sie haben https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS Zugangsdaten"^] Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure Zugangsdaten"^] Im Konto wird der indizierte Katalog wie bei einem in der Cloud implementierten Connector beim Cloud-Provider gespeichert. (Bei beiden Anmeldedaten ist standardmäßig AWS ausgewählt.)
 +
 Obwohl Sie einen On-Premises-Connector nutzen, müssen die Anforderungen an einen Cloud-Provider sowohl im Hinblick auf die Berechtigungen von Connector als auch auf Ressourcen von Cloud-Providern erfüllt werden. AWS und Azure Anforderungen können Sie sich bei der Verwendung dieser Implementierung oben anzeigen lassen.
