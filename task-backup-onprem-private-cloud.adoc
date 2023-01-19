@@ -207,7 +207,7 @@ Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindu
 
 === Die Archivierung älterer Backup-Dateien in Public-Cloud-Storage wird vorbereitet
 
-Durch das Tiering älterer Backup-Dateien im Archiv-Storage sparen Sie Kosten, da Sie für Backups, die Sie möglicherweise nicht benötigen, eine kostengünstigere Storage-Klasse verwenden. StorageGRID ist eine lokale (Private Cloud) Lösung, die keinen Archiv-Storage bietet, aber Sie können ältere Backup-Dateien in einen Public Cloud-Archiv-Storage verschieben.
+Durch das Tiering älterer Backup-Dateien im Archiv-Storage sparen Sie Kosten, da Sie für Backups, die Sie möglicherweise nicht benötigen, eine kostengünstigere Storage-Klasse verwenden. StorageGRID ist eine lokale (Private Cloud) Lösung, die keinen Archiv-Storage bietet, aber ältere Backup-Dateien in einen Public Cloud-Archiv-Storage verschieben kann. Bei dieser Art werden Daten, die auf Cloud-Speicher verteilt sind oder aus dem Cloud-Speicher wiederhergestellt werden, zwischen StorageGRID und dem Cloud-Speicher verschoben. BlueXP ist an diesem Datentransfer nicht beteiligt.
 
 Anforderungen::
 +
@@ -217,6 +217,18 @@ Anforderungen::
 * Ihr StorageGRID muss sein https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["Entdeckt und verfügbar im BlueXP Canvas"^]
 * Archiv-Storage wird derzeit nur für AWS S3-Storage-Klassen unterstützt. Zudem stehen für das Tiering von Backups AWS S3 Glacier oder S3 Glacier Deep Archive Storage zur Verfügung. link:reference-aws-backup-tiers.html["Weitere Informationen zu AWS Archivierungs-Tiers"^].
 * Sie müssen sich für den Speicherplatz, auf dem sich Ihre Backups befinden, bei einem Amazon S3-Konto anmelden.
+* StorageGRID sollte über einen vollständigen Kontrollzugriff auf den Bucket verfügen (`s3:*`Ist dies jedoch nicht möglich, muss die Bucket-Richtlinie StorageGRID die folgenden S3-Berechtigungen erteilen:
++
+** `s3:AbortMultipartUpload`
+** `s3:DeleteObject`
+** `s3:GetObject`
+** `s3:ListBucket`
+** `s3:ListBucketMultipartUploads`
+** `s3:ListMultipartUploadParts`
+** `s3:PutObject`
+** `s3:RestoreObject`
+
+
 
 
 --

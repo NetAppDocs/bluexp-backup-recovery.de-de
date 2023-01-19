@@ -314,13 +314,13 @@ homepage:
   - title: Blogs Community
     links:
     - title: NetApp Community
-      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+      url: https://community.netapp.com/t5/Public-Cloud-Services/ct-p/CDS
     - title: BlueXP-Blog
-      url: https://cloud.netapp.com/blog
-    - title: Anwendungsfälle für BlueXP
-      url: https://cloud.netapp.com/cloud-backup
+      url: https://bluexp.netapp.com/blog
+    - title: Anwendungsfälle für Cloud-Backup
+      url: https://bluexp.netapp.com/cloud-backup
     - title: Cloud-Webinare
-      url: https://cloud.netapp.com/events
+      url: https://bluexp.netapp.com/events
 product-family:
   name: BlueXP
   repo: cloud-manager-family
