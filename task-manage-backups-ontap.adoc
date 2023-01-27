@@ -240,13 +240,6 @@ In der Spalte Backup Status für dieses Volume wird „in progress“ angezeigt,
 
 Sie können eine Liste aller Backup-Dateien anzeigen, die für jedes Volume vorhanden sind. Auf dieser Seite werden Details zum Quell-Volume, zum Zielort und zu Backup-Details wie zum Beispiel zum letzten Backup, zur aktuellen Backup-Richtlinie, zur Größe der Sicherungsdatei und mehr angezeigt.
 
-Auf dieser Seite können Sie außerdem die folgenden Aufgaben ausführen:
-
-* Löschen Sie alle Sicherungsdateien für das Volume
-* Löschen einzelner Backup-Dateien für das Volume
-* Backup-Bericht für das Volume herunterladen
-
-
 .Schritte
 . Klicken Sie auf der Registerkarte *Volumes* auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für das Quellvolume *Details & Sicherungsliste* aus.
 +

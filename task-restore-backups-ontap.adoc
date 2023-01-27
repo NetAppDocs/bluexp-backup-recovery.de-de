@@ -59,7 +59,7 @@ Diese Tabelle enthält einen Vergleich der beiden Methoden.
 | Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her | Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her 
 
 
-| Behandelt keine Dateien, die umbenannt oder gelöscht wurden | Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien 
+| Führt keine Dateiwiederherstellung durch, wenn die Datei gelöscht oder umbenannt wurde, und der Benutzer den ursprünglichen Dateinamen nicht kennt | Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien 
 
 
 | Durchsuchen Sie nach Ergebnissen über Public und Private Clouds hinweg | Durchsuchen Sie Public Clouds und lokale Snapshot Kopien nach Ergebnissen 
