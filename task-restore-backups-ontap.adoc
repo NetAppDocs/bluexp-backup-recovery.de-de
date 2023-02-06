@@ -83,7 +83,7 @@ Siehe Anforderungen und Wiederherstellungsschritte für den Typ der Wiederherste
 
 == Wiederherstellen von ONTAP-Daten mithilfe von Durchsuchen und Wiederherstellen
 
-Bevor Sie mit der Wiederherstellung eines Volumes, Ordners oder einer Datei beginnen, sollten Sie den Namen des Volumes, aus dem Sie wiederherstellen möchten, den Namen der Arbeitsumgebung, in der sich das Volume befindet, sowie das ungefähre Datum der Sicherungsdatei, aus der Sie wiederherstellen möchten, kennen.
+Bevor Sie mit der Wiederherstellung eines Volumes, Ordners oder einer Datei beginnen, sollten Sie den Namen des Volumes, von dem aus Sie wiederherstellen möchten, den Namen der Arbeitsumgebung und SVM, auf dem sich das Volume befindet, sowie das ungefähre Datum der Sicherungsdatei, aus der Sie wiederherstellen möchten, kennen.
 
 *Hinweis:* Wenn die Sicherungsdatei, die die wiederherzustellenden Daten enthält, im Archiv-Speicher liegt (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und kostet. Darüber hinaus muss das Ziel-Cluster im Hinblick auf Volume-Wiederherstellung auch ONTAP 9.10.1 oder höher, 9.11.1 für die Dateiwiederherstellung und 9.12.1 für Google Archive und StorageGRID ausgeführt werden.
 
@@ -104,6 +104,9 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html["Erfahren Sie mehr über die Wiederherstellung aus Google Archiv-Storage"].
 
 endif::gcp[]
+
+
+NOTE: Die hohe Priorität wird nicht unterstützt, wenn Daten von Azure auf StorageGRID-Systeme wiederhergestellt werden.
 
 
 
@@ -166,7 +169,7 @@ Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt Cloud Back
 
 image:diagram_browse_restore_volume.png["Ein Diagramm, das den Fluss zeigt, um einen Datenträger-Wiederherstellungsvorgang mit Durchsuchen  Restore durchzuführen."]
 
-Wie Sie sehen, müssen Sie den Namen der Arbeitsumgebung, den Namen des Volumes und das Datum der Sicherungsdatei kennen, um eine Wiederherstellung des Volumes durchzuführen.
+Wie Sie sehen, müssen Sie den Namen der Arbeitsumgebung, die Storage-VM, den Volume-Namen und das Datum der Backup-Datei kennen, um eine Wiederherstellung eines Volumes durchzuführen.
 
 Das folgende Video zeigt einen kurzen Spaziergang zur Wiederherstellung eines Volumens:
 
@@ -218,7 +221,7 @@ endif::gcp[]
 
 * Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, der für den Zugriff auf den Objektspeicher erforderlich ist, und den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet.
 +
-.. Geben Sie den Namen ein, den Sie für das wiederhergestellte Volume verwenden möchten, und wählen Sie die Storage VM und das Aggregat aus, auf dem sich das Volume befinden soll. Standardmäßig wird *<source_Volume_Name>_restore* als Volume-Name verwendet.
+.. Geben Sie den Namen ein, den Sie für das wiederhergestellte Volume verwenden möchten, und wählen Sie die Storage VM und das Aggregat aus, auf dem sich das Volume befinden soll. Beim Wiederherstellen eines FlexGroup Volume können Sie mehrere Aggregate auswählen. Standardmäßig wird *<source_Volume_Name>_restore* als Volume-Name verwendet.
 +
 image:screenshot_restore_new_vol_name.png["Ein Screenshot, in den der Name des neuen Volumes eingegeben wird, das wiederhergestellt werden soll."]
 
@@ -422,7 +425,7 @@ Sie haben ein paar Optionen für den Speicherort beim Wiederherstellen von Ordne
 
 Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search & Restore lassen sich anhand aller im Cloud Storage gespeicherten Backups nach einem bestimmten Volume, Ordner oder Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung oder den Namen des Volumes kennen - die Suche durchsucht alle Volume-Backup-Dateien.
 
-Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume von der Seite Volume Details auf dem Bildschirm wiederherstellen (nicht aus Cloud Backup).
+Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume wiederherstellen https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Auf der Seite Volume Details auf dem Bildschirm"^] (Nicht aus Cloud Backup).
 
 Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt Cloud Backup ein _neues_ Volume, wobei die Daten aus dem Backup verwendet werden. Sie können die Daten als Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
 
@@ -452,6 +455,7 @@ endif::gcp[]
 ====
 * Die Wiederherstellung auf Ordnerebene wird derzeit nicht unterstützt, wenn die Sicherungsdatei mit DataLock & Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
 * Die Wiederherstellung auf Ordnerebene wird derzeit nicht unterstützt, wenn sich die Sicherungsdatei im Archiv-Speicher befindet. In diesem Fall können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den gewünschten Ordner und die Dateien zugreifen.
+* Die hohe Wiederherstellungspriorität wird nicht unterstützt, wenn Daten von Azure auf StorageGRID Systeme wiederhergestellt werden.
 
 
 ====
@@ -542,7 +546,7 @@ ifdef::azure[]
 
 * Azure-Anforderungen:
 +
-** Sie müssen den Azure Synapse Analytics Resource Provider mit Ihrem Abonnement registrieren. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
+** Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
 ** Spezifische Berechtigungen für Azure Synapse Workspace- und Data Lake-Speicherkonto müssen der Benutzerrolle hinzugefügt werden, die BlueXP mit Berechtigungen versorgt. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
 Wenn Sie Cloud Backup bereits mit einem zuvor konfigurierten Connector verwendet haben, müssen Sie jetzt der BlueXP-Benutzerrolle die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
@@ -684,7 +688,7 @@ Beachten Sie, dass die Ergebnisse auch lokale Volume-Snapshot-Kopien identifizie
 
 . Wählen Sie den Zielspeicherort aus, an dem die Volumes, Ordner oder Dateien wiederhergestellt werden sollen, und klicken Sie auf *Wiederherstellen*.
 +
-** Für Volumes können Sie die ursprüngliche Ziel-Arbeitsumgebung auswählen oder eine andere Arbeitsumgebung auswählen.
+** Für Volumes können Sie die ursprüngliche Ziel-Arbeitsumgebung auswählen oder eine andere Arbeitsumgebung auswählen. Beim Wiederherstellen eines FlexGroup Volume können Sie mehrere Aggregate auswählen.
 ** Für Ordner können Sie den ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich der Arbeitsumgebung, des Volumes und des Ordners.
 ** Bei Dateien können Sie sie am ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich Arbeitsumgebung, Volume und Ordner. Wenn Sie den ursprünglichen Speicherort auswählen, können Sie die Quelldatei(en) überschreiben oder neue(n) Dateien erstellen.
 +

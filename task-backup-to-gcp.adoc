@@ -51,7 +51,10 @@ image:screenshot_backup_provider_settings_gcp.png["In diesem Screenshot wird der
 Die Standardrichtlinie sichert Volumes täglich und speichert die letzten 30 Backup-Kopien jedes Volumes. Änderung zu stündlichen, täglichen, wöchentlichen, monatlichen oder jährlichen Backups Oder wählen Sie eine der systemdefinierten Richtlinien aus, die mehr Optionen bieten. Sie können auch die Anzahl der zu behaltenden Backup-Kopien ändern.
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_gcp_no_archive.png["Ein Screenshot, der die Cloud Backup-Einstellungen zeigt, in denen Sie das Feature aktivieren oder deaktivieren und dann Ihre Backup-Aufbewahrung auswählen können."]
+Backups werden standardmäßig im Standard-Storage gespeichert. Wenn Ihr Cluster ONTAP 9.12.1 oder höher verwendet, können Sie wählen, Backups nach einer bestimmten Anzahl von Tagen als Archiv-Storage zu verschieben, um weitere Kosten zu optimieren. link:concept-cloud-backup-policies.html["Weitere Informationen über die verfügbaren Konfigurationseinstellungen für Cloud Backup-Richtlinien"^].
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_gcp.png["Ein Screenshot, der die Cloud Backup-Einstellungen zeigt, in denen Sie das Feature aktivieren oder deaktivieren und dann Ihre Backup-Aufbewahrung auswählen können."]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Wählen Sie die Volumes aus, die Sie sichern möchten
 [role="quick-margin-para"]
@@ -200,8 +203,9 @@ Beachten Sie, dass das Projekt über ein Servicekonto verfügt, das über die vo
 +
 .. Geben Sie den Namen für die Standardrichtlinie ein. Sie müssen den Namen nicht ändern.
 .. Legen Sie den Backup-Zeitplan fest und wählen Sie die Anzahl der zu behaltenden Backups aus. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["Die Liste der vorhandenen Richtlinien, die Sie auswählen können, wird angezeigt"^].
+.. Bei Verwendung von ONTAP 9.12.1 oder neuer können Sie Backups nach einer bestimmten Anzahl von Tagen im Archiv-Storage Tiering zuweisen, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Weitere Informationen über die verfügbaren Konfigurationseinstellungen für Cloud Backup-Richtlinien"^].
 +
-image:screenshot_backup_policy_gcp_no_archive.png["Ein Screenshot, der die Cloud Backup-Einstellungen zeigt, in denen Sie das Feature aktivieren oder deaktivieren und dann Ihre Backup-Aufbewahrung auswählen können."]
+image:screenshot_backup_policy_gcp.png["Ein Screenshot, der die Cloud Backup-Einstellungen zeigt, in denen Sie das Feature aktivieren oder deaktivieren und dann Ihre Backup-Aufbewahrung auswählen können."]
 
 
 

@@ -29,7 +29,8 @@ Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und 
 * Fehlgeschlagen
 
 
-Beachten Sie, dass systeminitiierte Jobs, wie laufende Backup-Vorgänge, nicht in der Registerkarte *Job Monitoring* -- nur vom Benutzer initiierte Jobs angezeigt werden.
+
+NOTE: Systeminitiierte Jobs, wie laufende Sicherungsvorgänge, werden nicht in der Registerkarte *Job Monitoring* angezeigt - nur vom Benutzer initiierte Jobs werden angezeigt.
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
@@ -39,7 +40,7 @@ image:screenshot_backup_job_monitor.png["Ein Screenshot mit Backup- und Wiederhe
 
 
 
-In diesem Screenshot werden die standardmäßigen Spalten-/Feldüberschriften angezeigt. Klicken Sie auf image:button_plus_sign_round.png[""] Um Spaltenüberschriften ein- und auszublenden, oder um zwei zusätzliche Überschriften für „Benutzername“ und „Typ“ hinzuzufügen.
+In diesem Screenshot werden die standardmäßigen Spalten-/Feldüberschriften angezeigt. Klicken Sie auf image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"] Um Spaltenüberschriften ein- und auszublenden, oder um zwei zusätzliche Überschriften für „Benutzername“ und „Typ“ hinzuzufügen.
 
 Wenn Sie nach bestimmten Jobs suchen, können Sie:
 
@@ -56,13 +57,13 @@ Wenn Sie nach bestimmten Jobs suchen, können Sie:
 
 
 
-Diese Seite wird automatisch alle 15 Minuten aktualisiert, sodass Sie immer die aktuellsten Ergebnisse des Jobstatus sehen. Sie können auf klicken image:button_refresh.png["Schaltfläche zur Aktualisierung"] Um die Seite sofort zu aktualisieren.
+Diese Seite wird automatisch alle 15 Minuten aktualisiert, sodass Sie immer die aktuellsten Ergebnisse des Jobstatus sehen. Sie können auf klicken image:button_refresh.png["Aktualisierung"] Um die Seite sofort zu aktualisieren.
 
 
 
 === Laden Sie die Ergebnisse der Jobüberwachung als Bericht herunter
 
-Wenn Sie den Inhalt der Hauptseite zur Jobüberwachung nach dem Nacharbeiten als Bericht herunterladen möchten, klicken Sie auf das image:button_download.png["Schaltfläche „Download“"] Schaltfläche. Cloud Backup generiert eine CSV-Datei, die Sie nach Bedarf prüfen und an andere Gruppen senden können. Die .CSV-Datei umfasst bis zu 10,000 Datenzeilen.
+Wenn Sie den Inhalt der Hauptseite zur Jobüberwachung nach dem Nacharbeiten als Bericht herunterladen möchten, klicken Sie auf das image:button_download.png["Download"] Schaltfläche. Cloud Backup generiert eine CSV-Datei, die Sie nach Bedarf prüfen und an andere Gruppen senden können. Die .CSV-Datei umfasst bis zu 10,000 Datenzeilen.
 
 
 

@@ -18,6 +18,52 @@ Alles zum Thema Cloud Backup:
 
 
 
+== 6 Februar 2023
+
+
+
+=== Möglichkeit, ältere Backup-Dateien von StorageGRID Systemen in Azure Archiv-Storage zu verschieben
+
+Jetzt können Sie ältere Backup-Dateien von StorageGRID Systemen auf Archiv-Storage in Azure abstufen. So können Sie auf Ihren StorageGRID Systemen Speicherplatz freigeben und Kosten sparen, indem Sie eine kostengünstige Storage-Klasse für alte Backup-Dateien verwenden.
+
+Diese Funktion ist verfügbar, wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet und Ihr StorageGRID-System mindestens 11.4 nutzt. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["Hier erfahren Sie mehr"^].
+
+
+
+=== DataLock und Ransomware-Schutz können für Backup-Dateien in Azure Blob konfiguriert werden
+
+DataLock und Ransomware Protection wird nun auch für Backup-Dateien unterstützt, die in Azure Blob gespeichert sind. Wenn Ihr Cloud Volumes ONTAP oder On-Premises ONTAP System ONTAP 9.12.1 oder höher ausgeführt wird, können Sie jetzt Ihre Backup-Dateien sperren und scannen, um mögliche Ransomware zu erkennen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr darüber, wie Sie Ihre Backups mithilfe von DataLock und Ransomware-Schutz schützen können"^].
+
+
+
+=== Verbesserungen bei Backup und Restore von FlexGroup Volumes
+
+* Sie können nun mehrere Aggregate auswählen, wenn Sie ein FlexGroup Volume wiederherstellen. In der letzten Version konnten Sie nur ein einziges Aggregat auswählen.
+* Volume Restore von FlexGroup wird jetzt auf Systemen von Cloud Volumes ONTAP unterstützt. In der letzten Version war es nur möglich, Daten auf ONTAP-Systemen vor Ort wiederherzustellen.
+
+
+
+
+=== Mit Cloud Volumes ONTAP Systemen können ältere Backups auf einen Archiv-Storage von Google verschoben werden
+
+Sicherungsdateien werden zunächst in der Speicherklasse Google Standard erstellt. Durch Cloud Backup lassen sich ältere Backups nun auf Google-Archiv-Storage verschieben, um die Kosten weiter zu optimieren. In der letzten Version wurde diese Funktionalität nur mit On-Prem-ONTAP-Clustern unterstützt – jetzt werden Cloud Volumes ONTAP-Systeme in Google Cloud bereitgestellt.
+
+
+
+=== Bei den Vorgängen zur Volume-Wiederherstellung können Sie nun die SVM auswählen, auf der Sie Volume-Daten wiederherstellen möchten
+
+Stellen Sie jetzt Volume-Daten auf verschiedenen Storage VMs in Ihren ONTAP Clustern wieder her. In der Vergangenheit war es nicht möglich, die Storage-VM auszuwählen.
+
+
+
+=== Erweiterte Unterstützung für Volumes in MetroCluster Konfigurationen
+
+Wenn ONTAP 9.12.1 GA oder höher verwendet wird, wird das Backup jetzt unterstützt, wenn in einer MetroCluster-Konfiguration mit dem Primärsystem verbunden wird. Die gesamte Backup-Konfiguration wird auf das sekundäre System übertragen, sodass Backups in die Cloud nach dem Switchover automatisch fortgesetzt werden.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations["Weitere Informationen finden Sie unter Backup-Einschränkungen"].
+
+
+
 == 9 Januar 2023
 
 
@@ -292,7 +338,7 @@ Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderli
 
 Cloud Backup unterstützt jetzt Objekt-Lock-Support für Ransomware-sichere Backups. Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet und Ihr Backup-Ziel Amazon S3 ist, steht jetzt eine neue Backup-Policy-Option namens _DataLock und Ransomware Protection_ zur Verfügung. DataLock schützt Ihre Backup-Dateien vor Änderungen oder Löschung. Ransomware-Schutz scannt Ihre Backup-Dateien, um nach einem Ransomware-Angriff auf Ihre Backup-Dateien zu suchen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr darüber, wie Sie mit DataLock- und Ransomware-Schutz Ihre Backups schützen können"^].
 
-Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderlich sind, um diese Funktion nutzen zu können. Ein Connector, der mit der Software Version 3.9.21 bereitgestellt wird, enthält diese Berechtigungen. Wenn Sie den Connector mit einer früheren Version bereitgestellt haben, müssen Sie die Berechtigungen manuell hinzufügen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions["Lesen Sie, wie Sie diese Berechtigungen hinzufügen, falls erforderlich"^].
+Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderlich sind, um diese Funktion nutzen zu können. Ein Connector, der mit der Software Version 3.9.21 bereitgestellt wird, enthält diese Berechtigungen. Wenn Sie den Connector mit einer früheren Version bereitgestellt haben, müssen Sie die Berechtigungen manuell hinzufügen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions["Lesen Sie, wie Sie diese Berechtigungen bei Bedarf hinzufügen"^].
 
 
 

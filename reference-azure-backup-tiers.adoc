@@ -44,6 +44,11 @@ Wie viel kostet die Wiederherstellung von Daten aus dem Azure-Archiv?:: Beim Abr
 Jede Methode hat eine andere Abrufgebühr pro GB und eine andere Gebühr pro Anfrage. Detaillierte Informationen zu den Azure Archivpreisen nach Azure Region finden Sie im https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Azure-Preisseite"^].
 
 --
+
+
+
+NOTE: Die hohe Priorität wird nicht unterstützt, wenn Daten von Azure auf StorageGRID-Systeme wiederhergestellt werden.
+
 Wie lange wird es dauern, bis meine im Azure-Archiv archivierten Daten wiederhergestellt sind?:: Die Wiederherstellungszeit besteht aus zwei Teilen:
 +
 --

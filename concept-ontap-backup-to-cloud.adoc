@@ -27,7 +27,7 @@ Backup-Funktionen:
 * Erstellen Sie Backups unabhängiger Kopien Ihrer Datenvolumen auf kostengünstigem Objekt-Storage.
 * Anwendung einer einzelnen Backup-Richtlinie auf alle Volumes in einem Cluster oder Zuweisen verschiedener Backup-Richtlinien zu Volumes mit eindeutigen Recovery-Punkten
 * Erstellen Sie eine Backup-Richtlinie, die auf alle zukünftigen Volumes angewendet wird, die im Cluster erstellt wurden.
-* Stellen Sie unveränderliche Backup-Dateien so vor, dass diese für den Aufbewahrungszeitraum gesperrt sind.
+* Unveränderliche Backup-Dateien werden so gesperrt und über den Aufbewahrungszeitraum geschützt.
 * Scannen Sie Backup-Dateien auf einen möglichen Ransomware-Angriff und entfernen/ersetzen Sie infizierte Backups automatisch.
 * Tiering älterer Backup-Dateien auf Archiv-Storage, um Kosten zu sparen
 * Löschen Sie die Backup-Beziehung, damit Sie nicht benötigte Quell-Volumes archivieren können, während Sie Volume-Backups beibehalten.
@@ -44,7 +44,7 @@ Wiederherstellungsfunktionen:
 * Stellen Sie ein Volume, einen Ordner oder einzelne Dateien auf dem Quellsystem oder einem anderen System wieder her.
 * Wiederherstellung von Daten in einer Arbeitsumgebung mit einem anderen Abonnement/Konto oder in einer anderen Region.
 * Daten werden auf Blockebene wiederhergestellt und die Daten direkt an dem von Ihnen angegebenen Speicherort platziert, während die ursprünglichen ACLs beibehalten werden.
-* Durchsuchbare und durchsuchbare Dateikataloge zur Auswahl einzelner Ordner und Dateien für die Wiederherstellung einzelner Dateien.
+* Durchsuchbare und durchsuchbare Dateikataloge zur einfachen Auswahl einzelner Ordner und Dateien für die Wiederherstellung einzelner Dateien.
 
 
 
@@ -111,17 +111,8 @@ Cloud Backup unterstützt die folgenden Volume-Typen:
 * FlexGroup Volumes (erfordert ONTAP 9.12.1 oder höher)
 
 
-[NOTE]
-====
-*Einschränkungen bei der Wiederherstellung von FlexGroup-Volumes*:
+Siehe die Abschnitte unter <<Einschränkungen,Einschränkungen bei Backup und Restore>> Für zusätzliche Anforderungen und Einschränkungen.
 
-* Vollständige Volume-Wiederherstellung wird nur für On-Premises-ONTAP-Systeme unterstützt (aktuell werden Cloud Volumes ONTAP-Systeme nicht unterstützt).
-* Wiederherstellung auf Dateiebene wird sowohl für lokale ONTAP- als auch für Cloud Volumes ONTAP-Systeme unterstützt.
-* Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit nicht unterstützt.
-* Volumes können zu diesem Zeitpunkt in einem einzelnen Aggregat wiederhergestellt werden.
-
-
-====
 
 
 == Kosten
@@ -335,7 +326,7 @@ Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vo
 
 Die Backup-Aufbewahrungsdauer ist identisch mit der Aufbewahrungsfrist des Backup-Zeitplans plus 14 Tage. Beispielsweise werden bei _Weekly_ Backups mit gespeicherten _5_ Kopien jede Backup-Datei 5 Wochen lang gesperrt. _Monatliche_ Backups mit _6_ Kopien zurückbehaltenen Kopien werden jede Backup-Datei 6 Monate lang gesperrt.
 
-Wenn Ihr Backup-Ziel Amazon S3 oder NetApp StorageGRID ist, wird derzeit Unterstützung verfügbar. In zukünftigen Versionen werden weitere Ziele für Storage-Provider hinzugefügt.
+Unterstützung ist derzeit verfügbar, wenn Ihr Backup-Ziel Amazon S3, Azure Blob oder NetApp StorageGRID ist. In zukünftigen Versionen werden weitere Ziele für Storage-Provider hinzugefügt.
 
 Siehe link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["DataLock- und Ransomware-Schutz"^] Für weitere Informationen, wie DataLock und Ransomware-Schutz funktioniert.
 
@@ -372,7 +363,7 @@ ifdef::gcp[]
 
 * In GCP werden Backups der Klasse _Standard_ Storage zugeordnet.
 +
-Wenn Ihr On-Prem-Cluster ONTAP 9.12.1 oder höher verwendet, können Sie nach einer bestimmten Anzahl von Tagen ältere Backups als _Archive_ Storage in der Cloud Backup UI verschieben, um die Kosten weiter zu optimieren. (Diese Funktion ist derzeit für Cloud Volumes ONTAP Systeme nicht verfügbar.) link:reference-google-backup-tiers.html["Erfahren Sie mehr über Google Archivspeicher"^].
+Wenn Ihr Cluster ONTAP 9.12.1 oder höher verwendet, können Sie ältere Backups nach einer bestimmten Anzahl von Tagen in _Archive_ Storage in der Cloud Backup UI verschieben, um die Kosten weiter zu optimieren. link:reference-google-backup-tiers.html["Erfahren Sie mehr über Google Archivspeicher"^].
 
 
 
@@ -380,7 +371,7 @@ endif::gcp[]
 
 * In StorageGRID sind Backups der Klasse _Standard_ Storage zugeordnet.
 +
-Wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet und Ihr StorageGRID System mindestens 11.3 nutzt, können Sie ältere Backup-Dateien im Public-Cloud-Archiv-Storage archivieren. Archiv-Storage wird derzeit nur für AWS S3-Storage-Klassen unterstützt. Darüber hinaus können Sie Backups nach einer bestimmten Anzahl von Tagen in AWS _S3 Glacier_ oder _S3 Glacier Deep Archive_ Storage verlagern. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["Weitere Informationen zur Archivierung von Backup-Dateien aus StorageGRID"^].
+Wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet und Ihr StorageGRID System mindestens 11.4 nutzt, können Sie ältere Backup-Dateien nach einer bestimmten Anzahl von Tagen in den Public-Cloud-Archiv-Storage archivieren. Aktuell werden weitere Support für AWS S3 Glacier/S3 Glacier Deep Archive oder Azure Archive Storage Tiers unterstützt. link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["Weitere Informationen zur Archivierung von Backup-Dateien aus StorageGRID"^].
 
 
 
@@ -427,7 +418,15 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 ** Die auf das Volume angewandte Snapshot Richtlinie muss eine der vom Cloud Backup anerkannten Richtlinien sein, einschließlich täglich, wöchentlich, monatlich usw. die standardmäßige „SM_created“ Richtlinie (wird für *Spiegelung aller Snapshots* verwendet) Das DP-Volume wird nicht erkannt und in der Liste der Volumes, die gesichert werden können, nicht angezeigt.
 
 
-* Das MetroCluster (MCC) Backup wird nur von ONTAP sekundär unterstützt: MCC > SnapMirror > ONTAP > Cloud Backup > Objekt-Storage.
+
+
+* MetroCluster-Unterstützung:
++
+** Wenn ONTAP 9.12.1 GA oder höher verwendet wird, wird das Backup unterstützt, wenn es mit dem Primärsystem verbunden wird. Die gesamte Backup-Konfiguration wird auf das sekundäre System übertragen, sodass Backups in die Cloud nach dem Switchover automatisch fortgesetzt werden. Sie müssen keine Sicherungskopie auf dem sekundären System einrichten (tatsächlich sind Sie darauf beschränkt).
+** Bei Verwendung von ONTAP 9.12.0 und einer älteren Version wird das Backup nur vom sekundären ONTAP System unterstützt.
+** Backups von FlexGroup-Volumes werden derzeit nicht unterstützt.
+
+
 * Ad-hoc-Volume-Backup mit der *Backup Now*-Taste wird auf Datensicherungs-Volumes nicht unterstützt.
 * SM-BC-Konfigurationen werden nicht unterstützt.
 * ONTAP unterstützt keine Fan-out-of-SnapMirror-Beziehungen von einem einzelnen Volume zu mehreren Objektspeicher. Daher wird diese Konfiguration nicht von Cloud Backup unterstützt.
@@ -436,16 +435,16 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 
 
 
-=== Einschränkungen bei der Datei- und Ordnerwiederherstellung
+=== Restore-Einschränkungen
 
 Diese Einschränkungen gelten sowohl für die Such- und Wiederherstellungsmethoden als auch für die Such- und Wiederherstellungsmethoden für die Wiederherstellung von Dateien und Ordnern, sofern nicht ausdrücklich genannt.
 
 * Browse & Restore kann bis zu 100 einzelne Dateien gleichzeitig wiederherstellen.
 * Search & Restore kann 1 Datei gleichzeitig wiederherstellen.
 * Suchen und Wiederherstellen und Suchen und Wiederherstellen können 1 Ordner gleichzeitig wiederherstellen.
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit auf FlexGroup-Volumes nicht unterstützt.
 * Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.
-
-
 * Sie können einzelne Ordner nicht wiederherstellen, wenn sich die Sicherungsdatei im Archiv-Speicher befindet.
 * Die wiederherzustellende Datei muss die gleiche Sprache verwenden wie die Sprache auf dem Zielvolume. Wenn die Sprachen nicht identisch sind, wird eine Fehlermeldung angezeigt.
+* Die _hohe_ Wiederherstellungspriorität wird beim Wiederherstellen von Daten von Azure auf StorageGRID Systemen nicht unterstützt.
 
