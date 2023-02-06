@@ -21,7 +21,7 @@ settings:
     - name: Microsoft Azure
       alias: Azure
       id: azure
-  langs: de-de,us-en,ja-jp,zh-cn,zh-tw,ko-kr,fr-fr
+  langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,fr-fr
 sidebar:
   entries:
   - title: Cloud Backup Dokumentation
