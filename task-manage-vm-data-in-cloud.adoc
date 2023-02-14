@@ -38,6 +38,11 @@ Es werden die Datenspeicher und Virtual Machines angezeigt, die mit dem registri
 *Über diese Aufgabe*
 
 * Nur NFS-Datastores werden angezeigt.
+
+
+
+NOTE: VMFS-Datastores, die auf iSCSI/FC/NVMe und VVols basieren, werden nicht unterstützt.
+
 * Es werden nur Datastores angezeigt, für die mindestens eine erfolgreiche Sicherung im SnapCenter-Plug-in für VMware vSphere erfolgt ist.
 
 

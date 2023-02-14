@@ -3511,4 +3511,5 @@
   <block id="92a755b6d9fa88006d2c9e3907a504a5" category="list-text">Für Volumes können Sie die ursprüngliche Ziel-Arbeitsumgebung auswählen oder eine andere Arbeitsumgebung auswählen. Beim Wiederherstellen eines FlexGroup Volume können Sie mehrere Aggregate auswählen.</block>
   <block id="de0ace3ca6a340bec96b9fe94ee00c37" category="paragraph">Backups werden standardmäßig im Standard-Storage gespeichert. Wenn Ihr Cluster ONTAP 9.12.1 oder höher verwendet, können Sie wählen, Backups nach einer bestimmten Anzahl von Tagen als Archiv-Storage zu verschieben, um weitere Kosten zu optimieren. <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>.</block>
   <block id="0a0a678be4028579aac1f022ed126971" category="paragraph"><block ref="0a0a678be4028579aac1f022ed126971" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3ff977a010b4bffe09adf01a3ba75903" category="admonition">VMFS-Datastores, die auf iSCSI/FC/NVMe und VVols basieren, werden nicht unterstützt.</block>
 </blocks>
