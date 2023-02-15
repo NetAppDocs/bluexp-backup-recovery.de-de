@@ -35,17 +35,6 @@ Die zugehörigen Richtlinien für Cloud Backup für Virtual Machines und alle Vi
 
 Es werden die Datenspeicher und Virtual Machines angezeigt, die mit dem registrierten SnapCenter Plug-in für VMware vSphere gesichert sind.
 
-*Über diese Aufgabe*
-
-* Nur NFS-Datastores werden angezeigt.
-
-
-
-NOTE: VMFS-Datastores, die auf iSCSI/FC/NVMe und VVols basieren, werden nicht unterstützt.
-
-* Es werden nur Datastores angezeigt, für die mindestens eine erfolgreiche Sicherung im SnapCenter-Plug-in für VMware vSphere erfolgt ist.
-
-
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *Einstellungen* > *SnapCenter Plug-in für VMware vSphere*.
 . Klicken Sie auf das SnapCenter-Plug-in für VMware vSphere, dessen Datenspeicher und Virtual Machines angezeigt werden sollen.
