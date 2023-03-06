@@ -18,26 +18,23 @@ Im Falle eines Datenverlustes können Sie die Daten und nicht-Datendateien wiede
 
 
 
-== Vorschriften und Postskripte
+== Wiederherstellung der nativen Cloud SAP HANA Datenbank
 
-Sie können Prescripts, Postskripte bereitstellen und Skripte beenden, während Sie eine Richtlinie erstellen. Diese Skripte werden auf dem HANA-Host ausgeführt und führen einen Restore-Vorgang durch.
+*Was Sie brauchen*
 
-Das unterstützte Format für Skripte sind .sh, Python script, Perl script usw.
-
-Das Prescript und das Postscript sollten vom Hostadministrator registriert werden `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
-
-`[root@scspa2622265001 etc]# cat allowed_commands.config
-command: mount
-command: umount
-command: /mnt/scripts/pre_script.sh
-command: /mnt/scripts/post_script.sh`
+. Das SAP HANA-System muss sich im Zustand „gestoppt“ befinden.
+. Sie können ein Preskript zur Anhalten des SAP HANA-Systems zur Verfügung stellen.
 
 
+*Schritte*
 
-== Umgebungsvariablen
-
+. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
+. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datensicherung, die Sie für die Wiederherstellung verwenden möchten, und klicken Sie auf *Restore*.
+. Geben Sie auf der Seite *System wiederherstellen* die Skripte ein. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["Weitere Informationen ."]
++
 Für den Wiederherstellungsworkflow stehen die folgenden Umgebungsvariablen als Teil von Prescript und Postscript zur Verfügung.
 
++
 |===
 | Umgebungsvariable | Beschreibung 
 
@@ -69,21 +66,6 @@ OSDBUser
 OSDBUser für die HANA-Datenbank konfiguriert
 
 |===
-
-
-== Wiederherstellung der nativen Cloud SAP HANA Datenbank
-
-*Was Sie brauchen*
-
-. Das SAP HANA-System muss sich im Zustand „gestoppt“ befinden.
-. Sie können ein Preskript zur Anhalten des SAP HANA-Systems zur Verfügung stellen.
-
-
-*Schritte*
-
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datensicherung, die Sie für die Wiederherstellung verwenden möchten, und klicken Sie auf *Restore*.
-. Geben Sie auf der Seite *System wiederherstellen* die Skripte ein.
 . Klicken Sie Auf *Wiederherstellen*.
 
 

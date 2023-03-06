@@ -110,7 +110,7 @@ Nachdem Sie die Seite Jobüberwachung gefiltert haben, um die gewünschten Jobs 
 
 * SAP HANA Datenbanken
 +
-** Unterstützung für richtlinienbasiertes Backup und Restore von SAP HANA Datenbanken in Azure NetApp Files (ANF)
+** Unterstützt richtlinienbasiertes Backup und Restore von SAP HANA Datenbanken auf Azure NetApp Files
 ** Unterstützt benutzerdefinierte Richtlinien
 
 

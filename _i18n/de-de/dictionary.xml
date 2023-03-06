@@ -815,7 +815,6 @@
   <block id="c9df4195a305212ffd7b56d24f67129d" category="summary">NetApp bietet Unterstützung für BlueXP auf verschiedene Weise. Umfassende kostenlose Self-Support-Optionen stehen rund um die Uhr zur Verfügung, wie etwa Knowledge Base-Artikel (KB) und ein Community-Forum. Ihre Support-Registrierung umfasst technischen Remote-Support über Web-Ticketing.</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">Holen Sie sich Hilfe</block>
   <block id="7c5661ab6b39ee901cea00a6e7020a49" category="paragraph">NetApp bietet Unterstützung für BlueXP und seine Cloud-Services auf unterschiedliche Weise. Umfassende kostenlose Self-Support-Optionen stehen rund um die Uhr zur Verfügung, wie etwa Knowledge Base-Artikel (KB) und ein Community-Forum. Ihre Support-Registrierung umfasst technischen Remote-Support über Web-Ticketing.</block>
-  <block id="07d41912a6ab6b97216f8cf89e93205c" category="section-title">Self-Support</block>
   <block id="5e4b821a1a82558dead1ef6961e90666" category="paragraph">Diese Optionen sind kostenlos verfügbar, 24 Stunden am Tag, 7 Tage die Woche:</block>
   <block id="19111351b69b6b15668130b38b7f6038" category="inline-link">Wissensdatenbank</block>
   <block id="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="list-text"><block ref="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="inline-link-rx"></block></block>
@@ -827,14 +826,11 @@
   <block id="a4a6c2ea0078252eac2d74ef3e6c917c" category="paragraph">Die BlueXP-Dokumentation, die Sie gerade anzeigen.</block>
   <block id="80b1b0d2b1ebf2b3cba2d25759801afd" category="list-text">Mailto:ng-cloudmanager-feedback@netapp.com[Feedback email]</block>
   <block id="6702efec14563f45f1ee2f8c613b8ad8" category="paragraph">Wir wissen Ihre Vorschläge zu schätzen. Senden Sie uns Ihr Feedback, um BlueXP zu verbessern.</block>
-  <block id="0659d428df833a806e29e65e632d380a" category="section-title">NetApp Support</block>
   <block id="82812db645b6ff5e9c2a24ddfb66c8d6" category="paragraph">Zusätzlich zu den oben genannten Self-Support-Optionen können Sie gemeinsam mit einem NetApp Support-Experten eventuelle Probleme nach der Aktivierung des Supports beheben.</block>
   <block id="e2a733504c4088b809813bbb35a3ddfd" category="inline-link-macro">Erfahren Sie, wie Sie sich für Support registrieren</block>
   <block id="1012a287397c66025d7748edf06a36e2" category="paragraph">Um die * Case erstellen*-Fähigkeit zu verwenden, müssen Sie zuerst eine einmalige Registrierung Ihrer BlueXP Account ID-Seriennummer (dh 960xxxx) mit NetApp <block ref="3349e4b3d05f646f2f1421bee7c2ad26" category="inline-link-macro-rx"></block>.</block>
   <block id="6254a4afeeb76765a127fe74d31c1b3d" category="list-text">Klicken Sie in BlueXP auf *Hilfe &gt; Support*.</block>
-  <block id="f5052c65917d7341726235d4d4941461" category="list-text">Wählen Sie eine der verfügbaren Optionen unter Technical Support:</block>
   <block id="383133cb6f7207b1c65c3ace94aa5e95" category="list-text">Klicken Sie auf *Rufen Sie uns an*, wenn Sie mit jemandem am Telefon sprechen möchten. Sie werden zu einer Seite auf netapp.com weitergeleitet, auf der die Telefonnummern aufgeführt sind, die Sie anrufen können.</block>
-  <block id="bf5bc6ab0f95f17f4e98c9d766b8c11d" category="list-text">Klicken Sie auf *Case erstellen*, um ein Ticket mit einem NetApp Support-Experten zu öffnen:</block>
   <block id="b53e0a259f4a0c8e7da80d6c94e26c84" category="list-text">*NetApp Support Site Account*: Wählen Sie das entsprechende NSS-Konto für die Person aus, die den Support-Case eröffnet. Diese Person ist der primäre Ansprechpartner bei NetApp, der Sie sich zusätzlich zu den unten aufgeführten zusätzlichen E-Mails mit anderen Kunden in Verbindung setzen kann.</block>
   <block id="d950fb930d7f7e6bfdda1b91b4639a02" category="paragraph">Wenn Ihr NSS-Konto nicht angezeigt wird, können Sie im Support-Bereich von BlueXP zur Registerkarte *NSS Management* navigieren, um es dort hinzuzufügen.</block>
   <block id="d63bf50426f4c712554faec55b30c548" category="list-text">*Service*: Wählen Sie den Dienst aus, mit dem das Problem verknüpft ist. Beispiel: BlueXP, wenn es sich um ein Problem des technischen Supports mit Workflows oder Funktionen im Service handelt.</block>
@@ -1245,7 +1241,6 @@
   <block id="3dbc2a858555e80cf398377571556499" category="list-text">ssh_Port: SSH-Port auf dem Oracle-Host und dies ist ein optionaler Parameter. Der Standardwert ist 22</block>
   <block id="e5a8e97642efe29ef958c3cafde091c8" category="list-text">Plugin_Port: Port verwendet vom Plug-in und dies ist ein optionaler Parameter. Der Standardwert ist 8145</block>
   <block id="5e0c9d9b775ad3565e6649bfa8ec9800" category="list-text">Install_dir: Verzeichnis, in dem das Plug-in bereitgestellt wird und dies ein optionaler Parameter ist. Standardwert ist /opt.</block>
-  <block id="1744dd19db9c80afac565572fb28289c" category="paragraph">Wenn die SSH-Schlüsselauthentifizierung auf dem Oracle-Host nicht aktiviert ist, sollten Sie die folgenden manuellen Schritte durchführen, um das Plug-in bereitzustellen.</block>
   <block id="e67d4d64b1a45fd340729c74de84b847" category="list-text">Melden Sie sich bei der Connector-VM an.</block>
   <block id="274f1ac526644b363a1660f91b59759a" category="list-text">Laden Sie die SnapCenter Linux Host Plug-in-Binärdatei herunter.<block ref="2109844ce6213da69b1227dc07554bb8" prefix=" " category="inline-code"></block></block>
   <block id="5f46deee08d4b3d1d62d6ffaf5f1db1c" category="list-text">Den Binärpfad des heruntergeladenen Plug-ins abrufen.<block ref="f051661bb5d887ff1ad2db41b197db9d" prefix=" " category="inline-code"></block></block>
@@ -2793,15 +2788,10 @@
   <block id="aead5ccad47d982e42806d38753de835" category="paragraph">Die Details zum SnapCenter Plug-in für VMware vSphere können Sie unter BlueXP bearbeiten.</block>
   <block id="98c5d692e015a6f029128bd692f9ac3d" category="paragraph">Durch Integration von Cloud Backup für Applikationen in Cloud Manager und On-Premises-SnapCenter können Sie Backups der Applikationsdaten von ONTAP auf der Google Cloud-Plattform erstellen.</block>
   <block id="367df4ef9103973813086656b7424c40" category="summary">Das SnapCenter-Plug-in für SAP HNAN kann auf jedem der SAP HANA Datenbank-Hosts implementiert werden.</block>
-  <block id="d5df46302dfdd7579521694fb4b06495" category="doc">Implementieren des SnapCenter-Plug-ins für SAP HANA</block>
   <block id="0aa4c98c108fd4eb123ca5d3e22561e8" category="paragraph">Das SnapCenter Plug-in für SAP HANA sollte auf jedem der SAP HANA Datenbank-Hosts implementiert werden. Je nachdem, ob auf dem SAP HANA-Host eine SSH-Schlüsselauthentifizierung aktiviert ist, können Sie eine der Methoden zur Bereitstellung des Plug-ins befolgen.</block>
   <block id="dd115af180e43b9284746f0724f2e436" category="admonition">Vergewissern Sie sich, dass auf jedem der SAP HANA-Datenbank-Hosts Java 11 (64-Bit) oder OpenJDK installiert ist.</block>
-  <block id="16ca5309d737224096c304c6dff4de3a" category="section-title">Konfigurieren Sie einen nicht-Root-Benutzer</block>
-  <block id="fd80eea6ceaa6f2785bf097c10501f77" category="paragraph">Sie sollten einen nicht-Root-Benutzer erstellen, um das Plug-in bereitzustellen.</block>
   <block id="3ebdbfe737c7aead22c3f4a0051261a7" category="list-text">Melden Sie sich beim SAP HANA Datenbank-Host an, und führen Sie die folgenden Schritte aus:</block>
-  <block id="089e0745e03208bd82005bf60f52e3c2" category="list-text">Erstellen Sie das nicht-Root-Benutzerkonto, das private Schlüsselpaar und weisen Sie die Berechtigungen zu.</block>
   <block id="bdacf8a8beaec8b190c600a860c2b532" category="list-text">Fügen Sie die Zeilen ein, die Sie in Schritt 4 in die kopiert haben<block ref="6c109d6e94c97fb519007c1f06880582" prefix=" " category="inline-code"></block> Datei mit dem Dienstprogramm visudo Linux.</block>
-  <block id="e3092b913d71bf2b71c0b3838c675913" category="paragraph">Ersetzen Sie in den obigen Zeilen den &lt;LINUXUSER&gt; durch den nicht-Root-Benutzer, den Sie im Visuod-Dienstprogramm erstellt und gespeichert haben.</block>
   <block id="6fb496880c72d81f141594926d685434" category="section-title">Stellen Sie das Plug-in manuell bereit</block>
   <block id="81669171fb08f882a32669c2772c3fd8" category="paragraph">Wenn die SSH-Schlüsselauthentifizierung auf dem HANA-Host nicht aktiviert ist, sollten Sie zur Bereitstellung des Plug-ins die folgenden manuellen Schritte durchführen.</block>
   <block id="ec3a94350310fa8818e0df3a82aa2b54" category="list-text">Führen Sie auf dem SAP HANA-Datenbank-Host den folgenden Befehl aus, um Berechtigungen für die Binärdatei auszuführen.<block ref="4cd88a831fa940d7f40686837061308c" prefix=" " category="inline-code"></block></block>
@@ -2821,7 +2811,6 @@
   <block id="bccdf5c7461a91341c81491a049f7917" category="list-text">Wählen Sie *Google Cloud Platform* aus, um es als Cloud-Provider zu konfigurieren.</block>
   <block id="e29eef6ae64d545134f2b42984845a94" category="section-title">Bis 19. Dezember 2022</block>
   <block id="0a286ad90f3a25f45e443367036a8789" category="list-text">SAP HANA Datenbanken</block>
-  <block id="feb69ad1d8975111fe86bbc94b823a7f" category="list-text">Unterstützung für richtlinienbasiertes Backup und Restore von SAP HANA Datenbanken in Azure NetApp Files (ANF)</block>
   <block id="d5a365014bbbc5172b423043fb2a2501" category="list-text">Unterstützt benutzerdefinierte Richtlinien</block>
   <block id="5ffbe0deb5b41148dc58e63a20df8411" category="list-text">Oracle Datenbanken</block>
   <block id="aa6dc7e308fa4a4875c447c8e7fa4a19" category="list-text">Hosts hinzufügen und Plug-in automatisch implementieren</block>
@@ -3018,7 +3007,6 @@
   <block id="54f922a09b59b7f2fce83cc984324d03" category="paragraph">Sie sollten SAP HANA-Datenbank-Hosts manuell hinzufügen, um Richtlinien zuzuweisen und Backups zu erstellen. Die automatische Erkennung des SAP HANA-Datenbank-Hosts wird nicht unterstützt.</block>
   <block id="2d401a77c81793a9ece97156d2f30373" category="list-text">Sie sollten die Arbeitsumgebung hinzugefügt und den Connector erstellt haben.</block>
   <block id="fdb89fa76e003bcdaa62dc781c75080d" category="list-text">Stellen Sie sicher, dass der Connector mit der Arbeitsumgebung verbunden ist</block>
-  <block id="0c6caad59b974bed7b5a027d2727752f" category="list-text">Sie sollten das SnapCenter Plug-in für SAP HANA implementiert haben. <block ref="4495130e78dd5770e2665c50d9b867ed" category="inline-link-macro-rx"></block></block>
   <block id="19ba3d8b0889a939f5ec8733d64f1d60" category="list-text">Beim Hinzufügen der SAP HANA-Datenbank-Hosts sollten Sie die HDB-Benutzerspeicherschlüssel hinzufügen. Der HDB Secure User Store-Schlüssel wird verwendet, um die Verbindungsinformationen der SAP HANA Datenbank-Hosts sicher auf dem Client zu speichern und HDBSQL-Client verwendet den sicheren User Store-Schlüssel für die Verbindung zum SAP HANA-Datenbank-Host.</block>
   <block id="eb8c7136dc3f88489deecb383a3e2159" category="list-text">Für HANA System Replication (HSR) sollten Sie zum Schutz der HANA-Systeme sowohl primäre als auch sekundäre HANA-Systeme manuell registrieren.</block>
   <block id="8b0c466fdb979630c3d45c5c1cdb2441" category="list-text">Klicken Sie in der Benutzeroberfläche *BlueXP* auf *Schutz* &gt; *Sicherung und Wiederherstellung* &gt; *Anwendungen*.</block>
@@ -3046,16 +3034,13 @@
   <block id="718c7b6c3378e6331dfacc19082eceda" category="section-title">Hinzufügen Von Nicht-Daten-Volumes</block>
   <block id="c1d37ffb98838b18cccda19785198d15" category="paragraph">Nach dem Hinzufügen eines mandantenfähigen Datenbank-Containers oder eines einzelnen SAP HANA-Systems lassen sich die nicht-Daten-Volumes des HANA-Systems hinzufügen.</block>
   <block id="70ece8b209ed1c9476f13c0fa00e2a77" category="list-text">Klicken Sie auf der Seite *Anwendungen* auf <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> Entsprechend dem System, für das Sie die nicht-Daten-Volumes hinzufügen möchten, und wählen Sie *System verwalten* &gt; *nicht-Daten-Volume*.</block>
-  <block id="1c5bc62ec06d77a94bd950001c20bf5c" category="section-title">Hinzufügen Von Globalen, Nicht Datenbasierten Volumes</block>
   <block id="e84d0cbc8756fa7ba2af158f670486a8" category="paragraph">Nach dem Hinzufügen eines mandantenfähigen Datenbank-Containers oder eines einzelnen SAP HANA-Systems lassen sich die globalen nicht-Data-Volumes des HANA-Systems hinzufügen.</block>
   <block id="01f13da2dfcf737f54346ebf7f44db6f" category="list-text">Wählen Sie aus der Dropdown-Liste Systemtyp *globales Volume ohne Daten* aus.</block>
   <block id="5d9b8dbd580deb48e76c53d62ab7c6f3" category="list-text">Geben Sie die zugehörigen SIDs des SAP HANA-Systems an.</block>
   <block id="9c40bb6f28c1548e2bec94c55bf9bf96" category="list-text">Wählen Sie den Plug-in-Host aus</block>
   <block id="b5e87b76d37fdb904487f6bc0c10bef7" category="paragraph">(Optional) um mehrere Hosts hinzuzufügen, klicken Sie auf *Add Plug-in Host* und geben Sie den Hostnamen und Port an und klicken Sie auf *Add Host*.</block>
   <block id="7322146fa0278b7076d42a67da3ca68f" category="section-title">Vorschriften und Postskripte</block>
-  <block id="b3716aa17e229f5a48546a80e870a997" category="paragraph">Sie können Prescripts, Postskripte bereitstellen und Skripte beenden, während Sie eine Richtlinie erstellen. Diese Skripte werden auf dem HANA-Host während der Erstellung von Backups ausgeführt.</block>
   <block id="6185a8cfc72f93e3f8af600e5e7f9606" category="paragraph">Das unterstützte Format für Skripte sind .sh, Python script, Perl script usw.</block>
-  <block id="d36dcc27103f15cf7156e649498bba14" category="paragraph">Das Prescript und das Postscript sollten vom Hostadministrator registriert werden<block ref="198c786822c306ff1d8e3ae0098bbf6c" prefix=" " category="inline-code"></block></block>
   <block id="3c91acc7806c6fcfd2da29720998df5d" category="paragraph"><block ref="8a0444f402186e75dfce312a113251e3" prefix="" category="inline-code"></block></block>
   <block id="50283e8d57278ed79d15d9dbb7c56561" category="section-title">Umgebungsvariablen</block>
   <block id="3e2882dbce286b81b8650600aa1d8086" category="paragraph">Für den Wiederherstellungsworkflow stehen die folgenden Umgebungsvariablen als Teil von Prescript und Postscript zur Verfügung.</block>
@@ -3076,7 +3061,6 @@
   <block id="30ca1c0b30eeb1e981b018064c3097f6" category="list-text">Wählen Sie auf der Seite *Anwendungen* aus der Dropdown-Liste Einstellungen die Option *Richtlinien* aus.</block>
   <block id="78ba2f5b165a9466c243c7ee05da78ac" category="list-text">(Optional) Bearbeiten Sie das Format des Namens der Snapshot Kopie.</block>
   <block id="808bacecc5ae86450915402dea0afd9a" category="list-text">Wählen Sie den Richtlinientyp aus.</block>
-  <block id="d47a69e45ac10064eed780e92117e540" category="list-text">(Optional) Geben Sie die Skripte an.</block>
   <block id="01ca810bd15c48e8c9ab7589db8498ca" category="section-title">Backup der SAP HANA Datenbank erstellen</block>
   <block id="9fbab2932a5b265f7d6778bc72aaa745" category="paragraph">Bei HANA System Replication (HSR) wird der geplante Backup-Job nur für das primäre HANA-System ausgelöst und wenn das System auf das sekundäre HANA-System überfällt, werden die bestehenden Zeitpläne ein Backup auf dem aktuellen primären HANA-System auslösen. Wird die Richtlinie nicht sowohl dem HANA-System zugewiesen, so schlägt nach dem Failover die Planung fehl.</block>
   <block id="e0a1b2dffc713527405b0a710a4c3c77" category="paragraph">Wenn den HSR-Systemen unterschiedliche Richtlinien zugewiesen werden, wird das geplante Backup sowohl für die Systeme ausgelöst, als auch das Backup schlägt für das sekundäre HANA-System fehl.</block>
@@ -3089,38 +3073,17 @@
   <block id="34cdaf3eb96811f5c751a65473724ab9" category="list-text">(Optional) Geben Sie die Skripte und den Pfad für die Skripte an.</block>
   <block id="3c384d2eeea22869be9b66e36dec9d6e" category="list-text">Klicken Sie Auf *Backup Erstellen*.</block>
   <block id="33519237272d7d2506e4b23467569d7f" category="summary">Implementieren Sie das SnapCenter Plug-in für Oracle auf jedem der Oracle Datenbank-Hosts.</block>
-  <block id="5513c7a4fb1a461c9910fea9e8c7a3df" category="doc">Fügen Sie Host hinzu und erkennen Sie Oracle Datenbanken</block>
-  <block id="0046bf9daf0e3a3d63572328eb09710c" category="paragraph">Sie sollten den Host hinzufügen und die Datenbanken auf dem Host erkennen, um Richtlinien zuzuweisen und Backups zu erstellen. Sie können den Host entweder manuell hinzufügen, wenn Sie das Plug-in bereits bereitgestellt haben, oder den Host über SSH hinzufügen.</block>
   <block id="031ed57adfb7acf180fc66b9bac25dcf" category="paragraph">Bevor Sie den Host hinzufügen, sollten Sie sicherstellen, dass die Voraussetzungen erfüllt sind.</block>
   <block id="00346be4bfc4c310cf2dbead933dff7c" category="list-text">Sie sollten die Arbeitsumgebung und den Connector erstellt haben.</block>
   <block id="150cd80aa8da7e8a0e1532db17acbab2" category="list-text">Stellen Sie sicher, dass der Connector mit der Arbeitsumgebung und den Oracle-Datenbank-Hosts verbunden ist.</block>
   <block id="b3a8552d8ed438ec3ca2f066908ea2d4" category="list-text">Stellen Sie sicher, dass entweder Java 11 (64-Bit) Oracle Java oder OpenJDK auf jedem der Oracle-Datenbank-Hosts installiert ist und die JAVA_HOME-Variable entsprechend eingestellt ist.</block>
-  <block id="5206371c2969f80deb7370081781fc8b" category="list-text">Sie sollten den nicht-Root-Benutzer erstellt haben. Weitere Informationen finden Sie unter <block ref="218c9ff3f0827d13a63195c67e07e241" category="inline-xref-macro-rx"></block>.</block>
-  <block id="419e9f180bcb9992797f0d63e5108d02" category="inline-xref">Manuell</block>
-  <block id="6082f779360f7aa7eae37c198973c6a2" category="inline-xref">Verwenden des Skripts</block>
-  <block id="a0b4d571b248f50b94b7633e3babe462" category="list-text">Wenn Sie den Host manuell hinzufügen möchten, sollten Sie zuerst das Plug-in implementieren. Sie können das Plug-in entweder implementieren <block ref="71f9c0626648fc2ad6935845122647e8" category="inline-xref-macro-rx"></block> Oder <block ref="d5731cdfa534d1a5d7ccf2070fa3f2fc" category="inline-xref-macro-rx"></block>.</block>
-  <block id="9528b4fc4cc8c4ea29cdf1b307031b98" category="paragraph">Sie sollten das Plug-in auf jedem der Oracle Datenbank-Hosts bereitstellen.</block>
-  <block id="882fd9db70a37f6582163f4e6d1c4fde" category="paragraph">Sie sollten einen nicht-Root-Benutzer für die Bereitstellung des Plug-ins konfigurieren.</block>
   <block id="c3af1031c174f35d8fbd1d63764549d3" category="list-text">Kopieren Sie die Zeilen 1 bis 16 aus der Datei *oracle_checksum_scs.txt* unter *_base_Mount_PATH_/_Version_/sc-linux-Host-Plugin/*.</block>
   <block id="941c84084e1d6a473d4b06951513646e" category="list-text">Melden Sie sich beim Oracle-Datenbank-Host an, und führen Sie die folgenden Schritte aus:</block>
   <block id="20ba94819b2688b9ce1be17cd8c67f00" category="inline-link">Erstellen Sie ein Benutzerkonto</block>
-  <block id="dc77642a9db95bfa3d7cfad2feac68d7" category="list-text">Erstellen Sie das nicht-Root-Benutzerkonto, das private Schlüsselpaar und weisen Sie die Berechtigungen zu. Weitere Informationen finden Sie unter<block ref="fda0d36f41d4c9e30e06c472b1bf9e0c" category="inline-link-rx"></block>.</block>
   <block id="e0a6bb364ca10aed658b56d5c7220ce6" category="list-text">Fügen Sie die Zeilen, die Sie in Schritt 4 mit dem Dienstprogramm visudo Linux in die Datei _/etc/sudoers_ kopiert haben, ein.</block>
-  <block id="e0ec6c3418190a65b388f2ec3b545b73" category="paragraph">Ersetzen Sie in den obigen Zeilen den &lt;LINUXUSER&gt; durch den nicht-Root-Benutzer, den Sie erstellt haben, und speichern Sie die Datei im visudo-Dienstprogramm.</block>
-  <block id="ad15ac1aed6665420aee6da3d2599843" category="paragraph">Das _snapcenter_linux_Host_Plugin_scs.bin_ sollte an einen Speicherort kopiert werden, auf den der nicht-Root-Benutzer zugreifen kann.</block>
-  <block id="1140247d0922f07c1db2936f25736b76" category="list-text">Melden Sie sich mit dem nicht-Root-Benutzerkonto beim Oracle-Datenbank-Host an, und führen Sie den folgenden Befehl aus, um Berechtigungen für die Binärdatei auszuführen.<block ref="4cd88a831fa940d7f40686837061308c" prefix=" " category="inline-code"></block></block>
-  <block id="448fb639b2dbccf2171b5c8f9a70a09a" category="list-text">Stellen Sie das Oracle Plug-in als sudo-Benutzer ohne Root-Benutzer bereit.<block ref="a9b0283be469b80a16d7090f132ac831" prefix=" " category="inline-code"></block></block>
-  <block id="d00dc5124d9367c0c08e4ba45796fdd4" category="section-title">Stellen Sie das Plug-in mithilfe von Skripten bereit</block>
-  <block id="7f4f03eee9cd1fb77b091d1f31a63e75" category="paragraph">Wenn die SSH-Schlüsselauthentifizierung auf dem Oracle-Host für den nicht-Root-Benutzer aktiviert ist, können Sie die folgenden Schritte durchführen, um das Plug-in bereitzustellen. Bevor Sie die Schritte durchführen, stellen Sie sicher, dass die SSH-Verbindung zum Connector aktiviert ist.</block>
   <block id="5db771567067dd09af5564e02cf7ed87" category="list-text">Stellen Sie das Plug-in mithilfe des im Konnektor enthaltenen Hilfsskripts bereit.<block ref="1d1dd7c5683a80bd4fd769dadbf81b09" prefix=" " category="inline-code"></block></block>
-  <block id="0fe1e69c4c87559df8ff5fba40419445" category="list-text">ssh_Key_file ist der SSH-Schlüssel des nicht-root-Benutzers und wird für die Verbindung zum Oracle-Host verwendet. Dies ist ein obligatorischer Parameter.</block>
-  <block id="d9997864ce67719ea93cc0b0cff9c006" category="list-text">User_Name: Nicht-Root-Benutzer mit SSH-Berechtigungen auf dem Oracle-Host und dies ist ein optionaler Parameter. Der Standardwert ist ec2-user.</block>
   <block id="6ae7d9f8527d1ed6cd28c1fe9cc17109" category="paragraph">Beispiel:<block ref="f2458f3042d087542cd1b232a3f7c978" prefix=" " category="inline-code"></block></block>
-  <block id="af7f8976f175216d1e12ff5be8b68be4" category="section-title">Fügen Sie Host hinzu</block>
-  <block id="c45737224c5ab40ea9affadd8962c6e7" category="paragraph">Fügen Sie den Host hinzu und ermitteln Sie die Oracle Datenbanken.</block>
   <block id="e4bed981c8dc4fe15a706f0b93160836" category="list-text">Klicken Sie in der BlueXP-Benutzeroberfläche auf *Schutz* &gt; *Sicherung und Wiederherstellung* &gt; *Anwendungen*.</block>
-  <block id="254d235472af71154481e0a6f56b2535" category="list-text">Führen Sie auf der Seite Host hinzufügen einen der folgenden Schritte aus:</block>
-  <block id="2958f19f58f0ca8d9d63b20360a0d39d" category="paragraph">Beide Plug-ins implementiert haben <block ref="71f9c0626648fc2ad6935845122647e8" category="inline-xref-macro-rx"></block> Oder <block ref="d5731cdfa534d1a5d7ccf2070fa3f2fc" category="inline-xref-macro-rx"></block></block>
   <block id="f56876c150285cea7b724cbb95594046" category="list-text">Wählen Sie *Manuell*.</block>
   <block id="96d18284484330f0461bebeeedf28b93" category="list-text">Geben Sie den FQDN oder die IP-Adresse des Hosts an, auf dem das Plug-in bereitgestellt wird.</block>
   <block id="4b9c5e10e240cdb44f786ad97e92d363" category="paragraph">Stellen Sie sicher, dass der Connector mit dem FQDN oder der IP-Adresse mit dem Datenbank-Host kommunizieren kann.</block>
@@ -3128,11 +3091,8 @@
   <block id="acb4159eef3e5ecd5b233216c18d4d45" category="paragraph">Standardport ist 8145.</block>
   <block id="91128bbc82eb724ccb4b4532f152c3da" category="list-text">Wählen Sie den Anschluss aus.</block>
   <block id="74a99b6dc2ef8f1a612ef62e0fbae84d" category="list-text">Aktivieren Sie das Kontrollkästchen, um zu bestätigen, dass das Plug-in auf dem Host installiert ist</block>
-  <block id="8443ac4c22417245b61f0c033b4ea3d2" category="paragraph">Das Plug-in automatisch bereitstellen möchten</block>
   <block id="044408c01f4556451a3907257fc21382" category="list-text">Wählen Sie *über SSH*.</block>
   <block id="21c7549ba6f4014b1d2c113aff7f95aa" category="list-text">Geben Sie die FQDN- oder IP-Adresse des Hosts an, auf dem Sie das Plug-in installieren möchten.</block>
-  <block id="067a9635a80c1edff88c622203fa7ce1" category="inline-xref">Nicht-Root-Benutzer</block>
-  <block id="0b2581c6c2b040b10360f2182f95a26e" category="list-text">Geben Sie den Benutzernamen an (<block ref="b860729b45208ea0c8184e39fd0d4fa7" category="inline-xref-macro-rx"></block>) Mit dem das Plug-in-Paket auf den Host kopiert wird.</block>
   <block id="791d63ac899b8ad7fc56dc931d1fd29a" category="list-text">Geben Sie SSH und Plug-in-Port an.</block>
   <block id="505ce6fed4446b13324d0562a28bb6ba" category="paragraph">Der standardmäßige SSH-Port ist 22 und der Plug-in-Port 8145.</block>
   <block id="11f3ace264fde67c71154e15a9b49b51" category="paragraph">Nach der Installation des Plug-ins können Sie den SSH-Port auf dem Anwendungshost schließen. Der SSH-Port ist für andere Plug-in-Vorgänge nicht erforderlich.</block>
@@ -3148,7 +3108,6 @@
   <block id="013e38cfdb2c6d0bb3f17b59760240ff" category="summary">BlueXP bietet effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP.</block>
   <block id="7105ab20f187c4c6345342e06cd1748d" category="paragraph">Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherungsfunktionen für Applikationen, die auf NetApp Cloud Storage ausgeführt werden. Cloud Backup für Anwendungen, die in BlueXP (ehemals Cloud Manager) aktiviert sind, bietet effizienten, applikationskonsistenten, richtlinienbasierten Schutz der folgenden Anwendungen:</block>
   <block id="9b029537d0b8df0bfe13af02e2f4b676" category="list-text">Oracle Datenbanken befinden sich auf Amazon FSX für NetApp ONTAP und Cloud Volumes ONTAP</block>
-  <block id="0fb238fbf40ffb66b4fc526838e26664" category="list-text">SAP HANA Systeme auf Azure NetApp Files (ANF)</block>
   <block id="0e9f5823c929b9fb9d64f8929519166d" category="list-text">Auf die Benutzeroberfläche von Cloud Backup für Applikationen kann über die Benutzeroberfläche von BlueXP zugegriffen werden.</block>
   <block id="97c81decba97f11a1ed9821a4ddbc39d" category="paragraph">Die Benutzeroberfläche von Cloud Backup für Applikationen bietet Datensicherungsfunktionen für Applikationen.</block>
   <block id="a900fc2ba3036431f83eaa95438d5c78" category="list-text">BlueXP Connector ist eine Komponente, die im Cloud-Netzwerk des Benutzers ausgeführt wird und mit Storage-Systemen und applikationsspezifischen Plug-ins interagiert.</block>
@@ -3185,7 +3144,6 @@
   <block id="9317a56cfedd80231a539c42f44d9c8d" category="section-title">Schutz von SAP HANA Datenbanken</block>
   <block id="494c3084e3990387ac3b46cb5749bb65" category="list-text">RHEL 7.5 oder höher, 8.x-Plattformen, von SAP HANA zertifiziert</block>
   <block id="504d22b0e020e0b365851eef08a1e4ca" category="list-text">SLES 12 SP5 oder höher und 15 SPX Plattformen zertifiziert von SAP HANA</block>
-  <block id="bf8209cf9b7524db25e82e107aec699b" category="list-text">Storage-System Azure NetApp Files (ANF)</block>
   <block id="4181f6e16bb30e02b42299eaabaccd5e" category="list-text">Storage-Layouts: Azure unterstützt für Daten und Protokoll nur NFSv4.1.</block>
   <block id="c7325743e6b1be5853672e4ed19d279b" category="list-text">Datenbank-Layout:</block>
   <block id="4f3c431044df2a4101e620b1add959d6" category="list-text">Single Container Version 1.0SPS12</block>
@@ -3205,12 +3163,9 @@
   <block id="5cca45bd52ac035de73ec0e76f0e5043" category="summary">Stellen Sie die Datendateien wieder her und stellen Sie dann die Datenbank wieder her.</block>
   <block id="e648f70e1fb5d17870bf65097e43c5a6" category="doc">Wiederherstellung der nativen Cloud SAP HANA Datenbank</block>
   <block id="26661dc24144ed594be15c07b300db39" category="paragraph">Im Falle eines Datenverlustes können Sie die Daten und nicht-Datendateien wiederherstellen und dann die Datenbank wiederherstellen.</block>
-  <block id="209bbbd2ef26cf13ac9d3e2ab4a48795" category="paragraph">Sie können Prescripts, Postskripte bereitstellen und Skripte beenden, während Sie eine Richtlinie erstellen. Diese Skripte werden auf dem HANA-Host ausgeführt und führen einen Restore-Vorgang durch.</block>
-  <block id="8e193dde313806673c3561148f67d074" category="paragraph">Das Prescript und das Postscript sollten vom Hostadministrator registriert werden<block ref="3b233c9e75b7e3c86773366e24bbc002" prefix=" " category="inline-code"></block></block>
   <block id="43b21c00ad4299ac7f4d7e1dafb5f387" category="paragraph">*Was Sie brauchen*</block>
   <block id="f8988e398a707101924ea388677409fc" category="list-text">Das SAP HANA-System muss sich im Zustand „gestoppt“ befinden.</block>
   <block id="e7112ed1470e71e600498d1a4b34ac26" category="list-text">Sie können ein Preskript zur Anhalten des SAP HANA-Systems zur Verfügung stellen.</block>
-  <block id="864ef826ca9afa5b1d7e1e3468c6f957" category="list-text">Geben Sie auf der Seite *System wiederherstellen* die Skripte ein.</block>
   <block id="8f0f4ecd6bb49079fb488435d58bf611" category="list-text">Stellen Sie nach der Wiederherstellung das SAP HANA System manuell wieder her oder geben Sie ein Post-Script ein, das die Wiederherstellung des SAP HANA Systems durchführt.</block>
   <block id="aafa017aee26c3860dee1aac06cc22e5" category="section-title">Nicht-Daten-Volume Wiederherstellen</block>
   <block id="b78066905c05d49abb8f4df49665ed37" category="list-text">Wählen Sie auf der Seite *Anwendungen* aus dem Dropdown-Feld Non-Data Volume aus.</block>
@@ -3224,9 +3179,7 @@
   <block id="c6927bf583958e84094bc7e9d4328c6f" category="section-title">Azure NetApp Files Arbeitsumgebung erstellen</block>
   <block id="8b53faee27870b72e0be69261d54a7ee" category="inline-link-macro">Weitere Informationen zu Azure NetApp Files</block>
   <block id="c5c12e22be965b4ae0e9fc5e1618bdbe" category="inline-link-macro">Schaffung einer Azure NetApp Files-Arbeitsumgebung</block>
-  <block id="bf91af894eb3580afdb33ab6ce5ab06f" category="paragraph">Sie sollten Azure NetApp Files (ANF)-Arbeitsumgebungen erstellen, in denen Ihre Datenbanken gehostet werden. Weitere Informationen finden Sie unter <block ref="e42252aa263ed60f84feb7fdedc741c2" category="inline-link-macro-rx"></block> Und <block ref="08189a1662d35a0f6c5c7b20dd7f30c3" category="inline-link-macro-rx"></block>.</block>
   <block id="e7a9cd1dc4bf0c230d0684e18369d70d" category="section-title">Einen Konnektor erstellen</block>
-  <block id="7c258ce888390955a0508e6bf64eec18" category="paragraph">Ein Account-Administrator muss einen Connector in ANF implementieren, der es BlueXP ermöglicht, Ressourcen und Prozesse in Ihrer Public-Cloud-Umgebung zu managen.</block>
   <block id="bca25b5056d8715db55e6e28a72ddea0" category="admonition">Sie können die neue Connector_id nicht von der UI aktualisieren.</block>
   <block id="e12fb4f30abef516bf6f5e0e9a5b72b7" category="inline-link-macro">Erstellen Sie einen Connector in Azure von BlueXP</block>
   <block id="3717a56f9d9c162dfd0127cd325c0a2f" category="paragraph">Weitere Informationen finden Sie unter <block ref="88ddfb8e0cf0e729a2d90f978111b93e" category="inline-link-macro-rx"></block>.</block>
@@ -3262,7 +3215,6 @@
   <block id="fa4308d3f9fdcd01f05ba58ff69b9dd5" category="list-text">Kopieren Sie Zeilen 1 bis 16 aus dem<block ref="5fc8e5db28f79a3512344717eb75a2f3" prefix=" " category="inline-code"></block> Datei befindet sich unter<block ref="dca5cd789ecd3e8ac3b24e72d56f2c0f" prefix=" " category="inline-code"></block></block>
   <block id="c8e4cea60639b8f6c2e1f74034e46e71" category="list-text">Laden Sie die Linux-Host-Plug-in-Binärdatei herunter.<block ref="842b6533279ede354ede13a8696c77a7" prefix=" " category="inline-code"></block></block>
   <block id="1333b695230748772732811a4dce8133" category="list-text">Kopieren<block ref="4f97ae2a0dc11c8ac2f61e73bbd23cd8" prefix=" " category="inline-code"></block> Auf jeden der SAP HANA-Datenbank-Hosts entweder mit scp oder anderen alternativen Methoden.</block>
-  <block id="f21f4c2a14663fba17fd663498932188" category="list-text">Bereitstellen des SAP HANA-Plug-ins als sudo-Non-Root-Benutzer<block ref="a9b0283be469b80a16d7090f132ac831" prefix=" " category="inline-code"></block></block>
   <block id="8125c29989803ad0a7a3fcd80763904a" category="list-text">Kopieren<block ref="7730e5c2e030df9de4e60d7586534d1d" prefix=" " category="inline-code"></block> Von<block ref="6a722c9070d74bb0503ce0417b0cad70" prefix=" " category="inline-code"></block> Pfad der Connector-VM zu<block ref="b99636c9e34de318e385a63d2cb037a1" prefix=" " category="inline-code"></block> Auf dem Plug-in-Host.</block>
   <block id="ef1e764c716d2aa5406d3d434b9c8614" category="list-text">Navigieren Sie zu<block ref="0dc0b955539cf9119a9695bb3312c8cb" prefix=" " category="inline-code"></block> Und führen Sie den keytool-Befehl aus, um das Zertifikat zu importieren.<block ref="0d48a0d1a6daee261d59f76e1ce65f98" prefix=" " category="inline-code"></block></block>
   <block id="fd9064c3951e4ceddd0e2ae6bf2708e5" category="paragraph">*Hinweis:* Wenn die Sicherungsdatei, die die wiederherzustellenden Daten enthält, im Archiv-Speicher liegt (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und kostet. Darüber hinaus muss das Ziel-Cluster im Hinblick auf Volume-Wiederherstellung auch ONTAP 9.10.1 oder höher, 9.11.1 für die Dateiwiederherstellung und 9.12.1 für Google Archive und StorageGRID ausgeführt werden.</block>
@@ -3510,4 +3462,63 @@
   <block id="de0ace3ca6a340bec96b9fe94ee00c37" category="paragraph">Backups werden standardmäßig im Standard-Storage gespeichert. Wenn Ihr Cluster ONTAP 9.12.1 oder höher verwendet, können Sie wählen, Backups nach einer bestimmten Anzahl von Tagen als Archiv-Storage zu verschieben, um weitere Kosten zu optimieren. <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>.</block>
   <block id="0a0a678be4028579aac1f022ed126971" category="paragraph"><block ref="0a0a678be4028579aac1f022ed126971" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8453fab1acf37cb3dad50bd528b75148" category="list-text">Nur NFS-Datastores werden unterstützt. VMFS-Datastores, die auf iSCSI/FC/NVMe und VVols basieren, werden nicht unterstützt.</block>
+  <block id="f990e553cdc4c29c2efffba33e08a8c7" category="inline-link-macro">Weitere Informationen .</block>
+  <block id="c0efb50e50bd832fe33303fe8a025710" category="list-text">(Optional) Geben Sie die Skripte an. <block ref="64f80f18cd8436040cdc180731adb1df" category="inline-link-macro-rx"></block></block>
+  <block id="898f472703342efc6d5adc298a7628c8" category="paragraph">Sie können Prescripts, Postskripte bereitstellen und Skripte beenden, während Sie eine Richtlinie erstellen. Diese Skripte werden während der Datensicherung auf dem HANA-Host ausgeführt.</block>
+  <block id="c5b751b6877453fd04eb6340347e4511" category="paragraph">Das Prescript und das Postscript sollten vom Hostadministrator registriert werden<block ref="91d372f85b001dba79ebc4129e5acd32" prefix=" " category="inline-code"></block> Datei:</block>
+  <block id="0baab2619f15ec742e2bf8b60e516b39" category="paragraph">Für den Backup-Workflow stehen die folgenden Umgebungsvariablen als Teil von prescript und postscript zur Verfügung.</block>
+  <block id="37b91819addbb5b3ca6a2d78cfe91ff2" category="inline-link-macro">Verordnungen und Postskripte</block>
+  <block id="c7436ac5bc62035107d7dd8330e0ce9c" category="paragraph">Weitere Informationen finden Sie unter <block ref="e21df236c176ec826d056db82d193773" category="inline-link-macro-rx"></block></block>
+  <block id="edd15fbeb7b2dffa163336ecd4f3e80c" category="section-title">Nutzen Sie Self-Support-Optionen</block>
+  <block id="d88bacf2a9fdcbbc844edcba97c34e30" category="section-title">Erstellen Sie einen Fall mit dem NetApp Support</block>
+  <block id="08d96fdd1a845d80db99e6e1dffb8bc7" category="list-text">Wählen Sie auf der Seite *Ressourcen* eine der verfügbaren Optionen unter Technischer Support:</block>
+  <block id="5be2e1dfe4bf215289731df45ec8157b" category="list-text">Klicken Sie auf *Fall erstellen*, um ein Ticket bei einem NetApp Support Spezialisten zu öffnen:</block>
+  <block id="32ecc38b872b5f889b952ca26b4c9e01" category="list-text">SAP HANA-Systeme auf Azure NetApp Files</block>
+  <block id="25b10c02d41eec413a14409c4612d5d3" category="list-text">Speichersystem Azure NetApp Files</block>
+  <block id="2aebd4a586327a155f5ad3b448f755af" category="doc">Implementieren Sie das SnapCenter Plug-in für SAP HANA und fügen Sie Datenbank-Hosts hinzu</block>
+  <block id="269c48e37c80fdf85eed155628bc58de" category="inline-link-macro">Konfigurieren Sie sudo für SnapCenter-Benutzer.</block>
+  <block id="ddaa83445dd7a230c2c58c8306085a19" category="list-text">Sie sollten den SnapCenter-Benutzer erstellt und sudo für den SnapCenter-Benutzer konfiguriert haben. Weitere Informationen finden Sie unter <block ref="6178ed5e7702fbe22f507b323e07e08d" category="inline-link-macro-rx"></block></block>
+  <block id="d2112f16a8059fc09554b14c09d4fcfc" category="list-text">Sie sollten das SnapCenter-Plug-in für SAP HANA bereitgestellt haben, bevor Sie den Datenbank-Host hinzufügen.</block>
+  <block id="257b77ad500d8d34d40999c829e11687" category="list-text">Bei Verwendung der SSH-basierten Bereitstellung sollte die Kommunikation zum SSH-Port aktiviert sein (Standard: 22).</block>
+  <block id="5725f533e015d3bd4b9e8c38eca0144b" category="list-text">Für den Anschluss sollte die Kommunikation zum Plug-in-Anschluss (Standard: 8145) aktiviert sein, damit die Vorgänge funktionieren.</block>
+  <block id="b010a3fdc0e4a30de49959a04a4e75e0" category="section-title">Konfigurieren Sie sudo für SnapCenter-Benutzer</block>
+  <block id="a07faa3e8d1ee5e05e2477cb22d4aada" category="paragraph">Sie sollten einen SnapCenter-Benutzer erstellen, um das Plug-in bereitzustellen.</block>
+  <block id="d92750f46e700776d748ee9b15b423cc" category="list-text">Erstellen Sie das SnapCenter-Benutzerkonto, das private Schlüsselpaar, und weisen Sie die Berechtigungen zu.</block>
+  <block id="1aadfd10fc57b635454a6d55fa8fc260" category="paragraph">Ersetzen Sie in den obigen Zeilen die &lt;LINUXUSER&gt; durch den SnapCenter-Benutzer, den Sie erstellt haben, und speichern Sie sie im Dienstprogramm visuod.</block>
+  <block id="1fd90cd4e86ccb2a0caebc53978ce238" category="inline-link-macro">SAP HANA Datenbank-Hosts</block>
+  <block id="d608b8b79f8e38b5355b2621076c03a7" category="paragraph">Nach der Bereitstellung des Plug-ins sollten Sie die hinzufügen <block ref="92ad6bba296fdb7b03893ff2938b8375" category="inline-link-macro-rx"></block></block>
+  <block id="bd66e9124149884520020da3bbb7fb42" category="list-text">Implementieren Sie das SAP HANA-Plug-in als sudo-SnapCenter-Benutzer.<block ref="a9b0283be469b80a16d7090f132ac831" prefix=" " category="inline-code"></block></block>
+  <block id="c827c4145f570b61f9ba6a78e5ffdca3" category="list-text">Überprüfen Sie, ob das Plug-in über den Connector erreichbar ist, indem Sie den folgenden Befehl über den Connector ausführen:</block>
+  <block id="196620afd1e2e98d838480028131dc6b" category="paragraph"><block ref="7bab21217ba7da8fb8f176538fe93b9b" prefix="" category="inline-code"></block></block>
+  <block id="ed4c596de80903a7b24e5ada4ad1cb18" category="section-title">Hinzufügen Von Globalen, Nicht Datenbasierten Volumes</block>
+  <block id="c85382f11c645139d96d5e2eacdd8985" category="list-text">Geben Sie auf der Seite *System wiederherstellen* die Skripte ein. <block ref="64f80f18cd8436040cdc180731adb1df" category="inline-link-macro-rx"></block></block>
+  <block id="c2d07a443e1ff7ca3b9a176f2e281fa7" category="paragraph">Sie sollten Azure NetApp Files-Arbeitsumgebungen erstellen, in denen Ihre Datenbanken gehostet werden. Weitere Informationen finden Sie unter <block ref="e42252aa263ed60f84feb7fdedc741c2" category="inline-link-macro-rx"></block> Und <block ref="08189a1662d35a0f6c5c7b20dd7f30c3" category="inline-link-macro-rx"></block>.</block>
+  <block id="86e567c58e1677d6f28f5faf45337dd6" category="paragraph">Ein Kontoadministrator muss einen Connector in Azure NetApp Files implementieren, mit dem BlueXP Ressourcen und Prozesse in der Public Cloud-Umgebung des Kunden managen kann.</block>
+  <block id="fcdf1a1b46f3b7e8ad6ff82010438a90" category="list-text">Unterstützt richtlinienbasiertes Backup und Restore von SAP HANA Datenbanken auf Azure NetApp Files</block>
+  <block id="626a739569b9dd0c59a5743d227d6123" category="doc">Implementieren Sie das SnapCenter Plug-in für Oracle und fügen Sie Datenbank-Hosts hinzu</block>
+  <block id="67d8739c95209190622df34ef33e74cb" category="paragraph">Sie sollten das SnapCenter-Plug-in für Oracle auf jedem der Oracle-Datenbank-Hosts bereitstellen, die Datenbank-Hosts hinzufügen und die Datenbanken auf dem Host ermitteln, um Richtlinien zuzuweisen und Backups zu erstellen.</block>
+  <block id="90830749b6cbde0f0a187f49bb486594" category="list-text">Wenn SSH für den Datenbank-Host aktiviert ist, können Sie das Plug-in mithilfe einer der folgenden Methoden implementieren:</block>
+  <block id="8b6b64c474edd30f1a9272ee24a2232f" category="list-text">Implementieren Sie das Plug-in, und fügen Sie die Host-Benutzeroberfläche mithilfe der SSH-Option hinzu. <block ref="96cf78a1eacf9d4e1d33800a6dba4d36" category="inline-xref-macro-rx"></block>.</block>
+  <block id="3262da317dca873a6393aacedc92711b" category="list-text">Stellen Sie das Plug-in mithilfe des Skripts bereit, und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu. <block ref="7e15d0c8c67b3cf8713be59b7b4c1b25" category="inline-xref-macro-rx"></block>.</block>
+  <block id="08504e173a088669654aaeccaa2b3a23" category="list-text">Wenn SSH deaktiviert ist, stellen Sie das Plug-in manuell bereit und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu. <block ref="5f00e4f7335cd99930cda849266e93c9" category="inline-xref-macro-rx"></block>.</block>
+  <block id="39897a09935775120f58a38650026ddb" category="list-text">Sie sollten den SnapCenter-Benutzer erstellt und sudo für den SnapCenter-Benutzer konfiguriert haben. Weitere Informationen finden Sie unter <block ref="5e3b9649d708169ed88a9a242f31b61c" category="inline-xref-macro-rx"></block>.</block>
+  <block id="552cb41f77557f24afc949caef89280f" category="list-text">Stellen Sie sicher, dass für den Connector die Kommunikation zum SSH-Port aktiviert ist (Standard: 22), wenn die SSH-basierte Bereitstellung verwendet wird.</block>
+  <block id="39f31ccaa29cc339e3980e0da960d750" category="list-text">Stellen Sie sicher, dass die Kommunikation auf dem Connector für den Plug-in-Anschluss aktiviert ist (Standard: 8145), damit die Vorgänge funktionieren.</block>
+  <block id="739fcf2b514d944f705042f1e0e00257" category="paragraph">Sie sollten einen SnapCenter-Benutzer erstellen und sudo für den Benutzer konfigurieren.</block>
+  <block id="fe689694da98d31a8ecb33f9937bcf2b" category="list-text">Erstellen Sie das SnapCenter-Benutzerkonto, das private Schlüsselpaar, und weisen Sie die Berechtigungen zu. Weitere Informationen finden Sie unter<block ref="fda0d36f41d4c9e30e06c472b1bf9e0c" category="inline-link-rx"></block>.</block>
+  <block id="08a9756f760e15ecb833f8a03e820f5c" category="paragraph">Ersetzen Sie in den obigen Zeilen die &lt;LINUXUSER&gt; durch den SnapCenter-Benutzer, den Sie erstellt haben, und speichern Sie die Datei im visudo-Dienstprogramm.</block>
+  <block id="cf4cb057a8a94a7af35c1f206a490fc7" category="section-title">Implementieren Sie das Plug-in und fügen Sie über die SSH-Option Host von der Benutzeroberfläche hinzu</block>
+  <block id="c19f3000ecedd6e739c73e513c597e19" category="list-text">Führen Sie auf der Seite Host hinzufügen die folgenden Schritte aus:</block>
+  <block id="ac942bfda2b49411af92bb83a04093ea" category="inline-xref">Sudo SnapCenter-Benutzer</block>
+  <block id="3873a19d99c54075bd878c4755a660d7" category="list-text">Geben Sie den Benutzernamen an (<block ref="0ddbb3d2c437bced333ce4f5ef476df6" category="inline-xref-macro-rx"></block>) Mit dem das Plug-in-Paket auf den Host kopiert wird.</block>
+  <block id="96e8e4df8b3ca0b4eec3a79081f69a5f" category="section-title">Stellen Sie das Plug-in mithilfe des Skripts bereit, und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu</block>
+  <block id="91eb61d109e3007a8e969ba3cba1c154" category="paragraph">Wenn die SSH-Schlüsselauthentifizierung auf dem Oracle-Host für den SnapCenter-Benutzer aktiviert ist, können Sie das Plug-in wie folgt bereitstellen: Bevor Sie die Schritte durchführen, stellen Sie sicher, dass die SSH-Verbindung zum Connector aktiviert ist.</block>
+  <block id="10e01a340c84380e027a73fec4302231" category="list-text">ssh_Key_File ist der SSH-Schlüssel des SnapCenter-Benutzers, der zur Verbindung mit dem Oracle-Host verwendet wird. Dies ist ein obligatorischer Parameter.</block>
+  <block id="2a8cccba41dd7585d3e688efa551f3ca" category="list-text">User_Name: SnapCenter-Benutzer mit SSH-Berechtigungen auf dem Oracle-Host. Dies ist ein optionaler Parameter. Der Standardwert ist ec2-user.</block>
+  <block id="dc9d1d5a9daee6a922e8ca3b643f951f" category="section-title">Stellen Sie das Plug-in manuell bereit, und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu</block>
+  <block id="6536d8bd829629536e41a1e31830f5df" category="paragraph">Wenn die SSH-Schlüsselauthentifizierung auf dem Oracle-Datenbank-Host nicht aktiviert ist, sollten Sie die folgenden manuellen Schritte ausführen, um das Plug-in bereitzustellen und anschließend den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzuzufügen.</block>
+  <block id="59498123f173f525c8ccd6041aad0090" category="paragraph">Das _snapcenter_linux_Host_Plugin_scs.bin_ sollte an einen Speicherort kopiert werden, auf den der SnapCenter-Benutzer zugreifen kann.</block>
+  <block id="9fccb7bf2ea38fc2199a167bbe2d87fd" category="list-text">Melden Sie sich über das SnapCenter-Benutzerkonto beim Oracle-Datenbank-Host an, und führen Sie den folgenden Befehl aus, um Ausführungsberechtigungen für die Binärdatei zu aktivieren.<block ref="4cd88a831fa940d7f40686837061308c" prefix=" " category="inline-code"></block></block>
+  <block id="2fe3c4ca1597e6bdf865a7367c7a7a08" category="list-text">Stellen Sie das Oracle-Plug-in als sudo SnapCenter-Benutzer bereit.<block ref="d0ac17823bdcaade630c1553c4540054" prefix=" " category="inline-code"></block></block>
+  <block id="f55cf31361d600683e03e25c6f1109e3" category="list-text">Überprüfen Sie, ob das Plug-in über den Connector erreichbar ist, indem Sie den folgenden Befehl über den Connector ausführen.<block ref="7bab21217ba7da8fb8f176538fe93b9b" prefix=" " category="inline-code"></block></block>
 </blocks>

@@ -20,13 +20,13 @@ Sie sollten die Azure NetApp Files-Arbeitsumgebung und den Connector erstellen.
 
 == Azure NetApp Files Arbeitsumgebung erstellen
 
-Sie sollten Azure NetApp Files (ANF)-Arbeitsumgebungen erstellen, in denen Ihre Datenbanken gehostet werden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html["Weitere Informationen zu Azure NetApp Files"] Und link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html["Schaffung einer Azure NetApp Files-Arbeitsumgebung"].
+Sie sollten Azure NetApp Files-Arbeitsumgebungen erstellen, in denen Ihre Datenbanken gehostet werden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html["Weitere Informationen zu Azure NetApp Files"] Und link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html["Schaffung einer Azure NetApp Files-Arbeitsumgebung"].
 
 
 
 == Einen Konnektor erstellen
 
-Ein Account-Administrator muss einen Connector in ANF implementieren, der es BlueXP ermöglicht, Ressourcen und Prozesse in Ihrer Public-Cloud-Umgebung zu managen.
+Ein Kontoadministrator muss einen Connector in Azure NetApp Files implementieren, mit dem BlueXP Ressourcen und Prozesse in der Public Cloud-Umgebung des Kunden managen kann.
 
 
 NOTE: Sie können die neue Connector_id nicht von der UI aktualisieren.
