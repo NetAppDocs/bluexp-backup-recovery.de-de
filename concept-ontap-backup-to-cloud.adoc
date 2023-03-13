@@ -93,7 +93,11 @@ Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS,
 
 === Unterstützung für Websites ohne Internetverbindung
 
-Cloud Backup kann an einem Standort ohne Internetverbindung verwendet werden (auch als „offline“ oder „Dark“-Standort bekannt), um Volume-Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen zu sichern. In dieser Konfiguration werden auch die Volume- und Dateiwiederherstellung unterstützt. In diesem Fall müssen Sie den BlueXP Connector (mindestens Version 3.9.20) in der dunklen Site bereitstellen. Siehe link:task-backup-onprem-private-cloud.html["Sichern von lokalen ONTAP Daten in StorageGRID"] Entsprechende Details.
+Cloud Backup kann an einem Standort ohne Internetverbindung (auch als „offline“ oder „dunkel“ bezeichnet) verwendet werden, um Volume-Daten zu sichern. In dieser Konfiguration werden auch die Volume- und Dateiwiederherstellung unterstützt. In diesem Fall müssen Sie den BlueXP Connector am Dark Site implementieren.
+
+* Sie können Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen sichern. Siehe link:task-backup-onprem-private-cloud.html["Sichern von lokalen ONTAP Daten in StorageGRID"] Entsprechende Details.
+* Daten aus Cloud Volumes ONTAP Systemen in AWS und Azure Geschäftsregionen können in Amazon S3 oder Azure Blob gesichert werden. Siehe link:task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
+
 
 
 
@@ -430,7 +434,7 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 * Ad-hoc-Volume-Backup mit der *Backup Now*-Taste wird auf Datensicherungs-Volumes nicht unterstützt.
 * SM-BC-Konfigurationen werden nicht unterstützt.
 * ONTAP unterstützt keine Fan-out-of-SnapMirror-Beziehungen von einem einzelnen Volume zu mehreren Objektspeicher. Daher wird diese Konfiguration nicht von Cloud Backup unterstützt.
-* WORM-/Compliance-Modus auf einem Objektspeicher wird derzeit nur von Amazon S3 und StorageGRID unterstützt. Dies wird als DataLock-Funktion bezeichnet und muss mithilfe von Cloud Backup-Einstellungen gemanagt werden, nicht über die Cloud-Provider-Schnittstelle.
+* DER WORM-/Compliance-Modus für einen Objektspeicher wird derzeit auf Amazon S3, Azure und StorageGRID unterstützt. Dies wird als DataLock-Funktion bezeichnet und muss mithilfe von Cloud Backup-Einstellungen gemanagt werden, nicht über die Cloud-Provider-Schnittstelle.
 
 
 
@@ -441,10 +445,16 @@ Diese Einschränkungen gelten sowohl für die Such- und Wiederherstellungsmethod
 
 * Browse & Restore kann bis zu 100 einzelne Dateien gleichzeitig wiederherstellen.
 * Search & Restore kann 1 Datei gleichzeitig wiederherstellen.
-* Suchen und Wiederherstellen und Suchen und Wiederherstellen können 1 Ordner gleichzeitig wiederherstellen.
+* Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner mit allen darin enthaltenen Dateien und Unterordnern durchsuchen und wiederherstellen und suchen und wiederherstellen.
++
+Bei Verwendung einer Version von ONTAP größer als 9.11.1, aber vor 9.13.0, kann der Wiederherstellungsvorgang nur den ausgewählten Ordner und die Dateien in diesem Ordner wiederherstellen - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.
+
++
+Wenn Sie eine Version von ONTAP vor 9.11.1 verwenden, wird die Wiederherstellung von Ordnern nicht unterstützt.
+
 * Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit auf FlexGroup-Volumes nicht unterstützt.
-* Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.
 * Sie können einzelne Ordner nicht wiederherstellen, wenn sich die Sicherungsdatei im Archiv-Speicher befindet.
+* Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.
 * Die wiederherzustellende Datei muss die gleiche Sprache verwenden wie die Sprache auf dem Zielvolume. Wenn die Sprachen nicht identisch sind, wird eine Fehlermeldung angezeigt.
-* Die _hohe_ Wiederherstellungspriorität wird beim Wiederherstellen von Daten von Azure auf StorageGRID Systemen nicht unterstützt.
+* Die Priorität _High_ restore wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID-Systeme nicht unterstützt.
 

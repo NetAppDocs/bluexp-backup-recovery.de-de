@@ -27,6 +27,7 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 * Sie verwenden Cloud Volumes ONTAP 9.7P5 oder höher in Azure (ONTAP 9.8P13 und höher wird empfohlen).
 * Sie verfügen über ein gültiges Cloud-Provider-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
 * Sie haben sich für das angemeldet https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Und aktiviert"^] Eine Cloud Backup BYOL-Lizenz von NetApp
+* Sie haben einen Connector in Azure installiert. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Cloud Backup auf Ihrem neuen oder vorhandenen System aktivieren
@@ -76,11 +77,27 @@ Unterstützte ONTAP-Versionen:: Minimum ONTAP 9.7P5; ONTAP 9.8P13 und höher wir
 Lizenzanforderungen:: Bei Cloud Backup-PAYGO-Lizenzen ist vor Aktivierung von Cloud Backup ein Abonnement über den Azure Marketplace erforderlich. Die Abrechnung für Cloud Backup erfolgt über dieses Abonnement. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Sie können sich auf der Seite Details  Credentials des Assistenten für die Arbeitsumgebung anmelden"^].
 +
 --
-Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
+Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"]. Wenn das Connector- und das Cloud Volumes ONTAP-System an einem Dark Site bereitgestellt werden, muss eine BYOL-Lizenz verwendet werden.
 
 Darüber hinaus benötigen Sie ein Microsoft Azure-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
 
 --
+Anforderungen an Steckverbinder:: Der Connector kann in einer Azure-Region mit oder ohne Internetzugang installiert werden. Derzeit werden nur Azure Commercial Sites für Sites ohne Internetzugang unterstützt.
++
+--
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Implementieren Sie einen Connector in Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Installation des Connectors auf einem Linux-Host in einer Azure-Region ohne Internetzugang"^]
+
+
+--
+
+
+
+NOTE: Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die link:whats-new.html["Cloud Backup Was ist neu"] Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["Aktualisieren Sie die Connector-Software"^] Wann Sie neue Funktionen nutzen möchten.
+
+Wir empfehlen Ihnen, regelmäßig lokale Backups der Cloud Backup-Konfigurationsdaten zu erstellen, wenn der Connector auf einer Website ohne Internetverbindung installiert ist. link:reference-backup-cbs-db-in-dark-site.html["Daten-Backups von Cloud Backups werden an einem dunklen Standort erstellt"^].
+
 Überprüfen oder Hinzufügen von Berechtigungen zum Konnektor:: Um die Funktion zum Suchen und Wiederherstellen von Cloud-Backups zu verwenden, müssen Sie spezifische Berechtigungen in der Rolle für den Connector besitzen, damit er auf den Azure Synapse Workspace und das Data Lake-Speicherkonto zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 +
 --
@@ -201,7 +218,7 @@ image:screenshot_backup_provider_settings_azure.png["Ein Screenshot, der die Clo
 .. Geben Sie den Namen für die Standardrichtlinie ein. Sie müssen den Namen nicht ändern.
 .. Legen Sie den Backup-Zeitplan fest und wählen Sie die Anzahl der zu behaltenden Backups aus. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["Die Liste der vorhandenen Richtlinien, die Sie auswählen können, wird angezeigt"^].
 .. Optional können Sie bei Verwendung von ONTAP 9.12.1 und höher Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie eine der Einstellungen _DataLock und Ransomware Protection_ konfigurieren. _DataLock_ schützt Ihre Backup-Dateien vor Modified oder Deleted, und _Ransomware Protection_ scannt Ihre Backup-Dateien, um nach Anzeichen für einen Ransomware-Angriff in Ihren Backup-Dateien zu suchen. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"^].
-.. Bei Verwendung von ONTAP 9.10.1 und neuer können Backups nach einer bestimmten Anzahl von Tagen auf den Azure Archiv-Storage verschoben werden, um die Kosten weiter zu optimieren. link:reference-azure-backup-tiers.html["Erfahren Sie mehr über die Verwendung von Archivierungs-Tiers"].
+.. Bei Verwendung von ONTAP 9.10.1 und neuer können Backups nach einer bestimmten Anzahl von Tagen auf den Azure Archiv-Storage verschoben werden, um die Kosten weiter zu optimieren. Diese Funktion ist nicht verfügbar, wenn sie in dunklen Sites bereitgestellt wird. link:reference-azure-backup-tiers.html["Erfahren Sie mehr über die Verwendung von Archivierungs-Tiers"].
 +
 image:screenshot_backup_policy_azure.png["Ein Screenshot, der die Cloud Backup Einstellungen zeigt, in denen Sie Ihren Zeitplan und Ihre Backup-Aufbewahrung auswählen können."]
 

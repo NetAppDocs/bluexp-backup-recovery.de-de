@@ -21,7 +21,7 @@ Im Cloud Backup sind neun Kategorien von Endpunkten definiert:
 * Backup – managt Backup-Vorgänge von Cloud- und lokalen Ressourcen und ruft Details zu den Backup-Daten ab
 * Katalog – verwaltet die Suche nach Dateien anhand einer Abfrage (Suchen & Wiederherstellen)
 * Cloud – ruft Informationen über verschiedene Cloud-Provider-Ressourcen von BlueXP ab
-* Jobs - verwaltet Einträge für die Jobdetails in der BlueXP-Datenbank
+* Job: Verwaltet Job-Detaileinträge in der BlueXP Datenbank
 * Lizenz - ruft die Lizenzgültigkeit der Arbeitsumgebungen von BlueXP ab
 * ransomware-Scan - initiiert einen Ransomware-Scan auf einer bestimmten Backup-Datei
 * Restore: Ermöglicht die Durchführung von Restore-Vorgängen auf Volume-, Datei- und Ordnerebene

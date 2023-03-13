@@ -251,8 +251,38 @@ endif::azure[]
 
 * Für StorageGRID:
 +
-** Der Connector muss auf Ihrem Gelände bereitgestellt werden (er kann auf einer Website mit oder ohne Internetzugang installiert werden).
 ** Für die vollständige Unterstützung von DataLock-Funktionen ist StorageGRID 11.6.0.3 und höher erforderlich
+** Der Connector muss auf Ihrem Gelände bereitgestellt werden (er kann auf einer Website mit oder ohne Internetzugang installiert werden).
+** Die folgenden S3-Berechtigungen müssen Teil der IAM-Rolle sein, die dem Connector Berechtigungen bereitstellt:
++
+*** s3:GetObjectVersionTagging
+*** s3:GetBucketObjectLockConfiguration
+*** s3:GetObjectVersionAkl
+*** s3:PuttObjectTagging
+*** s3:DeleteObject
+*** s3:DeleteObjectTagging
+*** s3:GetObjectRetention
+*** s3:DeleteObjectVersionTagging
+*** s3:PutObject
+*** s3:GetObject
+*** s3:PutBucketObjectLockConfiguration
+*** s3:GetLifecycleKonfiguration
+*** s3:ListBucketByTags
+*** s3:GetBucketTagging
+*** s3:DeleteObjectVersion
+*** s3:ListBucketVersions
+*** s3:ListBucket
+*** s3:PutBucketTagging
+*** s3:GetObjectTagging
+*** s3:PutBucketVersionierung
+*** s3:PuttObjectVersionTagging
+*** s3:GetBucketVersionierung
+*** s3:GetBucketAcl
+*** s3:PutObjectRetention
+*** s3:GetBucketLocation
+*** s3:GetObjectVersion
+
+
 
 
 
