@@ -20,7 +20,7 @@ Sie können den Status von Backup- und Wiederherstellungsjobs überwachen, die S
 
 == Verwenden Sie den Job Monitor, um den Status des Backup- und Wiederherstellungsjobs anzuzeigen
 
-Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und Wiederherstellungsvorgänge und deren aktueller Status anzeigen. Dies umfasst auch Abläufe Ihrer Cloud Volumes ONTAP, lokalen ONTAP, Applikationen, Virtual Machines und Kubernetes-Systeme. Jeder Vorgang oder Job hat eine eindeutige ID und einen Status. Der Status kann lauten:
+Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und Wiederherstellungsvorgänge und deren aktueller Status anzeigen. Dies umfasst auch Abläufe Ihrer Cloud Volumes ONTAP, lokalen ONTAP, Applikationen, Virtual Machines und Kubernetes-Systeme. Jeder Vorgang oder Job hat eine eindeutige ID und einen eindeutigen Status. Der Status kann lauten:
 
 * Erfolg
 * In Bearbeitung
@@ -29,8 +29,10 @@ Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und 
 * Fehlgeschlagen
 
 
+Sowohl vom Benutzer initiierte Sicherungs- und Wiederherstellungsvorgänge, die von der Cloud-Backup-Benutzeroberfläche und -API initiiert wurden, als auch systeminitiierte Jobs, wie z. B. laufende Sicherungsvorgänge, sind auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme verfügbar, auf denen ONTAP 9.13.0 oder höher ausgeführt wird.
 
-NOTE: Systeminitiierte Jobs, wie laufende Sicherungsvorgänge, werden derzeit nicht auf der Registerkarte *Job-Überwachung* angezeigt - es werden nur vom Benutzer initiierte Jobs angezeigt.
+
+TIP: Beim Ausführen einer früheren Version von ONTAP auf Cloud Volumes ONTAP-Systemen oder bei On-Premises-ONTAP-Systemen werden derzeit nur vom Benutzer initiierte Jobs angezeigt.
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
