@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-to-azure.html 
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, azure, azure blob, back up volumes, cloud backup 
-summary: Führen Sie einige Schritte aus, um die Datensicherung von Cloud Volumes ONTAP auf Azure Blob Storage zu starten. 
+summary: Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten aus Ihren Cloud Volumes ONTAP Systemen in Azure Blob Storage zu sichern. 
 ---
 = Sichern von Cloud Volumes ONTAP-Daten auf Azure Blob Storage
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Führen Sie einige Schritte aus, um die Datensicherung von Cloud Volume
 
 
 [role="lead"]
-Führen Sie einige Schritte aus, um die Datensicherung von Cloud Volumes ONTAP auf Azure Blob Storage zu starten.
+Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten aus Ihren Cloud Volumes ONTAP Systemen in Azure Blob Storage zu sichern.
 
 
 
@@ -27,10 +27,9 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 * Sie verwenden Cloud Volumes ONTAP 9.7P5 oder höher in Azure (ONTAP 9.8P13 und höher wird empfohlen).
 * Sie verfügen über ein gültiges Cloud-Provider-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
 * Sie haben sich für das angemeldet https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Und aktiviert"^] Eine Cloud Backup BYOL-Lizenz von NetApp
-* Sie haben einen Connector in Azure installiert. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
+* Sie haben einen Connector in Azure installiert. Der Connector kann auf einer Website mit vollem Internetzugang ("Standard-Modus") oder mit eingeschränkter Internetverbindung ("eingeschränkter Modus") installiert werden. .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Cloud Backup auf Ihrem neuen oder vorhandenen System aktivieren
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Cloud Backup auf Ihrem neuen oder vorhandenen System aktivieren
 [role="quick-margin-list"]
 * Neue Systeme: Cloud Backup ist standardmäßig im Assistenten für die Arbeitsumgebung aktiviert. Achten Sie darauf, dass die Option aktiviert bleibt.
 * Bestehende Systeme: Wählen Sie die Arbeitsumgebung aus und klicken Sie auf *Aktivieren* neben dem Backup- und Recovery-Dienst im rechten Fenster, und folgen Sie dann dem Setup-Assistenten.
@@ -77,26 +76,21 @@ Unterstützte ONTAP-Versionen:: Minimum ONTAP 9.7P5; ONTAP 9.8P13 und höher wir
 Lizenzanforderungen:: Bei Cloud Backup-PAYGO-Lizenzen ist vor Aktivierung von Cloud Backup ein Abonnement über den Azure Marketplace erforderlich. Die Abrechnung für Cloud Backup erfolgt über dieses Abonnement. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Sie können sich auf der Seite Details  Credentials des Assistenten für die Arbeitsumgebung anmelden"^].
 +
 --
-Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"]. Wenn das Connector- und das Cloud Volumes ONTAP-System an einem Dark Site bereitgestellt werden, muss eine BYOL-Lizenz verwendet werden.
+Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"]. Sie müssen eine BYOL-Lizenz verwenden, wenn der Connector und das Cloud Volumes ONTAP-System an einem dunklen Standort bereitgestellt werden.
 
 Darüber hinaus benötigen Sie ein Microsoft Azure-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
 
 --
-Anforderungen an Steckverbinder:: Der Connector kann in einer Azure-Region mit oder ohne Internetzugang installiert werden. Derzeit werden nur Azure Commercial Sites für Sites ohne Internetzugang unterstützt.
+Anforderungen an Steckverbinder:: Der Connector kann in einer Azure-Region mit vollem oder eingeschränktem Internetzugang installiert werden ("Standard" oder "Restricted"-Modus).
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Implementieren Sie einen Connector in Azure"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Installation des Connectors auf einem Linux-Host in einer Azure-Region ohne Internetzugang"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Manuelles Installieren des Connectors auf einem Linux-Host in einer Azure-Region"^]
 
 
 --
 
-
-
-NOTE: Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die link:whats-new.html["Cloud Backup Was ist neu"] Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["Aktualisieren Sie die Connector-Software"^] Wann Sie neue Funktionen nutzen möchten.
-
-Wir empfehlen Ihnen, regelmäßig lokale Backups der Cloud Backup-Konfigurationsdaten zu erstellen, wenn der Connector auf einer Website ohne Internetverbindung installiert ist. link:reference-backup-cbs-db-in-dark-site.html["Daten-Backups von Cloud Backups werden an einem dunklen Standort erstellt"^].
 
 Überprüfen oder Hinzufügen von Berechtigungen zum Konnektor:: Um die Funktion zum Suchen und Wiederherstellen von Cloud-Backups zu verwenden, müssen Sie spezifische Berechtigungen in der Rolle für den Connector besitzen, damit er auf den Azure Synapse Workspace und das Data Lake-Speicherkonto zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 +
@@ -239,7 +233,11 @@ image:screenshot_backup_select_volumes.png["Ein Screenshot, wie die Volumes ausg
 
 
 .Ergebnis
-In der von Ihnen eingegebenen Ressourcengruppe wird automatisch ein Blob-Storage-Container erstellt und die Backup-Dateien werden dort gespeichert. Das Dashboard für Volume Backup wird angezeigt, sodass Sie den Status der Backups überwachen können. Sie können den Status von Backup- und Wiederherstellungsjobs auch mit dem überwachen link:task-monitor-backup-jobs.html["Fenster Job-Überwachung"^].
+In der von Ihnen eingegebenen Ressourcengruppe wird automatisch ein Blob-Storage-Container erstellt und die Backup-Dateien werden dort gespeichert.
+
+Das Dashboard für Volume Backup wird angezeigt, sodass Sie den Status der Backups überwachen können. Sie können den Status von Backup- und Wiederherstellungsjobs auch mit dem überwachen link:task-monitor-backup-jobs.html["Fenster Job-Überwachung"^].
+
+Cloud Backup stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zoneredundanz (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
 
 
 

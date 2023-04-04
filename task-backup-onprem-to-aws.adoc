@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-onprem-to-aws.html 
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3, govcloud, government 
-summary: Unternehmen Sie einige Schritte, um den Backup von Daten von On-Premises-ONTAP-Systemen in Amazon S3 Storage zu starten. 
+summary: Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten von Ihren lokalen ONTAP Systemen in Amazon S3 Storage. 
 ---
 = Sichern von On-Premises-ONTAP-Daten in Amazon S3
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Unternehmen Sie einige Schritte, um den Backup von Daten von On-Premise
 
 
 [role="lead"]
-Unternehmen Sie einige Schritte, um den Backup von Daten von On-Premises-ONTAP-Systemen in Amazon S3 Storage zu starten.
+Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten von Ihren lokalen ONTAP Systemen in Amazon S3 Storage.
 
 Zu beachten ist, dass „On-Premises ONTAP Systeme“ FAS, AFF und ONTAP Select Systeme umfassen.
 
@@ -95,7 +95,7 @@ Wenn Sie bereits einen Connector in Ihrer AWS VPC oder Ihrem Standort implementi
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Installieren eines Connectors in Ihrem Haus"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["Installieren eines Connectors in einer AWS GovCloud Region"^]
 +
-Cloud Backup wird in GovCloud Regionen unterstützt, wenn der Connector in der Cloud bereitgestellt wird – und nicht, wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über AWS Marketplace implementieren. Sie können den Connector nicht in einer Regierungsregion von der BlueXP SaaS-Website bereitstellen.
+Cloud Backup wird in GovCloud Regionen unterstützt, wenn der Connector in der Cloud bereitgestellt wird – und nicht, wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über AWS Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.
 
 
 

@@ -93,10 +93,21 @@ Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS,
 
 === Unterstützung für Websites ohne Internetverbindung
 
-Cloud Backup kann an einem Standort ohne Internetverbindung (auch als „offline“ oder „dunkel“ bezeichnet) verwendet werden, um Volume-Daten zu sichern. In dieser Konfiguration werden auch die Volume- und Dateiwiederherstellung unterstützt. In diesem Fall müssen Sie den BlueXP Connector am Dark Site implementieren.
+Cloud Backup kann an einem Standort ohne Internetverbindung (auch als „privater Modus“ oder „dunkle“ Standorte bezeichnet) verwendet werden, um Volume-Daten zu sichern. In dieser Konfiguration werden auch die Volume- und Dateiwiederherstellung unterstützt. In diesem Fall müssen Sie den BlueXP Connector am Dark Site implementieren.
 
 * Sie können Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen sichern. Siehe link:task-backup-onprem-private-cloud.html["Sichern von lokalen ONTAP Daten in StorageGRID"] Entsprechende Details.
-* Daten aus Cloud Volumes ONTAP Systemen in AWS und Azure Geschäftsregionen können in Amazon S3 oder Azure Blob gesichert werden. Siehe link:task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
+* Daten von Cloud Volumes ONTAP Systemen, die in den kommerziellen Regionen von AWS und sicheren Regionen von AWS C2S/SC2S installiert sind, können in Amazon S3 gesichert werden. Siehe link:task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"].
+* Sie können Daten aus Cloud Volumes ONTAP Systemen in Azure kommerzielle Regionen und Azure IL6 sichere Regionen in Azure Blob sichern. Siehe link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
+
+
+
+
+=== Unterstützung für Standorte mit begrenzter Konnektivität
+
+Cloud Backup kann an einem Standort mit eingeschränkter Internetverbindung (auch als „eingeschränkter Modus“ bezeichnet) verwendet werden, um Volume-Daten zu sichern. In dieser Konfiguration werden auch die Volume- und Dateiwiederherstellung unterstützt. In diesem Fall müssen Sie den BlueXP Connector in der eingeschränkten Region implementieren.
+
+* Daten von Cloud Volumes ONTAP Systemen in AWS Geschäftsregionen können in Amazon S3 gesichert werden. Siehe link:task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"].
+* Sie können Daten aus Cloud Volumes ONTAP Systemen in Azure kommerzielle Regionen in Azure Blob sichern. Siehe link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
 
 
 
@@ -293,7 +304,7 @@ Wenn Sie künftig den Zielobjektspeicher für ein Cluster ändern möchten, müs
 
 Wenn Sie Cloud-Backup für eine Arbeitsumgebung aktivieren, werden alle Volumes, die Sie anfangs auswählen, mithilfe der definierten Standard-Backup-Richtlinie gesichert. Wenn Sie bestimmten Volumes mit unterschiedlichen Recovery-Zeitpunkten (Recovery Point Objectives, RPO) unterschiedliche Backup-Richtlinien zuweisen möchten, können Sie für diesen Cluster zusätzliche Richtlinien erstellen und diese Richtlinien den anderen Volumes zuweisen, nachdem Cloud Backup aktiviert ist.
 
-Es steht eine Kombination aus stündlichen, täglichen, wöchentlichen, monatlichen und jährlichen Backups aller Volumes zur Verfügung. Sie haben außerdem die Wahl zwischen einer der systemdefinierten Richtlinien, die 3 Monate, 1 Jahr und 7 Jahre Backups und Aufbewahrung bieten. Im Folgenden werden die Richtlinien aufgeführt:
+Es steht eine Kombination aus stündlichen, täglichen, wöchentlichen, monatlichen und jährlichen Backups aller Volumes zur Verfügung. Die auf das Volume angewendete Snapshot-Richtlinie muss eine der von Cloud Backup erkannten Richtlinien sein. Sie haben außerdem die Wahl zwischen einer der systemdefinierten Richtlinien, die 3 Monate, 1 Jahr und 7 Jahre Backups und Aufbewahrung bieten. Im Folgenden werden die Richtlinien aufgeführt:
 
 [cols="35,16,16,16,26"]
 |===

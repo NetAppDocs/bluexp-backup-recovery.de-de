@@ -155,8 +155,8 @@ Wählen Sie einfach aus, ob vorhandene Snapshot Kopien exportiert werden sollen,
 
 == Ändern Sie, ob „jährliche“ Snapshots aus dem Quellsystem entfernt werden
 
-Wenn Sie das „jährliche“ Backup-Etikett für eine Backup-Richtlinie für eines Ihrer Volumes auswählen, ist die erstellte Snapshot-Kopie sehr groß. Standardmäßig werden diese jährlichen Snapshots nach der Übertragung in den Objektspeicher automatisch aus dem Quellsystem gelöscht. Sie können dieses Standardverhalten im Abschnitt Jährlicher Snapshot-Löschvorgang ändern.
+Wenn Sie das „jährliche“ Backup-Label für eine Backup Richtlinie für ein beliebiges Ihrer Volumes auswählen, ist die erstellte Snapshot-Kopie sehr groß. Standardmäßig werden diese jährlichen Snapshots nach der Übertragung an den Objektspeicher automatisch aus dem Quellsystem gelöscht. Sie können dieses Standardverhalten im Abschnitt Jährlicher Snapshot-Löschvorgang ändern.
 
-image:screenshot_backup_edit_yearly_snap_delete.png["Ein Screenshot des IPspace-Eintrags auf der Seite Erweiterte Einstellungen."]
+image:screenshot_backup_edit_yearly_snap_delete.png["Ein Screenshot des Eintrags „jährliche Snapshots“ auf der Seite „Erweiterte Einstellungen“."]
 
 Wählen Sie *deaktiviert* und klicken Sie auf *Anwenden*, wenn Sie die jährlichen Snapshots auf dem Quellsystem beibehalten möchten.

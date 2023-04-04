@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
 keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification 
-summary: Sie können den Status von Backup- und Wiederherstellungsjobs überwachen, die Sie in Ihren Arbeitsumgebungen initiiert haben. Auf diese Weise können Sie die Aufträge sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die, die nicht erfolgreich abgeschlossen wurden, damit Sie Probleme diagnostizieren und beheben können. Sie können außerdem Benachrichtigungen per E-Mail konfigurieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. 
+summary: Sie können den Status geplanter oder von Ihnen initiierter Backup-Jobs in Ihrer Arbeitsumgebung überwachen und wiederherstellen. Sie können die Jobs sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die fehlgeschlagenen Jobs, sodass Sie Probleme diagnostizieren und beheben können. Sie können außerdem Benachrichtigungen per E-Mail konfigurieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. 
 ---
-= Überwachen des Status von Backup- und Restore-Jobs
+= Überwachen des Status von Backup- und Wiederherstellungsjobs
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,15 @@ summary: Sie können den Status von Backup- und Wiederherstellungsjobs überwach
 
 
 [role="lead"]
-Sie können den Status von Backup- und Wiederherstellungsjobs überwachen, die Sie in Ihren Arbeitsumgebungen initiiert haben. Auf diese Weise können Sie die Aufträge sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die, die nicht erfolgreich abgeschlossen wurden, damit Sie Probleme diagnostizieren und beheben können. Sie können außerdem Benachrichtigungen per E-Mail konfigurieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind.
+Sie können den Status geplanter oder von Ihnen initiierter Backup-Jobs in Ihrer Arbeitsumgebung überwachen und wiederherstellen. Sie können die Jobs sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die fehlgeschlagenen Jobs, sodass Sie Probleme diagnostizieren und beheben können. Sie können außerdem Benachrichtigungen per E-Mail konfigurieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind.
 
 
 
-== Verwenden Sie den Job Monitor, um den Status des Backup- und Wiederherstellungsjobs anzuzeigen
+== Zeigen Sie den Status des Backup- und Wiederherstellungsjobs auf dem Job Monitor an
 
-Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und Wiederherstellungsvorgänge und deren aktueller Status anzeigen. Dies umfasst auch Abläufe Ihrer Cloud Volumes ONTAP, lokalen ONTAP, Applikationen, Virtual Machines und Kubernetes-Systeme. Jeder Vorgang oder Job hat eine eindeutige ID und einen eindeutigen Status. Der Status kann lauten:
+Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und Wiederherstellungsvorgänge und deren aktueller Status anzeigen. Dazu gehören Vorgänge von Ihren Cloud Volumes ONTAP, On-Premises-ONTAP, Applikationen, Virtual Machines und Kubernetes-Systemen. Jeder Vorgang oder Job hat eine eindeutige ID und einen Status.
+
+Der Sicherungs- und Wiederherstellungsstatus kann wie folgt lauten:
 
 * Erfolg
 * In Bearbeitung
@@ -29,75 +31,151 @@ Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und 
 * Fehlgeschlagen
 
 
-Sowohl vom Benutzer initiierte Sicherungs- und Wiederherstellungsvorgänge, die von der Cloud-Backup-Benutzeroberfläche und -API initiiert wurden, als auch systeminitiierte Jobs, wie z. B. laufende Sicherungsvorgänge, sind auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme verfügbar, auf denen ONTAP 9.13.0 oder höher ausgeführt wird.
+Sowohl vom Benutzer initiierte Sicherungs- und Wiederherstellungsvorgänge, die über die Benutzeroberfläche und die API des Cloud-Backups initiiert werden, als auch systeminitiierte Jobs, wie z. B. laufende geplante Sicherungsvorgänge, sind auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme verfügbar, auf denen ONTAP 9.13.0 oder höher ausgeführt wird.
 
 
-TIP: Beim Ausführen einer früheren Version von ONTAP auf Cloud Volumes ONTAP-Systemen oder bei On-Premises-ONTAP-Systemen werden derzeit nur vom Benutzer initiierte Jobs angezeigt.
+TIP: Wenn Sie eine frühere Version von ONTAP auf Cloud Volumes ONTAP-Systemen oder auf lokalen ONTAP-Systemen ausführen, werden nur vom Benutzer initiierte Jobs angezeigt.
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
-. Klicken Sie auf die Registerkarte *Job Monitoring*.
+. Wählen Sie die Registerkarte *Job-Überwachung* aus.
 +
 image:screenshot_backup_job_monitor.png["Ein Screenshot mit Backup- und Wiederherstellungsjobs im Job Monitoring Dashboard."]
 
++
+In diesem Screenshot werden die standardmäßigen Spaltenüberschriften angezeigt.
+
+. Um vier zusätzliche Spalten anzuzeigen (Arbeitsumgebung, SVM, Benutzername und Workloads), wählen Sie aus image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"].
 
 
-In diesem Screenshot werden die standardmäßigen Spalten-/Feldüberschriften angezeigt. Klicken Sie auf image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"] Zeigt vier zusätzliche Spalten für „Arbeitsumgebung“, „SVM“, „Benutzername“ und „Workloads“ an.
 
 
+=== Suchen und filtern Sie die Jobliste
 
-=== Suchen und Filtern der Jobliste
+Standardmäßig werden auf der Seite Jobüberwachung Aufträge der letzten 24 Stunden angezeigt.
 
-Standardmäßig werden auf der Seite Jobüberwachung Aufträge der letzten 24 Stunden angezeigt. Sie können die Ergebnisse sortieren, indem Sie auf jede Spaltenüberschrift klicken, um sie nach Status, Startzeit, Ressourcenname usw. zu sortieren.
+.Schritte
+. Wählen Sie die Registerkarte *Job-Überwachung* aus.
+. Um die Ergebnisse unterschiedlich zu sortieren, wählen Sie die einzelnen Spaltenüberschriften aus, um sie nach Status, Startzeit, Ressourcenname usw. zu sortieren.
+. Wenn Sie nach bestimmten Jobs oder einer bestimmten Gruppe von Jobs suchen, wählen Sie den Bereich *Erweiterte Suche & Filterung* aus, um das Suchfeld zu öffnen.
++
+Verwenden Sie dieses Fenster, um eine freie Textsuche nach einer beliebigen Ressource einzugeben, z. B. „Volume 1“ oder „Application 3“. Sie können die Jobliste auch nach den Elementen in den Dropdown-Menüs filtern.
 
-Wenn Sie nach bestimmten Jobs oder einer bestimmten Gruppe von Jobs suchen, können Sie auf den Bereich *Erweiterte Suche & Filterung* klicken, um das Suchfeld zu öffnen. In diesem Fenster können Sie eine freie Textsuche nach beliebigen Ressourcen durchführen, z. B. „Volume 1“ oder „Application 3“. Sie können die Jobliste auch nach den Elementen in den Dropdown-Menüs filtern.
++
+image:screenshot_backup_job_monitor_filters.png["Ein Screenshot der Einstellung der Filter, um nur Jobs anzuzeigen, die den Filterkriterien entsprechen"]
 
-image:screenshot_backup_job_monitor_filters.png["Ein Screenshot der Einstellung der Filter, um nur Jobs anzuzeigen, die den Filterkriterien entsprechen."]
-
++
 Dieser Screenshot zeigt, wie Sie in der letzten Woche nach allen „Volumen“ „Sicherungsjobs“ für Volumen namens „Volume_1“ suchen würden.
 
++
 Die meisten Filter sind selbsterklärend. Mit dem Filter für „Workloads“ können Sie Jobs in den folgenden Kategorien anzeigen:
 
-* Volumes (Cloud Volumes ONTAP und lokale ONTAP Volumes)
-* Applikationen Unterstützt
-* Virtual Machines
-* Kubernetes
++
+** Volumes (Cloud Volumes ONTAP und lokale ONTAP Volumes)
+** Applikationen Unterstützt
+** Virtual Machines
+** Kubernetes
 
 
-Daten in einer bestimmten „SVM“ können nur dann nach Daten gesucht werden, wenn Sie zum ersten Mal eine Arbeitsumgebung ausgewählt haben.
++
 
-Diese Seite wird automatisch alle 15 Minuten aktualisiert, sodass Sie immer die aktuellsten Ergebnisse des Jobstatus sehen. Sie können auf klicken image:button_refresh.png["Aktualisierung"] Wenn Sie die Seite sofort aktualisieren müssen.
+TIP: Daten in einer bestimmten „SVM“ können nur dann nach Daten gesucht werden, wenn Sie zum ersten Mal eine Arbeitsumgebung ausgewählt haben.
+
+. Um die Seite sofort zu aktualisieren, wählen Sie die aus image:button_refresh.png["Aktualisierung"] Schaltfläche. Andernfalls wird diese Seite alle 15 Minuten aktualisiert, sodass immer die aktuellsten Ergebnisse des Jobstatus angezeigt werden.
+
 
 
 
 === Zeigt die Jobdetails an
 
-Sie können Details zu einem bestimmten Job anzeigen, indem Sie auf den Namen des Jobs klicken. Auf der Seite „Jobdetails“ werden alle untergeordneten Jobs angezeigt, die ausgeführt werden, um den Hauptjob abzuschließen.
+Sie können Details anzeigen, die einem bestimmten abgeschlossenen Job entsprechen. Sie können Details für einen bestimmten Job in einem JSON-Format exportieren.
 
-image:screenshot_backup_job_monitor_details.png["Ein Screenshot, in dem die Seite „Jobdetails“ angezeigt wird."]
+Sie können Details wie den Backup-Jobtyp (geplant oder On-Demand), Start- und Endzeiten für SnapMirror Backup (initial oder periodisch), die Dauer, die übertragene Datenmenge aus der Arbeitsumgebung in den Objekt-Storage, die durchschnittliche Übertragungsrate, den Namen der Backup-Richtlinie, die Aufbewahrungssperre aktiviert, den durchgeführten Ransomware-Scan Details zur Backup-Quelle und zu Backup-Zielen.
+
+Restore von Jobs zeigen Details an, wie z. B. Backup-Zielanbieter (Amazon Web Services, Microsoft Azure, Google Cloud, On-Premises), S3-Bucket-Name, SVM-Name, Name des Quell-Volume, Ziel-Volume, Snapshot-Label, Anzahl wiederhergestellter Objekte, Dateinamen, Dateigrößen, Datum der letzten Änderung und vollständiger Dateipfad.
+
+
+NOTE: Jobdetails werden nur für Backup- und Wiederherstellungsjobs von ONTAP Volumes angezeigt. Details zu geplanten Backup-Jobs werden nur für Cloud Volumes ONTAP-Systeme ab ONTAP 9.13.0 angezeigt. Job-Details werden für laufende und abgeschlossene Jobs angezeigt.
+
+.Schritte
+. Wählen Sie die Registerkarte *Job-Überwachung* aus.
+. Wählen Sie den Namen des Jobs aus.
+. Wählen Sie das Menü Aktionen image:icon-action.png["Aktionssymbol"] Und wählen Sie *Details anzeigen*.
++
+image:screenshot_backup_job_monitor_details2.png["Ein Screenshot, der Details zum Backup-Job zeigt"]
+
+. Erweitern Sie jeden Abschnitt, um Details anzuzeigen.
+
 
 
 
 === Laden Sie die Ergebnisse der Jobüberwachung als Bericht herunter
 
-Wenn Sie den Inhalt der Hauptseite zur Jobüberwachung nach dem Nacharbeiten als Bericht herunterladen möchten, klicken Sie auf das image:button_download.png["Download"] Schaltfläche. Cloud Backup erstellt und lädt eine CSV-Datei herunter, die Sie nach Bedarf prüfen und an andere Gruppen senden können. Die .CSV-Datei umfasst bis zu 10,000 Datenzeilen.
+Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterladen, nachdem Sie ihn überarbeitet haben. Cloud Backup erstellt und lädt eine CSV-Datei herunter, die Sie nach Bedarf prüfen und an andere Gruppen senden können. Die .CSV-Datei umfasst bis zu 10,000 Datenzeilen.
+
+Über die Details zur Jobüberwachung können Sie eine JSON-Datei herunterladen, die Details zu einem einzelnen Job enthält.
+
+.Schritte
+. Wählen Sie die Registerkarte *Job-Überwachung* aus.
+. Um eine CSV-Datei für alle Jobs herunterzuladen, wählen Sie die aus image:button_download.png["Download"] Und suchen Sie die Datei in Ihrem Download-Verzeichnis.
+. Um eine JSON-Datei für einen einzelnen Job herunterzuladen, wählen Sie das Menü Aktionen image:icon-action.png["Aktionssymbol"] Wählen Sie für den Job *JSON-Datei herunterladen*, und suchen Sie die Datei in Ihrem Download-Verzeichnis.
 
 
 
-== Verwenden Sie das Notification Center, um Sicherungs- und Wiederherstellungswarnungen zu überprüfen
 
-Das Notification Center verfolgt den Fortschritt der von Ihnen initiierten Sicherungs- und Wiederherstellungsaufträge, sodass Sie überprüfen können, ob der Vorgang erfolgreich war oder nicht. Sie können die Benachrichtigungen anzeigen, indem Sie auf die Schaltfläche ( klickenimage:icon_bell.png["Benachrichtigungsglocke"]) In der BlueXP-Menüleiste. Sie können BlueXP auch so konfigurieren, dass Benachrichtigungen per E-Mail als Benachrichtigungen gesendet werden, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht im System angemeldet sind.
+== Prüfen Sie Warnmeldungen bei Backup und Restore im BlueXP Notification Center
 
-Derzeit gibt es vier Sicherungs- und Wiederherstellungsereignisse, die E-Mail-Warnungen auslösen:
+Das BlueXP Notification Center verfolgt den Fortschritt der von Ihnen initiierten Backup- und Restore-Jobs, sodass Sie überprüfen können, ob der Vorgang erfolgreich war oder nicht.
 
-* Die Aktivierung von Cloud Backup ist in einer Arbeitsumgebung fehlgeschlagen
-* Wiederherstellung von Cloud-Backups fehlgeschlagen
-* Ad-hoc-Backup (On-Demand) des Volumes ist fehlgeschlagen
-* Potenzielle Ransomware-Angriffe auf Ihrem System erkannt
+Neben der Anzeige der Alarme in der BlueXP Benachrichtigungsliste können Sie BlueXP so konfigurieren, dass Benachrichtigungen per E-Mail als Warnmeldungen gesendet werden, sodass Sie über wichtige Systemaktivitäten informiert werden können, selbst wenn Sie nicht beim System angemeldet sind. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
+
+Die folgenden Ereignisse lösen E-Mail-Warnungen aus:
+
+[cols="3a,1d"]
+|===
+| Ereignis | Schweregrad 
 
 
-Standardmäßig erhalten BlueXP-Kontoadministratoren E-Mails für alle „kritischen“ und „Empfehlungsmeldungen“. Alle anderen Benutzer und Empfänger sind standardmäßig so konfiguriert, dass sie keine Benachrichtigungs-E-Mails erhalten. E-Mails können an alle BlueXP Benutzer, die Teil Ihres NetApp Cloud Kontos sind, oder an andere Empfänger gesendet werden, die Backup- und Wiederherstellungsaktivitäten kennen müssen.
+ a| 
+Ad-hoc-Backup (On-Demand) des Volumes ist fehlgeschlagen
+| Fehler 
 
-Sie müssen die Benachrichtigungstypen „kritisch“ und „Fehler“ auswählen, um E-Mail-Benachrichtigungen zum Cloud Backup zu erhalten.
+
+ a| 
+Aktivierung von Cloud Backup in der Arbeitsumgebung fehlgeschlagen
+| Kritisch 
+
+
+ a| 
+Wiederherstellung von Cloud-Backups fehlgeschlagen
+| Kritisch 
+
+
+ a| 
+Potenzieller Ransomware-Angriff auf Ihrem System erkannt
+| Kritisch 
+
+
+ a| 
+Der Wiederherstellungsjob wird abgeschlossen, jedoch mit Warnungen
+| Warnung 
+
+
+ a| 
+Geplanter Job fehlgeschlagen
+| Fehler 
+|===
+
+NOTE: Ab Cloud Volumes ONTAP 9.13.0 werden alle Warnmeldungen angezeigt. Bei Systemen mit Cloud Volumes ONTAP 9.13.0 und On-Premises-ONTAP wird nur die Warnmeldung zur abgeschlossenen Wiederherstellung des Jobs mit Warnungen angezeigt.
+
+BlueXP Account-Administratoren erhalten standardmäßig E-Mails für alle Warnmeldungen „kritisch“ und „Empfehlungen“. Alle anderen Benutzer und Empfänger sind standardmäßig so konfiguriert, dass sie keine Benachrichtigungs-E-Mails erhalten. E-Mails können an alle BlueXP Benutzer, die Teil Ihres NetApp Cloud Kontos sind, oder an andere Empfänger gesendet werden, die Backup- und Wiederherstellungsaktivitäten kennen müssen.
+
+Um die Cloud Backup-E-Mail-Warnungen zu erhalten, müssen Sie die Typen „kritisch“ und „Fehler“ für die Benachrichtigung auswählen.
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
+
+.Schritte
+. Wählen Sie die Registerkarte *Job-Überwachung* aus.
+. Benachrichtigungen anzeigen, indem Sie die Option (image:icon_bell.png["Benachrichtigungsglocke"]) In der BlueXP-Menüleiste.
+. Überprüfen Sie die Benachrichtigung.
+

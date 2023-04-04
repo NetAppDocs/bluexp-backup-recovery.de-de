@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-onprem-to-gcp.html 
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, gcp, google cloud 
-summary: Unternehmen Sie einige Schritte, um den Backup von Daten von lokalen ONTAP Systemen auf Google Cloud Storage zu starten. 
+summary: Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten aus Ihren lokalen ONTAP Systemen in Google Cloud Storage. 
 ---
 = Sichern von lokalen ONTAP-Daten auf Google Cloud Storage
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Unternehmen Sie einige Schritte, um den Backup von Daten von lokalen ON
 
 
 [role="lead"]
-Unternehmen Sie einige Schritte, um den Backup von Daten von lokalen ONTAP Systemen auf Google Cloud Storage zu starten.
+Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten aus Ihren lokalen ONTAP Systemen in Google Cloud Storage.
 
 Zu beachten ist, dass „On-Premises ONTAP Systeme“ FAS, AFF und ONTAP Select Systeme umfassen.
 

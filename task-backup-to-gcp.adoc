@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-to-gcp.html 
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, gcp, google cloud, back up volumes, cloud backup 
-summary: Führen Sie einige Schritte durch, um die Datensicherung von Cloud Volumes ONTAP auf Google Cloud Storage zu starten. 
+summary: Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten von Ihren Cloud Volumes ONTAP Systemen auf Google Cloud Storage zu sichern. 
 ---
 = Sichern von Cloud Volumes ONTAP Daten auf Google Cloud Storage –
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Führen Sie einige Schritte durch, um die Datensicherung von Cloud Volu
 
 
 [role="lead"]
-Führen Sie einige Schritte durch, um die Datensicherung von Cloud Volumes ONTAP auf Google Cloud Storage zu starten.
+Führen Sie ein paar Schritte durch, um zu beginnen, Volume-Daten von Ihren Cloud Volumes ONTAP-Systemen in Google Cloud Storage zu sichern.
 
 
 
@@ -28,6 +28,7 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 * Sie verfügen über ein gültiges GCP-Abonnement für den Speicherplatz, in dem sich Ihre Backups befinden.
 * Sie verfügen über ein Service-Konto in Ihrem Google Cloud Projekt, das über die vordefinierte Rolle „Storage Admin“ verfügt.
 * Sie haben sich für das angemeldet https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Und aktiviert"^] Eine Cloud Backup BYOL-Lizenz von NetApp
+* Sie haben einen Connector in Google Cloud installiert.
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Cloud Backup auf Ihrem neuen oder vorhandenen System aktivieren
@@ -81,6 +82,14 @@ Und Sie benötigen ein Google-Abonnement für den Speicherplatz, in dem Ihre Bac
 --
 Unterstützte GCP-Regionen:: Cloud Backup wird in allen GCP-Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^].
 GCP-Service-Konto:: Sie benötigen ein Servicekonto in Ihrem Google Cloud Projekt, das über die vordefinierte Rolle „Storage Admin“ verfügt. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["Erfahren Sie, wie Sie ein Servicekonto erstellen"^].
+Anforderungen an Steckverbinder:: Der Connector muss in einer Google-Region mit Internetzugang installiert werden.
++
+--
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Implementieren Sie einen Connector in Google Cloud"^]
+
+
+--
 Überprüfen oder Hinzufügen von Berechtigungen zum Konnektor:: Um die Cloud Backup Funktion „Search & Restore“ nutzen zu können, benötigen Sie spezielle Berechtigungen in der Rolle für den Connector, damit er auf den Google Cloud BigQuery Service zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 +
 --

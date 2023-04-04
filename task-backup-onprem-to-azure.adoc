@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-onprem-to-azure.html 
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, azure, azure blob, government 
-summary: Unternehmen Sie einige Schritte, um die Daten-Backups ihrer lokalen ONTAP Systeme auf Azure Blob Storage zu erstellen. 
+summary: Befolgen Sie einige Schritte für den ersten Schritt in Richtung Backup von Volume-Daten aus Ihren lokalen ONTAP Systemen in Azure Blob Storage. 
 ---
 = Sichern von lokalen ONTAP-Daten auf Azure Blob Storage
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Unternehmen Sie einige Schritte, um die Daten-Backups ihrer lokalen ONT
 
 
 [role="lead"]
-Unternehmen Sie einige Schritte, um die Daten-Backups ihrer lokalen ONTAP Systeme auf Azure Blob Storage zu erstellen.
+Befolgen Sie einige Schritte für den ersten Schritt in Richtung Backup von Volume-Daten aus Ihren lokalen ONTAP Systemen in Azure Blob Storage.
 
 Zu beachten ist, dass „On-Premises ONTAP Systeme“ FAS, AFF und ONTAP Select Systeme umfassen.
 
@@ -154,7 +154,7 @@ Falls Sie bereits einen Connector in Ihrem Azure vnet oder Ihrem Standort implem
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Installieren eines Connectors in Ihrem Haus"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html["Installieren eines Konnektors in einer Region der Azure-Regierung"^]
 +
-Cloud Backup wird in Regionen der Azure Regierung unterstützt, wenn der Connector in der Cloud implementiert wird – nicht wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über den Azure Marketplace implementieren. Sie können den Connector nicht in einer Regierungsregion von der BlueXP SaaS-Website bereitstellen.
+Cloud Backup wird in Regionen der Azure Regierung unterstützt, wenn der Connector in der Cloud implementiert wird – nicht wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über den Azure Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.
 
 
 

@@ -18,6 +18,37 @@ Alles zum Thema Cloud Backup:
 
 
 
+== Bis 4. April 2023
+
+
+
+=== Sicherung von Daten aus Cloud Volumes ONTAP Systemen in der Cloud mit „eingeschränktem“ Modus
+
+Es besteht jetzt die Möglichkeit, Daten von Cloud Volumes ONTAP Systemen zu sichern, die in kommerziellen Regionen AWS, Azure und GCP installiert sind, und zwar im „eingeschränkten“ Modus. Dies erfordert, dass Sie den Connector zunächst in der „eingeschränkten“ Handelsregion installieren. Siehe https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
+
+
+
+=== Möglichkeit zum Backup Ihrer On-Premises-ONTAP-Volumes in ONTAP S3 mithilfe der API
+
+Dank der neuen Funktionen der APIs können Sie Ihre Volume-Snapshots mithilfe von BlueXP Cloud Backup auf ONTAP S3 sichern. Diese Funktionalität ist derzeit nur für On-Premises-ONTAP-Systeme verfügbar. Detaillierte Anweisungen finden Sie im Blog https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830["Integration in ONTAP S3 als Ziel (mithilfe VON REST-APIs)"^].
+
+
+
+=== Möglichkeit, den Zonenredundanz-Aspekt Ihres Azure Storage-Kontos von LRS zu ZRS zu ändern
+
+Bei der Erstellung von Backups aus Cloud Volumes ONTAP Systemen in Azure Storage stellt Cloud Backup standardmäßig den Blob-Container mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zoneredundanz (ZRS) ändern, wenn Ihre Daten zwischen verschiedenen Zonen repliziert werden sollen. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
+
+
+
+=== Verbesserungen am Job Monitor
+
+* Sowohl vom Benutzer initiierte Sicherungs- und Wiederherstellungsvorgänge, die von der Cloud Backup-Benutzeroberfläche und der API initiiert wurden, als auch systeminitiierte Jobs, wie z. B. laufende Sicherungsvorgänge, sind jetzt auf der Registerkarte *Jobüberwachung* für On-Premises-ONTAP-Systeme verfügbar, auf denen ONTAP 9.13.1 oder höher ausgeführt wird. Frühere ONTAP-Versionen zeigen nur vom Benutzer initiierte Jobs an.
+* Neben der Möglichkeit, eine CSV-Datei für die Berichterstattung über alle Jobs herunterzuladen, können Sie jetzt auch eine JSON-Datei für einen einzelnen Job herunterladen und die zugehörigen Details anzeigen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["Weitere Informationen ."].
+* Es wurden zwei neue Warnmeldungen für Sicherungsjobs hinzugefügt: „Geplante Jobfehler“ und „Wiederherstellungsauftrag wird abgeschlossen, aber mit Warnungen“. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center["Überprüfen Sie alle Warnmeldungen, die Cloud Backup senden kann"].
+
+
+
+
 == 9 März 2023
 
 
@@ -30,7 +61,7 @@ In der Vergangenheit, als Sie einen Ordner wiederhergestellt haben, wurden nur D
 
 === Fähigkeit, Daten aus Cloud Volumes ONTAP Systemen an Dark Sites zu sichern
 
-Sie können jetzt Daten aus Cloud Volumes ONTAP Systemen in kommerziellen Regionen von AWS und Azure in Amazon S3 oder Azure Blob sichern. Dazu müssen Sie den Connector auf einem Linux-Host in der kommerziellen Region installieren und das Cloud Volumes ONTAP-System auch dort bereitstellen. Siehe link:task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
+Sie können jetzt Daten aus Cloud Volumes ONTAP Systemen in kommerziellen Regionen von AWS und Azure in Amazon S3 oder Azure Blob sichern. Dazu müssen Sie den Connector auf einem Linux-Host in der kommerziellen Region installieren und das Cloud Volumes ONTAP-System auch dort bereitstellen. Siehe https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
 
 
 

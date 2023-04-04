@@ -26,6 +26,7 @@ Im Cloud Backup sind neun Kategorien von Endpunkten definiert:
 * ransomware-Scan - initiiert einen Ransomware-Scan auf einer bestimmten Backup-Datei
 * Restore: Ermöglicht die Durchführung von Restore-Vorgängen auf Volume-, Datei- und Ordnerebene
 * sfr - ruft Dateien aus einer Sicherungsdatei für einzelne Wiederherstellungsvorgänge auf Dateiebene ab (Durchsuchen & Wiederherstellen)
+* StorageGRID – ruft Details zu einem StorageGRID-Server ab und ermöglicht Ihnen die Erkennung eines StorageGRID-Servers
 * Arbeitsumgebung: Managt die Backup-Richtlinien und konfiguriert den Ziel-Objektspeicher, der einer Arbeitsumgebung zugeordnet ist
 
 
