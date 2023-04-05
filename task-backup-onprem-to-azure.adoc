@@ -149,10 +149,9 @@ Wenn Sie Cloud Backup einrichten, werden Sie aufgefordert, den IP-Speicherplatz 
 Falls Sie bereits einen Connector in Ihrem Azure vnet oder Ihrem Standort implementiert haben, sind Sie alle bereit. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP Daten in Azure Blob Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["Erste Schritte mit den Anschlüssen"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Installieren eines Connectors in Azure"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Installieren eines Connectors in Ihrem Haus"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html["Installieren eines Konnektors in einer Region der Azure-Regierung"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["Installieren eines Connectors in Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["Installieren eines Connectors in Ihrem Haus"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["Installieren eines Konnektors in einer Region der Azure-Regierung"^]
 +
 Cloud Backup wird in Regionen der Azure Regierung unterstützt, wenn der Connector in der Cloud implementiert wird – nicht wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über den Azure Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.
 

@@ -353,14 +353,9 @@
   <block id="244b0622880fcbe1c4432e64d81bc038" category="paragraph">Wenn Sie bereits einen Connector in Ihrer AWS VPC oder Ihrem Standort implementiert haben, sind Sie alle festgelegt. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP-Daten in AWS S3 Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.</block>
   <block id="e6e80588e9fe7cf89218fea44300f7ca" category="inline-link">Erfahren Sie mehr über Steckverbinder</block>
   <block id="da1264a616f156bd6836a85f7dfdea5a" category="list-text"><block ref="da1264a616f156bd6836a85f7dfdea5a" category="inline-link-rx"></block></block>
-  <block id="d41b031ef25fff764808749edcc2cd28" category="inline-link">Erste Schritte mit den Anschlüssen</block>
-  <block id="b37ed402641ff6f2d1b0b55061547f2d" category="list-text"><block ref="b37ed402641ff6f2d1b0b55061547f2d" category="inline-link-rx"></block></block>
   <block id="cd10ae990b1a676dcb9da574833197dc" category="inline-link">Installieren eines Connectors in AWS</block>
-  <block id="fe96b3be0fd11571a6c8ea6ac43f23fe" category="list-text"><block ref="fe96b3be0fd11571a6c8ea6ac43f23fe" category="inline-link-rx"></block></block>
   <block id="c434332bb7ea2d6636a3d41a262f1e7e" category="inline-link">Installieren eines Connectors in Ihrem Haus</block>
-  <block id="408e970a6e2ac7b03356ff4f61689ed3" category="list-text"><block ref="408e970a6e2ac7b03356ff4f61689ed3" category="inline-link-rx"></block></block>
   <block id="dbb5638e73887ef4301df1c7b10993df" category="inline-link">Installieren eines Connectors in einer AWS GovCloud Region</block>
-  <block id="9ead7424c07e39075bc88d26cf29486d" category="list-text"><block ref="9ead7424c07e39075bc88d26cf29486d" category="inline-link-rx"></block></block>
   <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">Anforderungen für Connector-Netzwerke</block>
   <block id="aadbd6cd1f8b4e9deafea8f1d6c8333c" category="list-text">Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:</block>
   <block id="2e379f93711508ab69eec06837dd271c" category="inline-link">Siehe die Liste der Endpunkte</block>
@@ -617,14 +612,9 @@
   <block id="168036087bcdae960471ab9c23a03efa" category="list-text">Sie dürfen die StorageGRID Objektversionierung auf dem Objektspeicher-Bucket nicht manuell aktivieren.</block>
   <block id="6dca065caf89927398e08355b9d7718e" category="paragraph">Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.</block>
   <block id="f9e3fe9bcf87b917aee79601ec31e206" category="inline-link">Installieren des Connectors auf einem Linux-Host mit Internetzugang</block>
-  <block id="c406c8943ff98e7dc5d56f37428c9410" category="list-text"><block ref="c406c8943ff98e7dc5d56f37428c9410" category="inline-link-rx"></block></block>
   <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">Installieren des Connectors auf einem Linux-Host ohne Internetzugang</block>
-  <block id="d2c6281fb2bfdd80b1c106c90e21e78b" category="list-text"><block ref="d2c6281fb2bfdd80b1c106c90e21e78b" category="inline-link-rx"></block></block>
-  <block id="c870531773e82c374eb4125c8029e25e" category="inline-link">Wechseln zwischen den Anschlüssen</block>
-  <block id="74d39f4b6fe0e32c5cfa2ed86891bf44" category="list-text"><block ref="74d39f4b6fe0e32c5cfa2ed86891bf44" category="inline-link-rx"></block></block>
   <block id="31f0caf11b57fb7cb77368268e368d75" category="inline-link-macro">Cloud Backup Was ist neu</block>
   <block id="f4cec0313eb4678996dc68cfe81c6f4f" category="inline-link">Aktualisieren Sie die Connector-Software</block>
-  <block id="48b0bfd3649cb51640d3b2b726ccd1b0" category="admonition">Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor<block ref="9f7f6f7d33dac6a99bb8b7e121fd2054" category="inline-link-rx"></block> Wann Sie neue Funktionen nutzen möchten.</block>
   <block id="a8e8e48001e032c3b5939047d15db5a2" category="section-title">Vorbereiten der Vernetzung für den Connector</block>
   <block id="7b16b8b258668ab05a1e5d83e084b477" category="paragraph">Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindungen verfügt.</block>
   <block id="92a508a0037c85cca367ecb3e92a0fde" category="list-text">Eine HTTPS-Verbindung über Port 443 zum StorageGRID-Gateway-Node</block>
@@ -1807,7 +1797,6 @@
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">Die Intercluster-LIFs der Nodes können auf den Objektspeicher zugreifen.</block>
   <block id="8ba57385dd56e0702c2eaf4101f0267d" category="list-text">Aktualisieren Sie ggf. Firewall-Regeln, um Cloud Backup Service-Verbindungen von ONTAP zu Objektspeicher über Port 443 und Datenverkehr zur Namensauflösung von der Storage VM zum DNS-Server über Port 53 (TCP/UDP) zu ermöglichen.</block>
   <block id="1c52fe530613f90d476d439dbca6d53e" category="inline-link">Installieren eines Steckers in GCP</block>
-  <block id="a792c7e75bcc7cf7d82f87b63cbca477" category="list-text"><block ref="a792c7e75bcc7cf7d82f87b63cbca477" category="inline-link-rx"></block></block>
   <block id="98ec81693c17601be27be39c9336f3b4" category="list-text">Eine ausgehende Internetverbindung zum Cloud Backup Service über Port 443 (HTTPS)</block>
   <block id="c359c4549d4c72aed13558f2e3ef33a0" category="list-text">Eine HTTPS-Verbindung über Port 443 zu Ihrem Google Cloud-Speicher</block>
   <block id="b092138563f7b68473c3bf2a6a23a434" category="inline-link">Privater Zugriff Auf Google</block>
@@ -1950,9 +1939,7 @@
   <block id="4ac800b4e5d934f314da963c023ec8e3" category="list-text">Die LIFs der Nodes und Intercluster können auf den Objektspeicher zugreifen.</block>
   <block id="68c339b6eb7bfabf7edb3aa60625b8a0" category="paragraph">Falls Sie bereits einen Connector in Ihrem Azure vnet oder Ihrem Standort implementiert haben, sind Sie alle bereit. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP Daten in Azure Blob Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.</block>
   <block id="698b05231bfe12b062cbf4a5381b3d2f" category="inline-link">Installieren eines Connectors in Azure</block>
-  <block id="b4f571ad8c9a525beb5cb8da26f64fef" category="list-text"><block ref="b4f571ad8c9a525beb5cb8da26f64fef" category="inline-link-rx"></block></block>
   <block id="0fed42c16e02df19813c1ada5f9c8fd7" category="inline-link">Installieren eines Konnektors in einer Region der Azure-Regierung</block>
-  <block id="3ed416b513332ef0663a96d528858df7" category="list-text"><block ref="3ed416b513332ef0663a96d528858df7" category="inline-link-rx"></block></block>
   <block id="ed5be7df16713ed4a1d631dedaea1f5e" category="list-text">Eine HTTPS-Verbindung über Port 443 an Ihren Blob-Objekt-Storage</block>
   <block id="b445de53411a165e9c56da6430c38d59" category="inline-link">Regeln für den Connector in Azure</block>
   <block id="f840409b357663e7b24e8296c05770a5" category="list-text">Für Implementierungen von Azure und Azure Government sind weitere Regeln für eingehende Sicherheitsgruppen erforderlich. Siehe<block ref="e1893ebf6f9d2e927a13d052b78eec9f" category="inline-link-rx"></block> Entsprechende Details.</block>
@@ -3469,10 +3456,8 @@
   <block id="d2b32f39697a5b013948d2ec66933921" category="list-text">Job: Verwaltet Job-Detaileinträge in der BlueXP Datenbank</block>
   <block id="608448c2576128ccc8c2f959d59e20b4" category="list-text">Anforderungen an Steckverbinder</block>
   <block id="c9069f67c447a0a15bda0467230c3148" category="inline-link">Implementieren Sie einen Connector in AWS</block>
-  <block id="545a608e55ae4e3a96594a093a988a8a" category="list-text"><block ref="545a608e55ae4e3a96594a093a988a8a" category="inline-link-rx"></block></block>
   <block id="070bde10025186ce49792171c694b711" category="list-text">Wenn Sie ONTAP 9.10.1 und höher einsetzen, können Sie optional nach einer bestimmten Anzahl von Tagen Backups entweder auf S3 Glacier oder in S3 Glacier Deep Archive Storage abstufen, um die Kosten weiter zu optimieren. Diese Funktion ist nicht verfügbar, wenn sie in dunklen Sites bereitgestellt wird. <block ref="58f01ad9ea7ce8fd23147681b9f27af7" category="inline-link-macro-rx"></block>.</block>
   <block id="261ca950ce5b13f6fc57f9ad7d366d88" category="inline-link">Implementieren Sie einen Connector in Azure</block>
-  <block id="28cf618b595b848efbf044d272e765f2" category="list-text"><block ref="28cf618b595b848efbf044d272e765f2" category="inline-link-rx"></block></block>
   <block id="7cccee5994c911e5094d2b657aa36982" category="list-text">Bei Verwendung von ONTAP 9.10.1 und neuer können Backups nach einer bestimmten Anzahl von Tagen auf den Azure Archiv-Storage verschoben werden, um die Kosten weiter zu optimieren. Diese Funktion ist nicht verfügbar, wenn sie in dunklen Sites bereitgestellt wird. <block ref="0f1866ee99580c7794186e312ffd205e" category="inline-link-macro-rx"></block>.</block>
   <block id="898e35e1a4bf4b025c3edec879439b08" category="section-title">Managen Ihrer Support-Cases (Vorschau)</block>
   <block id="8b74b053fbeeff5c3b6f4991cb1d028d" category="paragraph">Sie können aktive und gelöste Support-Cases direkt über BlueXP anzeigen und managen. Sie können die mit Ihrem NSS-Konto und Ihrem Unternehmen verbundenen Fälle verwalten.</block>
@@ -3542,11 +3527,9 @@
   <block id="bfa80e7aaad6da353b431bff3a0e12d6" category="paragraph">Anhänge sind auf 25 MB pro Datei begrenzt. Folgende Dateierweiterungen werden unterstützt: Txt, log, pdf, jpg/jpeg, rtf, doc/docx, xls/xlsx und csv.</block>
   <block id="8e6b52a532a4fbbfc98dca3ebfa5f1e6" category="list-text">*Aktennotizen aktualisieren*: Geben Sie zusätzliche Details zu Ihrem Problem an oder wählen Sie *Dateien hochladen*, um maximal fünf Dateien anzuhängen.</block>
   <block id="99b6a376880ac28b047f54b783efb2b9" category="summary">Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten aus Ihren Cloud Volumes ONTAP Systemen in Azure Blob Storage zu sichern.</block>
-  <block id="682b6321ac519cf28bd8d1a2cb21003e" category="list-text">Sie haben einen Connector in Azure installiert. Der Connector kann auf einer Website mit vollem Internetzugang ("Standard-Modus") oder mit eingeschränkter Internetverbindung ("eingeschränkter Modus") installiert werden. .<block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Cloud Backup auf Ihrem neuen oder vorhandenen System aktivieren</block>
   <block id="6bdecde65d2cf1697dee748c10e1d508" category="paragraph">Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>. Sie müssen eine BYOL-Lizenz verwenden, wenn der Connector und das Cloud Volumes ONTAP-System an einem dunklen Standort bereitgestellt werden.</block>
   <block id="6322974b2572b580e2e280f1f7473932" category="list-text">Der Connector kann in einer Azure-Region mit vollem oder eingeschränktem Internetzugang installiert werden ("Standard" oder "Restricted"-Modus).</block>
   <block id="f07703a113f9329efbb1b3b1ed7d5490" category="inline-link">Manuelles Installieren des Connectors auf einem Linux-Host in einer Azure-Region</block>
-  <block id="6557cfcd06534fdeff37ca971fbd068c" category="list-text"><block ref="6557cfcd06534fdeff37ca971fbd068c" category="inline-link-rx"></block></block>
   <block id="f74289356f2bc0344a65a98de529ad8d" category="paragraph">In der von Ihnen eingegebenen Ressourcengruppe wird automatisch ein Blob-Storage-Container erstellt und die Backup-Dateien werden dort gespeichert.</block>
   <block id="62ce1fd293b23e542e251491d1905645" category="paragraph">Das Dashboard für Volume Backup wird angezeigt, sodass Sie den Status der Backups überwachen können. Sie können den Status von Backup- und Wiederherstellungsjobs auch mit dem überwachen <block ref="5d9366e34fca5f2de6190abcadbc5e98" category="inline-link-macro-rx"></block>.</block>
   <block id="95fa16fe802a71eca4c0ade2049c7325" category="inline-link">Ändern der Replizierung Ihres Storage-Kontos</block>
@@ -3609,13 +3592,11 @@
   <block id="051139f64ea4dc8d9390cd2792f01b14" category="list-text">Sie haben einen Connector in Google Cloud installiert.</block>
   <block id="6b344f3d57a23c796f9476dd353d12e7" category="list-text">Der Connector muss in einer Google-Region mit Internetzugang installiert werden.</block>
   <block id="87a05d4200b00403ad79b218876c73d4" category="inline-link">Implementieren Sie einen Connector in Google Cloud</block>
-  <block id="b7ca017a195ca4317075e0552ce38e44" category="list-text"><block ref="b7ca017a195ca4317075e0552ce38e44" category="inline-link-rx"></block></block>
   <block id="38d4d167f6dd9174c3535fc5c7ba4b76" category="section-title">Bis 4. April 2023</block>
   <block id="40c193dda1b0a4df68695abe150f234a" category="section-title">Sicherung von Daten aus Cloud Volumes ONTAP Systemen in der Cloud mit „eingeschränktem“ Modus</block>
   <block id="28e1f4495f1c7f5d7f7a5392a215c21a" category="paragraph">Es besteht jetzt die Möglichkeit, Daten von Cloud Volumes ONTAP Systemen zu sichern, die in kommerziellen Regionen AWS, Azure und GCP installiert sind, und zwar im „eingeschränkten“ Modus. Dies erfordert, dass Sie den Connector zunächst in der „eingeschränkten“ Handelsregion installieren. Siehe<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> Und<block ref="d878e312b2f9cdcef2f8eccaa51619ee" category="inline-link-rx"></block>.</block>
   <block id="57c3b4ba3c60295d45a2554606080eef" category="section-title">Möglichkeit zum Backup Ihrer On-Premises-ONTAP-Volumes in ONTAP S3 mithilfe der API</block>
   <block id="430a1b25bf435fd21376b7b1884b6999" category="inline-link">Integration in ONTAP S3 als Ziel (mithilfe VON REST-APIs)</block>
-  <block id="26ec6efcc8d7c7740aceeb4c7307d184" category="paragraph">Dank der neuen Funktionen der APIs können Sie Ihre Volume-Snapshots mithilfe von BlueXP Cloud Backup auf ONTAP S3 sichern. Diese Funktionalität ist derzeit nur für On-Premises-ONTAP-Systeme verfügbar. Detaillierte Anweisungen finden Sie im Blog<block ref="50f757899df464a10b489edfac75ae5d" category="inline-link-rx"></block>.</block>
   <block id="720734599c08f49ea57d729ec9f12d53" category="section-title">Möglichkeit, den Zonenredundanz-Aspekt Ihres Azure Storage-Kontos von LRS zu ZRS zu ändern</block>
   <block id="d9f6af5f4e2b16940729f1ac7da86d7d" category="paragraph">Bei der Erstellung von Backups aus Cloud Volumes ONTAP Systemen in Azure Storage stellt Cloud Backup standardmäßig den Blob-Container mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zoneredundanz (ZRS) ändern, wenn Ihre Daten zwischen verschiedenen Zonen repliziert werden sollen. Siehe Microsoft-Anweisungen für<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>.</block>
   <block id="a7393f4b2940dc4b2ad20a62564d25be" category="section-title">Verbesserungen am Job Monitor</block>
@@ -3632,7 +3613,6 @@
   <block id="a9d3c4c93c315af7f13f9b365c2adcbf" category="list-text">Der Connector kann auf einer Website mit vollem Internetzugang ("Standard-Modus") oder mit eingeschränkter Internetverbindung ("eingeschränkter Modus") installiert werden.</block>
   <block id="5b477e50c905f9613c5e16e571e9e5bc" category="list-text">Der Connector kann in einer AWS-Region mit vollem oder eingeschränktem Internetzugang installiert werden („Standard“ oder „eingeschränkter“ Modus).</block>
   <block id="e7e22b4d377bdd0d9b0cb0ec1148ae55" category="inline-link">Manuelles Installieren des Connectors auf einem Linux-Host in einer AWS-Region</block>
-  <block id="1196ba0da50696f076c6352e9882467f" category="list-text"><block ref="1196ba0da50696f076c6352e9882467f" category="inline-link-rx"></block></block>
   <block id="04b01ab636ef32a98ac9e4e70d26301d" category="paragraph">Cloud Backup kann an einem Standort ohne Internetverbindung (auch als „privater Modus“ oder „dunkle“ Standorte bezeichnet) verwendet werden, um Volume-Daten zu sichern. In dieser Konfiguration werden auch die Volume- und Dateiwiederherstellung unterstützt. In diesem Fall müssen Sie den BlueXP Connector am Dark Site implementieren.</block>
   <block id="9cee8a58cb0f70566a439c4bcaed0562" category="list-text">Daten von Cloud Volumes ONTAP Systemen, die in den kommerziellen Regionen von AWS und sicheren Regionen von AWS C2S/SC2S installiert sind, können in Amazon S3 gesichert werden. Siehe <block ref="31e49e13e812c331f506a2a8e6b7ad22" category="inline-link-macro-rx"></block>.</block>
   <block id="5660f9fec8990d75e681f2c7676a1132" category="list-text">Sie können Daten aus Cloud Volumes ONTAP Systemen in Azure kommerzielle Regionen und Azure IL6 sichere Regionen in Azure Blob sichern. Siehe <block ref="ab5c78f08c8780b598ee1d4de19230ab" category="inline-link-macro-rx"></block>.</block>
@@ -3648,4 +3628,20 @@
   <block id="042a30f816a9f3db4f832c68a750cbd0" category="paragraph">Die Startzeit ist auf der Zeitzone basiert, die auf jedem ONTAP Quell-System eingestellt ist. Sie können keine Sicherungsvorgänge zu einem benutzerdefinierten Zeitpunkt über die Benutzeroberfläche planen. Weitere Informationen erhalten Sie von Ihrem System Engineer.</block>
   <block id="f6c25edb13a1fb5bd6c5a94f498065a2" category="summary">Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten von Ihren lokalen ONTAP Systemen in Amazon S3 Storage.</block>
   <block id="1034847477ed5a052dde5a113bf49af2" category="paragraph">Cloud Backup wird in GovCloud Regionen unterstützt, wenn der Connector in der Cloud bereitgestellt wird – und nicht, wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über AWS Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.</block>
+  <block id="a16acb967c4e8e9b1d495f499e535a7a" category="list-text">Sie haben einen Connector in Azure installiert. Der Connector kann auf einer Website mit vollem Internetzugang ("Standard-Modus") oder mit eingeschränkter Internetverbindung ("eingeschränkter Modus") installiert werden.</block>
+  <block id="d6dafcdb12e4f86e51530ee982eab823" category="list-text"><block ref="d6dafcdb12e4f86e51530ee982eab823" category="inline-link-rx"></block></block>
+  <block id="027b143222d1d3eb38cfc1f168468c85" category="list-text"><block ref="027b143222d1d3eb38cfc1f168468c85" category="inline-link-rx"></block></block>
+  <block id="42fe5b7d13b47e1a54bdeba0b60b6fe4" category="list-text"><block ref="42fe5b7d13b47e1a54bdeba0b60b6fe4" category="inline-link-rx"></block></block>
+  <block id="9782e9b134ce2961f9658af915ee4113" category="list-text"><block ref="9782e9b134ce2961f9658af915ee4113" category="inline-link-rx"></block></block>
+  <block id="d1830c648563b369c87ce51dd1eefe60" category="list-text"><block ref="d1830c648563b369c87ce51dd1eefe60" category="inline-link-rx"></block></block>
+  <block id="323b89c418724269f9abecade7c834d3" category="list-text"><block ref="323b89c418724269f9abecade7c834d3" category="inline-link-rx"></block></block>
+  <block id="8359638cbd1b68fd640fa0f309480550" category="list-text"><block ref="8359638cbd1b68fd640fa0f309480550" category="inline-link-rx"></block></block>
+  <block id="348d63f232889527f97197322aaa8986" category="admonition">Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor<block ref="665cecca74760cbd23ea14978e32ba89" category="inline-link-rx"></block> Wann Sie neue Funktionen nutzen möchten.</block>
+  <block id="2ea7e7f07a1904fc4427a42a7aba9533" category="list-text"><block ref="2ea7e7f07a1904fc4427a42a7aba9533" category="inline-link-rx"></block></block>
+  <block id="1a9500ce2c4bdf3774a1abc05bae9ae2" category="list-text"><block ref="1a9500ce2c4bdf3774a1abc05bae9ae2" category="inline-link-rx"></block></block>
+  <block id="f25c47eb7d9f3c638d89723bee6d2360" category="paragraph">Dank der neuen Funktionen der APIs können Sie Ihre Volume-Snapshots mithilfe von BlueXP Cloud Backup auf ONTAP S3 sichern. Diese Funktionalität ist derzeit nur für On-Premises-ONTAP-Systeme verfügbar. Detaillierte Anweisungen finden Sie im Blog<block ref="50f757899df464a10b489edfac75ae5d" category="inline-link-rx"></block>.</block>
+  <block id="bf561a7142f1f05d376a8d4b4beaad24" category="list-text"><block ref="bf561a7142f1f05d376a8d4b4beaad24" category="inline-link-rx"></block></block>
+  <block id="51c1a6c1e7497769792664cc458e4b3b" category="list-text"><block ref="51c1a6c1e7497769792664cc458e4b3b" category="inline-link-rx"></block></block>
+  <block id="3b3fe44fb52240d2bf1cecd954ba8f31" category="list-text"><block ref="3b3fe44fb52240d2bf1cecd954ba8f31" category="inline-link-rx"></block></block>
+  <block id="b08b0a6b8389d8eb21b696d8750a42c7" category="list-text"><block ref="b08b0a6b8389d8eb21b696d8750a42c7" category="inline-link-rx"></block></block>
 </blocks>

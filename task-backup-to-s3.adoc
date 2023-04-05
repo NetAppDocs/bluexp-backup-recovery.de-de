@@ -98,8 +98,8 @@ Anforderungen an Steckverbinder:: Der Connector kann in einer AWS-Region mit vol
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Implementieren Sie einen Connector in AWS"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Manuelles Installieren des Connectors auf einem Linux-Host in einer AWS-Region"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["Implementieren Sie einen Connector in AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["Manuelles Installieren des Connectors auf einem Linux-Host in einer AWS-Region"^]
 
 
 --

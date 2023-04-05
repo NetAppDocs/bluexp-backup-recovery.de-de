@@ -177,13 +177,12 @@ Objektversionierung:: Sie dürfen die StorageGRID Objektversionierung auf dem Ob
 Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Installieren des Connectors auf einem Linux-Host mit Internetzugang"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Installieren des Connectors auf einem Linux-Host ohne Internetzugang"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["Wechseln zwischen den Anschlüssen"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["Installieren des Connectors auf einem Linux-Host mit Internetzugang"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["Installieren des Connectors auf einem Linux-Host ohne Internetzugang"^]
 
 
 
-NOTE: Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die link:whats-new.html["Cloud Backup Was ist neu"] Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["Aktualisieren Sie die Connector-Software"^] Wann Sie neue Funktionen nutzen möchten.
+NOTE: Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die link:whats-new.html["Cloud Backup Was ist neu"] Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["Aktualisieren Sie die Connector-Software"^] Wann Sie neue Funktionen nutzen möchten.
 
 Wir empfehlen Ihnen, regelmäßig lokale Backups der Cloud Backup-Konfigurationsdaten zu erstellen, wenn der Connector auf einer Website ohne Internetverbindung installiert ist. link:reference-backup-cbs-db-in-dark-site.html["Daten-Backups von Cloud Backups werden an einem dunklen Standort erstellt"^].
 

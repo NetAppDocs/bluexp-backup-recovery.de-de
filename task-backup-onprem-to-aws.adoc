@@ -90,10 +90,9 @@ Der BlueXP Connector ist die Hauptsoftware für BlueXP-Funktionen. Zum Sichern u
 Wenn Sie bereits einen Connector in Ihrer AWS VPC oder Ihrem Standort implementiert haben, sind Sie alle festgelegt. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP-Daten in AWS S3 Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["Erste Schritte mit den Anschlüssen"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Installieren eines Connectors in AWS"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Installieren eines Connectors in Ihrem Haus"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["Installieren eines Connectors in einer AWS GovCloud Region"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["Installieren eines Connectors in AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["Installieren eines Connectors in Ihrem Haus"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["Installieren eines Connectors in einer AWS GovCloud Region"^]
 +
 Cloud Backup wird in GovCloud Regionen unterstützt, wenn der Connector in der Cloud bereitgestellt wird – und nicht, wenn er in Ihrem Unternehmen installiert ist. Darüber hinaus müssen Sie den Connector über AWS Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.
 

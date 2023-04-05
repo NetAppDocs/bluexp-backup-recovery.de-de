@@ -86,7 +86,7 @@ Anforderungen an Steckverbinder:: Der Connector muss in einer Google-Region mit 
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Implementieren Sie einen Connector in Google Cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-google.html["Implementieren Sie einen Connector in Google Cloud"^]
 
 
 --
