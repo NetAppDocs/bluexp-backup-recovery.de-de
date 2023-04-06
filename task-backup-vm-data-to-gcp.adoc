@@ -14,10 +14,10 @@ summary: Erstellen Sie Backups Ihrer Datastores von On-Premises-ONTAP auf der Go
 
 
 [role="lead"]
-Durch Integration des SnapCenter Plug-ins für VMware vSphere mit BlueXP können Sie ein oder mehrere Datastores auf der Google Cloud Platform sichern. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
+Durch Integration des SnapCenter Plug-ins für VMware vSphere Hosts in BlueXP können Sie Backups eines oder mehrerer Datastores in die Google Cloud Platform erstellen. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
 
-
-NOTE: Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
+.Bevor Sie beginnen
+Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
@@ -25,13 +25,13 @@ NOTE: Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-d
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.
 . Fügen Sie die Arbeitsumgebung hinzu.
 +
-Konfigurieren Sie die ONTAP-Cluster, die BlueXP zum Sichern Ihrer Datenspeicher entdecken soll. Nachdem Sie die Arbeitsumgebung für einen der Datenspeicher hinzugefügt haben, können Sie sie für alle anderen Datenspeicher im selben ONTAP Cluster verwenden.
+Konfigurieren Sie die Cluster-Management-LIF, die BlueXP ermitteln soll. Nachdem Sie die Arbeitsumgebung für einen der Datenspeicher hinzugefügt haben, können Sie sie für alle anderen Datenspeicher im selben ONTAP Cluster verwenden.
 
 +
 .. Klicken Sie auf *Arbeitsumgebung hinzufügen* der SVM.
 .. Im Assistenten „Arbeitsumgebung hinzufügen“:
 +
-... Geben Sie die IP-Adresse des ONTAP-Clusters an.
+... Geben Sie die IP-Adresse der Cluster-Management-LIF an.
 ... Geben Sie die Anmeldedaten des ONTAP-Cluster-Benutzers an.
 
 

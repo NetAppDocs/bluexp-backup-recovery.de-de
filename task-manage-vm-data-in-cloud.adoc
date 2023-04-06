@@ -14,42 +14,42 @@ summary: Sie können die Datastores und Virtual Machines anzeigen und das SnapCe
 
 
 [role="lead"]
-Sie können Richtlinien, Datastores und Virtual Machines anzeigen, bevor Sie Daten sichern und wiederherstellen. Abhängig von der Änderung in der Datenbank, Richtlinien oder Ressourcengruppen können Sie die Updates über die BlueXP-Benutzeroberfläche aktualisieren.
+Sie können Richtlinien, Datastores und Virtual Machines anzeigen, bevor Sie Daten sichern und wiederherstellen. Je nach Änderung in Datenbanken, Richtlinien oder Ressourcengruppen können Sie die Updates über die BlueXP UI anzeigen.
 
 
 
 == Anzeigen von Richtlinien
 
-Sie können alle vordefinierten Standardrichtlinien anzeigen. Wenn Sie die Details anzeigen, werden für jede dieser Richtlinien alle zugehörigen Cloud Backup für Virtual Machines und alle zugehörigen Virtual Machines aufgelistet.
+Sie können alle vordefinierten Standardrichtlinien anzeigen. Wenn Sie die Details für jede dieser Richtlinien anzeigen, werden alle zugehörigen Richtlinien und virtuellen Maschinen aufgelistet.
 
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
 . Klicken Sie im Dropdown-Menü *Einstellungen* auf *Richtlinien*.
 . Klicken Sie auf *Details anzeigen* entsprechend der Richtlinie, deren Details Sie anzeigen möchten.
 
 
-Die zugehörigen Richtlinien für Cloud Backup für Virtual Machines und alle Virtual Machines werden aufgelistet.
+Die zugehörigen Richtlinien und Virtual Machines werden aufgelistet.
 
 
 
-== Sehen Sie sich die Datenspeicher und Virtual Machines an
+== Anzeigen von Datastores und Virtual Machines
 
-Es werden die Datenspeicher und Virtual Machines angezeigt, die mit dem registrierten SnapCenter Plug-in für VMware vSphere gesichert sind.
+Die Datastores und virtuellen Maschinen, die mit dem Registered SnapCenter Plug-in für VMware vSphere-Host geschützt sind, werden angezeigt.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *Einstellungen* > *SnapCenter Plug-in für VMware vSphere*.
-. Klicken Sie auf das SnapCenter-Plug-in für VMware vSphere, dessen Datenspeicher und Virtual Machines angezeigt werden sollen.
+. Klicken Sie auf das SnapCenter-Plug-in für VMware vSphere-Host, für den Sie die Datastores und virtuellen Maschinen anzeigen möchten.
 
 
 
 
 == Bearbeiten Sie das SnapCenter Plug-in für die VMware vSphere-Instanz
 
-Die Details zum SnapCenter Plug-in für VMware vSphere können Sie unter BlueXP bearbeiten.
+Sie können die Details des SnapCenter Plug-ins für VMware vSphere Hosts in BlueXP bearbeiten.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *Einstellungen* > *SnapCenter Plug-in für VMware vSphere*.
-. Klicken Sie auf und wählen Sie *Bearbeiten*
-. Ändern Sie die Details nach Bedarf
+. Klicken Sie Auf image:icon-action.png["Aktion"] Und wählen Sie *Bearbeiten*.
+. Ändern Sie die Details nach Bedarf.
 . Klicken Sie Auf *Speichern*.
 
 
@@ -57,11 +57,11 @@ Die Details zum SnapCenter Plug-in für VMware vSphere können Sie unter BlueXP 
 
 == Aktualisieren Sie Den Sicherungsstatus
 
-Wenn der Datenbank neue Volumes hinzugefügt werden oder sich die Richtlinie oder Ressourcengruppe ändert, sollten Sie den Schutz aktualisieren.
+Wenn neue Volumes zur Datenbank hinzugefügt werden oder wenn eine Änderung an der Richtlinie oder Ressourcengruppe erfolgt, sollten Sie den Schutzstatus aktualisieren.
 
 . Klicken Sie auf *Backup und Wiederherstellung* > *Virtuelle Maschinen*.
 . Klicken Sie im Dropdown-Menü *Einstellungen* auf *SnapCenter Plug-in für VMware vSphere*.
-. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem SnapCenter Plug-in für VMware vSphere, das die virtuelle Maschine hostet, und klicken Sie auf *Aktualisieren*.
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem SnapCenter-Plug-in für VMware vSphere-Host und klicken Sie auf *Aktualisieren*.
 +
 Die neuen Änderungen werden ermittelt.
 
