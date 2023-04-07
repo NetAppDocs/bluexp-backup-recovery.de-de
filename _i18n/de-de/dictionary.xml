@@ -2386,7 +2386,6 @@
   <block id="e907b41f5f3d7332bee5a43fbbf78a08" category="sidebar">Lizenzierung einrichten</block>
   <block id="8931c68a06f64c8d4063f2e9132e3258" category="sidebar">Überwachen des Status von Backup- und Wiederherstellungsjobs</block>
   <block id="d77f82b136fbb812f5b611958407f0f0" category="sidebar">Backup und Restore von ONTAP Daten</block>
-  <block id="e430b0c407669c38c402a4ddfaea406f" category="sidebar">Sichern Sie Ihre ONTAP Daten</block>
   <block id="30f1797234e3bfa4ab1f707a8b681072" category="sidebar">Cloud Volumes ONTAP in Amazon S3 sichern</block>
   <block id="32bfa5cb747a11af2fed4c8de1f2cc27" category="sidebar">Backup von Cloud Volumes ONTAP in Azure Blob</block>
   <block id="b5b529e8dc821910caacb50b880d2487" category="sidebar">Backup von Cloud Volumes ONTAP in der Google Cloud</block>
@@ -2444,7 +2443,6 @@
   <block id="de00c1e27be1485dd099e4cd2aaa554d" category="sidebar">Backups löschen</block>
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">Blogs Community</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">NetApp Community</block>
-  <block id="bd5465eb0e8cf8f303aee7ea9420c8b1" category="sidebar">BlueXP-Blog</block>
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">Cloud-Webinare</block>
   <block id="7a45e6298bb69116e2c6db653fb88884" category="sidebar">Alle BlueXP-Dokumentationen</block>
   <block id="e29d7c0b36af68edd13ebac84f15b44b" category="sidebar">Cloud-Provider</block>
@@ -3556,9 +3554,7 @@
   <block id="87a05d4200b00403ad79b218876c73d4" category="inline-link">Implementieren Sie einen Connector in Google Cloud</block>
   <block id="38d4d167f6dd9174c3535fc5c7ba4b76" category="section-title">Bis 4. April 2023</block>
   <block id="40c193dda1b0a4df68695abe150f234a" category="section-title">Sicherung von Daten aus Cloud Volumes ONTAP Systemen in der Cloud mit „eingeschränktem“ Modus</block>
-  <block id="28e1f4495f1c7f5d7f7a5392a215c21a" category="paragraph">Es besteht jetzt die Möglichkeit, Daten von Cloud Volumes ONTAP Systemen zu sichern, die in kommerziellen Regionen AWS, Azure und GCP installiert sind, und zwar im „eingeschränkten“ Modus. Dies erfordert, dass Sie den Connector zunächst in der „eingeschränkten“ Handelsregion installieren. Siehe<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> Und<block ref="d878e312b2f9cdcef2f8eccaa51619ee" category="inline-link-rx"></block>.</block>
   <block id="57c3b4ba3c60295d45a2554606080eef" category="section-title">Möglichkeit zum Backup Ihrer On-Premises-ONTAP-Volumes in ONTAP S3 mithilfe der API</block>
-  <block id="430a1b25bf435fd21376b7b1884b6999" category="inline-link">Integration in ONTAP S3 als Ziel (mithilfe VON REST-APIs)</block>
   <block id="720734599c08f49ea57d729ec9f12d53" category="section-title">Möglichkeit, den Zonenredundanz-Aspekt Ihres Azure Storage-Kontos von LRS zu ZRS zu ändern</block>
   <block id="d9f6af5f4e2b16940729f1ac7da86d7d" category="paragraph">Bei der Erstellung von Backups aus Cloud Volumes ONTAP Systemen in Azure Storage stellt Cloud Backup standardmäßig den Blob-Container mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zoneredundanz (ZRS) ändern, wenn Ihre Daten zwischen verschiedenen Zonen repliziert werden sollen. Siehe Microsoft-Anweisungen für<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>.</block>
   <block id="a7393f4b2940dc4b2ad20a62564d25be" category="section-title">Verbesserungen am Job Monitor</block>
@@ -3601,7 +3597,6 @@
   <block id="348d63f232889527f97197322aaa8986" category="admonition">Die Funktion Cloud Backup ist in BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> Um die neuen Funktionen in jeder Cloud Backup Version anzuzeigen, gehen Sie folgendermaßen vor<block ref="665cecca74760cbd23ea14978e32ba89" category="inline-link-rx"></block> Wann Sie neue Funktionen nutzen möchten.</block>
   <block id="2ea7e7f07a1904fc4427a42a7aba9533" category="list-text"><block ref="2ea7e7f07a1904fc4427a42a7aba9533" category="inline-link-rx"></block></block>
   <block id="1a9500ce2c4bdf3774a1abc05bae9ae2" category="list-text"><block ref="1a9500ce2c4bdf3774a1abc05bae9ae2" category="inline-link-rx"></block></block>
-  <block id="f25c47eb7d9f3c638d89723bee6d2360" category="paragraph">Dank der neuen Funktionen der APIs können Sie Ihre Volume-Snapshots mithilfe von BlueXP Cloud Backup auf ONTAP S3 sichern. Diese Funktionalität ist derzeit nur für On-Premises-ONTAP-Systeme verfügbar. Detaillierte Anweisungen finden Sie im Blog<block ref="50f757899df464a10b489edfac75ae5d" category="inline-link-rx"></block>.</block>
   <block id="bf561a7142f1f05d376a8d4b4beaad24" category="list-text"><block ref="bf561a7142f1f05d376a8d4b4beaad24" category="inline-link-rx"></block></block>
   <block id="51c1a6c1e7497769792664cc458e4b3b" category="list-text"><block ref="51c1a6c1e7497769792664cc458e4b3b" category="inline-link-rx"></block></block>
   <block id="3b3fe44fb52240d2bf1cecd954ba8f31" category="list-text"><block ref="3b3fe44fb52240d2bf1cecd954ba8f31" category="inline-link-rx"></block></block>
@@ -3654,4 +3649,11 @@
   <block id="63e8ab93fb455764c3aae06f874e9f89" category="paragraph">Wenn neue Volumes zur Datenbank hinzugefügt werden oder wenn eine Änderung an der Richtlinie oder Ressourcengruppe erfolgt, sollten Sie den Schutzstatus aktualisieren.</block>
   <block id="b08753885f48b8d718edd5f9d9cd7ab7" category="list-text">Klicken Sie Auf <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> Entsprechend dem SnapCenter-Plug-in für VMware vSphere-Host und klicken Sie auf *Aktualisieren*.</block>
   <block id="9f7b95641e24cb882e149de39743a97c" category="paragraph">Sie können Backups eines oder mehrerer Datastores in StorageGRID erstellen, indem Sie das SnapCenter Plug-in für den VMware vSphere Host in BlueXP integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.</block>
+  <block id="42d7d856cc8f6a2f82ed10cd8356e7d2" category="inline-link">Weitere Informationen zu den BlueXP Implementierungsmodi</block>
+  <block id="ed84e3ec0d45db682853810ea96888fd" category="paragraph">Es besteht jetzt die Möglichkeit, Daten von Cloud Volumes ONTAP Systemen zu sichern, die in kommerziellen Regionen AWS, Azure und GCP installiert sind, und zwar im „eingeschränkten“ Modus. Dies erfordert, dass Sie den Connector zunächst in der „eingeschränkten“ Handelsregion installieren.<block ref="18611796b9b4332697b6f9bb72b16e0b" category="inline-link-rx"></block>. Siehe<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> Und<block ref="d878e312b2f9cdcef2f8eccaa51619ee" category="inline-link-rx"></block>.</block>
+  <block id="d7cfe6967f3004ef3386a27fe99a4610" category="inline-link">Integration mit ONTAP S3 als Ziel</block>
+  <block id="987075beb2d571b76448b0f6477c4423" category="paragraph">Dank der neuen Funktionen der APIs können Sie Ihre Volume-Snapshots mithilfe von BlueXP Cloud Backup auf ONTAP S3 sichern. Diese Funktionalität ist derzeit nur für On-Premises-ONTAP-Systeme verfügbar. Detaillierte Anweisungen finden Sie im Blog<block ref="8bfab3c14784f20047e4459b814ebfe4" category="inline-link-rx"></block>.</block>
+  <block id="0149a79f6ea8841a807875892d5a71fd" category="paragraph">Cloud Backup stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung nach Aktivierung von Cloud Backup in Zone Redundancy (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>.</block>
+  <block id="7126662a353f79c46a7ccefe46dc4c0a" category="sidebar">Sichern von ONTAP Volume-Daten</block>
+  <block id="d5dea9a3cf9da6b76394dba2198011a1" category="sidebar">Cloud Backup Blogs</block>
 </blocks>

@@ -119,20 +119,45 @@ Anforderungen an Steckverbinder:: Der Connector kann in einer Azure-Region mit v
 +
 [source, json]
 ----
-"Microsoft.Storage/checknameavailability/read",
-"Microsoft.Storage/operations/read",
+"Microsoft.Compute/virtualMachines/read",
+"Microsoft.Compute/virtualMachines/start/action",
+"Microsoft.Compute/virtualMachines/deallocate/action",
 "Microsoft.Storage/storageAccounts/listkeys/action",
 "Microsoft.Storage/storageAccounts/read",
 "Microsoft.Storage/storageAccounts/write",
 "Microsoft.Storage/storageAccounts/blobServices/containers/read",
 "Microsoft.Storage/storageAccounts/listAccountSas/action",
+"Microsoft.KeyVault/vaults/read",
+"Microsoft.KeyVault/vaults/accessPolicies/write",
+"Microsoft.Network/networkInterfaces/read",
+"Microsoft.Resources/subscriptions/locations/read",
+"Microsoft.Network/virtualNetworks/read",
+"Microsoft.Network/virtualNetworks/subnets/read",
+"Microsoft.Resources/subscriptions/resourceGroups/read",
+"Microsoft.Resources/subscriptions/resourcegroups/resources/read",
+"Microsoft.Resources/subscriptions/resourceGroups/write",
+"Microsoft.Authorization/locks/*",
+"Microsoft.Network/privateEndpoints/write",
+"Microsoft.Network/privateEndpoints/read",
+"Microsoft.Network/privateDnsZones/virtualNetworkLinks/write",
+"Microsoft.Network/virtualNetworks/join/action",
+"Microsoft.Network/privateDnsZones/A/write",
+"Microsoft.Network/privateDnsZones/read",
+"Microsoft.Network/privateDnsZones/virtualNetworkLinks/read",
+"Microsoft.Compute/virtualMachines/extensions/delete",
+"Microsoft.Compute/virtualMachines/delete",
+"Microsoft.Network/networkInterfaces/delete",
+"Microsoft.Network/networkSecurityGroups/delete",
+"Microsoft.Resources/deployments/delete",
+"Microsoft.Network/publicIPAddresses/delete",
+"Microsoft.Storage/storageAccounts/blobServices/containers/write",
+"Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
 "Microsoft.Synapse/workspaces/write",
 "Microsoft.Synapse/workspaces/read",
 "Microsoft.Synapse/workspaces/delete",
 "Microsoft.Synapse/register/action",
 "Microsoft.Synapse/checkNameAvailability/action",
 "Microsoft.Synapse/workspaces/operationStatuses/read",
-"Microsoft.Synapse/workspaces/firewallRules/write",
 "Microsoft.Synapse/workspaces/firewallRules/read",
 "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
 "Microsoft.Synapse/workspaces/operationResults/read",
@@ -150,6 +175,10 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 --
 Unterstützte Azure Regionen:: Cloud Backup wird in allen Azure Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen.
+
+
+Cloud Backup stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung nach Aktivierung von Cloud Backup in Zone Redundancy (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
+
 Erforderliche Einrichtung zum Erstellen von Backups in einem anderen Azure Abonnement:: Standardmäßig werden Backups mit demselben Abonnement erstellt wie das für Ihr Cloud Volumes ONTAP-System verwendete. Wenn Sie ein anderes Azure Abonnement für Ihre Backups verwenden möchten, müssen Sie dies tun link:reference-backup-multi-account-azure.html["Melden Sie sich beim Azure-Portal an und verlinken Sie die beiden Abonnements"].
 Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Schlüsseln für die Datenverschlüsselung:: Sie können im Aktivierungsassistenten Ihre eigenen, vom Kunden gemanagten Schlüssel für die Datenverschlüsselung verwenden, anstatt die von Microsoft verwalteten Standardschlüssel zu verwenden. In diesem Fall müssen Sie über das Azure-Abonnement, den Namen von Key Vault und den Schlüssel verfügen. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
 

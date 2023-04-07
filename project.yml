@@ -38,7 +38,7 @@ sidebar:
       url: "/task-monitor-backup-jobs.html"
   - title: Backup und Restore von ONTAP Daten
     entries:
-    - title: Sichern Sie Ihre ONTAP Daten
+    - title: Sichern von ONTAP Volume-Daten
       url: "/concept-ontap-backup-to-cloud.html"
     - title: Cloud Volumes ONTAP in Amazon S3 sichern
       flavor: aws
@@ -317,8 +317,8 @@ homepage:
     links:
     - title: NetApp Community
       url: https://community.netapp.com/t5/Public-Cloud-Services/ct-p/CDS
-    - title: BlueXP-Blog
-      url: https://bluexp.netapp.com/blog
+    - title: Cloud Backup Blogs
+      url: https://bluexp.netapp.com/blog/topic/cloud-backup
     - title: Anwendungsfälle für Cloud-Backup
       url: https://bluexp.netapp.com/cloud-backup
     - title: Cloud-Webinare
