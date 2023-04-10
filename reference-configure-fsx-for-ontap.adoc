@@ -30,7 +30,7 @@ Sie können NetApp FSX entweder mit BlueXP oder AWS erstellen. Falls Sie mit AWS
 
 Ein Account-Administrator muss einen Connector in AWS implementieren, der es BlueXP ermöglicht, Ressourcen und Prozesse in Ihrer Public-Cloud-Umgebung zu managen.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Erstellen eines Connectors in AWS aus BlueXP"].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["Erstellen eines Connectors in AWS aus BlueXP"].
 
 * Sie sollten denselben Konnektor verwenden, um sowohl FSX-Arbeitsumgebung als auch Oracle-Datenbanken zu verwalten.
 * Wenn Sie über die FSX-Arbeitsumgebung und Oracle-Datenbanken in derselben VPC verfügen, können Sie den Connector in derselben VPC implementieren.
@@ -46,7 +46,7 @@ NOTE: Für die Verwendung von NAS-Workloads (NFS) sollte ein Transit-Gateway zwi
 
 
 
-Klicken Sie nach dem Erstellen des Connectors auf *Storage* > *Canvas* > *Meine Arbeitsumgebung* > *Arbeitsumgebung hinzufügen* und folgen Sie den Anweisungen, um die Arbeitsumgebung hinzuzufügen. Stellen Sie sicher, dass Konnektivität zwischen dem Connector und den Oracle-Datenbank-Hosts und der FSX-Arbeitsumgebung vorhanden ist. Der Anschluss sollte eine Verbindung zur Cluster-Management-IP-Adresse der FSX-Arbeitsumgebung herstellen können.
+Klicken Sie nach dem Erstellen des Connectors auf *Speicher* > *Leinwand* > *Meine Arbeitsumgebung* > *Arbeitsumgebung hinzufügen* und folgen Sie den Anweisungen, um die Arbeitsumgebung hinzuzufügen. Stellen Sie sicher, dass eine Verbindung zwischen dem Connector und den Oracle-Datenbank-Hosts und der FSX-Arbeitsumgebung besteht. Der Connector sollte in der Lage sein, eine Verbindung zur Cluster-Management-IP-Adresse der FSX Arbeitsumgebung herzustellen.
 
 
 IMPORTANT: Klicken Sie nach dem Erstellen des Connectors auf *Connector > Steckverbinder verwalten*; wählen Sie den Namen des Connectors aus, und kopieren Sie die Konnektor-ID.

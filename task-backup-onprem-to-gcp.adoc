@@ -155,8 +155,7 @@ Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindu
 .Schritte
 . Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 +
-** Eine ausgehende Internetverbindung zum Cloud Backup Service über Port 443 (HTTPS)
-** Eine HTTPS-Verbindung über Port 443 zu Ihrem Google Cloud-Speicher
+** Eine HTTPS-Verbindung über Port 443 zur Cloud Backup Service und zu Ihrem Google Cloud-Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
 ** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
 
 

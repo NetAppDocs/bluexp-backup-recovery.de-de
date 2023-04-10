@@ -147,7 +147,7 @@ In früheren Versionen war die Rolle „Storage Admin“ für das Service-Konto 
 
 Wenn Sie Daten von einem lokalen ONTAP-Cluster auf StorageGRID sichern, einer Website ohne Internetzugang, auch als dunkle oder Offline-Site bekannt, können Sie jetzt die Option „Suchen und Wiederherstellen“ verwenden, um Daten bei Bedarf wiederherzustellen. Für diese Funktionalität muss der BlueXP Connector (Version 3.9.25 oder höher) auf der Offline-Website bereitgestellt werden.
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["Erfahren Sie, wie Sie ONTAP-Daten mithilfe von Search  Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen"].https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Lesen Sie, wie Sie den Connector in Ihrer Offline-Website installieren"].
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["Erfahren Sie, wie Sie ONTAP-Daten mithilfe von Search  Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen"].https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["Lesen Sie, wie Sie den Connector in Ihrer Offline-Website installieren"].
 
 
 
@@ -216,7 +216,7 @@ Aufgrund der Änderung im Cloud-Backup müssen die folgenden Connector-Endpunkte
 
 | \https://*.cloudmanager.cloud.netapp.com | \https://*.api.bluexp.netapp.com 
 |===
-Hier finden Sie die vollständige Liste der Endpunkte für Ihr https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#outbound-internet-access["AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#outbound-internet-access["Google Cloud"^], Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access["Azure"^] Cloud-Umgebung.
+Hier finden Sie die vollständige Liste der Endpunkte für Ihr https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#outbound-internet-access["AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#outbound-internet-access["Google Cloud"^], Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#outbound-internet-access["Azure"^] Cloud-Umgebung.
 
 
 
@@ -449,7 +449,7 @@ Früher mussten Sie den Connector im selben Cloud-Provider implementieren, als w
 
 Wenn Ihr ONTAP-Cluster vor Ort an einem Standort ohne Internetzugang – auch als „Dark Site“ oder „Offline“ bezeichnet – gespeichert ist, können Sie mit Cloud Backup Volumes-Daten auf einem NetApp StorageGRID-System am selben Standort sichern. Für diese Funktionalität muss auch der BlueXP Connector (Version 3.9.19 oder höher) auf der Offline-Website bereitgestellt werden.
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Lesen Sie, wie Sie den Connector in Ihrer Offline-Website installieren"].https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["Erfahren Sie, wie Sie ONTAP Daten in StorageGRID auf Ihrer Offline-Website sichern"].
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["Lesen Sie, wie Sie den Connector in Ihrer Offline-Website installieren"].https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["Erfahren Sie, wie Sie ONTAP Daten in StorageGRID auf Ihrer Offline-Website sichern"].
 
 
 
@@ -558,27 +558,3 @@ Wenn im GKE-Cluster NetApp Astra Trident installiert ist und Cloud Volumes ONTAP
 
 
 === Die Beta-Funktion zur Verwendung von Cloud Data Sense zum Scannen Ihrer Cloud Backup-Dateien wurde in dieser Version eingestellt
-
-
-
-== 14 Februar 2022
-
-
-
-=== Nun können Sie Backup-Richtlinien einzelnen Volumes in einem einzigen Cluster zuweisen
-
-Früher konnten alle Volumes in einem Cluster nur eine einzelne Backup-Richtlinie zugewiesen werden. Sie können nun mehrere Backup-Richtlinien für ein einzelnes Cluster erstellen und unterschiedliche Richtlinien auf verschiedene Volumes anwenden. link:task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes["Hier erfahren Sie, wie Sie neue Backup-Richtlinien für ein Cluster erstellen und diesen ausgewählten Volumes zuweisen"].
-
-
-
-=== Über eine neue Option können Sie automatisch eine standardmäßige Backup-Richtlinie auf neu erstellte Volumes anwenden
-
-In der Vergangenheit mussten Sie neue Volumes, die nach Aktivierung von Cloud Backup in einer Arbeitsumgebung erstellt wurden, manuell eine Backup-Richtlinie anwenden. Unabhängig davon, ob das Volume in BlueXP, System Manager, der CLI oder mithilfe von APIs erstellt wurde, entdeckt Cloud Backup das Volume und wendet die als Standardrichtlinie ausgewählte Backup-Richtlinie an.
-
-Diese Option steht zur Verfügung, wenn Sie das Backup in einer neuen Arbeitsumgebung aktivieren oder über die Seite „ _Volumes_ verwalten“ für vorhandene Arbeitsumgebungen.
-
-
-
-=== Neuer Job Monitor ist verfügbar, um den Prozessstatus aller Backup- und Wiederherstellungsaufträge anzuzeigen
-
-Der Job Monitor kann sehr hilfreich sein, wenn Sie eine Operation gegen mehrere Volumes eingeleitet haben, z. B. das Ändern der Backup-Richtlinie oder das Löschen von Backups, so dass Sie sehen können, wann der Vorgang auf allen Volumes abgeschlossen ist. link:task-monitor-backup-jobs.html["Lesen Sie, wie Sie den Job Monitor verwenden"].

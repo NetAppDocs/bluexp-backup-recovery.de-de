@@ -104,7 +104,7 @@ Cloud Backup wird in GovCloud Regionen unterstützt, wenn der Connector in der C
 
 * Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 +
-** Eine HTTPS-Verbindung über Port 443 zum Cloud Backup Service und zum S3-Objekt-Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["Siehe die Liste der Endpunkte"^])
+** Eine HTTPS-Verbindung über Port 443 zum Cloud Backup Service und zum S3-Objekt-Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
 ** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
 ** Für AWS und AWS GovCloud Implementierungen sind zusätzliche Regeln für ein- und ausgehende Sicherheitsgruppen erforderlich. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["Regeln für den Connector in AWS"^] Entsprechende Details.
 

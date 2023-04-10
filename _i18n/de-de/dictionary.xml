@@ -359,7 +359,6 @@
   <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">Anforderungen für Connector-Netzwerke</block>
   <block id="aadbd6cd1f8b4e9deafea8f1d6c8333c" category="list-text">Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:</block>
   <block id="2e379f93711508ab69eec06837dd271c" category="inline-link">Siehe die Liste der Endpunkte</block>
-  <block id="3014a55cd7ec25590c6b5406eec324b1" category="list-text">Eine HTTPS-Verbindung über Port 443 zum Cloud Backup Service und zum S3-Objekt-Storage <block ref="2b717f51e9f0e108fc936d861142f7b4" category="inline-link-rx"></block>)</block>
   <block id="699a71169310a3553bddb7e36ecb8a5c" category="list-text">Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF</block>
   <block id="fd1958e5e74317f89c6c16bbca7d1446" category="inline-link">Regeln für den Connector in AWS</block>
   <block id="56d39ecb5bf4d2ec753c12fbb0e00108" category="list-text">Für AWS und AWS GovCloud Implementierungen sind zusätzliche Regeln für ein- und ausgehende Sicherheitsgruppen erforderlich. Siehe<block ref="74fb388667736bb2b34ea14720dd63e3" category="inline-link-rx"></block> Entsprechende Details.</block>
@@ -1173,7 +1172,6 @@
   <block id="94ee7072c2750da1997438a715efb7d4" category="section-title">Einen Konnektor erstellen</block>
   <block id="91381cdaf1cff61a625d6355a34abc10" category="paragraph">Ein Account-Administrator muss einen Connector in AWS implementieren, der es BlueXP ermöglicht, Ressourcen und Prozesse in Ihrer Public-Cloud-Umgebung zu managen.</block>
   <block id="71e064246e91e058534eb9c47cbeadcf" category="inline-link-macro">Erstellen eines Connectors in AWS aus BlueXP</block>
-  <block id="d15bab64d8286860a0c772cefded5f73" category="paragraph">Weitere Informationen finden Sie unter <block ref="3fdf2a62e687b222e52b805dde381364" category="inline-link-macro-rx"></block>.</block>
   <block id="f6b8c8d4c527eaebdea85ded6d8cc15a" category="list-text">Sie sollten denselben Konnektor verwenden, um sowohl FSX-Arbeitsumgebung als auch Oracle-Datenbanken zu verwalten.</block>
   <block id="9f69e13234533744e815d263723a5cd0" category="list-text">Wenn Sie über die FSX-Arbeitsumgebung und Oracle-Datenbanken in derselben VPC verfügen, können Sie den Connector in derselben VPC implementieren.</block>
   <block id="fafa58ae12f83200fd5e76519a291a56" category="list-text">Wenn Sie über die FSX-Arbeitsumgebung und Oracle-Datenbanken in verschiedenen VPCs verfügen:</block>
@@ -1768,8 +1766,6 @@
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">Die Intercluster-LIFs der Nodes können auf den Objektspeicher zugreifen.</block>
   <block id="8ba57385dd56e0702c2eaf4101f0267d" category="list-text">Aktualisieren Sie ggf. Firewall-Regeln, um Cloud Backup Service-Verbindungen von ONTAP zu Objektspeicher über Port 443 und Datenverkehr zur Namensauflösung von der Storage VM zum DNS-Server über Port 53 (TCP/UDP) zu ermöglichen.</block>
   <block id="1c52fe530613f90d476d439dbca6d53e" category="inline-link">Installieren eines Steckers in GCP</block>
-  <block id="98ec81693c17601be27be39c9336f3b4" category="list-text">Eine ausgehende Internetverbindung zum Cloud Backup Service über Port 443 (HTTPS)</block>
-  <block id="c359c4549d4c72aed13558f2e3ef33a0" category="list-text">Eine HTTPS-Verbindung über Port 443 zu Ihrem Google Cloud-Speicher</block>
   <block id="b092138563f7b68473c3bf2a6a23a434" category="inline-link">Privater Zugriff Auf Google</block>
   <block id="afcaeb8a33eef207414e875d7fa75193" category="inline-link-macro">Cloud Console</block>
   <block id="cd94368c3fb0f5830daaa821b7867010" category="list-text">Wählen Sie in der Dropdown-Liste oben auf der Seite das Projekt oder die Organisation aus, das die Rolle enthält, die Sie bearbeiten möchten.</block>
@@ -1910,7 +1906,6 @@
   <block id="68c339b6eb7bfabf7edb3aa60625b8a0" category="paragraph">Falls Sie bereits einen Connector in Ihrem Azure vnet oder Ihrem Standort implementiert haben, sind Sie alle bereit. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP Daten in Azure Blob Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.</block>
   <block id="698b05231bfe12b062cbf4a5381b3d2f" category="inline-link">Installieren eines Connectors in Azure</block>
   <block id="0fed42c16e02df19813c1ada5f9c8fd7" category="inline-link">Installieren eines Konnektors in einer Region der Azure-Regierung</block>
-  <block id="ed5be7df16713ed4a1d631dedaea1f5e" category="list-text">Eine HTTPS-Verbindung über Port 443 an Ihren Blob-Objekt-Storage</block>
   <block id="b445de53411a165e9c56da6430c38d59" category="inline-link">Regeln für den Connector in Azure</block>
   <block id="f840409b357663e7b24e8296c05770a5" category="list-text">Für Implementierungen von Azure und Azure Government sind weitere Regeln für eingehende Sicherheitsgruppen erforderlich. Siehe<block ref="e1893ebf6f9d2e927a13d052b78eec9f" category="inline-link-rx"></block> Entsprechende Details.</block>
   <block id="a3caba4397a73eb091b3374d44a36510" category="list-text">Aktivieren Sie einen privaten vnet Endpunkt zum Azure Storage. Dies ist erforderlich, wenn Sie über eine ExpressRoute oder VPN-Verbindung zwischen Ihrem ONTAP Cluster und dem vnet verfügen und Sie eine Kommunikation zwischen dem Connector und Blob Storage in Ihrem virtuellen privaten Netzwerk wünschen (eine *private*-Verbindung).</block>
@@ -2303,7 +2298,6 @@
   <block id="314d64b29803a4017e18c95e19a18a09" category="paragraph">Wenn Ihr ONTAP-Cluster vor Ort an einem Standort ohne Internetzugang – auch als „Dark Site“ oder „Offline“ bezeichnet – gespeichert ist, können Sie mit Cloud Backup Volumes-Daten auf einem NetApp StorageGRID-System am selben Standort sichern. Für diese Funktionalität muss auch der BlueXP Connector (Version 3.9.19 oder höher) auf der Offline-Website bereitgestellt werden.</block>
   <block id="6f44a1bf2246f054fd573ae9473909b6" category="inline-link">Lesen Sie, wie Sie den Connector in Ihrer Offline-Website installieren</block>
   <block id="826610554423c9dc8481da631ccae8be" category="inline-link">Erfahren Sie, wie Sie ONTAP Daten in StorageGRID auf Ihrer Offline-Website sichern</block>
-  <block id="824ce1955c2b2d5f91cb80c86545d639" category="paragraph"><block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>.<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>.</block>
   <block id="afd87a86d8a5973d91f3fcc4e85c719f" category="section-title">Cloud Backup für Virtual Machines 1.1.0 ist jetzt allgemein verfügbar</block>
   <block id="a1bf67f5d2f66348eff06c9dbdb7636d" category="paragraph">Durch die Integration des SnapCenter Plug-ins für VMware vSphere in BlueXP können Sie Daten auf Ihren virtuellen Maschinen schützen. Sie können Datastores in der Cloud sichern und Virtual Machines problemlos im lokalen SnapCenter Plug-in für VMware vSphere wiederherstellen.</block>
   <block id="b418e05c847b656e4a8ac26f2f0cc045" category="inline-link">Erfahren Sie mehr über die Sicherung von Virtual Machines in der Cloud</block>
@@ -2350,16 +2344,6 @@
   <block id="afffc0d082245313c31dfcac23d2d8e0" category="section-title">Möglichkeit für das Backup persistenter Volumes von den GKE Kubernetes-Clustern auf Google Cloud Storage</block>
   <block id="6ff133e735e841b3a54d6f8c0a84c071" category="paragraph">Wenn im GKE-Cluster NetApp Astra Trident installiert ist und Cloud Volumes ONTAP für GCP als Backend-Storage für den Cluster verwendet wird, können Sie Ihre persistenten Volumes in und aus dem Google Cloud Storage sichern und wiederherstellen. <block ref="04c62f5c961d468f8c7e3d8b6a8a1398" category="inline-link-macro-rx"></block>.</block>
   <block id="536f48524e36a16593703c5d8d108b79" category="section-title">Die Beta-Funktion zur Verwendung von Cloud Data Sense zum Scannen Ihrer Cloud Backup-Dateien wurde in dieser Version eingestellt</block>
-  <block id="f49fe4c56999dcc895c26b71ec63e34f" category="section-title">14 Februar 2022</block>
-  <block id="57ccb73ee63efac047dc0eeebb63f5a1" category="section-title">Nun können Sie Backup-Richtlinien einzelnen Volumes in einem einzigen Cluster zuweisen</block>
-  <block id="963d2836c97952a191ac974f0e9b5e67" category="inline-link-macro">Hier erfahren Sie, wie Sie neue Backup-Richtlinien für ein Cluster erstellen und diesen ausgewählten Volumes zuweisen</block>
-  <block id="15949a792d77a6efb31116510902270f" category="paragraph">Früher konnten alle Volumes in einem Cluster nur eine einzelne Backup-Richtlinie zugewiesen werden. Sie können nun mehrere Backup-Richtlinien für ein einzelnes Cluster erstellen und unterschiedliche Richtlinien auf verschiedene Volumes anwenden. <block ref="d267d345a84c274cd28fdecc1282029a" category="inline-link-macro-rx"></block>.</block>
-  <block id="81bbbb41117b46d39dbcf4b7db2f1e38" category="section-title">Über eine neue Option können Sie automatisch eine standardmäßige Backup-Richtlinie auf neu erstellte Volumes anwenden</block>
-  <block id="f464a9820cae6a24053ca10aad54bbb6" category="paragraph">In der Vergangenheit mussten Sie neue Volumes, die nach Aktivierung von Cloud Backup in einer Arbeitsumgebung erstellt wurden, manuell eine Backup-Richtlinie anwenden. Unabhängig davon, ob das Volume in BlueXP, System Manager, der CLI oder mithilfe von APIs erstellt wurde, entdeckt Cloud Backup das Volume und wendet die als Standardrichtlinie ausgewählte Backup-Richtlinie an.</block>
-  <block id="b702b8a648700d54afccce0b8de7766a" category="paragraph">Diese Option steht zur Verfügung, wenn Sie das Backup in einer neuen Arbeitsumgebung aktivieren oder über die Seite „ _Volumes_ verwalten“ für vorhandene Arbeitsumgebungen.</block>
-  <block id="739f8a5ac1453fdcd33ce781cd333914" category="section-title">Neuer Job Monitor ist verfügbar, um den Prozessstatus aller Backup- und Wiederherstellungsaufträge anzuzeigen</block>
-  <block id="7a99d9487fc9540fa7bee7c2eb717413" category="inline-link-macro">Lesen Sie, wie Sie den Job Monitor verwenden</block>
-  <block id="9d20a5735dc25af92271eea8fa797bf7" category="paragraph">Der Job Monitor kann sehr hilfreich sein, wenn Sie eine Operation gegen mehrere Volumes eingeleitet haben, z. B. das Ändern der Backup-Richtlinie oder das Löschen von Backups, so dass Sie sehen können, wann der Vorgang auf allen Volumes abgeschlossen ist. <block ref="41d368101275ff882313a6db3fc29812" category="inline-link-macro-rx"></block>.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Rechtliche Hinweise</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Rechtliche Hinweise ermöglichen den Zugriff auf Copyright-Erklärungen, Marken, Patente und mehr.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Urheberrecht</block>
@@ -2651,7 +2635,6 @@
   <block id="06c42f4f82e29b4e90570ef70b538ed4" category="paragraph">Aufgrund der Änderung im Cloud-Backup müssen die folgenden Connector-Endpunkte für einen erfolgreichen Cloud-Backup-Betrieb geändert werden:</block>
   <block id="eb75f7332becd8b3fbb2a59ea0bd0536" category="cell">Alter Endpunkt</block>
   <block id="afcce2fe2d959c0f4554e7815a50e8e4" category="cell">Neuer Endpunkt</block>
-  <block id="0e40b9cba041560c9517bc49757da3c7" category="paragraph">Hier finden Sie die vollständige Liste der Endpunkte für Ihr<block ref="4c9e3e17ba20f553394e5bc78e402946" category="inline-link-rx"></block>,<block ref="cd3c6f623ccf3e34f9d46b28c47f2a3d" category="inline-link-rx"></block>, Oder<block ref="80755100f97c37f8aa8e3d999b0a43d9" category="inline-link-rx"></block> Cloud-Umgebung.</block>
   <block id="e3a84cf85e2ede3f349ff73485707901" category="section-title">Unterstützung für die Auswahl des Google Archivspeicherklasses in der UI</block>
   <block id="862c6bfd630667f5b535d9741b4f08fc" category="paragraph">Sicherungsdateien werden zunächst in der Speicherklasse Google Standard erstellt. Jetzt können Sie über die Benutzeroberfläche von Cloud Backup ältere Backups nach einer bestimmten Anzahl von Tagen auf Google Archiv-Storage verschieben, um die Kosten weiter zu optimieren.</block>
   <block id="115781a0043a85f8707c5c99fd02dc75" category="cell">\https://cloudmanager.cloud.netapp.com</block>
@@ -2664,7 +2647,6 @@
   <block id="08c4a2a6be7b139c5a5d2a6cad19ac2b" category="summary">Erstellen Sie die FSX für ONTAP-Arbeitsumgebung und den Connector</block>
   <block id="0288e4d3c832d3a63fc406f64d777726" category="doc">Konfigurieren Sie FSX für ONTAP</block>
   <block id="42b641e435d9781c95ad795db19333cf" category="paragraph">Sie sollten die Arbeitsumgebung FSX für ONTAP und den Connector erstellen.</block>
-  <block id="839bd9c4189b78503bd77127fcecbb39" category="paragraph">Klicken Sie nach dem Erstellen des Connectors auf *Storage* &gt; *Canvas* &gt; *Meine Arbeitsumgebung* &gt; *Arbeitsumgebung hinzufügen* und folgen Sie den Anweisungen, um die Arbeitsumgebung hinzuzufügen. Stellen Sie sicher, dass Konnektivität zwischen dem Connector und den Oracle-Datenbank-Hosts und der FSX-Arbeitsumgebung vorhanden ist. Der Anschluss sollte eine Verbindung zur Cluster-Management-IP-Adresse der FSX-Arbeitsumgebung herstellen können.</block>
   <block id="1f32eed19bf38ccd50dd00a18fd2d95c" category="summary">Erstellung der Cloud Volumes ONTAP-Arbeitsumgebung und des Connectors</block>
   <block id="ef1b9121ab9ea469ad904cedd07f94d3" category="doc">Konfigurieren Sie Cloud Volumes ONTAP</block>
   <block id="949d1a8fb61abab43d418c2faa10e87a" category="paragraph">Sie sollten die Cloud Volumes ONTAP-Arbeitsumgebung und den Connector erstellen.</block>
@@ -3008,7 +2990,6 @@
   <block id="4bee6fec011c2f7ac751849f160f0a3f" category="paragraph">Wenn sich die Datenbank auf ASM befindet, sollten Sie auch die ASM-Einstellungen konfigurieren.</block>
   <block id="83fcc800acbb114328da04dc6ed73b8f" category="summary">Zugriff auf BlueXP.</block>
   <block id="035e6d59b1caedb3017d4559881471b2" category="inline-link-macro">melden Sie sich auf der NetApp BlueXP Website an</block>
-  <block id="ab26432294c471f0aa2bb50434ef5822" category="paragraph">Sollten Sie <block ref="f8ff5153376f519ebb8fe9e2c5ab9cd8" category="inline-link-macro-rx"></block>, <block ref="9f5c210a6685dd250338a699e76589de" category="inline-link-macro-rx"></block>, Und dann eine <block ref="8a2a59f9ec508dc199624b6dfabe5c9f" category="inline-link-macro-rx"></block>.</block>
   <block id="013e38cfdb2c6d0bb3f17b59760240ff" category="summary">BlueXP bietet effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP.</block>
   <block id="7105ab20f187c4c6345342e06cd1748d" category="paragraph">Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherungsfunktionen für Applikationen, die auf NetApp Cloud Storage ausgeführt werden. Cloud Backup für Anwendungen, die in BlueXP (ehemals Cloud Manager) aktiviert sind, bietet effizienten, applikationskonsistenten, richtlinienbasierten Schutz der folgenden Anwendungen:</block>
   <block id="9b029537d0b8df0bfe13af02e2f4b676" category="list-text">Oracle Datenbanken befinden sich auf Amazon FSX für NetApp ONTAP und Cloud Volumes ONTAP</block>
@@ -3182,7 +3163,6 @@
   <block id="65432ae2b80d2de48c0eff9f34726b87" category="inline-link">Aktualisieren Sie die Connector-Software auf die aktuellste Version, nachdem Sie die Backup-Datenbank wiederhergestellt haben</block>
   <block id="2e7f569a13a8775ddbc8714475ad7db7" category="paragraph">Wenn Sie einen neuen BlueXP Connector installieren, stellen Sie sicher, dass Sie die gleiche Version von Software herunterladen, die Sie auf dem ursprünglichen Connector installiert hatten. Durch regelmäßige Änderungen an der Datenbankstruktur von Cloud Backup sind neuere Softwareversionen möglicherweise mit den ursprünglichen Datenbank-Backups inkompatibel. Das können Sie<block ref="d77ae51b7aa47031957bd13dfa8d8fa8" category="inline-link-rx"></block>.</block>
   <block id="fb91cab4ff80a23255e3962dd363d180" category="inline-link">Installieren Sie den BlueXP Connector auf einem neuen lokalen Linux-Host</block>
-  <block id="147eee6c59a90af6498494b9e5153835" category="list-text"><block ref="147eee6c59a90af6498494b9e5153835" category="inline-link-rx"></block></block>
   <block id="ecbcbb16fdbff1b3b59d0639b270e056" category="list-text">Melden Sie sich mit den soeben erstellten Admin-Benutzeranmeldeinformationen bei BlueXP an.</block>
   <block id="5fb01033092428057d91703462850bb8" category="list-text">Kopieren Sie die MySQL-Backups vom sicheren Speicherort auf den neuen Connector-Host.</block>
   <block id="47088be6cbcb439bd7241ec72edf3a91" category="section-title">Erkennen Sie Ihre ONTAP Cluster und StorageGRID Systeme</block>
@@ -3226,7 +3206,6 @@
   <block id="cd1cceb157b5982d899b66d18217af64" category="list-text">Wenn Sie einen Connector in einer dunklen Site verwenden, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert (Connector Version 3.9.25 oder höher erforderlich).</block>
   <block id="e083799711dc9b588bbb440525564506" category="section-title">Unterstützung wurde hinzugefügt, um Daten mithilfe von Suchen &amp; Wiederherstellen in Websites ohne Internetzugang wiederherzustellen</block>
   <block id="c9ec78264dce9938676b736265201e28" category="inline-link">Erfahren Sie, wie Sie ONTAP-Daten mithilfe von Search &amp;amp; Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen wiederherstellen</block>
-  <block id="74aacc002c6d6d85e9786012bf71af08" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>.<block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>.</block>
   <block id="4f60787e5fe87ac0aa425be67237edec" category="list-text">Volume Backups von FlexGroup können nicht in Archiv-Storage verschoben oder nicht DataLock und Ransomware-Schutz verwendet werden.</block>
   <block id="0c1029565d47087d49e25dbc4e2a20e9" category="list-text">Restore: Ermöglicht die Durchführung von Restore-Vorgängen auf Volume-, Datei- und Ordnerebene</block>
   <block id="b7027e7163ab44680c3c69296db41564" category="paragraph">Diese Funktion ist verfügbar, wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet und Ihr StorageGRID-System mindestens 11.3 nutzt.<block ref="ba1010a667c53f122912d421bb932c28" category="inline-link-rx"></block>.</block>
@@ -3656,4 +3635,14 @@
   <block id="0149a79f6ea8841a807875892d5a71fd" category="paragraph">Cloud Backup stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung nach Aktivierung von Cloud Backup in Zone Redundancy (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>.</block>
   <block id="7126662a353f79c46a7ccefe46dc4c0a" category="sidebar">Sichern von ONTAP Volume-Daten</block>
   <block id="d5dea9a3cf9da6b76394dba2198011a1" category="sidebar">Cloud Backup Blogs</block>
+  <block id="1e209655f824e5d0966174caef1584c2" category="list-text">Eine HTTPS-Verbindung über Port 443 zur Cloud Backup Service und zu Ihrem Google Cloud-Storage <block ref="d9defc1077847b67f008853c06990134" category="inline-link-rx"></block>)</block>
+  <block id="a08b19468c2c1ca9e62c072d8f0b1897" category="paragraph">Weitere Informationen finden Sie unter <block ref="f2f2cc81b566c493fa151c100741f24d" category="inline-link-macro-rx"></block>.</block>
+  <block id="18a49ef13ab2949d420634845599ca86" category="paragraph">Klicken Sie nach dem Erstellen des Connectors auf *Speicher* &gt; *Leinwand* &gt; *Meine Arbeitsumgebung* &gt; *Arbeitsumgebung hinzufügen* und folgen Sie den Anweisungen, um die Arbeitsumgebung hinzuzufügen. Stellen Sie sicher, dass eine Verbindung zwischen dem Connector und den Oracle-Datenbank-Hosts und der FSX-Arbeitsumgebung besteht. Der Connector sollte in der Lage sein, eine Verbindung zur Cluster-Management-IP-Adresse der FSX Arbeitsumgebung herzustellen.</block>
+  <block id="39ad50c1d2eeb8e8a5ce297ee25b98dc" category="list-text">Eine HTTPS-Verbindung über Port 443 zur Cloud Backup Service und zum Blob-Objektspeicher <block ref="5bf1914e1013b2901a1aed42fbd7a1ac" category="inline-link-rx"></block>)</block>
+  <block id="7a83a72c3d1bcda0f295b3ad0313c6dd" category="paragraph">Sollten Sie <block ref="f8ff5153376f519ebb8fe9e2c5ab9cd8" category="inline-link-macro-rx"></block>, <block ref="9f5c210a6685dd250338a699e76589de" category="inline-link-macro-rx"></block>, Und dann eine <block ref="ee143af1c2cac202dd1b0077361e68fb" category="inline-link-macro-rx"></block>.</block>
+  <block id="9c2fdb3ded170db997a9fcf800fcf26c" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>.<block ref="14f29cbb042037b28f496533bcac017b" category="inline-link-rx"></block>.</block>
+  <block id="c395006d6063b66336be768382280c9e" category="paragraph">Hier finden Sie die vollständige Liste der Endpunkte für Ihr<block ref="684a3f4234dd7d8f8b7d90e00da95138" category="inline-link-rx"></block>,<block ref="fd66fc554da543d0f7f94dcde36b2a2f" category="inline-link-rx"></block>, Oder<block ref="2484264a704a749bc992bec76f43f13d" category="inline-link-rx"></block> Cloud-Umgebung.</block>
+  <block id="da51e9451a525419419d8c9da2b6fd19" category="paragraph"><block ref="14f29cbb042037b28f496533bcac017b" category="inline-link-rx"></block>.<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>.</block>
+  <block id="22af84c027176379749ae95a3dcf8328" category="list-text">Eine HTTPS-Verbindung über Port 443 zum Cloud Backup Service und zum S3-Objekt-Storage <block ref="e55fc914b3d027a7a2463283008a8fbf" category="inline-link-rx"></block>)</block>
+  <block id="1733b24a3114e19949a64706ed91c2af" category="list-text"><block ref="1733b24a3114e19949a64706ed91c2af" category="inline-link-rx"></block></block>
 </blocks>

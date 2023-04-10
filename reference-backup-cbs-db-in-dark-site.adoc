@@ -105,7 +105,7 @@ Sobald Sie überprüfen, ob Ihr System wieder in einem Arbeitsauftrag ist, empfe
 
 Wenn Sie einen neuen BlueXP Connector installieren, stellen Sie sicher, dass Sie die gleiche Version von Software herunterladen, die Sie auf dem ursprünglichen Connector installiert hatten. Durch regelmäßige Änderungen an der Datenbankstruktur von Cloud Backup sind neuere Softwareversionen möglicherweise mit den ursprünglichen Datenbank-Backups inkompatibel. Das können Sie https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["Aktualisieren Sie die Connector-Software auf die aktuellste Version, nachdem Sie die Backup-Datenbank wiederhergestellt haben"^].
 
-. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Installieren Sie den BlueXP Connector auf einem neuen lokalen Linux-Host"^]
+. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["Installieren Sie den BlueXP Connector auf einem neuen lokalen Linux-Host"^]
 . Melden Sie sich mit den soeben erstellten Admin-Benutzeranmeldeinformationen bei BlueXP an.
 
 
