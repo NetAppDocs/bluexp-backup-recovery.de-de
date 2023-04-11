@@ -544,17 +544,3 @@ link:concept-protect-app-data-to-cloud.html["Weitere Informationen zum Schutz vo
 === Neue Such- und Wiederherstellungsfunktion zur Suche nach Volumes oder Dateien in allen ONTAP Backup-Dateien
 
 Jetzt können Sie nach einem Volume oder einer Datei über *alle ONTAP Backup-Dateien* nach einem Teil- oder Volldateinamen, einem partiellen oder vollständigen Dateinamen, einem Größenbereich und zusätzlichen Suchfiltern suchen. Dies ist eine großartige neue Möglichkeit, die wiederherzustellenden Daten zu finden, falls Sie nicht sicher sind, welches Cluster oder Volume die Quelle für die Daten war. link:task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["Erfahren Sie, wie Sie suchen  Restore verwenden"].
-
-
-
-== 3 März 2022
-
-
-
-=== Möglichkeit für das Backup persistenter Volumes von den GKE Kubernetes-Clustern auf Google Cloud Storage
-
-Wenn im GKE-Cluster NetApp Astra Trident installiert ist und Cloud Volumes ONTAP für GCP als Backend-Storage für den Cluster verwendet wird, können Sie Ihre persistenten Volumes in und aus dem Google Cloud Storage sichern und wiederherstellen. link:task-backup-kubernetes-to-gcp.html["Weitere Informationen finden Sie hier"].
-
-
-
-=== Die Beta-Funktion zur Verwendung von Cloud Data Sense zum Scannen Ihrer Cloud Backup-Dateien wurde in dieser Version eingestellt
