@@ -95,9 +95,19 @@ Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS,
 
 Cloud Backup kann an einem Standort mit eingeschränkter Internetverbindung (auch als „eingeschränkter Modus“ bezeichnet) verwendet werden, um Volume-Daten zu sichern und wiederherzustellen. In diesem Fall müssen Sie den BlueXP Connector in der eingeschränkten Region implementieren.
 
+ifdef::aws[]
+
 * Daten von Cloud Volumes ONTAP Systemen in AWS Geschäftsregionen können in Amazon S3 gesichert werden. Siehe link:task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"].
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Sie können Daten aus Cloud Volumes ONTAP Systemen in Azure kommerzielle Regionen in Azure Blob sichern. Siehe link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
 
+
+endif::azure[]
 
 
 
@@ -105,8 +115,14 @@ Cloud Backup kann an einem Standort mit eingeschränkter Internetverbindung (auc
 
 Cloud Backup kann an einem Standort ohne Internetverbindung (auch als „privater Modus“ oder „dunkle“ Standorte bezeichnet) verwendet werden, um Volume-Daten zu sichern. In diesem Fall müssen Sie den BlueXP Connector am Dark Site implementieren.
 
-* Sie können Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen sichern. Siehe link:task-backup-onprem-private-cloud.html["Sichern von lokalen ONTAP Daten in StorageGRID"] Entsprechende Details.
+* Sie können Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen sichern. Siehe link:task-backup-onprem-private-cloud.html["Sichern von lokalen ONTAP Daten in StorageGRID"] Entsprechende Details. Ifdef::aws[]
 
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 
 
@@ -416,8 +432,7 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 
 === Backup-Einschränkungen
 
-* Um ältere Backup-Dateien per Tiering in Archiv-Storage zu verschieben, muss der Cluster ONTAP 9.10.1 oder höher ausführen. Für die Wiederherstellung von Volumes aus Backup-Dateien, die sich im Archiv-Storage befinden, muss im Ziel-Cluster zudem ONTAP 9.10.1+ ausgeführt werden.
-* Wenn eine Backup-Richtlinie erstellt oder bearbeitet wird, wenn dieser Richtlinie keine Volumes zugewiesen werden, kann die Anzahl der zurückbehaltenen Backups maximal 1018 sein. Als Workaround können Sie die Anzahl der Backups zur Erstellung der Richtlinie verringern. Anschließend können Sie die Richtlinie bearbeiten, um bis zu 4000 Backups zu erstellen, nachdem Sie der Richtlinie Volumes zugewiesen haben.
+* Wenn eine Backup-Richtlinie erstellt oder bearbeitet wird, wenn dieser Richtlinie keine Volumes zugewiesen werden, kann die Anzahl der zurückbehaltenen Backups maximal 1018 sein. Nachdem Sie der Richtlinie Volumes zugewiesen haben, können Sie die Richtlinie für die Erstellung von bis zu 4000 Backups bearbeiten.
 * Bei der Sicherung von Datensicherungs-Volumes (DP):
 +
 ** Beziehungen zu den SnapMirror-Labels `app_consistent` Und `all_source_snapshot` Wird nicht in der Cloud gesichert werden.

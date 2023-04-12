@@ -195,14 +195,18 @@ sidebar:
     - title: Richtlinieneinstellungen für Cloud-Backup
       url: "/concept-cloud-backup-policies.html"
     - title: Unterstützte AWS Archiv-Storage Tiers
+      flavor: aws
       url: "/reference-aws-backup-tiers.html"
     - title: Unterstützte Azure-Archiv-Zugriffsebenen
+      flavor: azure
       url: "/reference-azure-backup-tiers.html"
     - title: Unterstützte Google-Archiv-Storage Tiers
+      flavor: gcp
       url: "/reference-google-backup-tiers.html"
     - title: Sichern Sie die Cloud Backup-Datenbank an einem dunklen Standort
       url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: Backup für Multi-Account-Zugriff in Azure konfigurieren
+      flavor: azure
       url: "/reference-backup-multi-account-azure.html"
   - title: Wissen und Support
     entries:
