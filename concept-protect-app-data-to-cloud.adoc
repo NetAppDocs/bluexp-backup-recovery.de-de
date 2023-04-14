@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-app-data-to-cloud.html 
-keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP 
-summary: Integrieren Sie Cloud-Backup für Applikationen in BlueXP und On-Premises-SnapCenter, um applikationskonsistente Snapshots aus lokalen ONTAP in der Cloud zu sichern. 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, cloud backup 
+summary: Integrieren Sie BlueXP Backup und Recovery für Applikationen mit BlueXP und On-Premises SnapCenter, um die applikationskonsistenten Snapshots von lokalen ONTAP-Systemen in die Cloud zu sichern. 
 ---
 = Sichern Sie Ihre lokalen Applikationsdaten
 :hardbreaks:
@@ -14,43 +14,40 @@ summary: Integrieren Sie Cloud-Backup für Applikationen in BlueXP und On-Premis
 
 
 [role="lead"]
-Sie können Cloud Backup für Applikationen in BlueXP (früher Cloud Manager) und On-Premises-SnapCenter integrieren und so die applikationskonsistenten Snapshots aus lokalen ONTAP in die Cloud sichern. Bei Bedarf können Sie die Daten aus der Cloud auf lokalen SnapCenter Server wiederherstellen.
+BlueXP Backup und Recovery für Applikationen bietet Datensicherungsfunktionen für applikationskonsistente Snapshots – von der primären On-Premises-ONTAP-Umgebung zum Cloud-Provider.
 
 Sie können Backups von Oracle, Microsoft SQL und SAP HANA Applikationsdaten von lokalen ONTAP Systemen auf Amazon Web Services, Microsoft Azure, Google Cloud Platform und StorageGRID erstellen.
 
-
-NOTE: Sie sollten die SnapCenter-Software 4.6 oder höher verwenden.
-
-Weitere Informationen zu Cloud-Backup für Applikationen finden Sie unter:
+Weitere Informationen zu BlueXP Backup und Recovery für Applikationen finden Sie unter:
 
 * https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["Applikationsorientiertes Backup mit Cloud Backup und SnapCenter"^]
-* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["Podcast zum Thema Cloud Backup für Applikationen"^]
+* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["Podcast zu BlueXP Backup und Recovery für Applikationen"^]
 
 
 
 
 == Anforderungen
 
-Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie mit dem Backup von Applikationsdaten in Cloud-Services beginnen.
+Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass eine unterstützte Konfiguration vorhanden ist, bevor Sie mit dem Backup von Applikationsdaten beim Cloud-Provider beginnen.
 
 * ONTAP 9.8 oder höher
-* BlueXP 3.9
+* BlueXP
 * SnapCenter Server 4.6 oder höher Sie sollten SnapCenter Server 4.7 verwenden, wenn Sie die folgenden Funktionen nutzen möchten:
 +
-** Sichern von Backups vor Ort aus sekundärem Storage
-** Schutz von SAP HANA Applikationen
-** Sichern Sie Oracle und SQL Applikationen auf VMware Umgebung
+** Sichern Sie Backups aus lokalem sekundären Storage
+** Sicherung von SAP HANA Applikationen
+** Sichern von Oracle- und SQL-Applikationen in VMware-Umgebungen
 ** Mount-Backups
 ** Backups deaktivieren
 ** SnapCenter-Server nicht registrieren
 
 
 * Mindestens ein Backup pro Applikation sollte auf dem SnapCenter-Server verfügbar sein
-* Mindestens eine Tages-, Wochen- oder Monatsrichtlinie in SnapCenter ohne Etikett oder dieselbe Bezeichnung wie die der Cloud Backup for Applications-Richtlinie in BlueXP.
+* Mindestens eine tägliche, wöchentliche oder monatliche Police in SnapCenter ohne Etikett oder Etikett mit der Richtlinie in BlueXP.
 
 
 
-NOTE: Cloud Backup für Applikationen unterstützt keinen Schutz von Applikationen, die sich auf SVMs befinden, die mit FQDN oder IP-Adresse hinzugefügt wurden.
+NOTE: Wenn SVMs mit FQDN oder IP-Adressen zu SnapCenter hinzugefügt werden, können auf diesen SVMs ausgeführte Applikationen nicht gesichert werden. BlueXP Backup und Recovery für Applikationen erkennt nur die SVMs, die mit Namen hinzugefügt wurden, oder die von SnapCenter erkannten SVMs, die als Teil des ONTAP-Clusters hinzugefügt wurden.
 
 Die folgende Abbildung zeigt die einzelnen Komponenten beim Backup in der Cloud und die Verbindungen, die zwischen ihnen vorbereitet werden müssen:
 

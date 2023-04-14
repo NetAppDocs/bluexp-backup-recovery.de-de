@@ -14,12 +14,7 @@ summary: In wenigen Schritten wird ein Backup von Applikationsdaten von ONTAP in
 
 
 [role="lead"]
-Durch Integration von Cloud Backup für Applikationen in Cloud Manager und On-Premises-SnapCenter können Sie Backups der Applikationsdaten von ONTAP auf der Google Cloud-Plattform erstellen.
-
-Sie können eine oder mehrere Applikationen gleichzeitig mit einer einzigen Richtlinie in der Cloud sichern.
-
-
-IMPORTANT: Sie können nur eine Anwendung gleichzeitig schützen, wenn Sie die BlueXP-GUI verwenden. Wenn SIE JEDOCH REST-APIs verwenden, können Sie mehrere Applikationen gleichzeitig sichern.
+Führen Sie ein paar Schritte durch, um das Backup der Applikationsdaten von ONTAP auf der Google Cloud Platform zu erstellen.
 
 *Schritte*
 
@@ -28,16 +23,16 @@ IMPORTANT: Sie können nur eine Anwendung gleichzeitig schützen, wenn Sie die B
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.
 . Fügen Sie die Arbeitsumgebung hinzu.
 +
-Konfigurieren Sie den ONTAP-Cluster, der die SVM hostet, auf dem die Applikation ausgeführt wird. Nach dem Hinzufügen der Arbeitsumgebung für eine der Applikationen kann sie für alle anderen Applikationen in demselben ONTAP Cluster wiederverwendet werden.
+Konfigurieren Sie die Cluster-Management-LIF, die BlueXP ermitteln soll. Nach dem Hinzufügen der Arbeitsumgebung für eine der Applikationen kann sie für alle anderen Applikationen in demselben ONTAP Cluster wiederverwendet werden.
 
 +
 .. Wählen Sie die SVM aus und klicken Sie auf *Arbeitsumgebung hinzufügen*.
 .. Im Assistenten „Arbeitsumgebung hinzufügen“:
 +
-... Geben Sie die IP-Adresse des ONTAP-Clusters an.
-... Geben Sie die Admin-Anmeldedaten an.
+... Geben Sie die IP-Adresse der Cluster-Management-LIF an.
+... Geben Sie die Anmeldedaten des ONTAP-Cluster-Benutzers an.
 +
-Cloud Backup für Applikationen unterstützt nur Cluster-Administratoren.
+BlueXP Backup und Recovery für Applikationen unterstützen nur Cluster-Administratoren.
 
 
 
@@ -47,8 +42,8 @@ Cloud Backup für Applikationen unterstützt nur Cluster-Administratoren.
 . Wählen Sie *Google Cloud Platform* als Cloud-Provider aus.
 +
 .. Wählen Sie das Google Cloud Projekt aus, in dem der Google Cloud Storage-Bucket für Backups erstellt werden soll.
-.. Geben Sie im Feld Google Cloud Access Key den Schlüssel an.
-.. Geben Sie im Feld Google Cloud Secret Key das Passwort an.
+.. Geben Sie im Feld Google Cloud Access Key den Schlüssel für die Datenverschlüsselung an.
+.. Geben Sie im Feld Google Cloud Secret Key das Passwort für die Datenverschlüsselung an.
 .. Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
 .. Geben Sie den IP-Speicherplatz an.
 

@@ -23,9 +23,9 @@ Sie können Datenbanken aus den folgenden Gründen klonen:
 * Zum Wiederherstellen von Daten, die versehentlich gelöscht oder geändert wurden.
 
 
-*Was Sie brauchen*
+*Bevor Sie beginnen*
 
-Vor dem Klonen der Datenbank sollten Sie die Klonkonzepte verstehen und sicherstellen, dass alle Anforderungen erfüllt werden. link:concept-clone-cloud-native-oracle-concepts.html["Weitere Informationen ."].
+Sie sollten die Klonkonzepte kennen und sicherstellen, dass alle Anforderungen erfüllt werden. link:concept-clone-cloud-native-oracle-concepts.html["Weitere Informationen ."].
 
 *Schritte*
 
@@ -53,8 +53,12 @@ Wenn die Datenbank zum Quell-Host geklont wird, wird das Benennungsschema automa
 .. Geben Sie den Oracle Home Path an.
 .. (Optional) Geben Sie die Datenbankanmeldeinformationen an.
 +
-*** Datenbank-Anmeldeinformationen: Wenn die OS-Benutzerauthentifizierung deaktiviert ist, sollten Sie ein Passwort für den sys-Benutzer angeben, um es auf dem Ziel-Host zu definieren.
+*** Datenbankanmeldeinformationen: Wenn die OS-Benutzerauthentifizierung deaktiviert ist, sollten Sie ein Kennwort für den sys-Benutzer angeben, mit dem eine Verbindung zur geklonten Datenbank auf demselben oder Zielhost hergestellt werden kann.
 *** ASM-Anmeldedaten: Wenn die Authentifizierung des OS-Benutzers auf dem Zielhost deaktiviert ist, sollten Sie die Anmeldeinformationen eines sysasm-privilegierten Benutzers angeben, um eine Verbindung zur ASM-Instanz auf dem Zielhost herzustellen.
++
+
+NOTE: Stellen Sie sicher, dass der Listener auf dem Zielhost ausgeführt wird.
+
 
 
 .. Klicken Sie Auf *Weiter*.
@@ -79,8 +83,12 @@ Wenn Sie den Klon auf einem anderen Host erstellen möchten, wählen Sie den Hos
 .. Geben Sie die SID des Klons an.
 .. (Optional) Geben Sie die Datenbankanmeldeinformationen an.
 +
-*** Datenbank-Anmeldeinformationen: Wenn die OS-Benutzerauthentifizierung deaktiviert ist, sollten Sie ein Passwort für den sys-Benutzer angeben, um es auf dem Ziel-Host zu definieren.
+*** Datenbankanmeldeinformationen: Wenn die OS-Benutzerauthentifizierung deaktiviert ist, sollten Sie ein Kennwort für den sys-Benutzer angeben, mit dem eine Verbindung zur geklonten Datenbank auf demselben oder Zielhost hergestellt werden kann.
 *** ASM-Anmeldedaten: Wenn die Authentifizierung des OS-Benutzers auf dem Zielhost deaktiviert ist, sollten Sie die Anmeldeinformationen eines sysasm-privilegierten Benutzers angeben, um eine Verbindung zur ASM-Instanz auf dem Zielhost herzustellen.
++
+
+NOTE: Stellen Sie sicher, dass der Listener auf dem Zielhost ausgeführt wird.
+
 
 
 .. Klicken Sie Auf *Weiter*.

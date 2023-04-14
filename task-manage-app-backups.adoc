@@ -14,7 +14,7 @@ summary: Sie können die Richtlinien und Backups anzeigen. Abhängig von der Än
 
 
 [role="lead"]
-Sie können den Schutz von Anwendungen verwalten, indem Sie verschiedene Vorgänge über die Benutzeroberfläche von BlueXP ausführen.
+Sie können den Schutz von Applikationen managen, indem Sie Richtlinien anzeigen, Backups anzeigen, die Änderungen am Datenbank-Layout, an Richtlinien und Ressourcengruppen anzeigen und alle Vorgänge über die BlueXP UI überwachen.
 
 
 
@@ -34,7 +34,7 @@ NOTE: Eine Richtlinie, die einer Anwendung zugeordnet ist, kann nicht bearbeitet
 
 
 
-Sie können sich auch SnapCenter-Richtlinien für die Cloud anzeigen lassen, indem Sie auf ausführen `Get-SmResources` SnapCenter Cmdlet: Die Informationen zu den Parametern, die mit dem Cmdlet und deren Beschreibungen verwendet werden können, können durch Ausführen von Get-Help Command_Name abgerufen werden. Alternativ können Sie auch die verweisen https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["SnapCenter Software Cmdlet Referenzhandbuch"].
+Sie können sich auch SnapCenter-Richtlinien für die Cloud anzeigen lassen, indem Sie auf ausführen `Get-SmResources` Cmdlet in SnapCenter: Die Informationen zu den Parametern, die mit dem Cmdlet und deren Beschreibungen verwendet werden können, können durch Ausführen von Get-Help Command_Name abgerufen werden.
 
 
 
@@ -47,24 +47,24 @@ Sie können die Backups in der Cloud in der BlueXP UI anzeigen.
 
 
 
-IMPORTANT: Die für die Auflistung der Backups benötigte Zeit hängt von dem standardmäßigen Replizierungsplan von ONTAP (maximal 1 Stunde) und BlueXP (maximal 6 Stunden) ab.
+IMPORTANT: Die für die Auflistung von Backups benötigte Zeit hängt von dem Standardreplizierungszeitplan von ONTAP ab.
 
-* Bei Oracle Datenbanken werden sowohl Daten- als auch Log-Backups, SCN-Nummer für jedes Backup, Enddatum für jedes Backup aufgeführt. Sie können nur das Daten-Backup auswählen und die Datenbank auf dem lokalen SnapCenter Server wiederherstellen.
+* Für Oracle-Datenbanken werden sowohl Daten- als auch Protokollsicherungen, Systemänderungsnummer (SCN) für jedes Backup, Enddatum für jedes Backup aufgeführt. Sie können nur das Daten-Backup auswählen und die Datenbank auf dem lokalen SnapCenter Server wiederherstellen.
 * Bei Microsoft SQL Server-Datenbanken werden nur die vollständigen Backups und das Enddatum für jedes Backup aufgeführt. Sie können das Backup auswählen und die Datenbank auf dem lokalen SnapCenter Server wiederherstellen.
-* Bei Microsoft SQL Server werden Backups nicht nur in den Datenbanken aufgeführt, unter denen diese Instanz steht.
+* Für eine Instanz von Microsoft SQL Server werden Backups der Datenbanken unter dieser Instanz aufgeführt.
 * Bei SAP HANA Datenbanken werden nur die Daten-Backups und das Enddatum für jedes Backup aufgeführt. Sie können das Backup auswählen und Mount-Vorgang durchführen.
 
 
 
 NOTE: Die vor Aktivierung der Cloud-Sicherung erstellten Backups werden nicht zur Wiederherstellung aufgeführt.
 
-Sie können diese Backups auch anzeigen, indem Sie die ausführen `Get-SmBackup` SnapCenter Cmdlet: Die Informationen zu den Parametern, die mit dem Cmdlet und deren Beschreibungen verwendet werden können, können durch Ausführen von Get-Help Command_Name abgerufen werden. Alternativ können Sie auch die verweisen https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["SnapCenter Software Cmdlet Referenzhandbuch"].
+Sie können diese Backups auch anzeigen, indem Sie die ausführen `Get-SmBackup` Cmdlet in SnapCenter: Die Informationen zu den Parametern, die mit dem Cmdlet und deren Beschreibungen verwendet werden können, können durch Ausführen von Get-Help Command_Name abgerufen werden.
 
 
 
 == Datenbanklayout ändern
 
-Wenn Volumes zur Datenbank hinzugefügt werden, kennzeichnet SnapCenter Server die Snapshots auf den neuen Volumes automatisch gemäß Richtlinie und Zeitplan. Diese neuen Volumes verfügen nicht über den Endpunkt des Objektspeichers, und Sie sollten die Aktualisierung durch die folgenden Schritte durchführen:
+Wenn zur Datenbank Volumes hinzugefügt werden, kennzeichnet SnapCenter Server die Snapshots auf den neuen Volumes automatisch gemäß der Richtlinie und dem Zeitplan. Diese neuen Volumes verfügen nicht über den Objektspeicher-Endpunkt, und Sie sollten die Volumes aktualisieren, indem Sie die folgenden Schritte ausführen:
 
 . Klicken Sie auf *Backup und Recovery* > *Anwendungen*.
 . Klicken Sie im Dropdown-Menü *Einstellungen* auf *SnapCenter Server*.
@@ -73,15 +73,19 @@ Wenn Volumes zur Datenbank hinzugefügt werden, kennzeichnet SnapCenter Server d
 Die neuen Volumes werden ermittelt.
 
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Refresh Protection*, um den Cloud-Schutz für das neue Volume zu aktivieren.
++
+** Wenn nach der Konfiguration des Cloud-Providers ein Speicher-Volume aus der Anwendung entfernt wird, kennzeichnet SnapCenter Server für neue Backups die Snapshots, auf denen sich die Anwendung befindet.
+** Sie sollten die Beziehung zum Objektspeicher manuell löschen, wenn das entfernte Volume nicht von anderen Applikationen verwendet wird.
+** Wenn Sie den Anwendungsbestand aktualisieren, enthält dieser das aktuelle Speicherlayout der Anwendung.
 
 
-Wenn ein Storage-Volume nach der Konfiguration des Cloud-Service aus der Applikation entfernt wird, kennzeichnet SnapCenter Server für neue Backups nur die Snapshots, auf denen sich die Anwendung befindet. Wenn das entfernte Volume von anderen Anwendungen nicht verwendet wird, sollten Sie die Objektspeicherbeziehung manuell löschen. Wenn Sie den Anwendungsbestand aktualisieren, enthält dieser das aktuelle Speicherlayout der Anwendung.
+
 
 
 
 == Änderung der Richtlinie oder Ressourcengruppe
 
-Wenn die SnapCenter-Richtlinie oder Ressourcengruppe geändert wird, müssen Sie den Schutz aktualisieren.
+Wenn die SnapCenter-Richtlinie oder Ressourcengruppe geändert wird, sollten Sie die Sicherungsbeziehung aktualisieren.
 
 . Klicken Sie auf *Backup und Recovery* > *Anwendungen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Aktualisierungsschutz*.
@@ -111,28 +115,9 @@ Wenn Sie einen Vorgang starten, wird ein Fenster angezeigt, in dem Sie angeben, 
 
 
 
-== Legen Sie IP-Speicherplatz für die primäre Arbeitsumgebung fest
-
-Wenn Sie ein Backup wiederherstellen oder mounten möchten, das vom sekundären Storage in einen Objektspeicher verschoben wurde, sollten Sie die Details zur primären Arbeitsumgebung hinzufügen und den IP-Speicherplatz festlegen.
-
-*Schritte*
-
-. Klicken Sie in BlueXP UI auf *Storage* > *Leinwand* > *Meine Arbeitsumgebung* > *Arbeitsumgebung hinzufügen*.
-. Geben Sie die Details der primären Arbeitsumgebung an und klicken Sie auf *Hinzufügen*.
-. Klicken Sie auf *Backup und Recovery* > *Volumes*.
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend einem der Volumen und klicken Sie auf *Details*.
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Sicherung und klicken Sie auf *Wiederherstellen*.
-. Wählen Sie im Assistenten die neu hinzugefügte primäre Arbeitsumgebung als Ziel aus.
-. Geben Sie den IP-Speicherplatz an.
-
-
-
-
 == Konfigurieren Sie CA-Zertifikate
 
 Wenn Sie CA-Zertifikate haben, sollten Sie die Stammzertifizierungszertifikate manuell auf den Verbindungscomputer kopieren.
-
-Wenn Sie jedoch keine CA-Zertifikate besitzen, können Sie ohne die Konfiguration von CA-Zertifikaten fortfahren.
 
 *Schritte*
 

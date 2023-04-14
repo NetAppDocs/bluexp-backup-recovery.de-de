@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: task-refresh-sap-hana-target-system.html 
+keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SAP HANA, SAP HANA, database, host, system refresh 
+summary: Führen Sie eine Aktualisierung von einem SAP HANA Quell-System durch, das die Produktionsdatenbank auf ein Zielsystem ist. 
+---
+= Aktualisierung des SAP HANA-Zielsystems
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können eine Aktualisierung eines SAP HANA-Zielsystems mit den Daten eines SAP HANA-Quellsystems durchführen. Damit können die aktuellen Produktionsdaten in einem Testsystem bereitgestellt werden. Mit Cloud Backup können Sie eine Snapshot Kopie aus einem Quellsystem auswählen und auf Basis der Snapshot Kopie ein neues ANF Volume erstellen. Es sind Beispielskripte verfügbar, die die erforderlichen Vorgänge auf dem Datenbank-Host ausführen, um die SAP HANA-Datenbank wiederherzustellen.
+
+*Bevor Sie beginnen*
+
+* Sie sollten das SAP HANA-Zielsystem installieren, bevor Sie die erste Aktualisierung ausführen.
+* Die Quell- und Ziel-HANA-Systeme müssen manuell in das Cloud-Backup aufgenommen werden.
+* Stellen Sie sicher, dass die SAP HANA-Datenbankversion auf dem Quell- und Zielsystem identisch ist.
+* Sie sollten sich für die zu verwendenden Refresh-Skripte entschieden haben. Die Aktualisierungsskripts sind im technischen Bericht zur Lösung verfügbar.
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-automation-example-scripts.html#script-sc-system-refresh-sh["Beispielskripte zur Automatisierung"]
+
++
+Sie können die Aktualisierungsskripts anpassen.
+
+* Die folgenden Umgebungsvariablen stehen als Teil des Prescript und des Postscripts zur Verfügung:
++
+** GEKLONTE_VOLUMES_MOUNT_PATH
+** <SOURCEVOLUME>_DESTINATION
+** HANA_DATABASE_TYPE
+** TENANT_DATABASE_NAMES
+
+
+
+
+*Über diese Aufgabe*
+
+* Die Systemaktualisierung wird nur für das Container-HANA-System mit mehreren Mandanten unterstützt.
+* Die vorhandenen Richtlinien sind nach der Systemaktualisierung gültig.
+* Die neuen erstellten Volumes werden die folgende Namenskonvention haben: <sourcevolumename>-<timestamp>
++
+** Zeitstempelformat: <year> <month> <day>-<hour> <minute> <second>
++
+Wenn das Quell-Volume beispielsweise vol1 ist, lautet der aktualisierte Volume-Name vol1-20230109-184501
+
+
+
+
+
+
+NOTE: Das neue Volume wird im gleichen Kapazitäts-Pool wie das der Ziel-Volumes platziert.
+
+* Der Verbindungspfad entspricht dem Volume-Namen.
+
+
+*Schritte*
+
+. Klicken Sie in der BlueXP-Benutzeroberfläche auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
+. Klicken Sie auf der Seite *Anwendungen* auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Symbol, um die Aktion auszuwählen, die dem System entspricht, das Sie aktualisieren möchten, und wählen Sie *Systemaktualisierung*.
+. Führen Sie auf der Seite *Systemaktualisierung* die folgenden Aktionen durch:
++
+.. Wählen Sie das Quellsystem und die Snapshot Kopie aus.
+.. Geben Sie die Exportadressen ein, von denen aus auf die neuen Volumes zugegriffen werden kann.
+.. Geben Sie Prescript, Postscript und On Failure Script-Pfade ein. Das Skript bei einem Fehler wird nur ausgeführt, wenn die Systemaktualisierung fehlschlägt.
+.. Wählen Sie *zugewiesene SAP HANA Backups löschen* nur Snapshot Kopien werden gelöscht. Wenn Backups des Zielsystems vorhanden sind und die oben genannte Option nicht ausgewählt ist, schlägt die Systemaktualisierung fehl. Sie können die Backups auch von der Seite *Topologie* löschen.
+.. Klicken Sie Auf *Aktualisieren*.
+
+
+

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-cloud-app-data-to-cloud.html 
-keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP, Cloud Manager, BlueXP 
+keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP, Cloud Manager, BlueXP, cloud backup 
 summary: BlueXP bietet effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP. 
 ---
 = Sichern Sie Ihre Daten aus Cloud-nativen Applikationen
@@ -14,9 +14,9 @@ summary: BlueXP bietet effizientes, applikationskonsistentes, richtlinienbasiert
 
 
 [role="lead"]
-Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherungsfunktionen für Applikationen, die auf NetApp Cloud Storage ausgeführt werden. Cloud Backup für Anwendungen, die in BlueXP (ehemals Cloud Manager) aktiviert sind, bietet effizienten, applikationskonsistenten, richtlinienbasierten Schutz der folgenden Anwendungen:
+BlueXP Backup und Recovery für Applikationen ist ein SaaS-basierter Service, der applikationskonsistente Datensicherungsfunktionen für Applikationen bietet, die auf NetApp Cloud Storage ausgeführt werden. BlueXP Backup und Recovery für Applikationen bieten effizienten, applikationskonsistenten und richtlinienbasierten Schutz für die folgenden Applikationen:
 
-* Oracle Datenbanken befinden sich auf Amazon FSX für NetApp ONTAP und Cloud Volumes ONTAP
+* Oracle Datenbanken, die sich auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files befinden
 * SAP HANA-Systeme auf Azure NetApp Files
 
 
@@ -24,17 +24,14 @@ Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherun
 
 == Der Netapp Architektur Sind
 
-Die Architektur von Cloud Backup für Applikationen umfasst die folgenden Komponenten:
+Die Cloud Backup-Architektur umfasst die folgenden Komponenten:
 
-* Cloud Backup für Applikationen ist eine Reihe von Datensicherungsservices, die von NetApp als SaaS-Service gehostet werden und auf der BlueXP SaaS-Plattform basieren.
+* Cloud Backup ist eine Reihe von Datensicherungsservices, die von NetApp als SaaS-Service gehostet werden und auf der BlueXP SaaS-Plattform basieren.
 +
 Die Datensicherungs-Workflows werden für Applikationen auf NetApp Cloud Storage orchestriert.
 
-* Auf die Benutzeroberfläche von Cloud Backup für Applikationen kann über die Benutzeroberfläche von BlueXP zugegriffen werden.
-+
-Die Benutzeroberfläche von Cloud Backup für Applikationen bietet Datensicherungsfunktionen für Applikationen.
-
-* BlueXP Connector ist eine Komponente, die im Cloud-Netzwerk des Benutzers ausgeführt wird und mit Storage-Systemen und applikationsspezifischen Plug-ins interagiert.
+* Die UI für Cloud Backup bietet Datensicherungsfunktionen für Applikationen und ist über die BlueXP UI zugänglich.
+* BlueXP Connector ist eine Komponente, die in Ihrem Cloud-Netzwerk ausgeführt wird und mit Storage-Systemen und applikationsspezifischen Plug-ins interagiert.
 * Das applikationsspezifische Plug-in ist eine Komponente, die auf jedem Applikations-Host ausgeführt wird und mit den auf dem Host ausgeführten Datenbanken interagiert, während gleichzeitig Datensicherungsprozesse durchgeführt werden.
 
 
@@ -42,7 +39,7 @@ Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die
 
 image:diagram_nativecloud_backup_app.png["Ein Diagramm, das zeigt, wie jede Komponente und die Verbindungen vorbereitet werden müssen."]
 
-Für alle von Benutzern initiierten Anfragen kommuniziert die Benutzeroberfläche von Cloud Backup for Applications mit dem SaaS von BlueXP, das bei der Validierung der Anfrageprozesse identisch ist. Wenn die Anfrage einen Workflow wie Backup, Wiederherstellung oder Klon ausführen soll, initiiert der SaaS-Service den Workflow und leitet diesen bei Bedarf an den BlueXP Connector weiter. Der Connector kommuniziert dann im Rahmen der Ausführung der Workflow-Aufgaben mit dem Speichersystem und dem anwendungsspezifischen Plug-in.
+Bei vom Benutzer initiierten Anfragen kommuniziert die Cloud Backup UI mit der BlueXP SaaS, wodurch die Anforderung nach Validierung dieselbe verarbeitet wird. Wenn die Anfrage einen Workflow wie Backup, Wiederherstellung oder Klon ausführen soll, initiiert der SaaS-Service den Workflow und leitet diesen bei Bedarf an den BlueXP Connector weiter. Der Connector kommuniziert dann im Rahmen der Ausführung der Workflow-Aufgaben mit dem Speichersystem und dem anwendungsspezifischen Plug-in.
 
 Der Connector kann in derselben VPC oder vnet wie die der Applikationen oder in einer anderen implementiert werden. Wenn sich der Connector und die Anwendungen in einem anderen Netzwerk befinden, sollten Sie eine Netzwerkverbindung zwischen ihnen herstellen.
 
@@ -50,7 +47,7 @@ Der Connector kann in derselben VPC oder vnet wie die der Applikationen oder in 
 NOTE: Ein einziger BlueXP Connector kann mit mehreren Speichersystemen und mehreren Anwendungs-Plug-ins kommunizieren. Sie benötigen einen einzigen Connector, um Ihre Anwendungen zu verwalten, solange die Verbindung zwischen dem Connector und den Anwendungs-Hosts besteht.
 
 
-IMPORTANT: Cloud Backup für Applikationen die SaaS-Infrastruktur ist gegen Ausfälle der Verfügbarkeitszonen innerhalb einer Region stabil. Es unterstützt regionale Ausfälle durch Failover auf eine neue Region, und der Failover hat ungefähr zwei Stunden Ausfallzeit.
+IMPORTANT: Cloud Backup SaaS-Infrastruktur ist ausfallsicher bei Ausfällen von Verfügbarkeitszonen innerhalb einer Region. Es unterstützt regionale Ausfälle durch Failover auf eine neue Region, und der Failover hat ungefähr zwei Stunden Ausfallzeit.
 
 
 
@@ -58,54 +55,31 @@ IMPORTANT: Cloud Backup für Applikationen die SaaS-Infrastruktur ist gegen Ausf
 
 
 
-=== Unterstützte Konfigurationen
-
-* Betriebssystem:
-+
-** RHEL 7.5 oder höher und 8.x
-** L 7.5 oder höher und 8.x
-
-
-* Storage-System:
-+
-** Amazon FSX für ONTAP
-** Cloud Volumes ONTAP
-
-
-* Storage-Layouts:
-+
-** NFS v3 und v4.1 (einschließlich dNFS)
-** ISCSI mit ASM (ASMFD, ASMLib und ASMUdev)
-
-
-* Datenbank-Layouts: Oracle Standard und Oracle Enterprise Standalone (veraltete und mandantenfähige CDB und PDB)
-* Datenbankversionen: 12cR2, 18c, 19c und 21c
-
-
-
-
 === Funktionen
 
 * Host hinzufügen und Plug-in implementieren
 +
-Sie können das Plug-in entweder manuell, mithilfe eines Skripts oder automatisch bereitstellen.
+Sie können das Plug-in manuell, per Skript oder automatisch bereitstellen.
 
 * Automatische Erkennung von Oracle-Datenbanken
-* Backup von Oracle Datenbanken
+* Sichern von Oracle-Datenbanken auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files
 +
 ** Vollständiges Backup (Daten + Kontrolle + Archivprotokolldateien)
 ** On-Demand-Backup
 ** Ein geplantes Backup basiert auf den systemdefinierten oder benutzerdefinierten Richtlinien
 +
-Sie können verschiedene Planungsfrequenzen wie stündlich, täglich, wöchentlich und monatlich in der Richtlinie festlegen.
+Sie können verschiedene Planungsfrequenzen wie stündlich, täglich, wöchentlich und monatlich in der Richtlinie festlegen. Sie können auch die Post-Skripte angeben, die nach einem erfolgreichen Backup ausgeführt werden, um den Snapshot in den sekundären Speicher zu kopieren.
 
 
 
 * Aufbewahrung von Backups anhand der Richtlinie
-* Wiederherstellen der vollständigen Oracle-Datenbank (Datendateien + Kontrolldatei) aus dem angegebenen Backup
-* Nur Datendateien wiederherstellen und nur Dateien aus dem angegebenen Backup steuern
-* Wiederherstellen der Oracle-Datenbank mit bis SCN, bis zu der Zeit, alle verfügbaren Protokolle und keine Recovery-Optionen
-* Klonen von Oracle Datenbanken auf Quell- oder alternativen Ziel-Hosts
+* Wiederherstellung von Oracle Datenbanken auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files
++
+** Wiederherstellen der vollständigen Oracle-Datenbank (Datendateien + Kontrolldatei) aus dem angegebenen Backup
+** Wiederherstellen der Oracle-Datenbank mit bis SCN, bis zu der Zeit, alle verfügbaren Protokolle und keine Recovery-Optionen
+
+
+* Klonen von Oracle-Datenbanken, die sich auf Amazon FSX für NetApp ONTAP und Cloud Volumes ONTAP auf Quell- oder alternativen Ziel-Hosts befinden
 +
 ** Grundclonen mit einem Klick
 ** Erweitertes Klonen mit einer benutzerdefinierten Klonspezifikationsdatei
@@ -117,6 +91,7 @@ Sie können verschiedene Planungsfrequenzen wie stündlich, täglich, wöchentli
 * Monitoring von Backups, Restores, Klonen und anderen Aufgaben
 * Anzeigen der Schutzzusammenfassung im Dashboard
 * Senden von Benachrichtigungen per E-Mail
+* Aktualisieren Sie das Host-Plug-in
 
 
 
@@ -126,35 +101,13 @@ Sie können verschiedene Planungsfrequenzen wie stündlich, täglich, wöchentli
 * Bietet keine Unterstützung für Oracle 11g
 * Unterstützt keine Mount-, Katalog- und Überprüfungsvorgänge für Backups
 * Bietet keine Unterstützung für Oracle auf RAC und Data Guard
-* Bei Cloud Volumes ONTAP HA wird nur eine der Netzwerk-Schnittstellen-IPs verwendet. Wenn die Verbindung der IP unterbrochen wird oder Sie nicht auf die IP zugreifen können, schlagen die Vorgänge fehl.
-* Die IP-Adressen der Netzwerkschnittstellen von Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP müssen im BlueXP Konto und in der Region eindeutig sein.
+* Bei Cloud Volumes ONTAP HA wird nur eine der Netzwerk-Schnittstellen-IPs verwendet. Wenn die Verbindung der IP-Adresse ausfällt oder Sie nicht auf die IP-Adresse zugreifen können, schlägt der Datenschutzbetrieb fehl.
+* Die IP-Adressen der Netzwerkschnittstelle von Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP müssen im BlueXP Konto und in der Region eindeutig sein.
 
 
 
 
 == Schutz von SAP HANA Datenbanken
-
-
-
-=== Unterstützte Konfigurationen
-
-* Betriebssystem:
-+
-** RHEL 7.5 oder höher, 8.x-Plattformen, von SAP HANA zertifiziert
-** SLES 12 SP5 oder höher und 15 SPX Plattformen zertifiziert von SAP HANA
-
-
-* Speichersystem Azure NetApp Files
-* Storage-Layouts: Azure unterstützt für Daten und Protokoll nur NFSv4.1.
-* Datenbank-Layout:
-+
-** Single Container Version 1.0SPS12
-** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 mit einzelnen oder mehreren Mandanten
-** SAP HANA Einzelhostsystem, SAP HANA mehrere Hostsysteme (ohne Standby-Host), HANA System Replication
-
-
-* Plug-in für SAP HANA auf dem Datenbank-Host
-
 
 
 

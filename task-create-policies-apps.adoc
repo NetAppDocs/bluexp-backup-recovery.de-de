@@ -14,49 +14,14 @@ summary: Verwenden Sie entweder die vordefinierten Richtlinien oder erstellen Si
 
 
 [role="lead"]
-Sie können entweder eine der vordefinierten Richtlinien verwenden oder eine individuelle Richtlinie für das Backup der Applikationsdaten in der Cloud erstellen. Sie können Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht bearbeiten möchten.
+Erstellen Sie eine Richtlinie für Backups von Applikationsdaten in der Cloud.
 
-Die vordefinierten Richtlinien sind:
+*Bevor Sie beginnen*
 
-|===
-| Name Der Richtlinie | Etikett | Aufbewahrungswert 
-
-
- a| 
-1 Jahr tägliche LTR
- a| 
-Täglich
- a| 
-366
+* Wenn Sie Backups vom Objektspeicher in den Archiv-Storage verschieben möchten, stellen Sie sicher, dass Sie ONTAP 9.10.1 oder höher und Amazon Web Services oder Azure als Cloud-Provider verwenden.
+* Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.
 
 
-
- a| 
-5 Jahre tägliche LTR
- a| 
-Täglich
- a| 
-1830
-
-
-
- a| 
-7 Jahre wöchentlicher LTR
- a| 
-Wöchentlich
- a| 
-370
-
-
-
- a| 
-10 Jahre Monatliche LTR
- a| 
-Monatlich
- a| 
-120
-
-|===
 *Schritte*
 
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
@@ -65,13 +30,7 @@ Monatlich
 . Wählen Sie im Abschnitt Aufbewahrung einen Aufbewahrungstyp aus und geben Sie die Anzahl der zu behaltenden Backups an.
 . Wählen Sie Primary oder Secondary als Backup-Speicherquelle aus.
 . (Optional) Wenn Sie Backups nach einer bestimmten Anzahl von Tagen zur Kostenoptimierung vom Objektspeicher in den Archivspeicher verschieben möchten, aktivieren Sie das Kontrollkästchen *Tiering Backups in Archive*.
-+
-Sie können Backups nur dann von einem Objektspeicher in einen Archiv-Storage verschieben, wenn Sie ONTAP 9.10.1 oder höher und Amazon Web Services oder Azure als Cloud-Provider verwenden. Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.
-
 . Klicken Sie Auf *Erstellen*.
-+
-Sie können die angepassten Richtlinien bearbeiten, kopieren und löschen.
-
 +
 
 NOTE: Eine Richtlinie, die einer Anwendung zugeordnet ist, kann nicht bearbeitet oder gelöscht werden.

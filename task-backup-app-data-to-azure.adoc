@@ -14,12 +14,7 @@ summary: Führen Sie einige Schritte aus, um Applikationsdaten von ONTAP in Azur
 
 
 [role="lead"]
-Durch die Integration von Cloud Backup für Applikationen in BlueXP und On-Premises-SnapCenter können Sie ein Backup der Applikationsdaten von ONTAP in Microsoft Azure erstellen.
-
-Sie können eine oder mehrere Applikationen gleichzeitig mit einer einzigen Richtlinie in der Cloud sichern.
-
-
-IMPORTANT: Sie können nur eine Anwendung gleichzeitig schützen, wenn Sie die BlueXP-GUI verwenden. Wenn SIE JEDOCH REST-APIs verwenden, können Sie mehrere Applikationen gleichzeitig sichern.
+Führen Sie ein paar Schritte durch, um die Applikationsdaten von ONTAP auf Microsoft Azure zu sichern.
 
 *Schritte*
 
@@ -28,16 +23,16 @@ IMPORTANT: Sie können nur eine Anwendung gleichzeitig schützen, wenn Sie die B
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.
 . Fügen Sie die Arbeitsumgebung hinzu.
 +
-Konfigurieren Sie den ONTAP-Cluster, der die SVM hostet, auf dem die Applikation ausgeführt wird. Nach dem Hinzufügen der Arbeitsumgebung für eine der Applikationen kann sie für alle anderen Applikationen in demselben ONTAP Cluster wiederverwendet werden.
+Konfigurieren Sie die Cluster-Management-LIF, die BlueXP ermitteln soll. Nach dem Hinzufügen der Arbeitsumgebung für eine der Applikationen kann sie für alle anderen Applikationen in demselben ONTAP Cluster wiederverwendet werden.
 
 +
 .. Wählen Sie die SVM aus und klicken Sie auf *Arbeitsumgebung hinzufügen*.
 .. Im Assistenten „Arbeitsumgebung hinzufügen“:
 +
-... Geben Sie die IP-Adresse des ONTAP-Clusters an.
-... Geben Sie die Admin-Anmeldedaten an.
+... Geben Sie die IP-Adresse der Cluster-Management-LIF an.
+... Geben Sie die Anmeldedaten des ONTAP-Cluster-Benutzers an.
 +
-Cloud Backup für Applikationen unterstützt nur Cluster-Administratoren.
+BlueXP Backup und Recovery für Applikationen unterstützen nur Cluster-Administratoren.
 
 
 

@@ -16,15 +16,15 @@ summary: Stellen Sie die Datendateien, Kontrolldateien oder beides wieder her, u
 [role="lead"]
 Im Falle eines Datenverlustes können Sie die Datendateien, Kontrolldateien oder beides wiederherstellen. Anschließend können Sie die Datenbank wiederherstellen.
 
-*Was Sie brauchen*
+*Bevor Sie beginnen*
 
 Wenn sich die Oracle 21c-Datenbank im STARTZUSTAND befindet, schlägt der Wiederherstellungsvorgang fehl. Sie sollten Folgendes ausführen, um die Datenbank erfolgreich wiederherzustellen.
-`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar`
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
 
 *Schritte*
 
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datensicherung, die Sie für die Wiederherstellung verwenden möchten, und klicken Sie auf *Restore*.
+. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
+. Wählen Sie den Wiederherstellungspunkt aus, an dem die Datenbank wiederhergestellt werden soll, und klicken Sie auf *an Originalspeicherort wiederherstellen*.
 . Führen Sie im Abschnitt „Umfang wiederherstellen“ die folgenden Aktionen durch:
 +
 |===
@@ -52,10 +52,6 @@ Wählen Sie *Alle Datendateien* und *Kontrolldateien* aus.
 
 |===
 +
-
-NOTE: Die Wiederherstellung von Datendateien mit Kontrolldateien oder nur Kontrolldateien wird für iSCSI im ASM-Layout nicht unterstützt.
-
-+
 Sie können auch das Kontrollkästchen *in-Place-Wiederherstellung erzwingen* aktivieren.
 
 +
@@ -69,6 +65,10 @@ Wenn das SnapCenter Plug-in für Oracle im SAN-Layout fremde Dateien als Oracle-
 ** ASM-Parameterdatei.
 +
 Die Option *Kraft in-Place Restore* überschreibt die fremden Dateien von Typ-Parameter, Passwort und Archivprotokoll. Sie sollten das neueste Backup verwenden, wenn die Option *in-Place Restore* erzwingen ausgewählt ist.
+
++
+
+NOTE: Die Wiederherstellung von Datendateien mit Kontrolldateien oder nur Kontrolldateien für iSCSI auf ASM-Layout und die Wiederherstellung von Tablespaces und PDBs werden nicht unterstützt.
 
 
 
@@ -88,7 +88,7 @@ Wählen Sie *Alle Protokolle*.
  a| 
 Wiederherstellen einer bestimmten Systemänderungsnummer (SCN)
  a| 
-Wählen Sie *bis Systemänderungsnummer* und geben Sie das SCN an.
+Wählen Sie *bis SCN* und geben Sie die SCN an.
 
 
 
@@ -113,15 +113,4 @@ Aktivieren Sie das Kontrollkästchen, wenn Sie die Datenbank nach der Wiederhers
 
 . Klicken Sie auf *Weiter* und prüfen Sie die Details.
 . Klicken Sie Auf *Wiederherstellen*.
-
-
-
-
-== Einschränkungen
-
-* Keine Unterstützung für granulare Restores, beispielsweise beim Wiederherstellen von Tabellen und PDBs
-* Sowohl in-Place als auch connect-and-copy Wiederherstellungsmethoden werden verwendet, wenn einige Festplattengruppen fremde Dateien enthalten. Die Verwendung beider Methoden zur gleichen Zeit zur Wiederherstellung wird jedoch nicht unterstützt und der Wiederherstellungsvorgang schlägt fehl. Die Datenbank wird im Status „angehängt“ belassen und Sie müssen die Datenbank manuell in den Status „Öffnen“ versetzen.
-+
-Aufgrund eines bekannten Problems wird die Fehlermeldung aufgrund von Fremddateien nicht auf der Jobseite in der UI angezeigt. Prüfen Sie die Connector-Protokolle, wenn während der Phase der SAN-Vorabwiederherstellung ein Fehler auftritt, um die Ursache des Problems zu ermitteln.
-
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-vm-data.html 
-keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP, Cloud backup for virtual machines 
 summary: Erfahren Sie mehr über die Sicherung von Daten auf Ihren Virtual Machines und lernen Sie die verschiedenen Richtlinien kennen. 
 ---
 = Sichern Sie Ihre Daten von Virtual Machines

@@ -14,19 +14,12 @@ summary: Sie können Oracle Datenbanken aus der Cloud auf dem lokalen SnapCenter
 
 
 [role="lead"]
-Die Oracle-Datenbank kann nur auf demselben SnapCenter-Serverhost, derselben SVM oder demselben Datenbank-Host wiederhergestellt werden. Bei einer RAC-Datenbank werden die Daten auf dem On-Premises-Node, an dem das Backup erstellt wurde, wiederhergestellt.
-
-
-NOTE: Die Wiederherstellung von sekundären Backups über primären Server wird unterstützt.
+Sie können die Oracle-Datenbank nur auf demselben Host wiederherstellen, auf dem das Backup erstellt wurde. Bei einer RAC-Datenbank werden die Daten auf dem lokalen Knoten wiederhergestellt, auf dem das Backup erstellt wurde.
 
 Es wird nur eine vollständige Datenbank mit Wiederherstellung der Kontrolldatei unterstützt. Wenn die Archivprotokolle nicht im AFS vorhanden sind, müssen Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
 
 
 IMPORTANT: Single File Restore (SFR) wird nicht unterstützt.
-
-*Was Sie brauchen*
-
-Wenn Sie ein Backup wiederherstellen möchten, das vom sekundären Storage in einen Objektspeicher verschoben wurde, sollten Sie die Details zur primären Arbeitsumgebung hinzufügen und den IP-Speicherplatz festlegen. Weitere Informationen finden Sie unter link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment["Legen Sie IP-Speicherplatz für die primäre Arbeitsumgebung fest"].
 
 *Schritte*
 
@@ -37,10 +30,13 @@ Wenn Sie ein Backup wiederherstellen möchten, das vom sekundären Storage in ei
 +
 .. Wählen Sie *Datenbankstatus* aus, wenn Sie den Status der Datenbank in den Zustand ändern möchten, der für die Wiederherstellung und Wiederherstellung erforderlich ist.
 +
-Die verschiedenen Status einer Datenbank von höher bis niedriger sind offen, montiert, gestartet und heruntergefahren. Sie müssen dieses Kontrollkästchen aktivieren, wenn sich die Datenbank in einem höheren Zustand befindet, der Status jedoch in einen niedrigeren Zustand geändert werden muss, um einen Wiederherstellungsvorgang durchzuführen. Wenn sich die Datenbank in einem niedrigeren Zustand befindet, aber der Status in einen höheren Zustand geändert werden muss, um den Wiederherstellungsvorgang auszuführen, wird der Datenbankstatus automatisch geändert, auch wenn Sie das Kontrollkästchen nicht aktivieren.
+Die verschiedenen Status einer Datenbank von höher bis niedriger sind offen, montiert, gestartet und heruntergefahren.
 
 +
-Wenn sich eine Datenbank im Status „offen“ befindet und die Datenbank für die Wiederherstellung im Status „angehängt“ befinden muss, wird der Datenbankzustand nur geändert, wenn Sie dieses Kontrollkästchen aktivieren.
+*** Wenn die Datenbank einen höheren Status aufweist, der Status jedoch in einen niedrigeren Status geändert werden muss, um einen Wiederherstellungsvorgang durchzuführen, müssen Sie dieses Kontrollkästchen aktivieren.
+*** Wenn sich die Datenbank in einem niedrigeren Zustand befindet, aber der Status in einen höheren Zustand geändert werden muss, um den Wiederherstellungsvorgang auszuführen, wird der Datenbankstatus automatisch geändert, auch wenn Sie das Kontrollkästchen nicht aktivieren.
+*** Wenn sich eine Datenbank im Status „offen“ befindet und die Datenbank für die Wiederherstellung im Status „angehängt“ befinden muss, wird der Datenbankzustand nur geändert, wenn Sie dieses Kontrollkästchen aktivieren.
+
 
 .. Wählen Sie *Kontrolldateien* aus, wenn Sie Steuerdatei zusammen mit der vollständigen Datenbank wiederherstellen möchten.
 .. Wenn sich der Snapshot im Archiv-Speicher befindet, geben Sie die Priorität an, um Ihre Daten aus dem Archiv-Speicher wiederherzustellen.
@@ -87,7 +83,7 @@ Wählen Sie *Keine Wiederherstellung*.
  a| 
 Soll beliebige externe Archiv-Log-Speicherorte angeben
  a| 
-Wenn die Archivprotokolle nicht im AFS vorhanden sind, müssen Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
+Wenn die Archivprotokolle nicht im aktiven Dateisystem vorhanden sind, sollten Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
 
 |===
 .. Aktivieren Sie das Kontrollkästchen, wenn Sie die Datenbank nach der Wiederherstellung öffnen möchten.

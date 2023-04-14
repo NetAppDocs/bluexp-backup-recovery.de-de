@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: task-quick-start-oracle.html 
+keywords: Cloud Manager, BlueXP, configuration, support, Oracle 
+summary: Führen Sie einige Schritte durch, um mit dem Backup von Oracle-Datenbanken zu beginnen. 
+---
+= Schnellstart
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie die folgenden Schritte aus, um schnell zu beginnen:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Überprüfen Sie die Unterstützung Ihrer Konfiguration
+[role="quick-margin-list"]
+* Betriebssystem:
++
+** RHEL 7.5 oder höher und 8.x
+** L 7.5 oder höher und 8.x
+
+
+* NetApp Cloud-Storage:
++
+** Amazon FSX für ONTAP
+** Cloud Volumes ONTAP
+** Azure NetApp Dateien
+
+
+* Storage-Layouts:
++
+** NFS v3 und v4.1 (einschließlich dNFS)
+** ISCSI mit ASM (ASMFD, ASMLib und ASMUdev)
++
+
+NOTE: Azure NetApp Files unterstützt keine SAN-Umgebung.
+
+
+
+* Datenbank-Layouts: Oracle Standard und Oracle Enterprise Standalone (veraltete und mandantenfähige CDB und PDB)
+* Datenbankversionen: 12cR2, 18c, 19c und 21c
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Melden Sie sich bei BlueXP an
+[role="quick-margin-list"]
+Der Zugriff auf BlueXP erfolgt über eine webbasierte Konsole. Wenn Sie mit BlueXP starten, müssen Sie sich zunächst mit Ihren vorhandenen Zugangsdaten auf der NetApp Support Website anmelden oder ein NetApp Cloud-Login erstellen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html["Melden Sie sich bei BlueXP an"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Melden Sie sich bei BlueXP an
+[role="quick-margin-list"]
+Nachdem Sie sich bei BlueXP angemeldet haben, können Sie sich über die webbasierte Konsole anmelden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Melden Sie sich bei BlueXP an"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Managen Sie Ihr BlueXP Konto
+[role="quick-margin-list"]
+Sie können Ihr Konto verwalten, indem Sie Benutzer, Servicekonten, Arbeitsbereiche und Connectors verwalten. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html["Managen Sie Ihr BlueXP Konto"].

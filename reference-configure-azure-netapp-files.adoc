@@ -14,7 +14,7 @@ summary: Erstellung der Azure NetApp Files-Arbeitsumgebung und des Connectors
 
 
 [role="lead"]
-Sie sollten die Azure NetApp Files-Arbeitsumgebung und den Connector erstellen.
+Mit BlueXP sollten Sie eine Azure NetApp Files Arbeitsumgebung erstellen, um Volumes und zusätzliche Datenservices hinzuzufügen und zu managen. Sie sollten auch einen Connector in Azure erstellen, mit dem BlueXP Ressourcen und Prozesse in der Public Cloud-Umgebung des Kunden managen kann.
 
 
 
@@ -26,9 +26,23 @@ Sie sollten Azure NetApp Files-Arbeitsumgebungen erstellen, in denen Ihre Datenb
 
 == Einen Konnektor erstellen
 
-Ein Kontoadministrator muss einen Connector in Azure NetApp Files implementieren, mit dem BlueXP Ressourcen und Prozesse in der Public Cloud-Umgebung des Kunden managen kann.
+Ein BlueXP Account-Administrator sollte einen Connector in Azure implementieren, der BlueXP ermöglicht, Ressourcen und Prozesse in der Public Cloud-Umgebung zu managen.
 
 
 NOTE: Sie können die neue Connector_id nicht von der UI aktualisieren.
 
 Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Erstellen Sie einen Connector in Azure von BlueXP"].
+
+* Sie sollten denselben Konnektor verwenden, um sowohl Azure NetApp Files-Arbeitsumgebungen als auch Datenbanken zu verwalten.
+* Bei einer Arbeitsumgebung von Azure NetApp Files und Datenbanken in derselben Virtual Private Cloud (VPC) können Sie den Connector in derselben VPC implementieren.
+* Wenn Sie die Azure NetApp Files-Arbeitsumgebung und Datenbanken in verschiedenen VPCs haben und NAS (NFS)-Workloads auf Azure NetApp Files konfiguriert haben, können Sie den Connector auf einem der VPCs erstellen.
+
+
+Führen Sie nach dem Erstellen des Konnektors folgende Schritte aus:
+
+* Fügen Sie die Arbeitsumgebung hinzu, indem Sie auf *Speicher* > *Leinwand* > *Meine Arbeitsumgebung* > *Arbeitsumgebung hinzufügen* klicken.
++
+Stellen Sie sicher, dass eine Verbindung zwischen dem Connector und den Datenbank-Hosts und der Azure NetApp Files-Arbeitsumgebung besteht. Der Anschluss sollte mit der Azure NetApp Files-Arbeitsumgebung verbunden werden.
+
+* Kopieren Sie die Connector-ID, indem Sie auf *Connector > Connectors verwalten* klicken und den Connector-Namen auswählen.
+

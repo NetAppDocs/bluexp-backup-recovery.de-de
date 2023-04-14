@@ -16,21 +16,19 @@ summary: Stellen Sie die Datendateien wieder her und stellen Sie dann die Datenb
 [role="lead"]
 Im Falle eines Datenverlustes können Sie die Daten und nicht-Datendateien wiederherstellen und dann die Datenbank wiederherstellen.
 
+*Bevor Sie beginnen*
 
+Das SAP HANA-System muss sich im Zustand „gestoppt“ befinden. Wenn das SAP HANA-System betriebsbereit ist, können Sie ein Vorscript bereitstellen, um das System anzuhalten.
 
-== Wiederherstellung der nativen Cloud SAP HANA Datenbank
+*Über diese Aufgabe*
 
-*Was Sie brauchen*
-
-. Das SAP HANA-System muss sich im Zustand „gestoppt“ befinden.
-. Sie können ein Preskript zur Anhalten des SAP HANA-Systems zur Verfügung stellen.
-
+Wenn Sie die Backups auf einem Volume aktivieren, wird ein SnapRestore mit einer einzigen Datei ausgeführt.
 
 *Schritte*
 
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
-. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datensicherung, die Sie für die Wiederherstellung verwenden möchten, und klicken Sie auf *Restore*.
-. Geben Sie auf der Seite *System wiederherstellen* die Skripte ein. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["Weitere Informationen ."]
+. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datensicherung, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
+. Geben Sie auf der Seite *System wiederherstellen* die Skripte ein. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["Verordnungen und Postskripte."]
 +
 Für den Wiederherstellungsworkflow stehen die folgenden Umgebungsvariablen als Teil von Prescript und Postscript zur Verfügung.
 
@@ -69,10 +67,9 @@ OSDBUser für die HANA-Datenbank konfiguriert
 . Klicken Sie Auf *Wiederherstellen*.
 
 
-*Nach Ihrer Beendigung*
+*Wie geht's weiter*
 
-* Stellen Sie nach der Wiederherstellung das SAP HANA System manuell wieder her oder geben Sie ein Post-Script ein, das die Wiederherstellung des SAP HANA Systems durchführt.
-
+Stellen Sie nach der Wiederherstellung das SAP HANA System manuell wieder her oder geben Sie ein Post-Script ein, das die Wiederherstellung des SAP HANA Systems durchführt.
 
 
 

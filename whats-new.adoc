@@ -18,6 +18,40 @@ Alles zum Thema Cloud Backup:
 
 
 
+== Bis 14. April 2023
+
+
+
+=== Verbesserungen bei BlueXP Backup und Recovery für Applikationen (Cloud-nativ)
+
+* SAP HANA Datenbanken
++
+** Unterstützt skriptbasierte Systemaktualisierung
+** Unterstützt Single-File-Snapshot-Restore, wenn Azure NetApp Files-Backup konfiguriert ist
+** Unterstützt Plug-in-Upgrades
+
+
+* Oracle Datenbanken
++
+** Verbesserungen bei der Plug-in-Bereitstellung durch Vereinfachung der nicht-Root-Sudo-Benutzerkonfiguration
+** Unterstützt Plug-in-Upgrades
+** Unterstützt automatische Erkennung und richtliniengesteuerten Schutz von Oracle Datenbanken auf Azure NetApp Files
+** Unterstützt die Wiederherstellung der Oracle Datenbank an ihrem ursprünglichen Speicherort mit granularer Recovery
+
+
+
+
+
+
+=== Verbesserungen bei BlueXP Backup und Recovery für Applikationen (Hybrid)
+
+* BlueXP Backup und Recovery für Applikationen (Hybrid) basiert auf der SaaS-Kontrollebene.
+* Die Hybrid-REST-APIs wurden an Cloud-nativen APIs angepasst.
+* Unterstützt E-Mail-Benachrichtigungen
+
+
+
+
 == Bis 4. April 2023
 
 

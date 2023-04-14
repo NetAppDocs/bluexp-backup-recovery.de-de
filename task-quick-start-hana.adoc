@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: task-quick-start-hana.html 
+keywords: Cloud Manager, BlueXP, configuration, support, SAP HANA 
+summary: Führen Sie ein paar Schritte durch, um mit dem Backup einer SAP HANA-Datenbank zu beginnen. 
+---
+= Schnellstart
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie die folgenden Schritte aus, um schnell zu beginnen:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Überprüfen Sie die Unterstützung Ihrer Konfiguration
+[role="quick-margin-list"]
+* Betriebssystem:
++
+** RHEL 7.5 oder höher, 8.x-Plattformen, von SAP HANA zertifiziert
+** SLES 12 SP5 oder höher und 15 SPX Plattformen zertifiziert von SAP HANA
+
+
+* Azure NetApp Files, NetApp Cloud-Storage
+* Storage-Layouts: Für Daten- und Log-Dateien unterstützt Azure nur NFSv4.1.
+* Datenbank-Layout:
++
+** Single Container Version 1.0SPS12
+** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 mit einzelnen oder mehreren Mandanten
+** SAP HANA Einzelhostsystem, SAP HANA mehrere Hostsysteme (ohne Standby-Host), HANA System Replication
+
+
+* Plug-in für SAP HANA auf dem Datenbank-Host
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Melden Sie sich bei BlueXP an
+[role="quick-margin-list"]
+Der Zugriff auf BlueXP erfolgt über eine webbasierte Konsole. Wenn Sie mit BlueXP starten, müssen Sie sich zunächst mit Ihren vorhandenen Zugangsdaten auf der NetApp Support Website anmelden oder ein NetApp Cloud-Login erstellen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html["Melden Sie sich bei BlueXP an"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Melden Sie sich bei BlueXP an
+[role="quick-margin-list"]
+Nachdem Sie sich bei BlueXP angemeldet haben, können Sie sich über die webbasierte Konsole anmelden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Melden Sie sich bei BlueXP an"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Managen Sie Ihr BlueXP Konto
+[role="quick-margin-list"]
+Sie können Ihr Konto verwalten, indem Sie Benutzer, Servicekonten, Arbeitsbereiche und Connectors verwalten. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html["Managen Sie Ihr BlueXP Konto"].

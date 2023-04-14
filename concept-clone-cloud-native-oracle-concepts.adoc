@@ -25,10 +25,17 @@ Vor dem Klonen der Datenbank sollten Sie die Klonkonzepte verstehen und sicherst
 Bevor Sie eine Oracle-Datenbank klonen, sollten Sie sicherstellen, dass die Voraussetzungen erfüllt sind.
 
 * Sie sollten eine Sicherung der Datenbank erstellt haben. Damit der Klonvorgang erfolgreich abgeschlossen wurde, sollten Sie die Online-Daten und das Backup-Protokoll erstellt haben.
-* Im parameter asm_diskstring sollten Sie AFD:* konfigurieren, wenn Sie ASMFD verwenden oder ORCL:* konfigurieren, wenn Sie ASMLIB verwenden.
+* Im Parameter asm_diskstring sollten Sie Folgendes konfigurieren:
++
+** AFD:* wenn Sie ASMFD verwenden
+** ORCL:* wenn Sie ASMLIB verwenden
+** /Dev/<exact_device_location>, wenn Sie ASMUDEV verwenden
+
+
 * Wenn Sie den Klon auf einem alternativen Host erstellen, sollte der alternative Host folgende Anforderungen erfüllen:
 +
 ** Das Plug-in sollte auf dem alternativen Host installiert sein.
+** Oracle-Software sollte auf dem alternativen Host installiert werden.
 ** Der Klon-Host sollte in der Lage sein, LUNs vom Storage zu entdecken, wenn Sie eine Datenbank klonen, die sich auf iSCSI SAN Storage befindet. Wenn Sie auf einem alternativen Host klonen, stellen Sie sicher, dass eine iSCSI-Sitzung zwischen dem Storage und dem alternativen Host hergestellt wird.
 ** Wenn die Quelldatenbank eine ASM-Datenbank ist:
 +
@@ -44,12 +51,9 @@ Bevor Sie eine Oracle-Datenbank klonen, sollten Sie sicherstellen, dass die Vora
 
 
 
-== Einschränkungen beim Klonen
+== Einschränkungen
 
-* Geplante Klone (Lifecycle Management für Klone) werden nicht unterstützt.
-* Das Klonen einer geklonten Datenbank wird nicht unterstützt.
 * Das Klonen von Datenbanken auf Qtree wird nicht unterstützt.
-* Das Klonen von Backups für Archivprotokolle wird nicht unterstützt.
 * Das Backup einer geklonten Datenbank wird nicht unterstützt.
 
 
@@ -343,7 +347,7 @@ Sie können die unterstützten vordefinierten Umgebungsvariablen verwenden, wenn
 * SC_ORIGINAL_SID gibt die SID der Quelldatenbank an. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiel: NFSB32
 * SC_ORIGINAL_HOST gibt den Namen des Quellhosts an. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiel: asmrac1.gdl.englab.netapp.com
 * SC_ORACLE_HOME gibt den Pfad des Oracle-Home-Verzeichnisses der Zieldatenbank an. Beispiel: /Ora01/App/oracle/Product/18.1.0/db_1
-* SC_BACKUP_NAME“ gibt den Namen des Backups an. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiele:
+* SC_BACKUP_NAME gibt den Namen des Backups an. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiele:
 +
 ** Wenn die Datenbank nicht im ARCHIVELOG-Modus ausgeführt wird: DATEN@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0_LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
 ** Wenn die Datenbank im ARCHIVELOG-Modus ausgeführt wird: DATEN@@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0 RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07_22_2021_12.16.48.9267_1__1___1__1_1____1_1_1__
@@ -351,7 +355,7 @@ Sie können die unterstützten vordefinierten Umgebungsvariablen verwenden, wenn
 
 * SC_ORIGINAL_OS_USER gibt den Betriebssystembesitzer der Quelldatenbank an. Beispiel: oracle
 * SC_ORIGINAL_OS_GROUP gibt die Betriebssystemgruppe der Quelldatenbank an. Beispiel: Oinstall
-* SC_TARGET_SID“ gibt die SID der geklonten Datenbank an. Bei PDB-Klon-Workflow ist der Wert dieses Parameters nicht vordefiniert. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiel: Clonedb
+* SC_TARGET_SID gibt die SID der geklonten Datenbank an. Bei PDB-Klon-Workflow ist der Wert dieses Parameters nicht vordefiniert. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiel: Clonedb
 * SC_TARGET_HOST gibt den Namen des Hosts an, auf dem die Datenbank geklont werden soll. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiel: asmrac1.gdl.englab.netapp.com
 * SC_TARGET_OS_USER gibt den Betriebssystembesitzer der geklonten Datenbank an. Bei PDB-Klon-Workflow ist der Wert dieses Parameters nicht vordefiniert. Beispiel: oracle
 * SC_TARGET_OS_GROUP gibt die Betriebssystemgruppe der geklonten Datenbank an. Bei PDB-Klon-Workflow ist der Wert dieses Parameters nicht vordefiniert. Beispiel: Oinstall

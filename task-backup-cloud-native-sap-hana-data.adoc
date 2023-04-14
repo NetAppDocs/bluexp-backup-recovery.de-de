@@ -14,11 +14,11 @@ summary: Erstellen von geplanten oder On-Demand-Backups der SAP HANA Datenbank
 
 
 [role="lead"]
-Bevor Sie ein Backup der SAP HANA-Datenbank erstellen, sollten Sie die SAP HANA-Datenbank-Hosts hinzufügen und entweder eine vordefinierte Richtlinie oder die von Ihnen erstellte Richtlinie zuweisen.
+Sie können ein Backup erstellen, indem Sie eine vordefinierte Richtlinie oder die erstellte Richtlinie zuweisen.
 
 
 
-== Erstellen einer Richtlinie zum Schutz von SAP HANA Datenbanken
+== Richtlinie erstellen, um die SAP HANA-Datenbank zu sichern
 
 Sie können Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht verwenden oder bearbeiten möchten.
 
@@ -28,7 +28,7 @@ Sie können Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht
 . (Optional) Bearbeiten Sie das Format des Namens der Snapshot Kopie.
 . Wählen Sie den Richtlinientyp aus.
 . Geben Sie den Zeitplan und die Aufbewahrungsdetails an.
-. (Optional) Geben Sie die Skripte an. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["Weitere Informationen ."]
+. (Optional) Geben Sie die Skripte an. link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["Verordnungen und Postskripte."]
 . Klicken Sie Auf *Erstellen*.
 
 
@@ -105,17 +105,21 @@ Nur für geplante Backups
 
 Sie können entweder eine vordefinierte Richtlinie zuweisen oder eine Richtlinie erstellen und sie dann der Datenbank zuweisen. Sobald die Richtlinie zugewiesen ist, werden die Backups gemäß dem in der Richtlinie definierten Zeitplan erstellt.
 
+*Bevor Sie beginnen*
+
+Sie sollten die SAP HANA Datenbank-Hosts hinzugefügt haben.link:task-deploy-snapcenter-plugin-for-sap-hana.html#add-sap-hana-database-hosts["Fügen Sie SAP HANA Datenbank-Hosts hinzu"]
+
 *Über diese Aufgabe*
 
-Bei HANA System Replication (HSR) wird der geplante Backup-Job nur für das primäre HANA-System ausgelöst und wenn das System auf das sekundäre HANA-System überfällt, werden die bestehenden Zeitpläne ein Backup auf dem aktuellen primären HANA-System auslösen. Wird die Richtlinie nicht sowohl dem HANA-System zugewiesen, so schlägt nach dem Failover die Planung fehl.
+Für HANA System Replication (HSR) wird der geplante Backup-Job nur für das primäre HANA-System ausgelöst. Wenn das System auf das sekundäre HANA-System übergeht, werden durch die vorhandenen Zeitpläne ein Backup auf dem aktuellen primären HANA-System ausgelöst. Wenn die Richtlinie nicht sowohl dem primären als auch dem sekundären HANA-System zugewiesen ist, schlägt nach einem Failover der Zeitplan fehl.
 
-Wenn den HSR-Systemen unterschiedliche Richtlinien zugewiesen werden, wird das geplante Backup sowohl für die Systeme ausgelöst, als auch das Backup schlägt für das sekundäre HANA-System fehl.
+Wenn den HSR-Systemen unterschiedliche Richtlinien zugewiesen werden, schlagen die geplanten Backup-Trigger sowohl für die primären als auch für sekundäre HANA-Systeme und das Backup für das sekundäre HANA-System fehl.
 
 *Schritte*
 
 . Wenn die Datenbank nicht mit einer Richtlinie geschützt ist, klicken Sie auf der Seite Anwendungen auf *Richtlinie zuweisen*.
 +
-Wenn die Datenbank mit einer oder mehreren Richtlinien geschützt ist, können Sie durch Klicken auf weitere Richtlinien zuweisen image:icon-action.png["Symbol, um die Aktion auszuwählen"] > *Richtlinie Zuweisen*.
+Obwohl die Datenbank mit einer oder mehreren Richtlinien geschützt ist, können Sie bei Bedarf weitere Richtlinien zuweisen, indem Sie auf klicken image:icon-action.png["Symbol, um die Aktion auszuwählen"] > *Richtlinie Zuweisen*.
 
 . Wählen Sie die Richtlinie aus und klicken Sie auf *Zuweisen*.
 +
@@ -123,7 +127,7 @@ Die Backups werden gemäß dem in der Richtlinie definierten Zeitplan erstellt.
 
 +
 
-NOTE: Das Servicekonto (_SnapCenter-Account-<Account_id>_) wird zur Ausführung der geplanten Backup-Vorgänge verwendet.
+NOTE: Das Servicekonto (_SnapCenter-Account-<account_id>_) wird für die geplanten Backup-Vorgänge verwendet.
 
 
 

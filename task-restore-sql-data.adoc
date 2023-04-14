@@ -17,14 +17,7 @@ summary: Sie können eine SQL Server Datenbank aus der Cloud auf dem lokalen Sna
 Sie können eine SQL Server-Datenbank auf demselben Host oder auf dem alternativen Host wiederherstellen. Das Recovery von Protokoll-Backups und das erneute Seeding von Verfügbarkeitsgruppen wird nicht unterstützt.
 
 
-NOTE: WICHTIG: Die Wiederherstellung von sekundären Backups über Primärsystem wird unterstützt.
-
-
 IMPORTANT: Single File Restore (SFR) wird nicht unterstützt.
-
-*Was Sie brauchen*
-
-Wenn Sie ein Backup wiederherstellen möchten, das vom sekundären Storage in einen Objektspeicher verschoben wurde, sollten Sie die Details zur primären Arbeitsumgebung hinzufügen und den IP-Speicherplatz festlegen. Weitere Informationen finden Sie unter link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment["Legen Sie IP-Speicherplatz für die primäre Arbeitsumgebung fest"].
 
 *Schritte*
 
@@ -35,20 +28,20 @@ Wenn Sie ein Backup wiederherstellen möchten, das vom sekundären Storage in ei
 . Wählen Sie den Speicherort aus, an dem die Datenbankdateien wiederhergestellt werden sollen.
 +
 |===
-| Option | Beschreibung 
+| Sie suchen... | Tun Sie das... 
 
 
  a| 
-Stellen Sie die Datenbank auf demselben Host wieder her, auf dem das Backup erstellt wurde
+Sie möchten die Datenbank auf demselben SQL-Server-Host wiederherstellen, auf dem die Backups erstellt wurden
  a| 
-Wählen Sie diese Option aus, wenn Sie die Datenbank auf demselben SQL-Server wiederherstellen möchten, auf dem die Backups erstellt werden.
+Wählen Sie *Datenbank auf demselben Host wiederherstellen, auf dem die Sicherung erstellt wurde*.
 
 
 
  a| 
-Wiederherstellung der Datenbank auf einem alternativen Host
+Wiederherstellung der Datenbank auf einem anderen SQL-Server auf demselben oder einem anderen Host, auf dem Backups erstellt wurden
  a| 
-Wählen Sie diese Option aus, wenn die Datenbank auf einem anderen SQL-Server auf demselben oder einem anderen Host wiederhergestellt werden soll, auf dem Backups erstellt werden.
+Wählen Sie *Datenbank auf einem alternativen Host wiederherstellen*.
 
 Wählen Sie einen Hostnamen aus, geben Sie einen Datenbanknamen ein (optional), wählen Sie eine Instanz aus und geben Sie die Wiederherstellungspfade an.
 
