@@ -10,6 +10,7 @@ summary: Bevor Sie einen Support-Fall beim technischen Support von NetApp eröff
 :imagesdir: ../media/
 
 
+[role="lead"]
 Bevor Sie einen Support-Fall beim technischen Support von NetApp eröffnen können, müssen Sie BlueXP einen NetApp Support Site Account (NSS) hinzufügen und sich dann für den Support registrieren.
 
 

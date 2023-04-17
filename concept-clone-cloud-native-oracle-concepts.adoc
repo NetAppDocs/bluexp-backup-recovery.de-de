@@ -293,7 +293,11 @@ NOTE: Die _CurrentTimeStampNumber_ bietet die Einzigartigkeit im Volumennamen.
 
 === Automatisch generiertes Benennungsschema
 
-Wenn Sie das Klon-Schema als *automatisch generiert* auswählen, wird der Speicherort der Mount-Punkte und der Name der Diskgroups der geklonten Datenbank mit einem Suffix angehängt. * Wenn Sie die grundlegende Clone-Methode ausgewählt haben, ist das Suffix die *Clone-SID*. * Wenn Sie die Methode der Spezifikatei ausgewählt haben, ist das Suffix *Suffix*, das beim Herunterladen der Klon-Spezifikations-Datei angegeben wurde.
+Wenn Sie das Klon-Schema als *automatisch generiert* auswählen, wird der Speicherort der Mount-Punkte und der Name der Diskgroups der geklonten Datenbank mit einem Suffix angehängt.
+
+* Wenn Sie die einfache Klonmethode ausgewählt haben, wird die Suffixed die *Clone SID* sein.
+* Wenn Sie die Spezifikationsdateimethode ausgewählt haben, ist das Suffix das *Suffix*, das beim Herunterladen der Clone-Spezifikationsdatei angegeben wurde.
+
 
 Wenn zum Beispiel der Mount-Punkt der Quelldatenbank _/netapp_sourcedb/Data_1_ und der *Clone SID* oder der *Suffix* _HR_ ist, dann ist der Mount-Punkt der geklonten Datenbank _/netapp_sourcedb/Data_1_HR_.
 
