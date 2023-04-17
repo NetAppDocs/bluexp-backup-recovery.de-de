@@ -17,7 +17,7 @@ summary: Erstellen Sie Backups Ihrer Datastores von On-Premises-ONTAP auf der Go
 Durch Integration des SnapCenter Plug-ins für VMware vSphere Hosts in BlueXP können Sie Backups eines oder mehrerer Datastores in die Google Cloud Platform erstellen. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
+Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.

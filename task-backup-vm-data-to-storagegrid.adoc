@@ -17,7 +17,7 @@ summary: Sichern Sie Ihre Datenspeicher von lokalen ONTAP auf StorageGRID.
 Sie können Backups eines oder mehrerer Datastores in StorageGRID erstellen, indem Sie das SnapCenter Plug-in für den VMware vSphere Host in BlueXP integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
+Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.

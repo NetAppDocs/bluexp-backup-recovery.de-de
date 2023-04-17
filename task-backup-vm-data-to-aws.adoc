@@ -19,7 +19,7 @@ Sie können einen oder mehrere Datastores in Amazon Web Services sichern und arc
 Wenn der Datastore einer Archivierungsrichtlinie zugeordnet ist, können Sie den Archiv-Tier auswählen. Die unterstützten Archiv-Tiers sind Glacier und Glacier Deep.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
+Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.

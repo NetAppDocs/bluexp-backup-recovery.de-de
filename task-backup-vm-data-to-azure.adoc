@@ -19,7 +19,7 @@ Sie können Backups eines oder mehrerer Datastores in Microsoft Azure erstellen,
 Wenn der Datenspeicher einer Archivierungsrichtlinie zugeordnet ist, erhalten Sie eine Option zur Auswahl der Archivebene. Die unterstützte Archivierungs-Tier ist Azure Archive Blob Storage.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
+Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Backup von Datastores in der Cloud.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.

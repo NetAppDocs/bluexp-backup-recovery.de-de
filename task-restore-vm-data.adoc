@@ -20,7 +20,7 @@ Sie können Virtual Machines aus der Cloud wieder in vCenter vor Ort wiederherst
 NOTE: Sie können keine virtuellen Maschinen wiederherstellen, die sich über mehrere Datastores erstrecken.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html#Requirements["Anforderungen"] Vor dem Wiederherstellen von virtuellen Maschinen aus der Cloud.
+Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Wiederherstellen von virtuellen Maschinen aus der Cloud.
 
 .Schritte
 . Klicken Sie in der Benutzeroberfläche von BlueXP auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *SnapCenter-Plug-in für VMware vSphere* und wählen Sie das SnapCenter-Plug-in für VMware vSphere-Host aus.
