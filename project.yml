@@ -1,6 +1,6 @@
 ---
 settings:
-  name: Cloud Backup
+  name: BlueXP backup and recovery
   platform: cloud
   internal:
     pdf_enabled: true
@@ -24,13 +24,13 @@ settings:
   langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,es-es,fr-fr
 sidebar:
   entries:
-  - title: Cloud Backup Dokumentation
+  - title: BlueXP Backup- und Recovery-Dokumentation
     url: "/index.html"
   - title: Versionshinweise
     url: "/whats-new.html"
   - title: Los geht's
     entries:
-    - title: Weitere Informationen zu Cloud Backup
+    - title: Erfahren Sie mehr über BlueXP Backup und Recovery
       url: "/concept-backup-to-cloud.html"
     - title: Lizenzierung einrichten
       url: "/task-licensing-cloud-backup.html"
@@ -189,18 +189,15 @@ sidebar:
     url: "/api-backup-restore.html"
   - title: Referenz
     entries:
-    - title: Richtlinieneinstellungen für Cloud-Backup
+    - title: BlueXP Richtlinieneinstellungen für Backup und Recovery
       url: "/concept-cloud-backup-policies.html"
     - title: Unterstützte AWS Archiv-Storage Tiers
-      flavor: aws
       url: "/reference-aws-backup-tiers.html"
     - title: Unterstützte Azure-Archiv-Zugriffsebenen
-      flavor: azure
       url: "/reference-azure-backup-tiers.html"
     - title: Unterstützte Google-Archiv-Storage Tiers
-      flavor: gcp
       url: "/reference-google-backup-tiers.html"
-    - title: Sichern Sie die Cloud Backup-Datenbank an einem dunklen Standort
+    - title: Backup der BlueXP Backup- und Recovery-Datenbank an einem Dark Site
       url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: Backup für Multi-Account-Zugriff in Azure konfigurieren
       flavor: azure
@@ -217,7 +214,7 @@ homepage:
   tiles:
   - title: Los geht's
     links:
-    - title: Weitere Informationen zu Cloud Backup
+    - title: Erfahren Sie mehr über BlueXP Backup und Recovery
       url: concept-backup-to-cloud.html
     - title: Was ist neu
       url: whats-new.html
@@ -319,9 +316,9 @@ homepage:
     links:
     - title: NetApp Community
       url: https://community.netapp.com/t5/Public-Cloud-Services/ct-p/CDS
-    - title: Cloud Backup Blogs
+    - title: BlueXP Blogs für Backup und Recovery
       url: https://bluexp.netapp.com/blog/topic/cloud-backup
-    - title: Anwendungsfälle für Cloud-Backup
+    - title: BlueXP Backup- und Recovery-Anwendungsfälle
       url: https://bluexp.netapp.com/cloud-backup
     - title: Cloud-Webinare
       url: https://bluexp.netapp.com/events

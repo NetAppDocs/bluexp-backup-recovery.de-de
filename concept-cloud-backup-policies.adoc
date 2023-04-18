@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: concept-cloud-backup-policies.html 
 keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies, schedules 
-summary: In diesem Dokument werden die Backup-Richtlinieneinstellungen für Cloud Backup beschrieben. 
+summary: Mit BlueXP Backup und Recovery können Sie Backup-Richtlinien mit einer Vielzahl von Konfigurationseinstellungen für Ihre lokalen ONTAP und Cloud Volumes ONTAP Systeme erstellen. 
 ---
-= Konfigurationseinstellungen für Cloud-Backup-Richtlinien
+= BlueXP Konfigurationseinstellungen für Backup- und Recovery-Richtlinien
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ summary: In diesem Dokument werden die Backup-Richtlinieneinstellungen für Clou
 
 
 [role="lead"]
-Dieses Dokument beschreibt die Konfigurationseinstellungen für die Backup-Richtlinie für On-Premises-ONTAP-Systeme und Cloud Volumes ONTAP-Systeme bei Verwendung des Cloud Backup Service.
+Mit BlueXP Backup und Recovery können Sie Backup-Richtlinien mit einer Vielzahl von Konfigurationseinstellungen für Ihre lokalen ONTAP und Cloud Volumes ONTAP Systeme erstellen.
 
 
 
 == Backup-Pläne
 
-Mit Cloud Backup können Sie mehrere Backup-Richtlinien mit individuellen Zeitplänen für jede Arbeitsumgebung (Cluster) erstellen. Sie können Volumes mit unterschiedlichen Recovery-Punkten (RPO) unterschiedliche Backup-Richtlinien zuweisen.
+Mit BlueXP Backup und Recovery können Sie mehrere Backup-Richtlinien mit eindeutigen Zeitplänen für jede Arbeitsumgebung (Cluster) erstellen. Sie können Volumes mit unterschiedlichen Recovery-Punkten (RPO) unterschiedliche Backup-Richtlinien zuweisen.
 
 Jede Sicherungsrichtlinie enthält einen Abschnitt für _Labels & Retention_, den Sie auf Ihre Sicherungsdateien anwenden können.
 
@@ -51,9 +51,9 @@ Beachten Sie, dass die jährlichen Backups nach der Übertragung in den Objektsp
 
 == DataLock- und Ransomware-Schutz
 
-Cloud Backup unterstützt DataLock und Ransomware-Schutz für Ihre Volume-Backups. Mit diesen Funktionen sperren Sie Ihre Backup-Dateien und scannen sie, um mögliche Ransomware auf den Backup-Dateien zu erkennen. Dies ist eine optionale Einstellung, die Sie in Ihren Backup-Richtlinien definieren können, wenn Sie zusätzliche Sicherheit für Ihre Volume-Backups für ein Cluster wünschen.
+BlueXP Backup und Recovery bietet Unterstützung für DataLock und Ransomware-Schutz für Ihre Volume-Backups. Mit diesen Funktionen sperren Sie Ihre Backup-Dateien und scannen sie, um mögliche Ransomware auf den Backup-Dateien zu erkennen. Dies ist eine optionale Einstellung, die Sie in Ihren Backup-Richtlinien definieren können, wenn Sie zusätzliche Sicherheit für Ihre Volume-Backups für ein Cluster wünschen.
 
-Beide dieser Funktionen schützen Ihre Backup-Dateien, damit stets eine gültige Backup-Datei zur Wiederherstellung von Daten im Falle eines Ransomware-Angriffs auf Ihre Quelldaten zur Verfügung steht. Darüber hinaus hilft es bei der Einhaltung bestimmter gesetzlicher Vorgaben, bei denen Backups für einen bestimmten Zeitraum gesperrt und aufbewahrt werden müssen. Bei aktiviertem DataLock und Ransomware-Schutz sind in dem Cloud-Bucket, der im Rahmen der Cloud Backup-Aktivierung bereitgestellt wird, Objektsperren und Objektversionierung aktiviert.
+Beide dieser Funktionen schützen Ihre Backup-Dateien, damit stets eine gültige Backup-Datei zur Wiederherstellung von Daten im Falle eines Ransomware-Angriffs auf Ihre Quelldaten zur Verfügung steht. Darüber hinaus hilft es bei der Einhaltung bestimmter gesetzlicher Vorgaben, bei denen Backups für einen bestimmten Zeitraum gesperrt und aufbewahrt werden müssen. Wenn DataLock und Ransomware Protection aktiviert ist, sind für den Cloud-Bucket, der als Teil der Backup- und Recovery-Aktivierung von BlueXP bereitgestellt wird, Objektsperrung und Objektversionierung aktiviert.
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Weitere Informationen finden Sie im Blog zum Schutz von DataLock und Ransomware"^].
 
@@ -61,7 +61,7 @@ Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für di
 
 [CAUTION]
 ====
-* Wenn Sie Vorhaben, DataLock- und Ransomware-Schutz zu verwenden, müssen Sie es beim Erstellen der ersten Backup-Richtlinie aktivieren und Cloud Backup für diesen Cluster aktivieren.
+* Wenn Sie DataLock- und Ransomware-Schutz verwenden möchten, müssen Sie diese bei der Erstellung Ihrer ersten Backup-Richtlinie und der Aktivierung von BlueXP Backup und Recovery für diesen Cluster aktivieren.
 * DataLock- und Ransomware-Schutz kann nach der Konfiguration für einen Cluster nicht deaktiviert werden. Aktivieren Sie diese Funktion nicht auf einem Cluster, um sie auszuprobieren.
 
 
@@ -80,7 +80,7 @@ Sehen wir uns einige Beispiele an, wie das funktioniert:
 * Wenn Sie eine Sicherungsrichtlinie erstellen, die 30 tägliche, 7 wöchentliche, 12 monatliche Backups erstellt, gibt es drei Aufbewahrungsfristen. Die „30 täglichen“ Backups würden 44 Tage (30 Tage plus 14 Tage Puffer), die „7 wöchentlichen“ Backups würden 9 Wochen (7 Wochen plus 14 Tage) aufbewahrt und die „12 monatlichen“ Backups würden 12 Monate (plus 14 Tage) aufbewahrt.
 * Wenn Sie einen stündlichen Backup-Zeitplan mit 24 Aufbewahrung erstellen, könnten Sie denken, dass Backups für 24 Stunden gesperrt sind. Da dies jedoch weniger als 30 Tage beträgt, wird jedes Backup für 44 Tage gesperrt und aufbewahrt (30 Tage plus 14 Tage Puffer).
 +
-Sie können in diesem letzten Fall sehen, dass, wenn jede Backup-Datei für 44 Tage gesperrt ist, Sie am Ende mit vielen mehr Backup-Dateien stehen, als normalerweise mit einer stündlichen/24-Aufbewahrungs-Richtlinie aufbewahrt werden würde. In der Regel, wenn Cloud Backup die 25. Backup-Datei erstellt, würde es das älteste Backup löschen, um die maximalen Aufbewahrung bei 24 zu behalten (basierend auf der Richtlinie). Die DataLock-Aufbewahrungseinstellung überschreibt in diesem Fall die Richtlinienaufbewahrung von Ihrer Backup-Richtlinie. Dies könnte sich auf Ihre Storage-Kosten auswirken, da Backup-Dateien über einen längeren Zeitraum im Objektspeicher gespeichert werden.
+Sie können in diesem letzten Fall sehen, dass, wenn jede Backup-Datei für 44 Tage gesperrt ist, Sie am Ende mit vielen mehr Backup-Dateien stehen, als normalerweise mit einer stündlichen/24-Aufbewahrungs-Richtlinie aufbewahrt werden würde. Wenn BlueXP Backup und Recovery die 25. Backup-Datei erstellt, würde es normalerweise das älteste Backup löschen, um die maximalen Retentions bei 24 zu behalten (basierend auf der Richtlinie). Die DataLock-Aufbewahrungseinstellung überschreibt in diesem Fall die Richtlinienaufbewahrung von Ihrer Backup-Richtlinie. Dies könnte sich auf Ihre Storage-Kosten auswirken, da Backup-Dateien über einen längeren Zeitraum im Objektspeicher gespeichert werden.
 
 
 
@@ -292,10 +292,10 @@ endif::azure[]
 === Einschränkungen
 
 * DataLock- und Ransomware-Schutz ist nicht verfügbar, wenn Sie Archiv-Storage in der Backup-Richtlinie konfiguriert haben.
-* Die bei der Aktivierung von Cloud Backup ausgewählte DataLock-Option muss für alle Backup-Richtlinien für diesen Cluster verwendet werden.
+* Die bei der Aktivierung von BlueXP ausgewählte DataLock Option für Backup und Recovery muss für alle Backup-Richtlinien für dieses Cluster verwendet werden.
 * Sie können nicht beide DataLock-Modi auf einem einzelnen Cluster verwenden.
 * Wenn Sie DataLock aktivieren, werden alle Volume-Backups gesperrt. Es können keine gesperrten und nicht gesperrten Volume-Backups für einen einzelnen Cluster kombiniert werden.
-* DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktion nicht aktivieren, nachdem Cloud Backup aktiviert wurde.
+* DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktion nicht aktivieren, nachdem das Backup und Recovery von BlueXP aktiviert wurde.
 
 
 
@@ -317,7 +317,7 @@ ifdef::aws[]
 Wenn Ihr Cluster ONTAP 9.10.1 oder höher verwendet, können Sie ältere Backups entweder auf _S3 Glacier_ oder _S3 Glacier Deep Archive_ Storage Tiering. link:reference-aws-backup-tiers.html["Weitere Informationen zu AWS Archiv-Storage"^].
 
 +
-Wenn Sie bei der Aktivierung von Cloud Backup _S3 Glacier_ oder _S3 Glacier Deep Archive_ als erste Backup-Richtlinie auswählen, wird dieser Tier zur einzigen Archiv-Tier, die für zukünftige Backup-Richtlinien für diesen Cluster verfügbar ist. Falls Sie in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, ist _S3 Glacier_ die einzige Archivoption für zukünftige Richtlinien.
+Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Backup-Richtlinie _S3 Glacier_ oder _S3 Glacier Deep Archive_ wählen, ist diese Tier die einzige Archiv-Tier, die für zukünftige Backup-Richtlinien für dieses Cluster verfügbar ist. Falls Sie in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, ist _S3 Glacier_ die einzige Archivoption für zukünftige Richtlinien.
 
 
 
@@ -337,7 +337,7 @@ ifdef::gcp[]
 
 * In GCP werden Backups der Klasse _Standard_ Storage zugeordnet.
 +
-Wenn Ihr On-Prem-Cluster ONTAP 9.12.1 oder höher verwendet, können Sie nach einer bestimmten Anzahl von Tagen ältere Backups als _Archive_ Storage in der Cloud Backup UI verschieben, um die Kosten weiter zu optimieren. link:reference-google-backup-tiers.html["Erfahren Sie mehr über Google Archivspeicher"^].
+Wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet, haben Sie nach einer bestimmten Anzahl von Tagen die Möglichkeit, ältere Backups in der Backup- und Recovery-UI von BlueXP auf den _Archiv_ Storage zu verschieben, um weitere Kosten zu optimieren. link:reference-google-backup-tiers.html["Erfahren Sie mehr über Google Archivspeicher"^].
 
 
 

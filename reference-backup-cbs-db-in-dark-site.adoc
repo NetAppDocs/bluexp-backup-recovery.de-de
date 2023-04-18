@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database 
-summary: Wenn Sie Cloud Backup auf einer Website ohne Internetzugang verwenden, sollten Sie kritische Dateien von Cloud Backup regelmäßig sichern, falls Sie ein Problem mit dem BlueXP Connector Host-System haben. So können Sie einen neuen Connector implementieren und die kritischen Cloud Backup-Daten wiederherstellen. 
+summary: Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, sollten Sie regelmäßig wichtige BlueXP Backup- und Recovery-Dateien sichern, falls ein Problem mit dem BlueXP Connector Host-System besteht. So können Sie einen neuen Connector implementieren und die kritischen Backup- und Recovery-Daten von BlueXP wiederherstellen. 
 ---
-= Cloud-Backup-Daten werden an einem dunklen Standort gesichert und wiederhergestellt
+= Backup und Restore von BlueXP Backup- und Recovery-Daten an einem dunklen Standort
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,32 +14,32 @@ summary: Wenn Sie Cloud Backup auf einer Website ohne Internetzugang verwenden, 
 
 
 [role="lead"]
-Wenn Sie Cloud Backup auf einer Website ohne Internetzugang verwenden, sollten Sie kritische Dateien von Cloud Backup regelmäßig sichern, falls Sie ein Problem mit dem BlueXP Connector Host-System haben. So können Sie einen neuen Connector implementieren und die kritischen Cloud Backup-Daten wiederherstellen.
+Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, sollten Sie regelmäßig wichtige BlueXP Backup- und Recovery-Dateien sichern, falls ein Problem mit dem BlueXP Connector Host-System besteht. So können Sie einen neuen Connector implementieren und die kritischen Backup- und Recovery-Daten von BlueXP wiederherstellen.
 
-Wenn Sie Cloud Backup in einer SaaS-Umgebung nutzen, in der der BlueXP Connector bei Ihrem Cloud-Provider oder auf Ihrem eigenen Hostsystem mit Internetzugang bereitgestellt wird, werden alle wichtigen Cloud Backup-Konfigurationsdaten gesichert und in der Cloud gespeichert. Wenn Sie Cloud Backup in einer Site ohne Internetzugang nutzen, die auch als „dunkle Seite“ bekannt ist, werden diese Cloud Backup-Informationen nur auf dem lokalen Connector-System gespeichert.
+Wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder auf Ihrem eigenen Host-System mit Internetzugang implementiert wird, werden alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gespeichert. Wenn Sie BlueXP Backup- und Recovery-Funktionen an einer Site ohne Internetzugang nutzen, auch als „Dark Site“ bezeichnet, werden diese BlueXP Backup- und Recovery-Informationen ausschließlich auf dem lokalen Connector-System gespeichert.
 
-In diesem Thema wird beschrieben, wie Sie kritische Cloud-Backup-Daten auf Ihrem verbundenen StorageGRID-System sichern. Außerdem wird beschrieben, wie die Daten bei Bedarf auf einem neuen Konnektor wiederhergestellt werden.
+In diesem Thema wird beschrieben, wie Sie kritische BlueXP Backup- und Recovery-Daten auf Ihrem vernetzten StorageGRID System sichern. Außerdem wird beschrieben, wie die Daten bei Bedarf auf einem neuen Konnektor wiederhergestellt werden.
 
 
 
-== Backup wichtiger Cloud-Backup-Daten
+== Backup kritischer Backup- und Recovery-Daten von BlueXP
 
 Es gibt zwei Datentypen, die gesichert werden müssen:
 
-* Cloud-Backup-Datenbank
+* BlueXP Backup- und Recovery-Datenbanken
 * Indizierte Katalogdateien (für Such- und Wiederherstellungsfunktionen verwendet)
 
 
 
-NOTE: Sie sollten diese Cloud Backup-Daten in regelmäßigen Abständen sichern, damit Sie stets Zugriff auf die neuesten Daten haben.
+NOTE: Sie sollten planen, regelmäßig ein Backup dieser BlueXP Backup- und Recovery-Daten zu erstellen, damit Sie immer auf die neuesten Daten zugreifen können.
 
-Beachten Sie, dass keine Volume-Daten je in der Cloud Backup-Datenbank oder in indizierten Katalogdateien enthalten sind.
+Beachten Sie, dass keine Volume-Daten jemals in der Backup- und Recovery-Datenbank oder den indizierten Katalogdateien von BlueXP enthalten sind.
 
 
 
-=== Backup der Cloud-Backup-Datenbank
+=== Backup der BlueXP Backup- und Recovery-Datenbank
 
-Die Cloud Backup-Datenbank enthält eine Liste aller Volumes, Backup-Dateien, Backup-Richtlinien und Konfigurationsinformationen.
+Die BlueXP Backup- und Recovery-Datenbank enthält eine Liste aller Volumes, Backup-Dateien, Backup-Richtlinien und Konfigurationsinformationen.
 
 .Schritte
 . Melden Sie sich mit den entsprechenden Anmeldedaten am Connector-Host-System an.
@@ -51,7 +51,7 @@ docker exec -it ds_mysql_1 sh
 ----
 . In der Container-Shell, stellen Sie die "env".
 . Sie benötigen das MySQL DB Passwort, kopieren Sie also den Wert des Schlüssels "MYSQL_ROOT_PASSWORD".
-. Sichern Sie die Cloud Backup MySQL DB, indem Sie den folgenden Befehl eingeben:
+. Sichern Sie die MySQL DB für Backup und Recovery von BlueXP durch Eingabe des folgenden Befehls:
 +
 [source, cli]
 ----
@@ -85,14 +85,14 @@ zip -r catalogxxxxxx.zip catalogxxxxxx
 
 
 
-== Wiederherstellen von Cloud-Backup-Daten auf einem neuen Connector
+== Wiederherstellung von BlueXP Backup- und Recovery-Daten in einem neuen Connector
 
-Wenn der On-Premises-Connector einen katastrophalen Ausfall hat, müssen Sie einen neuen Connector installieren und anschließend die Cloud Backup-Daten auf dem neuen Connector wiederherstellen.
+Wenn Ihr lokaler Connector bei einem schwerwiegenden Ausfall auftritt, müssen Sie einen neuen Connector installieren und anschließend die BlueXP Backup- und Recovery-Daten im neuen Connector wiederherstellen.
 
-Es gibt 4 Aufgaben, die Sie durchführen müssen, um Ihr Cloud-Backup-System in einen Arbeitszustand zurückzusetzen:
+Es gibt 4 Aufgaben, die Sie durchführen müssen, um den Betriebszustand Ihres BlueXP Backup- und Recovery-Systems wiederherzustellen:
 
 * Installieren Sie einen neuen BlueXP Connector
-* Wiederherstellung der Cloud-Backup-Datenbank
+* Wiederherstellung der BlueXP Backup- und Recovery-Datenbank
 * Stellen Sie die indizierten Katalogdateien wieder her
 * Alle On-Prem-ONTAP-Systeme und StorageGRID-Systeme finden Sie in der BlueXP-Benutzeroberfläche wieder
 
@@ -103,7 +103,7 @@ Sobald Sie überprüfen, ob Ihr System wieder in einem Arbeitsauftrag ist, empfe
 
 === Installieren Sie einen neuen Konnektor auf einem neuen lokalen Linux-Host
 
-Wenn Sie einen neuen BlueXP Connector installieren, stellen Sie sicher, dass Sie die gleiche Version von Software herunterladen, die Sie auf dem ursprünglichen Connector installiert hatten. Durch regelmäßige Änderungen an der Datenbankstruktur von Cloud Backup sind neuere Softwareversionen möglicherweise mit den ursprünglichen Datenbank-Backups inkompatibel. Das können Sie https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["Aktualisieren Sie die Connector-Software auf die aktuellste Version, nachdem Sie die Backup-Datenbank wiederhergestellt haben"^].
+Wenn Sie einen neuen BlueXP Connector installieren, stellen Sie sicher, dass Sie die gleiche Version von Software herunterladen, die Sie auf dem ursprünglichen Connector installiert hatten. Regelmäßige Änderungen an der BlueXP Datenbank-Struktur für Backup und Recovery führen möglicherweise dazu, dass neuere Software-Versionen mit den ursprünglichen Datenbank-Backups nicht kompatibel sind. Das können Sie https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["Aktualisieren Sie die Connector-Software auf die aktuellste Version, nachdem Sie die Backup-Datenbank wiederhergestellt haben"^].
 
 . https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["Installieren Sie den BlueXP Connector auf einem neuen lokalen Linux-Host"^]
 . Melden Sie sich mit den soeben erstellten Admin-Benutzeranmeldeinformationen bei BlueXP an.
@@ -111,7 +111,7 @@ Wenn Sie einen neuen BlueXP Connector installieren, stellen Sie sicher, dass Sie
 
 
 
-=== Wiederherstellung der Cloud-Backup-Datenbank
+=== Wiederherstellung der BlueXP Backup- und Recovery-Datenbank
 
 . Kopieren Sie die MySQL-Backups vom sicheren Speicherort auf den neuen Connector-Host.
 . Kopieren Sie das Backup mit dem folgenden Befehl in den MySQL-Docker-Container:
@@ -128,13 +128,13 @@ docker exec -it ds_mysql_1 sh
 ----
 . In der Container-Shell, stellen Sie die "env".
 . Sie benötigen das MySQL DB Passwort, kopieren Sie also den Wert des Schlüssels "MYSQL_ROOT_PASSWORD".
-. Stellen Sie die Cloud Backup MySQL DB mit dem folgenden Befehl wieder her:
+. Stellen Sie die BlueXP Backup und Recovery MySQL DB mit folgendem Befehl wieder her:
 +
 [source, cli]
 ----
 mysql -u root -p cloud_backup < mysql.dump.cloud_backup.sql
 ----
-. Überprüfen Sie, ob die MySQL Datenbank von Cloud Backup mit den folgenden SQL-Befehlen korrekt wiederhergestellt wurde:
+. Überprüfen Sie mit den folgenden SQL-Befehlen, ob die BlueXP Backup- und Recovery-MySQL DB korrekt wiederhergestellt wurde:
 +
 [source, cli]
 ----
@@ -208,7 +208,7 @@ curl -X GET http://10.193.192.202/tenancy/external/resource?account=account-DARK
 +
 Diese API gibt eine Antwort wie die folgende zurück. Der Wert unter der "resourceIdentifier" bezeichnet die _WorkingEnvironment ID_ und der Wert unter "AGENTID" bezeichnet _x-Agent-id_.
 
-. Aktualisieren Sie die Cloud Backup-Datenbank mit den Details des StorageGRID-Systems, das den Arbeitsumgebungen zugeordnet ist. Stellen Sie sicher, dass Sie den vollständig qualifizierten Domänennamen der StorageGRID sowie den Zugriffsschlüssel und den Speicherschlüssel wie unten dargestellt eingeben:
+. Aktualisieren Sie die BlueXP Backup- und Recovery-Datenbank mit den Details des StorageGRID Systems, das den Arbeitsumgebungen zugeordnet ist. Stellen Sie sicher, dass Sie den vollständig qualifizierten Domänennamen der StorageGRID sowie den Zugriffsschlüssel und den Speicherschlüssel wie unten dargestellt eingeben:
 +
 [source, http]
 ----
@@ -222,7 +222,7 @@ curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudman
 
 
 
-=== Überprüfen der Cloud-Backup-Einstellungen
+=== Überprüfen Sie die Backup- und Recovery-Einstellungen von BlueXP
 
 . Wählen Sie jede ONTAP Arbeitsumgebung aus und klicken Sie auf *Backups anzeigen* neben dem Backup- und Recovery-Service im rechten Fenster.
 +

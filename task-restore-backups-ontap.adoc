@@ -22,7 +22,7 @@ Sie können einen *Ordner* auf einem Volume in der ursprünglichen Arbeitsumgebu
 
 Sie können *Dateien* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
 
-Zum Wiederherstellen von Daten aus Backup-Dateien in einem Produktionssystem ist eine gültige Cloud Backup-Lizenz erforderlich.
+Zum Wiederherstellen von Daten von Backup-Dateien auf ein Produktionssystem ist eine gültige BlueXP Backup- und Recovery-Lizenz erforderlich.
 
 
 
@@ -31,7 +31,7 @@ Zum Wiederherstellen von Daten aus Backup-Dateien in einem Produktionssystem ist
 Mit dem Restore Dashboard können Sie Volume-, Ordner- und Dateiwiederherstellungsvorgänge durchführen. Sie öffnen das Restore Dashboard, indem Sie im BlueXP-Menü auf *Backup und Recovery* klicken und dann auf die Registerkarte *Restore* klicken. Sie können auch auf klicken image:screenshot_gallery_options.gif["Schaltfläche „Mehr“"] > *Ansicht Restore Dashboard* vom Backup- und Recovery-Dienst aus dem Fenster Dienste.
 
 
-NOTE: Cloud Backup muss bereits für mindestens eine Arbeitsumgebung aktiviert sein und es müssen erste Backup-Dateien vorhanden sein.
+NOTE: BlueXP Backup und Recovery müssen bereits für mindestens eine Arbeitsumgebung aktiviert sein und erste Backup-Dateien müssen vorhanden sein.
 
 image:screenshot_restore_dashboard.png["Das Restore Dashboard zeigt die Optionen für die Funktion Browse  Restore oder Search  Restore an."]
 
@@ -165,7 +165,7 @@ NOTE: Sie können keine Ordner oder Dateien wiederherstellen, wenn die Sicherung
 
 === Wiederherstellen von Volumes mit Durchsuchen und Wiederherstellen
 
-Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt Cloud Backup ein _neues_ Volume, wobei die Daten aus dem Backup verwendet werden. Sie können die Daten auf einem Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
+Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Sie können die Daten auf einem Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
 
 image:diagram_browse_restore_volume.png["Ein Diagramm, das den Fluss zeigt, um einen Datenträger-Wiederherstellungsvorgang mit Durchsuchen  Restore durchzuführen."]
 
@@ -255,7 +255,7 @@ endif::gcp[]
 
 
 .Ergebnis
-Cloud Backup erstellt auf Basis des ausgewählten Backups ein neues Volume. Das können Sie link:task-manage-backups-ontap.html["Verwalten Sie die Backup-Einstellungen für dieses neue Volume"] Nach Bedarf.
+Mit BlueXP Backup und Recovery wird auf Basis des von Ihnen ausgewählten Backups ein neues Volume erstellt. Das können Sie link:task-manage-backups-ontap.html["Verwalten Sie die Backup-Einstellungen für dieses neue Volume"] Nach Bedarf.
 
 Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im Archiv-Storage je nach Archivebene und Restore-Priorität viele Minuten oder Stunden in Anspruch nehmen kann. Sie können auf die Registerkarte *Job Monitoring* klicken, um den Wiederherstellungsfortschritt anzuzeigen.
 
@@ -294,7 +294,7 @@ Der Prozess geht wie folgt vor:
 
 . Wenn Sie einen Ordner oder eine oder mehrere Dateien aus einem Volume-Backup wiederherstellen möchten, klicken Sie auf die Registerkarte *Wiederherstellen* und klicken Sie unter _Durchsuchen & Wiederherstellen_ auf *Dateien oder Ordner*.
 . Wählen Sie die Arbeitsumgebung, das Volume und die Sicherungsdatei aus, in der sich der Ordner oder die Datei(en) befinden.
-. Cloud Backup zeigt die Ordner und Dateien an, die in der ausgewählten Sicherungsdatei vorhanden sind.
+. Bei BlueXP Backup und Recovery werden die Ordner und Dateien angezeigt, die in der ausgewählten Backup-Datei vorhanden sind.
 . Wählen Sie den Ordner oder die Datei(en) aus, die Sie aus diesem Backup wiederherstellen möchten.
 . Wählen Sie den Zielspeicherort aus, an dem der Ordner oder die Dateien wiederhergestellt werden sollen (Arbeitsumgebung, Volume und Ordner), und klicken Sie auf *Wiederherstellen*.
 . Die Datei(en) wird(n) wiederhergestellt.
@@ -425,9 +425,9 @@ Sie haben ein paar Optionen für den Speicherort beim Wiederherstellen von Ordne
 
 Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search & Restore lassen sich anhand aller im Cloud Storage gespeicherten Backups nach einem bestimmten Volume, Ordner oder Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung oder den Namen des Volumes kennen - die Suche durchsucht alle Volume-Backup-Dateien.
 
-Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume wiederherstellen https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Auf der Seite Volume Details auf dem Bildschirm"^] (Nicht aus Cloud Backup).
+Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume wiederherstellen https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Auf der Seite Volume Details auf dem Bildschirm"^] (Nicht aus BlueXP Backup und Recovery).
 
-Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt Cloud Backup ein _neues_ Volume, wobei die Daten aus dem Backup verwendet werden. Sie können die Daten als Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
+Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Sie können die Daten als Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
 
 Sie können Ordner oder Dateien auf dem ursprünglichen Volume-Speicherort, auf einem anderen Volume in derselben Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
 
@@ -536,7 +536,7 @@ ifdef::aws[]
 +
 ** Spezifische Berechtigungen für Amazon Athena, AWS Glue und AWS S3 müssen der Benutzerrolle hinzugefügt werden, die BlueXP Berechtigungen bietet. link:task-backup-onprem-to-aws.html#set-up-s3-permissions["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
-Beachten Sie, dass wenn Sie Cloud Backup bereits mit einem zuvor konfigurierten Connector verwenden, Sie jetzt die Athena- und Glue-Berechtigungen zur BlueXP-Benutzerrolle hinzufügen müssen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
+Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die Berechtigungen Athena und Glue zur BlueXP Benutzerrolle hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
 
 
 
@@ -551,7 +551,7 @@ ifdef::azure[]
 ** Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
 ** Spezifische Berechtigungen für Azure Synapse Workspace- und Data Lake-Speicherkonto müssen der Benutzerrolle hinzugefügt werden, die BlueXP mit Berechtigungen versorgt. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
-Wenn Sie Cloud Backup bereits mit einem zuvor konfigurierten Connector verwendet haben, müssen Sie jetzt der BlueXP-Benutzerrolle die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
+Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie der BlueXP Benutzerrolle jetzt die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
 
 ** Der Connector muss *ohne* einen Proxy-Server für die HTTP-Kommunikation mit dem Internet konfiguriert werden. Wenn Sie einen HTTP-Proxyserver für Ihren Connector konfiguriert haben, können Sie die Funktion Suchen und Ersetzen nicht verwenden.
 
@@ -566,7 +566,7 @@ ifdef::gcp[]
 +
 ** Spezifische Google BigQuery-Berechtigungen müssen der Benutzerrolle hinzugefügt werden, die BlueXP Berechtigungen bereitstellt. link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
-Beachten Sie, dass Sie, wenn Sie Cloud Backup bereits mit einem zuvor konfigurierten Connector verwenden, die BigQuery-Berechtigungen jetzt zur Benutzerrolle von BlueXP hinzufügen müssen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
+Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die BigQuery-Berechtigungen zur BlueXP Benutzerrolle hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
 
 
 
@@ -608,7 +608,7 @@ Auf der Seite Suchergebnisse werden alle Standorte angezeigt, die eine Datei ode
 
 image:diagram_search_restore_vol_file.png["Ein Diagramm, das den Fluss zeigt, der einen Vorgang zur Wiederherstellung von Volumes, Ordnern oder Dateien mithilfe von Search  Restore durchführt."]
 
-Wie Sie sehen können, müssen Sie wirklich nur einen Teilnamen kennen und Cloud Backup sucht durch alle Backup-Dateien, die zu Ihrer Suche passen.
+Wie Sie sehen, müssen Sie wirklich nur einen Teil des Namens kennen und BlueXP Backup- und Recovery-Suchen in allen Backup-Dateien durchführen, die Ihrer Suche entsprechen.
 
 
 
@@ -616,7 +616,7 @@ Wie Sie sehen können, müssen Sie wirklich nur einen Teilnamen kennen und Cloud
 
 Bevor Sie Search & Restore verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volumes oder Dateien wiederherstellen möchten. So kann der indexierte Katalog jedes Volume und jede Backup-Datei nachverfolgen, was Ihre Suchvorgänge sehr schnell und effizient macht.
 
-Wenn Sie diese Funktion aktivieren, aktiviert Cloud Backup SnapDiff v3 auf der SVM für Ihre Volumes und führt folgende Aktionen durch:
+Wenn Sie diese Funktionalität aktivieren, ermöglicht BlueXP Backup und Recovery SnapDiff v3 auf der SVM für Ihre Volumes und führt folgende Aktionen aus:
 
 ifdef::aws[]
 

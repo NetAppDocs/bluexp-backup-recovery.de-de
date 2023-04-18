@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-azure-backup-tiers.html 
 keywords: microsoft azure, azure, cool, access tier, archive 
-summary: Cloud Backup unterstützt eine Azure-ArchivierungszugriffTier und die meisten Regionen. 
+summary: BlueXP Backup und Recovery unterstützt nur eine Azure Zugriffsebene für Archivierung und in den meisten Regionen. 
 ---
 = Azure-Archivierungsebenen und Wiederherstellungszeiten
 :hardbreaks:
@@ -14,17 +14,17 @@ summary: Cloud Backup unterstützt eine Azure-ArchivierungszugriffTier und die m
 
 
 [role="lead"]
-Cloud Backup unterstützt eine Azure-ArchivierungszugriffTier und die meisten Regionen.
+BlueXP Backup und Recovery unterstützt nur eine Azure Zugriffsebene für Archivierung und in den meisten Regionen.
 
 
 
-== Unterstützte Azure Blob-Zugriffsebenen für Cloud Backup
+== Unterstützte Azure Blob-Zugriffs-Tiers für Backup und Recovery von BlueXP
 
 Beim ersten Erstellen von Sicherungsdateien werden sie in der Zugriffsebene _Cool_ gespeichert. Diese Tier ist für die Speicherung von Daten optimiert, auf die selten zugegriffen wird. Bei Bedarf kann jedoch sofort zugegriffen werden.
 
 Wenn in Ihren Quellclustern ONTAP 9.10.1 oder neuer ausgeführt wird, können Sie zur weiteren Kostenoptimierung Backups von _Cool_ zu _Azure Archive_ Storage nach einer bestimmten Anzahl von Tagen (normalerweise über 30 Tage) abstufen. Auf die Daten in dieser Tier kann nicht unmittelbar bei Bedarf zugegriffen werden und sind mit höheren Abrufkosten verbunden. Daher müssen Sie bedenken, wie oft Sie Daten aus diesen archivierten Backup-Dateien wiederherstellen müssen. Weitere Informationen finden Sie im nächsten Abschnitt <<Wiederherstellen von Daten aus Archiv-Storage,Wiederherstellen von Daten aus Archiv-Storage>>.
 
-Beachten Sie, dass Sie beim Konfigurieren von Cloud Backup mit dieser Lebenszyklusregel keine Lebenszyklusregeln konfigurieren müssen, wenn Sie den Container in Ihrem Azure-Konto einrichten.
+Wenn Sie BlueXP Backup und Recovery mit dieser Lebenszyklusregel konfigurieren, dürfen Sie beim Einrichten des Containers in Ihrem Azure-Konto keine Lebenszyklusregeln konfigurieren.
 
 https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["Erfahren Sie mehr über Azure Blob Zugriffsebenen"^].
 

@@ -31,7 +31,7 @@ Der Sicherungs- und Wiederherstellungsstatus kann wie folgt lauten:
 * Fehlgeschlagen
 
 
-Sowohl vom Benutzer initiierte Sicherungs- und Wiederherstellungsvorgänge, die über die Benutzeroberfläche und die API des Cloud-Backups initiiert werden, als auch systeminitiierte Jobs, wie z. B. laufende geplante Sicherungsvorgänge, sind auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme verfügbar, auf denen ONTAP 9.13.0 oder höher ausgeführt wird.
+Sowohl vom Benutzer initiierte Backup- und Wiederherstellungsvorgänge, die von der BlueXP Backup- und Recovery-Benutzeroberfläche und -API initiiert wurden, als auch systeminitiierte Jobs, wie z. B. laufende geplante Backup-Vorgänge, stehen auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme mit ONTAP 9.13.0 oder höher zur Verfügung.
 
 
 TIP: Wenn Sie eine frühere Version von ONTAP auf Cloud Volumes ONTAP-Systemen oder auf lokalen ONTAP-Systemen ausführen, werden nur vom Benutzer initiierte Jobs angezeigt.
@@ -111,7 +111,7 @@ image:screenshot_backup_job_monitor_details2.png["Ein Screenshot, der Details zu
 
 === Laden Sie die Ergebnisse der Jobüberwachung als Bericht herunter
 
-Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterladen, nachdem Sie ihn überarbeitet haben. Cloud Backup erstellt und lädt eine CSV-Datei herunter, die Sie nach Bedarf prüfen und an andere Gruppen senden können. Die .CSV-Datei umfasst bis zu 10,000 Datenzeilen.
+Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterladen, nachdem Sie ihn überarbeitet haben. BlueXP Backup und Recovery generiert bzw. lädt eine CSV-Datei herunter, die Sie nach Bedarf prüfen und an andere Gruppen senden können. Die .CSV-Datei umfasst bis zu 10,000 Datenzeilen.
 
 Über die Details zur Jobüberwachung können Sie eine JSON-Datei herunterladen, die Details zu einem einzelnen Job enthält.
 
@@ -142,12 +142,12 @@ Ad-hoc-Backup (On-Demand) des Volumes ist fehlgeschlagen
 
 
  a| 
-Aktivierung von Cloud Backup in der Arbeitsumgebung fehlgeschlagen
+Die Aktivierung von BlueXP Backup und Recovery ist in der Betriebsumgebung fehlgeschlagen
 | Kritisch 
 
 
  a| 
-Wiederherstellung von Cloud-Backups fehlgeschlagen
+Bei der Backup- und Recovery-Wiederherstellung von BlueXP ist ein Fehler aufgetreten
 | Kritisch 
 
 
@@ -170,7 +170,7 @@ NOTE: Ab Cloud Volumes ONTAP 9.13.0 werden alle Warnmeldungen angezeigt. Bei Sys
 
 BlueXP Account-Administratoren erhalten standardmäßig E-Mails für alle Warnmeldungen „kritisch“ und „Empfehlungen“. Alle anderen Benutzer und Empfänger sind standardmäßig so konfiguriert, dass sie keine Benachrichtigungs-E-Mails erhalten. E-Mails können an alle BlueXP Benutzer, die Teil Ihres NetApp Cloud Kontos sind, oder an andere Empfänger gesendet werden, die Backup- und Wiederherstellungsaktivitäten kennen müssen.
 
-Um die Cloud Backup-E-Mail-Warnungen zu erhalten, müssen Sie die Typen „kritisch“ und „Fehler“ für die Benachrichtigung auswählen.
+Um die E-Mail-Alarme für BlueXP Backup und Recovery zu erhalten, müssen Sie die Schweregrade für die Benachrichtigung „kritisch“ und „Fehler“ auswählen.
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
 

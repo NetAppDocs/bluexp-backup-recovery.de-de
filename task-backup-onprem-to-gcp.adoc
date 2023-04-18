@@ -38,7 +38,7 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 * Sie verfügen über ein Google-Konto mit einem Zugriffsschlüssel und einem geheimen Schlüssel, damit der ONTAP-Cluster Daten sichern und wiederherstellen kann.
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Aktivieren Sie Cloud Backup auf dem System
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] BlueXP Backup und Recovery auf dem System aktivieren
 [role="quick-margin-para"]
 Wählen Sie die Arbeitsumgebung aus und klicken Sie auf *Aktivieren > Backup Volumes* neben dem Backup- und Recovery-Dienst im rechten Fenster, und folgen Sie dann dem Setup-Assistenten.
 
@@ -57,10 +57,10 @@ image:screenshot_backup_onprem_to_google.png["In diesem Screenshot wird der Clou
 Die Standardrichtlinie sichert Volumes täglich und speichert die letzten 30 Backup-Kopien jedes Volumes. Änderung zu stündlichen, täglichen, wöchentlichen, monatlichen oder jährlichen Backups Oder wählen Sie eine der systemdefinierten Richtlinien aus, die mehr Optionen bieten. Sie können auch die Anzahl der zu behaltenden Backup-Kopien ändern.
 
 [role="quick-margin-para"]
-Backups werden standardmäßig im Standard-Storage gespeichert. Falls in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird, können Sie das Tiering von Backups nach einer bestimmten Anzahl von Tagen auf Google Archive Storage festlegen, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Weitere Informationen über die verfügbaren Konfigurationseinstellungen für Cloud Backup-Richtlinien"^].
+Backups werden standardmäßig im Standard-Storage gespeichert. Falls in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird, können Sie das Tiering von Backups nach einer bestimmten Anzahl von Tagen auf Google Archive Storage festlegen, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Erfahren Sie mehr über die verfügbaren Konfigurationseinstellungen der BlueXP Backup- und Recovery-Richtlinien"^].
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_gcp.png["Ein Screenshot mit den Cloud Backup-Einstellungen, in dem Sie den Backup-Zeitplan und den Aufbewahrungszeitraum auswählen können."]
+image:screenshot_backup_policy_gcp.png["Ein Screenshot, der die Backup- und Recovery-Einstellungen von BlueXP zeigt, in denen Sie den Backup-Zeitplan und den Aufbewahrungszeitraum auswählen können."]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Wählen Sie die Volumes aus, die Sie sichern möchten
 [role="quick-margin-para"]
@@ -80,11 +80,11 @@ Bei der Konfiguration von Backups von lokalen ONTAP Systemen in Google Cloud Sto
 
 Das folgende Diagramm zeigt die Methode *Public Connection* und die Verbindungen, die Sie zwischen den Komponenten vorbereiten müssen. Der Connector muss in der Google Cloud Platform VPC implementiert werden.
 
-image:diagram_cloud_backup_onprem_gcp_public.png["Eine Grafik zeigt, wie Cloud Backup über eine öffentliche Verbindung mit den Volumes im Cluster und dem Google Cloud Storage kommuniziert, auf dem sich die Backup-Dateien befinden."]
+image:diagram_cloud_backup_onprem_gcp_public.png["Ein Diagramm, das die Kommunikation von BlueXP Backup und Recovery über eine öffentliche Verbindung mit den Volumes im Cluster und dem Google Cloud Storage zeigt, in dem sich die Backup-Dateien befinden."]
 
 Das folgende Diagramm zeigt die Methode *private Verbindung* und die Verbindungen, die Sie zwischen den Komponenten vorbereiten müssen. Der Connector muss in der Google Cloud Platform VPC implementiert werden.
 
-image:diagram_cloud_backup_onprem_gcp_private.png["Ein Diagramm zeigt die Kommunikation von Cloud Backup über eine private Verbindung mit den Volumes auf dem Cluster und dem Google Cloud Storage, auf dem sich die Backup-Dateien befinden."]
+image:diagram_cloud_backup_onprem_gcp_private.png["Ein Diagramm, das die Kommunikation von BlueXP Backup und Recovery über eine private Verbindung mit den Volumes im Cluster und dem Google Cloud Storage zeigt, in dem sich die Backup-Dateien befinden."]
 
 
 
@@ -100,7 +100,7 @@ ONTAP-Anforderungen erfüllt::
 * Minimum ONTAP 9.7P5; ONTAP 9.8P13 und höher wird empfohlen.
 * SnapMirror Lizenz (im Rahmen des Premium Bundle oder Datensicherungs-Bundles enthalten)
 +
-*Hinweis:* bei der Verwendung von Cloud Backup ist das „Hybrid Cloud Bundle“ nicht erforderlich.
+*Hinweis:* das „Hybrid Cloud Bundle“ ist bei Backup und Recovery von BlueXP nicht erforderlich.
 
 +
 Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Management Ihrer Cluster-Lizenzen"^].
@@ -122,7 +122,7 @@ ONTAP liest und schreibt Daten auf und aus dem Objekt-Storage. Objekt-Storage st
 * ONTAP erfordert eine eingehende Verbindung vom Connector zur Cluster-Management-LIF. Der Connector kann in einer Google Cloud Platform VPC residieren.
 * Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten. Die LIF muss dem _IPspace_ zugewiesen sein, den ONTAP zur Verbindung mit Objekt-Storage verwenden sollte. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Erfahren Sie mehr über IPspaces"^].
 +
-Wenn Sie Cloud Backup einrichten, werden Sie aufgefordert, den IP-Speicherplatz zu verwenden. Sie sollten den IPspace auswählen, dem jede LIF zugeordnet ist. Dies kann der „Standard“-IPspace oder ein benutzerdefinierter IPspace sein, den Sie erstellt haben.
+Wenn Sie BlueXP Backup und Recovery einrichten, werden Sie aufgefordert, den IPspace zu verwenden. Sie sollten den IPspace auswählen, dem jede LIF zugeordnet ist. Dies kann der „Standard“-IPspace oder ein benutzerdefinierter IPspace sein, den Sie erstellt haben.
 
 * Die Intercluster-LIFs der Nodes können auf den Objektspeicher zugreifen.
 * DNS-Server wurden für die Storage-VM konfiguriert, auf der sich die Volumes befinden. Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["Konfigurieren Sie DNS-Services für die SVM"^].
@@ -130,7 +130,7 @@ Wenn Sie Cloud Backup einrichten, werden Sie aufgefordert, den IP-Speicherplatz 
 Wenn Sie privaten Google Access oder Private Service Connect verwenden, stellen Sie sicher, dass Ihre DNS-Server so konfiguriert wurden, dass sie Punkt `storage.googleapis.com` An die richtige interne (private) IP-Adresse.
 
 * Wenn Sie einen anderen IPspace als den Standard verwenden, müssen Sie möglicherweise eine statische Route erstellen, um Zugriff auf den Objekt-Storage zu erhalten.
-* Aktualisieren Sie ggf. Firewall-Regeln, um Cloud Backup-Verbindungen von ONTAP zu Objektspeicher über Port 443 zu ermöglichen, und benennen Sie den Auflösungsverkehr von der Speicher-VM zum DNS-Server über Port 53 (TCP/UDP).
+* Aktualisieren Sie ggf. die Firewall-Regeln, um BlueXP Backup- und Recovery-Verbindungen von ONTAP zu Objekt-Storage über Port 443 und Datenverkehr der Namensauflösung von der Storage-VM zum DNS-Server über Port 53 (TCP/UDP) zu ermöglichen.
 
 
 --
@@ -155,7 +155,7 @@ Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindu
 .Schritte
 . Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 +
-** Eine HTTPS-Verbindung über Port 443 zur Cloud Backup Service und zu Ihrem Google Cloud-Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
+** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem Google Cloud Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
 ** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
 
 
@@ -169,7 +169,7 @@ Befolgen Sie die Anweisungen von Google, um diese privaten Zugangsoptionen einzu
 
 === Überprüfen oder Hinzufügen von Berechtigungen zum Konnektor
 
-Um die Cloud Backup Funktion „Search & Restore“ nutzen zu können, benötigen Sie spezielle Berechtigungen in der Rolle für den Connector, damit er auf den Google Cloud BigQuery Service zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
+Um die „Suchen & Wiederherstellen“-Funktion von BlueXP für Backup und Recovery nutzen zu können, müssen Sie in der Rolle für den Connector bestimmte Berechtigungen besitzen, damit dieser auf den Google Cloud BigQuery Service zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 
 .Schritte
 . Im https://console.cloud.google.com["Google Cloud Console"^], Gehen Sie zur Seite *Rollen*.
@@ -198,7 +198,7 @@ bigquery.tables.create
 
 === Google Cloud Storage wird für Backups vorbereitet
 
-Wenn Sie ein Backup einrichten, müssen Sie Storage-Zugriffschlüssel für ein Servicekonto mit bestimmten Berechtigungen bereitstellen. Mithilfe eines Service-Kontos kann Cloud Backup zum Speichern von Backups Cloud-Storage-Buckets authentifizieren und auf diese zugreifen. Die Schlüssel sind erforderlich, damit Google Cloud Storage weiß, wer die Anfrage stellt.
+Wenn Sie ein Backup einrichten, müssen Sie Storage-Zugriffschlüssel für ein Servicekonto mit bestimmten Berechtigungen bereitstellen. Ein Servicekonto ermöglicht BlueXP Backup und Recovery für Authentifizierung und Zugriff auf Cloud Storage Buckets, die für das Speichern von Backups verwendet werden. Die Schlüssel sind erforderlich, damit Google Cloud Storage weiß, wer die Anfrage stellt.
 
 .Schritte
 . Im https://console.cloud.google.com["Google Cloud Console"^], Gehen Sie zur Seite *Rollen*.
@@ -233,7 +233,7 @@ storage.objects.update
 .. Wählen Sie ein Projekt aus, und klicken Sie auf *Interoperabilität*. Falls Sie dies noch nicht getan haben, klicken Sie auf *Interoperabilitätszugriff aktivieren*.
 .. Klicken Sie unter *Zugriffsschlüssel für Servicekonten* auf *Schlüssel für ein Servicekonto erstellen*, wählen Sie das gerade erstellte Servicekonto aus und klicken Sie auf *Schlüssel erstellen*.
 +
-Wenn Sie den Backup-Service konfigurieren, müssen Sie die Schlüssel später in Cloud Backup eingeben.
+Beim Konfigurieren des Backup-Service müssen Sie die Schlüssel zu einem späteren Zeitpunkt in BlueXP Backup und Recovery eingeben.
 
 
 
@@ -264,17 +264,17 @@ cloudkms.keyRings.setIamPolicy
 * Es werden sowohl neu erstellte als auch importierte Cloud KMS-Schlüssel unterstützt.
 * Es werden nur regionale Schlüssel unterstützt, globale Schlüssel werden nicht unterstützt.
 * Derzeit wird nur der Zweck „symmetrische Verschlüsselung/Entschlüsselung“ unterstützt.
-* Dem mit dem Speicherkonto verknüpften Service-Agent wird die IAM-Rolle „CryptoKey-Verschlüsselung/Dekrypter (Rollen/cloudkms.KryptoKeyVerschlüsseler)“ von Cloud Backup zugewiesen.
+* Der dem Storage-Konto zugeordnete Service-Agent wird der IAM-Rolle „CryptoKey Encrypter/Decrypter (Rollen/Cloudkms.cryptoKeyEncrypterDecrypter)“ von BlueXP Backup und Recovery zugewiesen.
 
 
 
 
 === Lizenzanforderungen prüfen
 
-* Bevor Sie Cloud Backup für Ihren Cluster aktivieren können, müssen Sie entweder ein „Pay-as-you-go“-Angebot (PAYGO) mit BlueXP Marketplace von Google abonnieren oder eine Cloud Backup BYOL-Lizenz von NetApp erwerben und aktivieren. Diese Lizenzen sind für Ihr Konto und können für mehrere Systeme verwendet werden.
+* Bevor Sie BlueXP Backup und Recovery für Ihr Cluster aktivieren können, müssen Sie entweder ein PAYGO-Angebot (Pay-as-you-go) für BlueXP Marketplace von Google abonnieren oder eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp erwerben und aktivieren. Diese Lizenzen sind für Ihr Konto und können für mehrere Systeme verwendet werden.
 +
-** Für die Cloud Backup-PAYGO-Lizenzierung benötigen Sie ein Abonnement für den https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] BlueXP Marketplace Angebot zur Nutzung von Cloud Backup. Die Abrechnung für Cloud Backup erfolgt über dieses Abonnement.
-** Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
+** Für die BlueXP PAYGO-Lizenzierung für Backup und Recovery benötigen Sie ein Abonnement des https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] BlueXP Marketplace Angebot zur Nutzung von BlueXP Backup und Recovery Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
+** Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Seriennummer von NetApp, anhand derer Sie den Service für die Dauer und Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 
 
 * Sie benötigen ein Google-Abonnement für den Objekt-Speicherplatz, in dem Ihre Backups gespeichert werden.
@@ -285,9 +285,9 @@ Backups von On-Premises-Systemen in Google Cloud Storage lassen sich in allen Re
 
 
 
-== Unterstützung Von Cloud Backup
+== BlueXP Backup und Recovery ermöglichen
 
-Cloud Backup kann jederzeit direkt aus der lokalen Arbeitsumgebung aktiviert werden.
+BlueXP Backup und Recovery sind jederzeit möglich – direkt aus der lokalen Arbeitsumgebung.
 
 .Schritte
 . Wählen Sie in der Arbeitsfläche die Arbeitsumgebung aus und klicken Sie auf *Aktivieren > Backup Volumes* neben dem Backup- und Recovery-Service im rechten Fenster.
@@ -310,14 +310,14 @@ image:screenshot_backup_onprem_to_google.png["In diesem Screenshot werden die De
 
 
 
-. Wenn Sie für Ihr Konto keine Lizenz für Cloud Backup besitzen, werden Sie zu diesem Zeitpunkt aufgefordert, die gewünschte Gebührenart auszuwählen. Sie können ein Pay-as-you-go (PAYGO) Marketplace-Angebot von BlueXP bei Google abonnieren (oder bei mehreren Abonnements eine auswählen) oder eine Cloud Backup BYOL-Lizenz von NetApp erwerben und aktivieren. link:task-licensing-cloud-backup.html["Erfahren Sie, wie Sie Cloud Backup-Lizenzen einrichten."]
+. Wenn Sie für Ihr Konto keine BlueXP Backup- und Recovery-Lizenz besitzen, werden Sie an dieser Stelle aufgefordert, die gewünschte Abrechnungsmethode auszuwählen. Sie können ein PAYGO-Angebot (Pay-as-you-go) für BlueXP Marketplace von Google (oder bei mehreren Abonnements eine davon auswählen) abonnieren oder eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp erwerben und aktivieren. link:task-licensing-cloud-backup.html["Erfahren Sie, wie Sie die BlueXP Backup- und Recovery-Lizenzierung einrichten."]
 . Geben Sie die Backup Policy Details ein, die für Ihre Standard Policy verwendet werden, und klicken Sie auf *Weiter*. Sie können eine vorhandene Richtlinie auswählen oder eine neue Richtlinie erstellen, indem Sie in den einzelnen Abschnitten Ihre Auswahl eingeben:
 +
 .. Geben Sie den Namen für die Standardrichtlinie ein. Sie müssen den Namen nicht ändern.
 .. Legen Sie den Backup-Zeitplan fest und wählen Sie die Anzahl der zu behaltenden Backups aus. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["Die Liste der vorhandenen Richtlinien, die Sie auswählen können, wird angezeigt"^].
-.. Bei Verwendung von ONTAP 9.12.1 oder neuer können Sie Backups nach einer bestimmten Anzahl von Tagen im Archiv-Storage Tiering zuweisen, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Weitere Informationen über die verfügbaren Konfigurationseinstellungen für Cloud Backup-Richtlinien"^].
+.. Bei Verwendung von ONTAP 9.12.1 oder neuer können Sie Backups nach einer bestimmten Anzahl von Tagen im Archiv-Storage Tiering zuweisen, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Erfahren Sie mehr über die verfügbaren Konfigurationseinstellungen der BlueXP Backup- und Recovery-Richtlinien"^].
 +
-image:screenshot_backup_policy_gcp.png["Ein Screenshot mit den Cloud Backup-Einstellungen, in dem Sie Ihren Backup-Zeitplan und den Aufbewahrungszeitraum auswählen können."]
+image:screenshot_backup_policy_gcp.png["Ein Screenshot, der die BlueXP Backup- und Recovery-Einstellungen zeigt, in denen Sie Ihren Backup-Zeitplan und den Aufbewahrungszeitraum wählen können."]
 
 
 
@@ -332,7 +332,7 @@ image:screenshot_backup_select_volumes.png["Ein Screenshot, wie die Volumes ausg
 ** Wenn es lokale Snapshot-Kopien für Lese-/Schreib-Volumes in dieser Arbeitsumgebung gibt, die dem Backup-Schedule-Label entsprechen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird eine zusätzliche Eingabeaufforderung angezeigt: „Export vorhandener Snapshot Kopien in Objekt-Storage als Backup-Kopien“. Aktivieren Sie dieses Kontrollkästchen, wenn alle historischen Snapshots als Backup-Dateien in Objekt-Storage kopiert werden sollen, um sicherzustellen, dass die umfassendste Sicherung für Ihre Volumes gewährleistet ist.
 
 
-. Klicken Sie auf *Activate Backup* und Cloud Backup beginnt mit der Erstellung der ersten Backups Ihrer Volumes.
+. Klicken Sie auf *Backup aktivieren*, und BlueXP Backup und Recovery beginnt mit der Erstellung der ersten Backups Ihrer Volumes.
 
 
 .Ergebnis

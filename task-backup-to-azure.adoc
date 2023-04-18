@@ -26,16 +26,16 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 [role="quick-margin-list"]
 * Sie verwenden Cloud Volumes ONTAP 9.7P5 oder höher in Azure (ONTAP 9.8P13 und höher wird empfohlen).
 * Sie verfügen über ein gültiges Cloud-Provider-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
-* Sie haben sich für das angemeldet https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Und aktiviert"^] Eine Cloud Backup BYOL-Lizenz von NetApp
+* Sie haben sich für das angemeldet https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"^] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
 * Sie haben einen Connector in Azure installiert. Der Connector kann auf einer Website mit vollem Internetzugang ("Standard-Modus") oder mit eingeschränkter Internetverbindung ("eingeschränkter Modus") installiert werden.
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Cloud Backup auf Ihrem neuen oder vorhandenen System aktivieren
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] BlueXP Backup und Recovery auf einem neuen oder vorhandenen System aktivieren
 [role="quick-margin-list"]
-* Neue Systeme: Cloud Backup ist standardmäßig im Assistenten für die Arbeitsumgebung aktiviert. Achten Sie darauf, dass die Option aktiviert bleibt.
+* Neue Systeme: Das Backup und Recovery von BlueXP ist im Assistenten für die Arbeitsumgebung standardmäßig aktiviert. Achten Sie darauf, dass die Option aktiviert bleibt.
 * Bestehende Systeme: Wählen Sie die Arbeitsumgebung aus und klicken Sie auf *Aktivieren* neben dem Backup- und Recovery-Dienst im rechten Fenster, und folgen Sie dann dem Setup-Assistenten.
 +
-image:screenshot_backup_cvo_enable.png["Ein Screenshot, der die Schaltfläche Cloud Backup Enable zeigt, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
+image:screenshot_backup_cvo_enable.png["Ein Screenshot mit der Schaltfläche für das Backup und Recovery von BlueXP, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
 
 
 
@@ -51,13 +51,13 @@ image:screenshot_backup_provider_settings_azure.png["Ein Screenshot, der die Clo
 Die Standardrichtlinie sichert Volumes täglich und speichert die letzten 30 Backup-Kopien jedes Volumes. Änderung zu stündlichen, täglichen, wöchentlichen, monatlichen oder jährlichen Backups Oder wählen Sie eine der systemdefinierten Richtlinien aus, die mehr Optionen bieten. Sie können auch die Anzahl der zu behaltenden Backup-Kopien ändern.
 
 [role="quick-margin-para"]
-Optional können Sie bei Verwendung von ONTAP 9.12.1 und höher Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie eine der Einstellungen _DataLock und Ransomware Protection_ konfigurieren. link:concept-cloud-backup-policies.html["Weitere Informationen über die verfügbaren Konfigurationseinstellungen für Cloud Backup-Richtlinien"^].
+Optional können Sie bei Verwendung von ONTAP 9.12.1 und höher Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie eine der Einstellungen _DataLock und Ransomware Protection_ konfigurieren. link:concept-cloud-backup-policies.html["Erfahren Sie mehr über die verfügbaren Konfigurationseinstellungen der BlueXP Backup- und Recovery-Richtlinien"^].
 
 [role="quick-margin-para"]
-Backups werden standardmäßig in der Cool Access Tier gespeichert. Wenn in Ihrem Cluster ONTAP 9.10.1 oder neuer verwendet wird, können Sie Backups nach einer bestimmten Anzahl von Tagen nach einem Tiering in den Azure Archiv-Storage verschieben, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Weitere Informationen über die verfügbaren Konfigurationseinstellungen für Cloud Backup-Richtlinien"^].
+Backups werden standardmäßig in der Cool Access Tier gespeichert. Wenn in Ihrem Cluster ONTAP 9.10.1 oder neuer verwendet wird, können Sie Backups nach einer bestimmten Anzahl von Tagen nach einem Tiering in den Azure Archiv-Storage verschieben, um die Kosten weiter zu optimieren. link:concept-cloud-backup-policies.html["Erfahren Sie mehr über die verfügbaren Konfigurationseinstellungen der BlueXP Backup- und Recovery-Richtlinien"^].
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_azure.png["Ein Screenshot mit den Cloud Backup Einstellungen, in dem Sie die Backup-Richtlinie auswählen und Ihre Backup-Aufbewahrung wählen können."]
+image:screenshot_backup_policy_azure.png["Ein Screenshot, der die Backup- und Recovery-Einstellungen von BlueXP zeigt, wo Sie die Backup-Richtlinie auswählen und die Backup-Aufbewahrung festlegen können."]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Wählen Sie die Volumes aus, die Sie sichern möchten
 [role="quick-margin-para"]
@@ -71,13 +71,13 @@ Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine u
 
 Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die zwischen den Komponenten vorbereitet werden müssen:
 
-image:diagram_cloud_backup_cvo_azure.png["Eine Grafik zeigt, wie Cloud Backup mit den Volumes der Quellsysteme und dem Ziel-Storage kommuniziert, auf dem sich die Backup-Dateien befinden."]
+image:diagram_cloud_backup_cvo_azure.png["Diagramm, das die Kommunikation von BlueXP Backup und Recovery mit den Volumes auf den Quellsystemen und dem Ziel-Storage zeigt, auf dem sich die Backup-Dateien befinden."]
 
 Unterstützte ONTAP-Versionen:: Minimum ONTAP 9.7P5; ONTAP 9.8P13 und höher wird empfohlen.
-Lizenzanforderungen:: Bei Cloud Backup-PAYGO-Lizenzen ist vor Aktivierung von Cloud Backup ein Abonnement über den Azure Marketplace erforderlich. Die Abrechnung für Cloud Backup erfolgt über dieses Abonnement. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Sie können sich auf der Seite Details  Credentials des Assistenten für die Arbeitsumgebung anmelden"^].
+Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist vor der Aktivierung von BlueXP Backup und Recovery ein Abonnement über den Azure Marketplace erforderlich. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Sie können sich auf der Seite Details  Credentials des Assistenten für die Arbeitsumgebung anmelden"^].
 +
 --
-Für die BYOL-Lizenzierung von Cloud Backup benötigen Sie die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"]. Sie müssen eine BYOL-Lizenz verwenden, wenn der Connector und das Cloud Volumes ONTAP-System an einem dunklen Standort bereitgestellt werden.
+Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Seriennummer von NetApp, anhand derer Sie den Service für die Dauer und Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"]. Sie müssen eine BYOL-Lizenz verwenden, wenn der Connector und das Cloud Volumes ONTAP-System an einem dunklen Standort bereitgestellt werden.
 
 Darüber hinaus benötigen Sie ein Microsoft Azure-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
 
@@ -93,7 +93,7 @@ Anforderungen an Steckverbinder:: Der Connector kann in einer Azure-Region mit v
 --
 
 
-Überprüfen oder Hinzufügen von Berechtigungen zum Konnektor:: Um die Funktion zum Suchen und Wiederherstellen von Cloud-Backups zu verwenden, müssen Sie spezifische Berechtigungen in der Rolle für den Connector besitzen, damit er auf den Azure Synapse Workspace und das Data Lake-Speicherkonto zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
+Überprüfen oder Hinzufügen von Berechtigungen zum Konnektor:: Um die Such- und Wiederherstellungsfunktion für BlueXP Backup und Recovery verwenden zu können, müssen Sie in der Rolle für den Connector über bestimmte Berechtigungen verfügen, damit dieser auf den Azure Synapse Workspace und das Data Lake Storage Account zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 +
 --
 .Bevor Sie beginnen
@@ -174,10 +174,10 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 
 --
-Unterstützte Azure Regionen:: Cloud Backup wird in allen Azure Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen.
+Unterstützte Azure Regionen:: BlueXP Backup und Recovery wird in allen Azure Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen.
 
 
-Cloud Backup stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung nach Aktivierung von Cloud Backup in Zone Redundancy (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
+BlueXP Backup und Recovery stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zonenredundanz (ZRS) ändern, nachdem BlueXP Backup und Recovery aktiviert wurde, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
 
 Erforderliche Einrichtung zum Erstellen von Backups in einem anderen Azure Abonnement:: Standardmäßig werden Backups mit demselben Abonnement erstellt wie das für Ihr Cloud Volumes ONTAP-System verwendete. Wenn Sie ein anderes Azure Abonnement für Ihre Backups verwenden möchten, müssen Sie dies tun link:reference-backup-multi-account-azure.html["Melden Sie sich beim Azure-Portal an und verlinken Sie die beiden Abonnements"].
 Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Schlüsseln für die Datenverschlüsselung:: Sie können im Aktivierungsassistenten Ihre eigenen, vom Kunden gemanagten Schlüssel für die Datenverschlüsselung verwenden, anstatt die von Microsoft verwalteten Standardschlüssel zu verwenden. In diesem Fall müssen Sie über das Azure-Abonnement, den Namen von Key Vault und den Schlüssel verfügen. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
@@ -185,14 +185,14 @@ Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Schlüsseln f�
 
 
 
-== Aktivierung von Cloud Backup auf einem neuen System
+== Aktivieren von BlueXP Backup und Recovery auf einem neuen System
 
-Cloud Backup ist standardmäßig im Assistenten für die Arbeitsumgebung aktiviert. Achten Sie darauf, dass die Option aktiviert bleibt.
+BlueXP Backup und Recovery sind standardmäßig im Assistenten für die Arbeitsumgebung aktiviert. Achten Sie darauf, dass die Option aktiviert bleibt.
 
 Siehe https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Starten von Cloud Volumes ONTAP in Azure"^] Anforderungen und Details für die Erstellung Ihres Cloud Volumes ONTAP Systems.
 
 
-NOTE: Wenn Sie den Namen der Ressourcengruppe auswählen möchten, deaktivieren Sie * Cloud-Backup bei der Bereitstellung von Cloud Volumes ONTAP. Befolgen Sie die Schritte für <<enabling-cloud-backup-on-an-existing-system,Aktivierung von Cloud Backup auf einem vorhandenen System>> Aktivieren von Cloud-Backup und Auswahl der Ressourcengruppe.
+NOTE: Wenn Sie den Namen der Ressourcengruppe auswählen möchten, deaktivieren Sie bei der Bereitstellung von Cloud Volumes ONTAP BlueXP Backup und Recovery. Befolgen Sie die Schritte für <<enabling-bluexp-backup-and-recovery-on-an-existing-system,Aktivieren von BlueXP Backup und Recovery auf einem vorhandenen System>> Um das Backup und Recovery von BlueXP zu aktivieren und die Ressourcengruppe auszuwählen.
 
 .Schritte
 . Klicken Sie auf *Cloud Volumes ONTAP erstellen*.
@@ -201,19 +201,19 @@ NOTE: Wenn Sie den Namen der Ressourcengruppe auswählen möchten, deaktivieren 
 . Füllen Sie die Seite „Details & Zugangsdaten“ aus und stellen Sie sicher, dass ein Azure Marketplace-Abonnement besteht, und klicken Sie auf *Weiter*.
 . Lassen Sie auf der Seite Dienste den Dienst aktiviert, und klicken Sie auf *Weiter*.
 +
-image:screenshot_backup_to_gcp.png["Zeigt die Option Cloud-Backup im Assistenten für die Arbeitsumgebung."]
+image:screenshot_backup_to_gcp.png["Zeigt die BlueXP Backup- und Recovery-Option im Assistenten für die Arbeitsumgebung."]
 
 . Führen Sie die Seiten im Assistenten aus, um das System bereitzustellen.
 
 
 .Ergebnis
-Cloud Backup ist auf dem System aktiviert und sichert täglich Volumes und speichert die letzten 30 Backup-Kopien.
+BlueXP Backup und Recovery wird auf dem System aktiviert und sichert Volumes täglich und behält die letzten 30 Backup-Kopien bei.
 
 
 
-== Aktivierung von Cloud Backup auf einem vorhandenen System
+== Aktivieren von BlueXP Backup und Recovery auf einem vorhandenen System
 
-Cloud Backup kann jederzeit direkt aus der Arbeitsumgebung aktiviert werden.
+BlueXP Backup und Recovery sind jederzeit möglich – direkt aus der Arbeitsumgebung.
 
 .Schritte
 . Wählen Sie die Arbeitsumgebung aus und klicken Sie auf *Aktivieren* neben dem Backup- und Recovery-Dienst im rechten Fenster.
@@ -221,7 +221,7 @@ Cloud Backup kann jederzeit direkt aus der Arbeitsumgebung aktiviert werden.
 Wenn das Azure Blob Ziel für Ihre Backups als Arbeitsumgebung auf dem Canvas existiert, können Sie das Cluster auf die Azure Blob Arbeitsumgebung ziehen, um den Setup-Assistenten zu starten.
 
 +
-image:screenshot_backup_cvo_enable.png["Ein Screenshot, der die Schaltfläche Cloud Backup Enable zeigt, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
+image:screenshot_backup_cvo_enable.png["Ein Screenshot mit der Schaltfläche für das Backup und Recovery von BlueXP, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
 
 . Wählen Sie die Provider-Details aus und klicken Sie auf *Weiter*.
 +
@@ -244,7 +244,7 @@ image:screenshot_backup_provider_settings_azure.png["Ein Screenshot, der die Clo
 .. Optional können Sie bei Verwendung von ONTAP 9.12.1 und höher Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie eine der Einstellungen _DataLock und Ransomware Protection_ konfigurieren. _DataLock_ schützt Ihre Backup-Dateien vor Modified oder Deleted, und _Ransomware Protection_ scannt Ihre Backup-Dateien, um nach Anzeichen für einen Ransomware-Angriff in Ihren Backup-Dateien zu suchen. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"^].
 .. Bei Verwendung von ONTAP 9.10.1 und neuer können Backups nach einer bestimmten Anzahl von Tagen auf den Azure Archiv-Storage verschoben werden, um die Kosten weiter zu optimieren. Diese Funktion ist nicht verfügbar, wenn sie in dunklen Sites bereitgestellt wird. link:reference-azure-backup-tiers.html["Erfahren Sie mehr über die Verwendung von Archivierungs-Tiers"].
 +
-image:screenshot_backup_policy_azure.png["Ein Screenshot, der die Cloud Backup Einstellungen zeigt, in denen Sie Ihren Zeitplan und Ihre Backup-Aufbewahrung auswählen können."]
+image:screenshot_backup_policy_azure.png["Ein Screenshot, der die Backup- und Recovery-Einstellungen von BlueXP zeigt, in denen Sie Ihre Planung und die Backup-Aufbewahrung festlegen können."]
 
 
 
@@ -259,7 +259,7 @@ image:screenshot_backup_select_volumes.png["Ein Screenshot, wie die Volumes ausg
 ** Wenn es lokale Snapshot-Kopien für Lese-/Schreib-Volumes in dieser Arbeitsumgebung gibt, die dem Backup-Schedule-Label entsprechen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird eine zusätzliche Eingabeaufforderung angezeigt: „Export vorhandener Snapshot Kopien in Objekt-Storage als Backup-Kopien“. Aktivieren Sie dieses Kontrollkästchen, wenn alle historischen Snapshots als Backup-Dateien in Objekt-Storage kopiert werden sollen, um sicherzustellen, dass die umfassendste Sicherung für Ihre Volumes gewährleistet ist.
 
 
-. Klicken Sie auf *Activate Backup* und Cloud Backup beginnt die Erstellung der ersten Backups jedes ausgewählten Volumes.
+. Klicken Sie auf *Backup aktivieren* und BlueXP Backup und Recovery beginnt mit der Erstellung der ersten Backups jedes ausgewählten Volumes.
 
 
 .Ergebnis
@@ -267,7 +267,7 @@ In der von Ihnen eingegebenen Ressourcengruppe wird automatisch ein Blob-Storage
 
 Das Dashboard für Volume Backup wird angezeigt, sodass Sie den Status der Backups überwachen können. Sie können den Status von Backup- und Wiederherstellungsjobs auch mit dem überwachen link:task-monitor-backup-jobs.html["Fenster Job-Überwachung"^].
 
-Cloud Backup stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zoneredundanz (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
+BlueXP Backup und Recovery stellt den Blob-Container standardmäßig mit lokaler Redundanz (LRS) zur Kostenoptimierung bereit. Sie können diese Einstellung auf Zoneredundanz (ZRS) ändern, wenn Sie sicherstellen möchten, dass Ihre Daten zwischen verschiedenen Zonen repliziert werden. Siehe Microsoft-Anweisungen für https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["Ändern der Replizierung Ihres Storage-Kontos"^].
 
 
 

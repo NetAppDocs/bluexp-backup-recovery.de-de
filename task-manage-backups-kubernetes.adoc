@@ -23,7 +23,7 @@ CAUTION: Backup-Dateien lassen sich nicht direkt in der Umgebung Ihrer Cloud-Pro
 
 == Anzeigen der Volumes, die gesichert werden
 
-Sie können eine Liste aller Volumes anzeigen, die derzeit durch Cloud Backup gesichert werden.
+Sie haben die Möglichkeit, eine Liste mit allen Volumes anzuzeigen, die derzeit von BlueXP Backup und Recovery gesichert werden.
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
@@ -88,7 +88,7 @@ image:screenshot_backup_edit_policy_k8s.png["Ein Screenshot, der die Einstellung
 
 == Legen Sie eine Backup-Richtlinie fest, die neuen Volumes zugewiesen werden soll
 
-Falls Sie beim ersten Aktivieren von Cloud Backup auf Ihrem Kubernetes Cluster nicht die Option zum automatischen Zuweisen einer Backup-Richtlinie zu neu erstellten Volumes gewählt haben, können Sie diese Option später auf der Seite „_Backup Settings_ “ auswählen. Eine Backup-Richtlinie, die neu erstellten Volumes zugewiesen wurde, stellt sicher, dass alle Ihre Daten geschützt sind.
+Falls Sie bei der ersten Aktivierung von BlueXP Backup und Recovery auf Ihrem Kubernetes-Cluster die Option zum automatischen Zuweisen einer Backup-Richtlinie zu neu erstellten Volumes nicht gewählt haben, können Sie diese Option später auf der Seite „_Backup-Einstellungen“ auswählen. Eine Backup-Richtlinie, die neu erstellten Volumes zugewiesen wurde, stellt sicher, dass alle Ihre Daten geschützt sind.
 
 Beachten Sie, dass die Richtlinie, die Sie auf die Volumes anwenden möchten, bereits vorhanden sein muss.
 
@@ -142,16 +142,16 @@ image:screenshot_backup_view_k8s_backups.png["Ein Screenshot, der die Liste alle
 
 == Backups werden gelöscht
 
-Cloud Backup ermöglicht die Löschung einer einzelnen Backup-Datei, das Löschen aller Backups für ein Volume oder das Löschen aller Backups aller Volumes in einem Kubernetes Cluster. Sie können alle Backups löschen, wenn Sie die Backups nicht mehr benötigen oder wenn Sie das Quell-Volume gelöscht haben und alle Backups entfernen möchten.
+Mit BlueXP Backup und Recovery können Sie eine einzelne Backup-Datei löschen, alle Backups eines Volumes löschen oder alle Backups aller Volumes in einem Kubernetes-Cluster löschen. Sie können alle Backups löschen, wenn Sie die Backups nicht mehr benötigen oder wenn Sie das Quell-Volume gelöscht haben und alle Backups entfernen möchten.
 
 
-CAUTION: Wenn Sie planen, eine Arbeitsumgebung oder ein Cluster mit Backups zu löschen, müssen Sie die Backups *löschen, bevor Sie das System löschen. Cloud Backup nicht automatisch löschen Backups, wenn Sie ein System löschen, und es gibt keine aktuelle Unterstützung in der UI, die Backups zu löschen, nachdem das System gelöscht wurde. Für alle verbleibenden Backups werden weiterhin die Kosten für Objekt-Storage in Rechnung gestellt.
+CAUTION: Wenn Sie planen, eine Arbeitsumgebung oder ein Cluster mit Backups zu löschen, müssen Sie die Backups *löschen, bevor Sie das System löschen. BlueXP Backup und Recovery löscht Backups nicht automatisch, wenn Sie ein System löschen. Die Benutzeroberfläche bietet derzeit keine Unterstützung zum Löschen der Backups, nachdem das System gelöscht wurde. Für alle verbleibenden Backups werden weiterhin die Kosten für Objekt-Storage in Rechnung gestellt.
 
 
 
 === Löschen aller Sicherungsdateien für eine Arbeitsumgebung
 
-Durch das Löschen aller Backups für eine Arbeitsumgebung werden keine zukünftigen Backups von Volumes in dieser Arbeitsumgebung deaktiviert. Wenn Sie die Erstellung von Backups aller Volumes in einer Arbeitsumgebung beenden möchten, können Sie Backups deaktivieren <<Deaktivieren von Cloud Backup für eine Arbeitsumgebung,Wie hier beschrieben>>.
+Durch das Löschen aller Backups für eine Arbeitsumgebung werden keine zukünftigen Backups von Volumes in dieser Arbeitsumgebung deaktiviert. Wenn Sie die Erstellung von Backups aller Volumes in einer Arbeitsumgebung beenden möchten, können Sie Backups deaktivieren <<Deaktivieren von BlueXP Backup und Recovery für eine funktionierende Umgebung,Wie hier beschrieben>>.
 
 .Schritte
 . Wählen Sie auf der Registerkarte *Kubernetes* die Option *Backup-Einstellungen* aus.
@@ -217,9 +217,9 @@ image:screenshot_delete_one_backup_k8s.png["Ein Screenshot, der zeigt, wie eine 
 
 
 
-== Deaktivieren von Cloud Backup für eine Arbeitsumgebung
+== Deaktivieren von BlueXP Backup und Recovery für eine funktionierende Umgebung
 
-Durch das Deaktivieren von Cloud Backup für eine Arbeitsumgebung werden Backups jedes Volumes auf dem System deaktiviert, zudem wird die Möglichkeit zur Wiederherstellung eines Volumes deaktiviert. Vorhandene Backups werden nicht gelöscht. Dadurch wird die Registrierung des Backup-Service in dieser Arbeitsumgebung nicht aufgehoben. Im Grunde können Sie alle Backup- und Wiederherstellungsaktivitäten für einen bestimmten Zeitraum anhalten.
+Durch die Deaktivierung von BlueXP Backup- und Recovery-Funktionen für eine funktionierende Umgebung werden die Backups jedes Volumes im System deaktiviert und auch die Möglichkeit zur Wiederherstellung eines Volumes wird deaktiviert. Vorhandene Backups werden nicht gelöscht. Dadurch wird die Registrierung des Backup-Service in dieser Arbeitsumgebung nicht aufgehoben. Im Grunde können Sie alle Backup- und Wiederherstellungsaktivitäten für einen bestimmten Zeitraum anhalten.
 
 Beachten Sie, dass Cloud-Provider Ihnen weiterhin die Kosten für Objekt-Storage für die Kapazität in Ihrem Backup in Rechnung stellen, es sei denn, Sie sind erforderlich <<Löschen aller Sicherungsdateien für eine Arbeitsumgebung,Löschen Sie die Backups>>.
 
@@ -240,15 +240,15 @@ NOTE: Für diese Arbeitsumgebung wird während der Sicherung eine *Sicherung akt
 
 
 
-== Registrieren von Cloud Backup für eine Arbeitsumgebung wird aufgehoben
+== Registrierung des BlueXP Backup und Recovery für eine funktionierende Umgebung
 
-Sie können Cloud Backup für eine Arbeitsumgebung unregistrieren, wenn Sie die Backup-Funktion nicht mehr verwenden möchten, und Sie nicht mehr mit dem Aufladen von Backups in dieser Arbeitsumgebung belastet werden möchten. Diese Funktion wird in der Regel verwendet, wenn Sie planen, einen Kubernetes-Cluster zu löschen, und Sie den Backup-Service abbrechen möchten.
+Wenn Sie die Backup-Funktionen nicht mehr nutzen möchten und Sie die Kosten für Backups in dieser Arbeitsumgebung abschaffen möchten, können Sie die Registrierung für das BlueXP Backup und Recovery für eine Arbeitsumgebung aufheben. Diese Funktion wird in der Regel verwendet, wenn Sie planen, einen Kubernetes-Cluster zu löschen, und Sie den Backup-Service abbrechen möchten.
 
-Sie können diese Funktion auch verwenden, wenn Sie den Zielobjektspeicher ändern möchten, in dem Ihre Cluster-Backups gespeichert werden. Nachdem Sie Cloud Backup für die Arbeitsumgebung registriert haben, können Sie Cloud Backup für diesen Cluster mithilfe der neuen Cloud-Provider-Informationen aktivieren.
+Sie können diese Funktion auch verwenden, wenn Sie den Zielobjektspeicher ändern möchten, in dem Ihre Cluster-Backups gespeichert werden. Nachdem Sie BlueXP Backup und Recovery für die Arbeitsumgebung entfernt haben, können Sie BlueXP Backup und Recovery für dieses Cluster mithilfe der Informationen des neuen Cloud-Providers aktivieren.
 
-Bevor Sie die Registrierung von Cloud Backup aufheben können, müssen Sie die folgenden Schritte in der folgenden Reihenfolge durchführen:
+Bevor Sie das Backup- und Recovery-System von BlueXP aufheben können, müssen Sie in der folgenden Reihenfolge vorgehen:
 
-* Deaktivieren Sie Cloud Backup für die Arbeitsumgebung
+* BlueXP Backup und Recovery für die Arbeitsumgebung deaktivieren
 * Löschen Sie alle Backups für die Arbeitsumgebung
 
 
