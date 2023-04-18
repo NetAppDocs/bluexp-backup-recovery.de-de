@@ -118,6 +118,8 @@ Für jede Backup-Richtlinie stehen folgende Einstellungen zur Verfügung:
 
 [role="tabbed-block"]
 ====
+ifdef::aws[]
+
 .AWS
 --
 * *Keine* (Standard)
@@ -135,6 +137,10 @@ DataLock ist auf den _Compliance_-Modus eingestellt, in dem während der Aufbewa
 
 
 --
+endif::aws[]
+
+ifdef::azure[]
+
 .Azure
 --
 * *Keine* (Standard)
@@ -152,6 +158,8 @@ Backup-Dateien werden während der Aufbewahrungsfrist geschützt. Der Aufbewahru
 
 
 --
+endif::azure[]
+
 .StorageGRID
 --
 * *Keine* (Standard)

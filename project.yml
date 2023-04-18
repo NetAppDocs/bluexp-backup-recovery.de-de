@@ -259,42 +259,48 @@ homepage:
     links:
     - title: Sichern Sie On-Premises-Applikationsdaten in Amazon Web Services
       flavor: aws
-      url: "/task-backup-app-data-to-aws.html"
+      url: task-backup-app-data-to-aws.html
     - title: Sichern Sie On-Premises-Applikationsdaten in Microsoft Azure
       flavor: azure
-      url: "/task-backup-app-data-to-azure.html"
+      url: task-backup-app-data-to-azure.html
     - title: On-Premises-Applikationsdaten in Google Cloud sichern
       flavor: gcp
-      url: "/task-backup-app-data-to-gcp.html"
+      url: task-backup-app-data-to-gcp.html
     - title: Sichern Sie On-Premises-Applikationsdaten in StorageGRID
-      url: "/task-backup-app-data-to-storagegrid.html"
+      url: task-backup-app-data-to-storagegrid.html
     - title: Backup Cloud-nativer Oracle Database
-      url: "/task-backup-cloud-native-oracle-data.html"
+      url: task-backup-cloud-native-oracle-data.html
     - title: Backup der nativen Cloud-SAP HANA-Datenbank
       flavor: azure
-      url: "/task-backup-cloud-native-sap-hana-data.html"
-  - title: Daten von Virtual Machines sichern und wiederherstellen
+      url: task-backup-cloud-native-sap-hana-data.html
+  - title: Backup von Daten von Virtual Machines in der Cloud
     links:
     - title: Erstellen Sie Backups von Datastores in Amazon Web Services
       flavor: aws
-      url: "/task-backup-vm-data-to-aws.html"
+      url: task-backup-vm-data-to-aws.html
     - title: Sichern Sie Datastores in Microsoft Azure
       flavor: azure
-      url: "/task-backup-vm-data-to-azure.html"
+      url: task-backup-vm-data-to-azure.html
     - title: Erstellen Sie Backups von Datastores auf Google Cloud Platform
       flavor: gcp
-      url: "/task-backup-vm-data-to-gcp.html"
+      url: task-backup-vm-data-to-gcp.html
     - title: Sichern Sie Datenspeicher in StorageGRID
-      url: "/task-backup-vm-data-to-storagegrid.html"
-    - title: Wiederherstellung von Virtual Machines aus der Cloud
-      url: "/task-restore-vm-data.html"
-  - title: Wiederherstellung von Daten aus ONTAP Backup-Dateien
+      url: task-backup-vm-data-to-storagegrid.html
+  - title: Daten aus der Cloud wiederherstellen
     links:
-    - title: Wiederherstellung von ONTAP Volumes
+    - title: Wiederherstellung von ONTAP-Volume-Daten
       url: task-restore-backups-ontap.html
-    - title: Wiederherstellung von Dateien und Ordnern aus ONTAP Volumes
-      url: task-restore-backups-ontap.html
-    - title: Wiederherstellung von Kubernetes Volumes
+    - title: Stellen Sie lokale Oracle Applikationsdaten wieder her
+      url: task-restore-oracle-data.html
+    - title: Stellen Sie lokale SQL Server Applikationsdaten wieder her
+      url: task-restore-sql-data.html
+    - title: Stellen Sie Cloud-native Oracle Applikationsdaten wieder her
+      url: task-restore-cloud-native-oracle-data.html
+    - title: Wiederherstellung von Cloud-nativen SAP HANA-Applikationsdaten
+      url: task-restore-cloud-native-sap-hana-data.html
+    - title: Stellen Sie die Daten von Virtual Machines wieder her
+      url: task-restore-vm-data.html
+    - title: Wiederherstellung von Kubernetes Volume-Daten
       url: task-restore-backups-kubernetes.html
   - title: Managen Sie ONTAP Backup Files
     links:
