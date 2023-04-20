@@ -16,7 +16,7 @@ summary: Die über die Web-Benutzeroberfläche verfügbaren Backup- und Recovery
 [role="lead"]
 Die über die Web-Oberfläche verfügbaren BlueXP Backup- und Recovery-Funktionen sind auch über die RESTful API verfügbar.
 
-In BlueXP Backup und Recovery sind neun Kategorien von Endpunkten definiert:
+In BlueXP Backup und Recovery sind zehn Kategorien von Endpunkten definiert:
 
 * Backup – managt Backup-Vorgänge von Cloud- und lokalen Ressourcen und ruft Details zu den Backup-Daten ab
 * Katalog – verwaltet die Suche nach Dateien anhand einer Abfrage (Suchen & Wiederherstellen)

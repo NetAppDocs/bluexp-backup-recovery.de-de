@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-ontap-backup-to-cloud.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem 
-summary: BlueXP Backup und Recovery bietet Backup- und Restore-Funktionen zum Schutz und zur langfristigen Archivierung Ihrer ONTAP Cluster-Daten. Backups werden automatisch erstellt und auf einem Objektspeicher Ihres Public- oder Private-Cloud-Kontos gespeichert. Dabei gibt es keine Volume Snapshot Kopien, die für die kurzfristige Wiederherstellung oder das Klonen verwendet werden. 
+summary: Der BlueXP Backup- und Recovery-Service bietet Backup- und Restore-Funktionen zum Schutz und zur langfristigen Archivierung Ihrer ONTAP Cluster-Daten. Backups werden automatisch erstellt und auf einem Objektspeicher Ihres Public- oder Private-Cloud-Kontos gespeichert. Dabei gibt es keine Volume Snapshot Kopien, die für die kurzfristige Wiederherstellung oder das Klonen verwendet werden. 
 ---
 = Sichern Sie Ihre ONTAP Cluster-Daten mit BlueXP Backup und Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: BlueXP Backup und Recovery bietet Backup- und Restore-Funktionen zum Sc
 
 
 [role="lead"]
-BlueXP Backup und Recovery bietet Backup- und Restore-Funktionen zum Schutz und zur langfristigen Archivierung Ihrer ONTAP Cluster-Daten. Backups werden automatisch erstellt und auf einem Objektspeicher Ihres Public- oder Private-Cloud-Kontos gespeichert. Dabei gibt es keine Volume Snapshot Kopien, die für die kurzfristige Wiederherstellung oder das Klonen verwendet werden.
+Der BlueXP Backup- und Recovery-Service bietet Backup- und Restore-Funktionen zum Schutz und zur langfristigen Archivierung Ihrer ONTAP Cluster-Daten. Backups werden automatisch erstellt und auf einem Objektspeicher Ihres Public- oder Private-Cloud-Kontos gespeichert. Dabei gibt es keine Volume Snapshot Kopien, die für die kurzfristige Wiederherstellung oder das Klonen verwendet werden.
 
 Bei Bedarf können Sie ein ganzes _Volume_, einen _folder_ oder eine oder mehrere _Files_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherstellen.
 
@@ -223,7 +223,7 @@ Wenn Sie einen Jahresvertrag von einem Markt haben, wird der gesamte Verbrauch v
 
 Byol ist nach Terminus basiert (12, 24 oder 36 Monate) _und_ kapazitätsbasiert in Schritten von 1 tib. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.
 
-Sie erhalten eine Seriennummer, die Sie auf der Seite BlueXP Digital Wallet eingeben, um den Dienst zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
+Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
 
 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 
