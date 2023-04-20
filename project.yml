@@ -166,9 +166,9 @@ sidebar:
     entries:
     - title: Sichern Sie Ihre Daten von Virtual Machines
       url: "/concept-protect-vm-data.html"
-    - title: Registrieren Sie das SnapCenter Plug-in für VMware vSphere
+    - title: Registrieren Sie das SnapCenter Plug-in für VMware vSphere Host
       url: "/task-register-snapCenter-plug-in-for-vmware-vsphere.html"
-    - title: Erstellen einer Richtlinie zum Backup von Virtual Machines
+    - title: Erstellen Sie eine Richtlinie zum Backup von Datastores
       url: "/task-create-policies-vms.html"
     - title: Erstellen Sie Backups von Datastores in Amazon Web Services
       flavor: aws
@@ -181,9 +181,9 @@ sidebar:
       url: "/task-backup-vm-data-to-gcp.html"
     - title: Sichern Sie Datenspeicher in StorageGRID
       url: "/task-backup-vm-data-to-storagegrid.html"
-    - title: Management der Sicherung von Virtual Machines
+    - title: Managen Sie die Sicherung von Data Stores und Virtual Machines
       url: "/task-manage-vm-data-in-cloud.html"
-    - title: Daten von Virtual Machines wiederherstellen
+    - title: Stellen Sie die Daten von Virtual Machines wieder her
       url: "/task-restore-vm-data.html"
   - title: Mit DER REST-API automatisieren
     url: "/api-backup-restore.html"
@@ -273,7 +273,7 @@ homepage:
     - title: Backup der nativen Cloud-SAP HANA-Datenbank
       flavor: azure
       url: task-backup-cloud-native-sap-hana-data.html
-  - title: Backup von Daten von Virtual Machines in der Cloud
+  - title: Backup von Datastores in der Cloud –
     links:
     - title: Erstellen Sie Backups von Datastores in Amazon Web Services
       flavor: aws

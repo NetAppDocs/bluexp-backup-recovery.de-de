@@ -51,7 +51,7 @@ IMPORTANT: Cloud Backup SaaS-Infrastruktur ist ausfallsicher bei Ausfällen von 
 
 
 
-== Schutz von Oracle Datenbank
+== Schutz von Oracle Datenbanken
 
 
 

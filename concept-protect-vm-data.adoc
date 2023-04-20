@@ -14,16 +14,16 @@ summary: Erfahren Sie mehr über die Sicherung von Daten auf Ihren Virtual Machi
 
 
 [role="lead"]
-Sie können Daten auf Ihren Virtual Machines sichern, indem Sie Datastores von primärem und sekundärem On-Premises-Storage in der Cloud sichern. Bei Bedarf können Sie virtuelle Maschinen auf dem lokalen SnapCenter-Plug-in für VMware vSphere-Host wiederherstellen.
+BlueXP Backup und Recovery für Virtual Machines bietet Funktionen zur Datensicherung durch Backup von Datastores und Wiederherstellung von Virtual Machines.
 
-Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern.
+Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern und Virtual Machines wieder in das lokale SnapCenter Plug-in für den VMware vSphere Host zurücksetzen.
 
 .Bevor Sie beginnen
 Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie mit dem Backup von Datastores und Virtual Machines bei einem Cloud-Provider beginnen.
 
 * SnapCenter Plug-in für VMware vSphere 4.6P1 oder höher
 +
-** Sie sollten das SnapCenter-Plug-in für VMware vSphere 4.7P1 oder höher verwenden, um Virtual Machines von lokalem sekundärem Storage zu sichern.
+** Sie sollten das SnapCenter Plug-in für VMware vSphere 4.7P1 oder höher verwenden, um Datastores aus dem lokalen Sekundärspeicher zu sichern.
 
 
 * ONTAP 9.8 oder höher

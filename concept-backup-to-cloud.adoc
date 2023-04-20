@@ -14,7 +14,7 @@ summary: BlueXP Backup und Recovery bietet effizienten, sicheren und kostengüns
 
 
 [role="lead"]
-BlueXP Backup und Recovery bietet eine effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP-Daten, persistente Kubernetes Volumes, Datenbanken und Virtual Machines – sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.
+Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP-Daten, persistente Kubernetes-Volumes, Datenbanken und Virtual Machines – sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.
 
 Der Service führt eine dauerhaft inkrementelle Replizierung auf Blockebene durch und erhält die gesamte Storage-Effizienz aufrecht, wodurch sich die Menge der replizierten und gespeicherten Daten erheblich verringert. Darüber hinaus zahlen Sie nur für das, was geschützt ist, und verwenden die kostengünstigsten verfügbaren Storage-Tiers, was BlueXP Backup und Recovery zu einer sehr kostengünstigen Lösung macht.
 

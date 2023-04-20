@@ -28,7 +28,7 @@ NOTE: Sie können mehrere SnapCenter Plug-in für VMware vSphere Hosts in BlueXP
 .. Geben Sie im Feld SnapCenter-Plug-in für VMware vSphere den FQDN oder die IP-Adresse des SnapCenter-Plug-ins für VMware vSphere-Hosts an.
 .. Geben Sie im Feld Port die Portnummer an, auf der das SnapCenter-Plug-in für VMware vSphere-Host ausgeführt wird.
 +
-Stellen Sie sicher, dass der Port für die Kommunikation zwischen dem SnapCenter Plug-in für den VMware vSphere Host und BlueXP offen ist.
+Sie sollten sicherstellen, dass die Kommunikation zwischen dem lokalen SnapCenter-Plug-in für VMware vSphere Host, der auf der standardmäßigen 8144-Port- und BlueXP Connector-Instanz ausgeführt wird, offen ist. Diese kann bei einem beliebigen Cloud-Provider (Amazon Web Services, Microsoft Azure, Google Cloud Platform) oder lokal ausgeführt werden.
 
 .. Geben Sie im Feld Benutzername und Kennwort die Anmeldeinformationen des Benutzers mit der Administratorrolle an.
 

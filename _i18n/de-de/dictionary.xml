@@ -708,7 +708,6 @@
   <block id="a398d70f425729872aae3dc2d3e8feb1" category="doc">Sichern Sie On-Premises-Applikationsdaten in Amazon Web Services</block>
   <block id="e101aace9ab89472a4fdfde41fce9f4e" category="list-text">Wählen Sie als Cloud-Provider * Amazon Web Services* aus.</block>
   <block id="e710c6d8124609e30a4a7712947c1e16" category="paragraph">Es wird empfohlen, die Archivebene einzustellen, da dies eine einmalige Aktivität ist und Sie sie später nicht einrichten können.</block>
-  <block id="8f2653c5938080ffdd57904f850bc430" category="doc">Registrieren Sie das SnapCenter Plug-in für VMware vSphere</block>
   <block id="2ffa396b01e2ea9f2f8a8e7307a1e28e" category="list-text">Klicken Sie im Dropdown-Menü *Einstellungen* auf *SnapCenter Plug-in für VMware vSphere*.</block>
   <block id="4e5b953e1349e67f48dba9317bba75d3" category="list-text">Klicken Sie auf *Registrieren SnapCenter Plug-in für VMware vSphere*.</block>
   <block id="12f2045076b291561318e5d9855f26de" category="list-text">Geben Sie folgende Details an:</block>
@@ -990,7 +989,6 @@
   <block id="7550e76395e0f500b3d970b6fa0ec73f" category="list-text">Navigieren Sie zu _/var/opt/snapcenter/spl/etc_ und führen Sie den keytool-Befehl aus, um das Zertifikat zu importieren.<block ref="0d48a0d1a6daee261d59f76e1ce65f98" prefix=" " category="inline-code"></block></block>
   <block id="22dfbb640fee5a33dc6e592f121a4423" category="list-text">SPL neu starten:<block ref="71198797ebafeed74a5891400987351c" prefix=" " category="inline-code"></block></block>
   <block id="529795f55723488071425500df0ff5d6" category="summary">Sie können Virtual Machines aus der Cloud in der lokalen SnapCenter wiederherstellen.</block>
-  <block id="70861b61c8a43f84ddd14a22316ee5af" category="doc">Wiederherstellung von Virtual Machines aus der Cloud</block>
   <block id="ceb4a235a226f19c172c9cf7c46d00dc" category="list-text">Klicken Sie Auf <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> Entsprechend dem Datenspeicher, den Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.</block>
   <block id="a03a09176193c264d8dcbdcb8f2f9043" category="list-text">Klicken Sie auf *Wiederherstellen*, die der Sicherungskopie entsprechen, die Sie wiederherstellen möchten.</block>
   <block id="edf569ed393967b7a0079a7341765e10" category="list-text">Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.</block>
@@ -1435,7 +1433,6 @@
   <block id="81fedcf72bda3098b5ab523c2f40b979" category="list-text">(Optional) Wenn Sie Backups nach einer bestimmten Anzahl von Tagen zur Kostenoptimierung vom Objektspeicher in den Archivspeicher verschieben möchten, aktivieren Sie das Kontrollkästchen *Tiering Backups in Archive*.</block>
   <block id="f2a42a68e067e481d094b018459ef895" category="list-text">Klicken Sie Auf *Erstellen*.</block>
   <block id="db46ba2f888d41e44da25c2d8c1f406d" category="summary">Sie können die Datastores und Virtual Machines anzeigen und das SnapCenter Plug-in für VMware vSphere Instanzen bearbeiten.</block>
-  <block id="880521c077c3d9130e51f737ddd86b15" category="doc">Management der Sicherung von Virtual Machines</block>
   <block id="78166ce4ccceeedfbf6aeb8682851072" category="paragraph">*Über diese Aufgabe*</block>
   <block id="9330e7377c5511f70bfc35493714892a" category="list-text">Klicken Sie in BlueXP UI auf *Schutz* &gt; *Sicherung und Wiederherstellung* &gt; *Virtuelle Maschinen* &gt; *Einstellungen* &gt; *SnapCenter Plug-in für VMware vSphere*.</block>
   <block id="b4aa547260f4fe266f03ec3a845576a5" category="section-title">Bearbeiten Sie das SnapCenter Plug-in für die VMware vSphere-Instanz</block>
@@ -1505,7 +1502,6 @@
   <block id="ba7b66b996d8928df996e4fd4fffa4a4" category="doc">Sichern Sie Datenspeicher in StorageGRID</block>
   <block id="cf4e6e70123f43cdec5ffd93f792c083" category="list-text">Geben Sie die Speicher-Server-IP an.</block>
   <block id="10303a499a9e21a77e6dad69618c622b" category="list-text">Wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus.</block>
-  <block id="fe8f95b60b7c4092ce03adfbb31e89b4" category="doc">Erstellen einer Richtlinie zum Backup von Virtual Machines</block>
   <block id="b4866a33463f80d02c65e0910ff4b146" category="paragraph">Sie können eine Richtlinie erstellen oder eine der folgenden vordefinierten Richtlinien verwenden, die in BlueXP verfügbar sind.</block>
   <block id="43852dc1e0c3229284688eb4c01dfef0" category="paragraph">Sie sollten Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht bearbeiten möchten.</block>
   <block id="0ef51421739da7017b4d3decc1813f4a" category="list-text">Wählen Sie auf der Seite Virtuelle Maschinen aus der Dropdown-Liste Einstellungen die Option *Richtlinien* aus.</block>
@@ -1967,10 +1963,6 @@
   <block id="0db08849969b0dfb5d043b27de16d4d9" category="sidebar">Kubernetes-Backups managen</block>
   <block id="17e5b396f3c069ca62608e4b9e3c1767" category="sidebar">Wiederherstellung aus Kubernetes-Backups</block>
   <block id="cba6a24686804eb1d7fea3608588a013" category="sidebar">On-Premises-Applikationsdaten in Google Cloud sichern</block>
-  <block id="7c8db0bef9b3c6a1335fe8f0a09bfdef" category="sidebar">Daten von Virtual Machines sichern und wiederherstellen</block>
-  <block id="4cfbdcb9aba741b123b3c46a8341bf59" category="sidebar">Sichern Sie Ihre Daten von Virtual Machines</block>
-  <block id="b2736084b30c35472d74c3c29a818a95" category="sidebar">Management der Sicherung von Virtual Machines</block>
-  <block id="c2c86860cad5cd95ae9ef9c003e01d57" category="sidebar">Daten von Virtual Machines wiederherstellen</block>
   <block id="68b1e52936c426875b2780e91e195546" category="sidebar">Mit DER REST-API automatisieren</block>
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">Referenz</block>
   <block id="0253148ca606e51aa3fdb4d9f8b84f32" category="sidebar">Unterstützte AWS Archiv-Storage Tiers</block>
@@ -2143,7 +2135,6 @@
   <block id="244bf1b38515bb301b6d835e3906b9a1" category="paragraph">Auf Daten in Archivebenen kann nicht unmittelbar bei Bedarf zugegriffen werden und sind mit höheren Abrufkosten verbunden. Daher müssen Sie berücksichtigen, wie oft Sie Daten aus archivierten Backup-Dateien wiederherstellen müssen.</block>
   <block id="373e31603b5a78ab3bc84cbe57c892b5" category="paragraph">Jede Backup-Richtlinie enthält einen Abschnitt zur „ _Archivierungsrichtlinie_“, den Sie auf Ihre Backup-Dateien anwenden können.</block>
   <block id="0776412162b9ad0d387bbf818146d659" category="sidebar">Unterstützte Google-Archiv-Storage Tiers</block>
-  <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">Was ist neu</block>
   <block id="b2ff0fb046b03e40e599f1561ed5ebd3" category="list-text">Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.</block>
   <block id="30bc6b6cbbb254a1299f2544d8a09731" category="paragraph">Wenn Sie API-Aufrufe tätigen, fügen Sie das Benutzer-Token in die Autorisierungskopfzeile und die BlueXP Connector-ID in der X-Agent-id-Kopfzeile hinzu. Sie sollten die BlueXP-Konto-ID in den APIs verwenden.</block>
   <block id="710f97f519c3a0c08777096972387f3c" category="list-text">Beziehen Sie ein Benutzer-Token auf die NetApp BlueXP Website.</block>
@@ -2196,7 +2187,6 @@
   <block id="c816d65f45a034b0842bc039567fcb6b" category="inline-link-macro">Schnellstart für Cloud Volumes ONTAP in Google Cloud</block>
   <block id="d6758ec75f0ff2bab6d8a4d6b6f79cf1" category="list-text"><block ref="d6758ec75f0ff2bab6d8a4d6b6f79cf1" category="inline-link-macro-rx"></block></block>
   <block id="2a60e5494e07cff54330378780f8e2a4" category="list-text">(Optional) Wenn Sie Backups nach einer bestimmten Anzahl von Tagen zur Kostenoptimierung vom Objektspeicher in den Archivspeicher verschieben möchten, aktivieren Sie das Kontrollkästchen *Tiering Backups in Archival* und geben Sie die Anzahl der Tage ein, nach denen das Backup archiviert werden soll.</block>
-  <block id="2918bd1eb41f17cc6bbd51b50460f7dc" category="admonition">Eine Richtlinie, die einer virtuellen Maschine zugeordnet ist, kann nicht bearbeitet oder gelöscht werden.</block>
   <block id="d5b842bb75f6d0fd358e7a35f06b5354" category="summary">Erstellen Sie geplante oder On-Demand-Backups für die Oracle Datenbank.</block>
   <block id="b83d0a6a6920d792bf1e5421f574e4d8" category="doc">Backup Cloud-nativer Oracle Database</block>
   <block id="436faef9b95757e54b257ab16a914324" category="section-title">Erstellen Sie ein Backup der Oracle Database</block>
@@ -2381,7 +2371,6 @@
   <block id="9bc04b83e994e96133d24116c5a25bf5" category="list-text">@ Wird verwendet, um Daten von seinem Datenbanknamen zu trennen und den Wert von seinem Schlüssel zu trennen. Beispiel: DATEN@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0_LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1</block>
   <block id="08d3131fcf6d963372785be681e343e9" category="list-text">Wird verwendet, um die Daten zwischen zwei verschiedenen Entitäten für SC_BACKUP_NAME Parameter zu trennen. Beispiel: DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0 LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1</block>
   <block id="1dc2b43d41c36670d82fe3076115def6" category="list-text">, Wird verwendet, um Satz von Variablen für den gleichen Schlüssel zu trennen. Beispiel: DATEN@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_0 LOGBUCH@RG2_scspr2417819002_07-20- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-21- 2021_12.16.48.9267_1,RG2_scspr2417819002_07-22-2021_12.16.48.9267_1</block>
-  <block id="9506c95f9ad8061d2b32d45700688c83" category="paragraph">Sie können Virtual Machines aus der Cloud wieder in vCenter vor Ort wiederherstellen. Das Backup wird an genau demselben Ort wiederhergestellt, von wo aus das Backup durchgeführt wurde. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.</block>
   <block id="5183d16b45269aeda8f220ef35e5327c" category="list-text">Wählen Sie die virtuelle Maschine aus, die Sie aus dem Backup wiederherstellen möchten.</block>
   <block id="0b204b102ed08f6af904a33d81026023" category="list-text">Wählen Sie die Option * Archival Restore Priority* aus und klicken Sie auf *Next*.</block>
   <block id="071df86763e0e93af80e50596aa0710c" category="list-text">Wählen Sie das Backup aus, über das Sie die virtuelle Maschine wiederherstellen möchten.</block>
@@ -2471,7 +2460,6 @@
   <block id="e3b72f702a3b0c42e864fe0ad9eb9453" category="paragraph"><block ref="e3b72f702a3b0c42e864fe0ad9eb9453" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2c9139d12cc7ddacb93c941d4bf412a2" category="paragraph">Der Connector kann in derselben VPC oder vnet wie die der Applikationen oder in einer anderen implementiert werden. Wenn sich der Connector und die Anwendungen in einem anderen Netzwerk befinden, sollten Sie eine Netzwerkverbindung zwischen ihnen herstellen.</block>
   <block id="e3a2981d750d1d4a623860068a07cc70" category="admonition">Ein einziger BlueXP Connector kann mit mehreren Speichersystemen und mehreren Anwendungs-Plug-ins kommunizieren. Sie benötigen einen einzigen Connector, um Ihre Anwendungen zu verwalten, solange die Verbindung zwischen dem Connector und den Anwendungs-Hosts besteht.</block>
-  <block id="11db7b880ef2ebba3ee0a02b685e8da0" category="section-title">Schutz von Oracle Datenbank</block>
   <block id="18cf072964a583150dd247485ba75b92" category="list-text">Amazon FSX für ONTAP</block>
   <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="list-text">Cloud Volumes ONTAP</block>
   <block id="09417dd7907c94abc22203ab06dade6c" category="list-text">Storage-Layouts:</block>
@@ -2488,7 +2476,6 @@
   <block id="5669d4dde41a20620530fdebbd1d9492" category="list-text">Monitoring von Backups, Restores, Klonen und anderen Aufgaben</block>
   <block id="9518d577aae2b3d43b6dd0f41fb999e1" category="list-text">Bietet keine Unterstützung für Oracle 11g</block>
   <block id="d67615cd9765a283fd8a9d06cd5d44a1" category="list-text">Unterstützt keine Mount-, Katalog- und Überprüfungsvorgänge für Backups</block>
-  <block id="9317a56cfedd80231a539c42f44d9c8d" category="section-title">Schutz von SAP HANA Datenbanken</block>
   <block id="494c3084e3990387ac3b46cb5749bb65" category="list-text">RHEL 7.5 oder höher, 8.x-Plattformen, von SAP HANA zertifiziert</block>
   <block id="504d22b0e020e0b365851eef08a1e4ca" category="list-text">SLES 12 SP5 oder höher und 15 SPX Plattformen zertifiziert von SAP HANA</block>
   <block id="c7325743e6b1be5853672e4ed19d279b" category="list-text">Datenbank-Layout:</block>
@@ -2533,7 +2520,6 @@
   <block id="0939e02b7faf70738951c4d3dac49c2d" category="list-text">Klicken Sie Auf <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> Entsprechend dem Klon, den Sie löschen möchten, und klicken Sie auf *Löschen*.</block>
   <block id="6c2d45f01ff62f51f26b2e2555360189" category="list-text">(Optional) Aktivieren Sie das Kontrollkästchen *Force delete*.</block>
   <block id="d13044a4ef6b89541aeb5868baab390c" category="paragraph">Connector-Details werden erfolgreich aktualisiert, wenn alle Hosts über ein SnapCenter-Plug-in für SAP HANA-Dienst installiert und ausgeführt werden und wenn sie alle über den neuen Konnektor erreichbar sind.</block>
-  <block id="0fbf3afea399595219e31836afabacc9" category="list-text">Sie sollten das SnapCenter-Plug-in für VMware vSphere 4.7P1 oder höher verwenden, um Virtual Machines von lokalem sekundärem Storage zu sichern.</block>
   <block id="9a3ae5d8e3738351dd9a586e8215632a" category="list-text">SnapCenter Plug-in für VMware vSphere enthält mindestens eine tägliche, wöchentliche oder monatliche Richtlinie ohne Etikett und dieselbe Bezeichnung wie die Virtual Machines-Richtlinie in BlueXP.</block>
   <block id="add26d38486fad5ca461f986832fa6c3" category="inline-image-macro">Architekturdiagramm</block>
   <block id="955c6f1851b4039bd20ae31d5f14d338" category="paragraph"><block ref="955c6f1851b4039bd20ae31d5f14d338" category="inline-image-macro-rx" type="image"></block></block>
@@ -2924,8 +2910,6 @@
   <block id="51c1a6c1e7497769792664cc458e4b3b" category="list-text"><block ref="51c1a6c1e7497769792664cc458e4b3b" category="inline-link-rx"></block></block>
   <block id="3b3fe44fb52240d2bf1cecd954ba8f31" category="list-text"><block ref="3b3fe44fb52240d2bf1cecd954ba8f31" category="inline-link-rx"></block></block>
   <block id="b08b0a6b8389d8eb21b696d8750a42c7" category="list-text"><block ref="b08b0a6b8389d8eb21b696d8750a42c7" category="inline-link-rx"></block></block>
-  <block id="ceb0e703e6fc4ff33d792e51790261e4" category="paragraph">Sie können Daten auf Ihren Virtual Machines sichern, indem Sie Datastores von primärem und sekundärem On-Premises-Storage in der Cloud sichern. Bei Bedarf können Sie virtuelle Maschinen auf dem lokalen SnapCenter-Plug-in für VMware vSphere-Host wiederherstellen.</block>
-  <block id="21d7ed1a0ed596af2b79f06576c84ca9" category="paragraph">Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern.</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">Bevor Sie beginnen</block>
   <block id="949ad3136d64be33cc1a6a67e3add3d1" category="paragraph">Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie mit dem Backup von Datastores und Virtual Machines bei einem Cloud-Provider beginnen.</block>
   <block id="9b9477e579c3b44dd623d5a6e1ea8d78" category="list-text">BlueXP</block>
@@ -2939,12 +2923,10 @@
   <block id="b9f7c26581cad3cbd789c6d293692814" category="admonition">Sie können keine virtuellen Maschinen wiederherstellen, die sich über mehrere Datastores erstrecken.</block>
   <block id="76edd5381919de6c1c9b123a884984f8" category="list-text">Klicken Sie in der Benutzeroberfläche von BlueXP auf *Schutz* &gt; *Sicherung und Wiederherstellung* &gt; *Virtuelle Maschinen* &gt; *SnapCenter-Plug-in für VMware vSphere* und wählen Sie das SnapCenter-Plug-in für VMware vSphere-Host aus.</block>
   <block id="873069930fc1357e9cd4216822243f14" category="admonition">Wenn die Virtual Machine an einen anderen Speicherort (vMotion) verschoben wird und der Benutzer eine Wiederherstellung dieser Virtual Machine aus BlueXP auslöst, wird die Virtual Machine an den Quellspeicherort wiederhergestellt, von dem aus das Backup erstellt wurde.</block>
-  <block id="73bc14a460209f6fd497aa9bd91fbaa6" category="list-text">Sie können vom Datastore oder von virtuellen Maschinen wiederherstellen:</block>
   <block id="5d920b501536441ea32ecc24679c72a2" category="cell">Ihr Ziel ist</block>
   <block id="df2d87dc916178a7076837c06010ded0" category="paragraph">Wiederherstellung aus Datastore</block>
   <block id="4569e5f9f0309302f499c21fc4cb8ee6" category="paragraph">Diese Option ist nur verfügbar, wenn die virtuelle Maschine über eine Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind. Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.</block>
   <block id="2a8a756e65415cefaa2a8f2d963e01be" category="paragraph">Wiederherstellung von Virtual Machines</block>
-  <block id="4eb58c4143c6b0e5561211f7a2425377" category="list-text">Um die Backups vom Objektspeicher in den Archiv-Storage zu verschieben, sollten Sie ONTAP 9.10.1 oder höher ausführen und Amazon Web Services oder Azure als Cloud-Provider einsetzen.</block>
   <block id="5d0ad01dbdb8717fbebf1cb44a3c10cd" category="list-text">Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">Über diese Aufgabe</block>
   <block id="ca69b8ee34e44ac66b7f0dfd3b786e9c" category="paragraph">Die folgenden vordefinierten Richtlinien sind in BlueXP verfügbar:</block>
@@ -2956,7 +2938,6 @@
   <block id="f352f7544724f99ab1b27e3e40291b49" category="admonition">Sie können mehrere SnapCenter Plug-in für VMware vSphere Hosts in BlueXP registrieren. Nach der Registrierung können Sie das SnapCenter-Plug-in für VMware vSphere-Host jedoch nicht entfernen.</block>
   <block id="ebeea6bd6cc46b0c9f463f2b01659606" category="list-text">Geben Sie im Feld SnapCenter-Plug-in für VMware vSphere den FQDN oder die IP-Adresse des SnapCenter-Plug-ins für VMware vSphere-Hosts an.</block>
   <block id="463d350eb6c9887e5addb9a6561a47ad" category="list-text">Geben Sie im Feld Port die Portnummer an, auf der das SnapCenter-Plug-in für VMware vSphere-Host ausgeführt wird.</block>
-  <block id="a3640e12809bb0c58c14ed0dc2515991" category="paragraph">Stellen Sie sicher, dass der Port für die Kommunikation zwischen dem SnapCenter Plug-in für den VMware vSphere Host und BlueXP offen ist.</block>
   <block id="1e88a362bd23950ee5a102f645348ac8" category="paragraph">Klicken Sie auf *Sicherung und Wiederherstellung* &gt; *Virtuelle Maschinen*, um alle Datastores und virtuellen Maschinen anzuzeigen, die mit dem registrierten SnapCenter-Plug-in für VMware vSphere-Host geschützt sind.</block>
   <block id="942c9249796cf6b78c981ebf15195809" category="list-text"><block ref="942c9249796cf6b78c981ebf15195809" category="inline-link-rx"></block></block>
   <block id="26000c50c37289d13041f03c670085a3" category="paragraph">Sie können Backups eines oder mehrerer Datastores in Microsoft Azure erstellen, indem Sie das SnapCenter Plug-in für den VMware vSphere Host in BlueXP integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.</block>
@@ -3490,7 +3471,6 @@
   <block id="5c92c4685a32fe7d41d3f537c7f5116b" category="paragraph">*Wichtig:* Wenn Sie DataLock verwenden möchten, müssen Sie es in Ihrer ersten Richtlinie aktivieren, wenn Sie BlueXP Backup und Recovery aktivieren.</block>
   <block id="0331809832826b1a244aca026a9b2d64" category="list-text">Klicken Sie auf *Backup aktivieren* und BlueXP Backup und Recovery beginnt mit der Erstellung der ersten Backups jedes ausgewählten Volumes.</block>
   <block id="ba48140a3394818b661e6fd497e203a7" category="doc">Erfahren Sie mehr über BlueXP Backup und Recovery</block>
-  <block id="fa3178fc47dcb8e792e863ce59dac949" category="paragraph">BlueXP Backup und Recovery bietet eine effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP-Daten, persistente Kubernetes Volumes, Datenbanken und Virtual Machines – sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.</block>
   <block id="af4d8d7b56820e969dfbdcfe2654b5b3" category="paragraph">Der Service führt eine dauerhaft inkrementelle Replizierung auf Blockebene durch und erhält die gesamte Storage-Effizienz aufrecht, wodurch sich die Menge der replizierten und gespeicherten Daten erheblich verringert. Darüber hinaus zahlen Sie nur für das, was geschützt ist, und verwenden die kostengünstigsten verfügbaren Storage-Tiers, was BlueXP Backup und Recovery zu einer sehr kostengünstigen Lösung macht.</block>
   <block id="723a81a7ee0b42134a46c1aaa0d99371" category="inline-link">Erfahren Sie mehr über Backup und Recovery von BlueXP</block>
   <block id="9eb420abad7616344371178eb6cfb9a7" category="paragraph"><block ref="63f4276e2fdf1ca315cba1b1fcff7250" category="inline-link-rx"></block>.</block>
@@ -3735,7 +3715,6 @@
   <block id="2e5d6ff9bc4d6b4194df020bde3f3dca" category="sidebar">Backup der BlueXP Backup- und Recovery-Datenbank an einem Dark Site</block>
   <block id="54153028a776309bcfbdd3b7b8285463" category="sidebar">BlueXP Blogs für Backup und Recovery</block>
   <block id="960dd4200d015a0a12dfd299c1348c9c" category="sidebar">BlueXP Backup- und Recovery-Anwendungsfälle</block>
-  <block id="ceffaf94354645ad26052bbc53604f5d" category="sidebar">Backup von Daten von Virtual Machines in der Cloud</block>
   <block id="a1c18d7af73fa7e0ef0013130f15b257" category="sidebar">Daten aus der Cloud wiederherstellen</block>
   <block id="6edd76ff9d03a833a8a254cc8af745d0" category="sidebar">Wiederherstellung von ONTAP-Volume-Daten</block>
   <block id="10b8a325c32b95729e9b37864d6a110a" category="sidebar">Stellen Sie lokale Oracle Applikationsdaten wieder her</block>
@@ -3744,4 +3723,21 @@
   <block id="5fd9bba0b0a00c42d3baab299425c076" category="sidebar">Wiederherstellung von Cloud-nativen SAP HANA-Applikationsdaten</block>
   <block id="18de97333e5776e0c135dd87c10b965c" category="sidebar">Stellen Sie die Daten von Virtual Machines wieder her</block>
   <block id="16cc11572a7582fe5007212d56145dc8" category="sidebar">Wiederherstellung von Kubernetes Volume-Daten</block>
+  <block id="70dfad9357f3b3b710b73d8eb3666851" category="paragraph">Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP-Daten, persistente Kubernetes-Volumes, Datenbanken und Virtual Machines – sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.</block>
+  <block id="9a3f2e7eb30992bb084418711e5093f2" category="doc">Managen Sie die Sicherung von Data Stores und Virtual Machines</block>
+  <block id="2131f85f2f51908e5c573c231b274f4c" category="paragraph">Sie sollten sicherstellen, dass die Kommunikation zwischen dem lokalen SnapCenter-Plug-in für VMware vSphere Host, der auf der standardmäßigen 8144-Port- und BlueXP Connector-Instanz ausgeführt wird, offen ist. Diese kann bei einem beliebigen Cloud-Provider (Amazon Web Services, Microsoft Azure, Google Cloud Platform) oder lokal ausgeführt werden.</block>
+  <block id="de437d1f424b507f3d7be645ac0952c2" category="paragraph">BlueXP Backup und Recovery für Virtual Machines bietet Funktionen zur Datensicherung durch Backup von Datastores und Wiederherstellung von Virtual Machines.</block>
+  <block id="40c5998ccd6f421d1eaa29ece0c36b59" category="paragraph">Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern und Virtual Machines wieder in das lokale SnapCenter Plug-in für den VMware vSphere Host zurücksetzen.</block>
+  <block id="2a18af02b6c0b7e92a17df9509574f26" category="list-text">Sie sollten das SnapCenter Plug-in für VMware vSphere 4.7P1 oder höher verwenden, um Datastores aus dem lokalen Sekundärspeicher zu sichern.</block>
+  <block id="9fe2f95002b4b4815d52173b68bf9862" category="summary">Erstellen Sie eine Richtlinie zum Backup von Datastores</block>
+  <block id="38fb3153d6139974d24ba11e28a0718d" category="list-text">Um die Backups vom Objektspeicher in den Archiv-Storage zu verschieben, sollten Sie ONTAP 9.10.1 oder höher ausführen und Amazon Web Services oder Microsoft Azure als Cloud-Provider einsetzen.</block>
+  <block id="44dae527927c9be3aabaf37ba09b9068" category="admonition">Sie können keine Richtlinie bearbeiten oder löschen, die einem Datastore zugeordnet ist.</block>
+  <block id="ffa1e37a2c6478ff157a0a7d25a607e9" category="doc">Wiederherstellung der Daten von Virtual Machines aus der Cloud</block>
+  <block id="95513dac8a621e64dcee2a0f311b0e66" category="paragraph">Sie können die Daten von Virtual Machines aus der Cloud wieder im lokalen vCenter wiederherstellen. Das Backup wird an genau demselben Ort wiederhergestellt, von wo aus das Backup durchgeführt wurde. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.</block>
+  <block id="6c0dd80335ed3d649017aa79a23eddae" category="list-text">Sie können die Daten aus dem Datastore oder von virtuellen Maschinen wiederherstellen:</block>
+  <block id="54a98d3cca3d552c2562869bfcebf735" category="section-title">Schutz von Oracle Datenbanken</block>
+  <block id="b45eb079efd4b3748b1efc669c02c01c" category="section-title">Schutz von SAP HANA Datenbanken</block>
+  <block id="3eb97a71011fe0dae37080fd785e4db5" category="sidebar">Daten von Virtual Machines sichern und wiederherstellen</block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Was ist neu</block>
+  <block id="7048662b75c8f210e59f898d992521cc" category="sidebar">Backup von Datastores in der Cloud –</block>
 </blocks>

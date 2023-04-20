@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-create-policies-vms.html 
 keywords: create policy, protection policies, predefined policies, custom policies 
-summary: Erstellen einer Richtlinie zum Backup von Virtual Machines 
+summary: Erstellen Sie eine Richtlinie zum Backup von Datastores 
 ---
-= Erstellen einer Richtlinie zum Backup von Virtual Machines
+= Erstellen Sie eine Richtlinie zum Backup von Datastores
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,7 +18,7 @@ Sie können eine Richtlinie erstellen oder eine der folgenden vordefinierten Ric
 
 .Bevor Sie beginnen
 * Sie sollten Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht bearbeiten möchten.
-* Um die Backups vom Objektspeicher in den Archiv-Storage zu verschieben, sollten Sie ONTAP 9.10.1 oder höher ausführen und Amazon Web Services oder Azure als Cloud-Provider einsetzen.
+* Um die Backups vom Objektspeicher in den Archiv-Storage zu verschieben, sollten Sie ONTAP 9.10.1 oder höher ausführen und Amazon Web Services oder Microsoft Azure als Cloud-Provider einsetzen.
 * Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.
 
 
@@ -74,6 +74,6 @@ Monatlich
 . Klicken Sie Auf *Erstellen*.
 +
 
-NOTE: Eine Richtlinie, die einer virtuellen Maschine zugeordnet ist, kann nicht bearbeitet oder gelöscht werden.
+NOTE: Sie können keine Richtlinie bearbeiten oder löschen, die einem Datastore zugeordnet ist.
 
 

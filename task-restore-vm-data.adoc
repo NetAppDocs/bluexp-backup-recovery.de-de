@@ -4,7 +4,7 @@ permalink: task-restore-vm-data.html
 keywords: restore virtual machines 
 summary: Sie können Virtual Machines aus der Cloud in der lokalen SnapCenter wiederherstellen. 
 ---
-= Wiederherstellung von Virtual Machines aus der Cloud
+= Wiederherstellung der Daten von Virtual Machines aus der Cloud
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können Virtual Machines aus der Cloud in der lokalen SnapCenter wi
 
 
 [role="lead"]
-Sie können Virtual Machines aus der Cloud wieder in vCenter vor Ort wiederherstellen. Das Backup wird an genau demselben Ort wiederhergestellt, von wo aus das Backup durchgeführt wurde. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.
+Sie können die Daten von Virtual Machines aus der Cloud wieder im lokalen vCenter wiederherstellen. Das Backup wird an genau demselben Ort wiederhergestellt, von wo aus das Backup durchgeführt wurde. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.
 
 
 NOTE: Sie können keine virtuellen Maschinen wiederherstellen, die sich über mehrere Datastores erstrecken.
@@ -29,7 +29,7 @@ Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.ht
 
 NOTE: Wenn die Virtual Machine an einen anderen Speicherort (vMotion) verschoben wird und der Benutzer eine Wiederherstellung dieser Virtual Machine aus BlueXP auslöst, wird die Virtual Machine an den Quellspeicherort wiederhergestellt, von dem aus das Backup erstellt wurde.
 
-. Sie können vom Datastore oder von virtuellen Maschinen wiederherstellen:
+. Sie können die Daten aus dem Datastore oder von virtuellen Maschinen wiederherstellen:
 
 
 |===
