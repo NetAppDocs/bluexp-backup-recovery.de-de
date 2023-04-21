@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-app-data-to-cloud.html 
-keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, cloud backup 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, backup and recovery 
 summary: Integrieren Sie BlueXP Backup und Recovery für Applikationen mit BlueXP und On-Premises SnapCenter, um die applikationskonsistenten Snapshots von lokalen ONTAP-Systemen in die Cloud zu sichern. 
 ---
 = Sichern Sie Ihre lokalen Applikationsdaten
@@ -20,7 +20,7 @@ Sie können Backups von Oracle, Microsoft SQL und SAP HANA Applikationsdaten von
 
 Weitere Informationen zu BlueXP Backup und Recovery für Applikationen finden Sie unter:
 
-* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["Applikationsorientiertes Backup mit Cloud Backup und SnapCenter"^]
+* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["Applikationsspezifisches Backup mit BlueXP Backup und Recovery sowie SnapCenter"^]
 * https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["Podcast zu BlueXP Backup und Recovery für Applikationen"^]
 
 
@@ -51,8 +51,4 @@ NOTE: Wenn SVMs mit FQDN oder IP-Adressen zu SnapCenter hinzugefügt werden, kö
 
 Die folgende Abbildung zeigt die einzelnen Komponenten beim Backup in der Cloud und die Verbindungen, die zwischen ihnen vorbereitet werden müssen:
 
-image:diagram_cloud_backup_app.png["Eine Grafik zeigt, wie Cloud Backup mit den On-Premises-Applikationen und dem Ziel-Storage kommuniziert, auf dem sich die Backup-Dateien befinden."]
-
-Die folgende Abbildung zeigt jede Komponente beim Backup in StorageGRID und die Verbindungen, die zwischen ihnen vorbereitet werden müssen:
-
-image:diagram_cloud_backup_onprem_storagegrid.png["Eine Grafik zeigt, wie Cloud Backup mit den Volumes der Quellsysteme und dem Ziel-Storage kommuniziert, auf dem sich die Backup-Dateien befinden."]
+image:diagram_cloud_backup_app.png["Ein Diagramm zeigt die Kommunikation zwischen BlueXP Backup und Recovery mit den lokalen Applikationen und dem Ziel-Storage, in dem sich die Backup-Dateien befinden."]

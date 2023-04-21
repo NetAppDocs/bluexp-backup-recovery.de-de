@@ -14,7 +14,7 @@ summary: Erfahren Sie mehr über die Sicherung von Daten auf Ihren Virtual Machi
 
 
 [role="lead"]
-BlueXP Backup und Recovery für Virtual Machines bietet Funktionen zur Datensicherung durch Backup von Datastores und Wiederherstellung von Virtual Machines.
+BlueXP Backup und Recovery für Virtual Machines bietet Funktionen zur Datensicherung durch Backup von Datastores und Restore von Virtual Machines.
 
 Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern und Virtual Machines wieder in das lokale SnapCenter Plug-in für den VMware vSphere Host zurücksetzen.
 

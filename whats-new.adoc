@@ -46,7 +46,7 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 === Verbesserungen bei BlueXP Backup und Recovery für Applikationen (Hybrid)
 
 * BlueXP Backup und Recovery für Applikationen (Hybrid) basiert auf der SaaS-Kontrollebene.
-* Die Hybrid-REST-APIs wurden an Cloud-nativen APIs angepasst.
+* Die Hybrid-REST-APIs wurden an Cloud-native APIs angepasst.
 * Unterstützt E-Mail-Benachrichtigungen
 
 
@@ -211,7 +211,7 @@ Nachdem Sie die Seite Jobüberwachung gefiltert haben, um die gewünschten Jobs 
 ** Unterstützung von richtlinienbasiertem Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP
 ** Unterstützt die Wiederherstellung von Oracle Datenbanken mithilfe von Connect-and-Copy-Methode
 ** Unterstützt Oracle 21c
-** Das Klonen von Cloud-nativer Oracle Database wird unterstützt
+** Das Klonen von Cloud-nativen Oracle-Datenbanken wird unterstützt
 
 
 
@@ -409,7 +409,7 @@ Wenn der https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-s
 
 
 
-=== Der Schutz von Cloud-nativen Applikationsdaten wurde durch zusätzliche Unterstützung hinzugefügt
+=== Der Schutz von Cloud-nativen Applikationsdaten wurde um zusätzlichen Support erweitert
 
 Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherungsfunktionen für Applikationen, die auf NetApp Cloud Storage ausgeführt werden. Cloud Backup für Applikationen in BlueXP ermöglicht effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP.https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["Weitere Informationen ."^].
 

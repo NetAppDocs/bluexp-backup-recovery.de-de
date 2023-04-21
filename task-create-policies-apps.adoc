@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-create-policies-apps.html 
 keywords: policy, create, pre-canned polices, custom policies, protection policies 
-summary: Verwenden Sie entweder die vordefinierten Richtlinien oder erstellen Sie Ihre eigenen Richtlinien zum Schutz der Anwendung. 
+summary: Erstellen Sie eigene Richtlinien zum Schutz der Applikation. 
 ---
 = Erstellen einer Richtlinie für das Backup von Applikationen
 :hardbreaks:
