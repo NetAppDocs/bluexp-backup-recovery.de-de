@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference-restart-backup.html 
+keywords: backup restart, restart backup 
+summary: Unter bestimmten Umständen muss der BlueXP Backup- und Recovery-Service neu gestartet werden. 
+---
+= Starten Sie den BlueXP Backup- und Recovery-Service neu
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Unter bestimmten Umständen muss der BlueXP Backup- und Recovery-Service neu gestartet werden.
+
+Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector integriert. Sie müssen verschiedene erste Schritte ausführen, um den Dienst neu zu starten, je nachdem, ob Sie den Connector in der Cloud bereitgestellt haben oder ob Sie den Connector manuell auf einem Linux-System installiert haben.
+
+.Schritte
+. Stellen Sie eine Verbindung zum Linux-System her, auf dem der Connector ausgeführt wird.
++
+[cols="25,50"]
+|===
+| Position des Steckers | Verfahren 
+
+
+| Cloud-Implementierung | Befolgen Sie die Anweisungen für https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Verbindung mit der virtuellen Connector Linux-Maschine herstellen"^] Je nachdem, welchen Cloud-Provider Sie verwenden. 
+
+
+| Manuelle Installation | Melden Sie sich beim Linux-System an. 
+|===
+. Geben Sie den Befehl ein, um den Service neu zu starten.
++
+[cols="45,45"]
+|===
+| Position des Steckers | Befehl 
+
+
+| Cloud-Implementierung | `docker restart cloudmanager_cbs` 
+
+
+| Manuelle Installation mit Internetzugang | `docker restart cloudmanager_cbs` 
+
+
+| Manuelle Installation ohne Internetzugang | `docker restart ds_cloudmanager_cbs_1` 
+|===
+

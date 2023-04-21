@@ -147,7 +147,7 @@ Unterstützte StorageGRID-Versionen:: StorageGRID 10.3 und höher wird unterstü
 --
 Damit Sie für Ihre Backups DataLock & Ransomware Protection verwenden können, müssen Ihre StorageGRID Systeme ab Version 11.6.0.3 laufen.
 
-Für das Tiering älterer Backups in einen Cloud-Archiv-Storage müssen Ihre StorageGRID Systeme Version 11.3 oder höher ausführen.
+Für das Tiering älterer Backups in einen Cloud-Archiv-Storage müssen Ihre StorageGRID Systeme Version 11.3 oder höher ausführen. Darüber hinaus müssen Ihre StorageGRID-Systeme im BlueXP Bildschirm erkannt werden.
 
 --
 S3-Anmeldedaten:: Sie müssen ein S3-Mandantenkonto erstellt haben, um den Zugriff auf Ihren StorageGRID Storage zu kontrollieren. https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html["Weitere Informationen finden Sie in der StorageGRID Dokumentation"^].

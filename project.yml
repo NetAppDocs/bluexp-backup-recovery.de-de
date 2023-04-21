@@ -66,23 +66,6 @@ sidebar:
       url: "/task-manage-backup-settings-ontap.html"
     - title: Restore aus ONTAP-Backups
       url: "/task-restore-backups-ontap.html"
-  - title: Backup und Wiederherstellung von Kubernetes-Daten
-    entries:
-    - title: Sicherung von Kubernetes-Daten
-      url: "/concept-kubernetes-backup-to-cloud.html"
-    - title: Backup in Amazon S3
-      flavor: aws
-      url: "/task-backup-kubernetes-to-s3.html"
-    - title: Backup auf Azure Blob
-      flavor: azure
-      url: "/task-backup-kubernetes-to-azure.html"
-    - title: Backups in der Google Cloud
-      flavor: gcp
-      url: "/task-backup-kubernetes-to-gcp.html"
-    - title: Kubernetes-Backups managen
-      url: "/task-manage-backups-kubernetes.html"
-    - title: Wiederherstellung aus Kubernetes-Backups
-      url: "/task-restore-backups-kubernetes.html"
   - title: Backup und Restore von On-Premises-Applikationsdaten
     entries:
     - title: Sichern Sie Ihre lokalen Applikationsdaten
@@ -153,6 +136,7 @@ sidebar:
       flavor: azure
       url: "/task-restore-cloud-native-sap-hana-data.html"
     - title: Aktualisierung des SAP HANA-Zielsystems
+      flavor: azure
       url: "/task-refresh-sap-hana-target-system.html"
     - title: Klonen Cloud-nativer Oracle-Datenbanken
       entries:
@@ -185,6 +169,23 @@ sidebar:
       url: "/task-manage-vm-data-in-cloud.html"
     - title: Stellen Sie die Daten von Virtual Machines wieder her
       url: "/task-restore-vm-data.html"
+  - title: Backup und Wiederherstellung von Kubernetes-Daten
+    entries:
+    - title: Sicherung von Kubernetes-Daten
+      url: "/concept-kubernetes-backup-to-cloud.html"
+    - title: Backup in Amazon S3
+      flavor: aws
+      url: "/task-backup-kubernetes-to-s3.html"
+    - title: Backup auf Azure Blob
+      flavor: azure
+      url: "/task-backup-kubernetes-to-azure.html"
+    - title: Backups in der Google Cloud
+      flavor: gcp
+      url: "/task-backup-kubernetes-to-gcp.html"
+    - title: Kubernetes-Backups managen
+      url: "/task-manage-backups-kubernetes.html"
+    - title: Wiederherstellung aus Kubernetes-Backups
+      url: "/task-restore-backups-kubernetes.html"
   - title: Mit DER REST-API automatisieren
     url: "/api-backup-restore.html"
   - title: Referenz
@@ -197,11 +198,13 @@ sidebar:
       url: "/reference-azure-backup-tiers.html"
     - title: Unterstützte Google-Archiv-Storage Tiers
       url: "/reference-google-backup-tiers.html"
-    - title: Backup der BlueXP Backup- und Recovery-Datenbank an einem Dark Site
-      url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: Backup für Multi-Account-Zugriff in Azure konfigurieren
       flavor: azure
       url: "/reference-backup-multi-account-azure.html"
+    - title: Backup der BlueXP Backup- und Recovery-Datenbank an einem Dark Site
+      url: "/reference-backup-cbs-db-in-dark-site.html"
+    - title: BlueXP Backup und Recovery neu starten
+      url: "/reference-restart-backup.html"
   - title: Wissen und Support
     entries:
     - title: Für den Support anmelden
@@ -244,17 +247,22 @@ homepage:
       flavor: gcp
     - title: On-Premises-ONTAP zu StorageGRID
       url: task-backup-onprem-private-cloud.html
-  - title: Sichern Sie Kubernetes-Daten in der Cloud
+  - title: Managen Sie ONTAP Backup Files
     links:
-    - title: Kubernetes-Cluster zu Amazon S3
-      url: task-backup-kubernetes-to-s3.html
-      flavor: aws
-    - title: Kubernetes Cluster zu Azure Blob
-      url: task-backup-kubernetes-to-azure.html
-      flavor: azure
-    - title: Kubernetes Cluster zu Google Cloud erstellen
-      url: task-backup-kubernetes-to-gcp.html
-      flavor: gcp
+    - title: Aktivieren und Deaktivieren von Volume-Backups
+      url: task-manage-backups-ontap.html#enabling-and-disabling-backups-of-volumes
+    - title: Bearbeiten einer vorhandenen Backup-Richtlinie
+      url: task-manage-backups-ontap.html#editing-an-existing-backup-policy
+    - title: Fügen Sie eine neue Backup-Richtlinie hinzu
+      url: task-manage-backups-ontap.html#adding-a-new-backup-policy
+    - title: Ändern Sie die Richtlinie, die vorhandenen Volumes zugewiesen ist
+      url: task-manage-backups-ontap.html#changing-the-policy-assigned-to-existing-volumes
+    - title: Erstellung einer manuellen Volume-Sicherung
+      url: task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time
+    - title: Sehen Sie sich die Liste der Backups für jedes Volume an
+      url: task-manage-backups-ontap.html#viewing-the-list-of-backups-for-each-volume
+    - title: Backups löschen
+      url: task-manage-backups-ontap.html#deleting-backups
   - title: Backup von Applikationsdaten in der Cloud –
     links:
     - title: Sichern Sie On-Premises-Applikationsdaten in Amazon Web Services
@@ -268,9 +276,9 @@ homepage:
       url: task-backup-app-data-to-gcp.html
     - title: Sichern Sie On-Premises-Applikationsdaten in StorageGRID
       url: task-backup-app-data-to-storagegrid.html
-    - title: Backup Cloud-nativer Oracle Database
+    - title: Backup von Cloud-nativen Oracle-Datenbanken
       url: task-backup-cloud-native-oracle-data.html
-    - title: Backup der nativen Cloud-SAP HANA-Datenbank
+    - title: Backup von Cloud-nativer SAP HANA-Datenbank
       flavor: azure
       url: task-backup-cloud-native-sap-hana-data.html
   - title: Backup von Datastores in der Cloud –
@@ -303,22 +311,17 @@ homepage:
       url: task-restore-vm-data.html
     - title: Wiederherstellung von Kubernetes Volume-Daten
       url: task-restore-backups-kubernetes.html
-  - title: Managen Sie ONTAP Backup Files
+  - title: Sichern Sie Kubernetes-Daten in der Cloud
     links:
-    - title: Aktivieren und Deaktivieren von Volume-Backups
-      url: task-manage-backups-ontap.html#enabling-and-disabling-backups-of-volumes
-    - title: Bearbeiten einer vorhandenen Backup-Richtlinie
-      url: task-manage-backups-ontap.html#editing-an-existing-backup-policy
-    - title: Fügen Sie eine neue Backup-Richtlinie hinzu
-      url: task-manage-backups-ontap.html#adding-a-new-backup-policy
-    - title: Ändern Sie die Richtlinie, die vorhandenen Volumes zugewiesen ist
-      url: task-manage-backups-ontap.html#changing-the-policy-assigned-to-existing-volumes
-    - title: Erstellung einer manuellen Volume-Sicherung
-      url: task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time
-    - title: Sehen Sie sich die Liste der Backups für jedes Volume an
-      url: task-manage-backups-ontap.html#viewing-the-list-of-backups-for-each-volume
-    - title: Backups löschen
-      url: task-manage-backups-ontap.html#deleting-backups
+    - title: Kubernetes-Cluster zu Amazon S3
+      url: task-backup-kubernetes-to-s3.html
+      flavor: aws
+    - title: Kubernetes Cluster zu Azure Blob
+      url: task-backup-kubernetes-to-azure.html
+      flavor: azure
+    - title: Kubernetes Cluster zu Google Cloud erstellen
+      url: task-backup-kubernetes-to-gcp.html
+      flavor: gcp
   - title: Blogs Community
     links:
     - title: NetApp Community
@@ -327,7 +330,7 @@ homepage:
       url: https://bluexp.netapp.com/blog/topic/cloud-backup
     - title: BlueXP Backup- und Recovery-Anwendungsfälle
       url: https://bluexp.netapp.com/cloud-backup
-    - title: Cloud-Webinare
+    - title: BlueXP Webinare
       url: https://bluexp.netapp.com/events
 product-family:
   name: BlueXP

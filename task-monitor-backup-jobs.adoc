@@ -33,9 +33,13 @@ Der Sicherungs- und Wiederherstellungsstatus kann wie folgt lauten:
 
 Sowohl vom Benutzer initiierte Backup- und Wiederherstellungsvorgänge, die von der BlueXP Backup- und Recovery-Benutzeroberfläche und -API initiiert wurden, als auch systeminitiierte Jobs, wie z. B. laufende geplante Backup-Vorgänge, stehen auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme mit ONTAP 9.13.0 oder höher zur Verfügung.
 
+[TIP]
+====
+* Wenn Sie eine frühere Version von ONTAP auf Cloud Volumes ONTAP-Systemen oder auf lokalen ONTAP-Systemen ausführen, werden nur vom Benutzer initiierte Jobs angezeigt.
+* Wenn Sie ein Upgrade Ihrer Cloud Volumes ONTAP Systeme auf 9.13.x durchgeführt haben und keine laufenden geplanten Backup-Vorgänge in der Jobüberwachung angezeigt werden, müssen Sie den BlueXP Backup- und Recovery-Service neu starten. link:reference-restart-backup.html["Erfahren Sie, wie Sie BlueXP Backup und Recovery neu starten"^].
 
-TIP: Wenn Sie eine frühere Version von ONTAP auf Cloud Volumes ONTAP-Systemen oder auf lokalen ONTAP-Systemen ausführen, werden nur vom Benutzer initiierte Jobs angezeigt.
 
+====
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.
