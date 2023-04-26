@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-cloud-app-data-to-cloud.html 
-keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Cloud Backup, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP, Cloud Manager, BlueXP, cloud backup 
+keywords: backing up, back up, backup, backup application data, Amazon EC2, Amazon Web services, Amazon FSx, Oracle database, requirements, prerequisites, Cloud Volumes ONTAP, Cloud Manager, BlueXP 
 summary: BlueXP bietet effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP. 
 ---
 = Sichern Sie Ihre Cloud-nativen Applikationsdaten
@@ -24,13 +24,13 @@ BlueXP Backup und Recovery für Applikationen ist ein SaaS-basierter Service, de
 
 == Der Netapp Architektur Sind
 
-Die Cloud Backup-Architektur umfasst die folgenden Komponenten:
+Die BlueXP Backup- und Recovery-Architektur für Applikationen umfasst die folgenden Komponenten:
 
-* Cloud Backup ist eine Reihe von Datensicherungsservices, die von NetApp als SaaS-Service gehostet werden und auf der BlueXP SaaS-Plattform basieren.
+* Das Backup und Recovery von BlueXP ist eine Reihe von Datensicherungsservices, die von NetApp als SaaS-Service gehostet werden und auf der BlueXP SaaS-Plattform basieren.
 +
 Die Datensicherungs-Workflows werden für Applikationen auf NetApp Cloud Storage orchestriert.
 
-* Die UI für Cloud Backup bietet Datensicherungsfunktionen für Applikationen und ist über die BlueXP UI zugänglich.
+* Die BlueXP UI bietet Datensicherungsfunktionen für Applikationen und ist über die BlueXP UI zugänglich.
 * BlueXP Connector ist eine Komponente, die in Ihrem Cloud-Netzwerk ausgeführt wird und mit Storage-Systemen und applikationsspezifischen Plug-ins interagiert.
 * Das applikationsspezifische Plug-in ist eine Komponente, die auf jedem Applikations-Host ausgeführt wird und mit den auf dem Host ausgeführten Datenbanken interagiert, während gleichzeitig Datensicherungsprozesse durchgeführt werden.
 
@@ -39,7 +39,7 @@ Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die
 
 image:diagram_nativecloud_backup_app.png["Ein Diagramm, das zeigt, wie jede Komponente und die Verbindungen vorbereitet werden müssen."]
 
-Bei vom Benutzer initiierten Anfragen kommuniziert die Cloud Backup UI mit der BlueXP SaaS, wodurch die Anforderung nach Validierung dieselbe verarbeitet wird. Wenn die Anfrage einen Workflow wie Backup, Wiederherstellung oder Klon ausführen soll, initiiert der SaaS-Service den Workflow und leitet diesen bei Bedarf an den BlueXP Connector weiter. Der Connector kommuniziert dann im Rahmen der Ausführung der Workflow-Aufgaben mit dem Speichersystem und dem anwendungsspezifischen Plug-in.
+Bei vom Benutzer initiierten Anfragen kommuniziert die BlueXP UI mit der BlueXP SaaS. Dabei wird die Anforderung validiert, um dieselbe Verarbeitung zu erhalten. Wenn die Anfrage einen Workflow wie Backup, Wiederherstellung oder Klon ausführen soll, initiiert der SaaS-Service den Workflow und leitet diesen bei Bedarf an den BlueXP Connector weiter. Der Connector kommuniziert dann im Rahmen der Ausführung der Workflow-Aufgaben mit dem Speichersystem und dem anwendungsspezifischen Plug-in.
 
 Der Connector kann in derselben VPC oder vnet wie die der Applikationen oder in einer anderen implementiert werden. Wenn sich der Connector und die Anwendungen in einem anderen Netzwerk befinden, sollten Sie eine Netzwerkverbindung zwischen ihnen herstellen.
 
@@ -47,7 +47,7 @@ Der Connector kann in derselben VPC oder vnet wie die der Applikationen oder in 
 NOTE: Ein einziger BlueXP Connector kann mit mehreren Speichersystemen und mehreren Anwendungs-Plug-ins kommunizieren. Sie benötigen einen einzigen Connector, um Ihre Anwendungen zu verwalten, solange die Verbindung zwischen dem Connector und den Anwendungs-Hosts besteht.
 
 
-IMPORTANT: Cloud Backup SaaS-Infrastruktur ist ausfallsicher bei Ausfällen von Verfügbarkeitszonen innerhalb einer Region. Es unterstützt regionale Ausfälle durch Failover auf eine neue Region, und der Failover hat ungefähr zwei Stunden Ausfallzeit.
+IMPORTANT: Die BlueXP SaaS-Infrastruktur ist robust gegenüber Ausfällen der Verfügbarkeitszonen innerhalb einer Region. Es unterstützt regionale Ausfälle durch Failover auf eine neue Region, und der Failover hat ungefähr zwei Stunden Ausfallzeit.
 
 
 

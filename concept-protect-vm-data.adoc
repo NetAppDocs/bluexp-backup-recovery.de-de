@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-vm-data.html 
-keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP, Cloud backup for virtual machines 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP 
 summary: Erfahren Sie mehr über die Sicherung von Daten auf Ihren Virtual Machines und lernen Sie die verschiedenen Richtlinien kennen. 
 ---
 = Sichern Sie Ihre Daten von Virtual Machines
@@ -31,7 +31,7 @@ Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine u
 * Nur NFS-Datastores werden unterstützt. VMFS-Datastores, die auf iSCSI/FC/NVMe und VVols basieren, werden nicht unterstützt.
 * In SnapCenter-Plug-in für VMware vSphere 4.6P1 sollte mindestens ein Backup erstellt werden.
 * SnapCenter Plug-in für VMware vSphere enthält mindestens eine tägliche, wöchentliche oder monatliche Richtlinie ohne Etikett und dieselbe Bezeichnung wie die Virtual Machines-Richtlinie in BlueXP.
-* Bei vorab vorgegebenen Richtlinien für Cloud-Backup sollte die Planungsebene für den Datastore im SnapCenter-Plug-in für VMware vSphere und in der Cloud identisch sein.
+* Bei vordefinierten Richtlinien sollte die Planungsebene für den Datastore im SnapCenter-Plug-in für VMware vSphere und in der Cloud identisch sein.
 * Stellen Sie sicher, dass keine FlexGroup Volumes im Datenspeicher vorhanden sind, da Backup und Wiederherstellung von FlexGroup Volumes nicht unterstützt werden.
 * Stellen Sie sicher, dass keines der Volumes verschlüsselt ist, da die Wiederherstellung verschlüsselter Volumes nicht unterstützt wird.
 * Deaktivieren Sie „*_recent*“ für die erforderlichen Ressourcengruppen. Wenn Sie für die Ressourcengruppe „*_recent*“ aktiviert haben, können die Backups dieser Ressourcengruppen nicht für den Datenschutz in der Cloud verwendet und können anschließend nicht für den Wiederherstellungsvorgang verwendet werden.
