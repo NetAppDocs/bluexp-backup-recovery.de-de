@@ -998,7 +998,6 @@
   <block id="2dbc045edb5a2f6faf0c411d7f5f750f" category="list-text">Senden von Benachrichtigungen per E-Mail</block>
   <block id="9c1f3568b85ef3ac4da7fc528340d6ba" category="list-text">Bietet keine Unterstützung für Oracle auf RAC und Data Guard</block>
   <block id="5a9da4bd1ffdd301898f827c866a6242" category="list-text">Unterstützt keine Snapshots von Konsistenzgruppen für Oracle Datenbanken, die sich auf mehreren ASM-Festplattengruppen mit Überschneidungen von FSX Volumes befinden</block>
-  <block id="ce28a32d76b140c048ecb6813395af67" category="list-text">Wenn Ihre Oracle-Datenbanken auf ASM konfiguriert sind, stellen Sie sicher, dass Ihre SVM-Namen für die FSX-Systeme eindeutig sind. Wenn Sie in den FSX-Systemen denselben SVM-Namen haben, werden Backups der auf diesen SVMs befindlichen Oracle Datenbanken nicht unterstützt.</block>
   <block id="83f499a540b1323009c200d6f8cc9396" category="list-text">Parameter</block>
   <block id="dc647eb65e6711e155375218212b3964" category="list-text">Passwort</block>
   <block id="9358ddcf018549ad07e3696f1dff8b4c" category="list-text">Archivprotokoll</block>
@@ -1394,7 +1393,6 @@
   <block id="098e4b45417a1ec0fafb90bed28e6424" category="paragraph">Die Backups werden gemäß dem in der Richtlinie definierten Zeitplan erstellt.</block>
   <block id="556daa2892e6c333b040f2f9ed98a222" category="paragraph">Nach der Zuweisung der Richtlinie können Sie ein On-Demand-Backup der Applikation erstellen.</block>
   <block id="ca46a9979585fdf43309efe203535615" category="list-text">Klicken Sie auf der Seite Anwendungen auf <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> Entsprechend der Anwendung und klicken Sie auf *On-Demand Backup*.</block>
-  <block id="7fd7a0a5300dbc1f2454a34738c54d80" category="list-text">Wenn der Anwendung mehrere Richtlinien zugewiesen werden, wählen Sie die Richtlinie, den Aufbewahrungswert aus und klicken Sie dann auf *Backup erstellen*.</block>
   <block id="fe0a0332700b9a067272058245b48946" category="inline-link">Der Snapshot-Vorgang ist aufgrund von durch Snapshots gesicherten Klonen nicht zulässig</block>
   <block id="d78d082537913dac6697dabddff374dc" category="paragraph">Informationen zur Behebung dieses Problems finden Sie unter:<block ref="66c6329b50c8e15e4ce55612532f0653" category="inline-link-rx"></block>.</block>
   <block id="8a4528cef726e4e36a30d918236162fc" category="doc">Erstellen einer Richtlinie für das Backup von Applikationen</block>
@@ -1558,8 +1556,6 @@
   <block id="ca8f6fdf6612f39d01c4ba19ddfa9742" category="list-text">Stellen Sie sicher, dass der BlueXP-Benutzer über die Rolle „Account Admin“ verfügt.</block>
   <block id="d59048f21fd887ad520398ce677be586" category="inline-link-macro">Weitere Informationen .</block>
   <block id="d20aa4d7347d2818451332f0d49b2253" category="list-text">Wählen Sie *Cloud Native* und klicken Sie auf *Next*.</block>
-  <block id="63000a0fa2dbdc9bced04917b9fb5014" category="paragraph">Ein Servicekonto mit der Rolle _SnapCenter System_ wird erstellt, um für alle Benutzer dieses Kontos geplante Datensicherungsvorgänge durchzuführen.</block>
-  <block id="2f1527fabf6b15b2c246b08aca9ef8a4" category="list-text">Klicken Sie auf *Konto* &gt; *Konto verwalten* &gt; *Mitglieder*, um das Servicekonto anzuzeigen.</block>
   <block id="fd9cc0fdcc5cde5efec19c54d871da3a" category="section-title">Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank</block>
   <block id="8c204149f6ffccc490e6b851431463a6" category="paragraph">Der Oracle-Benutzer sollte über sysdba-Berechtigungen verfügen, und ASM-Benutzer sollten sysmasm-Berechtigungen haben.</block>
   <block id="3b5c5ae54533da138be94559c533a510" category="list-text">Klicken Sie Auf *Konfigurieren*.</block>
@@ -2187,7 +2183,6 @@
   <block id="8e21c62b69b7c01b40ec93ceb9c4b5cd" category="list-text">Unterstützt Google Cloud Platform (GCP) für den Backup von einem oder mehreren Datastores</block>
   <block id="6480beff3c438303fc8c6d8b4009f381" category="list-text">Unterstützt kostengünstigen Cloud-Storage wie Glacier, Deep Glacier und Azure Archive</block>
   <block id="4dbebe33c4927d0c2034e3f9d520ba42" category="summary">Klonen der Datenbank entweder auf dem Quell- oder auf dem alternativen Host.</block>
-  <block id="0b5992955627a4d221dfaf4d434b9596" category="paragraph">Sie können eine Oracle-Datenbank mit dem Backup der Datenbank entweder auf dem Quelldatenbank-Host oder auf einem alternativen Host klonen.</block>
   <block id="91af1a160d0e82dc6915ed84b13cb026" category="paragraph">Sie können Datenbanken aus den folgenden Gründen klonen:</block>
   <block id="f808e6b1f9f18d3401fa365d39ab80f4" category="list-text">Funktionen zu testen, die während der Applikationsentwicklungszyklen mit der aktuellen Datenbankstruktur und Inhalten implementiert werden müssen</block>
   <block id="13cbbb0028f34d717a11d65823bd8d4e" category="list-text">Um Data Warehouses mit Tools zur Datenextraktion und -Bearbeitung zu befüllen.</block>
@@ -2212,11 +2207,9 @@
   <block id="b44a2ec7d100bd7fbbcef764a835ae72" category="paragraph">Wenn Sie *automatisch generiert* auswählen, sollten Sie das Suffix angeben.</block>
   <block id="01fc6bc870eb60d107c41c724b7c0f61" category="list-text">Bearbeiten Sie die Spezifikationsdatei gemäß der Anforderung und laden Sie sie hoch, indem Sie auf die Schaltfläche *Durchsuchen* klicken.</block>
   <block id="46630b95005d23b3ccd9d9af01eed5bc" category="list-text">Klicken Sie Auf <block ref="b7288b7453abfa8f93e33ab940aa7109" category="inline-image-macro-rx" type="image"></block> Neben *Filter by* und wählen Sie *Clone-Optionen* &gt; *Klone*, um die Klone anzuzeigen.</block>
-  <block id="72ec364974b7acfa78aac57b443cca2c" category="paragraph">Wenn das SnapCenter Plug-in für Oracle im SAN-Layout fremde Dateien als Oracle-Datendateien auf der ASM-Festplattengruppe findet, wird die connect and Copy Restore-Methode durchgeführt. Die Fremddateien können eine oder mehrere der folgenden Typen sein:</block>
   <block id="69eb10e6fd10e7913d2a8eeccd333a93" category="paragraph">Die Option *Kraft in-Place Restore* überschreibt die fremden Dateien von Typ-Parameter, Passwort und Archivprotokoll. Sie sollten das neueste Backup verwenden, wenn die Option *in-Place Restore* erzwingen ausgewählt ist.</block>
   <block id="09685971b3e1f16bca6b8635b76dffd8" category="summary">Verstehen Sie die Klonkonzepte, bevor Sie die Datenbank klonen.</block>
   <block id="a8f2e4a80d44f8a4e219ce28808a0be5" category="doc">Klonkonzepte und -Anforderungen</block>
-  <block id="c1dadedda11f09139fb7ac18e939f6bf" category="paragraph">Sie können eine Oracle-Datenbank mit dem Backup der Datenbank entweder auf dem Quelldatenbank-Host oder auf einem alternativen Host klonen. Sie können das Backup aus primären Storage-Systemen klonen.</block>
   <block id="e92f2ac4c03e2f08faf6ebb74ac92b92" category="paragraph">Vor dem Klonen der Datenbank sollten Sie die Klonkonzepte verstehen und sicherstellen, dass alle Anforderungen erfüllt werden.</block>
   <block id="c3f3510a6fc8f24504e19e3fa075dcd8" category="section-title">Anforderungen für das Klonen einer Oracle Datenbank</block>
   <block id="23257e3404df9a371ee4e65b5f6db441" category="paragraph">Bevor Sie eine Oracle-Datenbank klonen, sollten Sie sicherstellen, dass die Voraussetzungen erfüllt sind.</block>
@@ -2409,7 +2402,6 @@
   <block id="3c384d2eeea22869be9b66e36dec9d6e" category="list-text">Klicken Sie Auf *Backup Erstellen*.</block>
   <block id="031ed57adfb7acf180fc66b9bac25dcf" category="paragraph">Bevor Sie den Host hinzufügen, sollten Sie sicherstellen, dass die Voraussetzungen erfüllt sind.</block>
   <block id="00346be4bfc4c310cf2dbead933dff7c" category="list-text">Sie sollten die Arbeitsumgebung und den Connector erstellt haben.</block>
-  <block id="150cd80aa8da7e8a0e1532db17acbab2" category="list-text">Stellen Sie sicher, dass der Connector mit der Arbeitsumgebung und den Oracle-Datenbank-Hosts verbunden ist.</block>
   <block id="b3a8552d8ed438ec3ca2f066908ea2d4" category="list-text">Stellen Sie sicher, dass entweder Java 11 (64-Bit) Oracle Java oder OpenJDK auf jedem der Oracle-Datenbank-Hosts installiert ist und die JAVA_HOME-Variable entsprechend eingestellt ist.</block>
   <block id="e4bed981c8dc4fe15a706f0b93160836" category="list-text">Klicken Sie in der BlueXP-Benutzeroberfläche auf *Schutz* &gt; *Sicherung und Wiederherstellung* &gt; *Anwendungen*.</block>
   <block id="f56876c150285cea7b724cbb95594046" category="list-text">Wählen Sie *Manuell*.</block>
@@ -2479,7 +2471,6 @@
   <block id="8b53faee27870b72e0be69261d54a7ee" category="inline-link-macro">Weitere Informationen zu Azure NetApp Files</block>
   <block id="c5c12e22be965b4ae0e9fc5e1618bdbe" category="inline-link-macro">Schaffung einer Azure NetApp Files-Arbeitsumgebung</block>
   <block id="e7a9cd1dc4bf0c230d0684e18369d70d" category="section-title">Einen Konnektor erstellen</block>
-  <block id="bca25b5056d8715db55e6e28a72ddea0" category="admonition">Sie können die neue Connector_id nicht von der UI aktualisieren.</block>
   <block id="e12fb4f30abef516bf6f5e0e9a5b72b7" category="inline-link-macro">Erstellen Sie einen Connector in Azure von BlueXP</block>
   <block id="3717a56f9d9c162dfd0127cd325c0a2f" category="paragraph">Weitere Informationen finden Sie unter <block ref="88ddfb8e0cf0e729a2d90f978111b93e" category="inline-link-macro-rx"></block>.</block>
   <block id="ecada0c15940b97b88394b4302d947ef" category="section-title">Audit-Daten</block>
@@ -3022,7 +3013,6 @@
   <block id="bd6b9b974238317f7f6890d2738ba393" category="list-text">(Optional) Geben Sie den Pfad und den Timeout-Wert für Post-Script ein, der nach dem erfolgreichen Backup ausgeführt wird, um den Snapshot in den sekundären Speicher zu kopieren.</block>
   <block id="48b220d743ecd4aed0830258fdd63841" category="paragraph">Optional können Sie auch die Argumente angeben.</block>
   <block id="0087a5b2d25d52f6c7c03528cde33505" category="paragraph">Sie sollten die Post-Skripte im Pfad _/var/opt/snapcenter/spl/scripts_ belassen.</block>
-  <block id="23860f3af5566cf82b45a68730c646e8" category="paragraph">Folgende Umgebungsvariablen werden unterstützt:</block>
   <block id="796c6a969f63d0d2aa5f429cbcc0c0c2" category="paragraph">SC_ORACLE_SID</block>
   <block id="e6847fe2e52a74d36f59cd45957ecc67" category="paragraph">Gibt die SID der Oracle-Datenbank an.</block>
   <block id="b836a82d48f59d563db93d0e85da779f" category="paragraph">SC_HOST</block>
@@ -3036,7 +3026,6 @@
   <block id="6e794ea51a25be446f20e9a702898008" category="paragraph">SC_PRIMARY_ARCHIVELOGS_VOLUME_FULL_PATH</block>
   <block id="b6413db558b7e51cd7ad505a279d46a4" category="paragraph">Gibt die Volume-Pfade des Archivprotokolls an, die mit „,“ als Trennzeichen verbunden sind. Für ANF-Volumes werden die Informationen in verkettet mit „/“ _/{anfaccount}/{subscription_id}/{Resource_Group}/{Capacity_Pool}/{volumename}_</block>
   <block id="282c0097d05b4ae7f669fd32d1e62f62" category="paragraph">Sie können eine vordefinierte Richtlinie zuweisen oder eine Richtlinie erstellen und sie dann der Datenbank zuweisen. Sobald die Richtlinie zugewiesen ist, werden die Backups gemäß dem in der Richtlinie definierten Zeitplan erstellt.</block>
-  <block id="fd555d425dfd5a31e3196f51ea2a48f7" category="admonition">Stellen Sie für Oracle beim Erstellen von ASM-Festplattengruppen sicher, dass es keine gemeinsamen Volumes über Festplattengruppen hinweg gibt. Jede Datenträgergruppe sollte über dedizierte Volumes verfügen.</block>
   <block id="73eca09a61282d51974dd261aba5d480" category="admonition">Das Servicekonto (_SnapCenter-Account-&lt;account_id&gt;_) wird für die geplanten Backup-Vorgänge verwendet.</block>
   <block id="40b3d494e45d44ea05a121d23431903f" category="list-text">Nach dem Wiederherstellen einer großen Datenbank (250 GB oder mehr), wenn Sie ein vollständiges Online-Backup in derselben Datenbank durchführen, kann der Vorgang mit dem folgenden Fehler fehlschlagen:<block ref="2cdd9c86da283a1b59e3d14b0893d8e8" prefix=" " category="inline-code"></block></block>
   <block id="ac8c3a3255453cd8c7fd18de87c8ff71" category="paragraph">Sie sollten die Klonkonzepte kennen und sicherstellen, dass alle Anforderungen erfüllt werden. <block ref="a2073481d9155048f35e591f7a25e6c2" category="inline-link-macro-rx"></block>.</block>
@@ -3056,9 +3045,6 @@
   <block id="bfc753d118aff511e46dfe2d0d56a3d2" category="paragraph">Mit BlueXP sollten Sie eine Azure NetApp Files Arbeitsumgebung erstellen, um Volumes und zusätzliche Datenservices hinzuzufügen und zu managen. Sie sollten auch einen Connector in Azure erstellen, mit dem BlueXP Ressourcen und Prozesse in der Public Cloud-Umgebung des Kunden managen kann.</block>
   <block id="c79eb0bf5a61fc9579b3f63e3958e469" category="paragraph">Sie sollten Azure NetApp Files-Arbeitsumgebungen erstellen, in denen Ihre Datenbanken gehostet werden. Weitere Informationen finden Sie unter <block ref="e42252aa263ed60f84feb7fdedc741c2" category="inline-link-macro-rx"></block> Und <block ref="08189a1662d35a0f6c5c7b20dd7f30c3" category="inline-link-macro-rx"></block>.</block>
   <block id="0496db92b8208ffdfc7b84a2c4d6cbbb" category="paragraph">Ein BlueXP Account-Administrator sollte einen Connector in Azure implementieren, der BlueXP ermöglicht, Ressourcen und Prozesse in der Public Cloud-Umgebung zu managen.</block>
-  <block id="c12c07c58c5db36f5c4864f275d4c11f" category="list-text">Sie sollten denselben Konnektor verwenden, um sowohl Azure NetApp Files-Arbeitsumgebungen als auch Datenbanken zu verwalten.</block>
-  <block id="4e5ad280767f2ab5aa5de64be61d55d5" category="paragraph">Führen Sie nach dem Erstellen des Konnektors folgende Schritte aus:</block>
-  <block id="c3b81703083be6a60b46bc530dce3152" category="paragraph">Stellen Sie sicher, dass eine Verbindung zwischen dem Connector und den Datenbank-Hosts und der Azure NetApp Files-Arbeitsumgebung besteht. Der Anschluss sollte mit der Azure NetApp Files-Arbeitsumgebung verbunden werden.</block>
   <block id="f20cd1b900b89f55ebfb06447e182090" category="summary">Installieren Sie das SnapCenter-Plug-in für Oracle auf jedem der Oracle-Datenbank-Hosts.</block>
   <block id="26e69212cf0e8683966f91f304e90a98" category="doc">Installieren Sie das SnapCenter Plug-in für Oracle und fügen Sie Datenbank-Hosts hinzu</block>
   <block id="b3bc75275539de4c7c9d62e8364e4698" category="paragraph">Sie sollten das SnapCenter-Plug-in für Oracle auf jedem der Oracle-Datenbank-Hosts installieren, die Datenbank-Hosts hinzufügen und die Datenbanken auf dem Host ermitteln, um Richtlinien zuzuweisen und Backups zu erstellen.</block>
@@ -3073,10 +3059,8 @@
   <block id="507e787ab87729c96069cca23ba24e92" category="list-text">Stellen Sie sicher, dass für den Connector die Kommunikation zum SSH-Port aktiviert ist (Standard: 22), wenn eine SSH-basierte Installation durchgeführt wird.</block>
   <block id="80183b0faac90d1603b69ce622639607" category="list-text">Stellen Sie sicher, dass der Connector die Kommunikation für den Plug-in-Port aktiviert hat (Standard: 8145), damit die Datenschutzvorgänge funktionieren.</block>
   <block id="7511aa13d7d189dddc8a55106006eb81" category="list-text">Stellen Sie sicher, dass die neueste Version des Plug-ins installiert ist. Informationen zum Aktualisieren des Plug-ins finden Sie unter <block ref="f4801fc9ac5cef6e84f5ccd941a446f5" category="inline-xref-macro-rx"></block>.</block>
-  <block id="c94b040585a0fd09dcf4ba562ae9a451" category="list-text">Erstellen Sie ein nicht-Root-Konto (sudo) auf dem Anwendungshost.</block>
   <block id="8d712ae59e7b52313405b12d4ac747e6" category="section-title">Fügen Sie den Host über die Benutzeroberfläche mithilfe der SSH-Option hinzu</block>
   <block id="f871153c2705cc6ed8b2445320a7f421" category="paragraph">Wenn Sie bereits einen Host hinzugefügt haben und einen weiteren Host hinzufügen möchten, klicken Sie auf *Anwendungen* &gt; *Datenbanken verwalten* &gt; *Hinzufügen* und fahren Sie dann mit Schritt 5 fort.</block>
-  <block id="812ba7d6c9b47612a180dd7c3e3cee5d" category="admonition">Das Servicekonto (_SnapCenter-Account-&lt;accountid&gt;_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen.</block>
   <block id="8ce23831d777bcd15c476479cb76ef5a" category="list-text">Wählen Sie Oracle als Anwendungstyp aus.</block>
   <block id="d547b4e7fc3ca031faa176c2cbc960d7" category="list-text">Führen Sie auf der Seite Host-Details folgende Schritte aus:</block>
   <block id="dd6c5d008ff8b633cdaa9ce237fb10c0" category="list-text">Geben Sie den Benutzer non-root(sudo) an, mit dem das Plug-in-Paket auf den Host kopiert wird.</block>
@@ -3087,8 +3071,6 @@
   <block id="9d678ee764b7490535279d100a47d199" category="list-text">Konfigurieren Sie den sudo-Zugriff für den nicht-root-Benutzer (sudo), indem Sie den Text in die _/etc/sudoers.d/snapcenter_-Datei kopieren.</block>
   <block id="84c043b7279ff048da6eac17746b54d4" category="list-text">Aktivieren Sie das Kontrollkästchen und klicken Sie auf *Weiter*.</block>
   <block id="4e97b087f72ed090d712d63c6464209a" category="list-text">Überprüfen Sie die Details und klicken Sie auf *Anwendungen entdecken*.</block>
-  <block id="25cf278376db2327da12f70ef0107fd6" category="list-text">Nach der Installation des Plug-ins wird der Erkennungsvorgang gestartet. Sie können den Installationsjob über die Seite *Job-Überwachung* überwachen.</block>
-  <block id="b2f3faca8e09846774279c1744792a8e" category="list-text">Zeigt alle Datenbanken auf dem Host an. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <block ref="eb69440615f98753d53a91f4eeab39c2" category="inline-xref-macro-rx"></block>.</block>
   <block id="3ab2f91e027d82cf137fafc5ba1fad46" category="list-text">Klicken Sie auf *Einstellungen* und wählen Sie *Hosts*, um alle Hosts anzuzeigen.</block>
   <block id="3861ca484ceba1ec4fe010195ae2a99f" category="list-text">Klicken Sie auf *Einstellungen* und wählen Sie *Richtlinien*, um die vordefinierten Richtlinien anzuzeigen. Überprüfen Sie die vordefinierten Richtlinien, und Sie können sie entweder nach Ihren Anforderungen bearbeiten oder eine neue Richtlinie erstellen.</block>
   <block id="f76505761d1d589d9c44949c0e7cf701" category="section-title">Installieren Sie das Plug-in mithilfe des Skripts und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu</block>
@@ -3099,11 +3081,6 @@
   <block id="fa431b57e169cccce6b5507d5005b77b" category="list-text">Aktivieren Sie das Kontrollkästchen, um zu bestätigen, dass das Plug-in auf dem Host installiert ist.</block>
   <block id="ad4653d249b9408ab0eaa97a7af2527e" category="list-text">Konfigurieren Sie den sudo-Zugriff für den SnapCenter-Benutzer, indem Sie den Text in kopieren<block ref="3b1b032b2f0ec7f73656946ca555b180" prefix=" " category="inline-code"></block> Datei:</block>
   <block id="f37865521ab3241e236d5e5588a5f489" category="list-text">Installieren Sie das Plug-in mit dem im Connector bereitgestellten Skript.<block ref="ec229264169d10e0e522b26e5b6bac24" prefix=" " category="inline-code"></block></block>
-  <block id="9b1fd3f185c7ac3bb3e56edb0165c2ab" category="list-text">Plugin_Host ist der Name des Oracle-Hosts und dies ist ein obligatorischer Parameter.</block>
-  <block id="a477ca24ed05f1b396469208312acba0" category="list-text">Host_user_Name ist der SnapCenter-Benutzer mit SSH-Berechtigungen auf dem Oracle-Host. Dies ist ein obligatorischer Parameter.</block>
-  <block id="e8c1b5122acc511a29d37bca512e3abe" category="list-text">Host_ssh_key ist der SSH-Schlüssel des SnapCenter-Benutzers, der zur Verbindung mit dem Oracle-Host verwendet wird. Dies ist ein obligatorischer Parameter.</block>
-  <block id="a0339f317407dd9857ff7244f010da2d" category="list-text">Plugin_Port ist der Port, der vom Plug-in verwendet wird. Dies ist ein optionaler Parameter. Der Standardwert ist 8145</block>
-  <block id="956569d2aaba82775e19519768e064d0" category="list-text">Host_ssh_Port ist der SSH-Port auf dem Oracle-Host, und dies ist ein optionaler Parameter. Der Standardwert ist 22</block>
   <block id="f6118d5df254d948596a2eecbde7e309" category="paragraph">Beispiel:<block ref="7b32029ad907f40b39cdf7478e332d44" prefix=" " category="inline-code"></block></block>
   <block id="d39ba700b9d69e7870b27c911202c044" category="section-title">Installieren Sie das Plug-in manuell, und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu</block>
   <block id="1959cd86803d27b479ab4dc0fdcc5d6f" category="paragraph">Wenn die SSH-Schlüsselauthentifizierung auf dem Oracle-Datenbank-Host nicht aktiviert ist, sollten Sie die folgenden manuellen Schritte ausführen, um das Plug-in zu installieren und dann den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzuzufügen.</block>
@@ -3196,7 +3173,6 @@
   <block id="d9131e642bd13895061267ad9fffc9a5" category="list-text">Melden Sie sich über das nicht-Root-Konto (sudo) beim SAP HANA-Datenbank-Host an.</block>
   <block id="51b1fb7b1bdae329f09c9b8792885b98" category="list-text">Installieren Sie das SAP HANA-Plug-in als sudo-SnapCenter-Benutzer.<block ref="f11871e64bd259821edac15d21de1875" prefix=" " category="inline-code"></block></block>
   <block id="068cd4e748a79c660306283ed1aed4cc" category="list-text">Überprüfen Sie, ob das Plug-in über den Connector erreichbar ist, indem Sie den folgenden Befehl über den Connector ausführen.<block ref="24a2bd3e35bb25d97efe8045b984e5a8" prefix=" " category="inline-code"></block></block>
-  <block id="e89f98c04aaa04f0ae4d5a01094a4be3" category="list-text">Zeigt alle Datenbanken auf dem Host an.</block>
   <block id="822058ba42fc85efab976ebaa9802beb" category="section-title">Upgrade des SnapCenter Plug-in für SAP HANA Datenbank</block>
   <block id="f35f5a5ebccba047b1925b74505fdfbe" category="paragraph">Sie sollten das SnapCenter-Plug-in für SAP HANA-Datenbank aktualisieren, um auf die neuesten Funktionen und Verbesserungen zugreifen zu können.</block>
   <block id="6c2313e6302e3ddccaf89724b45a5b06" category="list-text">Führen Sie das folgende Skript aus.<block ref="9a9e1cb603fe75305e4d36be20ae9261" prefix=" " category="inline-code"></block></block>
@@ -3291,7 +3267,6 @@
   <block id="fcf3dae76ca88120872e44d0e2a8632a" category="list-text">SC_TARGET_SID gibt die SID der geklonten Datenbank an. Bei PDB-Klon-Workflow ist der Wert dieses Parameters nicht vordefiniert. Dieser Parameter wird für Anwendungs-Volumes ausgefüllt. Beispiel: Clonedb</block>
   <block id="77488205944ea72e9e23e95280d03937" category="list-text">Oracle Datenbanken, die sich auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files befinden</block>
   <block id="ca8bb01c601877e87fd9c90bc1063d4e" category="list-text">BlueXP Connector ist eine Komponente, die in Ihrem Cloud-Netzwerk ausgeführt wird und mit Storage-Systemen und applikationsspezifischen Plug-ins interagiert.</block>
-  <block id="16c125a4350a830ef25b444e7c8e77ae" category="paragraph">Sie können das Plug-in manuell, per Skript oder automatisch bereitstellen.</block>
   <block id="2883368889244856ee2153e7da94f334" category="list-text">Sichern von Oracle-Datenbanken auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files</block>
   <block id="d8d6e412c9a8b94c54f1f0b85341ce79" category="paragraph">Sie können verschiedene Planungsfrequenzen wie stündlich, täglich, wöchentlich und monatlich in der Richtlinie festlegen. Sie können auch die Post-Skripte angeben, die nach einem erfolgreichen Backup ausgeführt werden, um den Snapshot in den sekundären Speicher zu kopieren.</block>
   <block id="ba49984198500251f07f0dc44320e9f7" category="list-text">Wiederherstellung von Oracle Datenbanken auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files</block>
@@ -3756,4 +3731,25 @@
   <block id="9bc4ac9aec3ce95487de5999da3a7e13" category="list-text">Die BlueXP UI bietet Datensicherungsfunktionen für Applikationen und ist über die BlueXP UI zugänglich.</block>
   <block id="5f6363d5a5bf731c42038bd14750276a" category="paragraph">Bei vom Benutzer initiierten Anfragen kommuniziert die BlueXP UI mit der BlueXP SaaS. Dabei wird die Anforderung validiert, um dieselbe Verarbeitung zu erhalten. Wenn die Anfrage einen Workflow wie Backup, Wiederherstellung oder Klon ausführen soll, initiiert der SaaS-Service den Workflow und leitet diesen bei Bedarf an den BlueXP Connector weiter. Der Connector kommuniziert dann im Rahmen der Ausführung der Workflow-Aufgaben mit dem Speichersystem und dem anwendungsspezifischen Plug-in.</block>
   <block id="49e77e013cd6e44ddab4df1881f2dd91" category="admonition">Die BlueXP SaaS-Infrastruktur ist robust gegenüber Ausfällen der Verfügbarkeitszonen innerhalb einer Region. Es unterstützt regionale Ausfälle durch Failover auf eine neue Region, und der Failover hat ungefähr zwei Stunden Ausfallzeit.</block>
+  <block id="cb42a167949742d78d62bf5d5b010ede" category="list-text">Stellen Sie sicher, dass eine Verbindung zwischen dem Connector und den Datenbank-Hosts besteht.</block>
+  <block id="3288084c43caab0aee7f8e3c166d04e2" category="paragraph">Fügen Sie nach dem Erstellen des Connectors die Arbeitsumgebung hinzu, indem Sie auf *Speicher* &gt; *Leinwand* &gt; *Meine Arbeitsumgebung* &gt; *Arbeitsumgebung hinzufügen* klicken.</block>
+  <block id="80b0692a3a686eb89f9b678a24ea9aae" category="paragraph">Sie können eine Oracle-Datenbank auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP klonen, indem Sie das Backup der Datenbank entweder auf dem Quelldatenbankhost oder auf einem alternativen Host verwenden.</block>
+  <block id="513394674a73a0db659bc29e8dbd568e" category="list-text">Stellen Sie sicher, dass der Connector über eine Verbindung zu den Oracle-Datenbank-Hosts verfügt.</block>
+  <block id="322ab258ca9672995a0fa0734c392bce" category="list-text">Stellen Sie sicher, dass das nicht-Root-Konto (sudo) für Datenschutzvorgänge auf dem Anwendungshost vorhanden ist.</block>
+  <block id="1e2b31d7b268c1222ce8da8e747b03dc" category="paragraph">Ein Servicekonto (_SnapCenter-Account-&lt;accountid&gt;_) mit der Rolle _SnapCenter System_ wird erstellt, um geplante Datensicherungsvorgänge für alle Benutzer in diesem Konto durchzuführen. Das Servicekonto (_SnapCenter-Account-&lt;accountid&gt;_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen. Sie können das Service-Konto anzeigen, indem Sie auf *Konto* &gt; *Konto verwalten* &gt; *Mitglieder* klicken.</block>
+  <block id="f607c10287411a02a7188774935ff6a2" category="paragraph">Stellen Sie sicher, dass der Connector mit dem Datenbankhost über den FQDN oder die IP-Adresse kommunizieren kann.</block>
+  <block id="04135f37f3a0219f15f70072ca13b3c6" category="list-text">Nach der Installation des Plug-ins wird der Erkennungsvorgang gestartet.</block>
+  <block id="f7b9a85c0ee5ada84ab39df4f1bbac45" category="list-text">Nach Abschluss des Ermittlungsvorgangs werden alle Datenbanken auf dem Host angezeigt. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <block ref="eb69440615f98753d53a91f4eeab39c2" category="inline-xref-macro-rx"></block>.</block>
+  <block id="18992fcedd3ab36bc11b1aa6557be8bd" category="paragraph">Gibt den Oracle-Host an</block>
+  <block id="cf4d42a2342dcef0cd3003beef5edde4" category="paragraph">Gibt den SnapCenter-Benutzer mit SSH-Berechtigungen auf dem Oracle-Host an</block>
+  <block id="5b9cc1623e2e8bd08b958a265d3d1139" category="paragraph">Gibt den SSH-Schlüssel des SnapCenter-Benutzers an und wird zur Verbindung mit dem Oracle-Host verwendet</block>
+  <block id="66310ef8a39f9e0e45833f07266a0b67" category="paragraph">Gibt den SSH-Port auf dem Oracle-Host an</block>
+  <block id="43c9b4e02ef657b40473a65f3f0af729" category="paragraph">Sie können eine Oracle-Datenbank auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP klonen, indem Sie das Backup der Datenbank entweder auf dem Quelldatenbankhost oder auf einem alternativen Host verwenden. Sie können das Backup aus primären Storage-Systemen klonen.</block>
+  <block id="e1df4a6bd07c19f8ea4b12bd3763f8ba" category="list-text">Das Klonen von Datenbanken auf Azure NetApp Files wird nicht unterstützt.</block>
+  <block id="43ee894f0437aa47002ad7d59dee24d4" category="paragraph">Das Post-Skript unterstützt eine Reihe von Umgebungsvariablen.</block>
+  <block id="4d7749ad74fdaf180280a4d9de405d0f" category="admonition">Stellen Sie beim Erstellen von ASM-Festplattengruppen auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP sicher, dass es keine gemeinsamen Volumes in Festplattengruppen gibt. Jede Datenträgergruppe sollte über dedizierte Volumes verfügen.</block>
+  <block id="70287d0adea45dd7179d2728f13dc483" category="list-text">Wenn der Anwendung mehrere Richtlinien zugewiesen sind, wählen Sie die Richtlinie, die Aufbewahrungsebene aus, und klicken Sie dann auf *Backup erstellen*.</block>
+  <block id="716be8b0e2c921f95612011ecc633df8" category="list-text">Wenn sich Ihre Oracle-Datenbanken auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP befinden und auf ASM konfiguriert sind, stellen Sie sicher, dass Ihre SVM-Namen in den FSX-Systemen eindeutig sind. Wenn Sie in den FSX-Systemen denselben SVM-Namen haben, werden Backups der auf diesen SVMs befindlichen Oracle Datenbanken nicht unterstützt.</block>
+  <block id="10db664972ef4288920326f44f4f3a44" category="paragraph">Wenn das SnapCenter Plug-in für Oracle in Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP SAN Layout andere fremde Dateien als Oracle-Datendateien auf der ASM-Festplattengruppe findet, wird die Wiederherstellungs- und Kopiermethode durchgeführt. Die Fremddateien können eine oder mehrere der folgenden Typen sein:</block>
+  <block id="fa1ec4e51afd35e28a50d8d0539c45d1" category="paragraph">Plug-in kann über UI, Skript oder manuell implementiert werden.</block>
 </blocks>

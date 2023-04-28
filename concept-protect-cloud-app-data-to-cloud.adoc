@@ -59,7 +59,7 @@ IMPORTANT: Die BlueXP SaaS-Infrastruktur ist robust gegenüber Ausfällen der Ve
 
 * Host hinzufügen und Plug-in implementieren
 +
-Sie können das Plug-in manuell, per Skript oder automatisch bereitstellen.
+Plug-in kann über UI, Skript oder manuell implementiert werden.
 
 * Automatische Erkennung von Oracle-Datenbanken
 * Sichern von Oracle-Datenbanken auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files

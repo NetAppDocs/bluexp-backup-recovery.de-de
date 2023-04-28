@@ -14,7 +14,7 @@ summary: Klonen der Datenbank entweder auf dem Quell- oder auf dem alternativen 
 
 
 [role="lead"]
-Sie können eine Oracle-Datenbank mit dem Backup der Datenbank entweder auf dem Quelldatenbank-Host oder auf einem alternativen Host klonen.
+Sie können eine Oracle-Datenbank auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP klonen, indem Sie das Backup der Datenbank entweder auf dem Quelldatenbankhost oder auf einem alternativen Host verwenden.
 
 Sie können Datenbanken aus den folgenden Gründen klonen:
 

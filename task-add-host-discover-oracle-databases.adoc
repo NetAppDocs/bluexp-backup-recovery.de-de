@@ -32,7 +32,7 @@ Sie sollten das SnapCenter-Plug-in für Oracle auf jedem der Oracle-Datenbank-Ho
 Bevor Sie den Host hinzufügen, sollten Sie sicherstellen, dass die Voraussetzungen erfüllt sind.
 
 * Sie sollten die Arbeitsumgebung und den Connector erstellt haben.
-* Stellen Sie sicher, dass der Connector mit der Arbeitsumgebung und den Oracle-Datenbank-Hosts verbunden ist.
+* Stellen Sie sicher, dass der Connector über eine Verbindung zu den Oracle-Datenbank-Hosts verfügt.
 +
 Informationen zur Behebung des Verbindungsproblem finden Sie unter link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host["Fehler beim Validieren der Verbindung vom BlueXP Connector-Host zum Applikationsdatenbank-Host"].
 
@@ -40,11 +40,11 @@ Informationen zur Behebung des Verbindungsproblem finden Sie unter link:https://
 Wenn der Connector verloren geht oder Sie einen neuen Connector erstellt haben, sollten Sie den Connector den vorhandenen Anwendungsressourcen zuordnen. Anweisungen zum Aktualisieren des Connectors finden Sie unter link:task-manage-cloud-native-app-data.html#update-the-connector-details["Aktualisieren Sie die Verbindungsdetails"].
 
 * Stellen Sie sicher, dass der BlueXP-Benutzer über die Rolle „Account Admin“ verfügt.
+* Stellen Sie sicher, dass das nicht-Root-Konto (sudo) für Datenschutzvorgänge auf dem Anwendungshost vorhanden ist.
 * Stellen Sie sicher, dass entweder Java 11 (64-Bit) Oracle Java oder OpenJDK auf jedem der Oracle-Datenbank-Hosts installiert ist und die JAVA_HOME-Variable entsprechend eingestellt ist.
 * Stellen Sie sicher, dass für den Connector die Kommunikation zum SSH-Port aktiviert ist (Standard: 22), wenn eine SSH-basierte Installation durchgeführt wird.
 * Stellen Sie sicher, dass der Connector die Kommunikation für den Plug-in-Port aktiviert hat (Standard: 8145), damit die Datenschutzvorgänge funktionieren.
 * Stellen Sie sicher, dass die neueste Version des Plug-ins installiert ist. Informationen zum Aktualisieren des Plug-ins finden Sie unter <<Upgrade des SnapCenter Plug-in für Oracle Database>>.
-* Erstellen Sie ein nicht-Root-Konto (sudo) auf dem Anwendungshost.
 
 
 
@@ -58,21 +58,16 @@ Wenn Sie bereits einen Host hinzugefügt haben und einen weiteren Host hinzufüg
 . Klicken Sie Auf *Anwendungen Entdecken*.
 . Wählen Sie *Cloud Native* und klicken Sie auf *Next*.
 +
-Ein Servicekonto mit der Rolle _SnapCenter System_ wird erstellt, um für alle Benutzer dieses Kontos geplante Datensicherungsvorgänge durchzuführen.
-
-+
-** Klicken Sie auf *Konto* > *Konto verwalten* > *Mitglieder*, um das Servicekonto anzuzeigen.
-+
-
-NOTE: Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen.
-
-
+Ein Servicekonto (_SnapCenter-Account-<accountid>_) mit der Rolle _SnapCenter System_ wird erstellt, um geplante Datensicherungsvorgänge für alle Benutzer in diesem Konto durchzuführen. Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen. Sie können das Service-Konto anzeigen, indem Sie auf *Konto* > *Konto verwalten* > *Mitglieder* klicken.
 
 . Wählen Sie Oracle als Anwendungstyp aus.
 . Führen Sie auf der Seite Host-Details folgende Schritte aus:
 +
 .. Wählen Sie *über SSH*.
 .. Geben Sie die FQDN- oder IP-Adresse des Hosts an, auf dem Sie das Plug-in installieren möchten.
++
+Stellen Sie sicher, dass der Connector mit dem Datenbankhost über den FQDN oder die IP-Adresse kommunizieren kann.
+
 .. Geben Sie den Benutzer non-root(sudo) an, mit dem das Plug-in-Paket auf den Host kopiert wird.
 +
 Root-Benutzer wird nicht unterstützt.
@@ -101,8 +96,8 @@ NOTE: Der private SSH-Schlüssel wird an keiner beliebigen Stelle in der Anwendu
 
 . Überprüfen Sie die Details und klicken Sie auf *Anwendungen entdecken*.
 +
-** Nach der Installation des Plug-ins wird der Erkennungsvorgang gestartet. Sie können den Installationsjob über die Seite *Job-Überwachung* überwachen.
-** Zeigt alle Datenbanken auf dem Host an. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <<Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank>>.
+** Nach der Installation des Plug-ins wird der Erkennungsvorgang gestartet.
+** Nach Abschluss des Ermittlungsvorgangs werden alle Datenbanken auf dem Host angezeigt. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <<Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank>>.
 ** Klicken Sie auf *Einstellungen* und wählen Sie *Hosts*, um alle Hosts anzuzeigen.
 +
 
@@ -129,15 +124,7 @@ Stellen Sie sicher, dass die SSH-Verbindung zum Connector aktiviert ist.
 . Klicken Sie Auf *Anwendungen Entdecken*.
 . Wählen Sie *Cloud Native* und klicken Sie auf *Next*.
 +
-Ein Servicekonto mit der Rolle _SnapCenter System_ wird erstellt, um für alle Benutzer dieses Kontos geplante Datensicherungsvorgänge durchzuführen.
-
-+
-** Klicken Sie auf *Konto* > *Konto verwalten* > *Mitglieder*, um das Servicekonto anzuzeigen.
-+
-
-NOTE: Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen.
-
-
+Ein Servicekonto (_SnapCenter-Account-<accountid>_) mit der Rolle _SnapCenter System_ wird erstellt, um geplante Datensicherungsvorgänge für alle Benutzer in diesem Konto durchzuführen. Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen. Sie können das Service-Konto anzeigen, indem Sie auf *Konto* > *Konto verwalten* > *Mitglieder* klicken.
 
 . Wählen Sie Oracle als Anwendungstyp aus.
 . Führen Sie auf der Seite Host-Details folgende Schritte aus:
@@ -145,7 +132,7 @@ NOTE: Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplante
 .. Wählen Sie *Manuell*.
 .. Geben Sie den FQDN oder die IP-Adresse des Hosts an, auf dem das Plug-in installiert ist.
 +
-Stellen Sie sicher, dass der Connector mit dem FQDN oder der IP-Adresse mit dem Datenbank-Host kommunizieren kann.
+Stellen Sie sicher, dass der Connector mit dem Datenbankhost über den FQDN oder die IP-Adresse kommunizieren kann.
 
 .. Geben Sie den Plug-in-Port an.
 +
@@ -167,20 +154,71 @@ Standardport ist 8145.
 . Installieren Sie das Plug-in mit dem im Connector bereitgestellten Skript.
 `sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
 +
-** Plugin_Host ist der Name des Oracle-Hosts und dies ist ein obligatorischer Parameter.
-** Host_user_Name ist der SnapCenter-Benutzer mit SSH-Berechtigungen auf dem Oracle-Host. Dies ist ein obligatorischer Parameter.
-** Host_ssh_key ist der SSH-Schlüssel des SnapCenter-Benutzers, der zur Verbindung mit dem Oracle-Host verwendet wird. Dies ist ein obligatorischer Parameter.
-** Plugin_Port ist der Port, der vom Plug-in verwendet wird. Dies ist ein optionaler Parameter. Der Standardwert ist 8145
-** Host_ssh_Port ist der SSH-Port auf dem Oracle-Host, und dies ist ein optionaler Parameter. Der Standardwert ist 22
+|===
+| Name | Beschreibung | Obligatorisch | Standard 
+
+
+ a| 
+Plugin_Host
+ a| 
+Gibt den Oracle-Host an
+ a| 
+Ja.
+ a| 
+-
+
+
+
+ a| 
+Host_User_Name
+ a| 
+Gibt den SnapCenter-Benutzer mit SSH-Berechtigungen auf dem Oracle-Host an
+ a| 
+Ja.
+ a| 
+-
+
+
+
+ a| 
+Host_ssh_Key
+ a| 
+Gibt den SSH-Schlüssel des SnapCenter-Benutzers an und wird zur Verbindung mit dem Oracle-Host verwendet
+ a| 
+Ja.
+ a| 
+-
+
+
+
+ a| 
+Plugin_Port
+ a| 
+Gibt den vom Plug-in verwendeten Port an
+ a| 
+Nein
+ a| 
+8145
+
+
+
+ a| 
+Host_ssh_Port
+ a| 
+Gibt den SSH-Port auf dem Oracle-Host an
+ a| 
+Nein
+ a| 
+22
+
+|===
 +
 Beispiel:
 `sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 
-
-
 . Überprüfen Sie die Details und klicken Sie auf *Anwendungen entdecken*.
 +
-** Zeigt alle Datenbanken auf dem Host an. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <<Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank>>.
+** Nach Abschluss des Ermittlungsvorgangs werden alle Datenbanken auf dem Host angezeigt. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <<Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank>>.
 ** Klicken Sie auf *Einstellungen* und wählen Sie *Hosts*, um alle Hosts anzuzeigen.
 +
 
@@ -203,15 +241,7 @@ Wenn die SSH-Schlüsselauthentifizierung auf dem Oracle-Datenbank-Host nicht akt
 . Klicken Sie Auf *Anwendungen Entdecken*.
 . Wählen Sie *Cloud Native* und klicken Sie auf *Next*.
 +
-Ein Servicekonto mit der Rolle _SnapCenter System_ wird erstellt, um für alle Benutzer dieses Kontos geplante Datensicherungsvorgänge durchzuführen.
-
-+
-** Klicken Sie auf *Konto* > *Konto verwalten* > *Mitglieder*, um das Servicekonto anzuzeigen.
-+
-
-NOTE: Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen.
-
-
+Ein Servicekonto (_SnapCenter-Account-<accountid>_) mit der Rolle _SnapCenter System_ wird erstellt, um geplante Datensicherungsvorgänge für alle Benutzer in diesem Konto durchzuführen. Das Servicekonto (_SnapCenter-Account-<accountid>_) wird für die geplanten Backup-Vorgänge verwendet. Sie sollten das Dienstkonto niemals löschen. Sie können das Service-Konto anzeigen, indem Sie auf *Konto* > *Konto verwalten* > *Mitglieder* klicken.
 
 . Wählen Sie Oracle als Anwendungstyp aus.
 . Führen Sie auf der Seite *Host Details* folgende Schritte aus:
@@ -257,7 +287,7 @@ Die Plug-in-Binärdatei ist verfügbar unter: _cd /var/lib/Docker/Volumes/Servic
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . Überprüfen Sie die Details und klicken Sie auf *Anwendungen entdecken*.
 +
-** Zeigt alle Datenbanken auf dem Host an. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <<Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank>>.
+** Nach Abschluss des Ermittlungsvorgangs werden alle Datenbanken auf dem Host angezeigt. Wenn die OS-Authentifizierung für die Datenbank deaktiviert ist, klicken Sie auf *Configure*, um die Datenbankauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter <<Konfigurieren Sie die Anmeldedaten für die Oracle-Datenbank>>.
 ** Klicken Sie auf *Einstellungen* und wählen Sie *Hosts*, um alle Hosts anzuzeigen.
 +
 

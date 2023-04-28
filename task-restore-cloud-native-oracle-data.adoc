@@ -55,7 +55,7 @@ Wählen Sie *Alle Datendateien* und *Kontrolldateien* aus.
 Sie können auch das Kontrollkästchen *in-Place-Wiederherstellung erzwingen* aktivieren.
 
 +
-Wenn das SnapCenter Plug-in für Oracle im SAN-Layout fremde Dateien als Oracle-Datendateien auf der ASM-Festplattengruppe findet, wird die connect and Copy Restore-Methode durchgeführt. Die Fremddateien können eine oder mehrere der folgenden Typen sein:
+Wenn das SnapCenter Plug-in für Oracle in Amazon FSX für NetApp ONTAP oder Cloud Volumes ONTAP SAN Layout andere fremde Dateien als Oracle-Datendateien auf der ASM-Festplattengruppe findet, wird die Wiederherstellungs- und Kopiermethode durchgeführt. Die Fremddateien können eine oder mehrere der folgenden Typen sein:
 
 +
 ** Parameter

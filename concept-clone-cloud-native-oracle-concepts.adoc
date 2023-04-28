@@ -14,7 +14,7 @@ summary: Verstehen Sie die Klonkonzepte, bevor Sie die Datenbank klonen.
 
 
 [role="lead"]
-Sie können eine Oracle-Datenbank mit dem Backup der Datenbank entweder auf dem Quelldatenbank-Host oder auf einem alternativen Host klonen. Sie können das Backup aus primären Storage-Systemen klonen.
+Sie können eine Oracle-Datenbank auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP klonen, indem Sie das Backup der Datenbank entweder auf dem Quelldatenbankhost oder auf einem alternativen Host verwenden. Sie können das Backup aus primären Storage-Systemen klonen.
 
 Vor dem Klonen der Datenbank sollten Sie die Klonkonzepte verstehen und sicherstellen, dass alle Anforderungen erfüllt werden.
 
@@ -53,6 +53,7 @@ Bevor Sie eine Oracle-Datenbank klonen, sollten Sie sicherstellen, dass die Vora
 
 == Einschränkungen
 
+* Das Klonen von Datenbanken auf Azure NetApp Files wird nicht unterstützt.
 * Das Klonen von Datenbanken auf Qtree wird nicht unterstützt.
 * Das Backup einer geklonten Datenbank wird nicht unterstützt.
 

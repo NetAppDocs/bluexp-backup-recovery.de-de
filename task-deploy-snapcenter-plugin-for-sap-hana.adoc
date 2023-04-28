@@ -172,18 +172,9 @@ Die Plug-in-Binärdatei ist verfügbar unter: _cd /var/lib/Docker/Volumes/Servic
 . SPL neu starten: `systemctl restart spl`
 . Überprüfen Sie, ob das Plug-in über den Connector erreichbar ist, indem Sie den folgenden Befehl über den Connector ausführen.
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert  config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
-. Überprüfen Sie die Details und klicken Sie auf *Anwendungen entdecken*.
-+
-** Zeigt alle Datenbanken auf dem Host an.
-** Klicken Sie auf *Einstellungen* und wählen Sie *Hosts*, um alle Hosts anzuzeigen.
-+
-
-NOTE: Der Filter zum Anzeigen eines bestimmten Hosts funktioniert nicht. Wenn Sie im Filter einen Hostnamen angeben, werden alle Hosts angezeigt.
-
-** Klicken Sie auf *Einstellungen* und wählen Sie *Richtlinien*, um die vordefinierten Richtlinien anzuzeigen. Überprüfen Sie die vordefinierten Richtlinien, und Sie können sie entweder nach Ihren Anforderungen bearbeiten oder eine neue Richtlinie erstellen.
 
 
-
+Nach der Installation des Plug-ins sollten Sie dies tun <<Fügen Sie SAP HANA Datenbank-Hosts hinzu>>.
 
 
 
@@ -248,8 +239,6 @@ Gehen Sie zur Seite *Canvas*, um eine neue Arbeitsumgebung hinzuzufügen
 
 
 NOTE: Der Filter zum Anzeigen eines bestimmten Hosts funktioniert nicht. Wenn Sie im Filter einen Hostnamen angeben, werden alle Hosts angezeigt.
-
-*Wie geht's weiter*
 
 Sie können die SAP HANA-Systeme über die UI oder ÜBER REST API ändern oder entfernen.
 

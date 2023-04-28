@@ -37,7 +37,7 @@ Optional können Sie auch die Argumente angeben.
 Sie sollten die Post-Skripte im Pfad _/var/opt/snapcenter/spl/scripts_ belassen.
 
 +
-Folgende Umgebungsvariablen werden unterstützt:
+Das Post-Skript unterstützt eine Reihe von Umgebungsvariablen.
 
 +
 |===
@@ -95,7 +95,7 @@ Gibt die Volume-Pfade des Archivprotokolls an, die mit „,“ als Trennzeichen 
 Sie können eine vordefinierte Richtlinie zuweisen oder eine Richtlinie erstellen und sie dann der Datenbank zuweisen. Sobald die Richtlinie zugewiesen ist, werden die Backups gemäß dem in der Richtlinie definierten Zeitplan erstellt.
 
 
-NOTE: Stellen Sie für Oracle beim Erstellen von ASM-Festplattengruppen sicher, dass es keine gemeinsamen Volumes über Festplattengruppen hinweg gibt. Jede Datenträgergruppe sollte über dedizierte Volumes verfügen.
+NOTE: Stellen Sie beim Erstellen von ASM-Festplattengruppen auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP sicher, dass es keine gemeinsamen Volumes in Festplattengruppen gibt. Jede Datenträgergruppe sollte über dedizierte Volumes verfügen.
 
 *Schritte*
 
@@ -122,7 +122,7 @@ Nach der Zuweisung der Richtlinie können Sie ein On-Demand-Backup der Applikati
 *Schritte*
 
 . Klicken Sie auf der Seite Anwendungen auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *On-Demand Backup*.
-. Wenn der Anwendung mehrere Richtlinien zugewiesen werden, wählen Sie die Richtlinie, den Aufbewahrungswert aus und klicken Sie dann auf *Backup erstellen*.
+. Wenn der Anwendung mehrere Richtlinien zugewiesen sind, wählen Sie die Richtlinie, die Aufbewahrungsebene aus, und klicken Sie dann auf *Backup erstellen*.
 
 
 
@@ -130,7 +130,7 @@ Nach der Zuweisung der Richtlinie können Sie ein On-Demand-Backup der Applikati
 == Einschränkungen
 
 * Unterstützt keine Snapshots von Konsistenzgruppen für Oracle Datenbanken, die sich auf mehreren ASM-Festplattengruppen mit Überschneidungen von FSX Volumes befinden
-* Wenn Ihre Oracle-Datenbanken auf ASM konfiguriert sind, stellen Sie sicher, dass Ihre SVM-Namen für die FSX-Systeme eindeutig sind. Wenn Sie in den FSX-Systemen denselben SVM-Namen haben, werden Backups der auf diesen SVMs befindlichen Oracle Datenbanken nicht unterstützt.
+* Wenn sich Ihre Oracle-Datenbanken auf Amazon FSX for NetApp ONTAP oder Cloud Volumes ONTAP befinden und auf ASM konfiguriert sind, stellen Sie sicher, dass Ihre SVM-Namen in den FSX-Systemen eindeutig sind. Wenn Sie in den FSX-Systemen denselben SVM-Namen haben, werden Backups der auf diesen SVMs befindlichen Oracle Datenbanken nicht unterstützt.
 * Nach dem Wiederherstellen einer großen Datenbank (250 GB oder mehr), wenn Sie ein vollständiges Online-Backup in derselben Datenbank durchführen, kann der Vorgang mit dem folgenden Fehler fehlschlagen:
 `failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
 +
