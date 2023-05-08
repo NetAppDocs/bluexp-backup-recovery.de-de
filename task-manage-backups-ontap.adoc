@@ -287,7 +287,7 @@ Mit BlueXP Backup und Recovery können Sie eine einzelne Backup-Datei löschen, 
 Beachten Sie, dass Sie keine Sicherungsdateien löschen können, die Sie mit DataLock und Ransomware-Schutz gesperrt haben. Die Option „Löschen“ ist in der Benutzeroberfläche nicht verfügbar, wenn Sie eine oder mehrere gesperrte Sicherungsdateien ausgewählt haben.
 
 
-CAUTION: Wenn Sie planen, eine Arbeitsumgebung oder ein Cluster mit Backups zu löschen, müssen Sie die Backups *löschen, bevor Sie das System löschen. BlueXP Backup und Recovery löscht Backups nicht automatisch, wenn Sie ein System löschen. Die Benutzeroberfläche bietet derzeit keine Unterstützung zum Löschen der Backups, nachdem das System gelöscht wurde. Für alle verbleibenden Backups werden weiterhin die Kosten für Objekt-Storage in Rechnung gestellt.
+CAUTION: Wenn Sie planen, eine Arbeitsumgebung oder ein Cluster mit Backups zu löschen, müssen Sie die Backups *löschen, bevor Sie das System löschen. BlueXP Backup und Recovery löscht Backups nicht automatisch, wenn Sie ein System löschen. Die Benutzeroberfläche bietet derzeit keine Unterstützung zum Löschen der Backups nach dem Löschen des Systems. Für alle verbleibenden Backups werden weiterhin die Kosten für Objekt-Storage in Rechnung gestellt.
 
 
 

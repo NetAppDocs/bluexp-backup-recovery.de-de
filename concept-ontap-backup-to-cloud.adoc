@@ -113,7 +113,7 @@ endif::azure[]
 
 === Unterstützung für Websites ohne Internetverbindung
 
-BlueXP Backup und Recovery kann an einem Standort ohne Internetverbindung (auch als „privater Modus“ oder „dunkle“ Sites bezeichnet) verwendet werden, um Volume-Daten zu sichern. In diesem Fall müssen Sie den BlueXP Connector am Dark Site implementieren.
+BlueXP Backup und Recovery kann an einem Standort ohne Internetverbindung (auch als „privater Modus“ oder „dunkle“ Sites bezeichnet) verwendet werden, um Volume-Daten zu sichern. In diesem Fall müssen Sie den BlueXP Connector im privaten Modus implementieren.
 
 * Sie können Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen sichern. Siehe link:task-backup-onprem-private-cloud.html["Sichern von lokalen ONTAP Daten in StorageGRID"] Entsprechende Details. Ifdef::aws[]
 
@@ -245,7 +245,7 @@ ifdef::aws[]
 
 Bei Nutzung von AWS stehen zwei Jahresverträge für 12, 24 oder 36 Monate zur Verfügung:
 
-* Ein „BlueXP Backup- und Recovery-Plan“, mit dem Sie Cloud Volumes ONTAP Daten und lokale ONTAP Daten sichern können.
+* Ein Plan für „Cloud Backup“, mit dem Sie Backups von Cloud Volumes ONTAP Daten und ONTAP Daten vor Ort erstellen können
 * Ein „CVO Professional“-Plan, mit dem Sie Backup und Recovery von Cloud Volumes ONTAP und BlueXP bündeln können. Dazu zählen unbegrenzte Backups für Cloud Volumes ONTAP Volumes, die gegen diese Lizenz verrechnet werden (die Backup-Kapazität wird nicht von der Lizenz angerechnet).
 
 
@@ -439,7 +439,8 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 ** Wenn Sie lokale Kopien der Snapshots auf dem SnapMirror Ziel-Volume erstellen (unabhängig von den verwendeten SnapMirror Bezeichnungen), werden diese Snapshots nicht als Backups in die Cloud verschoben. Sie müssen derzeit eine Snapshot-Richtlinie mit den gewünschten Labels auf dem DP-Quell-Volume erstellen, damit Backups durch BlueXP Backup und Recovery erstellt werden können.
 
 
-* Volume Backups von FlexGroup können nicht in Archiv-Storage verschoben oder nicht DataLock und Ransomware-Schutz verwendet werden.
+* FlexGroup Volume-Backups können nicht in Archiv-Storage verschoben werden.
+* FlexGroup Volume-Backups können DataLock und keinen Ransomware-Schutz verwenden.
 * SVM-DR-Volume-Backup wird unter den folgenden Einschränkungen unterstützt:
 +
 ** Backups werden nur von der sekundären ONTAP unterstützt.
@@ -458,7 +459,7 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 * Ad-hoc-Volume-Backup mit der *Backup Now*-Taste wird auf Datensicherungs-Volumes nicht unterstützt.
 * SM-BC-Konfigurationen werden nicht unterstützt.
 * ONTAP unterstützt kein Fan-out von SnapMirror Beziehungen von einem einzelnen Volume zu mehreren Objektspeichern. Daher wird diese Konfiguration von BlueXP Backup und Recovery nicht unterstützt.
-* DER WORM-/Compliance-Modus für einen Objektspeicher wird derzeit auf Amazon S3, Azure und StorageGRID unterstützt. Dies ist die sogenannte DataLock-Funktion, die über die Backup- und Recovery-Einstellungen von BlueXP gemanagt werden muss, ohne die Cloud-Provider-Schnittstelle zu verwenden.
+* DER WORM-/Compliance-Modus für einen Objektspeicher wird derzeit auf Amazon S3, Azure und StorageGRID unterstützt. Dies ist die sogenannte DataLock-Funktion, die über die Backup- und Recovery-Einstellungen von BlueXP gemanagt werden muss, nicht über die Cloud-Provider-Schnittstelle.
 
 
 
@@ -476,8 +477,9 @@ Bei Verwendung einer Version von ONTAP größer als 9.11.1, aber vor 9.13.0, kan
 +
 Wenn Sie eine Version von ONTAP vor 9.11.1 verwenden, wird die Wiederherstellung von Ordnern nicht unterstützt.
 
-* Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit auf FlexGroup-Volumes nicht unterstützt.
-* Sie können einzelne Ordner nicht wiederherstellen, wenn sich die Sicherungsdatei im Archiv-Speicher befindet.
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird nur bei Daten unterstützt, die sich im Archiv-Storage befinden, wenn auf dem Cluster ONTAP 9.13.1 und höher ausgeführt wird.
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird nur für Daten unterstützt, die mit DataLock geschützt sind, wenn auf dem Cluster ONTAP 9.13.1 und höher ausgeführt wird.
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit nicht von FlexGroup-Volume-Backups unterstützt.
 * Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.
 * Die wiederherzustellende Datei muss die gleiche Sprache verwenden wie die Sprache auf dem Zielvolume. Wenn die Sprachen nicht identisch sind, wird eine Fehlermeldung angezeigt.
 * Die Priorität _High_ restore wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID-Systeme nicht unterstützt.

@@ -16,9 +16,9 @@ summary: Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugan
 [role="lead"]
 Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, sollten Sie regelmäßig wichtige BlueXP Backup- und Recovery-Dateien sichern, falls ein Problem mit dem BlueXP Connector Host-System besteht. So können Sie einen neuen Connector implementieren und die kritischen Backup- und Recovery-Daten von BlueXP wiederherstellen.
 
-Wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder auf Ihrem eigenen Host-System mit Internetzugang implementiert wird, werden alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gespeichert. Wenn Sie BlueXP Backup- und Recovery-Funktionen an einer Site ohne Internetzugang nutzen, auch als „Dark Site“ bezeichnet, werden diese BlueXP Backup- und Recovery-Informationen ausschließlich auf dem lokalen Connector-System gespeichert.
+Wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder auf Ihrem eigenen Host-System mit Internetzugang implementiert wird, werden alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gespeichert. Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, auch als „eingeschränkter Modus“ oder „Dark Site“ bekannt, werden diese Backup- und Recovery-Informationen von BlueXP ausschließlich auf dem lokalen Connector-System gespeichert.
 
-In diesem Thema wird beschrieben, wie Sie kritische BlueXP Backup- und Recovery-Daten auf Ihrem vernetzten StorageGRID System sichern. Außerdem wird beschrieben, wie die Daten bei Bedarf auf einem neuen Konnektor wiederhergestellt werden.
+Wir beschreiben, wie kritische BlueXP Backup- und Recovery-Daten auf Ihrem verbundenen StorageGRID System gesichert werden und wie die Daten bei Bedarf in einem neuen Connector wiederhergestellt werden können.
 
 
 

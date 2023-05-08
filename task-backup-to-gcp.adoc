@@ -116,11 +116,12 @@ bigquery.tables.create
 
 
 --
-Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Verschlüsselungsschlüsseln (CMEK):: Sie können Ihre eigenen, von Kunden gemanagten Schlüssel zur Datenverschlüsselung verwenden, statt die von Google standardmäßig gemanagten Verschlüsselungsschlüssel zu verwenden. In diesem Fall benötigen Sie den Schlüsselring und den Schlüsselnamen, damit Sie diese Informationen in den Aktivierungsassistenten einfügen können. https://cloud.google.com/kms/docs/cmek["Erfahren Sie mehr über vom Kunden verwaltete Verschlüsselungsschlüssel"^].
+Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Verschlüsselungsschlüsseln (CMEK):: Sie können Ihre eigenen, von Kunden gemanagten Schlüssel zur Datenverschlüsselung verwenden, statt die von Google standardmäßig gemanagten Verschlüsselungsschlüssel zu verwenden. Sowohl regionsübergreifende als auch projektübergreifende Schlüssel werden unterstützt, sodass Sie ein Projekt für einen Bucket auswählen können, der sich vom Projekt des CMEK-Schlüssels unterscheidet. Wenn Sie planen, Ihre eigenen kundenverwalteten Schlüssel zu verwenden:
 +
 --
-Außerdem müssen Sie diese erforderlichen Berechtigungen in der Rolle hinzufügen, damit der Connector für CMEK funktioniert:
-
+* Sie benötigen den Schlüsselring und den Schlüsselnamen, damit Sie diese Informationen im Aktivierungsassistenten hinzufügen können. https://cloud.google.com/kms/docs/cmek["Erfahren Sie mehr über vom Kunden verwaltete Verschlüsselungsschlüssel"^].
+* Sie müssen überprüfen, ob diese erforderlichen Berechtigungen in der Rolle für den Connector enthalten sind:
++
 [source, json]
 ----
 cloudkms.cryptoKeys.get
@@ -132,13 +133,16 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 ----
-*CMEK-Überlegungen:*
+* Sie müssen überprüfen, ob die Google API „Cloud Key Management Service (KMS)“ in Ihrem Projekt aktiviert ist. Siehe https://cloud.google.com/apis/docs/getting-started#enabling_apis["Google Cloud-Dokumentation: Aktivieren von APIs"] Entsprechende Details.
+* *CMEK-Überlegungen:*
++
+** Sowohl HSM (Hardware-Backed) als auch Software-generierte Schlüssel werden unterstützt.
+** Es werden sowohl neu erstellte als auch importierte Cloud KMS-Schlüssel unterstützt.
+** Es werden nur regionale Schlüssel unterstützt, globale Schlüssel werden nicht unterstützt.
+** Derzeit wird nur der Zweck „symmetrische Verschlüsselung/Entschlüsselung“ unterstützt.
+** Der dem Storage-Konto zugeordnete Service-Agent wird der IAM-Rolle „CryptoKey Encrypter/Decrypter (Rollen/Cloudkms.cryptoKeyEncrypterDecrypter)“ von BlueXP Backup und Recovery zugewiesen.
 
-* Es werden sowohl HSM (Hardware-gesichert) als auch softwaregenerierte Schlüssel unterstützt.
-* Es werden sowohl neu erstellte als auch importierte Cloud KMS-Schlüssel unterstützt.
-* Es werden nur regionale Schlüssel unterstützt, globale Schlüssel werden nicht unterstützt.
-* Derzeit wird nur der Zweck „symmetrische Verschlüsselung/Entschlüsselung“ unterstützt.
-* Der dem Storage-Konto zugeordnete Service-Agent wird der IAM-Rolle „CryptoKey Encrypter/Decrypter (Rollen/Cloudkms.cryptoKeyEncrypterDecrypter)“ von BlueXP Backup und Recovery zugewiesen.
+
 
 
 --

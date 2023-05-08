@@ -85,7 +85,7 @@ Siehe Anforderungen und Wiederherstellungsschritte für den Typ der Wiederherste
 
 Bevor Sie mit der Wiederherstellung eines Volumes, Ordners oder einer Datei beginnen, sollten Sie den Namen des Volumes, von dem aus Sie wiederherstellen möchten, den Namen der Arbeitsumgebung und SVM, auf dem sich das Volume befindet, sowie das ungefähre Datum der Sicherungsdatei, aus der Sie wiederherstellen möchten, kennen.
 
-*Hinweis:* Wenn die Sicherungsdatei, die die wiederherzustellenden Daten enthält, im Archiv-Speicher liegt (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und kostet. Darüber hinaus muss das Ziel-Cluster im Hinblick auf Volume-Wiederherstellung auch ONTAP 9.10.1 oder höher, 9.11.1 für die Dateiwiederherstellung und 9.12.1 für Google Archive und StorageGRID ausgeführt werden.
+*Hinweis:* Wenn die Sicherungsdatei, die die wiederherzustellenden Daten enthält, im Archiv-Speicher liegt (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und kostet. Zusätzlich muss auf dem Ziel-Cluster für die Volume-Wiederherstellung ONTAP 9.10.1 oder höher, 9.11.1 für die Wiederherstellung von Dateien, 9.12.1 für Google Archive und StorageGRID und 9.13.1 für die Wiederherstellung von Ordnern ausgeführt werden.
 
 ifdef::aws[]
 
@@ -114,7 +114,7 @@ NOTE: Die hohe Priorität wird nicht unterstützt, wenn Daten aus dem Azure Arch
 
 Sie können ein Volume, einen Ordner oder einzelne Dateien aus einer ONTAP-Sicherungsdatei in folgenden Arbeitsumgebungen wiederherstellen:
 
-[cols="50,50"]
+[cols="35,50"]
 |===
 | Speicherort Der Sicherungsdatei | Zielarbeitsumgebung ifdef::aws[] 
 
@@ -159,7 +159,7 @@ endif::gcp[]
 Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.
 
 
-NOTE: Sie können keine Ordner oder Dateien wiederherstellen, wenn die Sicherungsdatei mit DataLock & Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und anschließend auf die von Ihnen benötigten Dateien zugreifen.
+NOTE: Wenn die ONTAP-Version auf Ihrem System kleiner als 9.13.1 ist, können Sie keine Ordner oder Dateien wiederherstellen, wenn die Sicherungsdatei mit DataLock & Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und anschließend auf die von Ihnen benötigten Dateien zugreifen.
 
 
 
@@ -271,8 +271,8 @@ Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen m
 
 [NOTE]
 ====
-* Die Wiederherstellung auf Ordnerebene wird derzeit nicht unterstützt, wenn die Sicherungsdatei mit DataLock & Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
-* Die Wiederherstellung auf Ordnerebene wird derzeit nicht unterstützt, wenn sich die Sicherungsdatei im Archiv-Speicher befindet. In diesem Fall können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den gewünschten Ordner und die Dateien zugreifen.
+* Wenn die Sicherungsdatei mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
+* Wenn sich die Backup-Datei im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
 
 
 ====
@@ -281,10 +281,8 @@ Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen m
 ==== Voraussetzungen
 
 * Die ONTAP-Version muss mindestens 9.6 sein, um _File_ Restore-Vorgänge durchzuführen.
-* Die ONTAP-Version muss mindestens 9.11.1 sein, um Vorgänge _folder_ wiederherstellen zu können. Ifdef::aws[]
+* Die ONTAP-Version muss mindestens 9.11.1 sein, um Vorgänge _folder_ wiederherstellen zu können. ONTAP Version 9.13.1 ist erforderlich, wenn sich die Daten im Archiv-Storage befinden oder wenn die Backup-Datei DataLock- und Ransomware-Schutz verwendet.
 
-
-endif::aws[]
 
 
 
@@ -326,7 +324,7 @@ image:screenshot_restore_select_source.png["Ein Screenshot zur Auswahl des Volum
 
 . Klicken Sie auf *Weiter* und die Liste der Ordner und Dateien aus der Volume-Sicherung wird angezeigt.
 +
-Wenn Sie Ordner oder Dateien aus einer Sicherungsdatei wiederherstellen, die sich in einer Archivspeicherebene befindet (verfügbar ab ONTAP 9.10.1), können Sie die Priorität wiederherstellen auswählen.
+Wenn Sie Ordner oder Dateien aus einer Sicherungsdatei wiederherstellen, die sich in einem Archiv-Storage-Tier befindet, können Sie die Wiederherstellungspriorität auswählen.
 
 +
 ifdef::aws[]
@@ -433,7 +431,7 @@ Sie können Ordner oder Dateien auf dem ursprünglichen Volume-Speicherort, auf 
 
 Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen mit allen darin enthaltenen Dateien und Unterordnern wiederherstellen. Wenn Sie eine Version von ONTAP vor 9.13.0 verwenden, werden nur Dateien aus diesem Ordner wiederhergestellt - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.
 
-Wenn die Backup-Datei für das wiederherzustellende Volume im Archiv-Storage (ab ONTAP 9.10.1 verfügbar) gespeichert ist, dauert der Restore-Vorgang länger und es entstehen zusätzliche Kosten. Beachten Sie, dass auf dem Ziel-Cluster ONTAP 9.10.1 oder höher für Volume-Wiederherstellung, 9.11.1 für Dateiwiederherstellung und 9.12.1 für Google Archive und StorageGRID ausgeführt werden muss.
+Wenn die Backup-Datei für das wiederherzustellende Volume im Archiv-Storage (ab ONTAP 9.10.1 verfügbar) gespeichert ist, dauert der Restore-Vorgang länger und es entstehen zusätzliche Kosten. Beachten Sie, dass auf dem Ziel-Cluster für die Volume-Wiederherstellung auch ONTAP 9.10.1 oder höher, 9.11.1 für die Dateiwiederherstellung, 9.12.1 für Google Archive und StorageGRID und 9.13.1 für die Wiederherstellung von Ordnern ausgeführt werden muss.
 
 ifdef::aws[]
 
@@ -455,9 +453,9 @@ endif::gcp[]
 
 [NOTE]
 ====
-* Die Wiederherstellung auf Ordnerebene wird derzeit nicht unterstützt, wenn die Sicherungsdatei mit DataLock & Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
-* Die Wiederherstellung auf Ordnerebene wird derzeit nicht unterstützt, wenn sich die Sicherungsdatei im Archiv-Speicher befindet. In diesem Fall können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den gewünschten Ordner und die Dateien zugreifen.
-* Die Priorität für hohe Wiederherstellungen wird nicht unterstützt, wenn Daten aus dem Archiv-Storage von Azure auf StorageGRID Systeme wiederhergestellt werden.
+* Wenn die Sicherungsdatei mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
+* Wenn sich die Backup-Datei im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
+* Die Priorität bei der Wiederherstellung „hoch“ wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID Systeme nicht unterstützt.
 
 
 ====
@@ -472,7 +470,7 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 
 Sie können ein Volume, einen Ordner oder einzelne Dateien aus einer ONTAP-Sicherungsdatei in folgenden Arbeitsumgebungen wiederherstellen:
 
-[cols="35,45"]
+[cols="35,50"]
 |===
 | Speicherort Der Sicherungsdatei | Zielarbeitsumgebung ifdef::aws[] 
 

@@ -22,7 +22,7 @@ Mit BlueXP Backup und Recovery können Sie Backup-Richtlinien mit einer Vielzahl
 
 Mit BlueXP Backup und Recovery können Sie mehrere Backup-Richtlinien mit eindeutigen Zeitplänen für jede Arbeitsumgebung (Cluster) erstellen. Sie können Volumes mit unterschiedlichen Recovery-Punkten (RPO) unterschiedliche Backup-Richtlinien zuweisen.
 
-Jede Sicherungsrichtlinie enthält einen Abschnitt für _Labels & Retention_, den Sie auf Ihre Sicherungsdateien anwenden können.
+Jede Sicherungsrichtlinie enthält einen Abschnitt für _Labels & Retention_, den Sie auf Ihre Sicherungsdateien anwenden können. Die auf das Volume angewendete Snapshot-Richtlinie muss eine der Richtlinien sein, die von BlueXP Backup- und Recovery- oder Backup-Dateien erkannt werden. Sie wird dann nicht erstellt.
 
 image:screenshot_backup_schedule_settings.png["Ein Screenshot der Backup Schedule-Einstellungen beim Erstellen einer Backup-Richtlinie."]
 
@@ -53,7 +53,7 @@ Beachten Sie, dass die jährlichen Backups nach der Übertragung in den Objektsp
 
 BlueXP Backup und Recovery bietet Unterstützung für DataLock und Ransomware-Schutz für Ihre Volume-Backups. Mit diesen Funktionen sperren Sie Ihre Backup-Dateien und scannen sie, um mögliche Ransomware auf den Backup-Dateien zu erkennen. Dies ist eine optionale Einstellung, die Sie in Ihren Backup-Richtlinien definieren können, wenn Sie zusätzliche Sicherheit für Ihre Volume-Backups für ein Cluster wünschen.
 
-Beide dieser Funktionen schützen Ihre Backup-Dateien, damit stets eine gültige Backup-Datei zur Wiederherstellung von Daten im Falle eines Ransomware-Angriffs auf Ihre Quelldaten zur Verfügung steht. Darüber hinaus hilft es bei der Einhaltung bestimmter gesetzlicher Vorgaben, bei denen Backups für einen bestimmten Zeitraum gesperrt und aufbewahrt werden müssen. Wenn DataLock und Ransomware Protection aktiviert ist, sind für den Cloud-Bucket, der als Teil der Backup- und Recovery-Aktivierung von BlueXP bereitgestellt wird, Objektsperrung und Objektversionierung aktiviert.
+Beide Funktionen schützen Ihre Backup-Dateien, sodass Sie bei einem Ransomware-Angriff auf Ihre Backups immer über eine gültige Backup-Datei verfügen, von der Sie Daten wiederherstellen können. Darüber hinaus hilft es bei der Einhaltung bestimmter gesetzlicher Vorgaben, bei denen Backups für einen bestimmten Zeitraum gesperrt und aufbewahrt werden müssen. Wenn DataLock und Ransomware Protection aktiviert ist, sind für den Cloud-Bucket, der als Teil der Backup- und Recovery-Aktivierung von BlueXP bereitgestellt wird, Objektsperrung und Objektversionierung aktiviert.
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Weitere Informationen finden Sie im Blog zum Schutz von DataLock und Ransomware"^].
 
@@ -197,14 +197,11 @@ Bei Verwendung von Objekt-Storage bei den folgenden Public- und Private-Cloud-Pr
 
 === Anforderungen
 
-* Ihre Cluster müssen ONTAP 9.11.1 oder höher ausführen (9.12.1 bei Azure).
-* Sie müssen BlueXP 3.9.21 oder höher verwenden
-
-
 ifdef::aws[]
 
 * Für AWS:
 +
+** Ihre Cluster müssen ONTAP 9.11.1 oder höher ausführen
 ** Der Connector kann in der Cloud oder vor Ort bereitgestellt werden
 ** Die folgenden S3-Berechtigungen müssen Teil der IAM-Rolle sein, die dem Connector Berechtigungen erteilt. Sie befinden sich im Abschnitt „BackupS3Policy“ für die Ressource „arn:aws:s3::netapp-Backup-*“:
 +
@@ -250,6 +247,7 @@ ifdef::azure[]
 
 * Für Azure:
 +
+** Ihre Cluster müssen ONTAP 9.12.1 oder höher ausführen
 ** Der Connector kann in der Cloud oder vor Ort bereitgestellt werden
 
 
@@ -259,7 +257,8 @@ endif::azure[]
 
 * Für StorageGRID:
 +
-** Für die vollständige Unterstützung von DataLock-Funktionen ist StorageGRID 11.6.0.3 und höher erforderlich
+** Ihre Cluster müssen ONTAP 9.11.1 oder höher ausführen
+** Auf Ihren StorageGRID Systemen muss 11.6.0.3 oder höher ausgeführt werden
 ** Der Connector muss auf Ihrem Gelände bereitgestellt werden (er kann auf einer Website mit oder ohne Internetzugang installiert werden).
 ** Die folgenden S3-Berechtigungen müssen Teil der IAM-Rolle sein, die dem Connector Berechtigungen bereitstellt:
 +

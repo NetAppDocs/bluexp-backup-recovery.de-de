@@ -2,8 +2,8 @@
 layout: astra 
 sidebar: sidebar 
 permalink: index.html 
-lead: 'The BlueXP backup and recovery service (Cloud Backup) provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, databases, and virtual machines, both on premises and in the cloud.' 
-summary: 'Der BlueXP Backup- und Recovery-Service (Cloud Backup) bietet effizienten, sicheren und kostengünstigen Datenschutz für NetApp ONTAP Daten, Datenbanken und Virtual Machines sowohl vor Ort als auch in der Cloud.' 
+lead: 'The BlueXP backup and recovery service (Cloud Backup) provides efficient, secure, and cost-effective data protection for NetApp ONTAP data, Kubernetes persistent volumes, databases, and virtual machines, both on premises and in the cloud.' 
+summary: 'Der BlueXP Backup- und Recovery-Service (Cloud Backup) bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP-Daten, persistente Kubernetes-Volumes, Datenbanken und Virtual Machines – lokal und in der Cloud.' 
 ---
 = BlueXP Backup- und Recovery-Dokumentation
 :hardbreaks:
