@@ -161,7 +161,7 @@ Da BlueXP Backup und Recovery die Storage-Effizienz des Quell-Volumes erhalten b
 ifdef::aws[]
 
 +
-** In AWS, https://aws.amazon.com/athena/faqs/["Amazon Athena"^] Und https://aws.amazon.com/glue/faqs/["AWS Klue"^] Ressourcen werden in einem neuen S3-Bucket implementiert.
+** In AWS, https://["Amazon Athena"^] Und https://["AWS Klue"^] Ressourcen werden in einem neuen S3-Bucket implementiert.
 +
 endif::aws[]
 
@@ -171,7 +171,7 @@ endif::aws[]
 ifdef::azure[]
 
 +
-** In Azure, an https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE["Azure Synapse Workspace"^] Und https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE["Azure Data Lake Storage"^] Werden in Ihrem Storage-Konto bereitgestellt, um Ihre Daten zu speichern und zu analysieren.
+** In Azure, an https://["Azure Synapse Workspace"^] Und https://["Azure Data Lake Storage"^] Werden in Ihrem Storage-Konto bereitgestellt, um Ihre Daten zu speichern und zu analysieren.
 +
 endif::azure[]
 
@@ -181,7 +181,7 @@ endif::azure[]
 
 ifdef::gcp[]
 
-* In Google wird ein neuer Bucket implementiert, und der https://cloud.google.com/bigquery["Google Cloud BigQuery Services"^] Werden auf Konto-/Projektebene bereitgestellt.
+* In Google wird ein neuer Bucket implementiert, und der https://["Google Cloud BigQuery Services"^] Werden auf Konto-/Projektebene bereitgestellt.
 
 
 endif::gcp[]
@@ -223,7 +223,7 @@ Wenn Sie einen Jahresvertrag von einem Markt haben, wird der gesamte Verbrauch v
 
 Byol ist nach Terminus basiert (12, 24 oder 36 Monate) _und_ kapazitätsbasiert in Schritten von 1 tib. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.
 
-Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
+Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://["BlueXP-Konto"^].
 
 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 
@@ -271,7 +271,7 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract["Hier erfahren Sie,
 
 == Funktionsweise von BlueXP Backup und Recovery
 
-Wenn Sie das Backup und Recovery von BlueXP auf einem Cloud Volumes ONTAP oder einem lokalen ONTAP System aktivieren, führt der Service ein vollständiges Backup Ihrer Daten durch. Volume Snapshots werden nicht im Backup-Image berücksichtigt. Nach dem ersten Backup sind alle weiteren Backups inkrementell, das heißt, dass nur geänderte Blöcke und neue Blöcke gesichert werden. Dadurch wird der Netzwerkverkehr auf ein Minimum reduziert. BlueXP Backup und Recovery bauen auf der auf https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html["NetApp SnapMirror Cloud Technologie"^].
+Wenn Sie das Backup und Recovery von BlueXP auf einem Cloud Volumes ONTAP oder einem lokalen ONTAP System aktivieren, führt der Service ein vollständiges Backup Ihrer Daten durch. Volume Snapshots werden nicht im Backup-Image berücksichtigt. Nach dem ersten Backup sind alle weiteren Backups inkrementell, das heißt, dass nur geänderte Blöcke und neue Blöcke gesichert werden. Dadurch wird der Netzwerkverkehr auf ein Minimum reduziert. BlueXP Backup und Recovery bauen auf der auf https://["NetApp SnapMirror Cloud Technologie"^].
 
 
 CAUTION: Alle Aktionen, die direkt aus Ihrer Cloud-Provider-Umgebung zum Verwalten oder Ändern von Backup-Dateien übernommen werden, können die Dateien beschädigen und führen zu einer nicht unterstützten Konfiguration.
@@ -288,14 +288,14 @@ Backup-Kopien werden in einem Objektspeicher gespeichert, den BlueXP in Ihrem Cl
 
 ifdef::aws[]
 
-* In AWS ermöglicht BlueXP das https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 Block – Public Access-Funktion"^] Auf dem S3-Bucket.
+* In AWS ermöglicht BlueXP das https://["Amazon S3 Block – Public Access-Funktion"^] Auf dem S3-Bucket.
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* In Azure verwendet BlueXP eine neue oder vorhandene Ressourcengruppe mit einem Storage-Konto für den Blob-Container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["Blockiert den öffentlichen Zugriff auf Ihre BLOB-Daten"] Standardmäßig.
+* In Azure verwendet BlueXP eine neue oder vorhandene Ressourcengruppe mit einem Storage-Konto für den Blob-Container. BlueXP https://["Blockiert den öffentlichen Zugriff auf Ihre BLOB-Daten"] Standardmäßig.
 
 
 endif::azure[]

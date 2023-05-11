@@ -423,7 +423,7 @@ Sie haben ein paar Optionen für den Speicherort beim Wiederherstellen von Ordne
 
 Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search & Restore lassen sich anhand aller im Cloud Storage gespeicherten Backups nach einem bestimmten Volume, Ordner oder Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung oder den Namen des Volumes kennen - die Suche durchsucht alle Volume-Backup-Dateien.
 
-Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume wiederherstellen https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Auf der Seite Volume Details auf dem Bildschirm"^] (Nicht aus BlueXP Backup und Recovery).
+Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume wiederherstellen https://["Auf der Seite Volume Details auf dem Bildschirm"^] (Nicht aus BlueXP Backup und Recovery).
 
 Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Sie können die Daten als Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
 
@@ -546,7 +546,7 @@ ifdef::azure[]
 
 * Azure-Anforderungen:
 +
-** Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
+** Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
 ** Spezifische Berechtigungen für Azure Synapse Workspace- und Data Lake-Speicherkonto müssen der Benutzerrolle hinzugefügt werden, die BlueXP mit Berechtigungen versorgt. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
 Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie der BlueXP Benutzerrolle jetzt die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
@@ -579,7 +579,7 @@ Je nach Konfiguration gibt es zwei Möglichkeiten, die Suche und Wiederherstellu
 +
 ** Wenn Ihr Konto keine Anmeldedaten für Cloud-Provider enthält, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert.
 ** Wenn Sie einen Connector in einer dunklen Site verwenden, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert (Connector Version 3.9.25 oder höher erforderlich).
-** Wenn Sie haben https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS Zugangsdaten"^] Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure Zugangsdaten"^] Im Konto wird der indizierte Katalog wie bei einem in der Cloud implementierten Connector beim Cloud-Provider gespeichert. (Bei beiden Anmeldedaten ist standardmäßig AWS ausgewählt.)
+** Wenn Sie haben https://["AWS Zugangsdaten"^] Oder https://["Azure Zugangsdaten"^] Im Konto wird der indizierte Katalog wie bei einem in der Cloud implementierten Connector beim Cloud-Provider gespeichert. (Bei beiden Anmeldedaten ist standardmäßig AWS ausgewählt.)
 +
 Obwohl Sie einen On-Premises-Connector nutzen, müssen die Anforderungen an einen Cloud-Provider sowohl im Hinblick auf die Berechtigungen von Connector als auch auf Ressourcen von Cloud-Providern erfüllt werden. AWS und Azure Anforderungen können Sie sich bei der Verwendung dieser Implementierung oben anzeigen lassen.
 
@@ -618,7 +618,7 @@ Wenn Sie diese Funktionalität aktivieren, ermöglicht BlueXP Backup und Recover
 
 ifdef::aws[]
 
-* Für Backups, die in AWS gespeichert werden, stellt die Software einen neuen S3-Bucket und den bereit https://aws.amazon.com/athena/faqs/["Interaktive Abfrage-Service von Amazon Athena"^] Und https://aws.amazon.com/glue/faqs/["AWS Glue serverloser Datenintegrations-Service"^].
+* Für Backups, die in AWS gespeichert werden, stellt die Software einen neuen S3-Bucket und den bereit https://["Interaktive Abfrage-Service von Amazon Athena"^] Und https://["AWS Glue serverloser Datenintegrations-Service"^].
 
 
 endif::aws[]
@@ -632,7 +632,7 @@ endif::azure[]
 
 ifdef::gcp[]
 
-* Für Backups, die in Google Cloud gespeichert sind, stellt die IT einen neuen Bucket bereit und https://cloud.google.com/bigquery["Google Cloud BigQuery Services"^] Werden auf Konto-/Projektebene bereitgestellt.
+* Für Backups, die in Google Cloud gespeichert sind, stellt die IT einen neuen Bucket bereit und https://["Google Cloud BigQuery Services"^] Werden auf Konto-/Projektebene bereitgestellt.
 
 
 endif::gcp[]

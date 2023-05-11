@@ -26,11 +26,11 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 [role="quick-margin-list"]
 * Sie verwenden Cloud Volumes ONTAP 9.7P5 oder höher in AWS (ONTAP 9.8P13 und höher wird empfohlen).
 * Sie verfügen über ein gültiges Cloud-Provider-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
-* Sie haben sich für das angemeldet https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace Backup-Angebot"], An https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Jahresvertrag"], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
+* Sie haben sich für das angemeldet https://["BlueXP Marketplace Backup-Angebot"], An https://["AWS Jahresvertrag"], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
 * Sie haben einen Connector in AWS installiert:
 +
 ** Der Connector kann auf einer Website mit vollem Internetzugang ("Standard-Modus") oder mit eingeschränkter Internetverbindung ("eingeschränkter Modus") installiert werden.
-** Die IAM-Rolle, die den BlueXP Connector mit Berechtigungen bereitstellt, umfasst die neuesten S3-Berechtigungen https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["BlueXP-Richtlinie"^].
+** Die IAM-Rolle, die den BlueXP Connector mit Berechtigungen bereitstellt, umfasst die neuesten S3-Berechtigungen https://["BlueXP-Richtlinie"^].
 
 
 
@@ -78,13 +78,13 @@ Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die
 
 image:diagram_cloud_backup_cvo_aws.png["Diagramm, das die Kommunikation von BlueXP Backup und Recovery mit den Volumes auf den Quellsystemen und dem Ziel-Storage zeigt, auf dem sich die Backup-Dateien befinden."]
 
-Der VPC-Gateway-Endpunkt muss bereits in der VPC vorhanden sein. https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html["Weitere Informationen zu Gateway-Endpunkten"^].
+Der VPC-Gateway-Endpunkt muss bereits in der VPC vorhanden sein. https://["Weitere Informationen zu Gateway-Endpunkten"^].
 
 Unterstützte ONTAP-Versionen:: Minimum ONTAP 9.7P5; ONTAP 9.8P13 und höher wird empfohlen.
-Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist im AWS Marketplace ein BlueXP Abonnement verfügbar, das die Implementierung von Cloud Volumes ONTAP und BlueXP Backup und Recovery ermöglicht. Sie müssen https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Melden Sie sich für dieses BlueXP-Abonnement an"^] Bevor Sie BlueXP Backup und Recovery aktivieren, Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
+Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist im AWS Marketplace ein BlueXP Abonnement verfügbar, das die Implementierung von Cloud Volumes ONTAP und BlueXP Backup und Recovery ermöglicht. Sie müssen https://["Melden Sie sich für dieses BlueXP-Abonnement an"^] Bevor Sie BlueXP Backup und Recovery aktivieren, Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
 +
 --
-Bei einem Jahresvertrag, mit dem Sie sowohl Cloud Volumes ONTAP Daten als auch ONTAP Daten vor Ort sichern können, müssen Sie den Abonnement von abonnieren https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace Seite"^] Und dann https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["Verbinden Sie das Abonnement mit Ihren AWS Zugangsdaten"^].
+Bei einem Jahresvertrag, mit dem Sie sowohl Cloud Volumes ONTAP Daten als auch ONTAP Daten vor Ort sichern können, müssen Sie den Abonnement von abonnieren https://["AWS Marketplace Seite"^] Und dann https://["Verbinden Sie das Abonnement mit Ihren AWS Zugangsdaten"^].
 
 Wenn Sie eine Cloud Volumes ONTAP Arbeitsumgebung erstellen, müssen Sie bei einem Jahresvertrag für die Bündelung von Backup und Recovery von Cloud Volumes ONTAP und BlueXP ein Jahresvertrag abschließen. Mit dieser Option können Sie Backups von Daten vor Ort nicht erstellen.
 
@@ -93,17 +93,17 @@ Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Se
 Zudem benötigen Sie ein AWS-Konto für den Speicherplatz, auf dem sich Ihre Backups befinden.
 
 --
-Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Schlüsseln für die Datenverschlüsselung:: Im Aktivierungsassistenten können Sie Ihre eigenen, von Kunden gemanagten Schlüssel für die Datenverschlüsselung auswählen und nicht die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden. In diesem Fall müssen Sie bereits die über die Verschlüsselung gemanagten Schlüssel eingerichtet haben. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
-Anforderungen an Steckverbinder:: Der Connector kann in einer AWS-Region mit vollem oder eingeschränktem Internetzugang (Standard- oder eingeschränkter Modus) installiert werden. https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html["Einzelheiten finden Sie in den BlueXP Implementierungsmodi"^].
+Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Schlüsseln für die Datenverschlüsselung:: Im Aktivierungsassistenten können Sie Ihre eigenen, von Kunden gemanagten Schlüssel für die Datenverschlüsselung auswählen und nicht die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden. In diesem Fall müssen Sie bereits die über die Verschlüsselung gemanagten Schlüssel eingerichtet haben. https://["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
+Anforderungen an Steckverbinder:: Der Connector kann in einer AWS-Region mit vollem oder eingeschränktem Internetzugang (Standard- oder eingeschränkter Modus) installiert werden. https://["Einzelheiten finden Sie in den BlueXP Implementierungsmodi"^].
 +
 --
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["Implementieren eines Connectors in AWS im Standardmodus (vollständiger Internetzugang)"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-restricted-mode.html["Installieren Sie den Connector im eingeschränkten Modus (eingeschränkter Zugriff für ausgehende Verbindungen)."^]
+* https://["Erfahren Sie mehr über Steckverbinder"^]
+* https://["Implementieren eines Connectors in AWS im Standardmodus (vollständiger Internetzugang)"^]
+* https://["Installieren Sie den Connector im eingeschränkten Modus (eingeschränkter Zugriff für ausgehende Verbindungen)."^]
 
 
 --
-Erforderliche AWS Connector Berechtigungen:: Die IAM-Rolle, die BlueXP Berechtigungen bereitstellt, muss die neuesten S3-Berechtigungen enthalten https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP-Richtlinie"^]. Wenn die Richtlinie nicht alle diese Berechtigungen enthält, finden Sie weitere Informationen unter https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS Dokumentation: Bearbeiten der IAM-Richtlinien"].
+Erforderliche AWS Connector Berechtigungen:: Die IAM-Rolle, die BlueXP Berechtigungen bereitstellt, muss die neuesten S3-Berechtigungen enthalten https://["BlueXP-Richtlinie"^]. Wenn die Richtlinie nicht alle diese Berechtigungen enthält, finden Sie weitere Informationen unter https://["AWS Dokumentation: Bearbeiten der IAM-Richtlinien"].
 +
 --
 Hier sind die spezifischen Berechtigungen aus der Richtlinie:
@@ -173,18 +173,18 @@ Hier sind die spezifischen Berechtigungen aus der Richtlinie:
 
 NOTE: Beim Erstellen von Backups in AWS China-Regionen müssen Sie den AWS-Ressourcennamen „arn“ unter allen _Resource_-Abschnitten in den IAM-Richtlinien von „aws“ in „aws-cn“ ändern, z. B. `arn:aws-cn:s3:::netapp-backup-*`.
 
-Erforderliche AWS Cloud Volumes ONTAP Berechtigungen:: Wenn auf Ihrem Cloud Volumes ONTAP System ONTAP 9.12.1 oder eine höhere Software ausgeführt wird, muss die IAM-Rolle, die diese Arbeitsumgebung mit Berechtigungen bereitstellt, einen neuen Satz von S3-Berechtigungen enthalten, speziell für BlueXP-Backup und -Recovery von aktuellen Versionen https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html["Cloud Volumes ONTAP-Richtlinie"^].
+Erforderliche AWS Cloud Volumes ONTAP Berechtigungen:: Wenn auf Ihrem Cloud Volumes ONTAP System ONTAP 9.12.1 oder eine höhere Software ausgeführt wird, muss die IAM-Rolle, die diese Arbeitsumgebung mit Berechtigungen bereitstellt, einen neuen Satz von S3-Berechtigungen enthalten, speziell für BlueXP-Backup und -Recovery von aktuellen Versionen https://["Cloud Volumes ONTAP-Richtlinie"^].
 +
 --
 Wenn Sie die Cloud Volumes ONTAP-Arbeitsumgebung mit BlueXP Version 3.9.23 oder höher erstellt haben, sollten diese Berechtigungen bereits Teil der IAM-Rolle sein. Andernfalls müssen Sie die fehlenden Berechtigungen hinzufügen.
 
 --
-Unterstützte AWS-Regionen:: BlueXP Backup und Recovery wird in allen AWS Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Regionen von AWS GovCloud.
+Unterstützte AWS-Regionen:: BlueXP Backup und Recovery wird in allen AWS Regionen unterstützt https://["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Regionen von AWS GovCloud.
 Einrichtung zur Erstellung von Backups in einem anderen AWS Konto erforderlich:: Standardmäßig werden Backups mit demselben Konto erstellt wie für das Cloud Volumes ONTAP-System. Falls Sie ein anderes AWS Konto für Ihre Backups verwenden möchten, müssen Sie folgende Anforderungen erfüllen:
 +
 --
 * Stellen Sie sicher, dass die Berechtigungen „s3:PutBucketPolicy“ und „s3:PutBucketOwnershipControls“ Teil der IAM-Rolle sind, die dem BlueXP Connector Berechtigungen erteilt.
-* Fügen Sie die Anmeldeinformationen für das AWS Zielkonto in BlueXP hinzu. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#add-additional-credentials-to-a-connector["So geht's"^].
+* Fügen Sie die Anmeldeinformationen für das AWS Zielkonto in BlueXP hinzu. https://["So geht's"^].
 * Fügen Sie die folgenden Berechtigungen in den Benutzeranmeldeinformationen im zweiten Konto hinzu:
 +
 ....
@@ -210,7 +210,7 @@ Einrichtung zur Erstellung von Backups in einem anderen AWS Konto erforderlich::
 
 BlueXP Backup und Recovery sind standardmäßig im Assistenten für die Arbeitsumgebung aktiviert. Achten Sie darauf, dass die Option aktiviert bleibt.
 
-Siehe https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html["Starten von Cloud Volumes ONTAP in AWS"^] Anforderungen und Details für die Erstellung Ihres Cloud Volumes ONTAP Systems.
+Siehe https://["Starten von Cloud Volumes ONTAP in AWS"^] Anforderungen und Details für die Erstellung Ihres Cloud Volumes ONTAP Systems.
 
 .Schritte
 . Klicken Sie auf *Cloud Volumes ONTAP erstellen*.
@@ -247,7 +247,7 @@ image:screenshot_backup_cvo_enable.png["Ein Screenshot, der die Schaltfläche zu
 Wenn Sie ein anderes AWS Konto für Ihre Backups verwenden möchten, müssen Sie die Zielanmeldeinformationen für AWS in BlueXP hinzufügen und die Berechtigungen „s3:PutBucketPolicy“ und „s3:PutBucketOwnershipControls“ zur IAM-Rolle hinzufügen, die BlueXP mit Berechtigungen versorgt.
 
 .. Der Bereich, in dem die Backups gespeichert werden. Dies kann eine andere Region sein als der Speicherort des Cloud Volumes ONTAP Systems.
-.. Unabhängig davon, ob Sie die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden oder Ihre eigenen, von Kunden gemanagten Schlüssel über Ihr AWS-Konto auswählen, um die Verschlüsselung Ihrer Daten zu managen. (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["Nutzen Sie Ihre eigenen Schlüssel"]).
+.. Unabhängig davon, ob Sie die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden oder Ihre eigenen, von Kunden gemanagten Schlüssel über Ihr AWS-Konto auswählen, um die Verschlüsselung Ihrer Daten zu managen. (https://["Nutzen Sie Ihre eigenen Schlüssel"]).
 +
 image:screenshot_backup_provider_settings_aws.png["Ein Screenshot, der die Cloud-Provider-Details beim Backup von Volumes eines Cloud Volumes ONTAP Systems in AWS S3 enthält."]
 

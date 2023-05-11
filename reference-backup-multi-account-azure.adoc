@@ -16,7 +16,7 @@ summary: Mit BlueXP Backup und Recovery können Sie Backup-Dateien in einem Azur
 [role="lead"]
 Mit BlueXP Backup und Recovery können Sie Backup-Dateien in einem Azure Konto erstellen, das sich von dem unterscheidet, wo sich Ihre Cloud Volumes ONTAP Quell-Volumes befinden. Und beide Konten können sich von dem Konto unterscheiden, in dem sich der BlueXP Connector befindet.
 
-Diese Schritte sind nur erforderlich, wenn Sie sich befinden https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["Sichern von Cloud Volumes ONTAP-Daten auf Azure Blob Storage"^].
+Diese Schritte sind nur erforderlich, wenn Sie sich befinden https://["Sichern von Cloud Volumes ONTAP-Daten auf Azure Blob Storage"^].
 
 Befolgen Sie einfach die nachstehenden Schritte, um Ihre Konfiguration auf diese Weise einzurichten.
 

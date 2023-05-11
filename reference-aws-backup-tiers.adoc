@@ -28,7 +28,7 @@ Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Back
 
 Wenn Sie BlueXP Backup und Recovery mit dieser Lebenszyklusregel konfigurieren, dürfen Sie beim Einrichten des Buckets in Ihrem AWS-Konto keine Lebenszyklusregeln konfigurieren.
 
-https://aws.amazon.com/s3/storage-classes/["Erfahren Sie mehr über S3-Storage-Klassen"^].
+https://["Erfahren Sie mehr über S3-Storage-Klassen"^].
 
 
 
@@ -52,7 +52,7 @@ Wie hoch sind die Kosten für die Wiederherstellung von Daten aus Amazon S3 Glac
 
 | *S3 Glacier Deep Archive* |  | Schnelleres Abrufen, höhere Kosten | Langsameres Abrufen, geringste Kosten 
 |===
-Jede Methode hat eine andere Abrufgebühr pro GB und eine andere Gebühr pro Anfrage. Detaillierte Informationen zu den S3-Glacier-Preisen nach AWS Region finden Sie im https://aws.amazon.com/s3/pricing/["Preisseite von Amazon S3"^].
+Jede Methode hat eine andere Abrufgebühr pro GB und eine andere Gebühr pro Anfrage. Detaillierte Informationen zu den S3-Glacier-Preisen nach AWS Region finden Sie im https://["Preisseite von Amazon S3"^].
 
 --
 Wie lange dauert es, meine in Amazon S3 Glacier archivierten Objekte wiederherzustellen?:: Es gibt zwei Teile, aus denen sich die gesamte Wiederherstellungszeit ergibt:
@@ -76,7 +76,7 @@ Wie lange dauert es, meine in Amazon S3 Glacier archivierten Objekte wiederherzu
 * *Restore Time*: Der Zeitpunkt, um die Daten aus der Sicherungsdatei im Standard-Speicher wiederherzustellen. Dieser Vorgang unterscheidet sich nicht von dem typischen Restore-Vorgang direkt vom Standard-Storage, wenn keine Archivebene verwendet wird.
 
 
-Weitere Informationen zu den Abruffoptionen für Amazon S3 Glacier und S3 Glacier Deep Archive finden Sie unter https://aws.amazon.com/s3/faqs/#Amazon_S3_Glacier["Die Amazon FAQ zu diesen Speicherklassen"^].
+Weitere Informationen zu den Abruffoptionen für Amazon S3 Glacier und S3 Glacier Deep Archive finden Sie unter https://["Die Amazon FAQ zu diesen Speicherklassen"^].
 
 --
 

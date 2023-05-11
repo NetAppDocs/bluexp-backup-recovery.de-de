@@ -127,7 +127,7 @@ Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterla
 
 Das BlueXP Notification Center verfolgt den Fortschritt der von Ihnen initiierten Backup- und Restore-Jobs, sodass Sie überprüfen können, ob der Vorgang erfolgreich war oder nicht.
 
-Neben der Anzeige der Alarme in der BlueXP Benachrichtigungsliste können Sie BlueXP so konfigurieren, dass Benachrichtigungen per E-Mail als Warnmeldungen gesendet werden, sodass Sie über wichtige Systemaktivitäten informiert werden können, selbst wenn Sie nicht beim System angemeldet sind. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
+Neben der Anzeige der Alarme in der BlueXP Benachrichtigungsliste können Sie BlueXP so konfigurieren, dass Benachrichtigungen per E-Mail als Warnmeldungen gesendet werden, sodass Sie über wichtige Systemaktivitäten informiert werden können, selbst wenn Sie nicht beim System angemeldet sind. https://["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
 
 Die folgenden Ereignisse lösen E-Mail-Warnungen aus:
 
@@ -172,7 +172,7 @@ BlueXP Account-Administratoren erhalten standardmäßig E-Mails für alle Warnme
 
 Um die BlueXP E-Mail-Benachrichtigungen zu Backup und Recovery zu erhalten, müssen Sie die Schweregrade für die Benachrichtigung „kritisch“, „Warnung“ und „Fehler“ auswählen.
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
+https://["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
 
 .Schritte
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.

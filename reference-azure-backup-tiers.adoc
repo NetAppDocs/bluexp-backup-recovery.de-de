@@ -26,7 +26,7 @@ Wenn in Ihren Quellclustern ONTAP 9.10.1 oder neuer ausgeführt wird, können Si
 
 Wenn Sie BlueXP Backup und Recovery mit dieser Lebenszyklusregel konfigurieren, dürfen Sie beim Einrichten des Containers in Ihrem Azure-Konto keine Lebenszyklusregeln konfigurieren.
 
-https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["Erfahren Sie mehr über Azure Blob Zugriffsebenen"^].
+https://["Erfahren Sie mehr über Azure Blob Zugriffsebenen"^].
 
 
 
@@ -41,7 +41,7 @@ Wie viel kostet die Wiederherstellung von Daten aus dem Azure-Archiv?:: Beim Abr
 * *Standard*: Langsamer Abruf, niedrigere Kosten
 
 
-Jede Methode hat eine andere Abrufgebühr pro GB und eine andere Gebühr pro Anfrage. Detaillierte Informationen zu den Azure Archivpreisen nach Azure Region finden Sie im https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Azure-Preisseite"^].
+Jede Methode hat eine andere Abrufgebühr pro GB und eine andere Gebühr pro Anfrage. Detaillierte Informationen zu den Azure Archivpreisen nach Azure Region finden Sie im https://["Azure-Preisseite"^].
 
 --
 
@@ -61,7 +61,7 @@ Wie lange wird es dauern, bis meine im Azure-Archiv archivierten Daten wiederher
 * *Restore Time*: Der Zeitpunkt, um die Daten aus der Sicherungsdatei in Cool Storage wiederherzustellen. Diese Zeit unterscheidet sich nicht von dem typischen Restore-Vorgang direkt von Cool Storage, wenn kein Archivtier verwendet wird.
 
 
-Weitere Informationen zu Abruffoptionen für Azure Archive finden Sie unter https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["Diese Azure FAQ"^].
+Weitere Informationen zu Abruffoptionen für Azure Archive finden Sie unter https://["Diese Azure FAQ"^].
 
 --
 

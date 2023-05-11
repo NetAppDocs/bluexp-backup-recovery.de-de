@@ -33,8 +33,8 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 
 * Sie verfügen über ein gültiges Cloud-Provider-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
-* Sie haben sich für das angemeldet https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace Backup-Angebot"], An https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Jahresvertrag"], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
-* Die IAM-Rolle, die den BlueXP Connector mit Berechtigungen bereitstellt, umfasst die neuesten S3-Berechtigungen https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP-Richtlinie"^].
+* Sie haben sich für das angemeldet https://["BlueXP Marketplace Backup-Angebot"], An https://["AWS Jahresvertrag"], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
+* Die IAM-Rolle, die den BlueXP Connector mit Berechtigungen bereitstellt, umfasst die neuesten S3-Berechtigungen https://["BlueXP-Richtlinie"^].
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] BlueXP Backup und Recovery auf Ihrem vorhandenen Kubernetes-Cluster aktivieren
@@ -70,8 +70,8 @@ Der VPC Endpunkt ist optional.
 Kubernetes-Cluster-Anforderungen::
 +
 --
-* Sie haben den Kubernetes Cluster als BlueXP-Arbeitsumgebung erkannt. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-aws.html["Erkennung des Kubernetes-Clusters"^].
-* Trident muss auf dem Cluster installiert werden, und die Trident Version muss mindestens 21.1 sein. Siehe https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["Anleitung zur Installation von Trident"^] Oder https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["So aktualisieren Sie die Trident Version"^].
+* Sie haben den Kubernetes Cluster als BlueXP-Arbeitsumgebung erkannt. https://["Erkennung des Kubernetes-Clusters"^].
+* Trident muss auf dem Cluster installiert werden, und die Trident Version muss mindestens 21.1 sein. Siehe https://["Anleitung zur Installation von Trident"^] Oder https://["So aktualisieren Sie die Trident Version"^].
 * Der Cluster muss für seinen Back-End Storage Cloud Volumes ONTAP on AWS verwenden.
 * Das Cloud Volumes ONTAP System muss sich in derselben AWS Region wie der Kubernetes-Cluster befinden. Es muss ONTAP 9.7P5 oder höher ausgeführt werden (ONTAP 9.8P11 und höher wird empfohlen).
 +
@@ -130,10 +130,10 @@ spec:
 
 
 --
-Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist im AWS Marketplace ein Abonnement verfügbar, das die Implementierung von Cloud Volumes ONTAP und BlueXP Backup und Recovery ermöglicht. Sie müssen https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Melden Sie sich für dieses BlueXP-Abonnement an"^] Bevor Sie BlueXP Backup und Recovery aktivieren, Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
+Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist im AWS Marketplace ein Abonnement verfügbar, das die Implementierung von Cloud Volumes ONTAP und BlueXP Backup und Recovery ermöglicht. Sie müssen https://["Melden Sie sich für dieses BlueXP-Abonnement an"^] Bevor Sie BlueXP Backup und Recovery aktivieren, Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
 +
 --
-Bei einem Jahresvertrag, mit dem Sie sowohl Cloud Volumes ONTAP Daten als auch ONTAP Daten vor Ort sichern können, müssen Sie den Abonnement von abonnieren https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace Seite"^] Und dann https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["Verbinden Sie das Abonnement mit Ihren AWS Zugangsdaten"^].
+Bei einem Jahresvertrag, mit dem Sie sowohl Cloud Volumes ONTAP Daten als auch ONTAP Daten vor Ort sichern können, müssen Sie den Abonnement von abonnieren https://["AWS Marketplace Seite"^] Und dann https://["Verbinden Sie das Abonnement mit Ihren AWS Zugangsdaten"^].
 
 Wenn Sie eine Cloud Volumes ONTAP Arbeitsumgebung erstellen, müssen Sie bei einem Jahresvertrag für die Bündelung von Backup und Recovery von Cloud Volumes ONTAP und BlueXP ein Jahresvertrag abschließen. Mit dieser Option können Sie Backups von Daten vor Ort nicht erstellen.
 
@@ -142,8 +142,8 @@ Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Se
 Zudem benötigen Sie ein AWS-Konto für den Speicherplatz, auf dem sich Ihre Backups befinden.
 
 --
-Unterstützte AWS-Regionen:: BlueXP Backup und Recovery wird in allen AWS Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^].
-AWS Backup Berechtigungen erforderlich:: Die IAM-Rolle, die BlueXP Berechtigungen bereitstellt, muss die neuesten S3-Berechtigungen enthalten https://mysupport.netapp.com/site/info/cloud-manager-policies["BlueXP-Richtlinie"^].
+Unterstützte AWS-Regionen:: BlueXP Backup und Recovery wird in allen AWS Regionen unterstützt https://["Wobei Cloud Volumes ONTAP unterstützt wird"^].
+AWS Backup Berechtigungen erforderlich:: Die IAM-Rolle, die BlueXP Berechtigungen bereitstellt, muss die neuesten S3-Berechtigungen enthalten https://["BlueXP-Richtlinie"^].
 +
 --
 Im Folgenden sind die spezifischen S3 Berechtigungen aus der Richtlinie aufgeführt:

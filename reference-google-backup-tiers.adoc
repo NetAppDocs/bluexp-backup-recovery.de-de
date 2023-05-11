@@ -26,7 +26,7 @@ Wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet, können Sie nac
 
 Wenn Sie BlueXP Backup und Recovery mit dieser Lebenszyklusregel konfigurieren, dürfen Sie beim Einrichten des Buckets in Ihrem Google-Konto keine Lebenszyklusregeln konfigurieren.
 
-https://cloud.google.com/storage/docs/storage-classes["Erfahren Sie mehr über Google Speicherklassen"^].
+https://["Erfahren Sie mehr über Google Speicherklassen"^].
 
 
 
@@ -34,7 +34,7 @@ https://cloud.google.com/storage/docs/storage-classes["Erfahren Sie mehr über G
 
 Das Speichern älterer Backup-Dateien im Archiv-Storage ist viel kostengünstiger als Standard-Storage. Der Zugriff auf Daten von einer Backup-Datei im Archiv-Storage für Wiederherstellungsvorgänge dauert etwas länger und kostet mehr Geld.
 
-Wie viel kostet es, Daten aus dem Google-Archiv wiederherzustellen?:: Detaillierte Google Cloud Storage Preise nach Region finden Sie im https://cloud.google.com/storage/pricing["Preise für Google Cloud Storage"^].
+Wie viel kostet es, Daten aus dem Google-Archiv wiederherzustellen?:: Detaillierte Google Cloud Storage Preise nach Region finden Sie im https://["Preise für Google Cloud Storage"^].
 Wie lange dauert es, meine im Google-Archiv archivierten Objekte wiederherzustellen?:: Es gibt zwei Teile, aus denen sich die gesamte Wiederherstellungszeit ergibt:
 +
 --

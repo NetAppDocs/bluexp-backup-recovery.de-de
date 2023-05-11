@@ -33,7 +33,7 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 
 * Sie verfügen über ein gültiges Cloud-Provider-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
-* Sie haben sich für das angemeldet https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"^] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
+* Sie haben sich für das angemeldet https://["BlueXP Marketplace Backup-Angebot"^], Oder Sie haben gekauft link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Und aktiviert"^] Eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp.
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] BlueXP Backup und Recovery auf Ihrem vorhandenen Kubernetes-Cluster aktivieren
@@ -69,8 +69,8 @@ Beachten Sie, dass der private Endpunkt optional ist.
 Kubernetes-Cluster-Anforderungen::
 +
 --
-* Sie haben den Kubernetes Cluster als BlueXP-Arbeitsumgebung erkannt. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html["Erkennung des Kubernetes-Clusters"^].
-* Trident muss auf dem Cluster installiert werden, und die Trident Version muss mindestens 21.1 sein. Siehe https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["Anleitung zur Installation von Trident"^] Oder https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["So aktualisieren Sie die Trident Version"^].
+* Sie haben den Kubernetes Cluster als BlueXP-Arbeitsumgebung erkannt. https://["Erkennung des Kubernetes-Clusters"^].
+* Trident muss auf dem Cluster installiert werden, und die Trident Version muss mindestens 21.1 sein. Siehe https://["Anleitung zur Installation von Trident"^] Oder https://["So aktualisieren Sie die Trident Version"^].
 * Der Cluster muss für seinen Back-End Storage Cloud Volumes ONTAP on Azure verwenden.
 * Das Cloud Volumes ONTAP System muss sich in derselben Azure Region wie der Kubernetes Cluster befinden. Es muss ONTAP 9.7P5 oder höher ausgeführt werden (ONTAP 9.8P11 und höher wird empfohlen).
 +
@@ -129,7 +129,7 @@ spec:
 
 
 --
-Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist vor der Aktivierung von BlueXP Backup und Recovery ein Abonnement über den Azure Marketplace erforderlich. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Sie können sich auf der Seite Details  Credentials des Assistenten für die Arbeitsumgebung anmelden"^].
+Lizenzanforderungen:: Für die PAYGO-Lizenzierung für BlueXP Backup und Recovery ist vor der Aktivierung von BlueXP Backup und Recovery ein Abonnement über den Azure Marketplace erforderlich. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement. https://["Sie können sich auf der Seite Details  Credentials des Assistenten für die Arbeitsumgebung anmelden"^].
 +
 --
 Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Seriennummer von NetApp, anhand derer Sie den Service für die Dauer und Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
@@ -137,7 +137,7 @@ Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Se
 Darüber hinaus benötigen Sie ein Microsoft Azure-Abonnement für den Speicherplatz, auf dem sich Ihre Backups befinden.
 
 --
-Unterstützte Azure Regionen:: BlueXP Backup und Recovery wird in allen Azure Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^].
+Unterstützte Azure Regionen:: BlueXP Backup und Recovery wird in allen Azure Regionen unterstützt https://["Wobei Cloud Volumes ONTAP unterstützt wird"^].
 
 
 

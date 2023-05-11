@@ -227,6 +227,6 @@ Die CA-Dateien sollten im pem-Format vorliegen.
 
 == Zugriff auf REST-APIs
 
-Die REST-APIs zum Schutz der Applikationen in der Cloud sind verfügbar unter: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/[].
+Die REST-APIs zum Schutz der Applikationen in der Cloud sind verfügbar unter: https://[].
 
-Sie sollten das Benutzer-Token mit gebündelter Authentifizierung erhalten, um auf DIE REST-APIs zuzugreifen. Informationen zum Abrufen des Benutzer-Tokens finden Sie unter https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["Erstellen Sie ein Benutzer-Token mit gebündelter Authentifizierung"].
+Sie sollten das Benutzer-Token mit gebündelter Authentifizierung erhalten, um auf DIE REST-APIs zuzugreifen. Informationen zum Abrufen des Benutzer-Tokens finden Sie unter https://["Erstellen Sie ein Benutzer-Token mit gebündelter Authentifizierung"].
