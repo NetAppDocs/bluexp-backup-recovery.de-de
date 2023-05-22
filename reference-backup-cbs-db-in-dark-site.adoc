@@ -72,7 +72,7 @@ docker cp ds_mysql_1:/mysql.dump.cloud_backup.sql .
 
 Der indexierte Katalog wird für die Such- und Wiederherstellungsfunktion verwendet. Es enthält Informationen über jedes Volume und jede Backup-Datei, sodass Ihre Suchvorgänge bei der Suche nach Volume-Daten, die wiederhergestellt werden sollen, sehr schnell und effizient sind.
 
-. Ändern Sie auf dem Connector-Host-System das Verzeichnis in „/tmp“.
+. Ändern Sie das Verzeichnis auf dem Connector-Host-System in „/opt/Application/netapp/cbs“.
 . Suchen Sie den Ordner Index Catalog. Es beginnt mit der Zeichenfolge *catalog*.
 . Zippen Sie den Ordner „Catalog<_xxxxxx_>“, indem Sie den folgenden Befehl eingeben:
 +
@@ -158,7 +158,7 @@ mysql> select * from volume;
 
 === Stellen Sie die indizierten Katalogdateien wieder her
 
-. Kopieren Sie die Zip-Datei für die Indexsicherung vom sicheren Speicherort auf den neuen Connector-Host im Ordner „/tmp“.
+. Kopieren Sie die ZIP-Datei des indizierten Katalogs vom sicheren Speicherort auf den neuen Connector-Host im Ordner „/opt/Application/netapp/cbs“.
 . Entpacken Sie die Datei „catalogxxxxxx.zip“ mit folgendem Befehl:
 +
 [source, cli]
