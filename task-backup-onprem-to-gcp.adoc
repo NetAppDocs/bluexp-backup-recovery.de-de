@@ -26,7 +26,7 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Überprüfen Sie die Unterstützung Ihrer Konfiguration
 [role="quick-margin-list"]
-* Sie haben den On-Premises-Cluster erkannt und als Arbeitsumgebung in BlueXP hinzugefügt. Siehe https://["Erkennung von ONTAP Clustern"^] Entsprechende Details.
+* Sie haben den On-Premises-Cluster erkannt und als Arbeitsumgebung in BlueXP hinzugefügt. Siehe https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Erkennung von ONTAP Clustern"^] Entsprechende Details.
 +
 ** Auf dem Cluster wird ONTAP 9.7P5 oder höher ausgeführt (ONTAP 9.8P13 und höher wird empfohlen).
 ** Das Cluster verfügt über eine SnapMirror Lizenz – es ist im Premium Bundle oder in der Datensicherungs-Bundle enthalten.
@@ -92,7 +92,7 @@ image:diagram_cloud_backup_onprem_gcp_private.png["Ein Diagramm, das die Kommuni
 
 Bevor Sie mit dem Backup von Volume-Daten beginnen können, müssen Sie die ONTAP Cluster vor Ort in BlueXP ermitteln.
 
-https://["Entdecken Sie ein Cluster"^].
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Entdecken Sie ein Cluster"^].
 
 ONTAP-Anforderungen erfüllt::
 +
@@ -103,11 +103,11 @@ ONTAP-Anforderungen erfüllt::
 *Hinweis:* das „Hybrid Cloud Bundle“ ist bei Backup und Recovery von BlueXP nicht erforderlich.
 
 +
-Informieren Sie sich darüber https://["Management Ihrer Cluster-Lizenzen"^].
+Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Management Ihrer Cluster-Lizenzen"^].
 
 * Zeit und Zeitzone sind korrekt eingestellt.
 +
-Informieren Sie sich darüber https://["Konfigurieren Sie die Cluster-Zeit"^].
+Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["Konfigurieren Sie die Cluster-Zeit"^].
 
 
 
@@ -120,12 +120,12 @@ Netzwerkanforderungen für Cluster::
 ONTAP liest und schreibt Daten auf und aus dem Objekt-Storage. Objekt-Storage startet nie, er reagiert einfach nur.
 
 * ONTAP erfordert eine eingehende Verbindung vom Connector zur Cluster-Management-LIF. Der Connector kann in einer Google Cloud Platform VPC residieren.
-* Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten. Die LIF muss dem _IPspace_ zugewiesen sein, den ONTAP zur Verbindung mit Objekt-Storage verwenden sollte. https://["Erfahren Sie mehr über IPspaces"^].
+* Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten. Die LIF muss dem _IPspace_ zugewiesen sein, den ONTAP zur Verbindung mit Objekt-Storage verwenden sollte. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Erfahren Sie mehr über IPspaces"^].
 +
 Wenn Sie BlueXP Backup und Recovery einrichten, werden Sie aufgefordert, den IPspace zu verwenden. Sie sollten den IPspace auswählen, dem jede LIF zugeordnet ist. Dies kann der „Standard“-IPspace oder ein benutzerdefinierter IPspace sein, den Sie erstellt haben.
 
 * Die Intercluster-LIFs der Nodes können auf den Objektspeicher zugreifen.
-* DNS-Server wurden für die Storage-VM konfiguriert, auf der sich die Volumes befinden. Informieren Sie sich darüber https://["Konfigurieren Sie DNS-Services für die SVM"^].
+* DNS-Server wurden für die Storage-VM konfiguriert, auf der sich die Volumes befinden. Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["Konfigurieren Sie DNS-Services für die SVM"^].
 +
 Wenn Sie privaten Google Access oder Private Service Connect verwenden, stellen Sie sicher, dass Ihre DNS-Server so konfiguriert wurden, dass sie Punkt `storage.googleapis.com` An die richtige interne (private) IP-Adresse.
 
@@ -142,8 +142,8 @@ Wenn Sie privaten Google Access oder Private Service Connect verwenden, stellen 
 
 Wenn Sie bereits einen Connector in Ihrer Google Cloud Platform VPC implementiert haben, sind Sie alle festgelegt. Falls nicht, müssen Sie an diesem Standort einen Connector erstellen, um ONTAP Daten in Google Cloud Storage zu sichern. Es kann kein Connector verwendet werden, der bei einem anderen Cloud-Provider oder vor Ort implementiert wird.
 
-* https://["Erfahren Sie mehr über Steckverbinder"^]
-* https://["Installieren eines Steckers in GCP"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-google.html["Installieren eines Steckers in GCP"^]
 
 
 
@@ -155,11 +155,11 @@ Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindu
 .Schritte
 . Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 +
-** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem Google Cloud Storage (https://["Siehe die Liste der Endpunkte"^])
+** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem Google Cloud Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
 ** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
 
 
-. Aktivieren Sie den privaten Google-Zugang (oder Private Service Connect) im Subnetz, in dem Sie den Connector bereitstellen möchten. https://["Privater Zugriff Auf Google"^] Oder https://["Private Service Connect"^] Sind erforderlich, wenn Sie eine direkte Verbindung von Ihrem ONTAP Cluster zur VPC haben und Sie die Kommunikation zwischen dem Connector und Google Cloud Storage in Ihrem virtuellen privaten Netzwerk (eine *private* Verbindung) wünschen.
+. Aktivieren Sie den privaten Google-Zugang (oder Private Service Connect) im Subnetz, in dem Sie den Connector bereitstellen möchten. https://cloud.google.com/vpc/docs/configure-private-google-access["Privater Zugriff Auf Google"^] Oder https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises["Private Service Connect"^] Sind erforderlich, wenn Sie eine direkte Verbindung von Ihrem ONTAP Cluster zur VPC haben und Sie die Kommunikation zwischen dem Connector und Google Cloud Storage in Ihrem virtuellen privaten Netzwerk (eine *private* Verbindung) wünschen.
 +
 Befolgen Sie die Anweisungen von Google, um diese privaten Zugangsoptionen einzurichten. Stellen Sie sicher, dass Ihre DNS-Server so konfiguriert wurden `www.googleapis.com` Und `storage.googleapis.com` An die korrekten internen (privaten) IP-Adressen.
 
@@ -172,7 +172,7 @@ Befolgen Sie die Anweisungen von Google, um diese privaten Zugangsoptionen einzu
 Um die „Suchen & Wiederherstellen“-Funktion von BlueXP für Backup und Recovery nutzen zu können, müssen Sie in der Rolle für den Connector bestimmte Berechtigungen besitzen, damit dieser auf den Google Cloud BigQuery Service zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 
 .Schritte
-. Im https://["Google Cloud Console"^], Gehen Sie zur Seite *Rollen*.
+. Im https://console.cloud.google.com["Google Cloud Console"^], Gehen Sie zur Seite *Rollen*.
 . Wählen Sie in der Dropdown-Liste oben auf der Seite das Projekt oder die Organisation aus, das die Rolle enthält, die Sie bearbeiten möchten.
 . Klicken Sie auf eine benutzerdefinierte Rolle.
 . Klicken Sie auf *Rolle bearbeiten*, um die Berechtigungen der Rolle zu aktualisieren.
@@ -201,8 +201,8 @@ bigquery.tables.create
 Wenn Sie ein Backup einrichten, müssen Sie Storage-Zugriffschlüssel für ein Servicekonto mit bestimmten Berechtigungen bereitstellen. Ein Servicekonto ermöglicht BlueXP Backup und Recovery für Authentifizierung und Zugriff auf Cloud Storage Buckets, die für das Speichern von Backups verwendet werden. Die Schlüssel sind erforderlich, damit Google Cloud Storage weiß, wer die Anfrage stellt.
 
 .Schritte
-. Im https://["Google Cloud Console"^], Gehen Sie zur Seite *Rollen*.
-. https://["Erstellen Sie eine neue Rolle"^] Mit folgenden Berechtigungen:
+. Im https://console.cloud.google.com["Google Cloud Console"^], Gehen Sie zur Seite *Rollen*.
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["Erstellen Sie eine neue Rolle"^] Mit folgenden Berechtigungen:
 +
 [source, json]
 ----
@@ -219,7 +219,7 @@ storage.objects.get
 storage.objects.list
 storage.objects.update
 ----
-. In der Google Cloud Konsole https://["Rufen Sie die Seite Servicekonten auf"^].
+. In der Google Cloud Konsole https://console.cloud.google.com/iam-admin/serviceaccounts["Rufen Sie die Seite Servicekonten auf"^].
 . Wählen Sie Ihr Cloud-Projekt aus.
 . Klicken Sie auf *Servicekonto erstellen* und geben Sie die erforderlichen Informationen an:
 +
@@ -228,7 +228,7 @@ storage.objects.update
 .. Klicken Sie Auf *Fertig*.
 
 
-. Gehen Sie zu https://["GCP-Speichereinstellungen"^] Außerdem Zugriffsschlüssel für das Servicekonto erstellen:
+. Gehen Sie zu https://console.cloud.google.com/storage/settings["GCP-Speichereinstellungen"^] Außerdem Zugriffsschlüssel für das Servicekonto erstellen:
 +
 .. Wählen Sie ein Projekt aus, und klicken Sie auf *Interoperabilität*. Falls Sie dies noch nicht getan haben, klicken Sie auf *Interoperabilitätszugriff aktivieren*.
 .. Klicken Sie unter *Zugriffsschlüssel für Servicekonten* auf *Schlüssel für ein Servicekonto erstellen*, wählen Sie das gerade erstellte Servicekonto aus und klicken Sie auf *Schlüssel erstellen*.
@@ -245,7 +245,7 @@ Beim Konfigurieren des Backup-Service müssen Sie die Schlüssel zu einem späte
 
 Sie können Ihre eigenen, von Kunden gemanagten Schlüssel zur Datenverschlüsselung verwenden, statt die von Google standardmäßig gemanagten Verschlüsselungsschlüssel zu verwenden. Sowohl regionsübergreifende als auch projektübergreifende Schlüssel werden unterstützt, sodass Sie ein Projekt für einen Bucket auswählen können, der sich vom Projekt des CMEK-Schlüssels unterscheidet. Wenn Sie planen, Ihre eigenen kundenverwalteten Schlüssel zu verwenden:
 
-* Sie benötigen den Schlüsselring und den Schlüsselnamen, damit Sie diese Informationen im Aktivierungsassistenten hinzufügen können. https://["Erfahren Sie mehr über vom Kunden verwaltete Verschlüsselungsschlüssel"^].
+* Sie benötigen den Schlüsselring und den Schlüsselnamen, damit Sie diese Informationen im Aktivierungsassistenten hinzufügen können. https://cloud.google.com/kms/docs/cmek["Erfahren Sie mehr über vom Kunden verwaltete Verschlüsselungsschlüssel"^].
 * Sie müssen überprüfen, ob diese erforderlichen Berechtigungen in der Rolle für den Connector enthalten sind:
 +
 [source, json]
@@ -259,7 +259,7 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 ----
-* Sie müssen überprüfen, ob die Google API „Cloud Key Management Service (KMS)“ in Ihrem Projekt aktiviert ist. Siehe https://["Google Cloud-Dokumentation: Aktivieren von APIs"] Entsprechende Details.
+* Sie müssen überprüfen, ob die Google API „Cloud Key Management Service (KMS)“ in Ihrem Projekt aktiviert ist. Siehe https://cloud.google.com/apis/docs/getting-started#enabling_apis["Google Cloud-Dokumentation: Aktivieren von APIs"] Entsprechende Details.
 
 
 *CMEK-Überlegungen:*
@@ -277,13 +277,13 @@ cloudkms.keyRings.setIamPolicy
 
 * Bevor Sie BlueXP Backup und Recovery für Ihr Cluster aktivieren können, müssen Sie entweder ein PAYGO-Angebot (Pay-as-you-go) für BlueXP Marketplace von Google abonnieren oder eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp erwerben und aktivieren. Diese Lizenzen sind für Ihr Konto und können für mehrere Systeme verwendet werden.
 +
-** Für die BlueXP PAYGO-Lizenzierung für Backup und Recovery benötigen Sie ein Abonnement des https://["NetApp BlueXP Angebot über Google Marketplace"^]. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
+** Für die BlueXP PAYGO-Lizenzierung für Backup und Recovery benötigen Sie ein Abonnement des https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["NetApp BlueXP Angebot über Google Marketplace"^]. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
 ** Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Seriennummer von NetApp, anhand derer Sie den Service für die Dauer und Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 
 
 * Sie benötigen ein Google-Abonnement für den Objekt-Speicherplatz, in dem Ihre Backups gespeichert werden.
 +
-Backups von On-Premises-Systemen in Google Cloud Storage lassen sich in allen Regionen erstellen https://["Wobei Cloud Volumes ONTAP unterstützt wird"^]. Sie geben die Region an, in der Backups beim Einrichten des Dienstes gespeichert werden sollen.
+Backups von On-Premises-Systemen in Google Cloud Storage lassen sich in allen Regionen erstellen https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]. Sie geben die Region an, in der Backups beim Einrichten des Dienstes gespeichert werden sollen.
 
 
 
@@ -308,7 +308,7 @@ image:screenshot_backup_onprem_enable.png["Ein Screenshot, der die Schaltfläche
 .. Der Google-Zugriffsschlüssel und der geheime Schlüssel zum Speichern der Backups.
 .. Der Google-Bereich, in dem die Backups gespeichert werden.
 .. Der IPspace im ONTAP Cluster, in dem sich die Volumes, die Sie sichern möchten, befinden. Die Intercluster-LIFs für diesen IPspace müssen über Outbound-Internetzugang verfügen.
-.. Unabhängig davon, ob Sie den von Google gemanagten Standardschlüssel verwenden oder Ihren eigenen, vom Kunden gemanagten Schlüssel zum Management der Verschlüsselung Ihrer Daten wählen möchten. Um einen CMEK zu verwenden, müssen Sie den Schlüsselring und den Schlüsselnamen haben. https://["Erfahren Sie mehr über vom Kunden verwaltete Verschlüsselungsschlüssel"^].
+.. Unabhängig davon, ob Sie den von Google gemanagten Standardschlüssel verwenden oder Ihren eigenen, vom Kunden gemanagten Schlüssel zum Management der Verschlüsselung Ihrer Daten wählen möchten. Um einen CMEK zu verwenden, müssen Sie den Schlüsselring und den Schlüsselnamen haben. https://cloud.google.com/kms/docs/cmek["Erfahren Sie mehr über vom Kunden verwaltete Verschlüsselungsschlüssel"^].
 +
 image:screenshot_backup_onprem_to_google.png["In diesem Screenshot werden die Details des Cloud-Providers angezeigt, wenn ein Backup von Volumes aus einem lokalen Cluster in Google Cloud Storage erstellt wird."]
 

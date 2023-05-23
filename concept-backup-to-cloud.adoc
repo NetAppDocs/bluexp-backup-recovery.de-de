@@ -20,7 +20,7 @@ Der Service führt eine dauerhaft inkrementelle Replizierung auf Blockebene durc
 
 Bei Bedarf können Sie ein ganzes _Volume_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherstellen. Beim Backup von ONTAP-Daten können Sie auch auswählen, eine oder mehrere _Dateien_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherzustellen.
 
-https://["Erfahren Sie mehr über Backup und Recovery von BlueXP"^].
+https://bluexp.netapp.com/cloud-backup["Erfahren Sie mehr über Backup und Recovery von BlueXP"^].
 
 Backup und Recovery können für folgende Zwecke genutzt werden:
 
@@ -30,7 +30,7 @@ Backup und Recovery können für folgende Zwecke genutzt werden:
 * Erstellen Sie Backups von Datastores in der Cloud und stellen Sie Virtual Machines wieder in lokales vCenter mithilfe von BlueXP Backup und Recovery für VMware wieder her. link:concept-protect-vm-data.html["Detaillierte Funktionen finden Sie hier"].
 
 
-https://["Sehen Sie sich eine kurze Demo an"^]
+https://www.youtube.com/watch?v=DF0knrH2a80["Sehen Sie sich eine kurze Demo an"^]
 
 
 TIP: Wenn der BlueXP Connector in einer Regierungsregion in der Cloud oder an einem Standort ohne Internetzugang (einem Dark Site) implementiert wird, unterstützt BlueXP Backup und Recovery nur Backup- und Restore-Vorgänge aus ONTAP Systemen. Wenn Sie diese Implementierungsmethoden verwenden, unterstützt das BlueXP Backup und Recovery Backup- und Restore-Vorgänge von Kubernetes-Clustern, Applikationen oder Virtual Machines nicht.
@@ -53,14 +53,14 @@ Backup-Kopien werden in einem Objektspeicher gespeichert, den BlueXP in Ihrem Cl
 
 ifdef::aws[]
 
-* In AWS ermöglicht BlueXP das https://["Amazon S3 Block – Public Access-Funktion"^] Auf dem S3-Bucket.
+* In AWS ermöglicht BlueXP das https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 Block – Public Access-Funktion"^] Auf dem S3-Bucket.
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* In Azure verwendet BlueXP eine neue oder vorhandene Ressourcengruppe mit einem Storage-Konto für den Blob-Container. BlueXP https://["Blockiert den öffentlichen Zugriff auf Ihre BLOB-Daten"] Standardmäßig.
+* In Azure verwendet BlueXP eine neue oder vorhandene Ressourcengruppe mit einem Storage-Konto für den Blob-Container. BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["Blockiert den öffentlichen Zugriff auf Ihre BLOB-Daten"] Standardmäßig.
 
 
 endif::azure[]
@@ -92,6 +92,6 @@ Die Startzeit ist auf der Zeitzone basiert, die auf jedem ONTAP Quell-System ein
 
 === Backup-Kopien sind mit Ihrem NetApp Konto verknüpft
 
-Backup-Kopien sind dem zugewiesen https://["NetApp Konto"^] In der sich der BlueXP Connector befindet.
+Backup-Kopien sind dem zugewiesen https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["NetApp Konto"^] In der sich der BlueXP Connector befindet.
 
 Wenn Sie mehrere Connectors in demselben NetApp Konto haben, zeigt jeder Connector die gleiche Liste von Backups an. Dazu gehören auch die Backups, die mit Cloud Volumes ONTAP und lokalen ONTAP-Instanzen von anderen Connectors verbunden sind.

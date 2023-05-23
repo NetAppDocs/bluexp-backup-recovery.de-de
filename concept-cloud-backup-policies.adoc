@@ -55,9 +55,9 @@ BlueXP Backup und Recovery bietet Unterstützung für DataLock und Ransomware-Sc
 
 Beide Funktionen schützen Ihre Backup-Dateien, sodass Sie bei einem Ransomware-Angriff auf Ihre Backups immer über eine gültige Backup-Datei verfügen, von der Sie Daten wiederherstellen können. Darüber hinaus hilft es bei der Einhaltung bestimmter gesetzlicher Vorgaben, bei denen Backups für einen bestimmten Zeitraum gesperrt und aufbewahrt werden müssen. Wenn DataLock und Ransomware Protection aktiviert ist, sind für den Cloud-Bucket, der als Teil der Backup- und Recovery-Aktivierung von BlueXP bereitgestellt wird, Objektsperrung und Objektversionierung aktiviert.
 
-https://["Weitere Informationen finden Sie im Blog zum Schutz von DataLock und Ransomware"^].
+https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Weitere Informationen finden Sie im Blog zum Schutz von DataLock und Ransomware"^].
 
-Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für die Backups dieser Quell-Volumes. Mit NetApp https://["Cloud Insights und Cloud Secure"^], Oder einige der https://["Ransomware-Schutz durch ONTAP"^] Um Ihre Quell-Volumes zu schützen.
+Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für die Backups dieser Quell-Volumes. Mit NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["Cloud Insights und Cloud Secure"^], Oder einige der https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["Ransomware-Schutz durch ONTAP"^] Um Ihre Quell-Volumes zu schützen.
 
 [CAUTION]
 ====
@@ -233,7 +233,7 @@ ifdef::aws[]
 *** s3:GetBucketLocation
 *** s3:GetObjectVersion
 +
-https://["Zeigen Sie das vollständige JSON-Format für die Richtlinie an, in der Sie erforderliche Berechtigungen kopieren und einfügen können"^].
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["Zeigen Sie das vollständige JSON-Format für die Richtlinie an, in der Sie erforderliche Berechtigungen kopieren und einfügen können"^].
 
 
 

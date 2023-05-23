@@ -40,6 +40,6 @@ SnapCenter unterstützt die Wiederherstellung von Oracle und HANA Backups auf ei
 
 Dieser Vorgang bindet nur den Storage auf dem angegebenen Host ein. Sie sollten das Dateisystem manuell mounten und die Datenbank aufrufen. Nach der Nutzung des Volumes kann der Speicheradministrator das Volume aus dem ONTAP-Cluster löschen.
 
-* Informationen zum Einrichten der Oracle-Datenbank finden Sie unter: https://["Knowledge Base-Artikel"].
-* Weitere Informationen zum Einrichten der SAP HANA-Datenbank finden Sie unter: https://["TR-4667: Überblick über den Workflow von SAP Systemkopien mit SnapCenter"^] Und https://["TR-4667: Überblick über den Workflow des SAP-Systemklons mit SnapCenter"^].
+* Informationen zum Einrichten der Oracle-Datenbank finden Sie unter: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["Knowledge Base-Artikel"].
+* Weitere Informationen zum Einrichten der SAP HANA-Datenbank finden Sie unter: https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html["TR-4667: Überblick über den Workflow von SAP Systemkopien mit SnapCenter"^] Und https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html["TR-4667: Überblick über den Workflow des SAP-Systemklons mit SnapCenter"^].
 

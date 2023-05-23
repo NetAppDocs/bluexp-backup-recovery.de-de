@@ -23,7 +23,7 @@ Sie können eine Aktualisierung eines SAP HANA-Zielsystems mit den Daten eines S
 * Stellen Sie sicher, dass die SAP HANA-Datenbankversion auf dem Quell- und Zielsystem identisch ist.
 * Sie sollten sich für die zu verwendenden Refresh-Skripte entschieden haben. Die Aktualisierungsskripts sind im technischen Bericht zur Lösung verfügbar.
 +
-https://["Beispielskripte zur Automatisierung"]
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-automation-example-scripts.html#script-sc-system-refresh-sh["Beispielskripte zur Automatisierung"]
 
 +
 Sie können die Aktualisierungsskripts anpassen.

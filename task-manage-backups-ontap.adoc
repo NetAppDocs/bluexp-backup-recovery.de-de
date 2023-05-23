@@ -220,7 +220,7 @@ Der Backup-Name enthält den Zeitstempel, sodass Sie Ihr On-Demand Backup aus an
 
 Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery für diesen Cluster _DataLock und Ransomware-Schutz_ aktiviert haben, wird das On-Demand-Backup auch mit DataLock konfiguriert, und die Aufbewahrungsfrist beträgt 30 Tage. Ransomware-Scans werden für Ad-hoc-Backups nicht unterstützt. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über DataLock und Ransomware-Schutz"^].
 
-Beachten Sie, dass beim Erstellen eines Ad-hoc-Backups ein Snapshot auf dem Quell-Volume erstellt wird. Da dieser Snapshot nicht Teil eines normalen Snapshot-Zeitplans ist, wird er nicht rotiert. Nach Abschluss des Backups kann dieser Snapshot manuell vom Quell-Volume gelöscht werden. Dadurch werden Blöcke freigegeben, die mit diesem Snapshot verbunden sind. Der Name des Snapshots beginnt mit `cbs-snapshot-adhoc-`. https://["Informationen zum Löschen eines Snapshots mit der ONTAP-CLI finden Sie unter"^].
+Beachten Sie, dass beim Erstellen eines Ad-hoc-Backups ein Snapshot auf dem Quell-Volume erstellt wird. Da dieser Snapshot nicht Teil eines normalen Snapshot-Zeitplans ist, wird er nicht rotiert. Nach Abschluss des Backups kann dieser Snapshot manuell vom Quell-Volume gelöscht werden. Dadurch werden Blöcke freigegeben, die mit diesem Snapshot verbunden sind. Der Name des Snapshots beginnt mit `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Informationen zum Löschen eines Snapshots mit der ONTAP-CLI finden Sie unter"^].
 
 
 NOTE: Volume-Backups werden auf Datensicherungs-Volumes nicht unterstützt.
@@ -367,7 +367,7 @@ Das Quell-Volume muss nicht unbedingt gelöscht werden. Sie können die Backup-B
 
 Diese Funktion ist nur verfügbar, wenn Ihr System ONTAP 9.12.1 oder höher ausführt.
 
-Das Quell-Volume kann nicht von der BlueXP Backup- und Recovery-Benutzeroberfläche gelöscht werden. Sie können jedoch die Seite Volume Details auf dem Bildschirm öffnen, und https://["Löschen Sie das Volume von dort"].
+Das Quell-Volume kann nicht von der BlueXP Backup- und Recovery-Benutzeroberfläche gelöscht werden. Sie können jedoch die Seite Volume Details auf dem Bildschirm öffnen, und https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Löschen Sie das Volume von dort"].
 
 
 NOTE: Sie können einzelne Sicherungsdateien des Volumes nicht löschen, sobald die Beziehung gelöscht wurde. Sie können es jedoch link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["Löschen Sie alle Backups für das Volume"] Wenn Sie alle Sicherungsdateien entfernen möchten.

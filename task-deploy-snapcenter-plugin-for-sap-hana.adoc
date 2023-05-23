@@ -46,7 +46,7 @@ Wenn der Connector verloren geht oder Sie einen neuen Connector erstellt haben, 
 
 
 
-NOTE: Wenn die Konnektivität vom BlueXP Connector-Host zum Applikations-Host ausfällt, finden Sie weitere Informationen unter https://["Knowledge Base-Artikel"^] Zur Information.
+NOTE: Wenn die Konnektivität vom BlueXP Connector-Host zum Applikations-Host ausfällt, finden Sie weitere Informationen unter https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host["Knowledge Base-Artikel"^] Zur Information.
 
 
 

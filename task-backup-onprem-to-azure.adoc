@@ -26,7 +26,7 @@ Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den ve
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Überprüfen Sie die Unterstützung Ihrer Konfiguration
 [role="quick-margin-list"]
-* Sie haben den lokalen Cluster erkannt und zu einer Arbeitsumgebung in BlueXP hinzugefügt. Siehe https://["Erkennung von ONTAP Clustern"^] Entsprechende Details.
+* Sie haben den lokalen Cluster erkannt und zu einer Arbeitsumgebung in BlueXP hinzugefügt. Siehe https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Erkennung von ONTAP Clustern"^] Entsprechende Details.
 +
 ** Auf dem Cluster wird ONTAP 9.7P5 oder höher ausgeführt (ONTAP 9.8P13 und höher wird empfohlen).
 ** Das Cluster verfügt über eine SnapMirror Lizenz – es ist im Premium Bundle oder in der Datensicherungs-Bundle enthalten.
@@ -101,7 +101,7 @@ image:diagram_cloud_backup_onprem_azure_private.png["Diagramm, das die Kommunika
 
 Bevor Sie mit dem Backup von Volume-Daten beginnen können, müssen Sie die ONTAP Cluster vor Ort in BlueXP ermitteln.
 
-https://["Entdecken Sie ein Cluster"^].
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Entdecken Sie ein Cluster"^].
 
 ONTAP-Anforderungen erfüllt::
 +
@@ -112,11 +112,11 @@ ONTAP-Anforderungen erfüllt::
 *Hinweis:* das „Hybrid Cloud Bundle“ ist bei Backup und Recovery von BlueXP nicht erforderlich.
 
 +
-Informieren Sie sich darüber https://["Management Ihrer Cluster-Lizenzen"^].
+Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Management Ihrer Cluster-Lizenzen"^].
 
 * Zeit und Zeitzone sind korrekt eingestellt.
 +
-Informieren Sie sich darüber https://["Konfigurieren Sie die Cluster-Zeit"^].
+Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["Konfigurieren Sie die Cluster-Zeit"^].
 
 
 
@@ -129,12 +129,12 @@ Netzwerkanforderungen für Cluster::
 ONTAP liest und schreibt Daten auf und aus dem Objekt-Storage. Objekt-Storage startet nie, er reagiert einfach nur.
 
 * ONTAP erfordert eine eingehende Verbindung vom Connector zur Cluster-Management-LIF. Der Connector kann in einem Azure vnet residieren.
-* Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten. Die LIF muss dem _IPspace_ zugewiesen sein, den ONTAP zur Verbindung mit Objekt-Storage verwenden sollte. https://["Erfahren Sie mehr über IPspaces"^].
+* Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten. Die LIF muss dem _IPspace_ zugewiesen sein, den ONTAP zur Verbindung mit Objekt-Storage verwenden sollte. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Erfahren Sie mehr über IPspaces"^].
 +
 Wenn Sie BlueXP Backup und Recovery einrichten, werden Sie aufgefordert, den IPspace zu verwenden. Sie sollten den IPspace auswählen, dem jede LIF zugeordnet ist. Dies kann der „Standard“-IPspace oder ein benutzerdefinierter IPspace sein, den Sie erstellt haben.
 
 * Die LIFs der Nodes und Intercluster können auf den Objektspeicher zugreifen.
-* DNS-Server wurden für die Storage-VM konfiguriert, auf der sich die Volumes befinden. Informieren Sie sich darüber https://["Konfigurieren Sie DNS-Services für die SVM"^].
+* DNS-Server wurden für die Storage-VM konfiguriert, auf der sich die Volumes befinden. Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["Konfigurieren Sie DNS-Services für die SVM"^].
 * Wenn Sie einen anderen IPspace als den Standard verwenden, müssen Sie möglicherweise eine statische Route erstellen, um Zugriff auf den Objekt-Storage zu erhalten.
 * Aktualisieren Sie bei Bedarf die Firewall-Regeln, um BlueXP Backup- und Recovery-Serviceverbindungen von ONTAP zum Objekt-Storage über Port 443 und Datenverkehr der Namensauflösung von der Storage-VM zum DNS-Server über Port 53 (TCP/UDP) zu ermöglichen.
 
@@ -148,10 +148,10 @@ Wenn Sie BlueXP Backup und Recovery einrichten, werden Sie aufgefordert, den IPs
 
 Falls Sie bereits einen Connector in Ihrem Azure vnet oder Ihrem Standort implementiert haben, sind Sie alle bereit. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP Daten in Azure Blob Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.
 
-* https://["Erfahren Sie mehr über Steckverbinder"^]
-* https://["Installieren eines Connectors in Azure"^]
-* https://["Installieren eines Connectors in Ihrem Haus"^]
-* https://["Installieren eines Konnektors in einer Region der Azure-Regierung"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["Installieren eines Connectors in Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["Installieren eines Connectors in Ihrem Haus"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["Installieren eines Konnektors in einer Region der Azure-Regierung"^]
 +
 BlueXP Backup und Recovery werden in Azure Government Regionen unterstützt, wenn der Connector in der Cloud bereitgestellt wird – und nicht dann, wenn er an Ihrem Standort installiert ist. Darüber hinaus müssen Sie den Connector über den Azure Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.
 
@@ -166,10 +166,10 @@ Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindu
 .Schritte
 . Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 +
-** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem Blob Objekt-Storage (https://["Siehe die Liste der Endpunkte"^])
+** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem Blob Objekt-Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
 ** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
 ** Damit die Such- und Restore-Funktion von BlueXP für Backup und Recovery funktioniert, muss Port 1433 für die Kommunikation zwischen dem Connector und den Azure Synapse SQL-Services offen sein.
-** Für Implementierungen von Azure und Azure Government sind weitere Regeln für eingehende Sicherheitsgruppen erforderlich. Siehe https://["Regeln für den Connector in Azure"^] Entsprechende Details.
+** Für Implementierungen von Azure und Azure Government sind weitere Regeln für eingehende Sicherheitsgruppen erforderlich. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Regeln für den Connector in Azure"^] Entsprechende Details.
 
 
 . Aktivieren Sie einen privaten vnet Endpunkt zum Azure Storage. Dies ist erforderlich, wenn Sie über eine ExpressRoute oder VPN-Verbindung zwischen Ihrem ONTAP Cluster und dem vnet verfügen und Sie eine Kommunikation zwischen dem Connector und Blob Storage in Ihrem virtuellen privaten Netzwerk wünschen (eine *private*-Verbindung).
@@ -182,7 +182,7 @@ Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindu
 Um die Such- und Wiederherstellungsfunktion für BlueXP Backup und Recovery verwenden zu können, müssen Sie in der Rolle für den Connector über bestimmte Berechtigungen verfügen, damit dieser auf den Azure Synapse Workspace und das Data Lake Storage Account zugreifen kann. Lesen Sie die unten stehenden Berechtigungen, und befolgen Sie die Schritte, wenn Sie die Richtlinie ändern müssen.
 
 .Bevor Sie beginnen
-Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
+Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
 
 .Schritte
 . Identifizieren Sie die Rolle, die der virtuellen Konnektor-Maschine zugewiesen ist:
@@ -246,7 +246,7 @@ Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.
 "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
 ----
 +
-https://["Zeigen Sie das vollständige JSON-Format für die Richtlinie an"^]
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["Zeigen Sie das vollständige JSON-Format für die Richtlinie an"^]
 
 .. Klicken Sie auf *Review + Update* und dann auf *Update*.
 
@@ -257,7 +257,7 @@ https://["Zeigen Sie das vollständige JSON-Format für die Richtlinie an"^]
 
 === Unterstützte Regionen
 
-Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen erstellen https://["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen. Sie geben die Region an, in der die Backups beim Einrichten des Dienstes gespeichert werden sollen.
+Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen erstellen https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen. Sie geben die Region an, in der die Backups beim Einrichten des Dienstes gespeichert werden sollen.
 
 
 
@@ -265,13 +265,13 @@ Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen ers
 
 * Bevor Sie BlueXP Backup und Recovery für Ihr Cluster aktivieren können, müssen Sie entweder ein PAYGO-Angebot (Pay-as-you-go) für BlueXP Marketplace von Azure abonnieren oder eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp erwerben und aktivieren. Diese Lizenzen sind für Ihr Konto und können für mehrere Systeme verwendet werden.
 +
-** Für die BlueXP PAYGO-Lizenzierung für Backup und Recovery benötigen Sie ein Abonnement des https://["NetApp BlueXP Angebot über den Azure Marketplace"^]. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
+** Für die BlueXP PAYGO-Lizenzierung für Backup und Recovery benötigen Sie ein Abonnement des https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["NetApp BlueXP Angebot über den Azure Marketplace"^]. Die Abrechnung für BlueXP Backup und Recovery erfolgt über dieses Abonnement.
 ** Für die BYOL-Lizenzierung für BlueXP Backup und Recovery benötigen Sie die Seriennummer von NetApp, anhand derer Sie den Service für die Dauer und Kapazität der Lizenz nutzen können. link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 
 
 * Sie benötigen ein Azure-Abonnement für den Objekt-Speicherplatz, auf dem sich Ihre Backups befinden.
 +
-Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen erstellen https://["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen. Sie geben die Region an, in der Backups beim Einrichten des Dienstes gespeichert werden sollen.
+Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen erstellen https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^]; Einschließlich Azure Government Regionen. Sie geben die Region an, in der Backups beim Einrichten des Dienstes gespeichert werden sollen.
 
 
 
@@ -279,8 +279,8 @@ Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen ers
 
 === Azure Blob Storage für Backups wird vorbereitet
 
-. Sie können Ihre eigenen, von Ihnen gemanagten Schlüssel zur Datenverschlüsselung im Aktivierungsassistenten verwenden und nicht die von Microsoft verwalteten Standardschlüssel verwenden. In diesem Fall müssen Sie über das Azure-Abonnement, den Namen von Key Vault und den Schlüssel verfügen. https://["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
-. Wenn Sie eine sicherere Verbindung über das öffentliche Internet von Ihrem On-Prem-Datacenter zum vnet haben möchten, besteht die Möglichkeit, einen Azure Private Endpunkt im Aktivierungs-Assistenten zu konfigurieren. In diesem Fall müssen Sie vnet und Subnetz für diese Verbindung kennen. https://["Weitere Informationen zur Verwendung eines privaten Endpunkts finden Sie unter"^].
+. Sie können Ihre eigenen, von Ihnen gemanagten Schlüssel zur Datenverschlüsselung im Aktivierungsassistenten verwenden und nicht die von Microsoft verwalteten Standardschlüssel verwenden. In diesem Fall müssen Sie über das Azure-Abonnement, den Namen von Key Vault und den Schlüssel verfügen. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
+. Wenn Sie eine sicherere Verbindung über das öffentliche Internet von Ihrem On-Prem-Datacenter zum vnet haben möchten, besteht die Möglichkeit, einen Azure Private Endpunkt im Aktivierungs-Assistenten zu konfigurieren. In diesem Fall müssen Sie vnet und Subnetz für diese Verbindung kennen. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["Weitere Informationen zur Verwendung eines privaten Endpunkts finden Sie unter"^].
 
 
 
@@ -302,7 +302,7 @@ image:screenshot_backup_onprem_enable.png["Ein Screenshot, der die Schaltfläche
 +
 .. Das für Backups verwendete Azure Abonnement und die Region Azure, wo die Backups gespeichert werden.
 .. Die Ressourcengruppe, die den Blob-Container verwaltet: Sie können eine neue Ressourcengruppe erstellen oder eine vorhandene Ressourcengruppe auswählen.
-.. Unabhängig davon, ob Sie den von Microsoft gemanagten Standardschlüssel verwenden oder Ihren eigenen, vom Kunden gemanagten Schlüssel zum Management der Verschlüsselung Ihrer Daten wählen. (https://["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^]).
+.. Unabhängig davon, ob Sie den von Microsoft gemanagten Standardschlüssel verwenden oder Ihren eigenen, vom Kunden gemanagten Schlüssel zum Management der Verschlüsselung Ihrer Daten wählen. (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^]).
 +
 image:screenshot_backup_onprem_to_azure.png["In einem Screenshot wird der Cloud-Provider Details dargestellt, wenn ein Backup von Volumes aus einem lokalen Cluster in Azure Blob Storage erstellt wird."]
 
@@ -312,7 +312,7 @@ image:screenshot_backup_onprem_to_azure.png["In einem Screenshot wird der Cloud-
 . Geben Sie die Netzwerkdaten ein und klicken Sie auf *Weiter*.
 +
 .. Der IPspace im ONTAP Cluster, in dem sich die Volumes, die Sie sichern möchten, befinden. Die Intercluster-LIFs für diesen IPspace müssen über Outbound-Internetzugang verfügen.
-.. Optional können Sie wählen, ob Sie einen Azure Private Endpoint konfigurieren möchten. https://["Weitere Informationen zur Verwendung eines privaten Endpunkts finden Sie unter"^].
+.. Optional können Sie wählen, ob Sie einen Azure Private Endpoint konfigurieren möchten. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["Weitere Informationen zur Verwendung eines privaten Endpunkts finden Sie unter"^].
 +
 image:screenshot_backup_onprem_azure_networking.png["Ein Screenshot, der die Netzwerkdetails beim Backup von Volumes eines ONTAP Systems auf Azure Blob Storage anzeigt."]
 
