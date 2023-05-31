@@ -89,10 +89,10 @@ Der BlueXP Connector ist die Hauptsoftware für BlueXP-Funktionen. Zum Sichern u
 
 Wenn Sie bereits einen Connector in Ihrer AWS VPC oder Ihrem Standort implementiert haben, sind Sie alle festgelegt. Falls nicht, müssen Sie an einem dieser Standorte einen Connector erstellen, um ONTAP-Daten in AWS S3 Storage zu sichern. Sie können keinen Connector verwenden, der bei einem anderen Cloud-Provider bereitgestellt wird.
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["Installieren eines Connectors in AWS"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["Installieren eines Connectors in Ihrem Haus"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["Installieren eines Connectors in einer AWS GovCloud Region"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["Installieren eines Connectors in AWS"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["Installieren eines Connectors in Ihrem Haus"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-restricted-mode.html["Installieren eines Connectors in einer AWS GovCloud Region"^]
 +
 BlueXP Backup und Recovery werden in GovCloud Regionen unterstützt, wenn Connector in der Cloud bereitgestellt wird – und nicht dann, wenn sie an Ihrem Standort installiert sind. Darüber hinaus müssen Sie den Connector über AWS Marketplace implementieren. Sie können den Connector nicht von der BlueXP SaaS-Website in einer Regierungsregion implementieren.
 
@@ -104,9 +104,9 @@ BlueXP Backup und Recovery werden in GovCloud Regionen unterstützt, wenn Connec
 
 * Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 +
-** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem S3 Objekt-Storage (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
+** Eine HTTPS-Verbindung über Port 443 zum BlueXP Backup- und Recovery-Service und zu Ihrem S3 Objekt-Storage (https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["Siehe die Liste der Endpunkte"^])
 ** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
-** Für AWS und AWS GovCloud Implementierungen sind zusätzliche Regeln für ein- und ausgehende Sicherheitsgruppen erforderlich. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["Regeln für den Connector in AWS"^] Entsprechende Details.
+** Für AWS und AWS GovCloud Implementierungen sind zusätzliche Regeln für ein- und ausgehende Sicherheitsgruppen erforderlich. Siehe https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["Regeln für den Connector in AWS"^] Entsprechende Details.
 
 
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions["Stellen Sie sicher, dass der Connector über Berechtigungen zum Management des S3-Buckets verfügt"].
@@ -123,7 +123,7 @@ BlueXP Backup und Recovery werden in GovCloud Regionen unterstützt, wenn Connec
 
 Bevor Sie mit dem Backup von Volume-Daten beginnen können, müssen Sie das lokale ONTAP Cluster in BlueXP ermitteln. Sie müssen die Cluster-Management-IP-Adresse und das Passwort kennen, mit dem das Admin-Benutzerkonto den Cluster hinzufügen kann.
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Entdecken Sie ein Cluster"^].
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Entdecken Sie ein Cluster"^].
 
 
 
@@ -199,7 +199,7 @@ Sie müssen zwei Berechtigungssätze konfigurieren:
 
 
 .Schritte
-. Vergewissern Sie sich, dass die folgenden S3-Berechtigungen (von neuestem) vorliegen https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP-Richtlinie"^]) Sind Teil der IAM-Rolle, die den Connector mit Berechtigungen versorgt. Falls nicht, lesen Sie die https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS Dokumentation: Bearbeiten der IAM-Richtlinien"].
+. Vergewissern Sie sich, dass die folgenden S3-Berechtigungen (von neuestem) vorliegen https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["BlueXP-Richtlinie"^]) Sind Teil der IAM-Rolle, die den Connector mit Berechtigungen versorgt. Falls nicht, lesen Sie die https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS Dokumentation: Bearbeiten der IAM-Richtlinien"].
 +
 [source, json]
 ----
@@ -329,7 +329,7 @@ Siehe https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.
 
 Falls Sie die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden möchten, um die Daten zu verschlüsseln, die zwischen Ihrem On-Premises-Cluster und dem S3-Bucket übergeben wurden, sind die Daten für die Standardinstallation über diesen Verschlüsselungstyp festgelegt.
 
-Wenn Sie für die Datenverschlüsselung eigene von Kunden gemanagte Schlüssel verwenden möchten, statt die Standardschlüssel zu verwenden, müssen Sie die für die Verschlüsselung gemanagten Schlüssel bereits einrichten, bevor Sie den BlueXP Backup- und Recovery-Assistenten starten. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
+Wenn Sie für die Datenverschlüsselung eigene von Kunden gemanagte Schlüssel verwenden möchten, statt die Standardschlüssel zu verwenden, müssen Sie die für die Verschlüsselung gemanagten Schlüssel bereits einrichten, bevor Sie den BlueXP Backup- und Recovery-Assistenten starten. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
 
 
 
@@ -354,7 +354,7 @@ Wenn Sie Port 443 (HTTPS) für die Kommunikation zum privaten Endpunkt verwenden
 +
 image:screenshot_endpoint_dns_aws_console.png["Ein Screenshot des DNS-Namens des VPC-Endpunkts von der AWS Konsole."]
 
-. Beziehen des Zertifikats vom VPC-S3-Endpunkt Dies tun Sie durch https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Anmelden bei der VM, die den BlueXP Connector hostet"^] Und Ausführen des folgenden Befehls. Wenn Sie den DNS-Namen des Endpunkts eingeben, fügen Sie „Eimer“ zum Anfang hinzu und ersetzen das „*“:
+. Beziehen des Zertifikats vom VPC-S3-Endpunkt Dies tun Sie durch https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Anmelden bei der VM, die den BlueXP Connector hostet"^] Und Ausführen des folgenden Befehls. Wenn Sie den DNS-Namen des Endpunkts eingeben, fügen Sie „Eimer“ zum Anfang hinzu und ersetzen das „*“:
 +
 [source, text]
 ----
@@ -405,7 +405,7 @@ image:screenshot_backup_onprem_enable.png["Ein Screenshot, der die Schaltfläche
 Der Zugriffsschlüssel und der geheime Schlüssel gelten für den von Ihnen erstellten IAM-Benutzer, um dem ONTAP-Cluster Zugriff auf den S3-Bucket zu geben.
 
 .. Der Region AWS, in der die Backups gespeichert werden.
-.. Unabhängig davon, ob Sie die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden oder Ihre eigenen, von Kunden gemanagten Schlüssel über Ihr AWS Konto auswählen, um die Verschlüsselung Ihrer Daten zu managen. (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"]).
+.. Unabhängig davon, ob Sie die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden oder Ihre eigenen, von Kunden gemanagten Schlüssel über Ihr AWS Konto auswählen, um die Verschlüsselung Ihrer Daten zu managen. (https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"]).
 +
 image:screenshot_backup_provider_settings_aws.png["Ein Screenshot, der die Details des Cloud-Providers beim Backup von Volumes eines ONTAP Systems in AWS S3 zeigt"]
 

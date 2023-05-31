@@ -38,12 +38,12 @@ Führen Sie die folgenden Schritte aus, um schnell zu beginnen:
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Melden Sie sich bei BlueXP an
 [role="quick-margin-list"]
-Der Zugriff auf BlueXP erfolgt über eine webbasierte Konsole. Wenn Sie mit BlueXP starten, müssen Sie sich zunächst mit Ihren vorhandenen Zugangsdaten auf der NetApp Support Website anmelden oder ein NetApp Cloud-Login erstellen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html["Melden Sie sich bei BlueXP an"].
+Der Zugriff auf BlueXP erfolgt über eine webbasierte Konsole. Wenn Sie mit BlueXP starten, müssen Sie sich zunächst mit Ihren vorhandenen Zugangsdaten auf der NetApp Support Website anmelden oder ein NetApp Cloud-Login erstellen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html["Melden Sie sich bei BlueXP an"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Melden Sie sich bei BlueXP an
 [role="quick-margin-list"]
-Nachdem Sie sich bei BlueXP angemeldet haben, können Sie sich über die webbasierte Konsole anmelden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Melden Sie sich bei BlueXP an"].
+Nachdem Sie sich bei BlueXP angemeldet haben, können Sie sich über die webbasierte Konsole anmelden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-logging-in.html["Melden Sie sich bei BlueXP an"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Managen Sie Ihr BlueXP Konto
 [role="quick-margin-list"]
-Sie können Ihr Konto verwalten, indem Sie Benutzer, Servicekonten, Arbeitsbereiche und Connectors verwalten. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html["Managen Sie Ihr BlueXP Konto"].
+Sie können Ihr Konto verwalten, indem Sie Benutzer, Servicekonten, Arbeitsbereiche und Connectors verwalten. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-netapp-accounts.html["Managen Sie Ihr BlueXP Konto"].

@@ -19,7 +19,7 @@ summary: Zeigen Sie die Backup-Details an und überwachen Sie den Status aller J
 
 Sie können den Status der Jobs überwachen, die in Ihren Arbeitsumgebungen initiiert wurden. Auf diese Weise können Sie die Aufträge sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die, die nicht erfolgreich abgeschlossen wurden, damit Sie Probleme diagnostizieren und beheben können.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["Überwachen Sie den Jobstatus"].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["Überwachen Sie den Jobstatus"].
 
 
 
@@ -229,4 +229,4 @@ Die CA-Dateien sollten im pem-Format vorliegen.
 
 Die REST-APIs zum Schutz der Applikationen in der Cloud sind verfügbar unter: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/[].
 
-Sie sollten das Benutzer-Token mit gebündelter Authentifizierung erhalten, um auf DIE REST-APIs zuzugreifen. Informationen zum Abrufen des Benutzer-Tokens finden Sie unter https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["Erstellen Sie ein Benutzer-Token mit gebündelter Authentifizierung"].
+Sie sollten das Benutzer-Token mit gebündelter Authentifizierung erhalten, um auf DIE REST-APIs zuzugreifen. Informationen zum Abrufen des Benutzer-Tokens finden Sie unter https://docs.netapp.com/us-en/bluexp-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["Erstellen Sie ein Benutzer-Token mit gebündelter Authentifizierung"].

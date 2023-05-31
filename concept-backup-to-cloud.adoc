@@ -92,6 +92,6 @@ Die Startzeit ist auf der Zeitzone basiert, die auf jedem ONTAP Quell-System ein
 
 === Backup-Kopien sind mit Ihrem NetApp Konto verknüpft
 
-Backup-Kopien sind dem zugewiesen https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["NetApp Konto"^] In der sich der BlueXP Connector befindet.
+Backup-Kopien sind dem zugewiesen https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["NetApp Konto"^] In der sich der BlueXP Connector befindet.
 
 Wenn Sie mehrere Connectors in demselben NetApp Konto haben, zeigt jeder Connector die gleiche Liste von Backups an. Dazu gehören auch die Backups, die mit Cloud Volumes ONTAP und lokalen ONTAP-Instanzen von anderen Connectors verbunden sind.

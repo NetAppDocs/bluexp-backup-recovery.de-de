@@ -20,7 +20,7 @@ Mit BlueXP sollten Sie eine Cloud Volumes ONTAP Arbeitsumgebung erstellen, um Vo
 
 == Cloud Volumes ONTAP Arbeitsumgebung erstellen
 
-Sie können vorhandene Cloud Volumes ONTAP-Systeme entdecken und zu BlueXP hinzufügen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html["Hinzufügen vorhandener Cloud Volumes ONTAP-Systeme zu BlueXP"].
+Sie können vorhandene Cloud Volumes ONTAP-Systeme entdecken und zu BlueXP hinzufügen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-adding-systems.html["Hinzufügen vorhandener Cloud Volumes ONTAP-Systeme zu BlueXP"].
 
 
 
@@ -28,9 +28,9 @@ Sie können vorhandene Cloud Volumes ONTAP-Systeme entdecken und zu BlueXP hinzu
 
 Erste Schritte mit Cloud Volumes ONTAP für Ihre Cloud-Umgebung. Weitere Informationen finden Sie in einer der folgenden Links:
 
-* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Schnellstart für Cloud Volumes ONTAP in AWS"]
-* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Schnellstart für Cloud Volumes ONTAP in Azure"]
-* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Schnellstart für Cloud Volumes ONTAP in Google Cloud"]
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-aws.html["Schnellstart für Cloud Volumes ONTAP in AWS"]
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-azure.html["Schnellstart für Cloud Volumes ONTAP in Azure"]
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-gcp.html["Schnellstart für Cloud Volumes ONTAP in Google Cloud"]
 
 
 Sie sollten denselben Konnektor verwenden, um sowohl Cloud Volumes ONTAP-Arbeitsumgebungen als auch Datenbanken zu verwalten.

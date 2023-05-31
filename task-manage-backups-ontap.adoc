@@ -367,7 +367,7 @@ Das Quell-Volume muss nicht unbedingt gelöscht werden. Sie können die Backup-B
 
 Diese Funktion ist nur verfügbar, wenn Ihr System ONTAP 9.12.1 oder höher ausführt.
 
-Das Quell-Volume kann nicht von der BlueXP Backup- und Recovery-Benutzeroberfläche gelöscht werden. Sie können jedoch die Seite Volume Details auf dem Bildschirm öffnen, und https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Löschen Sie das Volume von dort"].
+Das Quell-Volume kann nicht von der BlueXP Backup- und Recovery-Benutzeroberfläche gelöscht werden. Sie können jedoch die Seite Volume Details auf dem Bildschirm öffnen, und https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Löschen Sie das Volume von dort"].
 
 
 NOTE: Sie können einzelne Sicherungsdateien des Volumes nicht löschen, sobald die Beziehung gelöscht wurde. Sie können es jedoch link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["Löschen Sie alle Backups für das Volume"] Wenn Sie alle Sicherungsdateien entfernen möchten.

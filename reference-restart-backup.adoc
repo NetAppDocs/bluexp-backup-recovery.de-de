@@ -26,7 +26,7 @@ Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector inte
 | Position des Steckers | Verfahren 
 
 
-| Cloud-Implementierung | Befolgen Sie die Anweisungen für https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Verbindung mit der virtuellen Connector Linux-Maschine herstellen"^] Je nachdem, welchen Cloud-Provider Sie verwenden. 
+| Cloud-Implementierung | Befolgen Sie die Anweisungen für https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Verbindung mit der virtuellen Connector Linux-Maschine herstellen"^] Je nachdem, welchen Cloud-Provider Sie verwenden. 
 
 
 | Manuelle Installation | Melden Sie sich beim Linux-System an. 

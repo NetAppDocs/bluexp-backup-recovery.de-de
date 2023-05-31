@@ -129,7 +129,7 @@ link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-paygo-sub
 
 Byol ist nach Terminus basiert (12, 24 oder 36 Monate) _und_ kapazitätsbasiert in Schritten von 1 TB. Sie bezahlen NetApp für einen Zeitraum, sagen wir, 1 Jahr und für eine maximale Kapazität, sagen wir 10 TB.
 
-Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
+Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
 
 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 
