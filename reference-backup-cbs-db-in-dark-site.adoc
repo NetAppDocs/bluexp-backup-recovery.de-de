@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database 
-summary: Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, sollten Sie regelmäßig wichtige BlueXP Backup- und Recovery-Dateien sichern, falls ein Problem mit dem BlueXP Connector Host-System besteht. So können Sie einen neuen Connector implementieren und die kritischen Backup- und Recovery-Daten von BlueXP wiederherstellen. 
+summary: Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang, bekannt als „privater Modus“, nutzen, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen. 
 ---
-= Backup und Restore von BlueXP Backup- und Recovery-Daten an einem dunklen Standort
+= Stellen Sie BlueXP Backup- und Recovery-Daten an einem dunklen Standort wieder her
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,74 +14,20 @@ summary: Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugan
 
 
 [role="lead"]
-Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, sollten Sie regelmäßig wichtige BlueXP Backup- und Recovery-Dateien sichern, falls ein Problem mit dem BlueXP Connector Host-System besteht. So können Sie einen neuen Connector implementieren und die kritischen Backup- und Recovery-Daten von BlueXP wiederherstellen.
+Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang nutzen, der als „privater Modus“ oder „Dark Site“ bekannt ist, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen.
 
-Wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder auf Ihrem eigenen Host-System mit Internetzugang implementiert wird, werden alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gespeichert. Wenn Sie BlueXP Backup und Recovery an einer Website ohne Internetzugang nutzen, auch als „eingeschränkter Modus“ oder „Dark Site“ bekannt, werden diese Backup- und Recovery-Informationen von BlueXP ausschließlich auf dem lokalen Connector-System gespeichert.
+Beachten Sie, dass wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder in Ihrem eigenen Host-System mit Internetzugang implementiert wird, alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gesichert werden. Wenn Sie ein Problem mit dem Connector haben, erstellen Sie einfach einen neuen Connector und fügen Sie Ihre Arbeitsumgebungen hinzu. Die Sicherungsdetails werden automatisch wiederhergestellt.
 
-Wir beschreiben, wie kritische BlueXP Backup- und Recovery-Daten auf Ihrem verbundenen StorageGRID System gesichert werden und wie die Daten bei Bedarf in einem neuen Connector wiederhergestellt werden können.
+Es gibt 2 Arten von Daten, die gesichert werden:
 
-
-
-== Backup kritischer Backup- und Recovery-Daten von BlueXP
-
-Es gibt zwei Datentypen, die gesichert werden müssen:
-
-* BlueXP Backup- und Recovery-Datenbanken
-* Indizierte Katalogdateien (für Such- und Wiederherstellungsfunktionen verwendet)
+* BlueXP Backup- und Recovery-Datenbank – enthält eine Liste aller Volumes, Backup-Dateien, Backup-Richtlinien und Konfigurationsinformationen.
+* Indizierte Katalogdateien – enthält detaillierte Indizes, die für die Such- und Wiederherstellungsfunktion verwendet werden, sodass Ihre Suchvorgänge sehr schnell und effizient bei der Suche nach Volume-Daten, die Sie wiederherstellen möchten, durchgeführt werden.
 
 
-
-NOTE: Sie sollten planen, regelmäßig ein Backup dieser BlueXP Backup- und Recovery-Daten zu erstellen, damit Sie immer auf die neuesten Daten zugreifen können.
-
-Beachten Sie, dass keine Volume-Daten jemals in der Backup- und Recovery-Datenbank oder den indizierten Katalogdateien von BlueXP enthalten sind.
+Diese Daten werden einmal am Tag um Mitternacht gesichert und maximal 7 Kopien jeder Datei werden aufbewahrt. Wenn der Connector mehrere lokale ONTAP-Arbeitsumgebungen managt, befinden sich die Backup- und Recovery-Dateien von BlueXP im Bucket der Arbeitsumgebung, die zuerst aktiviert wurde.
 
 
-
-=== Backup der BlueXP Backup- und Recovery-Datenbank
-
-Die BlueXP Backup- und Recovery-Datenbank enthält eine Liste aller Volumes, Backup-Dateien, Backup-Richtlinien und Konfigurationsinformationen.
-
-.Schritte
-. Melden Sie sich mit den entsprechenden Anmeldedaten am Connector-Host-System an.
-. Geben Sie die MySQL-Container-Shell ein, indem Sie den folgenden Befehl eingeben:
-+
-[source, cli]
-----
-docker exec -it ds_mysql_1 sh
-----
-. In der Container-Shell, stellen Sie die "env".
-. Sie benötigen das MySQL DB Passwort, kopieren Sie also den Wert des Schlüssels "MYSQL_ROOT_PASSWORD".
-. Sichern Sie die MySQL DB für Backup und Recovery von BlueXP durch Eingabe des folgenden Befehls:
-+
-[source, cli]
-----
-mysqldump --user root --password -p cloud_backup --result-file=mysql.dump.cloud_backup.sql
-----
-. Kopieren Sie die MySQL DB-Sicherung aus dem MySQL-Docker-Container, indem Sie den folgenden Befehl eingeben:
-+
-[source, cli]
-----
-docker cp ds_mysql_1:/mysql.dump.cloud_backup.sql .
-----
-. Kopieren Sie die Backups an einen sicheren Ort in Ihrem Netzwerk. Sie können ein lokales StorageGRID-System verwenden, wenn Sie ONTAP Volume Backups an diesem Speicherort erstellen.
-
-
-
-
-=== Sichern Sie die indizierten Katalogdateien
-
-Der indexierte Katalog wird für die Such- und Wiederherstellungsfunktion verwendet. Es enthält Informationen über jedes Volume und jede Backup-Datei, sodass Ihre Suchvorgänge bei der Suche nach Volume-Daten, die wiederhergestellt werden sollen, sehr schnell und effizient sind.
-
-. Ändern Sie das Verzeichnis auf dem Connector-Host-System in „/opt/Application/netapp/cbs“.
-. Suchen Sie den Ordner Index Catalog. Es beginnt mit der Zeichenfolge *catalog*.
-. Zippen Sie den Ordner „Catalog<_xxxxxx_>“, indem Sie den folgenden Befehl eingeben:
-+
-[source, cli]
-----
-zip -r catalogxxxxxx.zip catalogxxxxxx
-----
-. Kopieren Sie die gezippte Sicherung an einen sicheren Ort in Ihrem Netzwerk.
-
+TIP: In der BlueXP Backup- und Recovery-Datenbank oder den indizierten Katalogdateien werden keine Volume-Daten jemals enthalten sein.
 
 
 
@@ -99,6 +45,19 @@ Es gibt 4 Aufgaben, die Sie durchführen müssen, um den Betriebszustand Ihres B
 
 Sobald Sie überprüfen, ob Ihr System wieder in einem Arbeitsauftrag ist, empfehlen wir Ihnen, neue Sicherungsdateien zu erstellen.
 
+.Was Sie benötigen
+Sie müssen über den StorageGRID Bucket, in dem Ihre Backup-Dateien gespeichert werden, auf die neuesten Datenbank- und Index-Backups zugreifen:
+
+* BlueXP Backup und Recovery der MySQL-Datenbankdatei
++
+Diese Datei befindet sich am folgenden Speicherort im Bucket `netapp-backup-<GUID>/mysql_backup/`, Und es ist benannt `CBS_DB_Backup_<day>_<month>_<year>.sql`.
+
+* ZIP-Datei für die Sicherung des indizierten Katalogs
++
+Diese Datei befindet sich am folgenden Speicherort im Bucket `netapp-backup-<GUID>/catalog_backup/`, Und es ist benannt `Indexed_Catalog_DB_Backup_<db_name>_<day>_<month>_<year>.zip`.
+
+
+
 
 
 === Installieren Sie einen neuen Konnektor auf einem neuen lokalen Linux-Host
@@ -113,12 +72,12 @@ Wenn Sie einen neuen BlueXP Connector installieren, stellen Sie sicher, dass Sie
 
 === Wiederherstellung der BlueXP Backup- und Recovery-Datenbank
 
-. Kopieren Sie die MySQL-Backups vom sicheren Speicherort auf den neuen Connector-Host.
+. Kopieren Sie das MySQL-Backup vom Backup-Speicherort auf den neuen Connector-Host. Wir verwenden unten den Beispieldateinamen „CBS_DB_Backup_23_05_2023.sql“.
 . Kopieren Sie das Backup mit dem folgenden Befehl in den MySQL-Docker-Container:
 +
 [source, cli]
 ----
-docker cp mysql.dump.cloud_backup.sql ds_mysql_1:/.
+docker cp CBS_DB_Backup_23_05_2023.sql ds_mysql_1:/.
 ----
 . Geben Sie die MySQL-Container-Shell mithilfe des folgenden Befehls ein:
 +
@@ -132,13 +91,13 @@ docker exec -it ds_mysql_1 sh
 +
 [source, cli]
 ----
-mysql -u root -p cloud_backup < mysql.dump.cloud_backup.sql
+mysql -u root -p cloud_backup < CBS_DB_Backup_23_05_2023.sql
 ----
 . Überprüfen Sie mit den folgenden SQL-Befehlen, ob die BlueXP Backup- und Recovery-MySQL DB korrekt wiederhergestellt wurde:
 +
 [source, cli]
 ----
-# mysql -u root -p cloud_backup
+mysql -u root -p cloud_backup
 ----
 +
 Geben Sie das Passwort ein.
@@ -158,14 +117,14 @@ mysql> select * from volume;
 
 === Stellen Sie die indizierten Katalogdateien wieder her
 
-. Kopieren Sie die ZIP-Datei des indizierten Katalogs vom sicheren Speicherort auf den neuen Connector-Host im Ordner „/opt/Application/netapp/cbs“.
-. Entpacken Sie die Datei „catalogxxxxxx.zip“ mit folgendem Befehl:
+. Kopieren Sie die ZIP-Datei mit dem indizierten Katalog (wir verwenden den Beispieldateinamen „indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip“) vom Sicherungsverzeichnis auf den neuen Connector-Host im Ordner „/opt/Application/netapp/cbs“.
+. Entpacken Sie die Datei „indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip“ mit folgendem Befehl:
 +
 [source, cli]
 ----
-unzip catalogxxxxxx.zip
+unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 ----
-. Führen Sie den Befehl *ls* aus, um sicherzustellen, dass der Ordner "catalogxxxxxx" mit den Unterordnern "Changes" und "Snapshots" darunter erstellt wurde.
+. Führen Sie den Befehl *ls* aus, um sicherzustellen, dass der Ordner "catalogdb1" mit den Unterordnern "changes" und "catalogs" darunter angelegt wurde.
 
 
 

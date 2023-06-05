@@ -440,7 +440,7 @@ Das Lesen der Daten von Ihrem Cloud-Provider kann zu einem einmalig erhöhten Ko
 
 
 * FlexGroup Volume-Backups können nicht in Archiv-Storage verschoben werden.
-* FlexGroup Volume-Backups können DataLock und keinen Ransomware-Schutz verwenden.
+* FlexGroup Volume-Backups können DataLock und Ransomware-Schutz verwenden, wenn auf dem Cluster ONTAP 9.13.1 oder höher ausgeführt wird.
 * SVM-DR-Volume-Backup wird unter den folgenden Einschränkungen unterstützt:
 +
 ** Backups werden nur von der sekundären ONTAP unterstützt.

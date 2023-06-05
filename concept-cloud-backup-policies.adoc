@@ -88,7 +88,7 @@ Sie können in diesem letzten Fall sehen, dass, wenn jede Backup-Datei für 44 T
 
 === Was ist Ransomware-Schutz
 
-Ransomware-Schutz scannt Ihre Backup-Dateien, um einen Ransomware-Angriff auf einen Nachweis zu untersuchen. Die Erkennung von Ransomware-Angriffen erfolgt über einen Prüfsummenvergleich. Falls in einer Backup-Datei potenzielle Ransomware im Vergleich zur vorherigen Backup-Datei identifiziert wird, wird diese neuere Backup-Datei durch die neueste Backup-Datei ersetzt, die keine Anzeichen eines Ransomware-Angriffs zeigt. (Die Datei, die als Ransomware-Angriff gekennzeichnet ist, wird 1 Tag nach ihrer Ersetzung gelöscht.)
+Ransomware-Schutz scannt Ihre Backup-Dateien, um einen Ransomware-Angriff auf einen Nachweis zu untersuchen. Die Erkennung von Ransomware-Angriffen erfolgt über einen Prüfsummenvergleich. Wenn potenzielle Ransomware-Angriffe in einer neuen Backup-Datei oder in einer vorherigen Backup-Datei erkannt werden, wird diese neuere Backup-Datei durch die neueste Backup-Datei ersetzt, die keine Anzeichen eines Ransomware-Angriffs zeigt. (Die Datei, die als Ransomware-Angriff gekennzeichnet ist, wird 1 Tag nach ihrer Ersetzung gelöscht.)
 
 Ransomware-Scans erfolgen an 3 Punkten im Backup- und Restore-Prozess:
 
@@ -300,9 +300,10 @@ endif::azure[]
 
 * DataLock- und Ransomware-Schutz ist nicht verfügbar, wenn Sie Archiv-Storage in der Backup-Richtlinie konfiguriert haben.
 * Die bei der Aktivierung von BlueXP ausgewählte DataLock Option für Backup und Recovery muss für alle Backup-Richtlinien für dieses Cluster verwendet werden.
-* Sie können nicht beide DataLock-Modi auf einem einzelnen Cluster verwenden.
+* Sie können nicht mehrere DataLock-Modi auf einem einzelnen Cluster verwenden.
 * Wenn Sie DataLock aktivieren, werden alle Volume-Backups gesperrt. Es können keine gesperrten und nicht gesperrten Volume-Backups für einen einzelnen Cluster kombiniert werden.
 * DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktion nicht aktivieren, nachdem das Backup und Recovery von BlueXP aktiviert wurde.
+* FlexGroup Volumes können DataLock- und Ransomware-Schutz nur verwenden, wenn ONTAP 9.13.1 oder höher verwendet wird.
 
 
 

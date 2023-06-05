@@ -34,6 +34,10 @@ sidebar:
       url: "/concept-backup-to-cloud.html"
     - title: Lizenzierung einrichten
       url: "/task-licensing-cloud-backup.html"
+  - title: Überwachen Sie die Datensicherung
+    entries:
+    - title: Berichte zur Datensicherung
+      url: "/task-report-inventory.html"
     - title: Überwachen des Status von Backup- und Wiederherstellungsjobs
       url: "/task-monitor-backup-jobs.html"
   - title: Backup und Restore von ONTAP Daten
@@ -201,7 +205,8 @@ sidebar:
     - title: Backup für Multi-Account-Zugriff in Azure konfigurieren
       flavor: azure
       url: "/reference-backup-multi-account-azure.html"
-    - title: Backup der BlueXP Backup- und Recovery-Datenbank an einem Dark Site
+    - title: Stellen Sie BlueXP Backup- und Recovery-Datenbanken an einem dunklen
+        Standort wieder her
       url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: BlueXP Backup und Recovery neu starten
       url: "/reference-restart-backup.html"

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
-keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification 
+keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
 summary: Sie können den Status geplanter oder von Ihnen initiierter Backup-Jobs in Ihrer Arbeitsumgebung überwachen und wiederherstellen. Sie können die Jobs sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die fehlgeschlagenen Jobs, sodass Sie Probleme diagnostizieren und beheben können. Sie können außerdem Benachrichtigungen per E-Mail konfigurieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. 
 ---
 = Überwachen des Status von Backup- und Wiederherstellungsjobs
@@ -14,7 +14,7 @@ summary: Sie können den Status geplanter oder von Ihnen initiierter Backup-Jobs
 
 
 [role="lead"]
-Sie können den Status geplanter oder von Ihnen initiierter Backup-Jobs in Ihrer Arbeitsumgebung überwachen und wiederherstellen. Sie können die Jobs sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die fehlgeschlagenen Jobs, sodass Sie Probleme diagnostizieren und beheben können. Sie können außerdem Benachrichtigungen per E-Mail konfigurieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind.
+Sie können den Status von Backupjobs überwachen, die Sie initiiert oder geplant haben, und von Ihnen initiierte Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt.
 
 
 
@@ -45,12 +45,14 @@ image:screenshot_backup_job_monitor.png["Ein Screenshot mit Backup- und Wiederhe
 +
 In diesem Screenshot werden die standardmäßigen Spaltenüberschriften angezeigt.
 
-. Um vier zusätzliche Spalten anzuzeigen (Arbeitsumgebung, SVM, Benutzername und Workloads), wählen Sie aus image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"].
+. So zeigen Sie zusätzliche Spalten an (Arbeitsumgebung, SVM, Benutzername, Workloads, Richtlinie, Und Snapshot-Bezeichnung), wählen Sie aus image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"].
 
 
 
 
 === Suchen und filtern Sie die Jobliste
+
+Sie können die Vorgänge auf der Seite Jobüberwachung mit mehreren Filtern filtern, z. B. Backup Policy und Snapshot Label.
 
 Standardmäßig werden auf der Seite Jobüberwachung Aufträge der letzten 24 Stunden angezeigt.
 
@@ -123,6 +125,22 @@ Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterla
 
 
 
+== Prüfen Sie Backup Lifecycle Jobs
+
+Die Überwachung der Backup-Lebenszyklusabläufe unterstützt Sie bei der Vollständigkeit, Verantwortlichkeit und Sicherheit von Audits. Um den Backup-Lebenszyklus nachzuverfolgen, empfiehlt es sich, den Ablauf aller Backup-Kopien zu ermitteln.
+
+Ein Backup Lifecycle Job verfolgt alle Snapshot Kopien, die gelöscht werden oder sich in der Warteschlange befinden, die gelöscht werden soll. Ab ONTAP 9.13 können Sie sich auf der Seite Jobüberwachung alle Jobtypen mit dem Namen „Backup Lifecycle“ ansehen.
+
+Der Jobtyp „Backup Lifecycle“ erfasst alle Jobs zum Löschen von Snapshots, die auf einem Volume initiiert werden, das durch BlueXP Backup und Recovery geschützt ist.
+
+.Schritte
+. Wählen Sie die Registerkarte *Job-Überwachung* aus.
+. Wählen Sie den Bereich *Erweiterte Suche & Filterung* aus, um das Suchfeld zu öffnen.
+. Wählen Sie den Jobtyp von „Backup Lifecycle“ aus.
+
+
+
+
 == Prüfen Sie Warnmeldungen bei Backup und Restore im BlueXP Notification Center
 
 Das BlueXP Notification Center verfolgt den Fortschritt der von Ihnen initiierten Backup- und Restore-Jobs, sodass Sie überprüfen können, ob der Vorgang erfolgreich war oder nicht.
@@ -143,6 +161,11 @@ Ad-hoc-Volume-Backup fehlgeschlagen
 
  a| 
 Backup-Aktivierung in der Arbeitsumgebung fehlgeschlagen
+| Kritisch 
+
+
+ a| 
+Backup-Dateien wurden nicht erstellt, da die Snapshot-Richtlinienbeschriftungen nicht übereinstimmen
 | Kritisch 
 
 
@@ -179,3 +202,11 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html
 . Benachrichtigungen anzeigen, indem Sie die Option (image:icon_bell.png["Benachrichtigungsglocke"]) In der BlueXP-Menüleiste.
 . Überprüfen Sie die Benachrichtigung.
 
+
+
+
+== Prüfen Sie die Vorgangsaktivitäten in der BlueXP Zeitleiste
+
+Details zu Backup- und Wiederherstellungsvorgängen können Sie zur weiteren Untersuchung in der BlueXP Zeitleiste anzeigen. Die BlueXP Zeitleiste bietet Details zu jedem Ereignis, ob vom Benutzer oder vom System initiiert, und zeigt Aktionen an, die in der UI oder über die API initiiert wurden.
+
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über die Unterschiede zwischen der Zeitleiste und dem Benachrichtigungscenter"^].

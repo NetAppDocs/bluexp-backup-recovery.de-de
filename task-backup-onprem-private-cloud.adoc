@@ -174,7 +174,7 @@ Objektversionierung:: Sie dürfen die StorageGRID Objektversionierung auf dem Ob
 
 === Erstellen oder Umschalten von Anschlüssen
 
-Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
+Beim Backup von Daten in StorageGRID muss ein BlueXP Connector vor Ort verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["Installieren des Connectors auf einem Linux-Host mit Internetzugang"^]
@@ -183,24 +183,22 @@ Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein.
 
 
 
-NOTE: Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector integriert. Wenn Sie auf einer Website ohne Internetverbindung installiert sind, müssen Sie die Connector-Software regelmäßig aktualisieren, um Zugang zu neuen Funktionen zu erhalten. Prüfen Sie die link:whats-new.html["BlueXP Backup und Recovery Was ist neu"] Um die neuen Funktionen in jeder BlueXP Backup- und Recovery-Version anzuzeigen, folgen Sie den Schritten bis https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["Aktualisieren Sie die Connector-Software"^] Wann Sie neue Funktionen nutzen möchten.
 
-Wir empfehlen dringend, lokale Backups der BlueXP Backup- und Recovery-Konfigurationsdaten regelmäßig zu erstellen, wenn der Connector an einer Website ohne Internetverbindung installiert wird. link:reference-backup-cbs-db-in-dark-site.html["Erfahren Sie, wie Sie BlueXP Backup- und Recovery-Daten an einem Dark Site sichern"^].
+==== Anforderungen für Connector-Netzwerke
 
+Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
 
-
-=== Vorbereiten der Vernetzung für den Connector
-
-Stellen Sie sicher, dass der Connector über die erforderlichen Netzwerkverbindungen verfügt.
-
-.Schritte
-. Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
-+
-** Eine HTTPS-Verbindung über Port 443 zum StorageGRID-Gateway-Node
-** Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
-** Eine Outbound-Internetverbindung über Port 443 zu BlueXP Backup und Recovery (nicht erforderlich, wenn der Connector an einer „dunklen“ Stelle installiert ist)
+* Eine HTTPS-Verbindung über Port 443 zum StorageGRID-Gateway-Node
+* Eine HTTPS-Verbindung über Port 443 an Ihre ONTAP-Cluster-Management-LIF
+* Eine Outbound-Internetverbindung über Port 443 zu BlueXP Backup und Recovery (nicht erforderlich, wenn der Connector an einer „dunklen“ Stelle installiert ist)
 
 
+
+
+==== Überlegungen zum privaten Modus (dunkle Seite)
+
+* Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector integriert. Wenn Sie im privaten Modus installiert haben, müssen Sie die Connector-Software regelmäßig aktualisieren, um auf neue Funktionen zugreifen zu können. Prüfen Sie die link:whats-new.html["BlueXP Backup und Recovery Was ist neu"] Um die neuen Funktionen in jeder BlueXP Backup- und Recovery-Version anzuzeigen. Wenn Sie die neuen Funktionen verwenden möchten, führen Sie die Schritte bis aus https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["Aktualisieren Sie die Connector-Software"^].
+* Beim Einsatz von BlueXP Backup und Recovery in einer SaaS-Umgebung werden die Backup- und Recovery-Konfigurationsdaten von BlueXP in der Cloud gesichert. Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang nutzen, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie jemals einen Connector-Fehler in Ihrem privaten Modus Standort haben, können Sie dies tun link:reference-backup-cbs-db-in-dark-site.html["Wiederherstellung der Backup- und Recovery-Daten von BlueXP in einem neuen Connector"^].
 
 
 
@@ -265,7 +263,7 @@ TIP: PAYGO-Lizenzierung wird beim Backup von Dateien in StorageGRID nicht unters
 
 
 
-== Aktivierung von BlueXP Backup und Recovery auf StorageGRID
+== BlueXP Backup und Recovery ermöglichen
 
 BlueXP Backup und Recovery sind jederzeit möglich – direkt aus der lokalen Arbeitsumgebung.
 
