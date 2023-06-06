@@ -32,7 +32,7 @@ NOTE: Berichtsaktivitäten werden im Job Monitoring-Protokoll überwacht, sodass
 Die BlueXP Backup- und Recovery-Berichte bieten Informationen zu folgenden Aspekten:
 
 * *Standort des Connectors*: On-premise oder in der Cloud
-* *Quelle*: Cloud Volumes ONTAP, On-Premises, Applikationen oder Kubernetes
+* *Quelle*: Cloud Volumes ONTAP-Volumes, lokale ONTAP-Volumes, Applikationen oder persistente Kubernetes-Volumes
 * *Ziel*: Jeder der Cloud-Provider, NetApp StorageGRID oder ONTAP S3
 * *ONTAP-Versionen*: 9.13.0
 

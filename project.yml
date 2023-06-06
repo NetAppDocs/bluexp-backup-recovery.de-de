@@ -230,6 +230,8 @@ homepage:
       url: task-licensing-cloud-backup.html
     - title: Überwachen des Status von Backup- und Wiederherstellungsjobs
       url: task-monitor-backup-jobs.html
+    - title: Erstellen von Berichten zur Datensicherung
+      url: task-report-inventory.html
   - title: Sichern Sie Ihre ONTAP Daten in der Cloud
     links:
     - title: Cloud Volumes ONTAP zu Amazon S3

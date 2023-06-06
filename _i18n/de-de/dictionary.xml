@@ -391,38 +391,27 @@
   <block id="29e89229775aefede67526b03124356e" category="paragraph">Wenn Sie möchten, dass BlueXP Ihr Cloud Volumes ONTAP-System in einem anderen Konto/einer anderen Region verwaltet, müssen Sie vnet Peering einrichten. Vnet-Peering ist für die Konnektivität des Storage-Kontos nicht erforderlich.</block>
   <block id="7be5dff9f26dd0cfb7e5896d6142d4c7" category="list-text">Melden Sie sich beim Azure-Portal an, und wählen Sie dann von Zuhause aus Virtual Networks aus.</block>
   <block id="24d6ea8c256f982be40d4e8e87a36c2c" category="list-text">Wählen Sie das Abonnement aus, das Sie als Abonnement verwenden 1, und klicken Sie auf das vnet, wo Sie Peering einrichten möchten.</block>
-  <block id="010f020ec46dae654334c56b074681e9" category="paragraph"><block ref="010f020ec46dae654334c56b074681e9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ff903d724a3c43c1027ecc76bb702e6b" category="list-text">Wählen Sie *cbsnetzwerk* und klicken Sie im linken Bereich auf *Peerings* und dann auf *Add*.</block>
-  <block id="48f2a3e5416499a845b82d79729c9d24" category="paragraph"><block ref="48f2a3e5416499a845b82d79729c9d24" category="inline-image-macro-rx" type="image"></block></block>
   <block id="29352d6eba72ea7dbb14542cfe329be6" category="list-text">Geben Sie die folgenden Informationen auf der Peering-Seite ein und klicken Sie dann auf *Hinzufügen*.</block>
   <block id="35a314f287f704bbad5bca1d051178df" category="list-text">Peering-Linkname für dieses Netzwerk: Sie können einen beliebigen Namen angeben, um die Peering-Verbindung zu identifizieren.</block>
   <block id="23a50db2830b340ce45406a69594314e" category="list-text">Remote Virtual Network Peering Linkname: Geben Sie einen Namen ein, um das Remote vnet zu identifizieren.</block>
   <block id="23251ed1ab3cfb08802622b5c2f690d3" category="list-text">Behalten Sie alle Auswahlen als Standardwerte bei.</block>
   <block id="f6158ca7f18c6d458f457bd8d96c59b3" category="list-text">Wählen Sie unter Abonnement das Abonnement 2 aus.</block>
   <block id="4949fa102af5d259068b046bbcf72842" category="list-text">Virtuelles Netzwerk, wählen Sie das virtuelle Netzwerk in Abo 2 aus, zu dem Sie das Peering einrichten möchten.</block>
-  <block id="25e65bc02464ec916d34bab534d7035e" category="paragraph"><block ref="25e65bc02464ec916d34bab534d7035e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1995f9fb02d5dc1ec670c575158c4755" category="list-text">Führen Sie die gleichen Schritte in Subskription 2 vnet aus und geben Sie die Abonnement- und Remote vnet-Details von Abo 1 an.</block>
-  <block id="70ad9b34a75d793ad5ca4592ae835d9e" category="paragraph"><block ref="70ad9b34a75d793ad5ca4592ae835d9e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="51578c8638d5ef3ad9f76229b740c313" category="paragraph">Die Peering-Einstellungen werden hinzugefügt.</block>
-  <block id="daacd9916a3d67dff4ea461056675145" category="paragraph"><block ref="daacd9916a3d67dff4ea461056675145" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2aa38dadb98b1cc114f5605565fc8460" category="section-title">Erstellen eines privaten Endpunkts für das Storage-Konto</block>
   <block id="65f2f7b74f3cf2f1a25c4c81a6aaa2ee" category="paragraph">Jetzt müssen Sie einen privaten Endpunkt für das Storage-Konto erstellen. In diesem Beispiel wird das Speicherkonto in Abo 1 erstellt und das Cloud Volumes ONTAP System wird in Abonnement 2 ausgeführt.</block>
   <block id="720247e8961069a5c025366867b8b8fb" category="admonition">Sie benötigen die Berechtigung von Netzwerkbeitragenden, um die folgende Aktion auszuführen.</block>
-  <block id="1da2c465a0473c669ecf45690f9c77f8" category="list-text">Wechseln Sie zum Storage-Konto &gt; Networking &gt; Verbindungen zu privaten Endpunkten und klicken Sie auf *+ Private Endpunkt*.</block>
-  <block id="ab018e3a2da472dd06615e08149c8ae2" category="paragraph"><block ref="ab018e3a2da472dd06615e08149c8ae2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2e0fccb2492335abb1bf03e7895e57b1" category="list-text">Auf der Seite Private Endpoint_Basics_:</block>
   <block id="39f30cdd2630386fa4f3ba56e107c2fd" category="list-text">Wählen Sie Subskription 2 (wo BlueXP Connector und Cloud Volumes ONTAP System bereitgestellt werden) und die Ressourcengruppe aus.</block>
   <block id="dcf7853e5720d1d4006d6354680dfca5" category="list-text">Geben Sie einen Endpunktnamen ein.</block>
   <block id="8632ba911e67cd674d7aa46e9c33ca03" category="list-text">Wählen Sie die Region aus.</block>
-  <block id="8de80de63c22bf5501105fe1221042c7" category="paragraph"><block ref="8de80de63c22bf5501105fe1221042c7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="86429c7405c9ff23bac7996b6cc76306" category="list-text">Wählen Sie auf der Seite _Ressource_ die Unterressource Ziel als *Blob* aus.</block>
-  <block id="78ce42b66c723160afef603d60cfbd83" category="paragraph"><block ref="78ce42b66c723160afef603d60cfbd83" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4f45f5d0c19691a0eac82881ce091080" category="list-text">Auf der Konfigurationsseite:</block>
   <block id="e17a8b8467cfbf9720f1af51cc6f6419" category="list-text">Wählen Sie das virtuelle Netzwerk und das Subnetz aus.</block>
   <block id="a9faeeb34299d046e7a14a5d1df3950a" category="list-text">Klicken Sie auf das Optionsfeld *Ja*, um "in private DNS-Zone integrieren".</block>
-  <block id="cec5fb61420f116b9d3e7afb6183499d" category="paragraph"><block ref="cec5fb61420f116b9d3e7afb6183499d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="872d4b2a2e61a2a07fc61a362e17881d" category="list-text">Stellen Sie in der Liste Private DNS Zone sicher, dass die Private Zone aus der richtigen Region ausgewählt ist, und klicken Sie auf *Review + Create*.</block>
-  <block id="865c712e84080e3a8a2a2e9f3ced5e13" category="paragraph"><block ref="865c712e84080e3a8a2a2e9f3ced5e13" category="inline-image-macro-rx" type="image"></block></block>
   <block id="547e2a5eac8fbdbb2c8f7a56f61c8cbe" category="paragraph">Nun hat das Speicherkonto (in Abo 1) Zugriff auf das Cloud Volumes ONTAP-System, das im Abonnement ausgeführt wird 2.</block>
   <block id="1b91b58bbd15b10b96b7306af574303b" category="doc">Sichern von lokalen ONTAP Daten in StorageGRID</block>
   <block id="91e06e9a9ef97681b798e2e5e007ba97" category="paragraph">Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.</block>
@@ -1036,9 +1025,7 @@
   <block id="f50c680c14d8afac3d005a6dee0819cd" category="list-text">Klicken Sie auf der Seite „ Backup Settings_“ auf <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> Wählen Sie für die Arbeitsumgebung, in der Sie die Richtlinieneinstellungen ändern möchten, und wählen Sie *Richtlinien verwalten*.</block>
   <block id="41e086bf0dc4275e114abb7147326f73" category="paragraph"><block ref="41e086bf0dc4275e114abb7147326f73" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9c230c0e21c24d1d4e90c857d5894cbf" category="list-text">Klicken Sie auf der Seite _Policies verwalten_ auf *Bearbeiten* für die Backup-Policy, die Sie in dieser Arbeitsumgebung ändern möchten.</block>
-  <block id="41b3017e09c02234f784bce8cad145cc" category="paragraph">Hinweis: Klicken Sie auf <block ref="6be018d461f0945956e868c034bab91d" category="inline-image-macro-rx" type="image"></block> Um die vollständigen Details für die Richtlinie anzuzeigen.</block>
   <block id="6b225e3bac3911a0f8ea09b5674f0db7" category="paragraph"><block ref="6b225e3bac3911a0f8ea09b5674f0db7" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9f02efef52b11198bc6f5331a1f0845b" category="list-text">Klicken Sie auf der Seite _Edit Policy_ auf <block ref="6be018d461f0945956e868c034bab91d" category="inline-image-macro-rx" type="image"></block> Erweitern Sie den Abschnitt _Labels &amp; Retention_, um den Zeitplan und/oder die Backup-Aufbewahrung zu ändern, und klicken Sie auf *Speichern*.</block>
   <block id="0fa100496915d2a1169b13ec8d09b7fd" category="paragraph"><block ref="0fa100496915d2a1169b13ec8d09b7fd" category="inline-image-macro-rx" type="image"></block></block>
   <block id="11424b9a70e420c1dd25a5c8dd143872" category="paragraph">Wenn in Ihrem Cluster ONTAP 9.10.1 oder höher ausgeführt wird, haben Sie außerdem die Möglichkeit, das Tiering von Backups in Archiv-Storage nach einer bestimmten Anzahl von Tagen zu aktivieren oder zu deaktivieren.</block>
   <block id="2ee1435ab41f69d919a20dc4c3d48cc8" category="inline-link-macro">Erfahren Sie mehr über die Verwendung von AWS Archiv-Storage</block>
@@ -1052,7 +1039,6 @@
   <block id="4bd2ed8c1b753600a5017d620739e8ae" category="list-text">Klicken Sie auf der Seite _Policies verwalten_ auf *Neue Richtlinie hinzufügen*.</block>
   <block id="70cb98fb549b7f6231a7cfd59ef47a25" category="inline-image-macro">Ein Screenshot, in dem die Schaltfläche Neue Richtlinie hinzufügen auf der Seite Richtlinien managen angezeigt wird.</block>
   <block id="6bbf88b0315e00c49811f4000bb83563" category="paragraph"><block ref="6bbf88b0315e00c49811f4000bb83563" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d664f6c85ff8f12dd3e11609510142dc" category="list-text">Klicken Sie auf der Seite „ Neue Richtlinie hinzufügen_“ auf <block ref="6be018d461f0945956e868c034bab91d" category="inline-image-macro-rx" type="image"></block> Erweitern Sie den Abschnitt _Labels &amp; Retention_, um den Zeitplan und die Backup-Aufbewahrung zu definieren, und klicken Sie auf *Speichern*.</block>
   <block id="a079ee8f78a153ec016a997b2904f2bb" category="inline-image-macro">Ein Screenshot, der die Einstellungen für die Backup-Richtlinien zeigt, in denen Sie den Backup-Zeitplan und die Einstellung für die Backup-Aufbewahrung hinzufügen können.</block>
   <block id="dfb577039d019da5c38a09fb1366befe" category="paragraph"><block ref="dfb577039d019da5c38a09fb1366befe" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8b4b27044857ab131fc834e024419e2b" category="section-title">Ändern der Richtlinie, die vorhandenen Volumes zugewiesen ist</block>
@@ -3260,7 +3246,6 @@
   <block id="8c77f5d3d64f827c40ceefa4640053e2" category="paragraph"><block ref="8c77f5d3d64f827c40ceefa4640053e2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7ef4f9c84de50739290a8a747d41cb8d" category="paragraph"><block ref="7ef4f9c84de50739290a8a747d41cb8d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c73a012d76ee166592a25a8ebd3e01ef" category="summary">Mit BlueXP Backup und Recovery können Sie Backup-Dateien in einem Azure Konto erstellen, das sich von dem unterscheidet, wo sich Ihre Cloud Volumes ONTAP Quell-Volumes befinden. Diese Dateien unterscheiden sich von den Konten, in denen der BlueXP Connector residiert.</block>
-  <block id="47528e7beca17f8cf55f4a42e05d76e4" category="paragraph">Mit BlueXP Backup und Recovery können Sie Backup-Dateien in einem Azure Konto erstellen, das sich von dem unterscheidet, wo sich Ihre Cloud Volumes ONTAP Quell-Volumes befinden. Und beide Konten können sich von dem Konto unterscheiden, in dem sich der BlueXP Connector befindet.</block>
   <block id="4bd946b57d99bd5b3f564041e093db5c" category="list-text">Versuchen Sie erneut, BlueXP Backup und Recovery auf dem Cloud Volumes ONTAP System zu aktivieren. Dies sollte diesmal erfolgreich sein.</block>
   <block id="771af8d455877d836933c4cd418d328e" category="summary">Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dies schließt das Ändern von Storage-Schlüsseln, die Übertragungsrate von Backups in den Objekt-Storage ein, unabhängig davon, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und vieles mehr.</block>
   <block id="bc9c577416d12a6ca412691275080bbc" category="paragraph">Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, kann ONTAP standardmäßig eine unbegrenzte Bandbreite verwenden, um die Backup-Daten von den Volumes in der Arbeitsumgebung in den Objekt-Storage zu übertragen. Wenn der Backup-Traffic sich auf normale Benutzer-Workloads auswirkt, kann die Menge an Netzwerkbandbreite, die während des Transfers verwendet wird, drosselt werden. Sie können einen Wert zwischen 1 und 1,000 Mbit/s als maximale Übertragungsrate auswählen.</block>
@@ -3786,7 +3771,6 @@
   <block id="b9388c240794b8c3c4269e032a040c26" category="section-title">Berichtsumfang</block>
   <block id="d4e9fdb94405dbff49a3feb26599c37d" category="paragraph">Die BlueXP Backup- und Recovery-Berichte bieten Informationen zu folgenden Aspekten:</block>
   <block id="3836890870b8ddc941f0e578f70711aa" category="list-text">*Standort des Connectors*: On-premise oder in der Cloud</block>
-  <block id="6ae02a56712ac674d3b26dbbcb432186" category="list-text">*Quelle*: Cloud Volumes ONTAP, On-Premises, Applikationen oder Kubernetes</block>
   <block id="dd4543716a6056c2ae27a8132114fdf7" category="list-text">*Ziel*: Jeder der Cloud-Provider, NetApp StorageGRID oder ONTAP S3</block>
   <block id="e692b7fe3cb28b404bc6ca3af827d329" category="list-text">*ONTAP-Versionen*: 9.13.0</block>
   <block id="cb43048793076d3b50ea5dc6ba1e276c" category="section-title">Erstellen Sie einen Bericht zum Backup-Bestand</block>
@@ -3864,4 +3848,36 @@
   <block id="e3bc6d35311568d55f1c8ea11984b964" category="paragraph">Diese NSS-Zugangsdaten sind mit Ihrer spezifischen BlueXP Konto-ID verknüpft. Benutzer, die zum BlueXP Konto gehören, können über *Support &gt; NSS Management* auf diese Anmeldedaten zugreifen.</block>
   <block id="f1d083b91d676646b3b9c05e92adeceb" category="sidebar">Überwachen Sie die Datensicherung</block>
   <block id="7b3531405cf0ef11d1ff0b6e4af62659" category="sidebar">Stellen Sie BlueXP Backup- und Recovery-Datenbanken an einem dunklen Standort wieder her</block>
+  <block id="444a8054fb02fac3bf777cf53bfc46a2" category="paragraph">Beachten Sie, dass Backup und Recovery _Azure-Zugriffsrichtlinien_ als Berechtigungsmodell unterstützt. Das rollenbasierte Berechtigungsmodell _Azure RBAC (Role-Based Access Control_) wird derzeit nicht unterstützt.</block>
+  <block id="f101fabb54ec4d8b174645abe2ebf725" category="paragraph">Mit BlueXP Backup und Recovery können Sie Backup-Dateien in einem Azure Konto erstellen, das sich von dem unterscheidet, wo sich Ihre Cloud Volumes ONTAP Quell-Volumes befinden. Beide Konten können unterschiedlich sein, als das Konto, bei dem sich der BlueXP Connector befindet.</block>
+  <block id="07d34410905760bde20fdb63ed31144f" category="inline-image-macro">Ein Screenshot der Auswahl von Abonnement 1 und des vnet, in dem Sie Peering einrichten möchten.</block>
+  <block id="fb1dc02cd132935f4053af66afc48c60" category="paragraph"><block ref="fb1dc02cd132935f4053af66afc48c60" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="83e915c6e7e7062c9cd8608b5e3f2a01" category="inline-image-macro">Ein Screenshot des Hinzufügens des Peering für das vnet für Abonnement 1.</block>
+  <block id="dc5db5eb0a0b4ec35420ffab93b73ace" category="paragraph"><block ref="dc5db5eb0a0b4ec35420ffab93b73ace" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="709eb5d0485c10464b3571c76182a410" category="inline-image-macro">Ein Screenshot der Auswahl von Abonnement 2 und des vnet, in dem Sie Peering einrichten möchten.</block>
+  <block id="a00f2c9eab0cd0391c31d7894688a92e" category="paragraph"><block ref="a00f2c9eab0cd0391c31d7894688a92e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="79520a9e99311190ee909e9f8d5dd60c" category="inline-image-macro">Ein Screenshot des Hinzufügens des Peering für das vnet für Abonnement 2.</block>
+  <block id="17939e4b4a2986d200c88aae6366e213" category="paragraph"><block ref="17939e4b4a2986d200c88aae6366e213" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="707727b212e0d31a584b632b8cd67ff6" category="inline-image-macro">Ein Screenshot mit den Ergebnissen der Peering-Konfiguration.</block>
+  <block id="5a085bdfc0e83ffb98f87e8ff91cad9d" category="paragraph"><block ref="5a085bdfc0e83ffb98f87e8ff91cad9d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f5795d526ae72abf715b69fcc042d544" category="list-text">Wechseln Sie zum Storage-Konto &gt; Netzwerk &gt; Private Endpunktverbindungen, und klicken Sie auf *+ Private Endpunktverbindungen*.</block>
+  <block id="f254275661fff420bcb804a971000888" category="inline-image-macro">Ein Screenshot zum Öffnen der privaten Endpunktkonfiguration für Ihr Speicherkonto.</block>
+  <block id="1e5251a20d1487ab70b1904135f48e64" category="paragraph"><block ref="1e5251a20d1487ab70b1904135f48e64" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ccdcc6bc4b20620f4a75b50e38f7dbd2" category="inline-image-macro">Ein Screenshot mit den Details der Seite „Grundlagen des privaten Endpunkts“.</block>
+  <block id="ea692baa5211d33eb5ba3eaf981083c9" category="paragraph"><block ref="ea692baa5211d33eb5ba3eaf981083c9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="18dc15061e7476362b8ef290cd96ae03" category="inline-image-macro">Ein Screenshot mit den Details der Seite „Private Endpoint Resource“.</block>
+  <block id="6d05ebaf7d4c763d545c7818e77f7daa" category="paragraph"><block ref="6d05ebaf7d4c763d545c7818e77f7daa" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c1dfe7d36721bb06cc5b4caa70a9a99d" category="inline-image-macro">Ein Screenshot mit den Details der privaten Seite Endpunktkonfiguration.</block>
+  <block id="727ec019e03973afc5f16b2144de9e80" category="paragraph"><block ref="727ec019e03973afc5f16b2144de9e80" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd1f1bbf131c989b07443ab96601cbbe" category="inline-image-macro">Ein Screenshot, der die Auswahl der privaten Zone auf der Seite Konfiguration des privaten Endpunkts zeigt.</block>
+  <block id="fe5eb2266351d487097e58cd93818ab8" category="paragraph"><block ref="fe5eb2266351d487097e58cd93818ab8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e5d5b752cdb14505ba3ec9b2bd2be013" category="section-title">Zusätzliche Benachrichtigung bei nicht übereinstimmenden Richtlinienbeschriftungen</block>
+  <block id="92c58fc811dad1461929803e5f5d9205" category="paragraph">Eine neue Backup-Warnmeldung wurde hinzugefügt: „Backup-Dateien wurden nicht erstellt, da die Snapshot-Richtlinienbeschriftungen nicht übereinstimmen“. Wenn das in einer Backup-Richtlinie definierte _Label_ in der Snapshot-Richtlinie kein passendes _Label_ enthält, wird keine Sicherungsdatei erstellt. Sie müssen System Manager oder die ONTAP CLI verwenden, um der Snapshot-Richtlinie des Volumes das fehlende Label hinzuzufügen.</block>
+  <block id="809c5429fbc9708f2c659ca056b2c098" category="paragraph"><block ref="1fa18ad5aa31d9e300f41aa2d9a59bdd" category="inline-link-rx"></block>.</block>
+  <block id="4dfad254c5822c7c53407757d42fec0e" category="list-text">*Quelle*: Cloud Volumes ONTAP-Volumes, lokale ONTAP-Volumes, Applikationen oder persistente Kubernetes-Volumes</block>
+  <block id="0231cb971bb3375c29d3f87768ec4489" category="inline-image-macro">Nach-unten-Taste</block>
+  <block id="a4b9e2d363f6ae41eb2ce095cefe91de" category="paragraph">Hinweis: Klicken Sie auf <block ref="68009ec8a10651d6de3d648624efb837" category="inline-image-macro-rx" type="image"></block> Um die vollständigen Details für die Richtlinie anzuzeigen.</block>
+  <block id="ba85eaabcb89510a63df45c18680ba9a" category="list-text">Klicken Sie auf der Seite _Edit Policy_ auf <block ref="68009ec8a10651d6de3d648624efb837" category="inline-image-macro-rx" type="image"></block> Erweitern Sie den Abschnitt _Labels &amp; Retention_, um den Zeitplan und/oder die Backup-Aufbewahrung zu ändern, und klicken Sie auf *Speichern*.</block>
+  <block id="aafc4372a2c5748961cfe050c997ca42" category="list-text">Klicken Sie auf der Seite „ Neue Richtlinie hinzufügen_“ auf <block ref="68009ec8a10651d6de3d648624efb837" category="inline-image-macro-rx" type="image"></block> Erweitern Sie den Abschnitt _Labels &amp; Retention_, um den Zeitplan und die Backup-Aufbewahrung zu definieren, und klicken Sie auf *Speichern*.</block>
+  <block id="27b14a69b7d1dfde3096980cc202af91" category="sidebar">Erstellen von Berichten zur Datensicherung</block>
 </blocks>

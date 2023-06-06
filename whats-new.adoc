@@ -40,6 +40,14 @@ Sie können jetzt _Backup Lifecycle_ als Jobtyp auf der Seite Job Monitor überp
 
 
 
+=== Zusätzliche Benachrichtigung bei nicht übereinstimmenden Richtlinienbeschriftungen
+
+Eine neue Backup-Warnmeldung wurde hinzugefügt: „Backup-Dateien wurden nicht erstellt, da die Snapshot-Richtlinienbeschriftungen nicht übereinstimmen“. Wenn das in einer Backup-Richtlinie definierte _Label_ in der Snapshot-Richtlinie kein passendes _Label_ enthält, wird keine Sicherungsdatei erstellt. Sie müssen System Manager oder die ONTAP CLI verwenden, um der Snapshot-Richtlinie des Volumes das fehlende Label hinzuzufügen.
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center["Prüfen Sie alle Warnmeldungen, die BlueXP Backup und Recovery senden können"].
+
+
+
 === Automatisches Backup kritischer BlueXP Backup- und Recovery-Dateien an Dark Sites
 
 Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang nutzen, auch bekannt als „Private-Mode“-Implementierung, werden die Backup- und Recovery-Informationen von BlueXP nur auf dem lokalen Connector-System gespeichert. Diese neue Funktion sichert wichtige Backup- und Recovery-Daten von BlueXP automatisch in einem Bucket auf Ihrem verbundenen StorageGRID-System, sodass Sie diese Daten bei Bedarf auf einem neuen Connector wiederherstellen können. https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html["Weitere Informationen ."]

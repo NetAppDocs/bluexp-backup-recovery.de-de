@@ -280,6 +280,9 @@ Sie können Backups von On-Premises-Systemen zu Azure Blob in allen Regionen ers
 === Azure Blob Storage für Backups wird vorbereitet
 
 . Sie können Ihre eigenen, von Ihnen gemanagten Schlüssel zur Datenverschlüsselung im Aktivierungsassistenten verwenden und nicht die von Microsoft verwalteten Standardschlüssel verwenden. In diesem Fall müssen Sie über das Azure-Abonnement, den Namen von Key Vault und den Schlüssel verfügen. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
++
+Beachten Sie, dass Backup und Recovery _Azure-Zugriffsrichtlinien_ als Berechtigungsmodell unterstützt. Das rollenbasierte Berechtigungsmodell _Azure RBAC (Role-Based Access Control_) wird derzeit nicht unterstützt.
+
 . Wenn Sie eine sicherere Verbindung über das öffentliche Internet von Ihrem On-Prem-Datacenter zum vnet haben möchten, besteht die Möglichkeit, einen Azure Private Endpunkt im Aktivierungs-Assistenten zu konfigurieren. In diesem Fall müssen Sie vnet und Subnetz für diese Verbindung kennen. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["Weitere Informationen zur Verwendung eines privaten Endpunkts finden Sie unter"^].
 
 

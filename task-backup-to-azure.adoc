@@ -180,6 +180,11 @@ BlueXP Backup und Recovery stellt den Blob-Container standardmäßig mit lokaler
 --
 Erforderliche Einrichtung zum Erstellen von Backups in einem anderen Azure Abonnement:: Standardmäßig werden Backups mit demselben Abonnement erstellt wie das für Ihr Cloud Volumes ONTAP-System verwendete. Wenn Sie ein anderes Azure Abonnement für Ihre Backups verwenden möchten, müssen Sie dies tun link:reference-backup-multi-account-azure.html["Melden Sie sich beim Azure-Portal an und verlinken Sie die beiden Abonnements"].
 Erforderliche Informationen zur Nutzung von vom Kunden gemanagten Schlüsseln für die Datenverschlüsselung:: Sie können im Aktivierungsassistenten Ihre eigenen, vom Kunden gemanagten Schlüssel für die Datenverschlüsselung verwenden, anstatt die von Microsoft verwalteten Standardschlüssel zu verwenden. In diesem Fall müssen Sie über das Azure-Abonnement, den Namen von Key Vault und den Schlüssel verfügen. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
++
+--
+Beachten Sie, dass Backup und Recovery _Azure-Zugriffsrichtlinien_ als Berechtigungsmodell unterstützt. Das rollenbasierte Berechtigungsmodell _Azure RBAC (Role-Based Access Control_) wird derzeit nicht unterstützt.
+
+--
 
 
 
