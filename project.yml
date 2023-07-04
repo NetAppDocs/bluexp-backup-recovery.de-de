@@ -97,8 +97,8 @@ sidebar:
         url: "/task-restore-oracle-data.html"
       - title: SQL Server Datenbank wiederherstellen
         url: "/task-restore-sql-data.html"
-    - title: Binden Sie Backups von Applikationen ein
-      url: "/task-mount-app-backup.html"
+      - title: Wiederherstellung der SAP HANA Datenbank
+        url: "/task-restore-hana-backup.html"
   - title: Backup und Wiederherstellung von Cloud-nativen Applikationsdaten
     entries:
     - title: Sichern Sie Ihre Cloud-nativen Applikationsdaten
@@ -135,7 +135,11 @@ sidebar:
         flavor: azure
         url: "/task-backup-cloud-native-sap-hana-data.html"
     - title: Stellen Sie Cloud-native Oracle-Datenbanken wieder her
-      url: "/task-restore-cloud-native-oracle-data.html"
+      entries:
+      - title: Wiederherstellung am ursprünglichen Speicherort
+        url: "/task-restore-cloud-native-oracle-data-to-original-location.html"
+      - title: Wiederherstellung an einem alternativen Speicherort
+        url: "/task-restore-cloud-native-oracle-data-to-alternate-location.html"
     - title: Wiederherstellung von Cloud-nativen SAP HANA-Datenbanken
       flavor: azure
       url: "/task-restore-cloud-native-sap-hana-data.html"

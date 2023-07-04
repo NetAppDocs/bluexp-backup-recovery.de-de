@@ -40,13 +40,14 @@ Wenn der Connector verloren geht oder Sie einen neuen Connector erstellt haben, 
 * Sie sollten das SnapCenter-Plug-in für SAP HANA installiert haben, bevor Sie den Datenbank-Host hinzufügen.
 * Beim Hinzufügen der SAP HANA-Datenbank-Hosts sollten Sie die HDB-Benutzerspeicherschlüssel hinzufügen. Der HDB Secure User Store-Schlüssel wird verwendet, um die Verbindungsinformationen der SAP HANA Datenbank-Hosts sicher auf dem Client zu speichern und HDBSQL-Client verwendet den sicheren User Store-Schlüssel für die Verbindung zum SAP HANA-Datenbank-Host.
 * Für HANA System Replication (HSR) sollten Sie zum Schutz der HANA-Systeme sowohl primäre als auch sekundäre HANA-Systeme manuell registrieren.
++
+
+NOTE: Der Hostname muss der gleiche sein wie der Host, der in der HSR-Replikation verwendet wird.
+
 * Stellen Sie sicher, dass für den Connector die Kommunikation zum SSH-Port aktiviert ist (Standard: 22), wenn eine SSH-basierte Installation durchgeführt wird.
 * Stellen Sie sicher, dass der Connector die Kommunikation für den Plug-in-Port aktiviert hat (Standard: 8145), damit die Datenschutzvorgänge funktionieren.
 * Stellen Sie sicher, dass die neueste Version des Plug-ins installiert ist. Informationen zum Aktualisieren des Plug-ins finden Sie unter <<Upgrade des SnapCenter Plug-in für SAP HANA Datenbank>>.
 
-
-
-NOTE: Wenn die Konnektivität vom BlueXP Connector-Host zum Applikations-Host ausfällt, finden Sie weitere Informationen unter https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host["Knowledge Base-Artikel"^] Zur Information.
 
 
 
@@ -54,11 +55,12 @@ NOTE: Wenn die Konnektivität vom BlueXP Connector-Host zum Applikations-Host au
 
 Erstellen Sie einen nicht-Root-Benutzer (sudo), um das Plug-in zu installieren.
 
-*Schritte*
-
+.Schritte
 . Melden Sie sich bei der Connector-VM an.
-. Kopieren Sie den Inhalt von *sudoer.txt* in: _Manager-2_cloudmanager_scs_Cloud_Volume/_Data/€(sudo docker ps_grep -Po "Cloud Manager_scs_Cloud:.*? „/sed -e s/ *€//' Cut -f2 -d“:“)/sc-linux-Host-Plugin_
-. Melden Sie sich über das root-Benutzerkonto beim SAP HANA-Datenbankhost an.
+. Laden Sie die SnapCenter Linux Host Plug-in-Binärdatei herunter.
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+. Kopieren Sie den Inhalt von *sudoer.txt* unter: _/var/lib/Docker/Volumes/Service-Manager[1]-2_cloudmanager_scs_Cloud_Volume/_Data/€(sudo docker ps_grep -Po „Cloud Manager_scs_Cloud:.*? „/sed -e s/ *€//' Cut -f2 -d“:“)/sc-linux-Host-Plugin_
+. Melden Sie sich über das root-Benutzerkonto beim SAP HANA-Systemhost an.
 . Konfigurieren Sie den sudo-Zugriff für den nicht-root-Benutzer, indem Sie den im Schritt 3 kopierten Text in die _/etc/sudoers.d/snapcenter_-Datei kopieren.
 +
 Ersetzen Sie in den Zeilen, die Sie der _/etc/sudoers.d/snapcenter_-Datei hinzugefügt haben, _<LINUXUSER>_ durch den Benutzer nicht-root und _<USER_HOME_DIRECTORY>_ durch _Home/<non-root-user>_.
@@ -71,15 +73,17 @@ Ersetzen Sie in den Zeilen, die Sie der _/etc/sudoers.d/snapcenter_-Datei hinzug
 
 Konfigurieren Sie die SSH-Schlüsselauthentifizierung für das nicht-root-Benutzerkonto des SAP HANA-Hosts und führen Sie die folgenden Schritte zur Installation des Plug-ins aus.
 
-* Vor Ihrem Anfang*
-
+.Bevor Sie beginnen
 Stellen Sie sicher, dass die SSH-Verbindung zum Connector aktiviert ist.
 
-*Schritte*
-
+.Schritte
 . Melden Sie sich bei Connector VM an.
 . Installieren Sie das Plug-in mit dem im Connector bereitgestellten Skript.
-`sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
+`sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
++
+Wenn Sie einen älteren Connector verwenden, führen Sie den folgenden Befehl aus, um das Plug-in zu installieren.
+`sudo /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
+
 +
 |===
 | Name | Beschreibung | Obligatorisch | Standard 
@@ -140,7 +144,7 @@ Nein
 
 |===
 +
-Beispiel: `sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+Beispiel: `sudo bash /var/lib/Docker/Volumes/Service-Manager-2_Cloudmanager_scs_Cloud_Volume/_Data/scripts/linux_plugin_copy_and_install.sh --Host 10.0.1.1 --username SnapCenter --sshkey /keys/netapp-ssh.ppk
 
 
 
@@ -154,11 +158,11 @@ Wenn die SSH-Schlüsselauthentifizierung auf dem HANA-Host nicht aktiviert ist, 
 
 *Schritte*
 
-. Melden Sie sich bei der Connector-VM an.
+. Melden Sie sich bei Connector VM an.
 . Laden Sie die SnapCenter Linux Host Plug-in-Binärdatei herunter.
 `sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 +
-Die Plug-in-Binärdatei ist verfügbar unter: _cd /var/lib/Docker/Volumes/Service-Manager-2_Cloudmanager_scs_Cloud_Volume/_Data/€(sudo docker ps_grep -Po "Cloud Manager_scs_Cloud:.*? „/sed -e s/ *€//' Cut -f2 -d“:“)/sc-linux-Host-Plugin_
+Die Plug-in-Binärdatei ist verfügbar unter: _cd /var/lib/Docker/Volumes/Service-Manager[1]-2_Cloudmanager_scs_Cloud_Volume/_Data/€(sudo docker ps_grep -Po "Cloudmanager_scs_Cloud:.*? „/sed -e s/ *€//' Cut -f2 -d“:“)/sc-linux-Host-Plugin_
 
 . Kopieren Sie _snapcenter_linux_Host_Plugin_scs.bin_ von dem obigen Pfad zu _/Home/<non root user (sudo)>/.sc_netapp_ Pfad für jeden der SAP HANA Datenbank Hosts entweder mit scp oder anderen alternativen Methoden.
 . Melden Sie sich über das nicht-Root-Konto (sudo) beim SAP HANA-Datenbank-Host an.
@@ -189,9 +193,13 @@ Sie sollten das SnapCenter-Plug-in für SAP HANA-Datenbank aktualisieren, um auf
 
 *Schritte*
 
-. Melden Sie sich bei Connector VM an.
+. Konfigurieren Sie sudo für SnapCenter-Benutzer. Weitere Informationen finden Sie unter <<Konfigurieren Sie sudo für SnapCenter-Benutzer>>.
 . Führen Sie das folgende Skript aus.
 `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
++
+Wenn Sie einen älteren Connector verwenden, führen Sie den folgenden Befehl aus, um das Plug-in zu aktualisieren.
+`/var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
+
 
 
 
@@ -212,7 +220,8 @@ Sie sollten SAP HANA-Datenbank-Hosts manuell hinzufügen, um Richtlinien zuzuwei
 .. Geben Sie den SAP HANA-Systemnamen ein.
 .. Geben Sie die SID des SAP HANA-Systems an.
 .. (Optional) Ändern von HDBSQL OS-Benutzern.
-.. Wählen Sie Plug-in-Host. (Optional) Wenn der Host nicht hinzugefügt wird oder Sie mehrere Hosts hinzufügen möchten, klicken Sie auf *Add Plug-in Host*.
+.. Wählen Sie Plug-in-Host.
+(Optional) Wenn der Host nicht hinzugefügt wird, klicken Sie auf *Add Plug-in Host*.
 .. Wenn HANA-System mit HANA System Replication konfiguriert ist, aktivieren Sie *HANA System Replication (HSR) System*.
 .. Klicken Sie auf * HDB Secure User Store Keys* Textfeld, um Details zu den Benutzerspeicherschlüsseln hinzuzufügen.
 +
@@ -228,7 +237,7 @@ Sie können die Benutzerspeicherschlüssel löschen oder ändern.
 +
 .. Wählen Sie die Arbeitsumgebung aus und geben Sie den NetApp Account an.
 +
-Gehen Sie zur Seite *Canvas*, um eine neue Arbeitsumgebung hinzuzufügen
+Wählen Sie im linken Navigationsbereich BlueXP *Canvas* aus, um eine neue Arbeitsumgebung hinzuzufügen.
 
 .. Wählen Sie die erforderlichen Volumes aus.
 .. Klicken Sie Auf *Speicher Hinzufügen*.
@@ -237,10 +246,7 @@ Gehen Sie zur Seite *Canvas*, um eine neue Arbeitsumgebung hinzuzufügen
 . Überprüfen Sie alle Details und klicken Sie auf *System hinzufügen*.
 
 
-
-NOTE: Der Filter zum Anzeigen eines bestimmten Hosts funktioniert nicht. Wenn Sie im Filter einen Hostnamen angeben, werden alle Hosts angezeigt.
-
-Sie können die SAP HANA-Systeme über die UI oder ÜBER REST API ändern oder entfernen.
+Sie können die SAP HANA-Systeme von der Benutzeroberfläche ändern oder entfernen.
 
 Bevor Sie das SAP HANA-System entfernen, sollten Sie alle zugehörigen Backups löschen und den Schutz entfernen.
 
@@ -253,7 +259,7 @@ Sie können den SAP HANA-Datenbank-Host nur mit REST-APIs entfernen.
 *Schritte*
 
 . Löschen Sie alle Systeme, die mit dem SAP HANA-Datenbank-Host verbunden sind, über die UI oder über die unten stehende REST-API.
-`DELETE /saphana/and/systems/(id)`
+`DELETE /saphana/anf/systems/(id)`
 . Führen Sie die folgenden Schritte aus, um den SAP HANA-Datenbank-Host zu entfernen.
 +
 .. Verwenden SIE DIE GET REST API, um die ID des zu löschenden SAP HANA Datenbank-Hosts zu erhalten.
@@ -312,9 +318,6 @@ Nach dem Hinzufügen des mandantenfähigen Datenbank-Containers oder einzelnen C
 .. Geben Sie den SAP HANA-Systemnamen ein.
 .. Geben Sie die zugehörigen SIDs des SAP HANA-Systems an.
 .. Wählen Sie den Plug-in-Host aus
-+
-(Optional) um mehrere Hosts hinzuzufügen, klicken Sie auf *Add Plug-in Host* und geben Sie den Hostnamen und Port an und klicken Sie auf *Add Host*.
-
 .. Klicken Sie Auf *Weiter*.
 .. Überprüfen Sie alle Details und klicken Sie auf *System hinzufügen*.
 
@@ -343,5 +346,9 @@ Nach dem Hinzufügen des SAP HANA-Datenbankhosts können Sie den Hostnamen oder 
     `]`
 `}`
 . Ändern Sie den Hostnamen oder den Plug-in-Port mithilfe der folgenden PATCH-API.
-`PATCH /saphana/hosts/(id)``
+`PATCH /saphana/hosts/(id)`
+`{`
+`"host_name": "vm136.dummy.com",`
+`"port": 8145,`
+`}`
 

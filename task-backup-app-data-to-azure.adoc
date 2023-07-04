@@ -16,8 +16,7 @@ summary: Führen Sie einige Schritte aus, um Applikationsdaten von ONTAP in Azur
 [role="lead"]
 Führen Sie ein paar Schritte durch, um die Applikationsdaten von ONTAP auf Microsoft Azure zu sichern.
 
-*Schritte*
-
+.Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Backup aktivieren*.
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.

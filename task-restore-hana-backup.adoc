@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: task-restore-hana-backup.html 
+keywords: restore, mount application backups, SAP HANA database 
+summary: Sie können SAP HANA-Datenbanken aus der Cloud auf dem lokalen SnapCenter-Server wiederherstellen. 
+---
+= Wiederherstellung der SAP HANA Datenbank
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können die SAP HANA-Datenbank auf demselben Host wiederherstellen.
+
+*Schritte*
+
+. Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
+. Wählen Sie im Feld *Filtern nach* den Filter *Typ* und wählen Sie aus der Dropdown-Liste *HANA* aus.
+. Klicken Sie auf *Details anzeigen*, die der Datenbank entsprechen, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
+. Geben Sie auf der Seite Wiederherstellungsoptionen eine der folgenden Optionen an:
++
+.. Geben Sie in der NAS-Umgebung den FQDN oder die IP-Adresse des Hosts an, auf den die aus dem Objektspeicher wiederhergestellten Volumes exportiert werden sollen.
+.. Geben Sie in der SAN-Umgebung die Initiatoren des Hosts an, dem die LUNs der aus dem Objektspeicher wiederhergestellten Volumes zugeordnet werden sollen.
+
+
+. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+. Wenn nicht genügend Speicherplatz auf dem Quellspeicher vorhanden ist oder der Quellspeicher nicht verfügbar ist, wählen Sie *Speicherort ändern*.
+. Klicken Sie Auf *Weiter*.
+. Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die vom Objektspeicher wiederhergestellten Daten gespeichert werden.
+. Klicken Sie Auf *Weiter*.
+. Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
+
+
+Dieser Vorgang führt nur den Speicherexport des ausgewählten Backups auf dem angegebenen Host aus. Sie sollten das Dateisystem manuell mounten und die Datenbank aufrufen. Nach der Nutzung des Volumes kann der Speicheradministrator das Volume aus dem ONTAP-Cluster löschen.
+
+Weitere Informationen zum Einrichten der SAP HANA-Datenbank finden Sie unter: https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html["TR-4667: Überblick über den Workflow von SAP Systemkopien mit SnapCenter"^] Und https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html["TR-4667: Überblick über den Workflow des SAP-Systemklons mit SnapCenter"^].

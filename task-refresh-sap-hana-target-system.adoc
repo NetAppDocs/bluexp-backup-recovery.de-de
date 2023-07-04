@@ -14,7 +14,7 @@ summary: Führen Sie eine Aktualisierung von einem SAP HANA Quell-System durch, 
 
 
 [role="lead"]
-Sie können eine Aktualisierung eines SAP HANA-Zielsystems mit den Daten eines SAP HANA-Quellsystems durchführen. Damit können die aktuellen Produktionsdaten in einem Testsystem bereitgestellt werden. Mit Cloud Backup können Sie eine Snapshot Kopie aus einem Quellsystem auswählen und auf Basis der Snapshot Kopie ein neues ANF Volume erstellen. Es sind Beispielskripte verfügbar, die die erforderlichen Vorgänge auf dem Datenbank-Host ausführen, um die SAP HANA-Datenbank wiederherzustellen.
+Sie können eine Aktualisierung eines SAP HANA-Zielsystems mit den Daten eines SAP HANA-Quellsystems durchführen. Damit können die aktuellen Produktionsdaten in einem Testsystem bereitgestellt werden. Mit Cloud Backup können Sie eine Snapshot Kopie aus einem Quellsystem auswählen und basierend auf der Snapshot Kopie ein neues Azure NetApp Files Volume erstellen. Es sind Beispielskripte verfügbar, die die erforderlichen Vorgänge auf dem Datenbank-Host ausführen, um die SAP HANA-Datenbank wiederherzustellen.
 
 *Bevor Sie beginnen*
 
@@ -56,6 +56,8 @@ Wenn das Quell-Volume beispielsweise vol1 ist, lautet der aktualisierte Volume-N
 NOTE: Das neue Volume wird im gleichen Kapazitäts-Pool wie das der Ziel-Volumes platziert.
 
 * Der Verbindungspfad entspricht dem Volume-Namen.
+* Die „maximale Durchsatzzahl“ für das neue Volume wird aus dem Volume des Zielsystems mit manuellen Quality of Service (QoS) Kapazitäts-Pools ausgewählt.
+Bei Auto-QoS-Kapazitätspools wird der Durchsatz durch die Kapazität des Quell-Volume definiert.
 
 
 *Schritte*
@@ -67,7 +69,6 @@ NOTE: Das neue Volume wird im gleichen Kapazitäts-Pool wie das der Ziel-Volumes
 .. Wählen Sie das Quellsystem und die Snapshot Kopie aus.
 .. Geben Sie die Exportadressen ein, von denen aus auf die neuen Volumes zugegriffen werden kann.
 .. Geben Sie Prescript, Postscript und On Failure Script-Pfade ein. Das Skript bei einem Fehler wird nur ausgeführt, wenn die Systemaktualisierung fehlschlägt.
-.. Wählen Sie *zugewiesene SAP HANA Backups löschen* nur Snapshot Kopien werden gelöscht. Wenn Backups des Zielsystems vorhanden sind und die oben genannte Option nicht ausgewählt ist, schlägt die Systemaktualisierung fehl. Sie können die Backups auch von der Seite *Topologie* löschen.
 .. Klicken Sie Auf *Aktualisieren*.
 
 

@@ -23,12 +23,10 @@ Sie können Datenbanken aus den folgenden Gründen klonen:
 * Zum Wiederherstellen von Daten, die versehentlich gelöscht oder geändert wurden.
 
 
-*Bevor Sie beginnen*
-
+.Bevor Sie beginnen
 Sie sollten die Klonkonzepte kennen und sicherstellen, dass alle Anforderungen erfüllt werden. link:concept-clone-cloud-native-oracle-concepts.html["Weitere Informationen ."].
 
-*Schritte*
-
+.Schritte
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datenbank, die Sie klonen möchten, und klicken Sie auf *Details anzeigen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Datensicherung und klicken Sie auf *Clone*.
 . Wählen Sie auf der Seite Klondetails eine der Klonoptionen aus.

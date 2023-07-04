@@ -22,6 +22,7 @@ Führen Sie die folgenden Schritte aus, um schnell zu beginnen:
 +
 ** RHEL 7.5 oder höher und 8.x
 ** L 7.5 oder höher und 8.x
+** SLES 15 SP4
 
 
 * NetApp Cloud-Storage:
@@ -42,7 +43,7 @@ NOTE: Azure NetApp Files unterstützt keine SAN-Umgebung.
 
 
 * Datenbank-Layouts: Oracle Standard und Oracle Enterprise Standalone (veraltete und mandantenfähige CDB und PDB)
-* Datenbankversionen: 12cR2, 18c, 19c und 21c
+* Datenbankversionen: 19c und 21c
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Melden Sie sich bei BlueXP an

@@ -55,17 +55,34 @@ Sie können die Details des SnapCenter Plug-ins für VMware vSphere Hosts in Blu
 
 
 
-== Aktualisieren Sie Den Sicherungsstatus
+== Ressourcen und Backups aktualisieren
 
-Wenn neue Volumes zur Datenbank hinzugefügt werden oder wenn eine Änderung an der Richtlinie oder Ressourcengruppe erfolgt, sollten Sie den Schutzstatus aktualisieren.
+Wenn Sie die neuesten Datastores und Backups anzeigen möchten, die der Anwendung hinzugefügt wurden, sollten Sie die Ressourcen und Backups aktualisieren. Dadurch wird die Ermittlung der Ressourcen und Backups gestartet, und die neuesten Details werden angezeigt.
 
 . Klicken Sie auf *Backup und Wiederherstellung* > *Virtuelle Maschinen*.
 . Klicken Sie im Dropdown-Menü *Einstellungen* auf *SnapCenter Plug-in für VMware vSphere*.
-. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem SnapCenter-Plug-in für VMware vSphere-Host und klicken Sie auf *Aktualisieren*.
-+
-Die neuen Änderungen werden ermittelt.
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem SnapCenter-Plug-in für VMware vSphere-Host und klicken Sie auf *Ressourcen und Backups aktualisieren*.
 
-. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem Datastore und klicken Sie auf *Refresh Protection*, um den Cloud-Schutz für die Änderungen zu aktivieren.
+
+
+
+== Richtlinie oder Ressourcengruppe aktualisieren
+
+Wenn eine Änderung an der Richtlinie oder Ressourcengruppe erfolgt, sollten Sie die Schutzbeziehung aktualisieren.
+
+. Klicken Sie auf *Backup und Wiederherstellung* > *Virtuelle Maschinen*.
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem Datastore und klicken Sie auf *Schutz aktualisieren*.
+
+
+
+
+== Heben Sie die Registrierung des SnapCenter-Plug-ins für den VMware vSphere-Host auf
+
+Alle Datastores und virtuellen Maschinen, die mit dem SnapCenter-Plug-in für den VMware vSphere-Host verbunden sind, sind ungeschützt.
+
+. Klicken Sie auf *Backup und Wiederherstellung* > *Virtuelle Maschinen*.
+. Klicken Sie im Dropdown-Menü *Einstellungen* auf *SnapCenter Plug-in für VMware vSphere*.
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem SnapCenter-Plug-in für VMware vSphere-Host und klicken Sie auf *Registrierung aufheben*.
 
 
 

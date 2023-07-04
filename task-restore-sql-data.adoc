@@ -14,51 +14,102 @@ summary: Sie können eine SQL Server Datenbank aus der Cloud auf dem lokalen Sna
 
 
 [role="lead"]
-Sie können eine SQL Server-Datenbank auf demselben Host oder auf dem alternativen Host wiederherstellen. Das Recovery von Protokoll-Backups und das erneute Seeding von Verfügbarkeitsgruppen wird nicht unterstützt.
+Sie können die SQL Server Datenbank entweder am ursprünglichen Speicherort oder an einem alternativen Speicherort wiederherstellen.
 
 
-IMPORTANT: Single File Restore (SFR) wird nicht unterstützt.
+NOTE: Single File Restore (SFR), Recovery von Protokoll-Backups und erneutes Seeding von Verfügbarkeitsgruppen werden nicht unterstützt.
 
-*Schritte*
-
+.Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Wählen Sie im Feld *Filtern nach* den Filter *Typ* aus und wählen Sie aus dem Dropdown-Menü *SQL* aus.
 . Klicken Sie auf *Details anzeigen*, um alle verfügbaren Backups anzuzeigen.
 . Wählen Sie das Backup aus und klicken Sie auf *Wiederherstellen*.
-. Wählen Sie den Speicherort aus, an dem die Datenbankdateien wiederhergestellt werden sollen.
+. Geben Sie auf der Seite Wiederherstellungsoptionen den Speicherort an, an dem Sie die Datenbankdateien wiederherstellen möchten.
 +
 |===
 | Sie suchen... | Tun Sie das... 
 
 
  a| 
-Sie möchten die Datenbank auf demselben SQL-Server-Host wiederherstellen, auf dem die Backups erstellt wurden
+Sie möchten den ursprünglichen Speicherort wiederherstellen
  a| 
-Wählen Sie *Datenbank auf demselben Host wiederherstellen, auf dem die Sicherung erstellt wurde*.
+.. Wählen Sie *auf ursprünglichen Speicherort zurücksetzen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+.. Klicken Sie Auf *Weiter*.
+
 
 
 
  a| 
-Wiederherstellung der Datenbank auf einem anderen SQL-Server auf demselben oder einem anderen Host, auf dem Backups erstellt wurden
+Sie möchten vorübergehend in einem anderen Speicher wiederherstellen und dann die wiederhergestellten Dateien an den ursprünglichen Speicherort kopieren
  a| 
-Wählen Sie *Datenbank auf einem alternativen Host wiederherstellen*.
+.. Wählen Sie *auf ursprünglichen Speicherort zurücksetzen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
 
-Wählen Sie einen Hostnamen aus, geben Sie einen Datenbanknamen ein (optional), wählen Sie eine Instanz aus und geben Sie die Wiederherstellungspfade an.
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
 
+.. Wählen Sie *Speicherort ändern*.
+.. Klicken Sie Auf *Weiter*.
+.. Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die vom Objektspeicher wiederhergestellten Daten vorübergehend gespeichert werden.
+.. Klicken Sie Auf *Weiter*.
+
+
+
+
+ a| 
+Sie möchten an einem alternativen Speicherort wiederherstellen
+ a| 
+.. Wählen Sie *an alternativen Speicherort wiederherstellen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+.. Klicken Sie Auf *Weiter*.
+.. Wählen Sie auf der Seite Ziel-Host einen Hostnamen aus, geben Sie einen Datenbanknamen an (optional), wählen Sie eine Instanz aus und geben Sie die Wiederherstellungspfade an.
++
 
 NOTE: Die im alternativen Pfad angegebene Dateierweiterung muss mit der Dateiendung der ursprünglichen Datenbankdatei identisch sein.
 
-Wenn die Option *Datenbank auf alternativen Host* wiederherstellen nicht auf der Seite „Bereich wiederherstellen“ angezeigt wird, löschen Sie den Browser-Cache.
+.. Klicken Sie Auf *Weiter*.
+
+
+
+
+ a| 
+Sie möchten vorübergehend auf einem anderen Speicher wiederherstellen und die wiederhergestellten Dateien dann an einen anderen Speicherort kopieren
+ a| 
+.. Wählen Sie *an alternativen Speicherort wiederherstellen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+.. Wählen Sie *Speicherort ändern*.
+.. Klicken Sie Auf *Weiter*.
+.. Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die vom Objektspeicher wiederhergestellten Daten vorübergehend gespeichert werden.
+.. Klicken Sie Auf *Weiter*.
+.. Wählen Sie auf der Seite Ziel-Host einen Hostnamen aus, geben Sie einen Datenbanknamen an (optional), wählen Sie eine Instanz aus und geben Sie die Wiederherstellungspfade an.
++
+
+NOTE: Die im alternativen Pfad angegebene Dateierweiterung muss mit der Dateiendung der ursprünglichen Datenbankdatei identisch sein.
+
+.. Klicken Sie Auf *Weiter*.
+
 
 |===
-. Wenn sich der Snapshot im Archiv-Speicher befindet, geben Sie die Priorität an, um Ihre Daten aus dem Archiv-Speicher wiederherzustellen.
-. Wählen Sie auf der Seite *Pre Restore Options* eine der folgenden Optionen aus:
+. Wählen Sie im Feld *Pre-Operations* eine der folgenden Optionen aus:
 +
 ** Wählen Sie *Überschreiben Sie die Datenbank mit demselben Namen während der Wiederherstellung* aus, um die Datenbank mit dem gleichen Namen wiederherzustellen.
 ** Wählen Sie *SQL-Datenbankreplikationseinstellungen beibehalten* aus, um die Datenbank wiederherzustellen und die vorhandenen Replikationseinstellungen beizubehalten.
 
 
-. Wählen Sie auf der Seite *Optionen zur Wiederherstellung nach der Wiederherstellung* den Datenbankstatus für die Wiederherstellung weiterer Transaktionsprotokolle aus, eine der folgenden Optionen aus:
+. Wählen Sie im Abschnitt *Post-Operations* eine der folgenden Optionen aus, um den Datenbankstatus für die Wiederherstellung zusätzlicher Transaktionsprotokolle festzulegen:
 +
 ** Wählen Sie *Operational, aber nicht verfügbar* aus, wenn Sie jetzt alle notwendigen Backups wiederherstellen.
 +
@@ -77,5 +128,6 @@ Wenn die Option „Verzeichnis aufheben“ aktiviert ist, werden mehr Transaktio
 
 
 
+. Klicken Sie Auf *Weiter*.
 . Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
 

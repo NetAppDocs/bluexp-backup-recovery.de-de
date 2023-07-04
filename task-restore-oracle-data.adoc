@@ -14,7 +14,7 @@ summary: Sie können Oracle Datenbanken aus der Cloud auf dem lokalen SnapCenter
 
 
 [role="lead"]
-Sie können die Oracle-Datenbank nur auf demselben Host wiederherstellen, auf dem das Backup erstellt wurde. Bei einer RAC-Datenbank werden die Daten auf dem lokalen Knoten wiederhergestellt, auf dem das Backup erstellt wurde.
+Sie können Oracle Datenbanken entweder am ursprünglichen Speicherort oder an einem alternativen Speicherort wiederherstellen. Bei einer RAC-Datenbank werden die Daten auf dem lokalen Knoten wiederhergestellt, auf dem das Backup erstellt wurde.
 
 Es wird nur eine vollständige Datenbank mit Wiederherstellung der Kontrolldatei unterstützt. Wenn die Archivprotokolle nicht im AFS vorhanden sind, müssen Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
 
@@ -26,8 +26,22 @@ IMPORTANT: Single File Restore (SFR) wird nicht unterstützt.
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Wählen Sie im Feld *Filtern nach* den Filter *Typ* aus und wählen Sie aus der Dropdown-Liste *Oracle* aus.
 . Klicken Sie auf *Details anzeigen*, die der Datenbank entsprechen, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
-. Führen Sie auf der Seite Wiederherstellungstyp die folgenden Aktionen durch:
+. Geben Sie auf der Seite Wiederherstellungsoptionen den Speicherort an, an dem Sie die Datenbankdateien wiederherstellen möchten.
 +
+|===
+| Sie suchen... | Tun Sie das... 
+
+
+ a| 
+Sie möchten den ursprünglichen Speicherort wiederherstellen
+ a| 
+.. Wählen Sie *auf ursprünglichen Speicherort zurücksetzen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+.. Klicken Sie Auf *Weiter*.
 .. Wählen Sie *Datenbankstatus* aus, wenn Sie den Status der Datenbank in den Zustand ändern möchten, der für die Wiederherstellung und Wiederherstellung erforderlich ist.
 +
 Die verschiedenen Status einer Datenbank von höher bis niedriger sind offen, montiert, gestartet und heruntergefahren.
@@ -38,59 +52,104 @@ Die verschiedenen Status einer Datenbank von höher bis niedriger sind offen, mo
 *** Wenn sich eine Datenbank im Status „offen“ befindet und die Datenbank für die Wiederherstellung im Status „angehängt“ befinden muss, wird der Datenbankzustand nur geändert, wenn Sie dieses Kontrollkästchen aktivieren.
 
 
-.. Wählen Sie *Kontrolldateien* aus, wenn Sie Steuerdatei zusammen mit der vollständigen Datenbank wiederherstellen möchten.
-.. Wenn sich der Snapshot im Archiv-Speicher befindet, geben Sie die Priorität an, um Ihre Daten aus dem Archiv-Speicher wiederherzustellen.
-
-
-. Führen Sie auf der Seite „Recovery Scope“ die folgenden Schritte aus:
-+
 .. Geben Sie den Recovery-Umfang an.
 +
-|===
-| Sie suchen... | Tun Sie das... 
-
-
- a| 
-Möchten Sie die letzte Transaktion wiederherstellen
- a| 
-Wählen Sie *Alle Protokolle*.
-
-
-
- a| 
-Wiederherstellen einer bestimmten Systemänderungsnummer (SCN)
- a| 
-Wählen Sie *bis SCN (Systemänderungsnummer)*.
-
-
-
- a| 
-Möchten Sie Daten zu einer bestimmten Zeit wiederherstellen
- a| 
-Wählen Sie *Datum und Uhrzeit*.
-
+*** Wählen Sie *Alle Protokolle*, wenn Sie die letzte Transaktion wiederherstellen möchten.
+*** Wählen Sie *bis SCN (System Change Number)*, wenn Sie eine Wiederherstellung auf eine bestimmte SCN durchführen möchten.
+*** Wählen Sie *Datum und Uhrzeit* aus, wenn Sie eine bestimmte Zeit und Daten wiederherstellen möchten.
++
 Sie müssen Datum und Uhrzeit der Zeitzone des Datenbank-Hosts angeben.
 
+*** Wählen Sie *Keine Wiederherstellung*, wenn Sie nicht wiederherstellen möchten.
 
 
- a| 
-Möchten Sie nicht wiederherstellen
- a| 
-Wählen Sie *Keine Wiederherstellung*.
-
-
-
- a| 
-Soll beliebige externe Archiv-Log-Speicherorte angeben
- a| 
-Wenn die Archivprotokolle nicht im aktiven Dateisystem vorhanden sind, sollten Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
-
-|===
+.. Wenn die Archivprotokolle nicht im aktiven Dateisystem vorhanden sind, sollten Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
 .. Aktivieren Sie das Kontrollkästchen, wenn Sie die Datenbank nach der Wiederherstellung öffnen möchten.
 +
 In einem RAC-Setup wird nach der Wiederherstellung nur die RAC-Instanz geöffnet, die für die Wiederherstellung verwendet wird.
 
 
 
+
+
+ a| 
+Sie möchten vorübergehend in einem anderen Speicher wiederherstellen und dann die wiederhergestellten Dateien an den ursprünglichen Speicherort kopieren
+ a| 
+.. Wählen Sie *auf ursprünglichen Speicherort zurücksetzen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+.. Wählen Sie *Speicherort ändern*.
+.. Klicken Sie Auf *Weiter*.
+.. Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die vom Objektspeicher wiederhergestellten Daten vorübergehend gespeichert werden.
++
+Wenn Sie ein lokales ONTAP-System auswählen und die Cluster-Verbindung zum Objektspeicher nicht konfiguriert haben, werden Sie aufgefordert, weitere Informationen zum Objektspeicher zu erhalten.
+
+.. Klicken Sie Auf *Weiter*.
+.. Wählen Sie *Datenbankstatus* aus, wenn Sie den Status der Datenbank in den Zustand ändern möchten, der für die Wiederherstellung und Wiederherstellung erforderlich ist.
++
+Die verschiedenen Status einer Datenbank von höher bis niedriger sind offen, montiert, gestartet und heruntergefahren.
+
++
+*** Wenn die Datenbank einen höheren Status aufweist, der Status jedoch in einen niedrigeren Status geändert werden muss, um einen Wiederherstellungsvorgang durchzuführen, müssen Sie dieses Kontrollkästchen aktivieren.
+*** Wenn sich die Datenbank in einem niedrigeren Zustand befindet, aber der Status in einen höheren Zustand geändert werden muss, um den Wiederherstellungsvorgang auszuführen, wird der Datenbankstatus automatisch geändert, auch wenn Sie das Kontrollkästchen nicht aktivieren.
+*** Wenn sich eine Datenbank im Status „offen“ befindet und die Datenbank für die Wiederherstellung im Status „angehängt“ befinden muss, wird der Datenbankzustand nur geändert, wenn Sie dieses Kontrollkästchen aktivieren.
+
+
+.. Geben Sie den Recovery-Umfang an.
++
+*** Wählen Sie *Alle Protokolle*, wenn Sie die letzte Transaktion wiederherstellen möchten.
+*** Wählen Sie *bis SCN (System Change Number)*, wenn Sie eine Wiederherstellung auf eine bestimmte SCN durchführen möchten.
+*** Wählen Sie *Datum und Uhrzeit* aus, wenn Sie eine bestimmte Zeit und Daten wiederherstellen möchten.
++
+Sie müssen Datum und Uhrzeit der Zeitzone des Datenbank-Hosts angeben.
+
+*** Wählen Sie *Keine Wiederherstellung*, wenn Sie nicht wiederherstellen möchten.
+
+
+.. Wenn die Archivprotokolle nicht im aktiven Dateisystem vorhanden sind, sollten Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
+.. Aktivieren Sie das Kontrollkästchen, wenn Sie die Datenbank nach der Wiederherstellung öffnen möchten.
++
+In einem RAC-Setup wird nach der Wiederherstellung nur die RAC-Instanz geöffnet, die für die Wiederherstellung verwendet wird.
+
+
+
+
+
+ a| 
+Sie möchten an einem alternativen Speicherort wiederherstellen
+ a| 
+.. Wählen Sie *an alternativen Speicherort wiederherstellen*.
+.. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
++
+
+NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
+
+.. Gehen Sie wie folgt vor, wenn Sie einen alternativen Speicher wiederherstellen möchten:
++
+... Wählen Sie *Speicherort ändern*.
+... Klicken Sie Auf *Weiter*.
+... Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die Daten aus dem Objektspeicher wiederhergestellt werden müssen.
+
+
+.. Klicken Sie Auf *Weiter*.
+.. Wählen Sie auf der Seite Ziel-Host den Host aus, auf dem die Datenbank gemountet werden soll.
++
+... (Optional) Geben Sie für NAS-Umgebungen den FQDN oder die IP-Adresse des Hosts an, auf den die aus dem Objektspeicher wiederhergestellten Volumes exportiert werden sollen.
+... (Optional) Geben Sie für die SAN-Umgebung die Initiatoren des Hosts an, denen LUNs der aus dem Objektspeicher wiederhergestellten Volumes zugeordnet werden sollen.
+
+
+.. Klicken Sie Auf *Weiter*.
+
+
+|===
 . Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
 
+
+Die Option *Restore to alternative location* hängt das ausgewählte Backup auf dem angegebenen Host an. Sie sollten die Datenbank manuell aufrufen.
+
+Nach dem Mounten des Backups können Sie es erst wieder mounten, nachdem es abgehängt wurde. Sie können die Option *Unmount* von der Benutzeroberfläche aus verwenden, um das Backup zu entsperren.
+
+Informationen zum Einrichten der Oracle-Datenbank finden Sie unter: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["Knowledge Base-Artikel"].

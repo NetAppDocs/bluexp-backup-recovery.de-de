@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: task-restore-cloud-native-oracle-data.html 
-keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle 
-summary: Stellen Sie die Datendateien, Kontrolldateien oder beides wieder her, und stellen Sie dann die Datenbank wieder her. 
+permalink: task-restore-cloud-native-oracle-data-to-original-location.html 
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle, original location 
+summary: Stellen Sie die Datendateien, Kontrolldateien oder beides an den ursprünglichen Speicherort wieder her und stellen Sie die Datenbank wieder her. 
 ---
-= Stellen Sie Cloud-native Oracle-Datenbanken wieder her
+= Wiederherstellung von Cloud-nativen Oracle-Datenbanken am ursprünglichen Speicherort
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,13 @@ summary: Stellen Sie die Datendateien, Kontrolldateien oder beides wieder her, u
 
 
 [role="lead"]
-Im Falle eines Datenverlustes können Sie die Datendateien, Kontrolldateien oder beides wiederherstellen. Anschließend können Sie die Datenbank wiederherstellen.
+Im Falle eines Datenverlustes können Sie die Datendateien, Kontrolldateien oder beides am ursprünglichen Speicherort wiederherstellen und dann die Datenbank wiederherstellen.
 
-*Bevor Sie beginnen*
-
+.Bevor Sie beginnen
 Wenn sich die Oracle 21c-Datenbank im STARTZUSTAND befindet, schlägt der Wiederherstellungsvorgang fehl. Sie sollten den folgenden Befehl ausführen, um die Datenbank erfolgreich wiederherzustellen.
 `cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
 
-*Schritte*
-
+.Schritte
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
 . Wählen Sie den Wiederherstellungspunkt aus, an dem die Datenbank wiederhergestellt werden soll, und klicken Sie auf *an Originalspeicherort wiederherstellen*.
 . Führen Sie im Abschnitt „Umfang wiederherstellen“ die folgenden Aktionen durch:
@@ -65,10 +63,6 @@ Wenn das SnapCenter Plug-in für Oracle in Amazon FSX für NetApp ONTAP oder Clo
 ** ASM-Parameterdatei.
 +
 Die Option *Kraft in-Place Restore* überschreibt die fremden Dateien von Typ-Parameter, Passwort und Archivprotokoll. Sie sollten das neueste Backup verwenden, wenn die Option *in-Place Restore* erzwingen ausgewählt ist.
-
-+
-
-NOTE: Die Wiederherstellung von Datendateien mit Kontrolldateien oder nur Kontrolldateien für iSCSI auf ASM-Layout und die Wiederherstellung von Tablespaces und PDBs werden nicht unterstützt.
 
 
 

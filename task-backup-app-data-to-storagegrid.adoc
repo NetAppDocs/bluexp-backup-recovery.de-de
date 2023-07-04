@@ -16,14 +16,12 @@ summary: In wenigen Schritten wird ein Backup von Applikationsdaten von ONTAP in
 [role="lead"]
 Führen Sie ein paar Schritte durch, um die Applikationsdaten von ONTAP auf StorageGRID zu sichern.
 
-*Was Sie brauchen*
-
+.Bevor Sie beginnen
 Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
 
 Weitere Informationen finden Sie unter link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors["Anschlüsse für StorageGRID erstellen"].
 
-*Schritte*
-
+.Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Backup aktivieren*.
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.
@@ -51,8 +49,8 @@ BlueXP Backup und Recovery für Applikationen unterstützen nur Cluster-Administ
 +
 Geben Sie die Details im Format FQDN:PORT ein.
 
-.. Geben Sie im Feld Zugriffsschlüssel den Schlüssel für die Datenverschlüsselung an.
-.. Geben Sie im Feld geheimer Schlüssel das Kennwort für die Datenverschlüsselung an.
+.. Geben Sie im Feld Zugriffsschlüssel den Schlüssel an.
+.. Geben Sie im Feld Geheimer Schlüssel das Passwort an.
 .. Geben Sie den IP-Speicherplatz an.
 
 

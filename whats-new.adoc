@@ -18,6 +18,46 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 
 
+== 04 Juli 2023
+
+
+
+=== Verbesserungen bei BlueXP Backup und Recovery für Applikationen (Cloud-nativ)
+
+* SAP HANA Systeme
++
+** Unterstützt das Verbinden und Kopieren von nicht-Daten-Volumes und globalen nicht-Daten-Volumes mit sekundärem Azure NetApp Files-Schutz
+
+
+* Oracle Datenbanken
++
+** Unterstützt die Wiederherstellung von Oracle Datenbanken auf Azure NetApp Files an einem alternativen Speicherort
+** Unterstützt Oracle Recovery Manager (RMAN) Katalogisierung von Backups von Oracle-Datenbanken auf Azure NetApp Files
+** Ermöglicht es Ihnen, den Datenbank-Host in den Wartungsmodus zu versetzen, um Wartungsaufgaben durchzuführen
+
+
+
+
+
+
+=== Verbesserungen bei BlueXP Backup und Recovery für Applikationen (Hybrid)
+
+* Unterstützt die Wiederherstellung an einem alternativen Speicherort
+* Ermöglicht das Mounten von Backups von Oracle-Datenbanken
+* Unterstützt das Verschieben von Backups von GCP auf Archiv-Tier
+
+
+
+
+=== Verbesserungen bei BlueXP Backup und Recovery für Virtual Machines (Hybrid)
+
+* Unterstützt den Schutz von NFS- und VMFS-Datenspeichern
+* Ermöglicht Ihnen, die Registrierung des SnapCenter-Plug-ins für den VMware vSphere-Host aufzuheben
+* Unterstützt die Aktualisierung und Erkennung der neuesten Datastores und Backups
+
+
+
+
 == 5 Juni 2023
 
 

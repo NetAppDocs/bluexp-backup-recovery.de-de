@@ -20,7 +20,8 @@ Führen Sie die folgenden Schritte aus, um schnell zu beginnen:
 [role="quick-margin-list"]
 * Betriebssystem:
 +
-** RHEL 7.5 oder höher, 8.x-Plattformen, von SAP HANA zertifiziert
+** RHEL 7.6 oder höher
+** RHEL 8.1 oder höher für SAP-HANA SPS07
 ** SLES 12 SP5 oder höher und 15 SPX Plattformen zertifiziert von SAP HANA
 
 
@@ -28,9 +29,8 @@ Führen Sie die folgenden Schritte aus, um schnell zu beginnen:
 * Storage-Layouts: Für Daten- und Log-Dateien unterstützt Azure nur NFSv4.1.
 * Datenbank-Layout:
 +
-** Single Container Version 1.0SPS12
-** SAP HANA Multitenant Database Container (MDC) 2.0SPS4, 2.0SPS5, 2.0SPS6 mit einzelnen oder mehreren Mandanten
-** SAP HANA Einzelhostsystem, SAP HANA mehrere Hostsysteme (ohne Standby-Host), HANA System Replication
+** SAP HANA Multitenant Database Container (MDC) 2.0SPS5, 2.0SPS6, 2.0SPS7 mit einzelnen oder mehreren Mandanten
+** SAP HANA Einzelhostsystem, SAP HANA Mehrfach-Hostsystem, HANA System Replication
 
 
 * Plug-in für SAP HANA auf dem Datenbank-Host

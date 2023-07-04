@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: task-restore-cloud-native-oracle-data-to-alternate-location.html 
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle, alternate location 
+summary: Stellen Sie die Oracle-Datenbank an einem alternativen Speicherort wieder her 
+---
+= Wiederherstellung von Cloud-nativen Oracle-Datenbanken an einem alternativen Speicherort
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Im Falle eines Datenverlustes können Sie die Oracle Datenbank an einem alternativen Speicherort nur auf Azure NetApp Files wiederherstellen. Der alternative Speicherort kann sich auf einem anderen Host oder auf demselben Host befinden.
+
+.Bevor Sie beginnen
+* Wenn sich die Oracle 21c-Datenbank im STARTZUSTAND befindet, schlägt der Wiederherstellungsvorgang fehl. Sie sollten den folgenden Befehl ausführen, um die Datenbank erfolgreich wiederherzustellen.
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
+* Stellen Sie sicher, dass die Oracle-Version auf dem alternativen Host mit der des ursprünglichen Hosts identisch ist.
+
+
+.Über diese Aufgabe
+Während des Wiederherstellungsvorgangs dürfen Sie die Konfigurationen mit Ausnahme der Oracle Startseite, des maximalen Volume-Durchsatzes, der Oracle SID und der Datenbankanmeldeinformationen nicht ändern.
+
+Die vollständige Wiederherstellung ist standardmäßig mit _until Cancel_ auf true aktiviert.
+
+Der Archivprotokollmodus ist für die wiederhergestellte Datenbank standardmäßig deaktiviert. Sie können den Protokollmodus für die Archivierung aktivieren und bei Bedarf die Archivprotokolle auf dem NetApp Volume aufbewahren.
+
+.Schritte
+. Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Der Datenbank, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
+. Wählen Sie den Wiederherstellungspunkt aus, an dem die Datenbank wiederhergestellt werden soll, und klicken Sie auf *an alternativen Speicherort wiederherstellen* > *Weiter*.
+. Geben Sie auf der Seite Konfiguration die Details zum alternativen Speicherort, SID, Oracle_Home, den Datenbankanmeldeinformationen und dem Speicherdurchsatz an.
++
+Wenn die OS-Benutzerauthentifizierung deaktiviert ist, sollten Sie für die Datenbankanmeldeinformationen ein Kennwort angeben, mit dem der System-Benutzer eine Verbindung zur wiederhergestellten Datenbank auf demselben oder Zielhost herstellen kann.
+
+. Klicken Sie auf *Weiter*, überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
++
+Der Fortschritt des Wiederherstellungsvorgangs kann auf der Seite Job Monitor angezeigt werden. Klicken Sie nach Abschluss des Jobs auf *Ermittlung aktualisieren*, um die wiederhergestellte Datenbank anzuzeigen. Sie können jedoch die Datenbank, die an einem anderen Speicherort wiederhergestellt wird, nicht schützen.
+
+

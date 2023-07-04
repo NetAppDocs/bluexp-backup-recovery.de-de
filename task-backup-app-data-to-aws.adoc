@@ -16,8 +16,7 @@ summary: Führen Sie einige Schritte durch, um Applikationsdaten von ONTAP in AW
 [role="lead"]
 Führen Sie ein paar Schritte durch, um die Anwendungsdaten von ONTAP auf Amazon Web Services zu sichern.
 
-*Schritte*
-
+.Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Backup aktivieren*.
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.
@@ -42,8 +41,8 @@ BlueXP Backup und Recovery für Applikationen unterstützen nur Cluster-Administ
 . Wählen Sie als Cloud-Provider * Amazon Web Services* aus.
 +
 .. Geben Sie den AWS Account an.
-.. Geben Sie im Feld AWS Access Key den Schlüssel für die Datenverschlüsselung an.
-.. Geben Sie im Feld AWS Secret Key das Passwort für die Datenverschlüsselung an.
+.. Geben Sie im Feld AWS Access Key den Schlüssel an.
+.. Geben Sie im Feld AWS Secret Key das Passwort an.
 .. Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
 .. Geben Sie den IP-Speicherplatz an.
 .. Wählen Sie die Archivebene aus.

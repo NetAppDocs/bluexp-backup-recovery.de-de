@@ -16,14 +16,18 @@ summary: Erstellen Sie eigene Richtlinien zum Schutz der Applikation.
 [role="lead"]
 Erstellen Sie eine Richtlinie für Backups von Applikationsdaten in der Cloud.
 
-*Bevor Sie beginnen*
+.Bevor Sie beginnen
+* Wenn Sie Backups vom Objektspeicher auf den Archiv-Storage verschieben möchten, stellen Sie sicher, dass Sie die erforderliche ONTAP-Version verwenden.
++
+** Wenn Sie Amazon Web Services verwenden, sollten Sie ONTAP 9.10.1 oder höher verwenden
+** Wenn Sie Microsoft Azure verwenden, sollten Sie ONTAP 9.10.1 oder höher verwenden
+** Wenn Sie Google Cloud nutzen, sollten Sie ONTAP 9.12.1 oder höher verwenden
 
-* Wenn Sie Backups vom Objektspeicher in den Archiv-Storage verschieben möchten, stellen Sie sicher, dass Sie ONTAP 9.10.1 oder höher und Amazon Web Services oder Azure als Cloud-Provider verwenden.
+
 * Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.
 
 
-*Schritte*
-
+.Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Klicken Sie im Dropdown-Menü Einstellungen auf *Richtlinien* > *Richtlinien erstellen*.
 . Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.

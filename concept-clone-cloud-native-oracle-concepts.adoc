@@ -56,6 +56,8 @@ Bevor Sie eine Oracle-Datenbank klonen, sollten Sie sicherstellen, dass die Vora
 * Das Klonen von Datenbanken auf Azure NetApp Files wird nicht unterstützt.
 * Das Klonen von Datenbanken auf Qtree wird nicht unterstützt.
 * Das Backup einer geklonten Datenbank wird nicht unterstützt.
+* Wenn tägliche automatische Backups auf Amazon FSX for NetApp ONTAP aktiviert sind, können die geklonten Volumes auf Amazon FSX for NetApp ONTAP nicht aus der BlueXP Benutzeroberfläche gelöscht werden, da FSX Backups auf den geklonten Volumes erstellt hätte.
+Sie sollten die geklonten Volumes löschen, nachdem Sie alle Backups für das Volume aus der FSX UI gelöscht haben, und dann die Klone aus der BlueXP UI mit der Force-Option löschen.
 
 
 

@@ -16,8 +16,7 @@ summary: In wenigen Schritten wird ein Backup von Applikationsdaten von ONTAP in
 [role="lead"]
 Führen Sie ein paar Schritte durch, um das Backup der Applikationsdaten von ONTAP auf der Google Cloud Platform zu erstellen.
 
-*Schritte*
-
+.Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Backup aktivieren*.
 . Wählen Sie auf der Seite Richtlinie zuweisen die Richtlinie aus und klicken Sie auf *Weiter*.
@@ -42,10 +41,14 @@ BlueXP Backup und Recovery für Applikationen unterstützen nur Cluster-Administ
 . Wählen Sie *Google Cloud Platform* als Cloud-Provider aus.
 +
 .. Wählen Sie das Google Cloud Projekt aus, in dem der Google Cloud Storage-Bucket für Backups erstellt werden soll.
-.. Geben Sie im Feld Google Cloud Access Key den Schlüssel für die Datenverschlüsselung an.
-.. Geben Sie im Feld Google Cloud Secret Key das Passwort für die Datenverschlüsselung an.
+.. Geben Sie im Feld Google Cloud Access Key den Schlüssel an.
+.. Geben Sie im Feld Google Cloud Secret Key das Passwort an.
 .. Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
 .. Geben Sie den IP-Speicherplatz an.
+.. Wählen Sie die Archivebene aus.
++
+Es wird empfohlen, die Archivebene einzustellen, da dies eine einmalige Aktivität ist und Sie sie später nicht einrichten können.
+
 
 
 . Überprüfen Sie die Details und klicken Sie auf *Backup aktivieren*.

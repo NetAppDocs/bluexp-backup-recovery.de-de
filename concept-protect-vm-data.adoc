@@ -28,12 +28,12 @@ Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine u
 
 * ONTAP 9.8 oder höher
 * BlueXP
-* Nur NFS-Datastores werden unterstützt. VMFS-Datastores, die auf iSCSI/FC/NVMe und VVols basieren, werden nicht unterstützt.
+* NFS- und VMFS-Datastores werden unterstützt. VVols werden nicht unterstützt.
+* Zur Unterstützung von VMFS sollte das SnapCenter-Plug-in für VMware vSphere Host unter 4.9 oder höher ausgeführt werden. Stellen Sie sicher, dass Sie ein Backup des VMFS-Datastore erstellen, wenn das SnapCenter-Plug-in für VMware vSphere-Host von einer früheren Version auf die Version 4.9 aktualisiert wurde.
 * In SnapCenter-Plug-in für VMware vSphere 4.6P1 sollte mindestens ein Backup erstellt werden.
 * SnapCenter Plug-in für VMware vSphere enthält mindestens eine tägliche, wöchentliche oder monatliche Richtlinie ohne Etikett und dieselbe Bezeichnung wie die Virtual Machines-Richtlinie in BlueXP.
 * Bei vordefinierten Richtlinien sollte die Planungsebene für den Datastore im SnapCenter-Plug-in für VMware vSphere und in der Cloud identisch sein.
 * Stellen Sie sicher, dass keine FlexGroup Volumes im Datenspeicher vorhanden sind, da Backup und Wiederherstellung von FlexGroup Volumes nicht unterstützt werden.
-* Stellen Sie sicher, dass keines der Volumes verschlüsselt ist, da die Wiederherstellung verschlüsselter Volumes nicht unterstützt wird.
 * Deaktivieren Sie „*_recent*“ für die erforderlichen Ressourcengruppen. Wenn Sie für die Ressourcengruppe „*_recent*“ aktiviert haben, können die Backups dieser Ressourcengruppen nicht für den Datenschutz in der Cloud verwendet und können anschließend nicht für den Wiederherstellungsvorgang verwendet werden.
 * Stellen Sie sicher, dass der Ziel-Datastore, auf dem die virtuelle Maschine wiederhergestellt wird, genügend Speicherplatz für eine Kopie aller VM-Dateien wie VMDK, VMX, VMSD usw. hat.
 * Stellen Sie sicher, dass im Zieldatenspeicher keine veralteten Dateien der virtuellen Maschine im Format restore_xxx_xxxxxx_filename aus dem vorherigen Wiederherstellungsvorgang vorliegen. Sie sollten die veralteten Dateien löschen, bevor Sie eine Wiederherstellung durchführen.
