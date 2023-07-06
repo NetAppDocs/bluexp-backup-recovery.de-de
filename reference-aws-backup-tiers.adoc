@@ -24,7 +24,10 @@ Beim ersten Erstellen von Backup-Dateien werden sie im S3 _Standard_ Storage ges
 
 Wenn in den Quellclustern ONTAP 9.10.1 oder neuer ausgeführt wird, können Sie Backups entweder nach einer bestimmten Anzahl von Tagen (normalerweise über 30 Tage) als Tiering zu _S3 Glacier Deep Archive_ oder _S3 Glacier Deep Archive_ Storage abstufen, um die Kosten weiter zu optimieren. Auf Daten in diesen Tiers kann bei Bedarf nicht sofort zugegriffen werden und verursachen höhere Abrufkosten. Daher müssen Sie bedenken, wie oft Sie Daten aus diesen archivierten Backup-Dateien wiederherstellen müssen. Siehe Abschnitt zu <<Wiederherstellen von Daten aus Archiv-Storage,Wiederherstellen von Daten aus Archiv-Storage>>.
 
-Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Backup-Richtlinie _S3 Glacier_ oder _S3 Glacier Deep Archive_ wählen, ist diese Tier die einzige Archiv-Tier, die für zukünftige Backup-Richtlinien für dieses Cluster verfügbar ist. Falls Sie in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, ist _S3 Glacier_ die einzige Archivoption für zukünftige Richtlinien.
+* Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, wird _S3 Glacier_ Ihre einzige Archivierungsoption für zukünftige Richtlinien sein.
+* Wenn Sie in Ihrer ersten Backup-Richtlinie _S3 Glacier_ auswählen, können Sie für zukünftige Backup-Richtlinien für diesen Cluster in die _S3 Glacier Deep Archive_-Ebene wechseln.
+* Wenn Sie in Ihrer ersten Backup-Richtlinie _S3 Glacier Deep Archive_ auswählen, ist diese Tier die einzige Archiv-Tier, die für zukünftige Backup-Richtlinien für diesen Cluster verfügbar ist.
+
 
 Wenn Sie BlueXP Backup und Recovery mit dieser Lebenszyklusregel konfigurieren, dürfen Sie beim Einrichten des Buckets in Ihrem AWS-Konto keine Lebenszyklusregeln konfigurieren.
 

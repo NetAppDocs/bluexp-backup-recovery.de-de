@@ -4,7 +4,7 @@ permalink: task-manage-backup-settings-ontap.html
 keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots 
 summary: Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dies schließt das Ändern von Storage-Schlüsseln, die Übertragungsrate von Backups in den Objekt-Storage ein, unabhängig davon, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und vieles mehr. 
 ---
-= Verwalten von Backup-Einstellungen auf Cluster-Ebene
+= Management von Backup-Einstellungen auf Cluster-Ebene
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,25 +14,21 @@ summary: Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die S
 
 
 [role="lead"]
-Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dies schließt das Ändern von Storage-Schlüsseln, die Übertragungsrate von Backups in den Objekt-Storage ein, unabhängig davon, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und vieles mehr.
+Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dazu gehört auch die Änderung der Übertragungsrate von Backups in den Objekt-Storage, die Frage, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und mehr.
+
+
+NOTE: Diese Einstellungen sind nur für das Backup auf Objektspeicher verfügbar. Keine dieser Einstellungen wirkt sich auf Ihre Snapshot- oder Replikationseinstellungen aus. Ähnliche Einstellungen für die Replikation auf Cluster-Ebene für Snapshots und Replikationen werden in Zukunft hinzugefügt.
 
 Die Backup-Einstellungen auf Cluster-Ebene sind auf der Seite „_Advanced Settings_“ verfügbar.
 
 Die vollständigen Backup-Einstellungen, die Sie ändern können, umfassen:
 
-* Ändern der Storage-Schlüssel, die Ihrem ONTAP-System Zugriff auf Objekt-Storage gewähren
-* Ändern des ONTAP-IPspaces, der mit Objekt-Storage verbunden ist
 * Ändern der Netzwerkbandbreite, die für das Hochladen von Backups in den Objektspeicher zugewiesen ist
-
-
-ifdef::aws[]
-
-* Ändern der Archiv-Storage-Klasse (nur AWS)
+Ifdef::aws[]
 
 
 endif::aws[]
 
-* Ändern der automatischen Backup-Einstellung (und -Richtlinie) für zukünftige Volumes
 * Änderung, ob historische Snapshot-Kopien in Ihren ersten Basis-Backup-Dateien für zukünftige Volumes enthalten sind
 * Es wird geändert, ob „jährliche“ Snapshots aus dem Quellsystem entfernt werden
 
@@ -67,38 +63,6 @@ Beachten Sie, dass einige Optionen basierend auf der Version von ONTAP auf dem Q
 
 
 
-== Ändern der Storage-Schlüssel für ONTAP für den Zugriff auf Cloud-Storage
-
-Wenn Sie über eine Firmenrichtlinie verfügen, bei der Sie alle Anmeldedaten, z. B. alle 6 Monate oder ein Jahr, regelmäßig rotieren müssen, so werden Sie den Zugriffsschlüssel und den geheimen Schlüssel Ihres Cloud-Providers mit Ihrem ONTAP-System synchronisieren. So können Sie Ihre Zugangsdaten für Cloud-Provider aktualisieren und die Schlüssel in Ihrem ONTAP-System ändern, damit die beiden Systeme weiterhin kommunizieren.
-
-Diese Option steht nur für ONTAP Systeme vor Ort zur Verfügung und nur, wenn Sie Backups in Amazon S3, Google Cloud Storage und StorageGRID speichern.
-
-image:screenshot_backup_edit_storage_key.png["Ein Screenshot des Eintrags der Speichertaste auf der Seite Erweiterte Einstellungen."]
-
-Geben Sie einfach den neuen Zugriffsschlüssel und den geheimen Schlüssel ein und klicken Sie auf *Apply*.
-
-
-
-== Ändern Sie den ONTAP-IPspace, der mit dem Objekt-Storage verbunden ist
-
-Sie können den ONTAP-IPspace, der mit Objekt-Storage verbunden ist, ändern. Diese Option ist nur beim Backup von Daten aus On-Premises-ONTAP-Systemen verfügbar - es ist nicht für Cloud Volumes ONTAP-Systeme verfügbar.
-
-Diese Option sollte nicht auf einem System verwendet werden, das Volume-Daten aktiv in den Objekt-Storage sichert. Es sollte nur verwendet werden, wenn bei der ersten Aktivierung von Backup auf einem lokalen ONTAP-System ein falscher IPspace ausgewählt wurde.
-
-Lesen Sie die Dokumentation zu den ersten Schritten, um das Backup von Daten von ONTAP Systemen vor Ort an Ihren spezifischen Cloud-Provider zu erstellen. Überprüfen Sie, ob Ihr ONTAP-Setup für den neuen IPspace korrekt konfiguriert ist. Beispiel:
-
-* Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten.
-* Die LIF muss dem IPspace zugewiesen sein, den ONTAP zum Herstellen einer Verbindung mit Objekt-Storage verwenden sollte.
-* Die Intercluster-LIFs der Nodes müssen auf den Objektspeicher zugreifen können.
-* Wenn Sie einen anderen IPspace als den _Default_ verwenden, müssen Sie möglicherweise eine statische Route erstellen, um Zugriff auf den Objekt-Speicher zu erhalten.
-
-
-image:screenshot_backup_edit_ipspace.png["Ein Screenshot des IPspace-Eintrags auf der Seite Erweiterte Einstellungen."]
-
-Wählen Sie einfach den neuen IPspace aus und klicken Sie auf *Apply*. Danach können Sie die Volumes auswählen, die Sie aus Aggregaten in diesem IPspace sichern möchten.
-
-
-
 == Ändern Sie die verfügbare Netzwerkbandbreite zum Hochladen von Backups in den Objektspeicher
 
 Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, kann ONTAP standardmäßig eine unbegrenzte Bandbreite verwenden, um die Backup-Daten von den Volumes in der Arbeitsumgebung in den Objekt-Storage zu übertragen. Wenn der Backup-Traffic sich auf normale Benutzer-Workloads auswirkt, kann die Menge an Netzwerkbandbreite, die während des Transfers verwendet wird, drosselt werden. Sie können einen Wert zwischen 1 und 1,000 Mbit/s als maximale Übertragungsrate auswählen.
@@ -107,37 +71,11 @@ image:screenshot_backup_edit_transfer_rate.png["Ein Screenshot des Eintrags „m
 
 Wählen Sie das Optionsfeld *begrenzt* und geben Sie die maximale Bandbreite ein, die verwendet werden kann, oder wählen Sie *unbegrenzt*, um anzuzeigen, dass keine Begrenzung vorhanden ist.
 
+Diese Einstellung wirkt sich nicht auf die Bandbreite aus, die anderen Replikationsbeziehungen zugewiesen ist, die für Volumes in der Arbeitsumgebung konfiguriert werden können.
+
 ifdef::aws[]
 
-
-
-== Ändern Sie die Storage-Klasse für die Archivierung
-
-Wenn Sie die Speicherklasse ändern möchten, die verwendet wird, wenn Ihre Backup-Dateien für eine bestimmte Anzahl von Tagen gespeichert wurden (in der Regel mehr als 30 Tage), können Sie hier die Änderung vornehmen. Alle Backup-Richtlinien, die Archiv-Storage nutzen, werden sofort geändert und nutzen diese neue Storage-Klasse.
-
-Diese Option ist für On-Premises-ONTAP- und Cloud Volumes ONTAP-Systeme (über ONTAP 9.10.1 oder höher) verfügbar, wenn Sie Backup-Dateien in Amazon S3 schreiben.
-
-Beachten Sie, dass Sie nur von _S3 Glacier_ zu _S3 Glacier Deep Archive_ wechseln können. Wenn du das Glacier Deep Archive ausgewählt hast, kannst du nicht wieder zu Glacier zurückkehren.
-
-image:screenshot_backup_edit_storage_class.png["Ein Screenshot des Eintrags der Archivspeicherklasse auf der Seite Erweiterte Einstellungen."]
-
-link:concept-cloud-backup-policies.html#archival-storage-settings["Erfahren Sie mehr über die Storage-Einstellungen für Archive"].link:reference-aws-backup-tiers.html["Erfahren Sie mehr über die Verwendung von AWS Archiv-Storage"].
-
 endif::aws[]
-
-
-
-== Ändern Sie die automatische Backup-Einstellung für zukünftige Volumes
-
-Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery das automatische Backup zukünftiger Volumes nicht aktiviert haben, können Sie im Abschnitt Automatische Backups neuer Volumes beginnen. Sie können auch die Backup-Richtlinie auswählen, die auf diese neuen Volumes angewendet wird. Eine Backup-Richtlinie, die neu erstellten Volumes zugewiesen wurde, stellt sicher, dass alle Ihre Daten geschützt sind.
-
-Wenn Sie bei der Aktivierung von BlueXP-Backup und -Recovery das automatische Backup zukünftiger Volumes aktiviert haben, können Sie die Backup-Richtlinie ändern, die für die neu erstellten Volumes im Abschnitt „Automatisches Backup“ verwendet wird.
-
-Beachten Sie, dass die Richtlinie, die Sie auf neue Volumes anwenden möchten, bereits vorhanden sein muss. link:task-manage-backups-ontap.html#adding-a-new-backup-policy["Lesen Sie, wie Sie eine neue Backup-Richtlinie für eine Arbeitsumgebung erstellen"].
-
-image:screenshot_backup_edit_auto_backup.png["Ein Screenshot des Eintrags Automatische Sicherung auf der Seite Erweiterte Einstellungen."]
-
-Sobald diese Backup-Richtlinie aktiviert ist, wird sie auf alle neuen Volumes angewendet, die in dieser Arbeitsumgebung mithilfe von BlueXP, System Manager, der ONTAP CLI oder den APIs erstellt wurden.
 
 
 

@@ -17,6 +17,9 @@ summary: Mit BlueXP Backup und Recovery können Sie Backup-Richtlinien mit einer
 Mit BlueXP Backup und Recovery können Sie Backup-Richtlinien mit einer Vielzahl von Konfigurationseinstellungen für Ihre lokalen ONTAP und Cloud Volumes ONTAP Systeme erstellen.
 
 
+NOTE: Diese Richtlinieneinstellungen sind nur für Backups in Objekt-Storage relevant. Keine dieser Einstellungen wirkt sich auf Ihre Snapshot- oder Replikationsrichtlinien aus. Ähnliche Richtlinieneinstellungen für Snapshots und Replikationen werden in Zukunft hinzugefügt.
+
+
 
 == Backup-Pläne
 
@@ -70,7 +73,7 @@ Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für di
 
 === Was ist DataLock
 
-DataLock schützt Ihre Backup-Dateien vor einer bestimmten Zeit zu ändern oder zu löschen. Bei dieser Funktionalität kommt Technologie des Objekt-Storage-Anbieters zum Einsatz, um Objekte zu sperren. Der Zeitraum, in dem die Sicherungsdatei gesperrt (und aufbewahrt) ist, wird als Aufbewahrungszeitraum für DataLock bezeichnet. Er basiert auf dem von Ihnen definierten Backup-Richtlinienplan und der Aufbewahrungseinstellung sowie einem Puffer von 14 Tagen. Jede DataLock-Aufbewahrungsrichtlinie, die weniger als 30 Tage beträgt, wird auf mindestens 30 Tage aufgerundet.
+DataLock schützt Ihre Backup-Dateien vor Veränderung oder Löschung für einen bestimmten Zeitraum - auch unveränderlicher Speicher genannt. Bei dieser Funktionalität kommt Technologie des Objekt-Storage-Anbieters zum Einsatz, um Objekte zu sperren. Der Zeitraum, in dem die Sicherungsdatei gesperrt (und aufbewahrt) ist, wird als Aufbewahrungszeitraum für DataLock bezeichnet. Er basiert auf dem von Ihnen definierten Backup-Richtlinienplan und der Aufbewahrungseinstellung sowie einem Puffer von 14 Tagen. Jede DataLock-Aufbewahrungsrichtlinie, die weniger als 30 Tage beträgt, wird auf mindestens 30 Tage aufgerundet.
 
 Beachten Sie, dass alte Backups nach Ablauf des Aufbewahrungszeitraums von DataLock gelöscht werden, nicht nach Ablauf der Aufbewahrungsfrist für Backups.
 
@@ -325,7 +328,10 @@ ifdef::aws[]
 Wenn Ihr Cluster ONTAP 9.10.1 oder höher verwendet, können Sie ältere Backups entweder auf _S3 Glacier_ oder _S3 Glacier Deep Archive_ Storage Tiering. link:reference-aws-backup-tiers.html["Weitere Informationen zu AWS Archiv-Storage"^].
 
 +
-Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Backup-Richtlinie _S3 Glacier_ oder _S3 Glacier Deep Archive_ wählen, ist diese Tier die einzige Archiv-Tier, die für zukünftige Backup-Richtlinien für dieses Cluster verfügbar ist. Falls Sie in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, ist _S3 Glacier_ die einzige Archivoption für zukünftige Richtlinien.
+** Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, wird _S3 Glacier_ Ihre einzige Archivierungsoption für zukünftige Richtlinien sein.
+** Wenn Sie in Ihrer ersten Backup-Richtlinie _S3 Glacier_ auswählen, können Sie für zukünftige Backup-Richtlinien für diesen Cluster in die _S3 Glacier Deep Archive_-Ebene wechseln.
+** Wenn Sie in Ihrer ersten Backup-Richtlinie _S3 Glacier Deep Archive_ auswählen, ist diese Tier die einzige Archiv-Tier, die für zukünftige Backup-Richtlinien für diesen Cluster verfügbar ist.
+
 
 
 

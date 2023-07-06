@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-restore-backups-ontap.html 
-keywords: restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, ONTAP 
-summary: Backups werden in einem Objektspeicher in Ihrem Cloud-Konto gespeichert, sodass Sie Daten von einem bestimmten Zeitpunkt wiederherstellen können. Sie können ein gesamtes ONTAP Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien aus einer Backup-Datei wiederherstellen. 
+keywords: restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, restore snapshot, restore replication, restore backup, ONTAP 
+summary: Backups der Daten von ONTAP Volumes sind über die Standorte verfügbar, an denen Sie Backups, Snapshot Kopien, replizierte Volumes und/oder im Objekt-Storage gespeicherte Backups erstellt haben. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Sie können ein gesamtes ONTAP-Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige wenige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen. 
 ---
-= Wiederherstellen von ONTAP Daten aus Backup-Dateien
+= ONTAP-Daten aus Backup-Dateien wiederherstellen
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Backups werden in einem Objektspeicher in Ihrem Cloud-Konto gespeichert
 
 
 [role="lead"]
-Backups werden in einem Objektspeicher in Ihrem Cloud-Konto gespeichert, sodass Sie Daten von einem bestimmten Zeitpunkt wiederherstellen können. Sie können ein gesamtes ONTAP Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien aus einer Backup-Datei wiederherstellen.
+Backups Ihrer ONTAP Volume-Daten sind über die Standorte Ihrer Backups verfügbar: Snapshot Kopien, replizierte Volumes und im Objekt-Storage gespeicherte Backups. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Sie können ein gesamtes ONTAP-Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige wenige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen.
 
 Sie können ein *Volume* (als neues Volume) in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem lokalen ONTAP System wiederherstellen.
 
@@ -23,6 +23,13 @@ Sie können einen *Ordner* auf einem Volume in der ursprünglichen Arbeitsumgebu
 Sie können *Dateien* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
 
 Zum Wiederherstellen von Daten von Backup-Dateien auf ein Produktionssystem ist eine gültige BlueXP Backup- und Recovery-Lizenz erforderlich.
+
+Zusammenfassend sind dies die gültigen Datenflüsse, die Sie verwenden können, um Volume-Daten in einer ONTAP Arbeitsumgebung wiederherzustellen:
+
+* Sicherungsdatei -> wiederhergestelltes Volume
+* Repliziertes Volume -> wiederhergestelltes Volume
+* Snapshot Kopie -> wiederhergestelltes Volume
+
 
 
 
@@ -43,7 +50,7 @@ Wie Sie sehen können, bietet das Restore Dashboard 2 verschiedene Möglichkeite
 
 In der Regel ist _Browse & Restore_ besser, wenn Sie ein bestimmtes Volume, einen Ordner oder eine Datei aus der letzten Woche oder einem Monat wiederherstellen müssen - und Sie kennen den Namen und den Speicherort der Datei und das Datum, an dem sie zuletzt in gutem Zustand war. _Search & Restore_ ist in der Regel besser, wenn Sie ein Volume, einen Ordner oder eine Datei wiederherstellen müssen, aber Sie können sich nicht an den genauen Namen oder das Volumen, in dem es sich befindet, oder an das Datum erinnern, an dem es zuletzt in gutem Zustand war.
 
-Diese Tabelle enthält einen Vergleich der beiden Methoden.
+Diese Tabelle enthält einen Funktionsvergleich der 2 Methoden.
 
 [cols="50,50"]
 |===
@@ -53,22 +60,31 @@ Diese Tabelle enthält einen Vergleich der beiden Methoden.
 | Durchsuchen Sie eine Struktur im Ordnerstil, um nach Volumes, Ordnern oder Dateien in einer einzelnen Backup-Datei zu suchen | Suchen Sie nach einem Volume, einem Ordner oder einer Datei über *alle Backup-Dateien* nach einem partiellen oder vollständigen Volume-Namen, einem Teil- oder vollständigen Ordner-/Dateinamen, einem Größenbereich und zusätzlichen Suchfiltern 
 
 
-| Die Wiederherstellung von Volumes und Dateien erfolgt mit Backup-Dateien, die in Amazon S3, Azure Blob, Google Cloud und NetApp StorageGRID gespeichert sind | Die Wiederherstellung von Volumes und Dateien erfolgt mit Backup-Dateien, die in Amazon S3, Azure Blob, Google Cloud und NetApp StorageGRID gespeichert sind 
-
-
-| Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her | Stellen Sie Volumes, Ordner und Dateien von StorageGRID in Sites ohne Internetzugang wieder her 
-
-
 | Führt keine Dateiwiederherstellung durch, wenn die Datei gelöscht oder umbenannt wurde, und der Benutzer den ursprünglichen Dateinamen nicht kennt | Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien 
 
 
-| Durchsuchen Sie nach Ergebnissen über Public und Private Clouds hinweg | Durchsuchen Sie Public Clouds und lokale Snapshot Kopien nach Ergebnissen 
+| Es sind keine zusätzlichen Ressourcen für Cloud-Provider erforderlich | Beim Restore aus der Cloud werden pro Konto zusätzliche Bucket- und Public-Cloud-Provider-Ressourcen benötigt 
 
 
-| Es sind keine zusätzlichen Ressourcen für Cloud-Provider erforderlich | Pro Konto sind zusätzliche Bucket- und Public-Cloud-Provider-Ressourcen erforderlich 
+| Es sind keine zusätzlichen Kosten für Cloud-Provider erforderlich | Bei der Wiederherstellung aus der Cloud sind zusätzliche Kosten erforderlich, wenn Backups und Volumes für die Suchergebnisse gescannt werden 
+|===
+Diese Tabelle enthält eine Liste gültiger Wiederherstellungsvorgänge, die auf dem Speicherort der Sicherungsdateien basieren.
+
+[cols="14h,14,14,14,14,14,14"]
+|===
+| Backup-Typ 3+| Suchen Und Wiederherstellen 3+| Suche Und Wiederherstellung 
 
 
-| Es sind keine zusätzlichen Kosten für Cloud-Provider erforderlich | Kosten im Zusammenhang mit Public-Cloud-Provider-Ressourcen bei der Überprüfung Ihrer Backups und Volumes für Suchergebnisse 
+|  | *Lautstärke wiederherstellen* | * Dateien wiederherstellen* | *Ordner wiederherstellen* | *Lautstärke wiederherstellen* | * Dateien wiederherstellen* | *Ordner wiederherstellen* 
+
+
+| Snapshot Kopie | Ja. | Nein | Nein | Ja. | Ja. | Nein 
+
+
+| Repliziertes Volume | Ja. | Nein | Nein | Ja. | Ja. | Nein 
+
+
+| Sicherungsdatei | Ja. | Ja. | Ja. | Ja. | Ja. | Ja. 
 |===
 Bevor Sie eine der beiden Wiederherstellungsmethoden verwenden können, sollten Sie sicherstellen, dass Sie Ihre Umgebung für die speziellen Ressourcenanforderungen konfiguriert haben. Diese Anforderungen werden in den Abschnitten unten beschrieben.
 
@@ -81,11 +97,11 @@ Siehe Anforderungen und Wiederherstellungsschritte für den Typ der Wiederherste
 
 
 
-== Wiederherstellen von ONTAP-Daten mithilfe von Durchsuchen und Wiederherstellen
+== Stellen Sie ONTAP-Daten mithilfe von Durchsuchen und Wiederherstellen wieder her
 
-Bevor Sie mit der Wiederherstellung eines Volumes, Ordners oder einer Datei beginnen, sollten Sie den Namen des Volumes, von dem aus Sie wiederherstellen möchten, den Namen der Arbeitsumgebung und SVM, auf dem sich das Volume befindet, sowie das ungefähre Datum der Sicherungsdatei, aus der Sie wiederherstellen möchten, kennen.
+Bevor Sie mit der Wiederherstellung eines Volumes, Ordners oder einer Datei beginnen, sollten Sie den Namen des Volumes, von dem aus Sie wiederherstellen möchten, den Namen der Arbeitsumgebung und SVM, auf dem sich das Volume befindet, sowie das ungefähre Datum der Sicherungsdatei, aus der Sie wiederherstellen möchten, kennen. Sie können ONTAP Daten von einer Snapshot Kopie, einem replizierten Volume oder von Backups im Objektspeicher wiederherstellen.
 
-*Hinweis:* Wenn die Sicherungsdatei, die die wiederherzustellenden Daten enthält, im Archiv-Speicher liegt (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und kostet. Zusätzlich muss auf dem Ziel-Cluster für die Volume-Wiederherstellung ONTAP 9.10.1 oder höher, 9.11.1 für die Wiederherstellung von Dateien, 9.12.1 für Google Archive und StorageGRID und 9.13.1 für die Wiederherstellung von Ordnern ausgeführt werden.
+*Hinweis:* Wenn sich die Sicherungsdatei mit den Daten, die Sie wiederherstellen möchten, im Archiv-Cloud-Speicher befindet (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und verursacht Kosten. Zusätzlich muss auf dem Ziel-Cluster für die Volume-Wiederherstellung ONTAP 9.10.1 oder höher, 9.11.1 für die Wiederherstellung von Dateien, 9.12.1 für Google Archive und StorageGRID und 9.13.1 für die Wiederherstellung von Ordnern ausgeführt werden.
 
 ifdef::aws[]
 
@@ -112,24 +128,45 @@ NOTE: Die hohe Priorität wird nicht unterstützt, wenn Daten aus dem Azure Arch
 
 === Unterstützte Arbeitsumgebungen und Objekt-Storage-Anbieter durchsuchen und wiederherstellen
 
-Sie können ein Volume, einen Ordner oder einzelne Dateien aus einer ONTAP-Sicherungsdatei in folgenden Arbeitsumgebungen wiederherstellen:
+Sie können ONTAP-Daten aus einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) oder im Objektspeicher (einer Backup-Datei) in den folgenden Arbeitsumgebungen wiederherstellen. Snapshot Kopien befinden sich in der Quell-Arbeitsumgebung, sie können nur auf demselben System wiederhergestellt werden.
 
-[cols="35,50"]
+*Hinweis:* Sie können ein Volume von jeder Art von Sicherungsdatei wiederherstellen, aber Sie können einen Ordner oder einzelne Dateien nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen.
+
+[cols="33,33,33"]
 |===
-| Speicherort Der Sicherungsdatei | Zielarbeitsumgebung ifdef::aws[] 
+2+| Speicherort Der Sicherungsdatei | Zielarbeitsumgebung 
 
 
-| Amazon S3 | Cloud Volumes ONTAP in AWS On-Premises ONTAP System endif::aws[] ifdef::azurAzure[] 
+| *Objektspeicher (Sicherung)* | *Sekundärsystem (Replikation)* | ifdef::aws[] 
 
 
-| Azure Blob | Cloud Volumes ONTAP in Azure On-Premises ONTAP System endif::Azure[] ifdef::gcp[] 
+| Amazon S3 | Cloud Volumes ONTAP in AWS
+Lokales ONTAP System | Cloud Volumes ONTAP in AWS On-Premises ONTAP System endif::aws[] ifdef::azurAzure[] 
 
 
-| Google Cloud Storage | Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[] 
+| Azure Blob | Cloud Volumes ONTAP in Azure
+Lokales ONTAP System | Cloud Volumes ONTAP in Azure On-Premises ONTAP System endif::Azure[] ifdef::gcp[] 
 
 
-| NetApp StorageGRID | Lokales ONTAP System 
+| Google Cloud Storage | Cloud Volumes ONTAP in Google
+Lokales ONTAP System | Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[] 
+
+
+| NetApp StorageGRID | Lokales ONTAP System
+Cloud Volumes ONTAP | Lokales ONTAP System 
 |===
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
 Für Browse & Restore kann der Connector an folgenden Orten installiert werden:
 
 ifdef::aws[]
@@ -163,13 +200,15 @@ NOTE: Wenn die ONTAP-Version auf Ihrem System kleiner als 9.13.1 ist, können Si
 
 
 
-=== Wiederherstellen von Volumes mit Durchsuchen und Wiederherstellen
+=== Stellen Sie Volumes mithilfe von Browse & Restore wieder her
 
-Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Sie können die Daten auf einem Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
+Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Bei Verwendung eines Cloud-Backups können Sie die Daten auf einem Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die ursprüngliche Arbeitsumgebung befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
+
+Bei der Wiederherstellung von einem replizierten Volume können Sie das Volume in der ursprünglichen Arbeitsumgebung oder in einem Cloud Volumes ONTAP oder einem lokalen ONTAP System wiederherstellen.
 
 image:diagram_browse_restore_volume.png["Ein Diagramm, das den Fluss zeigt, um einen Datenträger-Wiederherstellungsvorgang mit Durchsuchen  Restore durchzuführen."]
 
-Wie Sie sehen, müssen Sie den Namen der Arbeitsumgebung, die Storage-VM, den Volume-Namen und das Datum der Backup-Datei kennen, um eine Wiederherstellung eines Volumes durchzuführen.
+Wie Sie sehen können, müssen Sie den Namen der Quellarbeitsumgebung, die Storage-VM, den Volume-Namen und das Datum der Backup-Datei kennen, um eine Volume-Wiederherstellung durchzuführen.
 
 Das folgende Video zeigt einen kurzen Spaziergang zur Wiederherstellung eines Volumens:
 
@@ -183,17 +222,20 @@ image:screenshot_restore_volume_selection.png["Ein Screenshot, in dem Sie die Sc
 
 . Navigieren Sie auf der Seite _Quelle auswählen_ zur Sicherungsdatei für das Volume, das Sie wiederherstellen möchten. Wählen Sie die Datei * Working Environment*, *Volume* und die Datei *Backup* aus, die den Datums-/Zeitstempel enthält, aus dem Sie wiederherstellen möchten.
 +
+Die Spalte *Location* zeigt an, ob die Sicherungsdatei (Snapshot) *lokal* (eine Snapshot-Kopie auf dem Quellsystem), *sekundär* (ein repliziertes Volume auf einem sekundären ONTAP-System) oder *Objektspeicher* (eine Sicherungsdatei im Objektspeicher) ist. Wählen Sie die Datei aus, die Sie wiederherstellen möchten.
+
++
 image:screenshot_restore_select_volume_snapshot.png["Ein Screenshot zur Auswahl der Arbeitsumgebung, des Volumes und der Sicherungsdatei des Volumes, die wiederhergestellt werden soll"]
 
 . Klicken Sie Auf *Weiter*.
 +
-Sollte der Ransomware-Schutz für die Backup-Datei aktiv sein (wenn Sie DataLock und Ransomware-Schutz in der Backup-Richtlinie aktiviert haben), werden Sie aufgefordert, vor dem Wiederherstellen der Daten einen zusätzlichen Ransomware-Scan auf der Backup-Datei durchzuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen.
+Wenn Sie eine Backup-Datei im Objekt-Storage auswählen und für dieses Backup der Ransomware-Schutz aktiv ist (wenn Sie DataLock und Ransomware-Schutz in der Backup-Richtlinie aktiviert haben), werden Sie vor der Wiederherstellung der Daten aufgefordert, einen zusätzlichen Ransomware-Scan für die Backup-Datei auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen.
 
 . Wählen Sie auf der Seite _Ziel auswählen_ die Option *Arbeitsumgebung* aus, in der Sie das Volume wiederherstellen möchten.
 +
 image:screenshot_restore_select_work_env_volume.png["Ein Screenshot der Auswahl der Zielumgebung für das Volume, das wiederhergestellt werden soll."]
 
-. Wenn Sie ein lokales ONTAP System auswählen und die Cluster-Verbindung mit dem Objekt-Storage nicht bereits konfiguriert haben, werden zusätzliche Informationen benötigt:
+. Wenn Sie beim Wiederherstellen einer Backup-Datei aus dem Objekt-Storage ein lokales ONTAP-System auswählen und noch nicht die Cluster-Verbindung zum Objekt-Storage konfiguriert haben, werden Sie zur Eingabe weiterer Informationen aufgefordert:
 +
 ifdef::aws[]
 
@@ -255,15 +297,17 @@ endif::gcp[]
 
 
 .Ergebnis
-Mit BlueXP Backup und Recovery wird auf Basis des von Ihnen ausgewählten Backups ein neues Volume erstellt. Das können Sie link:task-manage-backups-ontap.html["Verwalten Sie die Backup-Einstellungen für dieses neue Volume"] Nach Bedarf.
+Mit BlueXP Backup und Recovery wird auf Basis des von Ihnen ausgewählten Backups ein neues Volume erstellt.
 
 Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im Archiv-Storage je nach Archivebene und Restore-Priorität viele Minuten oder Stunden in Anspruch nehmen kann. Sie können auf die Registerkarte *Job Monitoring* klicken, um den Wiederherstellungsfortschritt anzuzeigen.
 
 
 
-=== Wiederherstellen von Ordnern und Dateien mit Durchsuchen und Wiederherstellen
+=== Wiederherstellen von Ordnern und Dateien mit Durchsuchen & Restore
 
 Wenn Sie nur einige Dateien aus einem ONTAP Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
+
+*Hinweis:* Sie können einen Ordner oder einzelne Dateien nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
 
 Wenn Sie mehrere Dateien auswählen, werden alle Dateien auf dem gleichen Ziellaufwerk wiederhergestellt, das Sie auswählen. Wenn Sie also Dateien auf unterschiedlichen Volumes wiederherstellen möchten, müssen Sie den Wiederherstellungsprozess mehrmals ausführen.
 
@@ -304,7 +348,7 @@ Wie Sie sehen, müssen Sie den Namen der Arbeitsumgebung, den Namen des Volumes,
 
 
 
-==== Ordner und Dateien werden wiederhergestellt
+==== Wiederherstellung von Ordnern und Dateien
 
 Führen Sie diese Schritte aus, um Ordner oder Dateien auf einem Volume von einem ONTAP Volume-Backup wiederherzustellen. Sie sollten den Namen des Volumes und das Datum der Sicherungsdatei kennen, die Sie zum Wiederherstellen des Ordners oder der Datei(en) verwenden möchten. Diese Funktion verwendet Live Browsing, so dass Sie die Liste der Verzeichnisse und Dateien innerhalb jeder Backup-Datei anzeigen können.
 
@@ -421,9 +465,9 @@ Sie haben ein paar Optionen für den Speicherort beim Wiederherstellen von Ordne
 
 == Wiederherstellen von ONTAP-Daten mithilfe von Suche und Wiederherstellung
 
-Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search & Restore lassen sich anhand aller im Cloud Storage gespeicherten Backups nach einem bestimmten Volume, Ordner oder Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung oder den Namen des Volumes kennen - die Suche durchsucht alle Volume-Backup-Dateien.
+Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search & Restore können Sie aus allen Backups nach einem bestimmten Volume, Ordner oder einer bestimmten Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung, den Namen des Volumes oder den Dateinamen kennen - die Suche durchsucht alle Backup-Dateien des Volumes.
 
-Der Suchvorgang sieht auch alle lokalen Snapshot-Kopien aus, die auch für Ihre ONTAP Volumes vorhanden sind. Da das Wiederherstellen von Daten aus einer lokalen Snapshot-Kopie schneller und kostengünstiger ist als die Wiederherstellung aus einer Backup-Datei, möchten Sie möglicherweise Daten aus dem Snapshot wiederherstellen. Sie können den Snapshot als ein neues Volume wiederherstellen https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Auf der Seite Volume Details auf dem Bildschirm"^] (Nicht aus BlueXP Backup und Recovery).
+Bei diesem Suchvorgang werden alle lokalen Snapshot Kopien für Ihre ONTAP Volumes, alle replizierten Volumes auf sekundären Storage-Systemen und alle Backup-Dateien im Objekt-Storage angezeigt. Da das Wiederherstellen von Daten von einer lokalen Snapshot Kopie oder einem replizierten Volume schneller und kostengünstiger sein kann als die Wiederherstellung von einer Backup-Datei im Objektspeicher, sollten Sie Daten von diesen anderen Standorten wiederherstellen.
 
 Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Sie können die Daten als Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die sich in demselben Cloud-Konto wie die Arbeitsumgebung der Quelle befindet. Sie können Volumes auch in einem ONTAP System vor Ort wiederherstellen.
 
@@ -453,8 +497,8 @@ endif::gcp[]
 
 [NOTE]
 ====
-* Wenn die Sicherungsdatei mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
-* Wenn sich die Backup-Datei im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
+* Wenn die Backup-Datei im Objektspeicher mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
+* Wenn sich die Backup-Datei im Objektspeicher im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
 * Die Priorität bei der Wiederherstellung „hoch“ wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID Systeme nicht unterstützt.
 
 
@@ -468,23 +512,32 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 
 === Unterstützte Arbeitsumgebungen und Objektspeicheranbieter suchen und wiederherstellen
 
-Sie können ein Volume, einen Ordner oder einzelne Dateien aus einer ONTAP-Sicherungsdatei in folgenden Arbeitsumgebungen wiederherstellen:
+Sie können ONTAP-Daten aus einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) oder im Objektspeicher (einer Backup-Datei) in den folgenden Arbeitsumgebungen wiederherstellen. Snapshot Kopien befinden sich in der Quell-Arbeitsumgebung, sie können nur auf demselben System wiederhergestellt werden.
 
-[cols="35,50"]
+*Hinweis:* Sie können Volumes und Dateien von jeder Art von Sicherungsdatei wiederherstellen, aber Sie können einen Ordner nur von Sicherungsdateien im Objektspeicher zu diesem Zeitpunkt wiederherstellen.
+
+[cols="33,33,33"]
 |===
-| Speicherort Der Sicherungsdatei | Zielarbeitsumgebung ifdef::aws[] 
+2+| Speicherort Der Sicherungsdatei | Zielarbeitsumgebung 
 
 
-| Amazon S3 | Cloud Volumes ONTAP in AWS On-Premises ONTAP System endif::aws[] ifdef::azurAzure[] 
+| *Objektspeicher (Sicherung)* | *Sekundärsystem (Replikation)* | ifdef::aws[] 
 
 
-| Azure Blob | Cloud Volumes ONTAP in Azure On-Premises ONTAP System endif::Azure[] ifdef::gcp[] 
+| Amazon S3 | Cloud Volumes ONTAP in AWS
+Lokales ONTAP System | Cloud Volumes ONTAP in AWS On-Premises ONTAP System endif::aws[] ifdef::azurAzure[] 
 
 
-| Google Cloud Storage | Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[] 
+| Azure Blob | Cloud Volumes ONTAP in Azure
+Lokales ONTAP System | Cloud Volumes ONTAP in Azure On-Premises ONTAP System endif::Azure[] ifdef::gcp[] 
 
 
-| NetApp StorageGRID | Lokales ONTAP System 
+| Google Cloud Storage | Cloud Volumes ONTAP in Google
+Lokales ONTAP System | Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[] 
+
+
+| NetApp StorageGRID | Lokales ONTAP System
+Cloud Volumes ONTAP | Lokales ONTAP System 
 |===
 Für die Suche und Wiederherstellung kann der Connector an folgenden Orten installiert werden:
 
@@ -523,7 +576,7 @@ Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS,
 ** Die ONTAP-Version muss 9.8 oder höher sein.
 ** Die Storage-VM (SVM), auf der sich das Volume befindet, muss über eine konfigurierte Daten-LIF verfügen.
 ** NFS muss auf dem Volume aktiviert sein (NFS und SMB/CIFS Volumes werden unterstützt).
-** Der SnapDiff RPC Server muss auf der SVM aktiviert sein. BlueXP führt diese Funktion automatisch aus, wenn Sie die Indexierung in der Arbeitsumgebung aktivieren. (SnapDiff ist die Technologie, die die Datei- und Verzeichnisunterschiede zwischen zwei Snapshot Kopien schnell identifiziert.)
+** Der SnapDiff RPC Server muss auf der SVM aktiviert sein. BlueXP führt diese Funktion automatisch aus, wenn Sie die Indexierung in der Arbeitsumgebung aktivieren. (SnapDiff ist die Technologie, die die Datei- und Verzeichnisunterschiede zwischen Snapshot Kopien schnell identifiziert.)
 
 
 
@@ -534,7 +587,7 @@ ifdef::aws[]
 +
 ** Spezifische Berechtigungen für Amazon Athena, AWS Glue und AWS S3 müssen der Benutzerrolle hinzugefügt werden, die BlueXP Berechtigungen bietet. link:task-backup-onprem-to-aws.html#set-up-s3-permissions["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
-Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die Berechtigungen Athena und Glue zur BlueXP Benutzerrolle hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
+Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die Berechtigungen Athena und Glue zur BlueXP Benutzerrolle hinzufügen. Sie sind für Search & Restore erforderlich.
 
 
 
@@ -549,7 +602,7 @@ ifdef::azure[]
 ** Sie müssen den Azure Synapse Analytics Resource Provider (genannt „Microsoft.Synapse“) im Abonnement registrieren. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Erfahren Sie, wie Sie diesen Ressourcenanbieter für Ihr Abonnement registrieren"^]. Sie müssen der Subscription *Owner* oder *Contributor* sein, um den Ressourcenanbieter zu registrieren.
 ** Spezifische Berechtigungen für Azure Synapse Workspace- und Data Lake-Speicherkonto müssen der Benutzerrolle hinzugefügt werden, die BlueXP mit Berechtigungen versorgt. link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
-Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie der BlueXP Benutzerrolle jetzt die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
+Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie der BlueXP Benutzerrolle jetzt die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Sie sind für Search & Restore erforderlich.
 
 ** Der Connector muss *ohne* einen Proxy-Server für die HTTP-Kommunikation mit dem Internet konfiguriert werden. Wenn Sie einen HTTP-Proxyserver für Ihren Connector konfiguriert haben, können Sie die Funktion Suchen und Ersetzen nicht verwenden.
 
@@ -564,7 +617,7 @@ ifdef::gcp[]
 +
 ** Spezifische Google BigQuery-Berechtigungen müssen der Benutzerrolle hinzugefügt werden, die BlueXP Berechtigungen bereitstellt. link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector["Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"].
 +
-Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die BigQuery-Berechtigungen zur BlueXP Benutzerrolle hinzufügen. Diese sind neu und für die Suche und Wiederherstellung erforderlich.
+Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die BigQuery-Berechtigungen zur BlueXP Benutzerrolle hinzufügen. Sie sind für Search & Restore erforderlich.
 
 
 
@@ -578,7 +631,7 @@ Je nach Konfiguration gibt es zwei Möglichkeiten, die Suche und Wiederherstellu
 
 +
 ** Wenn Ihr Konto keine Anmeldedaten für Cloud-Provider enthält, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert.
-** Wenn Sie einen Connector in einer dunklen Site verwenden, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert (Connector Version 3.9.25 oder höher erforderlich).
+** Wenn Sie einen Connector auf einer privaten (dunklen) Site verwenden, werden die indizierten Kataloginformationen auf dem Connector gespeichert (erfordert Connector Version 3.9.25 oder höher).
 ** Wenn Sie haben https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html["AWS Zugangsdaten"^] Oder https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html["Azure Zugangsdaten"^] Im Konto wird der indizierte Katalog wie bei einem in der Cloud implementierten Connector beim Cloud-Provider gespeichert. (Bei beiden Anmeldedaten ist standardmäßig AWS ausgewählt.)
 +
 Obwohl Sie einen On-Premises-Connector nutzen, müssen die Anforderungen an einen Cloud-Provider sowohl im Hinblick auf die Berechtigungen von Connector als auch auf Ressourcen von Cloud-Providern erfüllt werden. AWS und Azure Anforderungen können Sie sich bei der Verwendung dieser Implementierung oben anzeigen lassen.
@@ -595,7 +648,7 @@ Der Prozess geht wie folgt vor:
 
 . Bevor Sie Suche und Wiederherstellung verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volume-Daten wiederherstellen möchten. So kann der indizierte Katalog die Backup-Dateien für jedes Volume nachverfolgen.
 . Wenn Sie ein Volume oder Dateien aus einem Volume-Backup wiederherstellen möchten, klicken Sie unter _Search & Restore_ auf *Suchen & Wiederherstellen*.
-. Geben Sie die Suchkriterien für ein Volume, einen Ordner oder eine Datei nach einem Teil- oder Volldatumnamen, einem partiellen oder vollständigen Dateinamen, einem Größenbereich, einem Erstellungsdatumbereich und anderen Suchfiltern ein, und klicken Sie auf *Suchen*.
+. Geben Sie die Suchkriterien für ein Volume, einen Ordner oder eine Datei nach einem teilweisen oder vollständigen Datenträgernamen, einem teilweisen oder vollständigen Dateinamen, einem Sicherungsverzeichnis, einem Größenbereich, einem Erstellungsdatumbereich, anderen Suchfiltern ein. Und klicken Sie auf *Suche*.
 +
 Auf der Seite Suchergebnisse werden alle Standorte angezeigt, die eine Datei oder ein Volume haben, die Ihren Suchkriterien entsprechen.
 
@@ -610,7 +663,7 @@ Wie Sie sehen, müssen Sie wirklich nur einen Teil des Namens kennen und BlueXP 
 
 
 
-=== Aktivierung des indizierten Katalogs für jede Arbeitsumgebung
+=== Aktivieren Sie den indizierten Katalog für jede Arbeitsumgebung
 
 Bevor Sie Search & Restore verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volumes oder Dateien wiederherstellen möchten. So kann der indexierte Katalog jedes Volume und jede Backup-Datei nachverfolgen, was Ihre Suchvorgänge sehr schnell und effizient macht.
 
@@ -652,13 +705,13 @@ Nachdem alle Services bereitgestellt und der indizierte Katalog aktiviert wurde,
 
 image:screenshot_restore_enable_indexing.png["Ein Screenshot mit den Arbeitsumgebungen, die den indizierten Katalog aktiviert haben."]
 
-In Abhängigkeit von der Größe der Volumes in der Arbeitsumgebung und der Anzahl der Backup-Dateien in der Cloud kann die Erstindizierung bis zu eine Stunde in Anspruch nehmen. Danach wird es stündlich transparent mit inkrementellen Änderungen aktualisiert, um auf dem Laufenden zu bleiben.
+Abhängig von der Größe der Volumes in der Arbeitsumgebung und der Anzahl der Backup-Dateien an allen 3 Backup-Standorten kann die anfängliche Indizierung bis zu einer Stunde dauern. Danach wird es stündlich transparent mit inkrementellen Änderungen aktualisiert, um auf dem Laufenden zu bleiben.
 
 
 
-=== Wiederherstellen von Volumes, Ordnern und Dateien mithilfe von Search & Restore
+=== Stellen Sie Volumes, Ordner und Dateien mithilfe von Search & Restore wieder her
 
-Nachdem Sie den haben <<Aktivierung des indizierten Katalogs für jede Arbeitsumgebung,Indexierung für Ihre Arbeitsumgebung aktiviert>>, Sie können Volumes, Ordner und Dateien mit Search & Restore wiederherstellen. So können Sie mithilfe verschiedener Filter genau die Datei oder das Volume finden, die Sie aus allen Backup-Dateien wiederherstellen möchten.
+Nachdem Sie den haben <<Enabling the Indexed Catalog for each working environment,Indexierung für Ihre Arbeitsumgebung aktiviert>>, Sie können Volumes, Ordner und Dateien mit Search & Restore wiederherstellen. So können Sie mithilfe verschiedener Filter genau die Datei oder das Volume finden, die Sie aus allen Backup-Dateien wiederherstellen möchten.
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
@@ -671,20 +724,20 @@ image:screenshot_restore_start_search_restore.png["Ein Screenshot, in dem Sie di
 +
 .. Geben Sie in der _Suchleiste_ einen vollständigen oder teilweisen Volumennamen, Ordnernamen oder Dateinamen ein.
 .. Wählen Sie den Ressourcentyp aus: *Volumes*, *Dateien*, *Ordner* oder *Alle*.
-.. Wählen Sie im Bereich _Filter by_ die Filterkriterien aus. Sie können beispielsweise die Arbeitsumgebung auswählen, in der sich die Daten befinden, und den Dateityp, z. B. eine JPEG-Datei.
+.. Wählen Sie im Bereich _Filter by_ die Filterkriterien aus. Sie können beispielsweise die Arbeitsumgebung auswählen, in der sich die Daten befinden, und den Dateityp, z. B. eine JPEG-Datei. Sie können auch den Typ des Backup-Speicherorts auswählen, wenn Sie nur innerhalb der verfügbaren Snapshot-Kopien oder Backup-Dateien im Objektspeicher nach Ergebnissen suchen möchten.
 
 
 . Klicken Sie auf *Suchen* und im Bereich Suchergebnisse werden alle Ressourcen angezeigt, die eine Datei, einen Ordner oder ein Volume haben, das Ihrer Suche entspricht.
 +
 image:screenshot_restore_step1_search_restore.png["Ein Screenshot mit den Suchkriterien und Suchergebnissen auf der Seite Suche  Restore."]
 
-. Klicken Sie auf *Alle Backups anzeigen* für die Ressource, die die wiederherzustellenden Daten enthält, um alle Sicherungsdateien anzuzeigen, die das entsprechende Volume, den Ordner oder die entsprechende Datei enthalten.
+. Suchen Sie die Ressource mit den Daten, die Sie wiederherstellen möchten, und klicken Sie auf *Alle Backups anzeigen*, um alle Sicherungsdateien anzuzeigen, die das passende Volume, den passenden Ordner oder die entsprechende Datei enthalten.
 +
 image:screenshot_restore_step2_search_restore.png["Ein Screenshot zeigt, wie alle Backups angezeigt werden, die Ihren Suchkriterien entsprechen."]
 
-. Klicken Sie auf *Wiederherstellen* für die Sicherungsdatei, die Sie verwenden möchten, um das Objekt aus der Cloud wiederherzustellen.
+. Suchen Sie die Sicherungsdatei, die Sie zum Wiederherstellen der Daten verwenden möchten, und klicken Sie auf *Wiederherstellen*.
 +
-Beachten Sie, dass die Ergebnisse auch lokale Volume-Snapshot-Kopien identifizieren, die die Datei in Ihrer Suche enthalten. Die *Restore* Taste funktioniert derzeit nicht für Snapshots, aber wenn Sie die Daten aus der Snapshot-Kopie anstelle der Backup-Datei wiederherstellen möchten, schreiben Sie den Namen und den Ort des Volumes auf, öffnen Sie die Seite Volume Details auf dem Bildschirm, Und verwenden Sie die Option *Wiederherstellen aus Snapshot Kopie*.
+Beachten Sie, dass die Ergebnisse auch lokale Volume-Snapshot-Kopien identifizieren, die die Datei in Ihrer Suche enthalten. Sie können zwischen der Backup-Datei in der Cloud oder der Snapshot Kopie wählen.
 
 . Wählen Sie den Zielspeicherort aus, an dem die Volumes, Ordner oder Dateien wiederhergestellt werden sollen, und klicken Sie auf *Wiederherstellen*.
 +

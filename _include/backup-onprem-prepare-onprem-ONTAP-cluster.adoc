@@ -1,0 +1,43 @@
+= Ihre ONTAP-Systeme in BlueXP erkennen
+:allow-uri-read: 
+
+
+Sie müssen Ihr On-Premises-Quell-ONTAP-System und alle sekundären lokalen ONTAP oder Cloud Volumes ONTAP Systeme vorbereiten.
+
+Zur Vorbereitung Ihrer ONTAP-Cluster sind folgende Schritte erforderlich:
+
+* Ihre ONTAP-Systeme in BlueXP erkennen
+* Überprüfen Sie die Systemanforderungen für ONTAP
+* ONTAP Netzwerkanforderungen für Daten-Backups im Objekt-Storage prüfen
+* Überprüfen Sie die ONTAP Netzwerkanforderungen für die Replizierung von Volumes
+
+
+
+
+=== Ihre ONTAP-Systeme in BlueXP erkennen
+
+Sowohl das On-Premises-Quell-ONTAP-System als auch alle sekundären ONTAP- oder Cloud Volumes ONTAP-Systeme vor Ort müssen auf der BlueXP Leinwand verfügbar sein.
+
+Sie müssen die Cluster-Management-IP-Adresse und das Passwort kennen, mit dem das Admin-Benutzerkonto den Cluster hinzufügen kann.
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Entdecken Sie ein Cluster"^].
+
+
+
+=== Überprüfen Sie die Systemanforderungen für ONTAP
+
+Stellen Sie sicher, dass die folgenden ONTAP-Anforderungen erfüllt sind:
+
+* Mindestens ONTAP 9.8; ONTAP 9.8P13 und höher wird empfohlen.
+* SnapMirror Lizenz (im Rahmen des Premium Bundle oder Datensicherungs-Bundles enthalten)
++
+*Hinweis:* das „Hybrid Cloud Bundle“ ist bei Backup und Recovery von BlueXP nicht erforderlich.
+
++
+Erfahren Sie, wie Sie https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Management Ihrer Cluster-Lizenzen"^].
+
+* Zeit und Zeitzone sind korrekt eingestellt. Erfahren Sie, wie Sie https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["Konfigurieren Sie die Cluster-Zeit"^].
+* Wenn Sie Daten replizieren möchten, sollten Sie vor der Replizierung von Daten überprüfen, ob auf den Quell- und Ziel-Volumes kompatible ONTAP Versionen ausgeführt werden.
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Zeigen Sie kompatible ONTAP Versionen für SnapMirror Beziehungen an"^].
+
+

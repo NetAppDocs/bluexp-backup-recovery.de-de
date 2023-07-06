@@ -20,7 +20,7 @@ Ein paar Notizen, bevor Sie weitere lesen:
 
 * Wenn Sie auf dem Marketplace Ihres Cloud-Providers für ein Cloud Volumes ONTAP-System bereits ein PAYGO-Abonnement (Pay-as-you-go) abonniert haben, haben Sie auch das Backup und Recovery von BlueXP automatisch abonniert. Sie müssen sich nicht erneut anmelden.
 * Das BYOL (Bring-Your-Own-License) von BlueXP für Backup und Recovery ist eine Floating Lizenz, die Sie über alle mit Ihrem BlueXP Konto verknüpften Systeme hinweg verwenden können. Wenn also über ausreichende Backup-Kapazität mit einer bestehenden BYOL-Lizenz verfügen, müssen Sie keine weitere BYOL-Lizenz erwerben.
-* Wenn Sie eine BYOL-Lizenz verwenden, empfehlen wir Ihnen, auch ein PAYGO Abonnement zu abonnieren. Wenn Sie mehr Daten als von Ihrer BYOL-Lizenz zulässig sichern, wird das Backup über Ihr Pay-as-you-go-Abonnement fortgesetzt – es tritt keine Serviceunterbrechung auf.
+* Wenn Sie eine BYOL-Lizenz verwenden, empfehlen wir Ihnen, auch ein PAYGO Abonnement zu abonnieren. Wenn Sie mehr Daten sichern, als durch Ihre BYOL-Lizenz zulässig ist, oder wenn die Laufzeit Ihrer Lizenz abläuft, wird das Backup über Ihr Pay-as-you-go-Abonnement fortgesetzt – der Service wird nicht unterbrochen.
 * Beim Backup von lokalen ONTAP-Daten in StorageGRID ist eine BYOL-Lizenz erforderlich. Es entstehen jedoch keine Kosten für Cloud-Provider-Storage.
 
 
@@ -114,6 +114,8 @@ ifdef::gcp[]
 Bei der Nutzung von GCP können Sie Ihren NetApp Vertriebsmitarbeiter kontaktieren, um einen Jahresvertrag zu erwerben. Der Vertrag ist als Privatangebot im Google Cloud Marketplace erhältlich. Nachdem NetApp das private Angebot an Sie weitergibt, können Sie den Jahresplan auswählen, wenn Sie während der Aktivierung von BlueXP Backup und Recovery im Google Cloud Marketplace abonnieren.
 
 endif::gcp[]
+
+Wenn Sie einen Jahresvertrag von einem Markt haben, wird der gesamte Verbrauch von BlueXP Backup und Recovery mit diesem Vertrag in Rechnung gestellt. Es ist nicht möglich, einen jährlichen Marktvertrag mit einem BYOL-Modell zu kombinieren.
 
 
 
