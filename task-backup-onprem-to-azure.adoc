@@ -27,7 +27,7 @@ Führen Sie die folgenden Schritte aus, um schnell zu beginnen: In den folgenden
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Identifizieren Sie die Verbindungsmethode, die Sie verwenden werden
 [role="quick-margin-para"]
-Sie haben die Wahl, ob Sie Ihr lokales ONTAP-Cluster über das öffentliche Internet direkt mit Azure verbinden oder ob Sie ein VPN oder Azure ExpressRoute verwenden und den Datenverkehr über eine private VPC-Endpunktschnittstelle zu Azure weiterleiten.
+Sie haben die Wahl, ob Sie Ihr lokales ONTAP-Cluster über das öffentliche Internet direkt mit Azure verbinden oder ob Sie ein VPN oder Azure ExpressRoute verwenden und den Datenverkehr über eine private VPC-Endpunktschnittstelle zu Azure weiterleiten möchten.
 
 [role="quick-margin-para"]
 <<Identifizieren Sie die Verbindungsmethode>>.
@@ -213,7 +213,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 
 == Lizenzanforderungen prüfen
 
-Verifizieren Sie die Lizenzanforderungen sowohl für Azure als auch für BlueXP:
+Lizenzanforderungen müssen sowohl für Azure als auch für BlueXP geprüft werden:
 
 * Bevor Sie BlueXP Backup und Recovery für Ihr Cluster aktivieren können, müssen Sie entweder ein PAYGO-Angebot (Pay-as-you-go) für BlueXP Marketplace von Azure abonnieren oder eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp erwerben und aktivieren. Diese Lizenzen sind für Ihr Konto und können für mehrere Systeme verwendet werden.
 +
@@ -309,7 +309,7 @@ Bevor Sie Backups in BlueXP Backup und Recovery aktivieren, stellen Sie sicher, 
 
 ==== Netzwerkanforderungen für Cloud Volumes ONTAP
 
-Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden Regeln enthalten: Insbesondere Regeln für ICMP und die Ports 11104 und 11105. Diese Regeln sind in der vordefinierten Sicherheitsgruppe enthalten.
+Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden Regeln enthalten: Speziell Regeln für ICMP und die Ports 11104 und 11105. Diese Regeln sind in der vordefinierten Sicherheitsgruppe enthalten.
 
 
 
@@ -318,7 +318,7 @@ Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden R
 * Wenn sich der Cluster an Ihrem Standort befindet, sollten Sie über eine Verbindung zwischen Ihrem Unternehmensnetzwerk und Ihrem virtuellen Netzwerk des Cloud-Providers verfügen. Hierbei handelt es sich in der Regel um eine VPN-Verbindung.
 * ONTAP Cluster müssen zusätzliche Subnetz-, Port-, Firewall- und Cluster-Anforderungen erfüllen.
 +
-Da Sie Daten zu Cloud Volumes ONTAP oder zu einem lokalen System replizieren können, prüfen Sie Peering-Anforderungen für lokale ONTAP Systeme. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Anzeigen von Voraussetzungen für Cluster-Peering in der ONTAP-Dokumentation"^].
+Da Sie Daten auf Cloud Volumes ONTAP oder auf lokale Systeme replizieren können, prüfen Sie Peering-Anforderungen für lokale ONTAP Systeme. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Anzeigen von Voraussetzungen für Cluster-Peering in der ONTAP-Dokumentation"^].
 
 
 
@@ -335,9 +335,11 @@ Beachten Sie, dass Backup und Recovery _Azure-Zugriffsrichtlinien_ als Berechtig
 
 
 
-=== Erstellen Sie Ihre eigenen Buckets
+=== Erstellen Sie Ihr Azure Blob Storage-Konto
 
-Standardmäßig erstellt der Service Buckets für Sie. Wenn Sie Ihre eigenen Buckets verwenden möchten, können Sie diese auch erstellen, bevor Sie den Assistenten zur Backup-Aktivierung starten und diese Buckets im Assistenten auswählen.
+Standardmäßig erstellt der Service Storage-Konten für Sie. Wenn Sie Ihre eigenen Speicherkonten verwenden möchten, können Sie diese erstellen, bevor Sie den Assistenten für die Backup-Aktivierung starten und dann diese Speicherkonten im Assistenten auswählen.
+
+Wenn Sie eigene Storage-Konten erstellen, sollten Sie einen Storage-Kontonamen von „netapp-Backup“ verwenden.
 
 
 
@@ -391,7 +393,7 @@ Wählen Sie die Volumes aus, die Sie schützen möchten. Sie können FlexVol ode
 [NOTE]
 ====
 * Sie können ein Backup nur auf einem einzelnen FlexGroup Volume gleichzeitig aktivieren.
-* Auch die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt.) Sie können keine Kombination aus gesperrten und entsperrten Volumes auswählen.
+* Auch die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt.) Sie können keine Kombination aus gesperrten und nicht gesperrten Volumes auswählen.
 
 
 ====

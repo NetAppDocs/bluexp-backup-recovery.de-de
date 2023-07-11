@@ -23,7 +23,7 @@ Nach Aktivierung werden mit Backup und Recovery dauerhaft inkrementelle Backups 
 * Backup des Volumes im Objektspeicher
 
 
-image:diagram-321-overview.png["Ein Diagramm, das zeigt, wie Backup-Dateien als Snapshot Kopien auf dem Quellsystem, als replizierte Volumes auf dem sekundären Storage-System und als Backup-Dateien im Objekt-Storage vorhanden sind."]
+image:diagram-321-overview-mkt.png["Ein Diagramm, das zeigt, wie Backup-Dateien als Snapshot Kopien auf dem Quellsystem, als replizierte Volumes auf dem sekundären Storage-System und als Backup-Dateien im Objekt-Storage vorhanden sind."]
 
 BlueXP Backup und Recovery nutzt die Datenreplizierungstechnologie SnapMirror von NetApp. So wird sichergestellt, dass alle Backups vollständig synchronisiert werden, indem Snapshot Kopien erstellt und an den Backup-Speicherort übertragen werden.
 

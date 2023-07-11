@@ -50,7 +50,7 @@ image:diagram-321-overview.png["Ein Diagramm, das zeigt, wie Backup-Dateien als 
 
 Sie können sowohl replizierte Volumes auf einem anderen ONTAP Storage-System als auch Backup-Dateien in der Cloud erstellen. Oder Sie haben die Wahl, ob Sie nur replizierte Volumes oder Backup-Dateien erstellen möchten.
 
-Zusammenfassend lässt sich sagen, dass es sich um die gültigen Sicherheitsflüsse handelt, die Sie für ein oder alle Volumes in Ihrer ONTAP Arbeitsumgebung erstellen können:
+Zusammengefasst sind dies die gültigen Sicherheitsflüsse, die Sie für Volumes in Ihrer ONTAP Arbeitsumgebung erstellen können:
 
 * Quellvolume -> Snapshot copy -> repliziertes Volume -> Sicherungsdatei
 * Quellvolume -> Snapshot copy -> Sicherungsdatei
@@ -87,11 +87,11 @@ Zusätzlich zu diesem Kriterium bietet Cloud Storage zusätzliche Sicherheitsopt
 
 Wenn Sie sowohl replizierte Volumes als auch Backup-Dateien erstellen, können Sie eine Fan-out- oder Kaskadenarchitektur wählen, um Backups Ihrer Volumes zu erstellen.
 
-Eine _Fan-out_ Architektur überträgt die Snapshot Kopie unabhängig voneinander auf das Ziel-Storage-System und das Backup-Objekt in der Cloud.
+Eine *Fan-out*-Architektur überträgt die Snapshot Kopie unabhängig voneinander auf das Ziel-Storage-System und das Backup-Objekt in der Cloud.
 
 image:diagram-321-fanout-detailed.png["Diagramm, das zeigt, wie eine Snapshot Kopie eines Volumes verwendet wird, um ein repliziertes Volume und eine Backup-Datei zu erstellen und zu aktualisieren."]
 
-Eine _Cascade_ Architektur überträgt die Snapshot Kopie zuerst an das Ziel-Storage-System. Anschließend wird die Kopie vom System an das Backup-Objekt in der Cloud übertragen.
+Bei einer *Kaskadenarchitektur* wird die Snapshot Kopie zuerst an das Ziel-Storage-System übertragen, anschließend wird die Kopie an das Backup-Objekt in der Cloud übertragen.
 
 image:diagram-321-cascade-detailed.png["Diagramm, das zeigt, wie eine Snapshot Kopie eines Volumes verwendet wird, um ein repliziertes Volume und eine Backup-Datei zu erstellen und zu aktualisieren."]
 
@@ -124,21 +124,25 @@ Sie können Ihre Backups entweder über die von NetApp bereitgestellten Standard
 
 Wenn Sie benutzerdefinierte Richtlinien für Replizierung oder Backup erstellen, müssen die Richtlinienbeschriftungen (z. B. „täglich“ oder „wöchentlich“) mit den Etiketten der Snapshot-Richtlinien oder replizierten Volumes übereinstimmen und Backup-Dateien werden nicht erstellt. Sie können benutzerdefinierte Richtlinien mit System Manager oder der ONTAP Befehlszeilenschnittstelle (CLI) erstellen.
 
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["Erstellen Sie mit System Manager eine Snapshot-Richtlinie"^]
 https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["Erstellen Sie eine Snapshot-Richtlinie über die ONTAP-CLI"^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["Erstellen Sie die Replizierungsrichtlinie mithilfe der ONTAP-CLI"^]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["Erstellen Sie die Backup-Richtlinie mit System Manager"^]
+https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["Erstellen Sie mit System Manager eine Replikationsrichtlinie"^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["Erstellen Sie eine Replizierungsrichtlinie mithilfe der ONTAP-CLI"^]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["Erstellen Sie mit System Manager eine Backup-Richtlinie"^]
 https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description["Erstellen Sie eine Backup-Richtlinie mit der ONTAP-CLI"^]
 
+*Hinweis:* Wenn Sie System Manager verwenden, wählen Sie *Asynchronous* als Richtlinientyp für Replikationsrichtlinien aus, und wählen Sie *Asynchronous* und *Backup in der Cloud* für Backup in Objektrichtlinien aus.
 
-NOTE: Wenn Sie planen, bei der Nutzung der Kaskadenarchitektur benutzerdefinierte Richtlinien zu erstellen, müssen Sie auf dem sekundären System, auf dem die replizierten Volumes erstellt werden, die Backup-to-Object-Richtlinien erstellen. Wenn Sie die Standardrichtlinien verwenden, sind Sie alle festgelegt.
-
-Sie können Richtlinien für das Backup auf Objekt-Storage in der Benutzeroberfläche von BleXP für Backup und Recovery erstellen. Siehe Abschnitt für link:task-manage-backups-ontap.html#add-a-new-backup-policy["Hinzufügen einer neuen Backup-Richtlinie"] Entsprechende Details. Sie müssen Snapshot- und Replikationsrichtlinien mit System Manager oder der ONTAP-CLI erstellen.
+Sie können Richtlinien für Backups in Objekt-Storage in der BlueXP Backup- und Recovery-UI erstellen. Siehe Abschnitt für link:task-manage-backups-ontap.html#add-a-new-backup-policy["Hinzufügen einer neuen Backup-Richtlinie"] Entsprechende Details. Sie müssen Snapshot- und Replikationsrichtlinien mit System Manager oder der ONTAP-CLI erstellen.
 
 Hier sind einige Beispiele für ONTAP CLI-Befehle, die hilfreich sein können, wenn Sie benutzerdefinierte Richtlinien erstellen. Beachten Sie, dass Sie als den _admin_ vServer (Storage-VM) verwenden müssen `<vserver_name>` In diesen Befehlen.
 
 [cols="30,70"]
 |===
 | Richtlinienbeschreibung | Befehl 
+
+
+| Einfache Snapshot-Richtlinie | `snapshot policy create -policy WeeklySnapshotPolicy -enabled true -schedule1 weekly -count1 10 -vserver ClusterA -snapmirror-label1 weekly` 
 
 
 | Einfaches Backup in die Cloud | `snapmirror policy create -policy <policy_name> -transfer-priority normal -vserver <vserver_name> -create-snapshot-on-source false -type vault`
@@ -158,6 +162,34 @@ Hier sind einige Beispiele für ONTAP CLI-Befehle, die hilfreich sein können, w
 |===
 
 NOTE: Für Backups in der Cloud können nur Vault-Richtlinien verwendet werden.
+
+
+
+=== Wo befinden sich meine Richtlinien?
+
+Backup-Richtlinien befinden sich an verschiedenen Standorten, je nachdem, welche Backup-Architektur Sie verwenden möchten: Fan-out oder Kaskadierung. Replikationsrichtlinien und Backup-Richtlinien sind nicht auf dieselbe Weise ausgelegt, da Replikationen zwei ONTAP-Speichersysteme verbinden und Backup to Object einen Speicheranbieter als Ziel verwendet.
+
+Snapshot-Richtlinien befinden sich immer auf dem primären Storage-System.
+
+Replizierungsrichtlinien befinden sich immer auf dem sekundären Storage-System.
+
+Richtlinien für Backups auf Objekten werden auf dem System erstellt, auf dem sich das Quell-Volume befindet. Dies ist der primäre Cluster für Fan-out-Konfigurationen und der sekundäre Cluster für Kaskadenkonfigurationen.
+
+Diese Unterschiede sind in der Tabelle aufgeführt.
+
+[cols="25,25,25,25"]
+|===
+| Der Netapp Architektur Sind | Snapshot-Richtlinie | Replizierungsrichtlinie | Backup-Richtlinie 
+
+
+| *Fan-out* | Primär | Sekundär | Primär 
+
+
+| *Kaskade* | Primär | Sekundär | Sekundär 
+|===
+Wenn Sie also planen, bei der Nutzung der Kaskadenarchitektur benutzerdefinierte Richtlinien zu erstellen, müssen Sie auf dem sekundären System, auf dem die replizierten Volumes erstellt werden, Replizierungs- und Backup-to-Object-Richtlinien erstellen. Wenn Sie planen, bei der Nutzung der Fan-out-Architektur benutzerdefinierte Richtlinien zu erstellen, müssen Sie auf dem sekundären System, auf dem die replizierten Volumes erstellt werden, die Replizierungsrichtlinien für Backups in Objekten auf dem primären System erstellen.
+
+Wenn Sie die Standardrichtlinien verwenden, die auf allen ONTAP Systemen vorhanden sind, sind alle fertig.
 
 
 
@@ -195,29 +227,29 @@ Lesen Sie das Thema Backup für den Cloud-Provider, in dem Sie Sicherungsdateien
 
 ifdef::aws[]
 
-* link:task-backup-to-s3.html["Backup von Cloud Volumes ONTAP Daten in Amazon S3"].
-* link:task-backup-onprem-to-aws.html["Sichern Sie On-Premises-ONTAP-Daten in Amazon S3"].
+* link:task-backup-to-s3.html["Backup von Cloud Volumes ONTAP Daten in Amazon S3"]
+* link:task-backup-onprem-to-aws.html["Sichern Sie On-Premises-ONTAP-Daten in Amazon S3"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
-* link:task-backup-onprem-to-azure.html["Sichern Sie On-Premises-ONTAP-Daten in Azure Blob"].
+* link:task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"]
+* link:task-backup-onprem-to-azure.html["Sichern Sie On-Premises-ONTAP-Daten in Azure Blob"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-backup-to-gcp.html["Backup von Cloud Volumes ONTAP Daten in Google Cloud"].
-* link:task-backup-onprem-to-gcp.html["Backup von On-Premises-ONTAP-Daten in Google Cloud"].
+* link:task-backup-to-gcp.html["Backup von Cloud Volumes ONTAP Daten in Google Cloud"]
+* link:task-backup-onprem-to-gcp.html["Backup von On-Premises-ONTAP-Daten in Google Cloud"]
 
 
 endif::gcp[]
 
-* link:task-backup-onprem-private-cloud.html["Sichern Sie On-Premises-ONTAP-Daten in StorageGRID"].
+* link:task-backup-onprem-private-cloud.html["Sichern Sie On-Premises-ONTAP-Daten in StorageGRID"]
 
 
 
