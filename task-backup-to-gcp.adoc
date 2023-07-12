@@ -39,7 +39,7 @@ Wenn Sie bereits einen Connector in einer GCP-Region bereitgestellt haben, sind 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Lizenzanforderungen prüfen
 [role="quick-margin-para"]
-Sie müssen die Lizenzanforderungen sowohl für Azure als auch für BlueXP prüfen.
+Prüfen Sie die Lizenzanforderungen sowohl für Google Cloud als auch für BlueXP.
 
 [role="quick-margin-para"]
 <<Lizenzanforderungen prüfen>>.
@@ -170,7 +170,7 @@ cloudkms.keyRings.setIamPolicy
 
 Standardmäßig erstellt der Service Buckets für Sie. Wenn Sie Ihre eigenen Buckets verwenden möchten, können Sie diese erstellen, bevor Sie den Assistenten für die Backup-Aktivierung starten und diese Buckets dann im Assistenten auswählen.
 
-Wenn Sie eigene Buckets erstellen, sollten Sie den Bucket-Namen „netapp-Backup“ verwenden.
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Erfahren Sie mehr über das Erstellen eigener Buckets"^].
 
 
 

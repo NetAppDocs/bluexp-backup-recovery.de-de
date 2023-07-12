@@ -193,18 +193,42 @@ Wenn Sie die Standardrichtlinien verwenden, die auf allen ONTAP Systemen vorhand
 
 
 
-== Soll der Service die Cloud-Buckets für Sie erstellen
+== Möchten Sie Ihren eigenen Objekt-Storage-Container erstellen
 
-Wenn Sie Backup-Dateien im Cloud-Storage erstellen, erstellt der Backup- und Recovery-Service standardmäßig Buckets, in denen sich die Backup-Dateien befinden. Sie können die Buckets selbst erstellen, wenn Sie einen bestimmten Namen verwenden oder besondere Eigenschaften zuweisen möchten. Wenn Sie Ihren eigenen Bucket erstellen möchten, müssen Sie ihn erstellen, bevor Sie den Aktivierungsassistenten starten.
+Wenn Sie Backup-Dateien im Objektspeicher für eine Arbeitsumgebung erstellen, erstellt der Backup- und Recovery-Service standardmäßig den Container (Bucket oder Storage-Konto) für die Backup-Dateien im von Ihnen konfigurierten Objekt-Storage-Konto. Der AWS- oder GCP-Bucket hat standardmäßig den Namen „netapp-Backup-<uuid>“. Das Azure Blob Storage-Konto trägt die Bezeichnung „netappsausw <uuid>“.
 
-Sie können den Container von BlueXP oder von Ihrem Cloud-Provider erstellen.
+Sie können den Container selbst im Objekt-Provider-Konto erstellen, wenn Sie ein bestimmtes Präfix verwenden oder besondere Eigenschaften zuweisen möchten. Wenn Sie einen eigenen Container erstellen möchten, müssen Sie ihn erstellen, bevor Sie den Aktivierungsassistenten starten. Der Container darf ausschließlich zum Speichern von ONTAP-Volume-Backup-Dateien verwendet werden - er kann nicht für andere Zwecke verwendet werden. Der Assistent für die Backup-Aktivierung erkennt automatisch die bereitgestellten Container für das ausgewählte Konto und die Anmeldeinformationen, sodass Sie das gewünschte Konto auswählen können.
+
+Sie können den Bucket von BlueXP oder von Ihrem Cloud-Provider erstellen.
 
 * https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html["Erstellung von S3 Buckets aus BlueXP"]
 * https://docs.netapp.com/us-en/bluexp-blob-storage/task-add-blob-storage.html["Azure Blob-Storage-Konten aus BlueXP erstellen"]
 * https://docs.netapp.com/us-en/bluexp-google-cloud-storage/task-add-gcp-bucket.html["Google Cloud Storage Buckets aus BlueXP erstellen"]
 
 
-Beachten Sie, dass Sie beim Erstellen von Backups in StorageGRID-Systemen keine eigenen S3-Buckets erstellen können.
+*Hinweis:* derzeit können Sie keine eigenen S3 Buckets verwenden, wenn Sie Backups in StorageGRID-Systemen erstellen.
+
+Wenn Sie ein anderes Bucket-Präfix als „netapp-Backup-xxxxxx“ verwenden möchten, müssen Sie die S3-Berechtigungen für die Connector IAM-Rolle ändern. Weitere Informationen finden Sie in den Themen zum Erstellen von Backups zu AWS S3.
+
+
+
+=== Erweiterte Bucket-Einstellungen
+
+Wenn Sie ältere Backup-Dateien in Archiv-Storage verschieben oder DataLock- und Ransomware-Schutz aktivieren möchten, um Ihre Backup-Dateien zu sperren und auf mögliche Ransomware zu scannen, müssen Sie den Container mit bestimmten Konfigurationseinstellungen erstellen:
+
+* Archiv-Storage auf Ihren eigenen Buckets wird derzeit im AWS S3 Storage unterstützt, wenn die Software ONTAP 9.10.1 oder höher auf Ihren Clustern verwendet wird. Standardmäßig werden Backups in der Speicherklasse S3 _Standard_ gestartet. Stellen Sie sicher, dass Sie den Bucket mit den entsprechenden Lebenszyklusregeln erstellen:
++
+** Verschieben Sie die Objekte im gesamten Bucket nach 30 Tagen nach S3 _Standard-IA_.
+** Verschieben Sie die Objekte mit dem Tag "smc_Push_to_Archive: True" nach _Glacier Flexible Retrieval_ (ehemals S3 Glacier)
+
+
+* DataLock- und Ransomware-Schutz wird in AWS Storage unterstützt, wenn auf Ihren Clustern Software von ONTAP 9.11.1 oder höher verwendet wird. Azure Storage wird bei Verwendung von ONTAP 9.12.1 oder neuer Software unterstützt.
++
+** Bei AWS müssen Sie die Objektsperrung auf dem Bucket aktivieren, indem Sie eine 30-Tage-Aufbewahrungsfrist verwenden.
+** Bei Azure müssen Sie die Storage-Klasse mit der Unveränderlichkeit von Versionslevel errichten.
+
+
+
 
 
 

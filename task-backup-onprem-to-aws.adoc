@@ -405,7 +405,9 @@ Siehe https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.
 
 Standardmäßig erstellt der Service Buckets für Sie. Wenn Sie Ihre eigenen Buckets verwenden möchten, können Sie diese auch erstellen, bevor Sie den Assistenten zur Backup-Aktivierung starten und diese Buckets im Assistenten auswählen.
 
-Wenn Sie eigene Buckets erstellen, sollten Sie den Bucket-Namen „netapp-Backup“ verwenden.  Wenn Sie einen benutzerdefinierten Namen verwenden möchten, bearbeiten Sie das `ontapcloud-instance-policy-netapp-backup` IAMRole für die vorhandenen CVOs und fügen Sie die folgende Liste zu den S3-Berechtigungen hinzu. Sie müssen angeben `“Resource”: “arn:aws:s3:::*”` Und weisen Sie alle erforderlichen Berechtigungen zu, die mit dem Bucket verknüpft werden müssen.
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Erfahren Sie mehr über das Erstellen eigener Buckets"^].
+
+Wenn Sie eigene Buckets erstellen, sollten Sie den Bucket-Namen „netapp-Backup“ verwenden. Wenn Sie einen benutzerdefinierten Namen verwenden möchten, bearbeiten Sie das `ontapcloud-instance-policy-netapp-backup` IAMRole für die vorhandenen CVOs und fügen Sie die folgende Liste zu den S3-Berechtigungen hinzu. Sie müssen angeben `“Resource”: “arn:aws:s3:::*”` Und weisen Sie alle erforderlichen Berechtigungen zu, die mit dem Bucket verknüpft werden müssen.
 
 [%collapsible]
 ====

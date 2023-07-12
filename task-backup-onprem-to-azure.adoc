@@ -339,7 +339,7 @@ Beachten Sie, dass Backup und Recovery _Azure-Zugriffsrichtlinien_ als Berechtig
 
 Standardmäßig erstellt der Service Storage-Konten für Sie. Wenn Sie Ihre eigenen Speicherkonten verwenden möchten, können Sie diese erstellen, bevor Sie den Assistenten für die Backup-Aktivierung starten und dann diese Speicherkonten im Assistenten auswählen.
 
-Wenn Sie eigene Storage-Konten erstellen, sollten Sie einen Storage-Kontonamen von „netapp-Backup“ verwenden.
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Erfahren Sie mehr über das Erstellen Ihrer eigenen Storage-Konten"^].
 
 
 
