@@ -114,7 +114,28 @@ Lokales ONTAP System | Google Cloud Storage endif::gcp[]
 
 
 | Lokales ONTAP System | Cloud Volumes ONTAP
-Lokales ONTAP System | Ifdef::aws[] Amazon S3 endif::aws[] ifdef::azurAzure[] Azure Blob endif::Azure[] ifdef::gcp[] Google Cloud Storage endif::gcp[] NetApp StorageGRID 
+Lokales ONTAP System | Ifdef::aws[]
+
+Amazon S3
+
+Endif::aws[]
+
+
+Ifdef::azurblau[]
+
+Azure Blob
+
+Endif::azurblau[]
+
+
+Ifdef::gcp[]
+
+Google Cloud Storage
+
+Endif::gcp[]
+
+NetApp StorageGRID
+ONTAP S3 
 |===
 
 
@@ -143,6 +164,10 @@ Lokales ONTAP System | Cloud Volumes ONTAP in Google On-Premises ONTAP System en
 
 
 | NetApp StorageGRID | Lokales ONTAP System
+Cloud Volumes ONTAP | Lokales ONTAP System 
+
+
+| ONTAP S3 | Lokales ONTAP System
 Cloud Volumes ONTAP | Lokales ONTAP System 
 |===
 Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.
@@ -231,6 +256,8 @@ BlueXP Backup und Recovery ist in den folgenden Nutzungsmodellen verfügbar:
 * *Jahr*: Ein Jahresvertrag über den Markt Ihres Cloud-Providers.
 
 
+Eine Backup-Lizenz ist nur für Backup und Restore aus dem Objektspeicher erforderlich. Die Erstellung von Snapshot Kopien und replizierten Volumes erfordert keine Lizenz.
+
 
 
 === Mit Ihrer eigenen Lizenz
@@ -298,6 +325,8 @@ In diesem Diagramm werden Volumes angezeigt, die auf ein Cloud Volumes ONTAP Sys
 
 === Speicherort von Backups
 
+Backups befinden sich an Speicherorten, die auf der Art des Backups basieren:
+
 * _Snapshot Copies_ befinden sich auf dem Quell-Volume in der Quell-Arbeitsumgebung.
 * _Replizierte Volumes_ befinden sich auf dem sekundären Storage-System – einem Cloud Volumes ONTAP- oder On-Premises-ONTAP-System.
 * _Backup-Kopien_ werden in einem Objektspeicher gespeichert, den BlueXP in Ihrem Cloud-Konto erstellt. Pro Cluster und Arbeitsumgebung gibt es einen Objektspeicher, und BlueXP benennt den Objektspeicher wie folgt: „netapp-Backup-clusterUUID“. Stellen Sie sicher, dass Sie diesen Objektspeicher nicht löschen.
@@ -325,9 +354,11 @@ ifdef::gcp[]
 endif::gcp[]
 
 +
-** In StorageGRID verwendet BlueXP ein vorhandenes Storage-Konto für den Objektspeicher-Bucket.
+** In StorageGRID verwendet BlueXP ein vorhandenes Mandantenkonto für den S3-Bucket.
 
 +
+** In ONTAP S3 verwendet BlueXP ein vorhandenes Benutzerkonto für den S3-Bucket.
+
 Wenn Sie künftig den Zielobjektspeicher für ein Cluster ändern möchten, müssen Sie unbedingt fortfahren link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment["Heben Sie die Registrierung von BlueXP Backup und Recovery für die Arbeitsumgebung auf"^]Außerdem können Sie BlueXP Backup und Recovery mithilfe der Informationen eines neuen Cloud-Providers aktivieren.
 
 

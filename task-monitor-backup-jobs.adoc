@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
-summary: Sie können den Status aller Backup- und Wiederherstellungsaufträge überwachen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt. 
+summary: Sie können den Status von lokalen Snapshots, Replikationen und von Ihnen initiierten Backup-to-Object-Speicherjobs überwachen und von Ihnen initiierte Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt. 
 ---
 = Überwachen des Status von Backup- und Wiederherstellungsjobs
 :hardbreaks:
@@ -14,15 +14,15 @@ summary: Sie können den Status aller Backup- und Wiederherstellungsaufträge ü
 
 
 [role="lead"]
-Sie können den Status von Backupjobs überwachen, die Sie initiiert oder geplant haben, und von Ihnen initiierte Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt.
+Sie können den Status von lokalen Snapshots, Replikationen und von Ihnen initiierten Backup-to-Object-Speicherjobs überwachen und von Ihnen initiierte Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt.
 
 
 
-== Zeigen Sie den Status des Backup- und Wiederherstellungsjobs auf dem Job Monitor an
+== Anzeigen des Jobstatus auf dem Job-Monitor
 
-Auf der Registerkarte *Job Monitoring* können Sie eine Liste aller Backup- und Wiederherstellungsvorgänge und deren aktueller Status anzeigen. Dazu gehören Vorgänge von Ihren Cloud Volumes ONTAP, On-Premises-ONTAP, Applikationen, Virtual Machines und Kubernetes-Systemen. Jeder Vorgang oder Job hat eine eindeutige ID und einen Status.
+Sie können eine Liste aller Snapshot-, Replikations-, Backup-to-Object-Speicher- und Wiederherstellungsvorgänge sowie deren aktuellen Status auf der Registerkarte *Job-Überwachung* anzeigen. Dazu gehören Vorgänge von Ihren Cloud Volumes ONTAP, On-Premises-ONTAP, Applikationen, Virtual Machines und Kubernetes-Systemen. Jeder Vorgang oder Job hat eine eindeutige ID und einen Status.
 
-Der Sicherungs- und Wiederherstellungsstatus kann wie folgt lauten:
+Der Status kann lauten:
 
 * Erfolg
 * In Bearbeitung
@@ -31,7 +31,7 @@ Der Sicherungs- und Wiederherstellungsstatus kann wie folgt lauten:
 * Fehlgeschlagen
 
 
-Auf der Registerkarte „Job Monitoring“ stehen sowohl Backup- und Restore-Vorgänge, die Sie über die BlueXP Backup- und Recovery-UI und -API initiiert haben, als auch systeminitiierte Jobs wie laufende geplante Backup-Vorgänge zur Verfügung. Dies gilt jedoch nur für Cloud Volumes ONTAP Systeme mit ONTAP 9.13.0 oder höher sowie für lokale ONTAP Systeme mit ONTAP 9.13.1 oder höher. Bei der Ausführung früherer ONTAP-Versionen werden nur vom Benutzer initiierte Jobs angezeigt.
+Snapshots, Replikationen, Backups in Objektspeicher und Wiederherstellungsvorgänge, die Sie über die BlueXP Backup- und Recovery-Benutzeroberfläche und -API initiiert haben, sowie systeminitiierte Jobs wie laufende geplante Backup-Vorgänge stehen auf der Registerkarte Jobüberwachung zur Verfügung. Dies gilt jedoch nur für Cloud Volumes ONTAP Systeme mit ONTAP 9.13.0 oder höher sowie für lokale ONTAP Systeme mit ONTAP 9.13.1 oder höher. Bei der Ausführung früherer ONTAP-Versionen werden nur vom Benutzer initiierte Jobs angezeigt.
 
 
 NOTE: Wenn Sie ein Upgrade Ihrer ONTAP Systeme auf 9.13.x durchgeführt haben und keine laufenden geplanten Backup-Vorgänge in der Jobüberwachung angezeigt werden, müssen Sie den BlueXP Backup- und Recovery-Service neu starten. link:reference-restart-backup.html["Erfahren Sie, wie Sie BlueXP Backup und Recovery neu starten"].
@@ -45,21 +45,21 @@ image:screenshot_backup_job_monitor.png["Ein Screenshot mit Backup- und Wiederhe
 +
 In diesem Screenshot werden die standardmäßigen Spaltenüberschriften angezeigt.
 
-. So zeigen Sie zusätzliche Spalten an (Arbeitsumgebung, SVM, Benutzername, Workload, Richtlinienname, Und Snapshot-Bezeichnung), wählen Sie aus image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"].
+. So zeigen Sie zusätzliche Spalten an (Arbeitsumgebung, SVM, Benutzername, Workload, Richtlinienname, Snapshot-Bezeichnung), wählen Sie aus image:button_plus_sign_round.png["Die Plus-Zeichen-Taste"].
 
 
 
 
 === Suchen und filtern Sie die Jobliste
 
-Sie können die Vorgänge auf der Seite Jobüberwachung mit mehreren Filtern filtern, z. B. Backup Policy und Snapshot Label.
+Sie können die Vorgänge auf der Seite Jobüberwachung mit verschiedenen Filtern filtern, z. B. Richtlinie, Snapshot-Bezeichnung, Art der Operation (Sicherung, Wiederherstellung, Aufbewahrung oder andere) und Schutztyp (lokaler Snapshot, Replikation oder Backup in der Cloud).
 
-Standardmäßig werden auf der Seite Jobüberwachung Aufträge der letzten 24 Stunden angezeigt.
+Standardmäßig werden auf der Seite Jobüberwachung Schutz- und Wiederherstellungsaufträge der letzten 24 Stunden angezeigt. Sie können den Zeitrahmen mithilfe des Zeitrahmens-Filters ändern.
 
 .Schritte
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.
 . Um die Ergebnisse unterschiedlich zu sortieren, wählen Sie die einzelnen Spaltenüberschriften aus, um sie nach Status, Startzeit, Ressourcenname usw. zu sortieren.
-. Wenn Sie nach bestimmten Jobs oder einer bestimmten Gruppe von Jobs suchen, wählen Sie den Bereich *Erweiterte Suche & Filterung* aus, um das Suchfeld zu öffnen.
+. Wenn Sie nach bestimmten Jobs suchen, wählen Sie den Bereich *Erweiterte Suche & Filterung* aus, um das Suchfeld zu öffnen.
 +
 Verwenden Sie dieses Fenster, um eine freie Textsuche nach einer beliebigen Ressource einzugeben, z. B. „Volume 1“ oder „Application 3“. Sie können die Jobliste auch nach den Elementen in den Dropdown-Menüs filtern.
 
@@ -67,7 +67,7 @@ Verwenden Sie dieses Fenster, um eine freie Textsuche nach einer beliebigen Ress
 image:screenshot_backup_job_monitor_filters.png["Ein Screenshot der Einstellung der Filter, um nur Jobs anzuzeigen, die den Filterkriterien entsprechen"]
 
 +
-Dieser Screenshot zeigt, wie Sie in der letzten Woche nach allen „Volumen“ „Sicherungsjobs“ für Volumen namens „Volume_1“ suchen würden.
+Dieser Screenshot zeigt, wie Sie in der letzten Woche nach allen „Volumen“- „Backup“-Jobs für Datenträger mit dem Namen „Volume_1“ suchen würden.
 
 +
 Die meisten Filter sind selbsterklärend. Mit dem Filter für „Workload“ können Sie Jobs in den folgenden Kategorien anzeigen:
@@ -80,9 +80,13 @@ Die meisten Filter sind selbsterklärend. Mit dem Filter für „Workload“ kö
 
 
 +
+[TIP]
+====
+** Daten in einer bestimmten „SVM“ können nur dann nach Daten gesucht werden, wenn Sie zum ersten Mal eine Arbeitsumgebung ausgewählt haben.
+** Sie können mit dem Filter „Schutztyp“ nur dann suchen, wenn Sie den „Schutztyp“ ausgewählt haben.
 
-TIP: Daten in einer bestimmten „SVM“ können nur dann nach Daten gesucht werden, wenn Sie zum ersten Mal eine Arbeitsumgebung ausgewählt haben.
 
+====
 . Um die Seite sofort zu aktualisieren, wählen Sie die aus image:button_refresh.png["Aktualisierung"] Schaltfläche. Andernfalls wird diese Seite alle 15 Minuten aktualisiert, sodass immer die aktuellsten Ergebnisse des Jobstatus angezeigt werden.
 
 
@@ -92,12 +96,9 @@ TIP: Daten in einer bestimmten „SVM“ können nur dann nach Daten gesucht wer
 
 Sie können Details anzeigen, die einem bestimmten abgeschlossenen Job entsprechen. Sie können Details für einen bestimmten Job in einem JSON-Format exportieren.
 
-Sie können Details wie den Backup-Jobtyp (geplant oder On-Demand), Start- und Endzeiten für SnapMirror Backup (initial oder periodisch), die Dauer, die übertragene Datenmenge aus der Arbeitsumgebung in den Objekt-Storage, die durchschnittliche Übertragungsrate, den Namen der Backup-Richtlinie, die Aufbewahrungssperre aktiviert, den durchgeführten Ransomware-Scan Details zur Backup-Quelle und zu Backup-Zielen.
+Sie können Details wie Jobtyp (geplant oder On-Demand), Start- und Endzeiten für SnapMirror Backup (initial oder periodisch), Dauer, übertragene Datenmenge aus der Arbeitsumgebung in den Objekt-Storage, durchschnittliche Übertragungsrate, Richtlinienname, aktivierte Aufbewahrungssperre, durchgeführter Ransomware-Scan Details zur Schutzquelle und zu den Schutzzielen.
 
 Restore von Jobs zeigen Details an, wie z. B. Backup-Zielanbieter (Amazon Web Services, Microsoft Azure, Google Cloud, On-Premises), S3-Bucket-Name, SVM-Name, Name des Quell-Volume, Ziel-Volume, Snapshot-Label, Anzahl wiederhergestellter Objekte, Dateinamen, Dateigrößen, Datum der letzten Änderung und vollständiger Dateipfad.
-
-
-NOTE: Job-Details werden für ONTAP-Backup-Jobs (Ad-hoc und geplant, geplante Jobs werden nur für ONTAP 9.13.0 oder höher angezeigt) sowie für alle Wiederherstellungsjobs angezeigt. Job-Details werden für laufende und abgeschlossene Jobs angezeigt.
 
 .Schritte
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.
@@ -125,18 +126,18 @@ Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterla
 
 
 
-== Prüfen Sie Backup Lifecycle Jobs
+== Überprüfung von Aufbewahrungsjobs (Backup-Lebenszyklus
 
-Die Überwachung der Backup-Lebenszyklusabläufe unterstützt Sie bei der Vollständigkeit, Verantwortlichkeit und Sicherheit von Audits. Um den Backup-Lebenszyklus nachzuverfolgen, empfiehlt es sich, den Ablauf aller Backup-Kopien zu ermitteln.
+Die Überwachung der Aufbewahrungsströme (Backup-Lebenszyklus) unterstützt Sie bei der Vollständigkeit, Verantwortlichkeit und Sicherheit von Audits. Um den Backup-Lebenszyklus nachzuverfolgen, empfiehlt es sich, den Ablauf aller Backup-Kopien zu ermitteln.
 
-Ein Backup Lifecycle Job verfolgt alle Snapshot Kopien, die gelöscht werden oder sich in der Warteschlange befinden, die gelöscht werden soll. Ab ONTAP 9.13 können Sie sich auf der Seite Jobüberwachung alle Jobtypen mit dem Namen „Backup Lifecycle“ ansehen.
+Ein Backup Lifecycle-Job verfolgt alle gelöschten oder zu löschenden Snapshot Kopien in der Warteschlange. Ab ONTAP 9.13 können Sie sich auf der Seite Jobüberwachung alle Jobtypen mit dem Namen „Aufbewahrung“ ansehen.
 
-Der Jobtyp „Backup Lifecycle“ erfasst alle Jobs zum Löschen von Snapshots, die auf einem Volume initiiert werden, das durch BlueXP Backup und Recovery geschützt ist.
+Der Jobtyp „Aufbewahrung“ erfasst alle Snapshot Löschjobs, die auf einem Volume initiiert werden, das durch BlueXP Backup und Recovery geschützt ist.
 
 .Schritte
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.
 . Wählen Sie den Bereich *Erweiterte Suche & Filterung* aus, um das Suchfeld zu öffnen.
-. Wählen Sie den Jobtyp von „Backup Lifecycle“ aus.
+. Wählen Sie den Jobtyp „Aufbewahrung“ aus.
 
 
 
@@ -147,46 +148,41 @@ Das BlueXP Notification Center verfolgt den Fortschritt der von Ihnen initiierte
 
 Zusätzlich zur Anzeige der Warnungen im Benachrichtigungscenter können Sie BlueXP so konfigurieren, dass bestimmte Arten von Benachrichtigungen per E-Mail als Warnungen gesendet werden, sodass Sie über wichtige Systemaktivitäten informiert werden können, selbst wenn Sie nicht beim System angemeldet sind. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
 
-Das Benachrichtigungscenter zeigt zahlreiche Sicherungs- und Wiederherstellungsereignisse an, aber nur die folgenden Ereignisse lösen E-Mail-Warnungen aus:
+Das Notification Center zeigt zahlreiche Ereignisse wie Snapshot, Replikation, Backup in der Cloud und Wiederherstellung an, aber nur die folgenden Ereignisse lösen E-Mail-Warnungen aus:
 
-[cols="3a,1d"]
+[cols="1,2,1,1"]
 |===
-| Ereignis | Schweregrad 
+| Operationsart | Betrieb | Alarmstufe | E-Mail gesendet 
 
 
- a| 
-Ad-hoc-Volume-Backup fehlgeschlagen
-| Fehler 
+| Aktivierung | Die Aktivierung der Sicherung und Wiederherstellung ist für die Arbeitsumgebung fehlgeschlagen | Fehler | Ja. 
 
 
- a| 
-Backup-Aktivierung in der Arbeitsumgebung fehlgeschlagen
-| Kritisch 
+| Aktivierung | Backup- und Recovery-Bearbeitung für Arbeitsumgebung fehlgeschlagen | Fehler | Ja. 
 
 
- a| 
-Backup-Dateien wurden nicht erstellt, da die Snapshot-Richtlinienbeschriftungen nicht übereinstimmen
-| Kritisch 
+| Lokaler Snapshot | Bei BlueXP Backup und Recovery besteht ein Ad-hoc-Fehler bei der Snapshot Erstellung | Fehler | Ja. 
 
 
- a| 
-Wiederherstellungsvorgang fehlgeschlagen
-| Kritisch 
+| Replizierung | Ausfall von BlueXP Backup und Recovery bei einer Ad-hoc-Replizierung | Fehler | Ja. 
 
 
- a| 
-Potenzieller Ransomware-Angriff auf Ihrem System erkannt
-| Kritisch 
+| Replizierung | BlueXP Backup- und Recovery-Replizierung hält Job-Fehler an | Fehler | Nein 
 
 
- a| 
-Wiederherstellen des Jobs abgeschlossen, jedoch mit Warnungen
-| Warnung 
+| Replizierung | BlueXP Backup- und Recovery-Replizierung bremst Job-Fehler | Fehler | Nein 
 
 
- a| 
-Geplanter Job fehlgeschlagen
-| Fehler 
+| Replizierung | Fehler bei der BlueXP Backup- und Recovery-Replizierung bei der Neusynchronisierung von Jobs | Fehler | Nein 
+
+
+| Replizierung | Die BlueXP Backup- und Recovery-Replizierung stoppt Jobausfälle | Fehler | Nein 
+
+
+| Replizierung | Bei der BlueXP Backup- und Recovery-Replizierung ist eine umgekehrte Neusynchronisierung von Jobs fehlgeschlagen | Fehler | Ja. 
+
+
+| Replizierung | BlueXP Backup- und Recovery-Replizierung – Fehler beim Löschen von Jobs | Fehler | Ja. 
 |===
 
 NOTE: Ab ONTAP 9.13.0 werden alle Warnmeldungen für Cloud Volumes ONTAP und lokale ONTAP Systeme angezeigt. Bei Systemen mit Cloud Volumes ONTAP 9.13.0 und On-Premises-ONTAP wird nur die Warnmeldung im Zusammenhang mit „Wiederherstellungsjob abgeschlossen, aber mit Warnungen“ angezeigt.

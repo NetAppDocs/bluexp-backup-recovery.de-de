@@ -135,9 +135,22 @@ Sie nutzen das Digital Wallet von BlueXP zum Management von BYOL-Lizenzen. Sie k
 
 === Rufen Sie die Lizenzdatei für das Backup und Recovery von BlueXP ab
 
-Nachdem Sie Ihre BlueXP Backup- und Recovery-Lizenz erworben haben, aktivieren Sie die Lizenz in BlueXP entweder durch Eingabe der BlueXP Seriennummer und des NSS-Kontos für Backup und Recovery oder durch Hochladen der Lizenzdatei. Die folgenden Schritte zeigen, wie Sie die Lizenzdatei NLF abrufen können, wenn Sie diese Methode verwenden möchten.
+Nachdem Sie Ihre BlueXP Backup- und Recovery-Lizenz (Cloud Backup) erworben haben, aktivieren Sie die Lizenz in BlueXP entweder durch Eingabe der Seriennummer und des NSS-Kontos für das Backup und Recovery von BlueXP oder durch Hochladen der NLF-Lizenzdatei. Die folgenden Schritte zeigen, wie Sie die Lizenzdatei NLF abrufen können, wenn Sie diese Methode verwenden möchten.
 
-Wenn Sie BlueXP Backup und Recovery auf einer lokalen Website ohne Internetzugang ausführen, d. h. wenn Sie den BlueXP Connector auf einem Host auf der Offline-On-Premises-Website bereitgestellt haben, müssen Sie die Lizenzdatei von einem System mit Internetverbindung beziehen. Die Aktivierung der Lizenz unter Verwendung der Seriennummer und des NSS-Kontos ist für Offline-Installationen (Dark Site) nicht verfügbar.
+Wenn Sie BlueXP Backup und Recovery auf einer lokalen Site ohne Internetzugang ausführen, haben Sie den BlueXP Connector in implementiert https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode["Privater Modus"^], Sie müssen die Lizenzdatei von einem mit dem Internet verbundenen System beziehen. Die Aktivierung der Lizenz unter Verwendung der Seriennummer und des NSS-Kontos ist für Installationen im Privatmodus nicht verfügbar.
+
+.Bevor Sie beginnen
+Sie müssen die folgenden Informationen haben, bevor Sie beginnen:
+
+* BlueXP Seriennummer für Backup und Recovery
++
+Suchen Sie diese Nummer in Ihrem Auftrag, oder wenden Sie sich an das Account Team, um diese Informationen zu erhalten.
+
+* BlueXP Konto-ID
++
+Sie können Ihre BlueXP-Konto-ID finden, indem Sie oben in BlueXP das Dropdown-Menü *Konto* auswählen und dann neben Ihrem Konto auf *Konto verwalten* klicken. Ihre Account-ID wird auf der Registerkarte „Übersicht“ angezeigt.
+
+
 
 .Schritte
 . Melden Sie sich beim an https://mysupport.netapp.com["NetApp Support Website"^] Klicken Sie anschließend auf *Systeme > Softwarelizenzen*.
@@ -149,9 +162,6 @@ image:screenshot_cloud_backup_license_step1.gif["Ein Screenshot, der eine Tabell
 . Geben Sie Ihre BlueXP-Konto-ID ein (dies wird als Mandanten-ID auf der Support-Website bezeichnet) und klicken Sie auf *Absenden*, um die Lizenzdatei herunterzuladen.
 +
 image:screenshot_cloud_backup_license_step2.gif["Ein Screenshot, in dem das Dialogfeld „Lizenz abrufen“ angezeigt wird, in dem Sie Ihre Mandanten-ID eingeben und dann auf „Senden“ klicken, um die Lizenzdatei herunterzuladen."]
-
-+
-Sie können Ihre BlueXP-Konto-ID finden, indem Sie oben in BlueXP das Dropdown-Menü *Konto* auswählen und dann neben Ihrem Konto auf *Konto verwalten* klicken. Ihre Account-ID wird auf der Registerkarte „Übersicht“ angezeigt.
 
 
 

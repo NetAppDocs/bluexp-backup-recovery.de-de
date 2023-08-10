@@ -208,7 +208,7 @@ Stellen Sie sicher, dass die folgenden ONTAP-Anforderungen erfüllt sind:
 Erfahren Sie, wie Sie https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Management Ihrer Cluster-Lizenzen"^].
 
 * Zeit und Zeitzone sind korrekt eingestellt. Erfahren Sie, wie Sie https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["Konfigurieren Sie die Cluster-Zeit"^].
-* Wenn Sie Daten replizieren möchten, sollten Sie vor der Replizierung von Daten überprüfen, ob auf den Quell- und Ziel-Volumes kompatible ONTAP Versionen ausgeführt werden.
+* Wenn Sie Daten replizieren möchten, sollten Sie vor der Replizierung von Daten überprüfen, ob auf den Quell- und Zielsystemen kompatible ONTAP-Versionen ausgeführt werden.
 +
 https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Zeigen Sie kompatible ONTAP Versionen für SnapMirror Beziehungen an"^].
 
@@ -248,7 +248,7 @@ Wenn Sie privaten Google Access oder Private Service Connect verwenden, stellen 
 
 === Überprüfen Sie die ONTAP Netzwerkanforderungen für die Replizierung von Volumes
 
-Bevor Sie Backups in BlueXP Backup und Recovery aktivieren, stellen Sie sicher, dass die Quell- und Zielsysteme den ONTAP Version- und Netzwerkanforderungen entsprechen.
+Bevor Sie Backups in BlueXP Backup und Recovery aktivieren, stellen Sie sicher, dass die Quell- und Zielsysteme die folgenden Netzwerkanforderungen erfüllen.
 
 
 
@@ -412,29 +412,24 @@ Auf der Seite Einführung des Assistenten werden die Schutzoptionen einschließl
 
 === Wählen Sie die Volumes aus, die Sie sichern möchten
 
-Wählen Sie die Volumes aus, die Sie schützen möchten. Sie können FlexVol oder FlexGroup Volumes schützen, jedoch können Sie keine Kombination aus diesen Volumes für die Arbeitsumgebung auswählen, die Sie sichern möchten.
+Wählen Sie die Volumes aus, die Sie schützen möchten. Ein geschütztes Volume verfügt über eine oder mehrere der folgenden Elemente: Snapshot-Richtlinie, Replizierungsrichtlinie und Richtlinie für das Backup in ein Objekt.
+
+Sie können FlexVol- oder FlexGroup-Volumes schützen. Sie können jedoch keine Kombination dieser Volumes auswählen, wenn Sie Backups für eine funktionierende Umgebung aktivieren. Informieren Sie sich darüber link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment["Aktivieren Sie das Backup für zusätzliche Volumes in der Arbeitsumgebung"] (FlexVol oder FlexGroup), nachdem Sie das Backup für die ersten Volumes konfiguriert haben.
 
 [NOTE]
 ====
 * Sie können ein Backup nur auf einem einzelnen FlexGroup Volume gleichzeitig aktivieren.
-* Auch die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt.) Sie können keine Kombination aus gesperrten und entsperrten Volumes auswählen.
+* Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt.)
 
 
 ====
-Ein geschütztes Volume verfügt über eine oder mehrere der folgenden Elemente: Snapshot-Richtlinie, Replizierungsrichtlinie und Richtlinie für das Backup in ein Objekt.
-
-
-NOTE: Wenn die ausgewählten Volumes andere Snapshot- und Replizierungsrichtlinien als die später ausgewählten Richtlinien haben, werden die bestehenden Richtlinien überschrieben.
-
 .Schritte
+Beachten Sie, dass die Richtlinien, die Sie später auswählen, diese vorhandenen Richtlinien überschreiben, wenn die von Ihnen ausgewählten Volumes bereits Snapshot- oder Replikationsrichtlinien angewendet haben.
+
 . Wählen Sie auf der Seite Volumes auswählen das Volume oder die Volumes aus, die Sie schützen möchten.
 +
 ** Optional können Sie die Zeilen so filtern, dass nur Volumes mit bestimmten Volumentypen, Stilen und mehr angezeigt werden, um die Auswahl zu erleichtern.
-** Nachdem Sie das erste Volume ausgewählt haben, können Sie alle FlexVol-Volumes auswählen. Wenn Sie alle vorhandenen FlexVol-Volumes und alle zukünftig hinzugefügten FlexVol-Volumes sichern möchten, aktivieren Sie zuerst ein Volume, und aktivieren Sie dann das Kontrollkästchen in der Titelzeile. (image:button_backup_all_volumes.png[""]).
-+
-
-TIP: Wir empfehlen diese Option, damit alle Ihre Volumes gesichert werden und Sie nie vergessen müssen, Backups für neue Volumes zu aktivieren.
-
+** Nachdem Sie das erste Volume ausgewählt haben, können Sie alle FlexVol Volumes auswählen (FlexGroup Volumes können nur einzeln ausgewählt werden). Um alle vorhandenen FlexVol-Volumes zu sichern, aktivieren Sie zuerst ein Volume und dann das Kontrollkästchen in der Titelzeile. (image:button_backup_all_volumes.png[""]).
 ** Um einzelne Volumes zu sichern, aktivieren Sie das Kontrollkästchen für jedes Volume (image:button_backup_1_volume.png[""]).
 
 
@@ -517,7 +512,7 @@ Der IPspace im ONTAP Cluster, in dem sich die Volumes, die Sie sichern möchten,
 
 TIP: Wenn Sie eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden. Siehe <link>.
 
-** *Bestehende Snapshot-Kopien als Backup-Kopien in den Objektspeicher exportieren*: Wenn es lokale Snapshot-Kopien für Lese-/Schreib-Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Schedule-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z.B. täglich, wöchentlich, etc.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
+** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
 
 
 . Wählen Sie *Weiter*.

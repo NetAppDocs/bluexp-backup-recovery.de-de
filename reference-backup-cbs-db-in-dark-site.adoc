@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database 
-summary: Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang, bekannt als „privater Modus“, nutzen, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen. 
+summary: Wenn Sie BlueXP Backup und Recovery an einer Site ohne Internetzugang nutzen, bekannt als „privater Modus“, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID oder ONTAP S3 Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen. 
 ---
 = Stellen Sie BlueXP Backup- und Recovery-Daten an einem dunklen Standort wieder her
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzuga
 
 
 [role="lead"]
-Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang nutzen, der als „privater Modus“ oder „Dark Site“ bekannt ist, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen.
+Wenn Sie BlueXP Backup und Recovery an einer Site ohne Internetzugang nutzen, bekannt als „privater Modus“, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID oder ONTAP S3 Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen.
 
 Beachten Sie, dass wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder in Ihrem eigenen Host-System mit Internetzugang implementiert wird, alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gesichert werden. Wenn Sie ein Problem mit dem Connector haben, erstellen Sie einfach einen neuen Connector und fügen Sie Ihre Arbeitsumgebungen hinzu. Die Sicherungsdetails werden automatisch wiederhergestellt.
 
@@ -46,7 +46,7 @@ Es gibt 4 Aufgaben, die Sie durchführen müssen, um den Betriebszustand Ihres B
 Sobald Sie überprüfen, ob Ihr System wieder in einem Arbeitsauftrag ist, empfehlen wir Ihnen, neue Sicherungsdateien zu erstellen.
 
 .Was Sie benötigen
-Sie müssen über den StorageGRID Bucket, in dem Ihre Backup-Dateien gespeichert werden, auf die neuesten Datenbank- und Index-Backups zugreifen:
+Sie müssen über den StorageGRID oder ONTAP S3 Bucket auf die neuesten Datenbank- und Index-Backups zugreifen, in denen Ihre Backup-Dateien gespeichert werden:
 
 * BlueXP Backup und Recovery der MySQL-Datenbankdatei
 +
@@ -131,7 +131,7 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 === Erkennen Sie Ihre ONTAP Cluster und StorageGRID Systeme
 
-. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["Hier finden Sie alle On-Premises-ONTAP-Arbeitsumgebungen"^] Die in Ihrer vorherigen Umgebung verfügbar waren.
+. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["Hier finden Sie alle On-Premises-ONTAP-Arbeitsumgebungen"^] Die in Ihrer vorherigen Umgebung verfügbar waren. Dazu gehört auch das ONTAP-System, das Sie als S3-Server genutzt haben.
 . https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["Erkennen Sie Ihre StorageGRID Systeme"^].
 
 

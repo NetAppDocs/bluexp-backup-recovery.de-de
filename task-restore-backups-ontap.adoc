@@ -154,6 +154,10 @@ Lokales ONTAP System | Cloud Volumes ONTAP in Google On-Premises ONTAP System en
 
 | NetApp StorageGRID | Lokales ONTAP System
 Cloud Volumes ONTAP | Lokales ONTAP System 
+
+
+| ONTAP S3 | Lokales ONTAP System
+Cloud Volumes ONTAP | Lokales ONTAP System 
 |===
 ifdef::aws[]
 
@@ -191,6 +195,7 @@ ifdef::gcp[]
 endif::gcp[]
 
 * Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden
+* Bei ONTAP S3 kann der Connector (mit oder ohne Internetzugang) vor Ort oder in einer Cloud-Provider-Umgebung implementiert werden
 
 
 Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.
@@ -262,6 +267,7 @@ ifdef::gcp[]
 endif::gcp[]
 
 * Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, der für den Zugriff auf den Objektspeicher erforderlich ist, und den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet.
+* Geben Sie beim Wiederherstellen aus ONTAP S3 den FQDN des ONTAP S3-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit ONTAP S3 verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, die für den Zugriff auf den Objektspeicher erforderlich sind. und den IPspace im ONTAP Cluster, wo sich das Ziel-Volume befinden soll.
 +
 .. Geben Sie den Namen ein, den Sie für das wiederhergestellte Volume verwenden möchten, und wählen Sie die Storage VM und das Aggregat aus, auf dem sich das Volume befinden soll. Beim Wiederherstellen eines FlexGroup Volume können Sie mehrere Aggregate auswählen. Standardmäßig wird *<source_Volume_Name>_restore* als Volume-Name verwendet.
 +
@@ -307,8 +313,13 @@ Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im
 
 Wenn Sie nur einige Dateien aus einem ONTAP Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
 
-*Hinweis:* Sie können einen Ordner oder einzelne Dateien nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
+[NOTE]
+====
+* Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
+* Das Wiederherstellen von Dateien und Ordnern wird derzeit nicht von Volumes im ONTAP S3 Objekt-Storage unterstützt.
 
+
+====
 Wenn Sie mehrere Dateien auswählen, werden alle Dateien auf dem gleichen Ziellaufwerk wiederhergestellt, das Sie auswählen. Wenn Sie also Dateien auf unterschiedlichen Volumes wiederherstellen möchten, müssen Sie den Wiederherstellungsprozess mehrmals ausführen.
 
 Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen mit allen darin enthaltenen Dateien und Unterordnern wiederherstellen. Wenn Sie eine Version von ONTAP vor 9.13.0 verwenden, werden nur Dateien aus diesem Ordner wiederhergestellt - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.
@@ -500,6 +511,7 @@ endif::gcp[]
 * Wenn die Backup-Datei im Objektspeicher mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
 * Wenn sich die Backup-Datei im Objektspeicher im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
 * Die Priorität bei der Wiederherstellung „hoch“ wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID Systeme nicht unterstützt.
+* Das Wiederherstellen von Ordnern wird derzeit nicht von Volumes in ONTAP S3 Objekt-Storage unterstützt.
 
 
 ====
@@ -538,6 +550,10 @@ Lokales ONTAP System | Cloud Volumes ONTAP in Google On-Premises ONTAP System en
 
 | NetApp StorageGRID | Lokales ONTAP System
 Cloud Volumes ONTAP | Lokales ONTAP System 
+
+
+| ONTAP S3 | Lokales ONTAP System
+Cloud Volumes ONTAP | Lokales ONTAP System 
 |===
 Für die Suche und Wiederherstellung kann der Connector an folgenden Orten installiert werden:
 
@@ -563,6 +579,7 @@ ifdef::gcp[]
 endif::gcp[]
 
 * Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden
+* Bei ONTAP S3 kann der Connector (mit oder ohne Internetzugang) vor Ort oder in einer Cloud-Provider-Umgebung implementiert werden
 
 
 Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.
@@ -625,7 +642,7 @@ Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, d
 
 endif::gcp[]
 
-* StorageGRID-Anforderungen:
+* StorageGRID- und ONTAP S3-Anforderungen:
 +
 Je nach Konfiguration gibt es zwei Möglichkeiten, die Suche und Wiederherstellung zu implementieren:
 
@@ -690,7 +707,7 @@ ifdef::gcp[]
 
 endif::gcp[]
 
-* Für Backups, die in StorageGRID gespeichert sind, stellt das Unternehmen Speicherplatz auf dem Connector oder der Cloud-Provider-Umgebung bereit.
+* Für in StorageGRID oder ONTAP S3 gespeicherte Backups stellt er Speicherplatz auf dem Connector oder in der Cloud-Provider-Umgebung bereit.
 
 
 Wenn die Indexierung bereits für Ihre Arbeitsumgebung aktiviert wurde, rufen Sie den nächsten Abschnitt auf, um Ihre Daten wiederherzustellen.
@@ -751,7 +768,7 @@ Wenn Sie ein lokales ONTAP System auswählen und die Cluster-Verbindung mit dem 
 ifdef::aws[]
 
 +
-*** Wählen Sie bei der Wiederherstellung aus Amazon S3 den IPspace im ONTAP Cluster aus, auf dem sich das Ziel-Volume befindet, und geben Sie den Zugriffsschlüssel und den geheimen Schlüssel für den Benutzer ein, den Sie erstellt haben, um dem ONTAP Cluster Zugriff auf den S3-Bucket zu geben. Wählen Sie optional einen privaten VPC-Endpunkt für den sicheren Datentransfer aus. link:task-backup-onprem-to-aws.html#cluster-networking-requirements["Siehe Details zu diesen Anforderungen"].
+*** Wählen Sie bei der Wiederherstellung aus Amazon S3 den IPspace im ONTAP Cluster aus, auf dem sich das Ziel-Volume befindet, und geben Sie den Zugriffsschlüssel und den geheimen Schlüssel für den Benutzer ein, den Sie erstellt haben, um dem ONTAP Cluster Zugriff auf den S3-Bucket zu geben. Wählen Sie optional einen privaten VPC-Endpunkt für den sicheren Datentransfer aus. link:task-backup-onprem-to-aws.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage["Siehe Details zu diesen Anforderungen"].
 
 
 
@@ -762,19 +779,20 @@ endif::aws[]
 
 ifdef::azure[]
 
-* Wählen Sie beim Wiederherstellen aus Azure Blob den IPspace im ONTAP Cluster aus, an dem sich das Ziel-Volume befindet, und wählen Sie optional einen privaten Endpunkt für den sicheren Datentransfer aus, indem Sie vnet und Subnetz auswählen. link:task-backup-onprem-to-azure.html#requirements["Siehe Details zu diesen Anforderungen"].
+* Wählen Sie beim Wiederherstellen aus Azure Blob den IPspace im ONTAP Cluster aus, an dem sich das Ziel-Volume befindet, und wählen Sie optional einen privaten Endpunkt für den sicheren Datentransfer aus, indem Sie vnet und Subnetz auswählen. link:task-backup-onprem-to-azure.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage["Siehe Details zu diesen Anforderungen"].
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* Wählen Sie bei der Wiederherstellung aus Google Cloud Storage den IP-Speicherplatz im ONTAP-Cluster aus, auf dem sich das Ziel-Volume befinden soll, und den Zugriffsschlüssel und den geheimen Schlüssel für den Zugriff auf den Objekt-Storage. link:task-backup-onprem-to-gcp.html#requirements["Siehe Details zu diesen Anforderungen"].
+* Wählen Sie bei der Wiederherstellung aus Google Cloud Storage den IP-Speicherplatz im ONTAP-Cluster aus, auf dem sich das Ziel-Volume befinden soll, und den Zugriffsschlüssel und den geheimen Schlüssel für den Zugriff auf den Objekt-Storage. link:task-backup-onprem-to-gcp.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage["Siehe Details zu diesen Anforderungen"].
 
 
 endif::gcp[]
 
-* Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, geben Sie den Zugriffsschlüssel und den geheimen Schlüssel ein, der für den Zugriff auf den Objektspeicher erforderlich ist, sowie den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet. link:task-backup-onprem-private-cloud.html#requirements["Siehe Details zu diesen Anforderungen"].
+* Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, geben Sie den Zugriffsschlüssel und den geheimen Schlüssel ein, der für den Zugriff auf den Objektspeicher erforderlich ist, sowie den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet. link:task-backup-onprem-private-cloud.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage["Siehe Details zu diesen Anforderungen"].
+* Geben Sie beim Wiederherstellen aus ONTAP S3 den FQDN des ONTAP S3-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit ONTAP S3 verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, die für den Zugriff auf den Objektspeicher erforderlich sind. und den IPspace im ONTAP Cluster, wo sich das Ziel-Volume befinden soll. link:task-backup-onprem-to-ontap-s3.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage["Siehe Details zu diesen Anforderungen"].
 
 
 .Ergebnisse

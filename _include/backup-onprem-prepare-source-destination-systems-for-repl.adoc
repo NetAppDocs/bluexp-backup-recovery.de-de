@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Bevor Sie Backups in BlueXP Backup und Recovery aktivieren, stellen Sie sicher, dass die Quell- und Zielsysteme den ONTAP Version- und Netzwerkanforderungen entsprechen.
+Bevor Sie Backups in BlueXP Backup und Recovery aktivieren, stellen Sie sicher, dass die Quell- und Zielsysteme die folgenden Netzwerkanforderungen erfüllen.
 
 
 
