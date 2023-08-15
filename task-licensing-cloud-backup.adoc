@@ -148,7 +148,7 @@ Suchen Sie diese Nummer in Ihrem Auftrag, oder wenden Sie sich an das Account Te
 
 * BlueXP Konto-ID
 +
-Sie können Ihre BlueXP-Konto-ID finden, indem Sie oben in BlueXP das Dropdown-Menü *Konto* auswählen und dann neben Ihrem Konto auf *Konto verwalten* klicken. Ihre Account-ID wird auf der Registerkarte „Übersicht“ angezeigt.
+Sie können Ihre BlueXP-Konto-ID finden, indem Sie oben in BlueXP das Dropdown-Menü *Konto* auswählen und dann neben Ihrem Konto auf *Konto verwalten* klicken. Ihre Account-ID wird auf der Registerkarte „Übersicht“ angezeigt. Verwenden Sie *Account-DARKSITE1* für die Seite im Privatmodus ohne Internetzugang.
 
 
 
