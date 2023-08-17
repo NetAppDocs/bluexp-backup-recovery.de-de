@@ -34,7 +34,7 @@ Sie können entscheiden, ob Sie Ihren lokalen ONTAP Cluster über das öffentlic
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Bereiten Sie Ihren BlueXP Connector vor
 [role="quick-margin-para"]
-Wenn Sie bereits einen Connector in Ihrer Google Cloud oder vor Ort bereitgestellt haben, sind Sie fertig. Falls nicht, müssen Sie einen BlueXP Connector erstellen, um ONTAP Daten auf Google Cloud Storage zu sichern. Außerdem müssen Sie die Netzwerkeinstellungen für den Connector anpassen, damit eine Verbindung zu Google Cloud hergestellt werden kann.
+Wenn Sie bereits einen Connector in Ihrer Google Cloud Platform VPC implementiert haben, sind Sie alle festgelegt. Falls nicht, müssen Sie einen BlueXP Connector erstellen, um ONTAP Daten auf Google Cloud Storage zu sichern. Außerdem müssen Sie die Netzwerkeinstellungen für den Connector anpassen, damit eine Verbindung zu Google Cloud hergestellt werden kann.
 
 [role="quick-margin-para"]
 <<Bereiten Sie Ihren BlueXP Connector vor,Erfahren Sie, wie Sie einen Connector erstellen und die erforderlichen Netzwerkeinstellungen definieren.>>

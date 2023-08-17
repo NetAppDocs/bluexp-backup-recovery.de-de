@@ -148,11 +148,11 @@ Das BlueXP Notification Center verfolgt den Fortschritt der von Ihnen initiierte
 
 Zusätzlich zur Anzeige der Warnungen im Benachrichtigungscenter können Sie BlueXP so konfigurieren, dass bestimmte Arten von Benachrichtigungen per E-Mail als Warnungen gesendet werden, sodass Sie über wichtige Systemaktivitäten informiert werden können, selbst wenn Sie nicht beim System angemeldet sind. https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["Erfahren Sie mehr über das Notification Center und das Senden von Warn-E-Mails für Backup- und Wiederherstellungsaufträge"^].
 
-Das Notification Center zeigt zahlreiche Ereignisse wie Snapshot, Replikation, Backup in der Cloud und Wiederherstellung an, aber nur die folgenden Ereignisse lösen E-Mail-Warnungen aus:
+Das Notification Center zeigt zahlreiche Snapshots, Replikationen, Backups in der Cloud und Wiederherstellungsereignisse an, aber nur bestimmte Ereignisse lösen E-Mail-Warnungen aus:
 
 [cols="1,2,1,1"]
 |===
-| Operationsart | Betrieb | Alarmstufe | E-Mail gesendet 
+| Operationsart | Ereignis | Alarmstufe | E-Mail gesendet 
 
 
 | Aktivierung | Die Aktivierung der Sicherung und Wiederherstellung ist für die Arbeitsumgebung fehlgeschlagen | Fehler | Ja. 

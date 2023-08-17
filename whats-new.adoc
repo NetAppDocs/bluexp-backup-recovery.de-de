@@ -22,10 +22,9 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 [IMPORTANT]
 ====
-Aufgrund einer wichtigen Verbesserung der Sicherheit benötigt Ihr Connector nun ausgehenden Internetzugang auf zwei weitere Endpunkte, um Backup- und Recovery-Ressourcen in Ihrer Public Cloud-Umgebung zu verwalten. Wenn diese Endpunkte nicht zur Liste „zugelassen“ in Ihrer Firewall hinzugefügt wurden, wird in der Benutzeroberfläche ein Fehler bezüglich „Dienst nicht verfügbar“ oder „Dienststatus konnte nicht ermittelt werden“ angezeigt:
+Aufgrund einer wichtigen Verbesserung der Sicherheit benötigt Ihr Connector nun ausgehenden Internetzugang auf einen zusätzlichen Endpunkt, um Backup- und Recovery-Ressourcen in Ihrer Public Cloud-Umgebung zu verwalten. Wenn dieser Endpunkt nicht zur Liste „zulässig“ in Ihrer Firewall hinzugefügt wurde, wird in der Benutzeroberfläche ein Fehler bezüglich „Dienst nicht verfügbar“ oder „Dienststatus konnte nicht ermittelt werden“ angezeigt:
 
-\https://api.cloud.netapp.com
-\https://netapp-cloud-account.auth0.com/userinfo
+\https://netapp-cloud-account.auth0.com
 
 ====
 
