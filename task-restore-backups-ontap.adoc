@@ -16,11 +16,10 @@ summary: Backups der Daten von ONTAP Volumes sind über die Standorte verfügbar
 [role="lead"]
 Backups Ihrer ONTAP Volume-Daten sind über die Standorte Ihrer Backups verfügbar: Snapshot Kopien, replizierte Volumes und im Objekt-Storage gespeicherte Backups. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Sie können ein gesamtes ONTAP-Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige wenige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen.
 
-Sie können ein *Volume* (als neues Volume) in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem lokalen ONTAP System wiederherstellen.
+* Sie können ein *Volume* (als neues Volume) in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem lokalen ONTAP System wiederherstellen.
+* Sie können einen *Ordner* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, die denselben Cloud-Account verwendet, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
+* Sie können *Dateien* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
 
-Sie können einen *Ordner* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, die denselben Cloud-Account verwendet, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
-
-Sie können *Dateien* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
 
 Zum Wiederherstellen von Daten von Backup-Dateien auf ein Produktionssystem ist eine gültige BlueXP Backup- und Recovery-Lizenz erforderlich.
 
@@ -313,13 +312,9 @@ Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im
 
 Wenn Sie nur einige Dateien aus einem ONTAP Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
 
-[NOTE]
-====
-* Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
-* Das Wiederherstellen von Dateien und Ordnern wird derzeit nicht von Volumes im ONTAP S3 Objekt-Storage unterstützt.
 
+NOTE: Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
 
-====
 Wenn Sie mehrere Dateien auswählen, werden alle Dateien auf dem gleichen Ziellaufwerk wiederhergestellt, das Sie auswählen. Wenn Sie also Dateien auf unterschiedlichen Volumes wiederherstellen möchten, müssen Sie den Wiederherstellungsprozess mehrmals ausführen.
 
 Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen mit allen darin enthaltenen Dateien und Unterordnern wiederherstellen. Wenn Sie eine Version von ONTAP vor 9.13.0 verwenden, werden nur Dateien aus diesem Ordner wiederhergestellt - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.

@@ -18,6 +18,34 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 
 
+== 11 September 2023
+
+
+
+=== Management neuer Richtlinien für ONTAP Daten
+
+Dieser Release bietet die Möglichkeit innerhalb der Benutzeroberfläche, benutzerdefinierte Snapshot-Richtlinien, Replizierungsrichtlinien und Richtlinien für Backups in Objekt-Storage für ONTAP Daten zu erstellen.
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html["Erfahren Sie mehr über Richtlinien"].
+
+
+
+=== Unterstützung für die Wiederherstellung von Dateien und Ordnern von Volumes in ONTAP S3 Objekt-Storage
+
+Bisher konnten Sie beim Backup von Volumes auf ONTAP S3 Objekt-Storage keine Dateien und Ordner mithilfe der Funktion „Durchsuchen und Wiederherstellen“ wiederherstellen. Mit dieser Version wird diese Einschränkung beseitigt.
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["Weitere Informationen zum Wiederherstellen von Daten"].
+
+
+
+=== Zusätzliche Unterstützung für das Backup und die Wiederherstellung von SnapLock Volumes
+
+Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["Erfahren Sie mehr zum Schutz von ONTAP Daten"].
+
+
+
 == August 2023
 
 [IMPORTANT]

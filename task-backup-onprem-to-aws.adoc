@@ -521,7 +521,7 @@ Das können Sie auch <<Zeigt die API-Befehle an>> Kopieren Sie im Überprüfungs
 +
 Wenn das Amazon S3-Ziel für Ihre Backups als Arbeitsumgebung auf dem Bildschirm vorhanden ist, können Sie das ONTAP-Cluster auf den Amazon S3-Objektspeicher ziehen.
 
-** Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions (...)* aus und wählen Sie *Activate Backup* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt).
+** Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions* aus image:icon-action.png["Aktionssymbol"] Und wählen Sie *Backup aktivieren* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt).
 
 
 +
@@ -546,7 +546,7 @@ Sie können FlexVol- oder FlexGroup-Volumes schützen. Sie können jedoch keine 
 [NOTE]
 ====
 * Sie können ein Backup nur auf einem einzelnen FlexGroup Volume gleichzeitig aktivieren.
-* Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt.)
+* Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock-Compliance-Modus benötigen ONTAP 9.14 oder höher.)
 
 
 ====
@@ -600,13 +600,17 @@ Einzelheiten zu diesen Architekturen finden Sie unter link:concept-protection-jo
 . *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie.
 +
 
-TIP: Wenn Sie eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden `snapmirror policy create` Befehl. Siehe.
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
 
 . *Replikation*: Stellen Sie die folgenden Optionen ein:
 +
 ** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat oder die Aggregate und das Präfix oder Suffix aus, die dem Namen des replizierten Volumes hinzugefügt werden sollen.
 ** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie.
 
+
++
+
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
 
 . *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
 +
@@ -633,7 +637,7 @@ NOTE: Wenn Sie einen vorhandenen Bucket ausgewählt haben, sind Verschlüsselung
 ** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus.
 +
 
-TIP: Wenn Sie eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden `snapmirror policy create` Befehl. Siehe.
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
 
 ** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
 

@@ -179,13 +179,10 @@ Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS,
 BlueXP Backup und Recovery unterstützt folgende Volume-Typen:
 
 * FlexVol Volumes für Lese- und Schreibvorgänge
-* SnapMirror Data Protection (DP) Ziel-Volumes
-* SnapLock Enterprise Volumes (erfordert ONTAP 9.11.1 oder höher)
-+
-** SnapLock-Compliance-Volumes werden derzeit nicht unterstützt.
-
-
 * FlexGroup Volumes (erfordert ONTAP 9.12.1 oder höher)
+* SnapLock Enterprise Volumes (erfordert ONTAP 9.11.1 oder höher)
+* SnapLock Compliance Volumes (ONTAP 9.14 oder höher erforderlich)
+* SnapMirror Data Protection (DP) Ziel-Volumes
 
 
 Siehe die Abschnitte unter <<Einschränkungen,Einschränkungen bei Backup und Restore>> Für zusätzliche Anforderungen und Einschränkungen.

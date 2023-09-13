@@ -948,7 +948,6 @@
   <block id="53cfd5032381d05f65cbc6d64e0004f5" category="list-text">s3:GetObject</block>
   <block id="63c20717f207c238dd1a7f80b31c8b44" category="list-text">s3:PutBucketObjectLockConfiguration</block>
   <block id="0c1b0b85cf95eb29ecb3d5b774e010c2" category="list-text">s3:GetLifecycleKonfiguration</block>
-  <block id="2720ba253382275ebb851de5d590b5cc" category="list-text">s3:ListBucketByTags</block>
   <block id="70c72880a06cb649d8a568819cf5e5d1" category="list-text">s3:GetBucketTagging</block>
   <block id="538e4e83b58b6bce3bde0ae671e33b67" category="list-text">s3:DeleteObjectVersion</block>
   <block id="30756eb77e955d4514eb285a2d31ee73" category="list-text">s3:ListBucketVersions</block>
@@ -1502,7 +1501,6 @@
   <block id="36c688567530141607520ff8f371abad" category="paragraph">Sie sollten in der Lage sein alle Backups zu sehen, die für Ihre Volumes erstellt wurden.</block>
   <block id="ca58572920332b0113296b57e60a56de" category="list-text">Klicken Sie im Dashboard wiederherstellen im Abschnitt Suchen &amp; Wiederherstellen auf *Indexing-Einstellungen*.</block>
   <block id="080b8dd3f3323a86a22c3af13ee1c495" category="list-text">Führen Sie auf der Seite Suchen &amp; Wiederherstellen einige Katalogsuchen aus, um zu bestätigen, dass die Wiederherstellung des indizierten Katalogs erfolgreich abgeschlossen wurde.</block>
-  <block id="650c5c3b9794e3433e90f3f1f307a2c3" category="list-text">SnapLock-Compliance-Volumes werden derzeit nicht unterstützt.</block>
   <block id="bab09e9304b5c4bff1eb4287ce6071b7" category="list-text">FlexGroup Volumes (erfordert ONTAP 9.12.1 oder höher)</block>
   <block id="181beb5ba2cd4630deb7eb4905bcf5d0" category="list-text">In GCP werden Backups der Klasse _Standard_ Storage zugeordnet.</block>
   <block id="e3ef2b7eb11e46c821f75f7c65663319" category="inline-link-macro">Erfahren Sie mehr über Google Archivspeicher</block>
@@ -3720,7 +3718,6 @@ Alle Daten, die zwischen der letzten Datenreplizierung und dem Zeitpunkt, zu dem
   <block id="0d8299302957cb3fba22b94473c12c7d" category="paragraph">Sie können Ihre eigenen, von Kunden gemanagten Schlüssel zur Datenverschlüsselung verwenden, statt die von Google standardmäßig gemanagten Verschlüsselungsschlüssel zu verwenden. Sowohl regionsübergreifende als auch projektübergreifende Schlüssel werden unterstützt, sodass Sie ein Projekt für einen Bucket auswählen können, der sich vom Projekt des CMEK-Schlüssels unterscheidet.</block>
   <block id="309939239d7103f08e00804428d22284" category="paragraph">Wenn Sie planen, Ihre eigenen kundenverwalteten Schlüssel zu verwenden:</block>
   <block id="8b9e35eb97786c146adac12f589d404b" category="paragraph">Wenn das Google Cloud Storage-Ziel für Ihre Backups als Arbeitsumgebung auf dem Canvas vorhanden ist, können Sie das ONTAP-Cluster auf den Google Cloud-Objektspeicher ziehen.</block>
-  <block id="ce60c44daed8a68a91ece5b6596057cc" category="list-text">Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions (...)* aus und wählen Sie *Activate Backup* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt). .</block>
   <block id="6726285215cd3fb82b2bc565d1c05a91" category="list-text">*Kaskadierung*: Informationsflüsse vom primären zum sekundären und vom sekundären zum Objektspeicher.</block>
   <block id="cd20fb22a544b75dcfdc55e676a57177" category="list-text">*Fan Out*: Informationen fließen vom primären zum sekundären _und_ vom primären zum Objektspeicher.</block>
   <block id="62f87cf8c16c2da5d5b4f260c306b995" category="paragraph">Erstellen Sie entweder einen neuen Bucket, oder wählen Sie einen bereits erstellten Bucket aus.</block>
@@ -3730,7 +3727,6 @@ Alle Daten, die zwischen der letzten Datenreplizierung und dem Zeitpunkt, zu dem
   <block id="351ef22e858cc4f3282062dfc08b26c6" category="admonition">Wenn Sie ein vorhandenes Google Cloud Storage-Konto ausgewählt haben, sind Verschlüsselungsinformationen bereits verfügbar. Sie müssen sie daher jetzt nicht eingeben.</block>
   <block id="e0278e3316b81b329baced2d53dcdc63" category="paragraph">Wenn Sie Ihre eigenen vom Kunden verwalteten Schlüssel verwenden möchten, geben Sie den Schlüsselring und den Schlüsselnamen ein.<block ref="f8e0e63bffb58004a25f7278cd43c42c" category="inline-link-rx"></block>.</block>
   <block id="5ff1fe0a088aed28b3f32142c788c3d5" category="list-text">*Netzwerk*: Wählen Sie den IPspace.</block>
-  <block id="880f6f7d5949be70d701b695256a4761" category="admonition">Wenn Sie eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden. Siehe &lt;link&gt;.</block>
   <block id="bf125f3150943c9c18a4cd821384babe" category="paragraph">Ein repliziertes Volume wird im Zielcluster erstellt, das mit dem Quell-Volume synchronisiert wird.</block>
   <block id="a3c584a28c3b65e7dd15a0fab91559ce" category="paragraph">Ein Google Cloud Storage-Bucket wird automatisch in dem Servicekonto erstellt, das durch den von Ihnen eingegebenen Zugriffsschlüssel und den geheimen Schlüssel von Google angegeben wird und die Backup-Dateien dort gespeichert sind. Das Dashboard für Volume Backup wird angezeigt, sodass Sie den Status der Backups überwachen können.</block>
   <block id="be7c136f5c48ebfb72acc7a3f7f76696" category="doc">Backup von Cloud Volumes ONTAP Daten in Amazon S3</block>
@@ -4311,7 +4307,6 @@ Für Cloud Volumes ONTAP Systeme ist ONTAP 9.9.1 und höher erforderlich.</block
   <block id="51c1c5aa077ac8366955ff0cfc3e181a" category="paragraph">Wählen Sie die Volumes aus, die Sie schützen möchten. Ein geschütztes Volume verfügt über eine oder mehrere der folgenden Elemente: Snapshot-Richtlinie, Replizierungsrichtlinie und Richtlinie für das Backup in ein Objekt.</block>
   <block id="e16bee3ecafb1ee1c54b43ad85dd8215" category="inline-link-macro">Aktivieren Sie das Backup für zusätzliche Volumes in der Arbeitsumgebung</block>
   <block id="bb3015339c2686a35dc74324b8e4e4ea" category="paragraph">Sie können FlexVol- oder FlexGroup-Volumes schützen. Sie können jedoch keine Kombination dieser Volumes auswählen, wenn Sie Backups für eine funktionierende Umgebung aktivieren. Informieren Sie sich darüber <block ref="d59114f3cd03b41fa3f830654247699f" category="inline-link-macro-rx"></block> (FlexVol oder FlexGroup), nachdem Sie das Backup für die ersten Volumes konfiguriert haben.</block>
-  <block id="6af8d284e8fb7d947e52105e66ccd610" category="list-text">Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt.)</block>
   <block id="cc54d40dc91fd9f2adf463d5e6a20e64" category="paragraph">Beachten Sie, dass die Richtlinien, die Sie später auswählen, diese vorhandenen Richtlinien überschreiben, wenn die von Ihnen ausgewählten Volumes bereits Snapshot- oder Replikationsrichtlinien angewendet haben.</block>
   <block id="faf9e3428a892363316a8c1e34a4551b" category="list-text">Optional können Sie die Zeilen so filtern, dass nur Volumes mit bestimmten Volumentypen, Stilen und mehr angezeigt werden, um die Auswahl zu erleichtern.</block>
   <block id="0e118ce24ee3412ae2c2aa20c222f02f" category="list-text">Nachdem Sie das erste Volume ausgewählt haben, können Sie alle FlexVol Volumes auswählen (FlexGroup Volumes können nur einzeln ausgewählt werden). Um alle vorhandenen FlexVol-Volumes zu sichern, aktivieren Sie zuerst ein Volume und dann das Kontrollkästchen in der Titelzeile. (<block ref="2b1190f90c2c717d2aa70aabd2fc4c36" category="inline-image-macro-rx" type="image"></block>).</block>
@@ -4362,7 +4357,6 @@ Ifdef::aws[]</block>
   <block id="470964c6383a21c37ec7c78148306066" category="list-text">Bei ONTAP S3 kann der Connector (mit oder ohne Internetzugang) vor Ort oder in einer Cloud-Provider-Umgebung implementiert werden</block>
   <block id="f19394f3b7f64df50fbe3cf08b518aa3" category="list-text">Geben Sie beim Wiederherstellen aus ONTAP S3 den FQDN des ONTAP S3-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit ONTAP S3 verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, die für den Zugriff auf den Objektspeicher erforderlich sind. und den IPspace im ONTAP Cluster, wo sich das Ziel-Volume befinden soll.</block>
   <block id="6b2e325b80840b0a9d8b16c541de5ba2" category="list-text">Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.</block>
-  <block id="74869d9e98fa5c8ed15010d55dad05c7" category="list-text">Das Wiederherstellen von Dateien und Ordnern wird derzeit nicht von Volumes im ONTAP S3 Objekt-Storage unterstützt.</block>
   <block id="24ac68c9fd3a2031d9d90480b0b100c4" category="list-text">Das Wiederherstellen von Ordnern wird derzeit nicht von Volumes in ONTAP S3 Objekt-Storage unterstützt.</block>
   <block id="6f09a8c8e8b4f8b3acf1f96e43dca354" category="list-text">StorageGRID- und ONTAP S3-Anforderungen:</block>
   <block id="8100b28bcfd3e23e2256df4e160ffe93" category="list-text">Für in StorageGRID oder ONTAP S3 gespeicherte Backups stellt er Speicherplatz auf dem Connector oder in der Cloud-Provider-Umgebung bereit.</block>
@@ -4473,4 +4467,118 @@ ONTAP S3</block>
   <block id="a4ecfc70574394990cf17bd83df499f7" category="cell">Ereignis</block>
   <block id="94798620994cb827b675957027c80437" category="paragraph">Aufgrund einer wichtigen Verbesserung der Sicherheit benötigt Ihr Connector nun ausgehenden Internetzugang auf einen zusätzlichen Endpunkt, um Backup- und Recovery-Ressourcen in Ihrer Public Cloud-Umgebung zu verwalten. Wenn dieser Endpunkt nicht zur Liste „zulässig“ in Ihrer Firewall hinzugefügt wurde, wird in der Benutzeroberfläche ein Fehler bezüglich „Dienst nicht verfügbar“ oder „Dienststatus konnte nicht ermittelt werden“ angezeigt:</block>
   <block id="300f031c227ed1b4448a8bb51abec2bb" category="paragraph">\https://netapp-cloud-account.auth0.com</block>
+  <block id="809c75c03a253c08bfaa32177821bc49" category="list-text">Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock-Compliance-Modus benötigen ONTAP 9.14 oder höher.)</block>
+  <block id="437f900a689b3effaba13525bf426e50" category="inline-link-macro">Erstellen einer Richtlinie</block>
+  <block id="e4847718f673436ca61df1d6ff85e9ad" category="admonition">Informationen zum Erstellen einer benutzerdefinierten Richtlinie über die Benutzeroberfläche finden Sie unter <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>.</block>
+  <block id="63ded913a4470920f93edd534ec90156" category="section-title">11 September 2023</block>
+  <block id="101143ec501ddd03e76bf93ad136c2de" category="section-title">Management neuer Richtlinien für ONTAP Daten</block>
+  <block id="d3744875712ea1e210c10ab00d139b5b" category="paragraph">Dieser Release bietet die Möglichkeit innerhalb der Benutzeroberfläche, benutzerdefinierte Snapshot-Richtlinien, Replizierungsrichtlinien und Richtlinien für Backups in Objekt-Storage für ONTAP Daten zu erstellen.</block>
+  <block id="99a56480b438dfe7afa3558f8c8e61d0" category="inline-link">Erfahren Sie mehr über Richtlinien</block>
+  <block id="53a26cd89d8676b12d682e92f9b49a79" category="paragraph"><block ref="99a3bdb35a901d86516bb48e573064a3" category="inline-link-rx"></block>.</block>
+  <block id="90bd868a90cdf44166755a0fdec24b6e" category="section-title">Unterstützung für die Wiederherstellung von Dateien und Ordnern von Volumes in ONTAP S3 Objekt-Storage</block>
+  <block id="efec702225db296adcaac3abb0665451" category="paragraph">Bisher konnten Sie beim Backup von Volumes auf ONTAP S3 Objekt-Storage keine Dateien und Ordner mithilfe der Funktion „Durchsuchen und Wiederherstellen“ wiederherstellen. Mit dieser Version wird diese Einschränkung beseitigt.</block>
+  <block id="38da59f967f6f913365cf5cefb459344" category="inline-link">Weitere Informationen zum Wiederherstellen von Daten</block>
+  <block id="7b3040066d7e59383891bdcb2977076f" category="paragraph"><block ref="bfc7bc1f2f7fff3212c093c1fc6b6317" category="inline-link-rx"></block>.</block>
+  <block id="52cc7bb26d5185a2c3b92b71a3d6e319" category="section-title">Zusätzliche Unterstützung für das Backup und die Wiederherstellung von SnapLock Volumes</block>
+  <block id="4cb4cd292be9258bfc850d1aa644d9f6" category="paragraph">Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.</block>
+  <block id="115e674b1dc0942f53bc91e279bbd7eb" category="inline-link">Erfahren Sie mehr zum Schutz von ONTAP Daten</block>
+  <block id="5ea7c922bf64f9c4520ccdf833e34e39" category="paragraph"><block ref="287ce1c3ffcd9fd04ac3fb9608fef690" category="inline-link-rx"></block>.</block>
+  <block id="7b666c0edc9876b87778d0969629cfbf" category="list-text">Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions* aus <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Und wählen Sie *Backup aktivieren* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt).</block>
+  <block id="fee16c8f65e9221b33938ce4c94bb0de" category="admonition">Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>.</block>
+  <block id="c1e74c6339bd5a7ce0c8f49560afe41d" category="list-text">*Backup Policy*: Wählen Sie eine vorhandene Richtlinie für das Backup auf Objekt-Storage aus.</block>
+  <block id="718dfdf9ba4cd59f98163d4d75844472" category="list-text">SnapLock Compliance Volumes (ONTAP 9.14 oder höher erforderlich)</block>
+  <block id="ef8c31bba1fe5a62e7a6cfedbb9d29da" category="summary">Sie können Ihre Backups entweder mit den von NetApp bereitgestellten standardmäßigen Backup-Richtlinien oder mit benutzerdefinierten Richtlinien erstellen. Richtlinien regeln den Typ des Backups, die Backup-Architektur, die Speichersysteme und die Backup-Häufigkeit.</block>
+  <block id="defb6c38e16057d80b8b116a92ab8665" category="doc">Managen von Backup-Richtlinien für ONTAP Volumes</block>
+  <block id="7ee9b8ccc530c51b1215b5f1266eee5e" category="paragraph">Sie können Ihre Backups entweder mit den von NetApp bereitgestellten standardmäßigen Backup-Richtlinien oder mit benutzerdefinierten Richtlinien erstellen. Richtlinien regeln die Sicherungshäufigkeit, die Dauer der Sicherung und die Anzahl der Sicherungsdateien, die aufbewahrt werden.</block>
+  <block id="1023513b30fa21977b0dbd6b2e65992c" category="paragraph">Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, müssen Sie die Richtlinie erstellen, bevor Sie den Aktivierungsassistenten starten.</block>
+  <block id="c5e61d7841bf9a1c1ef625157d503535" category="paragraph">Weitere Informationen zu den standardmäßigen Backup-Richtlinien finden Sie unter <block ref="26e6d65b3efbcdaf9fdb0f41b6ffe1ab" category="inline-link-macro-rx"></block>.</block>
+  <block id="bea7279384d85082d745d10903672658" category="paragraph">BlueXP Backup und Recovery bietet drei Arten von Backups von ONTAP Daten: Snapshots, Replizierungen und Backups in Objekt-Storage. Ihre Richtlinien befinden sich aufgrund der verwendeten Architektur und der Art des Backups an verschiedenen Standorten:</block>
+  <block id="9c2cf3d903ec11e031aac200337d550f" category="cell">Speicherort der Snapshot-Richtlinie</block>
+  <block id="03cef7774b631377e1518e05ea03e5f0" category="cell">Speicherort der Replizierungsrichtlinie</block>
+  <block id="47678324688906f6896f307bc4023541" category="cell">Speicherort für Backup in Objektrichtlinie</block>
+  <block id="1be22c5f78f317083889cb6e2929d752" category="paragraph">Erstellen Sie anhand der folgenden Tools Backup-Richtlinien, je nach Ihrer Umgebung, Ihren Einstellungen und dem Schutztyp:</block>
+  <block id="4539bbf69cf6212ec275958c8953cb21" category="list-text">BlueXP UI</block>
+  <block id="4b5f4ae9ecbdcd94e894932f499d9381" category="list-text">System Manager-UI</block>
+  <block id="de134183bea5df515a6756a539ce6f18" category="list-text">CLI VON ONTAP</block>
+  <block id="9ea44de032373e29ccec8880ba060c49" category="admonition">Wenn Sie System Manager verwenden, wählen Sie *Asynchronous* als Richtlinientyp für Replikationsrichtlinien aus, und wählen Sie *Asynchronous* und *Back up to Cloud* für Backup to object Policies aus.</block>
+  <block id="7677a1d2704f93f5cc1c8fd7d26f85d3" category="section-title">Richtlinien für eine Arbeitsumgebung anzeigen</block>
+  <block id="72fb2dcef5a06d29aaae7643f0eb8635" category="list-text">Wählen Sie in der BlueXP-Benutzeroberfläche *Volumes* &gt; *Backup-Einstellungen* aus.</block>
+  <block id="5af3f75fe74a0c63676cb0ebc8ea40bb" category="list-text">Wählen Sie auf der Seite Backup Settings die Arbeitsumgebung aus und wählen Sie die Option *actions* <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Und wählen Sie *Richtlinienverwaltung* aus.</block>
+  <block id="ad1858c9b18af8cbe0b4325833b61ce0" category="paragraph">Die Seite Richtlinienverwaltung wird angezeigt.</block>
+  <block id="e3b8283edc07b71aba66f3cad9a2de47" category="inline-image-macro">Seite für die Richtlinienverwaltung</block>
+  <block id="296b9ff4c428eb1b284df172e8f937be" category="paragraph"><block ref="296b9ff4c428eb1b284df172e8f937be" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0829ebf3236644a786e081485a185704" category="paragraph">Snapshot-Richtlinien werden standardmäßig angezeigt.</block>
+  <block id="490ebe8423732c19d7c4ed267db26f2f" category="list-text">Um andere Richtlinien anzuzeigen, die in der Arbeitsumgebung vorhanden sind, wählen Sie entweder *Replikationsrichtlinien* oder *Backup-Richtlinien* aus. Wenn die bestehenden Richtlinien für Ihre Backup-Pläne verwendet werden können, sind Sie alle bereit. Wenn Sie eine Richtlinie mit unterschiedlichen Merkmalen benötigen, können Sie auf dieser Seite neue Richtlinien erstellen.</block>
+  <block id="8fb446fc6204f4002da66fd95a8ebf7d" category="section-title">Erstellen einer Snapshot-Richtlinie</block>
+  <block id="cbad557bcb30ebd6fc0cb19c52d98918" category="paragraph">Ein Teil Ihrer 3-2-1-5-Strategie umfasst die Erstellung einer Snapshot Kopie des Volumes auf dem *primären* Storage-System.</block>
+  <block id="87d7b16c83e147764f7157c544e8b1f0" category="paragraph">Während des Richtlinienerstellungsprozesses werden Snapshot- und SnapMirror-Labels identifiziert, die auf Zeitplan und Aufbewahrung hinweisen. Sie können vordefinierte Beschriftungen verwenden oder eigene erstellen.</block>
+  <block id="5bbd322028180cb2d9c51ea786314b04" category="list-text">Wählen Sie auf der Seite Policies *Create New Policy* &gt; *Create Snapshot Policy* aus.</block>
+  <block id="b7eb033e2f95b4885d2ab78242e53701" category="list-text">Geben Sie den Richtliniennamen an.</block>
+  <block id="8ea6a94b6e34dd5df6320e7e8b8a2514" category="list-text">Wählen Sie den Snapshot Zeitplan oder die Zeitpläne aus. Sie können maximal 5 Etiketten haben. Oder erstellen Sie einen Zeitplan.</block>
+  <block id="4b97d1b547dd6a60145647bd089cb09b" category="list-text">Wenn Sie einen Zeitplan erstellen möchten:</block>
+  <block id="7106575767318bcd310114183d6baad1" category="list-text">Wählen Sie die Häufigkeit von stündlich, täglich, wöchentlich, monatlich oder jährlich aus.</block>
+  <block id="e44b517397b0ade092a5c512079728c8" category="list-text">Geben Sie die Snapshot-Labels an, die den Zeitplan und die Aufbewahrung kennzeichnen.</block>
+  <block id="0779f4f56c0897ff7ffb03c6b275ee51" category="list-text">Geben Sie ein, wann und wie oft der Snapshot erstellt wird.</block>
+  <block id="f5ed7a849165313457c0aac7b3379f97" category="list-text">Aufbewahrung: Geben Sie die Anzahl der zu haltenden Snapshots ein.</block>
+  <block id="bf18811faac9b8e4fcaebab51afd1113" category="list-text">Wählen Sie *Erstellen*.</block>
+  <block id="8bddac47f7f2312dbc2c31cf92766f2b" category="section-title">Snapshot-Richtlinienbeispiel mit einer kaskadierenden Architektur</block>
+  <block id="ab3e57896123f7580b91c4f58922e7db" category="paragraph">In diesem Beispiel wird eine Snapshot-Richtlinie mit zwei Clustern erstellt:</block>
+  <block id="dc30a10b7f3dac3bcce7b54e12502e89" category="list-text">Cluster 1:</block>
+  <block id="021a6f1742e889f9d4e45828420cb0cf" category="list-text">Wählen Sie Cluster 1 auf der Richtlinienseite aus.</block>
+  <block id="6bb6c0bda8ce0184ecb36d092b4d1e63" category="list-text">Ignorieren Sie die Richtlinienabschnitte „Replikation“ und „Backup to Object“.</block>
+  <block id="1714f47626850cab3042950c5841ba26" category="list-text">Erstellen Sie die Snapshot-Richtlinie.</block>
+  <block id="83655cf6beab33b344c9ae17bec532d0" category="list-text">Cluster 2:</block>
+  <block id="e2db720dd9637e04a09a88a6c179ea4c" category="list-text">Wählen Sie Cluster 2 auf der Seite Policy aus.</block>
+  <block id="0ef5b185a636e8d973f33fc4c87833bd" category="list-text">Ignorieren Sie den Abschnitt zu Snapshot-Richtlinien.</block>
+  <block id="8dd072d2922c8edc60aa60c9bc0cdc46" category="list-text">Konfigurieren Sie die Richtlinien für Replikation und Backup auf Objekt.</block>
+  <block id="b67380033d7d5bdab053c0dad43a80c0" category="section-title">Erstellen Sie eine Replikationsrichtlinie</block>
+  <block id="3dec072d7e14f395b6012bebe3b45fad" category="paragraph">Ihre Strategie für 3-2-1-1 kann auch die Replizierung eines Volumes auf einem anderen Storage-System umfassen. Die Replikationsrichtlinie befindet sich auf dem *sekundären* Speichersystem.</block>
+  <block id="a279488f43a48271cf71b391369880a3" category="list-text">Wählen Sie auf der Seite Policies *Create New Policy* &gt; *Create New Replication Policy* aus.</block>
+  <block id="82927e590f678cf898b673e8ed85274d" category="list-text">Geben Sie die SnapMirror-Labels (maximal 5) an, die die Aufbewahrung für jedes Label kennzeichnen.</block>
+  <block id="d034072367cfae53d523d1b9d4c614d7" category="list-text">Geben Sie den Übertragungszeitplan an.</block>
+  <block id="f578bfb9ea0e0cda707a0426ef4bdd1e" category="section-title">Erstellen einer Richtlinie für Backup-to-Object-Storage</block>
+  <block id="4a9a4e09559bd837deb6b0db0f17b586" category="paragraph">Ihre 3-2-1-1-Strategie umfasst unter Umständen auch Backups von Volumes auf Objekt-Storage.</block>
+  <block id="1a730740674df2bc24af9ce2e66da7df" category="paragraph">Diese Storage-Richtlinie befindet sich abhängig von der Backup-Architektur an verschiedenen Speicherorten des Storage-Systems:</block>
+  <block id="7c8ffe07bb7dc70647a194385ea66773" category="list-text">Fan-out: Primäres Storage-System</block>
+  <block id="96ab2d22b4464dc324915df8e5067ca9" category="list-text">Kaskadierung: Sekundäres Storage-System</block>
+  <block id="868680c8c14bb13ca00e6f4892aeb3c3" category="list-text">Wählen Sie auf der Seite Policy Management *Create New Policy* &gt; *Create New Backup Policy* aus.</block>
+  <block id="bfd2bf5ca91b1984485de4fe52e739a9" category="list-text">Geben Sie die Einstellungen an, einschließlich des Übertragungszeitplans und des Zeitplans für die Archivierung von Backups.</block>
+  <block id="ddb011fe917012a700049a04ecd807d0" category="list-text">(Optional) um ältere Sicherungsdateien nach einer bestimmten Anzahl von Tagen in eine kostengünstigere Speicherklasse oder Zugriffsebene zu verschieben, wählen Sie die Option *Archiv* aus und geben die Anzahl der Tage an, die vergehen sollen, bevor die Daten archiviert werden.</block>
+  <block id="88b38144f5678f838e589bb3f66fb7c3" category="inline-link">Erfahren Sie mehr über die Storage-Einstellungen für Archive</block>
+  <block id="2f06c0f9a9c55e002f0fca564655709f" category="paragraph"><block ref="2b8c84e24d5058cbeba0f5b8c6d03c2f" category="inline-link-rx"></block>.</block>
+  <block id="de7befde4d7cc6f9bdfc275272097393" category="list-text">(Optional) Wählen Sie die Option *DataLock &amp; Ransomware Protection* aus, um Ihre Backups vor Änderungen oder Löschungen zu schützen.</block>
+  <block id="2d9688ca19f23219c0b4f9a9455f77b5" category="paragraph">Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vor dem Löschen schützen, indem Sie _DataLock_ und _Ransomware-Schutz_ konfigurieren.</block>
+  <block id="8b8b4afe72e073cb2f31b19794927e17" category="paragraph"><block ref="a1590ca0a57c2e20ed40ac0f3384a5af" category="inline-link-macro-rx"></block>.</block>
+  <block id="fb6e9d876191a4c0c156e739e377be59" category="section-title">Bearbeiten Sie eine Richtlinie</block>
+  <block id="b633d734395141aa32f026fd1762bc20" category="paragraph">Sie können benutzerdefinierte Snapshot-, Replizierungs- oder Backup-Richtlinien bearbeiten.</block>
+  <block id="dab1e1444e686afc30710bb64ca8164a" category="paragraph">Eine Änderung der Backup-Richtlinie wirkt sich auf alle Volumes aus, die diese Richtlinie verwenden.</block>
+  <block id="4285bd228d80d45d4b3b9af468f2244e" category="list-text">Wählen Sie auf der Seite Richtlinienverwaltung die Richtlinie aus, und wählen Sie die Option *actions* aus <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Und wählen Sie *Richtlinie bearbeiten*.</block>
+  <block id="34297ffa69670c3dc8b036dedd867ac3" category="admonition">Für Replizierungs- und Backup-Richtlinien ist der gleiche Prozess.</block>
+  <block id="58a58cd0a42d2dd49b74b06f28da7dda" category="list-text">Nehmen Sie auf der Seite Richtlinie bearbeiten die Änderungen vor.</block>
+  <block id="10492389e94efdebbb66f7b0cd8a1324" category="list-text">Wählen Sie *Speichern*.</block>
+  <block id="8b6af900279ab887f7d317420c8ef15c" category="section-title">Löschen Sie eine Richtlinie</block>
+  <block id="75ce7dc717739caa5a73dc6d99a13b85" category="paragraph">Sie können Richtlinien löschen, die keinem Volume zugeordnet sind.</block>
+  <block id="8e387edf6d63170eca6d1d1b9175d85b" category="paragraph">Wenn eine Richtlinie einem Volume zugewiesen ist und Sie die Richtlinie löschen möchten, müssen Sie die Richtlinie zuerst vom Volume entfernen.</block>
+  <block id="7c8a6ef0dcbcbfb263df1c751ccb1918" category="list-text">Wählen Sie auf der Seite Richtlinienverwaltung die Richtlinie aus, und wählen Sie die Option *actions* aus <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Und wählen Sie *Snapshot-Richtlinie löschen*.</block>
+  <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">Wählen Sie *Löschen*.</block>
+  <block id="9c83e144e5481ac6766f4055e566594d" category="section-title">Weitere Informationen</block>
+  <block id="739525550bd3f8378558eb1d87764bde" category="paragraph">Anweisungen zum Erstellen von Richtlinien mit System Manager oder der ONTAP CLI finden Sie unter:</block>
+  <block id="4a7bfaa61b260e84e240b222e517825e" category="inline-link">Erstellen Sie mit System Manager eine Snapshot-Richtlinie</block>
+  <block id="18f722142cf1242ec6d2b1e76122b14a" category="inline-link">Erstellen Sie eine Snapshot-Richtlinie über die ONTAP CLI</block>
+  <block id="9d089a52567a29f4f420f7f2f76246ac" category="inline-link">Erstellen Sie mit System Manager eine Richtlinie für das Backup auf Objekt-Storage</block>
+  <block id="fb258284d7569744ca758873d339532b" category="inline-link">Erstellen Sie mithilfe der ONTAP CLI eine Richtlinie für das Backup in Objekt-Storage</block>
+  <block id="bc7ba4c7d62d6d4917e638edbc43dbb5" category="paragraph"><block ref="1d5508fcd8027e26b48962bd984558d5" category="inline-link-rx"></block>
+<block ref="25d9216966497b44f1274c2fdc3f62ee" category="inline-link-rx"></block>
+<block ref="6a671fae687ae09ed6ec2eb759a70329" category="inline-link-rx"></block>
+<block ref="76f9b86225921137bc166f71caebf3f1" category="inline-link-rx"></block>
+<block ref="ab2445e139747cf732d46d877cc62a64" category="inline-link-rx"></block>
+<block ref="9c225a8772c7b3c40b62701739b123cf" category="inline-link-rx"></block></block>
+  <block id="b58c28277f6391f0fef677b518977600" category="list-text">Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions* aus <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Und wählen Sie *Backup aktivieren* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt). .</block>
+  <block id="fd3268ccfb501d98109da6d282e89db0" category="list-text">Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions* aus <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Icon-Option und wählen Sie *Activate Backup* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher bereits aktiviert ist).</block>
+  <block id="78720f30e58d9a141f5d550176409702" category="admonition">Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>..</block>
+  <block id="311000e4ce9d283fb43e8211781ee9e3" category="list-text">Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions* aus <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> Und wählen Sie *Backup aktivieren* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt).</block>
+  <block id="e89b128dbf2037e11616e345055bbd03" category="list-text">Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein. (Volumes mit SnapLock Compliance-Modus werden derzeit nicht unterstützt und erfordern ONTAP 9.14 oder höher.)</block>
+  <block id="33846815732f0a61e794b0e44401b00f" category="admonition">Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter
+<block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>.</block>
+  <block id="6b28ac02ff2a9de6b423b9f57d6a4d09" category="sidebar">Management von Richtlinien für ONTAP Volumes</block>
 </blocks>
