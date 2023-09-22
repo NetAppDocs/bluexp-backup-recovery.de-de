@@ -306,9 +306,9 @@ In der Vergangenheit, als Sie einen Ordner wiederhergestellt haben, wurden nur D
 
 
 
-=== Fähigkeit, Daten aus Cloud Volumes ONTAP Systemen an Dark Sites zu sichern
+=== Möglichkeit zur Sicherung von Daten aus Cloud Volumes ONTAP Systemen an Standorten mit eingeschränkter Outbound-Konnektivität
 
-Sie können jetzt Daten aus Cloud Volumes ONTAP Systemen in kommerziellen Regionen von AWS und Azure in Amazon S3 oder Azure Blob sichern. Dazu müssen Sie den Connector auf einem Linux-Host in der kommerziellen Region installieren und das Cloud Volumes ONTAP-System auch dort bereitstellen. Siehe https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
+Sie können jetzt Daten aus Cloud Volumes ONTAP Systemen in kommerziellen Regionen von AWS und Azure in Amazon S3 oder Azure Blob sichern. Dies erfordert, dass Sie den Connector im "eingeschränkten Modus" auf einem Linux-Host in der kommerziellen Region installieren, und dass Sie das Cloud Volumes ONTAP-System dort auch bereitstellen. Siehe https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["Sichern von Cloud Volumes ONTAP-Daten in Amazon S3"] Und https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["Backup von Cloud Volumes ONTAP Daten in Azure Blob"].
 
 
 
