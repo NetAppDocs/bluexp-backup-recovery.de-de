@@ -1427,17 +1427,7 @@
   <block id="9f442565cfeffa804173efd111c4d74c" category="sidebar">Unterstützte Azure-Archiv-Zugriffsebenen</block>
   <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">Wissen und Support</block>
   <block id="c1d2d81968b4f89d4185d4baf66ba468" category="sidebar">Sichern Sie Ihre ONTAP Daten in der Cloud</block>
-  <block id="8c603f955aa6e872271a6e7adacc3d3b" category="sidebar">Cloud Volumes ONTAP zu Amazon S3</block>
-  <block id="9b26267f3d6e18a8491eff1a814d7b23" category="sidebar">Cloud Volumes ONTAP zu Azure Blob</block>
-  <block id="3b88facfb34d4da775fc57a250c85673" category="sidebar">Von Cloud Volumes ONTAP zu Google Cloud</block>
-  <block id="15ac6d2e3c559ba77cd5cac8d88c156c" category="sidebar">On-Premises-ONTAP zu Amazon S3</block>
-  <block id="e1e83764be739c6efa6bfd1bfc931713" category="sidebar">On-Premises-ONTAP zu Azure Blob</block>
-  <block id="d7f9435c5f217087b84ece89a062a9b3" category="sidebar">On-Premises von ONTAP zu Google Cloud</block>
-  <block id="1318af17a0aa27abdccc56db6a9dc399" category="sidebar">On-Premises-ONTAP zu StorageGRID</block>
   <block id="4001622cdabc59603efa5eed8e44df9e" category="sidebar">Sichern Sie Kubernetes-Daten in der Cloud</block>
-  <block id="5afde787e060c3a96f34f757eb507404" category="sidebar">Kubernetes-Cluster zu Amazon S3</block>
-  <block id="3ef08bbbf058b2bc6a87e3ff1ceecd81" category="sidebar">Kubernetes Cluster zu Azure Blob</block>
-  <block id="d5513ddfa26c41caaba3c021a29dbe45" category="sidebar">Kubernetes Cluster zu Google Cloud erstellen</block>
   <block id="4c371e6c984a858ae1f9d8d607a2cfd4" category="sidebar">Managen Sie ONTAP Backup Files</block>
   <block id="9ad6a8ad1e5cd26c5022383b87ca0567" category="sidebar">Ändern Sie die Richtlinie, die vorhandenen Volumes zugewiesen ist</block>
   <block id="0dcde7b293f3d0e01f5ffaf43f982c8d" category="sidebar">Erstellung einer manuellen Volume-Sicherung</block>
@@ -4457,7 +4447,6 @@ ONTAP S3</block>
   <block id="04afa98530b9fa98eb8d1adf9da08f7f" category="paragraph">Der Filter „Backup Lifecycle“ wurde in „Retention“ umbenannt. Verwenden Sie diesen Filter, um den Backup-Lebenszyklus zu verfolgen und den Ablauf aller Backup-Kopien zu identifizieren. Der Jobtyp „Aufbewahrung“ erfasst alle Snapshot Löschjobs, die auf einem Volume initiiert werden, das durch BlueXP Backup und Recovery geschützt ist.</block>
   <block id="751f8afbc94898745cc6e2ea8a5ccd4c" category="inline-link">Erfahren Sie mehr über den aktualisierten Job Monitor</block>
   <block id="bf6c8f020a512a9accf77240c1333a16" category="paragraph"><block ref="f412c2e0203811d72b16f88cf9eb5d19" category="inline-link-rx"></block>.</block>
-  <block id="f0de192c113fd89f1d8027714c573105" category="sidebar">On-Premises-ONTAP zu ONTAP S3</block>
   <block id="d09fe30f62c514ce3f7fb2767974cf23" category="sidebar">BlueXP Videos zu Backup und Recovery</block>
   <block id="b2263890e0533b772d021294e4d3aa41" category="paragraph">Sie können Ihre BlueXP-Konto-ID finden, indem Sie oben in BlueXP das Dropdown-Menü *Konto* auswählen und dann neben Ihrem Konto auf *Konto verwalten* klicken. Ihre Account-ID wird auf der Registerkarte „Übersicht“ angezeigt. Verwenden Sie *Account-DARKSITE1* für die Seite im Privatmodus ohne Internetzugang.</block>
   <block id="35abe2d136b4990eddee4a79d5635e4e" category="paragraph">Wenn Sie bereits einen Connector in Ihrer Google Cloud Platform VPC implementiert haben, sind Sie alle festgelegt. Falls nicht, müssen Sie einen BlueXP Connector erstellen, um ONTAP Daten auf Google Cloud Storage zu sichern. Außerdem müssen Sie die Netzwerkeinstellungen für den Connector anpassen, damit eine Verbindung zu Google Cloud hergestellt werden kann.</block>
@@ -4581,4 +4570,8 @@ ONTAP S3</block>
   <block id="6b28ac02ff2a9de6b423b9f57d6a4d09" category="sidebar">Management von Richtlinien für ONTAP Volumes</block>
   <block id="49f768fa096c849abfc2310e4f864f5e" category="section-title">Möglichkeit zur Sicherung von Daten aus Cloud Volumes ONTAP Systemen an Standorten mit eingeschränkter Outbound-Konnektivität</block>
   <block id="39539808000ad0a6d6ca39474e4fb77b" category="paragraph">Sie können jetzt Daten aus Cloud Volumes ONTAP Systemen in kommerziellen Regionen von AWS und Azure in Amazon S3 oder Azure Blob sichern. Dies erfordert, dass Sie den Connector im "eingeschränkten Modus" auf einem Linux-Host in der kommerziellen Region installieren, und dass Sie das Cloud Volumes ONTAP-System dort auch bereitstellen. Siehe<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block> Und<block ref="e88a100423dadabfc9781439f925633d" category="inline-link-rx"></block>.</block>
+  <block id="998e825e50e0075b888cb10290b5aad3" category="sidebar">Sichern Sie On-Premises-ONTAP auf ONTAP S3</block>
+  <block id="a856f192005c2a27d642572c6eabcaf3" category="sidebar">Sicherung des Kubernetes-Clusters in Amazon S3</block>
+  <block id="d8aa0af6f24f3e5cbb56b502233a7241" category="sidebar">Backup von Kubernetes-Clustern auf Azure Blob</block>
+  <block id="f91d920c6ff7bb789d8210aebe92e10e" category="sidebar">Backup des Kubernetes-Clusters in Google Cloud</block>
 </blocks>
