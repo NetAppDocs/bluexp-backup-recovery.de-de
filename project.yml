@@ -105,6 +105,8 @@ sidebar:
         url: "/task-restore-sql-data.html"
       - title: Wiederherstellung der SAP HANA Datenbank
         url: "/task-restore-hana-backup.html"
+      - title: Stellen Sie MongoDB-, MySQL- und PostgreSQL-Datenbanken wieder her
+        url: "/task-restore-customplugin-backup.html"
   - title: Backup und Wiederherstellung von Cloud-nativen Applikationsdaten
     entries:
     - title: Sichern Sie Ihre Cloud-nativen Applikationsdaten
@@ -140,6 +142,17 @@ sidebar:
       - title: SAP HANA Datenbanken sichern
         flavor: azure
         url: "/task-backup-cloud-native-sap-hana-data.html"
+    - title: Sichern Sie Cloud-native SQL Server-Datenbanken mit REST-APIs
+      entries:
+      - title: Schnellstart
+        url: "/task-quick-start-sql.html"
+      - title: Konfigurieren Sie FSX für ONTAP
+        url: "/reference-configure-fsx-for-ontap.html"
+      - title: Fügen Sie Host hinzu und installieren Sie das SnapCenter-Plug-in für
+          SQL Server
+        url: "/task-add-sqlhost-install-plugin-sql.html"
+      - title: Backup von SQL Server-Datenbanken
+        url: "/task-backup-cloud-native-sql-data.html"
     - title: Stellen Sie Cloud-native Oracle-Datenbanken wieder her
       entries:
       - title: Wiederherstellung am ursprünglichen Speicherort
@@ -149,15 +162,17 @@ sidebar:
     - title: Wiederherstellung von Cloud-nativen SAP HANA-Datenbanken
       flavor: azure
       url: "/task-restore-cloud-native-sap-hana-data.html"
-    - title: Aktualisierung des SAP HANA-Zielsystems
-      flavor: azure
-      url: "/task-refresh-sap-hana-target-system.html"
+    - title: Wiederherstellung von Cloud-nativen SQL Server-Datenbanken
+      url: "/task-restore-cloud-native-sql-data.html"
     - title: Klonen Cloud-nativer Oracle-Datenbanken
       entries:
       - title: Klonkonzepte und -Anforderungen
         url: "/concept-clone-cloud-native-oracle-concepts.html"
       - title: Klonen Cloud-nativer Oracle-Datenbanken
         url: "/task-clone-cloud-native-oracle-data.html"
+    - title: Aktualisierung des SAP HANA-Zielsystems
+      flavor: azure
+      url: "/task-refresh-sap-hana-target-system.html"
     - title: Management der Sicherung von Cloud-nativen Applikationsdaten
       url: "/task-manage-cloud-native-app-data.html"
   - title: Daten von Virtual Machines sichern und wiederherstellen
@@ -302,6 +317,8 @@ homepage:
     - title: Backup von Cloud-nativer SAP HANA-Datenbank
       flavor: azure
       url: task-backup-cloud-native-sap-hana-data.html
+    - title: Backup von Cloud-nativer SQL Server-Datenbank
+      url: task-backup-cloud-native-sql-data.html
   - title: Backup von Datastores in der Cloud –
     links:
     - title: Erstellen Sie Backups von Datastores in Amazon Web Services
@@ -328,6 +345,8 @@ homepage:
     - title: Wiederherstellung von Cloud-nativen SAP HANA-Applikationsdaten
       flavor: azure
       url: task-restore-cloud-native-sap-hana-data.html
+    - title: Wiederherstellung Cloud-nativer SQL Server-Daten
+      url: task-restore-cloud-native-sql-data.html
     - title: Stellen Sie die Daten von Virtual Machines wieder her
       url: task-restore-vm-data.html
     - title: Wiederherstellung von Kubernetes Volume-Daten
@@ -358,4 +377,3 @@ homepage:
 product-family:
   name: BlueXP
   repo: bluexp-family
-  sidebar_label: Alle BlueXP-Dokumentationen

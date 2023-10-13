@@ -56,6 +56,7 @@ IMPORTANT: Die für die Auflistung von Backups benötigte Zeit hängt von dem St
 * Bei Microsoft SQL Server-Datenbanken werden nur die vollständigen Backups und das Enddatum für jedes Backup aufgeführt. Sie können das Backup auswählen und die Datenbank an ihrem ursprünglichen oder alternativen Speicherort wiederherstellen.
 * Für eine Instanz von Microsoft SQL Server werden Backups der Datenbanken unter dieser Instanz aufgeführt.
 * Bei SAP HANA Datenbanken werden nur die Daten-Backups und das Enddatum für jedes Backup aufgeführt. Sie können das Backup auswählen und den Speicherexport auf einem bestimmten Host durchführen.
+* Für MongoDB, MySQL und PostgreSQL werden nur die Daten-Backups und das Enddatum jedes Backups aufgelistet. Sie können das Backup auswählen und den Speicherexport auf einem bestimmten Host durchführen.
 
 
 

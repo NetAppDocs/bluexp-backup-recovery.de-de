@@ -18,6 +18,7 @@ BlueXP Backup und Recovery für Applikationen bietet applikationskonsistente Dat
 
 * Oracle Datenbanken, die sich auf Amazon FSX für NetApp ONTAP, Cloud Volumes ONTAP und Azure NetApp Files befinden
 * SAP HANA-Systeme auf Azure NetApp Files
+* Microsoft SQL Server-Datenbanken auf Amazon FSX für NetApp ONTAP
 
 
 
@@ -139,4 +140,37 @@ Sie können verschiedene Planungsfrequenzen wie stündlich, täglich, wöchentli
 
 * Bei HSR-Konfiguration wird nur HSR mit 2 Nodes unterstützt (1 primäre und 1 sekundäre).
 * Die Aufbewahrung wird nicht ausgelöst, wenn das Postscript während der Wiederherstellung ausfällt
+
+
+
+
+== Sicherung von Microsoft SQL Server Datenbanken
+
+
+
+=== Funktionen
+
+* Host manuell hinzufügen und Plug-in bereitstellen
+* Ermitteln Sie die Datenbanken manuell
+* Erstellen Sie ein Backup von SQL Server Instanzen auf Amazon FSX for NetApp ONTAP
++
+** On-Demand-Backup
+** Geplantes Backup basierend auf der Richtlinie
+** Protokollsicherung der Microsoft SQL Server-Instanz
+
+
+* Stellen Sie die Datenbank am ursprünglichen Speicherort wieder her
+
+
+
+
+=== Einschränkungen
+
+* Backup wird nur für SQL Server-Instanzen unterstützt
+* Die Konfiguration der Failover-Cluster-Instanz (FCI) wird nicht unterstützt
+* Die BlueXP UI unterstützt keine für SQL-Datenbanken spezifischen Vorgänge
++
+Alle für Microsoft SQL Server-Datenbanken spezifischen Vorgänge werden mithilfe von REST-APIs ausgeführt.
+
+* Die Wiederherstellung an einem alternativen Speicherort wird nicht unterstützt
 

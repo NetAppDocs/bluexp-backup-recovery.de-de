@@ -16,7 +16,7 @@ summary: Erfahren Sie mehr über die Sicherung von Daten auf Ihren Virtual Machi
 [role="lead"]
 BlueXP Backup und Recovery für Virtual Machines bietet Funktionen zur Datensicherung durch Backup von Datastores und Restore von Virtual Machines.
 
-Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern und Virtual Machines wieder in das lokale SnapCenter Plug-in für den VMware vSphere Host zurücksetzen.
+Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern und Virtual Machines wieder in das lokale SnapCenter Plug-in für den VMware vSphere Host zurücksetzen. BlueXP Backup und Recovery für Virtual Machines unterstützt auch Connector-Proxy-Implementierungsmodell.
 
 .Bevor Sie beginnen
 Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie mit dem Backup von Datastores und Virtual Machines bei einem Cloud-Provider beginnen.
@@ -37,6 +37,7 @@ Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine u
 * Deaktivieren Sie „*_recent*“ für die erforderlichen Ressourcengruppen. Wenn Sie für die Ressourcengruppe „*_recent*“ aktiviert haben, können die Backups dieser Ressourcengruppen nicht für den Datenschutz in der Cloud verwendet und können anschließend nicht für den Wiederherstellungsvorgang verwendet werden.
 * Stellen Sie sicher, dass der Ziel-Datastore, auf dem die virtuelle Maschine wiederhergestellt wird, genügend Speicherplatz für eine Kopie aller VM-Dateien wie VMDK, VMX, VMSD usw. hat.
 * Stellen Sie sicher, dass im Zieldatenspeicher keine veralteten Dateien der virtuellen Maschine im Format restore_xxx_xxxxxx_filename aus dem vorherigen Wiederherstellungsvorgang vorliegen. Sie sollten die veralteten Dateien löschen, bevor Sie eine Wiederherstellung durchführen.
+* Um einen Konnektor mit konfiguriertem Proxy bereitzustellen, stellen Sie sicher, dass alle ausgehenden Verbindungsaufrufe über den Proxyserver weitergeleitet werden.
 
 
 Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die zwischen den Komponenten vorbereitet werden müssen:

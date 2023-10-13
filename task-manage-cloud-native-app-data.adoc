@@ -19,6 +19,9 @@ summary: Sie können die Sicherungsdetails anzeigen, den Status aller Jobs über
 
 Sie können den Status der Jobs überwachen, die in Ihren Arbeitsumgebungen initiiert wurden. Auf diese Weise können Sie die Aufträge sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die, die nicht erfolgreich abgeschlossen wurden, damit Sie Probleme diagnostizieren und beheben können.
 
+
+NOTE: Die geplanten Jobs werden auf der Seite BlueXP Job Monitor nach einer Verzögerung von maximal 5 Minuten nach Abschluss des Jobs aufgelistet.
+
 Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["Überwachen Sie den Jobstatus"].
 
 
@@ -113,7 +116,7 @@ Führen Sie nach der Aktualisierung der Connector-Details für Oracle- oder SAP 
 
 . Melden Sie sich beim Plug-in-Host an und führen Sie die folgenden Schritte aus:
 +
-.. Navigieren Sie zu _/var/opt/snapcenter/spl/etc_ und führen Sie den keytool-Befehl aus, um die Datei Certificate.p12 zu importieren.
+.. Navigieren Sie zu _/var/opt/snapcenter/spl/etc_ und führen Sie den Befehl keytool aus, um die Datei Certificate.pem zu importieren.
 `keytool -import -alias agentcert -file certificate.pem  -keystore keystore.jks -deststorepass snapcenter -noprompt`
 .. SPL neu starten: `systemctl restart spl`
 .. Führen Sie einen der folgenden Schritte aus:

@@ -16,6 +16,8 @@ summary: Führen Sie einige Schritte aus, um Applikationsdaten von ONTAP in Azur
 [role="lead"]
 Führen Sie ein paar Schritte durch, um die Applikationsdaten von ONTAP auf Microsoft Azure zu sichern.
 
+BlueXP unterstützt Datensperrung und Ransomware-Schutz. Wenn der ONTAP Cluster unter ONTAP 9.12.1 oder höher ausgeführt wird und Sie den Archiv-Storage nicht konfiguriert haben, können Sie die Backups vor dem Überschreiben, Löschen und Ransomware-Bedrohungen schützen.
+
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
 . Klicken Sie Auf image:icon-action.png["Symbol, um die Aktion auszuwählen"] Entsprechend der Anwendung und klicken Sie auf *Backup aktivieren*.
@@ -44,11 +46,12 @@ BlueXP Backup und Recovery für Applikationen unterstützen nur Cluster-Administ
 .. Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
 .. Erstellen Sie entweder eine neue Ressourcengruppe oder verwenden Sie eine vorhandene Ressourcengruppe.
 .. Geben Sie den IP-Speicherplatz an.
-.. Wählen Sie die Archivebene aus.
+.. Wählen Sie den Archiv-Tier aus, wenn Sie in der Richtlinie Archivspeicher konfiguriert haben.
 +
 Es wird empfohlen, die Archivebene einzustellen, da dies eine einmalige Aktivität ist und Sie sie später nicht einrichten können.
 
 
 
+. Konfigurieren Sie die Datensperrung und den Ransomware-Schutz.
 . Überprüfen Sie die Details und klicken Sie auf *Backup aktivieren*.
 

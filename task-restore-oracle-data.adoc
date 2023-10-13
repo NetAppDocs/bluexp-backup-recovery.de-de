@@ -37,10 +37,6 @@ Sie möchten den ursprünglichen Speicherort wiederherstellen
  a| 
 .. Wählen Sie *auf ursprünglichen Speicherort zurücksetzen*.
 .. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
-+
-
-NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
-
 .. Klicken Sie Auf *Weiter*.
 .. Wählen Sie *Datenbankstatus* aus, wenn Sie den Status der Datenbank in den Zustand ändern möchten, der für die Wiederherstellung und Wiederherstellung erforderlich ist.
 +
@@ -77,11 +73,10 @@ Sie möchten vorübergehend in einem anderen Speicher wiederherstellen und dann 
  a| 
 .. Wählen Sie *auf ursprünglichen Speicherort zurücksetzen*.
 .. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
-+
-
-NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
-
 .. Wählen Sie *Speicherort ändern*.
++
+Wenn Sie *Speicherort ändern* auswählen, können Sie ein Suffix an das Ziel-Volume anhängen. Wenn Sie das Kontrollkästchen nicht aktiviert haben, wird standardmäßig *_restore* an das Zielvolume angehängt.
+
 .. Klicken Sie Auf *Weiter*.
 .. Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die vom Objektspeicher wiederhergestellten Daten vorübergehend gespeichert werden.
 +
@@ -123,13 +118,12 @@ Sie möchten an einem alternativen Speicherort wiederherstellen
  a| 
 .. Wählen Sie *an alternativen Speicherort wiederherstellen*.
 .. Wenn sich der Snapshot im Archiv-Speicher befindet, wählen Sie die Priorität für die Wiederherstellung der Daten aus dem Archiv-Speicher aus.
-+
-
-NOTE: Nur wenn Sie Amazon Web Services oder Microsoft Azure als Cloud-Provider verwenden, müssen Sie die Priorität angeben.
-
 .. Gehen Sie wie folgt vor, wenn Sie einen alternativen Speicher wiederherstellen möchten:
 +
 ... Wählen Sie *Speicherort ändern*.
++
+Wenn Sie *Speicherort ändern* auswählen, können Sie ein Suffix an das Ziel-Volume anhängen. Wenn Sie das Kontrollkästchen nicht aktiviert haben, wird standardmäßig *_restore* an das Zielvolume angehängt.
+
 ... Klicken Sie Auf *Weiter*.
 ... Geben Sie auf der Seite Speicherzuordnung die Details zum alternativen Speicherort an, an dem die Daten aus dem Objektspeicher wiederhergestellt werden müssen.
 

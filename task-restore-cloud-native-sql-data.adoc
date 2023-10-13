@@ -1,0 +1,182 @@
+---
+sidebar: sidebar 
+permalink: task-restore-cloud-native-sql-data.html 
+keywords: restore, SQL database, BlueXP 
+summary: Sie können die SQL-Datenbank aus der Cloud auf demselben Host wiederherstellen. 
+---
+= Stellen Sie die Microsoft SQL Server-Datenbank wieder her
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können die Microsoft SQL Server-Datenbank auf demselben Host wiederherstellen. Sie sollten zuerst eine Liste der Datenbanken erhalten und dann die Datenbank wiederherstellen.
+
+
+
+== Liste der Datenbanken anzeigen
+
+Sie können diese API ausführen, um die Liste der Datenbanken anzuzeigen.
+
+'snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases' ERHALTEN
+
+Weitere Informationen finden Sie unter: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Databases/GetMSSQLDatabasesRequest[]
+
+
+
+=== Antwort
+
+Wenn die API erfolgreich ausgeführt wurde, wird der Antwortcode 200 angezeigt.
+
+Beispiel:
+
+[listing]
+----
+{
+    "num_records": 3,
+    "total_records": 3,
+    "records": [
+        {
+            "id": "348901e5-aeaa-419f-88b1-80240de3b1fe",
+            "name": "DB4",
+            "hostname": "scspa2722211001.rtp.openenglab.netapp.com",
+            "size": 0.078125,
+            "instance_id": "454c8413-5351-41fc-88bf-f20fb050ec87",
+            "instance": "scspa2722211001\\NAMEDINSTANCE1",
+            "db_status": "Normal",
+            "db_access": "eUndefined",
+            "db_type": "User",
+            "recovery_mode": "Full"
+        },
+        {
+            "id": "c79d33ab-7322-4ed6-92f5-51ad7a6944e0",
+            "name": "DB5",
+            "hostname": "scspa2722211001.rtp.openenglab.netapp.com",
+            "size": 0.078125,
+            "instance_id": "454c8413-5351-41fc-88bf-f20fb050ec87",
+            "instance": "scspa2722211001\\NAMEDINSTANCE1",
+            "db_status": "Normal",
+            "db_access": "eUndefined",
+            "db_type": "User",
+            "recovery_mode": "Full"
+        },
+        {
+            "id": "40d6f35a-f4fb-48bc-8e0a-0ac93ddf0888",
+            "name": "model",
+            "hostname": "scspa2722211001.rtp.openenglab.netapp.com",
+            "size": 0.015625,
+            "instance_id": "454c8413-5351-41fc-88bf-f20fb050ec87",
+            "instance": "scspa2722211001\\NAMEDINSTANCE1",
+            "db_status": "Normal",
+            "db_access": "eUndefined",
+            "db_type": "System",
+            "recovery_mode": "Full"
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
+
+
+== Stellen Sie die MSSQL-Datenbank wieder her
+
+Sie können diese API ausführen, um die MSSQL-Datenbank wiederherzustellen.
+
+„NACH snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases/{id}/restore'
+
+Wobei _id_ die MSSQL-Datenbank-ID ist, die durch Ausführen der View-Datenbank-API abgerufen wird. Weitere Informationen finden Sie unter <<Liste der Datenbanken anzeigen>>.
+
+Weitere Informationen finden Sie unter: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Database%20Restore/RestoreMSSQLDatabaseRequest[]
+
+Diese API erstellt einen Job, der über die Registerkarte *Job Monitor* in der BlueXP-Benutzeroberfläche verfolgt werden kann.
+
+
+
+=== Parameter
+
+|===
+| Name | Typ | Erforderlich 
+
+
+ a| 
+Backup_id
+ a| 
+Zeichenfolge
+ a| 
+Richtig
+
+
+
+ a| 
+Overwrite_Database
+ a| 
+bool
+ a| 
+Richtig
+
+
+
+ a| 
+Reased_Replication_settings
+ a| 
+bool
+ a| 
+Falsch
+
+
+
+ a| 
+Recovery_Modus
+ a| 
+Zeichenfolge
+
+Die 3 unterstützten Strings sind _Operational_, _nicht Operational_ und _ReadOnly_.
+ a| 
+Richtig
+
+
+
+ a| 
+Undo_File_Directory
+ a| 
+Zeichenfolge
+ a| 
+Richtig
+
+
+
+ a| 
+Restore_type
+ a| 
+Zeichenfolge
+ a| 
+Richtig
+
+|===
+
+
+=== Antwort
+
+Wenn die API erfolgreich ausgeführt wurde, wird der Antwortcode 202 angezeigt.
+
+Beispiel:
+
+[listing]
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----

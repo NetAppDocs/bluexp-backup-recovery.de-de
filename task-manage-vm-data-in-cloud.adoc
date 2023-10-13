@@ -89,7 +89,7 @@ Alle Datastores und virtuellen Maschinen, die mit dem SnapCenter-Plug-in für de
 
 == Überwachen Von Jobs
 
-Für alle Cloud-Backup-Vorgänge werden Jobs erstellt. Sie können alle Jobs und alle Unteraufgaben, die als Teil jeder Aufgabe ausgeführt werden, überwachen.
+Jobs werden für alle Backup- und Recovery-Vorgänge von BlueXP erstellt. Sie können alle Jobs und alle Unteraufgaben, die als Teil jeder Aufgabe ausgeführt werden, überwachen.
 
 . Klicken Sie auf *Sicherung und Wiederherstellung* > *Jobüberwachung*.
 +

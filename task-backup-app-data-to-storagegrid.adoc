@@ -16,6 +16,8 @@ summary: In wenigen Schritten wird ein Backup von Applikationsdaten von ONTAP in
 [role="lead"]
 Führen Sie ein paar Schritte durch, um die Applikationsdaten von ONTAP auf StorageGRID zu sichern.
 
+BlueXP unterstützt Datensperrung und Ransomware-Schutz. Wenn der ONTAP Cluster unter ONTAP 9.11.1 oder höher ausgeführt wird, sind die StorageGRID Systeme 11.6.0.3 oder höher. Wenn Sie keinen Archiv-Storage konfiguriert haben, können Sie die Backups vor dem Überschreiben, Löschen und Ransomware-Bedrohungen schützen.
+
 .Bevor Sie beginnen
 Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
 
@@ -52,7 +54,41 @@ Geben Sie die Details im Format FQDN:PORT ein.
 .. Geben Sie im Feld Zugriffsschlüssel den Schlüssel an.
 .. Geben Sie im Feld Geheimer Schlüssel das Passwort an.
 .. Geben Sie den IP-Speicherplatz an.
+.. Geben Sie den Archiv-Tier an, wenn Sie in der Richtlinie Archivspeicher konfiguriert haben.
++
+|===
+| Wenn Sie die Option... | Führen Sie folgende Schritte durch... 
 
 
+ a| 
+AWS
+ a| 
+... Wählen Sie entweder die StorageGRID aus der Dropdown-Liste aus, oder fügen Sie den StorageGRID-Cluster hinzu.
+... Geben Sie den AWS Account an.
+... Geben Sie im Feld AWS Access Key den Schlüssel an.
+... Geben Sie im Feld AWS Secret Key das Passwort an.
+... Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
+... Klicken Sie Auf *Speichern*.
+
+
+
+
+ a| 
+Azure
+ a| 
+... Wählen Sie im Dropdown-Menü den StorageGRID-Cluster aus, oder fügen Sie den Cluster hinzu.
+... Geben Sie die Azure Abonnement-ID an.
+... Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
+... Erstellen Sie entweder eine neue Ressourcengruppe oder verwenden Sie eine vorhandene Ressourcengruppe.
+... Klicken Sie Auf *Speichern*.
+
+
+|===
++
+Es wird empfohlen, die Archivebene einzustellen, da dies eine einmalige Aktivität ist und Sie sie später nicht einrichten können.
+
+
+
+. Konfigurieren Sie die Datensperrung und den Ransomware-Schutz.
 . Überprüfen Sie die Details und klicken Sie auf *Backup aktivieren*.
 

@@ -67,6 +67,9 @@ Sie sollten mindestens ein Backup am primären und sekundären Standort haben. S
 ** Nicht-Daten-Volumes (NDV) Ressourcen wie HANA-Binärdateien, HANA Archiv-Log-Volume, HANA Shared Volume usw.
 
 
+* MongoDB
+* MySQL
+* PostgreSQL
 
 
 Folgende Datenbanken werden nicht angezeigt:

@@ -22,6 +22,7 @@ Erstellen Sie eine Richtlinie für Backups von Applikationsdaten in der Cloud.
 ** Wenn Sie Amazon Web Services verwenden, sollten Sie ONTAP 9.10.1 oder höher verwenden
 ** Wenn Sie Microsoft Azure verwenden, sollten Sie ONTAP 9.10.1 oder höher verwenden
 ** Wenn Sie Google Cloud nutzen, sollten Sie ONTAP 9.12.1 oder höher verwenden
+** Wenn Sie StorageGRID verwenden, sollten Sie ONTAP 9.12.1 oder höher verwenden
 
 
 * Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.
