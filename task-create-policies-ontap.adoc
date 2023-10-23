@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-create-policies-ontap.html 
-keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, amazon s3, government 
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: Sie können Ihre Backups entweder mit den von NetApp bereitgestellten standardmäßigen Backup-Richtlinien oder mit benutzerdefinierten Richtlinien erstellen. Richtlinien regeln den Typ des Backups, die Backup-Architektur, die Speichersysteme und die Backup-Häufigkeit. 
 ---
 = Managen von Backup-Richtlinien für ONTAP Volumes
@@ -141,9 +141,9 @@ Diese Storage-Richtlinie befindet sich abhängig von der Backup-Architektur an v
 . Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.
 . Geben Sie die SnapMirror-Labels (maximal 5) an, die die Aufbewahrung für jedes Label kennzeichnen.
 . Geben Sie die Einstellungen an, einschließlich des Übertragungszeitplans und des Zeitplans für die Archivierung von Backups.
-. (Optional) um ältere Sicherungsdateien nach einer bestimmten Anzahl von Tagen in eine kostengünstigere Speicherklasse oder Zugriffsebene zu verschieben, wählen Sie die Option *Archiv* aus und geben die Anzahl der Tage an, die vergehen sollen, bevor die Daten archiviert werden.
+. (Optional) um ältere Sicherungsdateien nach einer bestimmten Anzahl von Tagen in eine kostengünstigere Speicherklasse oder Zugriffsebene zu verschieben, wählen Sie die Option *Archiv* aus und geben die Anzahl der Tage an, die vergehen sollen, bevor die Daten archiviert werden. Geben Sie *0* als „Archiv nach Tagen“ ein, um Ihre Sicherungsdatei direkt an den Archivspeicher zu senden.
 +
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#archival-storage-settings["Erfahren Sie mehr über die Storage-Einstellungen für Archive"].
+link:concept-cloud-backup-policies.html#archival-storage-settings["Erfahren Sie mehr über die Storage-Einstellungen für Archive"].
 
 . (Optional) Wählen Sie die Option *DataLock & Ransomware Protection* aus, um Ihre Backups vor Änderungen oder Löschungen zu schützen.
 +

@@ -1,14 +1,8 @@
-= Netzwerkanforderungen für Cloud Volumes ONTAP
+= Netzwerkanforderungen für On-Premises-ONTAP
 :allow-uri-read: 
 
 
-Bevor Sie Backups in BlueXP Backup und Recovery aktivieren, stellen Sie sicher, dass die Quell- und Zielsysteme die folgenden Netzwerkanforderungen erfüllen.
-
-
-
-==== Netzwerkanforderungen für Cloud Volumes ONTAP
-
-Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden Regeln enthalten: Speziell Regeln für ICMP und die Ports 11104 und 11105. Diese Regeln sind in der vordefinierten Sicherheitsgruppe enthalten.
+Wenn Sie planen, mithilfe von BlueXP Backup und Recovery replizierte Volumes auf einem sekundären ONTAP System zu erstellen, stellen Sie sicher, dass die Quell- und Zielsysteme die folgenden Netzwerkanforderungen erfüllen.
 
 
 
@@ -19,4 +13,11 @@ Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden R
 +
 Da Sie Daten auf Cloud Volumes ONTAP oder auf lokale Systeme replizieren können, prüfen Sie Peering-Anforderungen für lokale ONTAP Systeme. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Anzeigen von Voraussetzungen für Cluster-Peering in der ONTAP-Dokumentation"^].
 
+
+
+
+
+==== Netzwerkanforderungen für Cloud Volumes ONTAP
+
+* Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden Regeln enthalten: Speziell Regeln für ICMP und die Ports 11104 und 11105. Diese Regeln sind in der vordefinierten Sicherheitsgruppe enthalten.
 

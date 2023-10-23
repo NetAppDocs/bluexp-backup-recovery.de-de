@@ -311,10 +311,17 @@ endif::azure[]
 
 == Einstellungen für Archiv-Storage
 
-Bei Nutzung eines bestimmten Cloud-Storage können Sie ältere Backup-Dateien nach einer bestimmten Anzahl von Tagen auf eine kostengünstigere Storage-Klasse bzw. Zugriffsebene verschieben. Beachten Sie, dass Archivspeicher nicht verwendet werden kann, wenn Sie DataLock aktiviert haben.
+Beim Einsatz von AWS, Azure oder Google Cloud Storage können ältere Backup-Dateien nach einer bestimmten Anzahl von Tagen auf eine kostengünstigere Archiv-Storage-Klasse bzw. -Zugriffs-Tier verschoben werden. Sie haben auch die Möglichkeit, die Backup-Dateien sofort in den Archiv-Storage zu senden, ohne dafür in standardmäßigen Cloud-Storage geschrieben zu werden. Geben Sie einfach *0* als "Archiv nach Tagen" ein, um Ihre Sicherungsdatei direkt an den Archivspeicher zu senden. Dies kann insbesondere für Benutzer nützlich sein, die selten auf Daten aus Cloud-Backups zugreifen müssen oder Benutzer, die eine Tape-Backup-Lösung ersetzen.
 
-Auf Daten in Archivebenen kann nicht unmittelbar bei Bedarf zugegriffen werden und sind mit höheren Abrufkosten verbunden. Daher müssen Sie berücksichtigen, wie oft Sie Daten aus archivierten Backup-Dateien wiederherstellen müssen.
+Auf Daten auf Archiv-Tiers kann bei Bedarf nicht sofort zugegriffen werden und die Abrufkosten sind höher. Daher müssen Sie berücksichtigen, wie häufig Daten aus Backup-Dateien wiederhergestellt werden müssen, bevor Sie sich für die Archivierung Ihrer Backup-Dateien entscheiden.
 
+[NOTE]
+====
+* Archivspeicher kann nicht verwendet werden, wenn Sie DataLock aktiviert haben.
+* Sie können die Archivierungsrichtlinie nicht ändern, nachdem Sie *0* Tage (sofort archivieren) ausgewählt haben.
+
+
+====
 Jede Backup-Richtlinie enthält einen Abschnitt zur „ _Archivierungsrichtlinie_“, den Sie auf Ihre Backup-Dateien anwenden können.
 
 image:screenshot_archive_tier_settings.png["Ein Screenshot der Archivierungsrichtlinien-Einstellungen beim Erstellen einer Backup-Richtlinie"]

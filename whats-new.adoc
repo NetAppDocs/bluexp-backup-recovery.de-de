@@ -22,23 +22,21 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 
 
-=== 3-2-1 Policy-Erstellung während der Backup-Aktivierung
+=== 3-2-1 Erstellen der Backup-Richtlinie während der Backup-Aktivierung
 
-Zuvor mussten benutzerdefinierte Richtlinien erstellt werden, bevor Sie einen Snapshot, eine Replizierung oder ein Backup initiiert haben. Ab ONTAP 9.8 P5 können Sie jetzt mithilfe der BlueXP Backup- und Recovery-UI während der Backup-Aktivierung eine Richtlinie erstellen.
+Zuvor mussten benutzerdefinierte Richtlinien erstellt werden, bevor Sie einen Snapshot, eine Replizierung oder ein Backup initiiert haben. Sie können jetzt mithilfe der BlueXP Backup- und Recovery-UI eine Richtlinie während des Backup-Aktivierungsprozesses erstellen.
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html["Erfahren Sie mehr über Richtlinien"].
 
 
 
-=== Unterstützung für schnelle On-Demand Restores
+=== Unterstützung für schnelle On-Demand Restores von ONTAP Volumes
 
 Mit BlueXP Backup und Recovery lassen sich Volumes nun schnell von Cloud-Storage auf ein Cloud Volumes ONTAP System wiederherstellen. Die schnelle Wiederherstellung ist ideal für Disaster Recovery-Situationen, in denen Sie so schnell wie möglich Zugriff auf ein Volume gewährleisten müssen. Bei einer schnellen Wiederherstellung werden die Metadaten aus der Backup-Datei auf einem Volume wiederhergestellt, anstatt die gesamte Backup-Datei wiederherzustellen.
 
-Auf dem Cloud Volumes ONTAP Zielsystem muss ONTAP Version 9.13.0 oder höher ausgeführt werden.
+Auf dem Cloud Volumes ONTAP Zielsystem muss ONTAP Version 9.13.0 oder höher ausgeführt werden. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["Weitere Informationen zum Wiederherstellen von Daten"].
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["Weitere Informationen zum Wiederherstellen von Daten"].
-
-Der BlueXP Backup- und Recovery Job Monitor zeigt jetzt Informationen zu Jobs zur schnellen Wiederherstellung an.
+Der BlueXP Backup- und Recovery Job Monitor zeigt auch Informationen zum Fortschritt schneller Wiederherstellungsaufträge an.
 
 
 
@@ -100,6 +98,12 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 
 
 
+=== Sofortige Archivierung von Backup-Daten, ohne dass das erste Mal in den Standard-Storage geschrieben werden muss
+
+Jetzt können Sie die Backup-Dateien sofort an den Archiv-Storage senden, anstatt die Daten in standardmäßigen Cloud-Storage zu schreiben. Dies kann insbesondere für Benutzer nützlich sein, die selten auf Daten aus Cloud-Backups zugreifen müssen oder Benutzer, die eine Backup-auf-Tape-Umgebung ersetzen.
+
+
+
 === Zusätzliche Unterstützung für das Backup und die Wiederherstellung von SnapLock Volumes
 
 Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.
@@ -112,9 +116,12 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-clo
 
 [IMPORTANT]
 ====
-Aufgrund einer wichtigen Verbesserung der Sicherheit benötigt Ihr Connector nun ausgehenden Internetzugang auf einen zusätzlichen Endpunkt, um Backup- und Recovery-Ressourcen in Ihrer Public Cloud-Umgebung zu verwalten. Wenn dieser Endpunkt nicht zur Liste „zulässig“ in Ihrer Firewall hinzugefügt wurde, wird in der Benutzeroberfläche ein Fehler bezüglich „Dienst nicht verfügbar“ oder „Dienststatus konnte nicht ermittelt werden“ angezeigt:
-
+* Aufgrund einer wichtigen Verbesserung der Sicherheit benötigt Ihr Connector nun ausgehenden Internetzugang auf einen zusätzlichen Endpunkt, um Backup- und Recovery-Ressourcen in Ihrer Public Cloud-Umgebung zu verwalten. Wenn dieser Endpunkt nicht zur Liste „zulässig“ in Ihrer Firewall hinzugefügt wurde, wird in der Benutzeroberfläche ein Fehler bezüglich „Dienst nicht verfügbar“ oder „Dienststatus konnte nicht ermittelt werden“ angezeigt:
++
 \https://netapp-cloud-account.auth0.com
+
+* Wenn Sie das „CVO Professional“-Paket verwenden, mit dem Sie Backup und Recovery von Cloud Volumes ONTAP und BlueXP bündeln können, ist jetzt ein PAYGO-Abonnement für Backup und Recovery erforderlich. Dies war in der Vergangenheit nicht erforderlich. Für das Abonnement von Backup und Recovery für qualifizierte Cloud Volumes ONTAP Systeme fallen keine Gebühren an. Diese ist jedoch für die Konfiguration von Backups auf neuen Volumes erforderlich.
+
 
 ====
 
@@ -678,74 +685,3 @@ In der Vergangenheit wurde eine auf das ursprüngliche Volume wiederhergestellte
 === Per Drag-and-Drop können Sie Cloud-Backups in StorageGRID-Systemen aktivieren
 
 Wenn der https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["StorageGRID"^] Ziel für Ihre Backups ist als Arbeitsumgebung auf dem Canvas vorhanden, Sie können Ihre On-Prem ONTAP Arbeitsumgebung auf das Ziel ziehen, um den Cloud Backup-Setup-Assistenten zu starten.
-
-
-
-== 18. August 2022
-
-
-
-=== Der Schutz von Cloud-nativen Applikationsdaten wurde um zusätzlichen Support erweitert
-
-Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherungsfunktionen für Applikationen, die auf NetApp Cloud Storage ausgeführt werden. Cloud Backup für Applikationen in BlueXP ermöglicht effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP.
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-cloud-app-data-to-cloud.html["Weitere Informationen ."^].
-
-
-
-=== Die Suche & Wiederherstellung wird jetzt auch für Backup-Dateien in Azure Blob unterstützt
-
-Die Suchmethode zur Wiederherstellung von Volumes und Dateien steht jetzt für Benutzer zur Verfügung, die ihre Backup-Dateien in Azure Blob Storage speichern. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#prerequisites-2["Erfahren Sie, wie Sie Ihre Volumes und Dateien mithilfe von Search  Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen"^].
-
-Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderlich sind, um diese Funktion nutzen zu können. Ein Connector, der mit Software der Version 3.9.21 (August 2022) bereitgestellt wird, umfasst diese Berechtigungen. Wenn Sie den Connector mit einer früheren Version bereitgestellt haben, müssen Sie die Berechtigungen manuell hinzufügen. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["Lesen Sie, wie Sie diese Berechtigungen hinzufügen, falls erforderlich"^].
-
-
-
-=== Wir haben die Möglichkeit hinzugefügt, Ihre Backup-Dateien vor Löschungen und Ransomware-Angriffen zu schützen
-
-Cloud Backup unterstützt jetzt Objekt-Lock-Support für Ransomware-sichere Backups. Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet und Ihr Backup-Ziel Amazon S3 ist, steht jetzt eine neue Backup-Policy-Option namens _DataLock und Ransomware Protection_ zur Verfügung. DataLock schützt Ihre Backup-Dateien vor Änderungen oder Löschung. Ransomware-Schutz scannt Ihre Backup-Dateien, um nach einem Ransomware-Angriff auf Ihre Backup-Dateien zu suchen. https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr darüber, wie Sie mit DataLock- und Ransomware-Schutz Ihre Backups schützen können"^].
-
-Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderlich sind, um diese Funktion nutzen zu können. Ein Connector, der mit der Software Version 3.9.21 bereitgestellt wird, enthält diese Berechtigungen. Wenn Sie den Connector mit einer früheren Version bereitgestellt haben, müssen Sie die Berechtigungen manuell hinzufügen. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-aws.html#set-up-s3-permissions["Lesen Sie, wie Sie diese Berechtigungen bei Bedarf hinzufügen"^].
-
-
-
-=== Cloud Backup unterstützt jetzt Richtlinien, die mithilfe benutzerdefinierter SnapMirror Labels erstellt werden
-
-Zuvor unterstützte Cloud Backup nur vordefinierte SnapMirror Labels wie stündlich, täglich, wöchentlich, stündlich oder jährlich. Jetzt kann Cloud Backup SnapMirror Richtlinien erkennen, die über individuelle SnapMirror-Labels verfügen, die Sie mit System Manager oder der CLI erstellt haben. Diese neuen Bezeichnungen werden der Cloud Backup-UI ausgesetzt. Damit können Sie Volumes mit dem SnapMirror Label Ihrer Wahl in der Cloud sichern.
-
-
-
-=== Zusätzliche Verbesserung der Backup-Richtlinien für ONTAP Systeme
-
-Einige Seiten der Backup-Richtlinien wurden neu gestaltet, um alle für Volumes in jedem ONTAP Cluster verfügbaren Backup-Richtlinien einfacher anzuzeigen. Dadurch sind die Details der verfügbaren Richtlinien einfacher abrufbar, damit Sie die besten Richtlinien auf Ihren Volumes anwenden können.
-
-
-
-=== Aktivieren Sie Cloud Backup per Drag-and-Drop in Azure Blob und Google Cloud Storage
-
-Wenn der https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-azure-blob.html["Azure Blob"^] Oder https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-gcp-storage.html["Google Cloud Storage"^] Ziel für Ihre Backups ist als Arbeitsumgebung auf dem Canvas vorhanden. Sie können Ihre On-Prem ONTAP oder Cloud Volumes ONTAP Arbeitsumgebung (installiert in Azure oder GCP) auf das Ziel ziehen, um den Backup-Setup-Assistenten zu starten.
-
-Für Amazon S3 Buckets ist diese Funktion bereits vorhanden.
-
-
-
-== 13 Juli 2022
-
-
-
-=== SnapLock Enterprise Volumes werden jetzt zusätzlich unterstützt
-
-Mit Cloud Backup lassen sich jetzt SnapLock Enterprise Volumes in Public und Private Clouds sichern. Für diese Funktion muss auf Ihrem ONTAP System ONTAP 9.11.1 oder höher ausgeführt werden. SnapLock Compliance Volumes werden derzeit jedoch nicht unterstützt.
-
-
-
-=== Bei Verwendung eines On-Premises-Connectors können Sie jetzt Backup-Dateien in der Public Cloud erstellen
-
-Früher mussten Sie den Connector im selben Cloud-Provider implementieren, als wo Sie Backup-Dateien erstellt haben. Mit einem Connector, der in Ihrem Standort implementiert ist, können Sie jetzt Backup-Dateien von On-Premises-ONTAP-Systemen über Amazon S3, Azure Blob und Google Cloud Storage erstellen. (Bei der Erstellung von Sicherungsdateien auf StorageGRID Systemen war immer ein On-Prem-Connector erforderlich.)
-
-
-
-=== Wenn Backup-Richtlinien für ONTAP Systeme erstellt werden, sind zusätzliche Funktionen verfügbar
-
-* Das Backup steht nun gemäß jährlicher Planung zur Verfügung. Der Standardwert für die Aufbewahrung ist 1 für jährliche Backups. Sie können diesen Wert jedoch ändern, wenn Sie auf die Backup-Dateien vieler Jahre zugreifen möchten.
-* Sie können Ihre Backup-Richtlinien benennen, damit Sie Ihre Richtlinien mit beschreibenden Text identifizieren können.
-

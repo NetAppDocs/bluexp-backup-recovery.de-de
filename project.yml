@@ -27,7 +27,11 @@ sidebar:
   - title: BlueXP Backup- und Recovery-Dokumentation
     url: "/index.html"
   - title: Versionshinweise
-    url: "/whats-new.html"
+    entries:
+    - title: Was ist neu
+      url: "/whats-new.html"
+    - title: Bekannte Einschränkungen
+      url: "/reference-limitations.html"
   - title: Los geht's
     entries:
     - title: Erfahren Sie mehr über BlueXP Backup und Recovery
