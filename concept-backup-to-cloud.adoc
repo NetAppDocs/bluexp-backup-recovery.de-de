@@ -18,7 +18,7 @@ Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengü
 
 Der Service führt eine dauerhaft inkrementelle Replizierung auf Blockebene durch und erhält die gesamte Storage-Effizienz aufrecht, wodurch sich die Menge der replizierten und gespeicherten Daten erheblich verringert. Darüber hinaus zahlen Sie nur für das, was geschützt ist, und verwenden die kostengünstigsten verfügbaren Storage-Tiers, was BlueXP Backup und Recovery zu einer sehr kostengünstigen Lösung macht.
 
-Bei Bedarf können Sie ein ganzes _Volume_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherstellen. Beim Backup von ONTAP-Daten können Sie auch auswählen, eine oder mehrere _Dateien_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherzustellen.
+Bei Bedarf können Sie ein ganzes _Volume_ von einem Backup in dieselbe oder andere Arbeitsumgebung wiederherstellen. Beim Sichern von ONTAP-Daten können Sie auch wählen, ob Sie einen Ordner oder eine oder mehrere _Dateien_ aus einem Backup in derselben oder einer anderen Arbeitsumgebung wiederherstellen möchten.
 
 https://bluexp.netapp.com/cloud-backup["Erfahren Sie mehr über Backup und Recovery von BlueXP"^].
 
@@ -49,7 +49,7 @@ image:diagram_cloud_backup_general.png["Diagramm, das die Kommunikation von Blue
 
 === Speicherort von Backups
 
-Backup-Kopien werden in einem Objektspeicher gespeichert, den BlueXP in Ihrem Cloud-Konto erstellt. Es gibt einen Objektspeicher pro Cluster bzw. eine Arbeitsumgebung, die BlueXP wie folgt nennt: `netapp-backup-clusteruuid`. Stellen Sie sicher, dass Sie diesen Objektspeicher nicht löschen.
+Backup-Kopien werden in einem Objektspeicher gespeichert, den BlueXP in Ihrem Cloud-Konto erstellt. Pro Cluster bzw. Arbeitsumgebung gibt es einen Objektspeicher, den BlueXP wie folgt nennt: `netapp-backup-clusteruuid`. Stellen Sie sicher, dass Sie diesen Objektspeicher nicht löschen.
 
 ifdef::aws[]
 
@@ -73,11 +73,12 @@ ifdef::gcp[]
 endif::gcp[]
 
 * In StorageGRID verwendet BlueXP ein vorhandenes Storage-Konto für den Objektspeicher-Bucket.
+* In ONTAP S3 verwendet BlueXP ein vorhandenes Benutzerkonto für den S3-Bucket.
 
 
 
 
-=== Backups werden um Mitternacht erstellt
+=== Wann werden Backups erstellt
 
 * Stündliche Backups beginnen 5 Minuten nach der Stunde, jede Stunde.
 * Tägliche Backups beginnen jeden Tag kurz nach Mitternacht.

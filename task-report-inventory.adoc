@@ -53,7 +53,7 @@ Der Bericht Backup Inventory enthält folgende Informationen und weitere Informa
 * Data Lock- und Ransomware-Sicherungsstatus (Governance, Compliance oder keine)
 * Status „Archiv aktiviert“
 * Anzahl der Backup-Kopien
-* Backup-Typ (geplante oder vom Benutzer initiierte Ad-hoc-Sicherung)
+* Backup-Typ (geplantes oder benutzerinitiiertes Ad-hoc-Backup)
 * Storage-Klasse
 * Snapshot-Etikett
 
@@ -83,6 +83,7 @@ Der Bericht Backup Inventory enthält die folgenden Diagramme:
 TIP: Sie können mehrere Arbeitsumgebungen und SVMs auswählen.
 
 . Wählen Sie den Zeitrahmen aus: Letzte 24 Stunden, Woche oder Monat.
+. Prüfen Sie die Berichtsabschnitte (Snapshot-Richtlinien, Replikationsrichtlinien oder Backup-Richtlinien), abhängig von Ihrer Berichtsauswahl.
 . (Optional) Filtern Sie die Ergebnisse nach Jobstatus.
 . (Optional) Exportieren Sie den Berichtinhalt im CSV-Format, indem Sie *CSV herunterladen* auswählen.
 
@@ -93,7 +94,7 @@ TIP: Sie können mehrere Arbeitsumgebungen und SVMs auswählen.
 
 Proaktives Monitoring kann den Aufwand reduzieren, der für das Monitoring aller Ressourcen in Ihrem System erforderlich ist. Ab ONTAP 9.13.0 bietet der Bericht Aktivitäten zu Datensicherungsjobs Informationen zu Snapshot-, Backup-, Klon- und Wiederherstellungsvorgängen. Diese können Sie mit der SLA-Überwachung verwenden und die Backup- und Recovery-Raten nachverfolgen.
 
-Der Bericht bezieht sich auf die Backup- und Recovery-Vorgänge von BlueXP für Cloud Volumes ONTAP, lokal, für Applikationen und Kubernetes.
+Der Bericht bezieht sich auf Backup- und Recovery-Vorgänge von BlueXP für Cloud Volumes ONTAP Daten, lokal ebenso wie für Applikationen und Kubernetes.
 
 Der Bericht „Data Protection Job Activity“ enthält die folgenden Informationen und weitere Informationen:
 

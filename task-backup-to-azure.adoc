@@ -325,7 +325,7 @@ Auf der Seite Einführung des Assistenten werden die Schutzoptionen einschließl
 
 === Wählen Sie die Volumes aus, die Sie sichern möchten
 
-Wählen Sie die Volumes aus, die Sie schützen möchten. Ein geschütztes Volume verfügt über eine oder mehrere der folgenden Elemente: Snapshot-Richtlinie, Replizierungsrichtlinie und Richtlinie für das Backup in ein Objekt.
+Wählen Sie die Volumes aus, die Sie schützen möchten. Ein geschütztes Volume verfügt über eine oder mehrere der folgenden Elemente: Snapshot-Richtlinie, Replizierungsrichtlinie und Backup-to-Object-Richtlinie.
 
 Sie können FlexVol- oder FlexGroup-Volumes schützen. Sie können jedoch keine Kombination dieser Volumes auswählen, wenn Sie Backups für eine funktionierende Umgebung aktivieren. Informieren Sie sich darüber link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment["Aktivieren Sie das Backup für zusätzliche Volumes in der Arbeitsumgebung"] (FlexVol oder FlexGroup), nachdem Sie das Backup für die ersten Volumes konfiguriert haben.
 
@@ -342,7 +342,7 @@ Beachten Sie, dass die Richtlinien, die Sie später auswählen, diese vorhandene
 . Wählen Sie auf der Seite Volumes auswählen das Volume oder die Volumes aus, die Sie schützen möchten.
 +
 ** Optional können Sie die Zeilen so filtern, dass nur Volumes mit bestimmten Volumentypen, Stilen und mehr angezeigt werden, um die Auswahl zu erleichtern.
-** Nachdem Sie das erste Volume ausgewählt haben, können Sie alle FlexVol Volumes auswählen (FlexGroup Volumes können nur einzeln ausgewählt werden). Um alle vorhandenen FlexVol-Volumes zu sichern, aktivieren Sie zuerst ein Volume und dann das Kontrollkästchen in der Titelzeile. (image:button_backup_all_volumes.png[""]).
+** Nachdem Sie das erste Volume ausgewählt haben, können Sie alle FlexVol-Volumes auswählen. (FlexGroup Volumes können nur einzeln ausgewählt werden.) Um alle vorhandenen FlexVol-Volumes zu sichern, aktivieren Sie zuerst ein Volume und dann das Kontrollkästchen in der Titelzeile. (image:button_backup_all_volumes.png[""]).
 ** Um einzelne Volumes zu sichern, aktivieren Sie das Kontrollkästchen für jedes Volume (image:button_backup_1_volume.png[""]).
 
 
@@ -383,18 +383,36 @@ Einzelheiten zu diesen Architekturen finden Sie unter link:concept-protection-jo
 
 
 
-. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie.
+. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie aus oder erstellen Sie eine.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung des Snapshots finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+** Geben Sie den Namen der Richtlinie ein.
+** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+** Wählen Sie *Erstellen*.
+
 
 . *Replikation*: Stellen Sie die folgenden Optionen ein:
 +
 ** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat oder die Aggregate und das Präfix oder Suffix aus, die dem Namen des replizierten Volumes hinzugefügt werden sollen.
-** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie.
+** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Replikation finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
 
 
 
@@ -439,10 +457,19 @@ NOTE: Wenn Sie ein vorhandenes Microsoft Storage-Konto ausgewählt haben, sind V
 ... Wählen Sie optional aus, ob Sie einen zuvor konfigurierten privaten Azure-Endpunkt verwenden möchten. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview["Informieren Sie sich über die Verwendung eines privaten Azure Endpunkts"].
 
 
-** *Backup Policy*: Wählen Sie eine vorhandene Richtlinie für das Backup auf Objekt-Storage aus.
+** *Backup-Richtlinie*: Wählen Sie eine vorhandene Richtlinie für Backup-to-Object-Storage aus.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Sicherung finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
 
 ** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
 

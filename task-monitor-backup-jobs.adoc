@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
-summary: Sie können den Status von lokalen Snapshots, Replikationen und von Ihnen initiierten Backup-to-Object-Speicherjobs überwachen und von Ihnen initiierte Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt. 
+summary: Sie können den Status von lokalen Snapshots, Replikationen und Backup-to-Object-Speicherjobs überwachen, die Sie initiiert oder geplant haben, und die von Ihnen initiierten oder geplanten Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt. 
 ---
 = Überwachen des Status von Backup- und Wiederherstellungsjobs
 :hardbreaks:
@@ -31,7 +31,7 @@ Der Status kann lauten:
 * Fehlgeschlagen
 
 
-Snapshots, Replikationen, Backups in Objektspeicher und Wiederherstellungsvorgänge, die Sie über die BlueXP Backup- und Recovery-Benutzeroberfläche und -API initiiert haben, sowie systeminitiierte Jobs wie laufende geplante Backup-Vorgänge stehen auf der Registerkarte Jobüberwachung zur Verfügung. Dies gilt jedoch nur für Cloud Volumes ONTAP Systeme mit ONTAP 9.13.0 oder höher sowie für lokale ONTAP Systeme mit ONTAP 9.13.1 oder höher. Bei der Ausführung früherer ONTAP-Versionen werden nur vom Benutzer initiierte Jobs angezeigt.
+Snapshots, Replikationen, Backups in Objektspeicher und Wiederherstellungsvorgänge, die Sie über die BlueXP Backup- und Recovery-Benutzeroberfläche und -API initiiert haben, stehen auf der Registerkarte Jobüberwachung zur Verfügung.
 
 
 NOTE: Wenn Sie ein Upgrade Ihrer ONTAP Systeme auf 9.13.x durchgeführt haben und keine laufenden geplanten Backup-Vorgänge in der Jobüberwachung angezeigt werden, müssen Sie den BlueXP Backup- und Recovery-Service neu starten. link:reference-restart-backup.html["Erfahren Sie, wie Sie BlueXP Backup und Recovery neu starten"].
@@ -128,7 +128,7 @@ Sie können den Inhalt der Hauptseite zur Jobüberwachung als Bericht herunterla
 
 == Überprüfung von Aufbewahrungsjobs (Backup-Lebenszyklus
 
-Die Überwachung der Aufbewahrungsströme (Backup-Lebenszyklus) unterstützt Sie bei der Vollständigkeit, Verantwortlichkeit und Sicherheit von Audits. Um den Backup-Lebenszyklus nachzuverfolgen, empfiehlt es sich, den Ablauf aller Backup-Kopien zu ermitteln.
+Die Überwachung der Aufbewahrungsabläufe (oder _Backup Lifecycle_) unterstützt Sie bei der Vollständigkeit, Verantwortlichkeit und Sicherheit von Audits. Um den Backup-Lebenszyklus nachzuverfolgen, empfiehlt es sich, den Ablauf aller Backup-Kopien zu ermitteln.
 
 Ein Backup Lifecycle-Job verfolgt alle gelöschten oder zu löschenden Snapshot Kopien in der Warteschlange. Ab ONTAP 9.13 können Sie sich auf der Seite Jobüberwachung alle Jobtypen mit dem Namen „Aufbewahrung“ ansehen.
 
@@ -137,7 +137,7 @@ Der Jobtyp „Aufbewahrung“ erfasst alle Snapshot Löschjobs, die auf einem Vo
 .Schritte
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.
 . Wählen Sie den Bereich *Erweiterte Suche & Filterung* aus, um das Suchfeld zu öffnen.
-. Wählen Sie den Jobtyp „Aufbewahrung“ aus.
+. Wählen Sie als Jobtyp „Aufbewahrung“ aus.
 
 
 

@@ -597,20 +597,38 @@ Einzelheiten zu diesen Architekturen finden Sie unter link:concept-protection-jo
 
 
 
-. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie.
+. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie aus oder erstellen Sie eine Policy.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung des Snapshots finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+** Geben Sie den Namen der Richtlinie ein.
+** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+** Wählen Sie *Erstellen*.
+
 
 . *Replikation*: Stellen Sie die folgenden Optionen ein:
 +
 ** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat oder die Aggregate und das Präfix oder Suffix aus, die dem Namen des replizierten Volumes hinzugefügt werden sollen.
-** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie.
-
-
+** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine Policy.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Replikation finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
+
+
 
 . *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
 +
@@ -634,10 +652,19 @@ NOTE: Wenn Sie einen vorhandenen Bucket ausgewählt haben, sind Verschlüsselung
 ... Wählen Sie optional aus, ob Sie einen AWS PrivateLink verwenden möchten, den Sie zuvor konfiguriert haben. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Weitere Informationen zur Verwendung von AWS PrivateLink für Amazon S3 finden Sie unter"^].
 
 
-** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus.
+** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus oder erstellen Sie eine Policy.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Sicherung finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
 
 ** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
 

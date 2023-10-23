@@ -135,9 +135,9 @@ Sie nutzen das Digital Wallet von BlueXP zum Management von BYOL-Lizenzen. Sie k
 
 === Rufen Sie die Lizenzdatei für das Backup und Recovery von BlueXP ab
 
-Nachdem Sie Ihre BlueXP Backup- und Recovery-Lizenz (Cloud Backup) erworben haben, aktivieren Sie die Lizenz in BlueXP entweder durch Eingabe der Seriennummer und des NSS-Kontos für das Backup und Recovery von BlueXP oder durch Hochladen der NLF-Lizenzdatei. Die folgenden Schritte zeigen, wie Sie die Lizenzdatei NLF abrufen können, wenn Sie diese Methode verwenden möchten.
+Nachdem Sie Ihre BlueXP Lizenz für Backup und Recovery (Cloud-Backup) erworben haben, aktivieren Sie die Lizenz in BlueXP entweder durch Eingabe der Seriennummer und des NSS-Kontos (NetApp Backup und Recovery) oder durch Hochladen der NetApp Lizenzdatei. Die folgenden Schritte zeigen, wie Sie die Lizenzdatei NLF abrufen können, wenn Sie diese Methode verwenden möchten.
 
-Wenn Sie BlueXP Backup und Recovery auf einer lokalen Site ohne Internetzugang ausführen, haben Sie den BlueXP Connector in implementiert https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode["Privater Modus"^], Sie müssen die Lizenzdatei von einem mit dem Internet verbundenen System beziehen. Die Aktivierung der Lizenz unter Verwendung der Seriennummer und des NSS-Kontos ist für Installationen im Privatmodus nicht verfügbar.
+Wenn Sie BlueXP Backup und Recovery auf einer lokalen Site ohne Internetzugang ausführen, haben Sie den BlueXP Connector in implementiert https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode["Privater Modus"^], Sie müssen die Lizenzdatei von einem mit dem Internet verbundenen System beziehen. Die Aktivierung der Lizenz unter Verwendung der Seriennummer und des NetApp Support-Website-Kontos ist für Installationen im privaten Modus nicht verfügbar.
 
 .Bevor Sie beginnen
 Sie müssen die folgenden Informationen haben, bevor Sie beginnen:

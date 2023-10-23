@@ -16,7 +16,7 @@ summary: Sie können Ihre Backups entweder mit den von NetApp bereitgestellten s
 [role="lead"]
 Sie können Ihre Backups entweder mit den von NetApp bereitgestellten standardmäßigen Backup-Richtlinien oder mit benutzerdefinierten Richtlinien erstellen. Richtlinien regeln die Sicherungshäufigkeit, die Dauer der Sicherung und die Anzahl der Sicherungsdateien, die aufbewahrt werden.
 
-Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, müssen Sie die Richtlinie erstellen, bevor Sie den Aktivierungsassistenten starten.
+Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, können Sie die Richtlinie vor oder während der Verwendung des Aktivierungsassistenten erstellen.
 
 Weitere Informationen zu den standardmäßigen Backup-Richtlinien finden Sie unter link:concept-protection-journey.html["Planen Sie Ihren Weg zum Schutz"].
 
@@ -62,14 +62,19 @@ Snapshot-Richtlinien werden standardmäßig angezeigt.
 
 
 
-== Erstellen einer Snapshot-Richtlinie
+== Erstellen Sie eine Snapshot-Richtlinie, bevor Sie den Snapshot initiieren
 
 Ein Teil Ihrer 3-2-1-5-Strategie umfasst die Erstellung einer Snapshot Kopie des Volumes auf dem *primären* Storage-System.
 
 Während des Richtlinienerstellungsprozesses werden Snapshot- und SnapMirror-Labels identifiziert, die auf Zeitplan und Aufbewahrung hinweisen. Sie können vordefinierte Beschriftungen verwenden oder eigene erstellen.
 
 .Schritte
-. Wählen Sie auf der Seite Policies *Create New Policy* > *Create Snapshot Policy* aus.
+. Wählen Sie in der BlueXP-Benutzeroberfläche *Volumes* > *Backup-Einstellungen* aus.
+. Wählen Sie auf der Seite Backup Settings die Arbeitsumgebung aus und wählen Sie die Option *actions* image:icon-action.png["Aktionssymbol"] Und wählen Sie *Richtlinienverwaltung* aus.
++
+Die Seite Richtlinienverwaltung wird angezeigt.
+
+. Wählen Sie auf der Seite Policies *Create Policy* > *Create Snapshot Policy* aus.
 . Geben Sie den Richtliniennamen an.
 . Wählen Sie den Snapshot Zeitplan oder die Zeitpläne aus. Sie können maximal 5 Etiketten haben. Oder erstellen Sie einen Zeitplan.
 . Wenn Sie einen Zeitplan erstellen möchten:
@@ -107,12 +112,12 @@ In diesem Beispiel wird eine Snapshot-Richtlinie mit zwei Clustern erstellt:
 
 
 
-== Erstellen Sie eine Replikationsrichtlinie
+== Erstellen Sie eine Replikationsrichtlinie, bevor Sie die Replikation starten
 
 Ihre Strategie für 3-2-1-1 kann auch die Replizierung eines Volumes auf einem anderen Storage-System umfassen. Die Replikationsrichtlinie befindet sich auf dem *sekundären* Speichersystem.
 
 .Schritte
-. Wählen Sie auf der Seite Policies *Create New Policy* > *Create New Replication Policy* aus.
+. Wählen Sie auf der Seite Policies *Create Policy* > *Create Replication Policy* aus.
 . Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.
 . Geben Sie die SnapMirror-Labels (maximal 5) an, die die Aufbewahrung für jedes Label kennzeichnen.
 . Geben Sie den Übertragungszeitplan an.
@@ -121,7 +126,7 @@ Ihre Strategie für 3-2-1-1 kann auch die Replizierung eines Volumes auf einem a
 
 
 
-== Erstellen einer Richtlinie für Backup-to-Object-Storage
+== Erstellen Sie vor dem Initiieren des Backups eine Richtlinie für Backup-to-Object-Storage
 
 Ihre 3-2-1-1-Strategie umfasst unter Umständen auch Backups von Volumes auf Objekt-Storage.
 
@@ -132,7 +137,7 @@ Diese Storage-Richtlinie befindet sich abhängig von der Backup-Architektur an v
 
 
 .Schritte
-. Wählen Sie auf der Seite Policy Management *Create New Policy* > *Create New Backup Policy* aus.
+. Wählen Sie auf der Seite Policy Management *Create Policy* > *Create Backup Policy* aus.
 . Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.
 . Geben Sie die SnapMirror-Labels (maximal 5) an, die die Aufbewahrung für jedes Label kennzeichnen.
 . Geben Sie die Einstellungen an, einschließlich des Übertragungszeitplans und des Zeitplans für die Archivierung von Backups.

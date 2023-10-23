@@ -413,22 +413,38 @@ Einzelheiten zu diesen Architekturen finden Sie unter link:concept-protection-jo
 
 
 
-. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie.
+. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie aus oder erstellen Sie eine neue.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter
-link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung des Snapshots finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+** Geben Sie den Namen der Richtlinie ein.
+** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+** Wählen Sie *Erstellen*.
+
 
 . *Replikation*: Stellen Sie die folgenden Optionen ein:
 +
 ** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat oder die Aggregate und das Präfix oder Suffix aus, die dem Namen des replizierten Volumes hinzugefügt werden sollen.
-** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie.
-
-
+** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter
-link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Replikation finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
+
+
 
 . *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
 +
@@ -442,17 +458,25 @@ Der Zugriffsschlüssel und der geheime Schlüssel gelten für den IAM-Benutzer, 
 
 TIP: Durch Auswahl des korrekten IPspaces wird sichergestellt, dass BlueXP Backup und Recovery eine Verbindung von ONTAP zu Ihrem StorageGRID Objekt-Storage einrichten können.
 
-** *Backup Policy*: Wählen Sie eine vorhandene Richtlinie für das Backup auf Objekt-Storage aus.
+** *Backup Policy*: Wählen Sie eine vorhandene Richtlinie für das Objekt-Storage-Backup aus oder erstellen Sie eine.
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie finden Sie unter
-link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Sicherung finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
 
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
 +
 Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie _DataLock und Ransomware Protection_ konfigurieren. _DataLock_ schützt Ihre Backup-Dateien vor Modified oder Deleted, und _Ransomware Protection_ scannt Ihre Backup-Dateien, um nach Anzeichen für einen Ransomware-Angriff in Ihren Backup-Dateien zu suchen. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"^].
 
 +
 Wenn in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird und Ihr StorageGRID System Version 11.4 oder höher verwendet, können Sie ältere Backups nach einer bestimmten Anzahl von Tagen in Tiers aus Public-Cloud-Archiven verschieben. Aktuell werden weitere Support für AWS S3 Glacier/S3 Glacier Deep Archive oder Azure Archive Storage Tiers unterstützt. <<Preparing to archive older backup files to public cloud storage,Lesen Sie, wie Sie Ihre Systeme für diese Funktion konfigurieren>>.
+
+
 
 ** *Tiering Backup in Public Cloud*: Wählen Sie den Cloud-Provider aus, zu dem Sie Backups verschieben möchten, und geben Sie die Provider-Details ein.
 +

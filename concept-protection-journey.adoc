@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protection-journey.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, on-premises ontap, onprem, replication, backup and recovery 
+keywords: backing up, restoring, recovery, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, on-premises ontap, onprem, replication, backup and recovery 
 summary: Der BlueXP Backup- und Recovery-Service ermöglicht das Erstellen von bis zu drei Kopien Ihrer Quell-Volumes zum Schutz Ihrer Daten. Es gibt viele Optionen, die Sie auswählen können, wenn Sie diesen Service auf Ihren Volumes aktivieren. Daher sollten Sie Ihre Auswahl überprüfen, um vorbereitet zu sein. 
 ---
 = Planen Sie Ihren Weg zum Schutz
@@ -20,7 +20,7 @@ Wir gehen auf die folgenden Optionen ein:
 
 * Welche Sicherungsfunktionen kommen für Sie zum Einsatz: Snapshot Kopien, replizierte Volumes und/oder Backup in der Cloud
 * Welche Backup-Architektur verwenden Sie? Ein Kaskadierungs- oder Fan-out-Backup Ihrer Volumes
-* Werden Sie die standardmäßigen Backup-Richtlinien verwenden oder müssen Sie vor Beginn benutzerdefinierte Richtlinien erstellen
+* Werden die standardmäßigen Backup-Richtlinien verwendet oder müssen Sie benutzerdefinierte Richtlinien erstellen
 * Soll der Service die Cloud-Buckets für Sie erstellen oder sollen Sie vor dem Start eine Objekt-Storage-Container erstellen
 * Welchen BlueXP Connector-Implementierungsmodus verwenden Sie (Standard, eingeschränkter oder privater Modus)?
 
@@ -58,7 +58,7 @@ Zusammengefasst sind dies die gültigen Sicherheitsflüsse, die Sie für Volumes
 
 
 
-NOTE: Bei der anfänglichen Erstellung eines replizierten Volumes oder einer Backup-Datei ist eine vollständige Kopie der Quelldaten enthalten – dies wird als Basistransfer bezeichnet. Nachfolgende Transfers enthalten nur differenzielle Kopien der Quelldaten (der Snapshot).
+NOTE: Die anfängliche Erstellung eines replizierten Volumes oder einer Backup-Datei beinhaltet eine vollständige Kopie der Quelldaten – dies wird als _Baseline Transfer_ bezeichnet. Nachfolgende Transfers enthalten nur differenzielle Kopien der Quelldaten (der Snapshot).
 
 
 
@@ -113,19 +113,21 @@ Diese Tabelle bietet einen Vergleich der Fan-out- und Kaskadenarchitekturen.
 |===
 
 
-== Werden die standardmäßigen Backup-Richtlinien für Snapshots, Replikationen und Backups verwendet
+== Werden die standardmäßigen Backup-Richtlinien für Snapshot Kopien, Replikationen und Backups verwendet
 
-Sie können Ihre Backups entweder über die von NetApp bereitgestellten Standardrichtlinien oder über benutzerdefinierte Richtlinien erstellen. Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, müssen Sie die Richtlinie erstellen, bevor Sie den Aktivierungsassistenten starten.
+Sie können Ihre Backups entweder über die von NetApp bereitgestellten Standardrichtlinien oder über benutzerdefinierte Richtlinien erstellen. Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, können Sie die Richtlinie vor dem Starten oder während der Verwendung des Aktivierungsassistenten erstellen.
 
 * Die Standard-Snapshot-Richtlinie erstellt stündliche, tägliche und wöchentliche Snapshot-Kopien und behält 6 stündliche, 2 tägliche und 2 wöchentliche Snapshot-Kopien bei.
 * Die Standard-Replizierungsrichtlinie repliziert tägliche und wöchentliche Snapshot-Kopien und behält 7 tägliche und 52 wöchentliche Snapshot-Kopien bei.
 * Die Standard-Backup-Richtlinie repliziert tägliche und wöchentliche Snapshot-Kopien und behält 7 tägliche und 52 wöchentliche Snapshot-Kopien bei.
 
 
-Wenn Sie benutzerdefinierte Richtlinien für Replizierung oder Backup erstellen, müssen die Richtlinienbeschriftungen (z. B. „täglich“ oder „wöchentlich“) mit den Etiketten der Snapshot-Richtlinien oder replizierten Volumes übereinstimmen und Backup-Dateien werden nicht erstellt. Sie können benutzerdefinierte Richtlinien mit System Manager oder der ONTAP Befehlszeilenschnittstelle (CLI) erstellen.
+Wenn Sie benutzerdefinierte Richtlinien für Replizierung oder Backup erstellen, müssen die Richtlinienbeschriftungen (z. B. „täglich“ oder „wöchentlich“) mit den Etiketten der Snapshot-Richtlinien oder replizierten Volumes übereinstimmen und Backup-Dateien werden nicht erstellt.
+
+Sie können benutzerdefinierte Richtlinien mit BlueXP Backup Recovery, System Manager oder der ONTAP Befehlszeilenschnittstelle (CLI) erstellen.
 
 https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["Erstellen Sie mit System Manager eine Snapshot-Richtlinie"^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["Erstellen Sie eine Snapshot-Richtlinie über die ONTAP-CLI"^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["Erstellen Sie eine Snapshot-Richtlinie über die ONTAP CLI"^]
 https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["Erstellen Sie mit System Manager eine Replikationsrichtlinie"^]
 https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["Erstellen Sie eine Replizierungsrichtlinie mithilfe der ONTAP-CLI"^]
 https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["Erstellen Sie mit System Manager eine Backup-Richtlinie"^]
@@ -133,7 +135,7 @@ https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#descr
 
 *Hinweis:* Wenn Sie System Manager verwenden, wählen Sie *Asynchronous* als Richtlinientyp für Replikationsrichtlinien aus, und wählen Sie *Asynchronous* und *Backup in der Cloud* für Backup in Objektrichtlinien aus.
 
-Sie können Richtlinien für Backups in Objekt-Storage in der BlueXP Backup- und Recovery-UI erstellen. Siehe Abschnitt für link:task-manage-backups-ontap.html#add-a-new-backup-policy["Hinzufügen einer neuen Backup-Richtlinie"] Entsprechende Details. Sie müssen Snapshot- und Replikationsrichtlinien mit System Manager oder der ONTAP-CLI erstellen.
+In der BlueXP Backup- und Recovery-UI können Sie Richtlinien für Snapshot, Replizierung und Backup in Objekt-Storage erstellen. Siehe Abschnitt für link:task-manage-backups-ontap.html#add-a-new-backup-policy["Hinzufügen einer neuen Backup-Richtlinie"] Entsprechende Details.
 
 Hier sind einige Beispiele für ONTAP CLI-Befehle, die hilfreich sein können, wenn Sie benutzerdefinierte Richtlinien erstellen. Beachten Sie, dass Sie als den _admin_ vServer (Storage-VM) verwenden müssen `<vserver_name>` In diesen Befehlen.
 

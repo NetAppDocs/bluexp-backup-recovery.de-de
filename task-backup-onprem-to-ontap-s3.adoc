@@ -359,15 +359,37 @@ Einzelheiten zu diesen Architekturen finden Sie unter link:concept-protection-jo
 
 
 
-. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie.
+. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie aus oder erstellen Sie eine neue.
 +
 
-TIP: Wenn Sie eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden `snapmirror policy create` Befehl. Siehe.
+TIP: Wenn Sie vor dem Aktivieren des Snapshots eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden `snapmirror policy create` Befehl. Siehe.
+
++
+
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie mit diesem Service vor dem Aktivieren des Snapshots finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+** Geben Sie den Namen der Richtlinie ein.
+** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+** Wählen Sie *Erstellen*.
+
 
 . *Replikation*: Wenn Sie *Replikation* ausgewählt haben, stellen Sie die folgenden Optionen ein:
 +
 ** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat (oder Aggregate für FlexGroup Volumes) und ein Präfix oder Suffix aus, das dem Namen des replizierten Volumes hinzugefügt wird.
-** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie.
+** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine neue.
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
+
 
 
 . *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
@@ -382,14 +404,23 @@ Der Zugriffsschlüssel und der geheime Schlüssel gelten für den Benutzer, den 
 
 TIP: Durch Auswahl des korrekten IPspaces wird sichergestellt, dass BlueXP Backup und Recovery eine Verbindung von ONTAP zu Ihrem ONTAP S3 Objekt-Storage einrichten können.
 
-** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus.
+** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus oder erstellen Sie eine neue.
 +
 
-TIP: Wenn Sie eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden `snapmirror policy create` Befehl. Siehe.
+TIP: Sie können eine Richtlinie mit System Manager oder der ONTAP CLI erstellen. Zum Erstellen einer benutzerdefinierten Richtlinie mithilfe der ONTAP-CLI `snapmirror policy create` Befehl, siehe.
 
 +
 
-TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie über die Benutzeroberfläche finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Sicherung über die Benutzeroberfläche finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
 
 
 
