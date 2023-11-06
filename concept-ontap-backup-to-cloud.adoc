@@ -234,7 +234,8 @@ ifdef::gcp[]
 
 endif::gcp[]
 
-* Wenn Sie Volume-Daten von einer Backup-Datei wiederherstellen müssen, die auf einen Archiv-Objektspeicher verschoben wurde, fällt eine zusätzliche Abrufgebühr pro gib und eine Gebühr auf Anfrage des Cloud-Providers an.
+* Wenn Sie Volume-Daten von einer Backup-Datei wiederherstellen möchten, die in einen Archiv-Objektspeicher verschoben wurde, fällt eine zusätzliche Abrufgebühr pro gib und eine Gebühr auf Anfrage des Cloud-Providers an.
+* Wenn Sie während der Wiederherstellung von Volume-Daten eine Backup-Datei auf Ransomware überprüfen möchten (wenn Sie DataLock und Ransomware-Schutz für Ihre Cloud-Backups aktiviert haben), fallen zusätzliche Kosten für den ausgehenden Datenverkehr von Ihrem Cloud-Provider an.
 
 
 *Servicegebühren*

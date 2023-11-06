@@ -238,7 +238,7 @@ image:screenshot_restore_select_volume_snapshot.png["Ein Screenshot zur Auswahl 
 
 . Klicken Sie Auf *Weiter*.
 +
-Wenn Sie eine Backup-Datei im Objekt-Storage auswählen und für dieses Backup der Ransomware-Schutz aktiv ist (wenn Sie DataLock und Ransomware-Schutz in der Backup-Richtlinie aktiviert haben), werden Sie vor der Wiederherstellung der Daten aufgefordert, einen zusätzlichen Ransomware-Scan für die Backup-Datei auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen.
+Wenn Sie eine Backup-Datei im Objekt-Storage auswählen und für dieses Backup der Ransomware-Schutz aktiv ist (wenn Sie DataLock und Ransomware-Schutz in der Backup-Richtlinie aktiviert haben), werden Sie vor der Wiederherstellung der Daten aufgefordert, einen zusätzlichen Ransomware-Scan für die Backup-Datei auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen. (Für den Zugriff auf die Inhalte der Backup-Datei entstehen zusätzliche Kosten durch Ihren Cloud-Provider.)
 
 . Wählen Sie auf der Seite _Ziel auswählen_ die Option *Arbeitsumgebung* aus, in der Sie das Volume wiederherstellen möchten.
 +
@@ -405,7 +405,8 @@ link:reference-google-backup-tiers.html#restoring-data-from-archival-storage["Er
 
 endif::gcp[]
 
-+ und falls Ransomware-Schutz für die Backup-Datei aktiv ist (wenn Sie DataLock und Ransomware-Schutz in der Backup-Policy aktiviert), dann werden Sie aufgefordert, einen zusätzlichen Ransomware-Scan auf der Backup-Datei vor der Wiederherstellung der Daten auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen.
++
+Und wenn für die Backup-Datei ein Ransomware-Schutz aktiv ist (wenn Sie in der Backup-Richtlinie DataLock und Ransomware-Schutz aktiviert haben), werden Sie vor dem Wiederherstellen der Daten aufgefordert, einen zusätzlichen Ransomware-Scan der Backup-Datei auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen. (Für den Zugriff auf die Inhalte der Backup-Datei entstehen zusätzliche Kosten durch Ihren Cloud-Provider.)
 
 +image:screenshot_restore_select_files.png["Ein Screenshot der Seite „Elemente auswählen“, sodass Sie zu den Elementen navigieren können, die wiederhergestellt werden sollen."]
 
