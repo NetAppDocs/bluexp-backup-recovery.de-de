@@ -51,6 +51,7 @@ Bei Bedarf können Sie ein ganzes _Volume_, einen _Ordner_ oder eine oder mehrer
 +
 ** Replizierung mehrerer FlexVol Volumes zu einem Zeitpunkt auf ein sekundäres System
 ** Wiederherstellung eines replizierten Volumes auf dem Quellsystem oder auf einem anderen System über die Benutzeroberfläche.
+** Verwalten von Replikationsrichtlinien
 
 
 
@@ -261,7 +262,7 @@ Eine Backup-Lizenz ist nur für Backup und Restore aus dem Objektspeicher erford
 
 === Mit Ihrer eigenen Lizenz
 
-Byol ist nach Terminus basiert (12, 24 oder 36 Monate) _und_ kapazitätsbasiert in Schritten von 1 tib. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.
+Byol ist längerfristig (1, 2 oder 3 Jahre) und kapazitätsbasiert in 1-tib-Schritten. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.
 
 Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
 
@@ -283,7 +284,7 @@ Beachten Sie, dass bei der Anmeldung mit einem PAYGO-Abonnement eine kostenlose 
 
 ifdef::aws[]
 
-Bei Nutzung von AWS stehen zwei Jahresverträge für 12, 24 oder 36 Monate zur Verfügung:
+Bei der Nutzung von AWS sind zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren erhältlich:
 
 * Ein Plan für „Cloud Backup“, mit dem Sie Backups von Cloud Volumes ONTAP Daten und ONTAP Daten vor Ort erstellen können
 * Ein „CVO Professional“-Plan, mit dem Sie Backup und Recovery von Cloud Volumes ONTAP und BlueXP bündeln können. Dazu zählen unbegrenzte Backups für Cloud Volumes ONTAP Volumes, die gegen diese Lizenz verrechnet werden (die Backup-Kapazität wird nicht von der Lizenz angerechnet).
@@ -293,7 +294,11 @@ endif::aws[]
 
 ifdef::azure[]
 
-Bei der Nutzung von Azure können Sie ein privates Angebot von NetApp anfordern und anschließend den Plan auswählen, wenn Sie während der Aktivierung von BlueXP Backup und Recovery im Azure Marketplace abonnieren.
+Bei Verwendung von Azure stehen zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren zur Verfügung:
+
+* Ein Plan für „Cloud Backup“, mit dem Sie Backups von Cloud Volumes ONTAP Daten und ONTAP Daten vor Ort erstellen können
+* Ein „CVO Professional“-Plan, mit dem Sie Backup und Recovery von Cloud Volumes ONTAP und BlueXP bündeln können. Dazu zählen unbegrenzte Backups für Cloud Volumes ONTAP Volumes, die gegen diese Lizenz verrechnet werden (die Backup-Kapazität wird nicht von der Lizenz angerechnet).
+
 
 endif::azure[]
 
