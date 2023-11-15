@@ -4772,4 +4772,7 @@ Und wenn für die Backup-Datei ein Ransomware-Schutz aktiv ist (wenn Sie in der 
   <block id="61f06895b4fcad7d6460158ccfc33c17" category="paragraph">Byol ist längerfristig (1, 2 oder 3 Jahre) und kapazitätsbasiert in 1-tib-Schritten. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.</block>
   <block id="bc74d224d8eebb9d1f7a6a0cca3c6a3d" category="paragraph">Bei der Nutzung von AWS sind zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren erhältlich:</block>
   <block id="a31db27d8aef7db23d51910ceb960041" category="paragraph">Bei Verwendung von Azure stehen zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren zur Verfügung:</block>
+  <block id="aa4c67fd3731395f4450c9686b20f799" category="section-title">Unterstützung für geplante Jobs im Job Monitor</block>
+  <block id="314b40130d46a229c3a19dc5e2e23aa4" category="paragraph">Der BlueXP Backup- und Recovery Job Monitor überwachte zuvor geplante Backup- und Restore-Jobs von Volumes zu Objektspeichern, jedoch keine lokalen Snapshot-, Replizierungs-, Backup- und Restore-Jobs, die über die UI oder die API geplant wurden.</block>
+  <block id="04c6b318fe9c7f19ae925a90e52c6569" category="paragraph">Der BlueXP Backup- und Recovery Job Monitor umfasst jetzt geplante Jobs für lokale Snapshots, Replizierungen und Backups in Objekt-Storage.</block>
 </blocks>
