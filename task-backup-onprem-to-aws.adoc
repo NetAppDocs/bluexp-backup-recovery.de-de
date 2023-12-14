@@ -466,10 +466,6 @@ Wenn Sie eine sicherere Verbindung über das Internet von Ihrem On-Prem-Rechenze
 
 .Schritte
 . Konfiguration eines Schnittstellenendpunkts über die Amazon VPC Konsole oder die Befehlszeile erstellen. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Weitere Informationen zur Verwendung von AWS PrivateLink für Amazon S3 finden Sie unter"^].
-. Ändern Sie die Konfiguration der Sicherheitsgruppe, die dem BlueXP Connector zugeordnet ist. Sie müssen die Richtlinie in „Benutzerdefiniert“ (von „Vollzugriff“) ändern und müssen <<Richten Sie S3-Berechtigungen ein,Fügen Sie die S3-Berechtigungen aus der Backup-Richtlinie hinzu>> Wie bereits dargestellt.
-+
-image:screenshot_backup_aws_sec_group.png["Einen Screenshot der AWS Sicherheitsgruppe, die dem Connector zugeordnet ist."]
-
 +
 Wenn Sie Port 80 (HTTP) für die Kommunikation mit dem privaten Endpunkt verwenden, sind Sie alle festgelegt. Sie können jetzt das Backup und Recovery von BlueXP im Cluster aktivieren.
 
