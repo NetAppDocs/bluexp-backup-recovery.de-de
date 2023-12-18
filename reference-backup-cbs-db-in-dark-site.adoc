@@ -24,7 +24,7 @@ Es gibt 2 Arten von Daten, die gesichert werden:
 * Indizierte Katalogdateien – enthält detaillierte Indizes, die für die Such- und Wiederherstellungsfunktion verwendet werden, sodass Ihre Suchvorgänge sehr schnell und effizient bei der Suche nach Volume-Daten, die Sie wiederherstellen möchten, durchgeführt werden.
 
 
-Diese Daten werden einmal am Tag um Mitternacht gesichert und maximal 7 Kopien jeder Datei werden aufbewahrt. Wenn der Connector mehrere lokale ONTAP-Arbeitsumgebungen managt, befinden sich die Backup- und Recovery-Dateien von BlueXP im Bucket der Arbeitsumgebung, die zuerst aktiviert wurde.
+Diese Daten werden einmal am Tag um Mitternacht gesichert und maximal 30 Kopien jeder Datei werden aufbewahrt. Wenn der Connector mehrere lokale ONTAP-Arbeitsumgebungen managt, befinden sich die Backup- und Recovery-Dateien von BlueXP im Bucket der Arbeitsumgebung, die zuerst aktiviert wurde.
 
 
 TIP: In der BlueXP Backup- und Recovery-Datenbank oder den indizierten Katalogdateien werden keine Volume-Daten jemals enthalten sein.

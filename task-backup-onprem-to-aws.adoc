@@ -407,7 +407,7 @@ Standardmäßig erstellt der Service Buckets für Sie. Wenn Sie Ihre eigenen Buc
 
 link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Erfahren Sie mehr über das Erstellen eigener Buckets"^].
 
-Wenn Sie eigene Buckets erstellen, sollten Sie den Bucket-Namen „netapp-Backup“ verwenden. Wenn Sie einen benutzerdefinierten Namen verwenden möchten, bearbeiten Sie das `ontapcloud-instance-policy-netapp-backup` IAMRole für die vorhandenen CVOs und fügen Sie die folgende Liste zu den S3-Berechtigungen hinzu.
+Wenn Sie Ihre eigenen Buckets erstellen, sollten Sie einen Bucket-Namen verwenden, der mit „netapp-Backup“ beginnt. Wenn Sie einen benutzerdefinierten Namen verwenden müssen, bearbeiten Sie die Richtlinien im Abschnitt S3-Berechtigungen einrichten, um eine Ressourcen-ARN zu verwenden, die mit Ihrem eigenen benutzerdefinierten Bucket-Präfix übereinstimmt.
 
 [%collapsible]
 ====

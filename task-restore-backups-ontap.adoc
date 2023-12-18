@@ -231,10 +231,13 @@ image:screenshot_restore_volume_selection.png["Ein Screenshot, in dem Sie die Sc
 
 . Navigieren Sie auf der Seite _Quelle auswählen_ zur Sicherungsdatei für das Volume, das Sie wiederherstellen möchten. Wählen Sie die Datei * Working Environment*, *Volume* und die Datei *Backup* aus, die den Datums-/Zeitstempel enthält, aus dem Sie wiederherstellen möchten.
 +
-Die Spalte *Location* zeigt an, ob die Sicherungsdatei (Snapshot) *lokal* (eine Snapshot-Kopie auf dem Quellsystem), *sekundär* (ein repliziertes Volume auf einem sekundären ONTAP-System) oder *Objektspeicher* (eine Sicherungsdatei im Objektspeicher) ist. Wählen Sie die Datei aus, die Sie wiederherstellen möchten.
+Optional können Sie nach benutzerdefinierten Tags suchen, um nur die Volumes mit einem bestimmten Tag aufzulisten.
 
 +
-image:screenshot_restore_select_volume_snapshot.png["Ein Screenshot zur Auswahl der Arbeitsumgebung, des Volumes und der Sicherungsdatei des Volumes, die wiederhergestellt werden soll"]
+image:screenshot_restore_select_volume_snapshot2.png["Ein Screenshot zur Auswahl der Arbeitsumgebung, des Volumes und der Sicherungsdatei des Volumes, die wiederhergestellt werden soll"]
+
++
+Die Spalte *Location* zeigt an, ob die Sicherungsdatei (Snapshot) *lokal* (eine Snapshot-Kopie auf dem Quellsystem), *sekundär* (ein repliziertes Volume auf einem sekundären ONTAP-System) oder *Objektspeicher* (eine Sicherungsdatei im Objektspeicher) ist. Wählen Sie die Datei aus, die Sie wiederherstellen möchten.
 
 . Klicken Sie Auf *Weiter*.
 +
