@@ -23,6 +23,9 @@ Backups Ihrer ONTAP Volume-Daten sind über die Standorte Ihrer Backups verfügb
 
 Zum Wiederherstellen von Daten von Backup-Dateien auf ein Produktionssystem ist eine gültige BlueXP Backup- und Recovery-Lizenz erforderlich.
 
+
+NOTE: Snapshots müssen eindeutige Namen haben, da die Wiederherstellungsvorgänge sonst nicht ordnungsgemäß funktionieren.
+
 Zusammenfassend sind dies die gültigen Datenflüsse, die Sie verwenden können, um Volume-Daten in einer ONTAP Arbeitsumgebung wiederherzustellen:
 
 * Sicherungsdatei -> wiederhergestelltes Volume

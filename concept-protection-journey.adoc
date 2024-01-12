@@ -46,6 +46,9 @@ Bevor Sie die Funktionen auswählen, die Sie verwenden werden, finden Sie hier e
 |===
 Snapshots bilden die Grundlage aller Backup-Methoden. Sie müssen den Backup- und Recovery-Service verwenden. Eine Snapshot Kopie ist ein schreibgeschütztes, zeitpunktgenaues Image eines Volumes. Das Image verbraucht nur wenig Storage und der Performance-Overhead ist minimal, da seit der letzten Snapshot Kopie nur Änderungen an Dateien aufgezeichnet werden. Mithilfe der Snapshot Kopie, die auf dem Volume erstellt wird, werden das replizierte Volume und die Backup-Datei synchron mit den Änderungen am Quell-Volume gehalten, wie in der Abbildung dargestellt.
 
+
+NOTE: Snapshots müssen eindeutige Namen haben, da die Wiederherstellungsvorgänge sonst nicht ordnungsgemäß funktionieren.
+
 image:diagram-321-overview.png["Ein Diagramm, das zeigt, wie Backup-Dateien als Snapshot Kopien auf dem Quellsystem, als replizierte Volumes auf dem sekundären Storage-System und als Backup-Dateien im Objekt-Storage vorhanden sind."]
 
 Sie können sowohl replizierte Volumes auf einem anderen ONTAP Storage-System als auch Backup-Dateien in der Cloud erstellen. Oder Sie haben die Wahl, ob Sie nur replizierte Volumes oder Backup-Dateien erstellen möchten.
@@ -236,7 +239,7 @@ Wenn Sie ältere Backup-Dateien in Archiv-Storage verschieben oder DataLock- und
 
 == Welchen BlueXP Connector-Implementierungsmodus verwenden Sie
 
-Wenn Sie Ihren Storage bereits mit BlueXP managen, wurde bereits ein BlueXP Connector installiert. Wenn Sie denselben Connector mit BlueXP Backup und Recovery nutzen möchten, steht Ihnen alles bereit. Wenn Sie einen anderen Connector verwenden müssen, müssen Sie ihn installieren, bevor Sie mit der Backup- und Recovery-Implementierung beginnen.
+Wenn Sie Ihren Storage bereits mit BlueXP managen, wurde bereits ein BlueXP Connector installiert. Wenn Sie denselben Connector mit BlueXP Backup und Recovery nutzen möchten, steht Ihnen alles bereit. Wenn Sie einen anderen Connector verwenden müssen, müssen Sie ihn bereitstellen, bevor Sie mit der Implementierung Ihrer Backup- und Recovery-Lösung beginnen.
 
 BlueXP bietet mehrere Implementierungsmodi, die es Ihnen ermöglichen, BlueXP entsprechend Ihren Geschäfts- und Sicherheitsanforderungen zu nutzen. _Standard Mode_ nutzt die BlueXP SaaS-Ebene für die volle Funktionalität. _Restricted Mode_ und _Private Mode_ stehen Unternehmen mit Konnektivitätsbeschränkungen zur Verfügung.
 
@@ -245,11 +248,11 @@ https://www.netapp.tv/details/30567["Sehen Sie sich dieses Video zu den BlueXP I
 
 
 
-=== Unterstützung für Websites mit voller Internetverbindung
+=== Unterstützung bei Verwendung des Standardmodus
 
-Wenn BlueXP Backup und Recovery an einem Standort mit vollständiger Internetverbindung verwendet wird (auch als „Standardmodus“ oder „SaaS-Modus“ bekannt), können Sie replizierte Volumes auf jedem beliebigen lokalen ONTAP oder Cloud Volumes ONTAP System erstellen, das von BlueXP gemanagt wird. Sie können darüber hinaus Backup-Dateien auf Objekt-Storage von einem der unterstützten Cloud-Provider erstellen. link:concept-ontap-backup-to-cloud.html#supported-backup-destinations["Sehen Sie sich die vollständige Liste der unterstützten Backup-Ziele an"].
+BlueXP Backup und Recovery wird vollständig im Standard-Modus unterstützt – an Standorten mit vollständiger Internet-Konnektivität. In diesem Fall können Sie replizierte Volumes auf jedem lokalen ONTAP oder Cloud Volumes ONTAP-System erstellen, das von BlueXP gemanagt wird. Außerdem können Sie Backup-Dateien auf Objekt-Storage bei einem beliebigen unterstützten Cloud-Provider erstellen. link:concept-ontap-backup-to-cloud.html#supported-backup-destinations["Sehen Sie sich die vollständige Liste der unterstützten Backup-Ziele an"].
 
-Lesen Sie das Thema Backup für den Cloud-Provider, in dem Sie Sicherungsdateien für die Liste der gültigen Connector-Speicherorte erstellen möchten. Es gibt einige Einschränkungen, wenn der Connector manuell auf einem Linux-Rechner installiert oder bei einem bestimmten Cloud-Anbieter bereitgestellt werden muss.
+Lesen Sie das Thema Backup für den Cloud-Provider, in dem Sie Sicherungsdateien für die Liste der gültigen Connector-Speicherorte erstellen möchten. Es kann einige Einschränkungen geben, wenn der Connector bei einem bestimmten Cloud-Provider bereitgestellt wird oder wenn er manuell auf einem Linux-Rechner installiert wird.
 
 ifdef::aws[]
 
@@ -281,9 +284,9 @@ endif::gcp[]
 
 
 
-=== Unterstützung für Websites mit begrenzter Internetverbindung
+=== Unterstützung bei Verwendung des eingeschränkten Modus
 
-BlueXP Backup und Recovery können an einem Standort mit eingeschränkter Internet-Konnektivität (auch als „eingeschränkter Modus“ bezeichnet) verwendet werden, um Volume-Daten zu sichern. In diesem Fall müssen Sie den BlueXP Connector in der eingeschränkten Region implementieren.
+BlueXP Backup und Recovery wird im eingeschränkten Modus unterstützt – an Standorten mit eingeschränkter Internet-Konnektivität. In diesem Fall können Sie Sicherungsdateien nur auf eine begrenzte Anzahl von Cloud-Providern erstellen. Sie müssen den BlueXP Connector in der Region mit Einschränkungen implementieren.
 
 ifdef::aws[]
 
@@ -301,9 +304,9 @@ endif::azure[]
 
 
 
-=== Unterstützung für Websites ohne Internetverbindung
+=== Unterstützung bei Verwendung des privaten Modus
 
-BlueXP Backup und Recovery kann an einem Standort ohne Internetverbindung (auch als „privater Modus“ oder „dunkle“ Sites bezeichnet) verwendet werden, um Volume-Daten zu sichern. In diesem Fall müssen Sie den BlueXP Connector auf einem Linux-Host am selben Standort implementieren.
+BlueXP Backup und Recovery wird im privaten Modus unterstützt – Standorte ohne Internetverbindung. In diesem Fall können Sie Backup-Dateien nur auf eine begrenzte Anzahl von Objekt-Storage-Providern erstellen. Sie müssen den BlueXP Connector auf einem Linux-Host am selben Standort bereitstellen.
 
 * Sie können Daten von lokalen ONTAP Systemen auf lokalen NetApp StorageGRID Systemen sichern. Informieren Sie sich darüber link:task-backup-onprem-private-cloud.html["Sichern Sie On-Premises-ONTAP-Daten in StorageGRID"] Entsprechende Details.
 * Daten können von lokalen ONTAP Systemen auf lokalen ONTAP Systemen oder auf Cloud Volumes ONTAP Systemen gesichert werden, die für S3 Objekt-Storage konfiguriert sind. Informieren Sie sich darüber link:task-backup-onprem-to-ontap-s3.html["Sichern Sie On-Premises-ONTAP-Daten in ONTAP S3"] Entsprechende Details.
