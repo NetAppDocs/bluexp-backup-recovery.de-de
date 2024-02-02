@@ -269,15 +269,6 @@ Sie müssen zwei Berechtigungssätze konfigurieren:
 * Berechtigungen für den On-Premises-ONTAP-Cluster, damit er Daten lesen und in den S3-Bucket schreiben kann
 
 
-[NOTE]
-====
-Wenn Sie Backups in AWS GovCloud oder AWS China Regionen erstellen, müssen Sie den AWS Ressourcennamen „arn“ in den beiden folgenden Berechtigungssätzen unter allen _Resource_ Abschnitten ändern:
-
-* Für AWS GovCloud Regionen müssen Sie beispielsweise „AWS Regionen“ zu „aws-US-gov“ ändern `arn:aws-us-gov:s3:::netapp-backup-*`.
-* Für AWS China-Regionen müssen Sie „aws“ in „aws-cn“ ändern, z. B. `arn:aws-cn:s3:::netapp-backup-*`.
-
-
-====
 .Schritte
 . Vergewissern Sie sich, dass die folgenden S3-Berechtigungen (von neuestem) vorliegen https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["BlueXP-Richtlinie"^]) Sind Teil der IAM-Rolle, die den Connector mit Berechtigungen versorgt. Falls nicht, lesen Sie die https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS Dokumentation: Bearbeiten der IAM-Richtlinien"].
 +
@@ -342,6 +333,10 @@ Wenn Sie Backups in AWS GovCloud oder AWS China Regionen erstellen, müssen Sie 
       }
 ----
 ====
++
+
+NOTE: Beim Erstellen von Backups in AWS China-Regionen müssen Sie den AWS-Ressourcennamen „arn“ unter allen _Resource_-Abschnitten in den IAM-Richtlinien von „aws“ in „aws-cn“ ändern, z. B. `arn:aws-cn:s3:::netapp-backup-*`.
+
 . Wenn Sie den Dienst aktivieren, werden Sie vom Backup-Assistenten aufgefordert, einen Zugriffsschlüssel und einen geheimen Schlüssel einzugeben. Diese Anmeldedaten werden an den ONTAP-Cluster weitergeleitet, damit ONTAP Daten im S3-Bucket sichern und wiederherstellen kann. Dazu müssen Sie einen IAM-Benutzer mit den folgenden Berechtigungen erstellen.
 +
 Siehe https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html["AWS Documentation: Erstellen einer Rolle zum Delegieren von Berechtigungen an einen IAM-Benutzer"^].
@@ -403,49 +398,36 @@ Siehe https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.
 
 === Erstellen Sie Ihre eigenen Buckets
 
-Standardmäßig erstellt der Service Buckets für Sie. Wenn Sie Ihre eigenen Buckets verwenden möchten, können Sie diese erstellen, bevor Sie den Assistenten für die Backup-Aktivierung starten und diese Buckets dann im Assistenten auswählen.
+Standardmäßig erstellt der Service Buckets für Sie. Wenn Sie Ihre eigenen Buckets verwenden möchten, können Sie diese auch erstellen, bevor Sie den Assistenten zur Backup-Aktivierung starten und diese Buckets im Assistenten auswählen.
 
 link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Erfahren Sie mehr über das Erstellen eigener Buckets"^].
 
-Wenn Sie Ihre eigenen Buckets erstellen, sollten Sie einen Bucket-Namen verwenden, der mit „netapp-Backup“ beginnt. Wenn Sie einen benutzerdefinierten Namen verwenden müssen, bearbeiten Sie die Richtlinien im Abschnitt S3-Berechtigungen einrichten, um eine Ressourcen-ARN zu verwenden, die mit Ihrem eigenen benutzerdefinierten Bucket-Präfix übereinstimmt.
+Wenn Sie eigene Buckets erstellen, sollten Sie den Bucket-Namen „netapp-Backup“ verwenden. Wenn Sie einen benutzerdefinierten Namen verwenden möchten, bearbeiten Sie das `ontapcloud-instance-policy-netapp-backup` IAMRole für die vorhandenen CVOs und fügen Sie die folgende Liste zu den S3-Berechtigungen hinzu. Sie müssen angeben `“Resource”: “arn:aws:s3:::*”` Und weisen Sie alle erforderlichen Berechtigungen zu, die mit dem Bucket verknüpft werden müssen.
 
 [%collapsible]
 ====
-[source, json]
-----
-{
-    "Action": [
-        "S3:ListBucket"
-        "S3:GetBucketLocation"
-    ]
-    "Resource": "arn:aws:s3:::*",
-    "Effect": "Allow"
+„Aktion“: [
+    „S3:ListBucket“
+    „S3:GetBucketLocation“
+]
+„Ressource“: „arn:aws:s3::*“,
+„Effekt“: „Zulassen“
 },
 {
-    "Action": [
-        "S3:GetObject",
-        "S3:PutObject",
-        "S3:DeleteObject",
-        "S3:ListAllMyBuckets",
-        "S3:PutObjectTagging",
-        "S3:GetObjectTagging",
-        "S3:RestoreObject",
-        "S3:GetBucketObjectLockConfiguration",
-        "S3:GetObjectRetention",
-        "S3:PutBucketObjectLockConfiguration",
-        "S3:PutObjectRetention"
-    ]
-    "Resource": "arn:aws:s3:::*",
-}
-----
-====
-[NOTE]
-====
-Wenn sich Ihre benutzerdefinierten Buckets in AWS GovCloud oder AWS China befinden, müssen Sie den AWS-Ressourcennamen „arn“ unter allen _Resource_-Abschnitten in den Berechtigungen ändern:
-
-* Für AWS GovCloud Regionen müssen Sie beispielsweise „AWS Regionen“ zu „aws-US-gov“ ändern `arn:aws-us-gov:s3:::*`.
-* Für AWS China-Regionen müssen Sie „aws“ in „aws-cn“ ändern, z. B. `arn:aws-cn:s3:::-*`.
-
+    „Aktion“: [
+        „S3:GetObject“,
+        „S3:PutObject“,
+        „S3:DeleteObject“,
+        „S3:ListAllMyBuckets“,
+        „S3:PutObjectTagging“,
+        „S3:GetObjectTagging“,
+        „S3:RestoreObject“,
+        „S3:GetBucketObjectLockConfiguration“,
+        „S3:GetObjectRetention“,
+        „S3:PutBucketObjectLockConfiguration“,
+        „S3:PutObjectRetention“
+        ]
+    „Ressource“: „arn:aws:s3::*“,
 
 ====
 
@@ -460,12 +442,16 @@ Wenn Sie stattdessen Ihre eigenen von Kunden gemanagten Schlüssel zur Datenvers
 
 === Konfigurieren Sie Ihr System für eine private Verbindung mithilfe einer VPC-Endpunktschnittstelle
 
-Wenn Sie eine standardmäßige öffentliche Internetverbindung nutzen möchten, werden alle Berechtigungen vom Connector festgelegt und es gibt nichts anderes, was Sie tun müssen. Diese Art der Verbindung wird im angezeigt link:task-backup-onprem-to-aws.html#identify-the-connection-method["Erstes Diagramm"].
+Wenn Sie eine standardmäßige öffentliche Internetverbindung nutzen möchten, werden alle Berechtigungen vom Connector festgelegt und es gibt nichts anderes, was Sie tun müssen. Diese Art der Verbindung wird im angezeigt link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["Erstes Diagramm"].
 
-Wenn Sie eine sicherere Verbindung über das Internet von Ihrem On-Prem-Rechenzentrum zur VPC haben möchten, gibt es eine Option, eine AWS PrivateLink-Verbindung im Backup-Aktivierungs-Assistenten auszuwählen. Wenn Sie ein VPN oder AWS Direct Connect verwenden möchten, ist es erforderlich, das On-Premises-System über eine VPC-Endpunktschnittstelle, die eine private IP-Adresse verwendet, zu verbinden. Diese Art der Verbindung wird im angezeigt link:task-backup-onprem-to-aws.html#identify-the-connection-method["Zweites Diagramm"].
+Wenn Sie eine sicherere Verbindung über das Internet von Ihrem On-Prem-Rechenzentrum zur VPC haben möchten, gibt es eine Option, eine AWS PrivateLink-Verbindung im Backup-Aktivierungs-Assistenten auszuwählen. Wenn Sie ein VPN oder AWS Direct Connect verwenden möchten, ist es erforderlich, das On-Premises-System über eine VPC-Endpunktschnittstelle, die eine private IP-Adresse verwendet, zu verbinden. Diese Art der Verbindung wird im angezeigt link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["Zweites Diagramm"].
 
 .Schritte
 . Konfiguration eines Schnittstellenendpunkts über die Amazon VPC Konsole oder die Befehlszeile erstellen. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Weitere Informationen zur Verwendung von AWS PrivateLink für Amazon S3 finden Sie unter"^].
+. Ändern Sie die Konfiguration der Sicherheitsgruppe, die dem BlueXP Connector zugeordnet ist. Sie müssen die Richtlinie in „Benutzerdefiniert“ (von „Vollzugriff“) ändern und müssen <<Richten Sie S3-Berechtigungen ein,Fügen Sie die S3-Berechtigungen aus der Backup-Richtlinie hinzu>> Wie bereits dargestellt.
++
+image:screenshot_backup_aws_sec_group.png["Einen Screenshot der AWS Sicherheitsgruppe, die dem Connector zugeordnet ist."]
+
 +
 Wenn Sie Port 80 (HTTP) für die Kommunikation mit dem privaten Endpunkt verwenden, sind Sie alle festgelegt. Sie können jetzt das Backup und Recovery von BlueXP im Cluster aktivieren.
 

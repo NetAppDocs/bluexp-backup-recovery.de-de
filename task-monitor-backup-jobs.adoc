@@ -40,7 +40,7 @@ NOTE: Wenn Sie ein Upgrade Ihrer ONTAP Systeme auf 9.13.x durchgeführt haben un
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
 . Wählen Sie die Registerkarte *Job-Überwachung* aus.
 +
-image:screenshot_backup_job_monitor2.png["Ein Screenshot mit Backup- und Wiederherstellungsjobs im Job Monitoring Dashboard."]
+image:screenshot_backup_job_monitor.png["Ein Screenshot mit Backup- und Wiederherstellungsjobs im Job Monitoring Dashboard."]
 
 +
 In diesem Screenshot werden die standardmäßigen Spaltenüberschriften angezeigt.
@@ -52,7 +52,7 @@ In diesem Screenshot werden die standardmäßigen Spaltenüberschriften angezeig
 
 === Suchen und filtern Sie die Jobliste
 
-Sie können die Vorgänge auf der Seite Job-Monitoring mit verschiedenen Filtern filtern, zum Beispiel Richtlinie, Snapshot-Bezeichnung, Art der Operation (Sicherung, Wiederherstellung, Aufbewahrung oder andere), benutzerdefinierte Tags für Volumes und Schutztyp (lokaler Snapshot, Replizierung oder Backup in der Cloud).
+Sie können die Vorgänge auf der Seite Jobüberwachung mit verschiedenen Filtern filtern, z. B. Richtlinie, Snapshot-Bezeichnung, Art der Operation (Sicherung, Wiederherstellung, Aufbewahrung oder andere) und Schutztyp (lokaler Snapshot, Replikation oder Backup in der Cloud).
 
 Standardmäßig werden auf der Seite Jobüberwachung Schutz- und Wiederherstellungsaufträge der letzten 24 Stunden angezeigt. Sie können den Zeitrahmen mithilfe des Zeitrahmens-Filters ändern.
 

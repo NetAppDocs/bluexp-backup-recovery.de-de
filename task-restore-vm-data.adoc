@@ -14,13 +14,21 @@ summary: Sie können Virtual Machines aus der Cloud in der lokalen SnapCenter wi
 
 
 [role="lead"]
-Sie können die Daten von Virtual Machines aus der Cloud wieder im lokalen vCenter wiederherstellen. Das Backup wird an genau demselben Ort wiederhergestellt, von wo aus das Backup durchgeführt wurde. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.
+Sie können die Daten von Virtual Machines aus der Cloud wieder im lokalen vCenter wiederherstellen. Sie können die Virtual Machine an genau demselben Speicherort von dem Backup aus oder an einem anderen Speicherort wiederherstellen. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.
 
 
 NOTE: Sie können keine virtuellen Maschinen wiederherstellen, die sich über mehrere Datastores erstrecken.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Wiederherstellen von virtuellen Maschinen aus der Cloud.
+* Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Wiederherstellen von virtuellen Maschinen aus der Cloud.
+* Wenn Sie an einem anderen Speicherort wiederherstellen:
++
+** Stellen Sie sicher, dass sich die Quell- und Ziel-vCenter im verknüpften Modus befinden.
+** Stellen Sie sicher, dass die Details zum Quell- und Ziel-Cluster in BlueXP Canvas und in Linked Mode vCenter sowohl im SnapCenter-Plug-in für VMware vSphere-Host hinzugefügt werden.
+** Stellen Sie sicher, dass die Arbeitsumgebung (WE) dem alternativen Speicherort in BlueXP Canvas entsprechend hinzugefügt wird.
+
+
+
 
 .Schritte
 . Klicken Sie in der Benutzeroberfläche von BlueXP auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *SnapCenter-Plug-in für VMware vSphere* und wählen Sie das SnapCenter-Plug-in für VMware vSphere-Host aus.
@@ -29,22 +37,23 @@ Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.ht
 
 NOTE: Wenn die Virtual Machine an einen anderen Speicherort (vMotion) verschoben wird und der Benutzer eine Wiederherstellung dieser Virtual Machine aus BlueXP auslöst, wird die Virtual Machine an den Quellspeicherort wiederhergestellt, von dem aus das Backup erstellt wurde.
 
-. Sie können die Daten aus dem Datastore oder von virtuellen Maschinen wiederherstellen:
+. Sie können die Virtual Machine am ursprünglichen Speicherort oder an einem alternativen Speicherort aus dem Datenspeicher oder von den Virtual Machines wiederherstellen:
 
 
 |===
-| Ihr Ziel ist | Tun Sie das... 
+| Wenn Sie die virtuelle Maschine wiederherstellen möchten... | Tun Sie das... 
 
 
  a| 
-Wiederherstellung aus Datastore
+Vom Datastore an den ursprünglichen Speicherort
  a| 
 . Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem Datenspeicher, den Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
 . Klicken Sie auf *Wiederherstellen*, die der Sicherungskopie entsprechen, die Sie wiederherstellen möchten.
-. Wählen Sie die virtuelle Maschine aus, die Sie aus dem Backup wiederherstellen möchten.
-. Wählen Sie die Option * Archival Restore Priority* aus und klicken Sie auf *Next*.
+. Wählen Sie die virtuelle Maschine aus, die Sie aus dem Backup wiederherstellen möchten, und klicken Sie auf *Weiter*.
+. Stellen Sie sicher, dass *Original* ausgewählt ist, und klicken Sie auf *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind, wählen Sie die Priorität *Archivieren Wiederherstellung* aus und klicken Sie auf *Weiter*.
 +
-Diese Option ist nur verfügbar, wenn die virtuelle Maschine über eine Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind. Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
 
 . Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
 
@@ -52,16 +61,51 @@ Diese Option ist nur verfügbar, wenn die virtuelle Maschine über eine Richtlin
 
 
  a| 
-Wiederherstellung von Virtual Machines
+An einem alternativen Speicherort vom Datenspeicher aus
+ a| 
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem Datenspeicher, den Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
+. Klicken Sie auf *Wiederherstellen*, die der Sicherungskopie entsprechen, die Sie wiederherstellen möchten.
+. Wählen Sie die virtuelle Maschine aus, die Sie aus dem Backup wiederherstellen möchten, und klicken Sie auf *Weiter*.
+. Wählen Sie *Alternative*.
+. Wählen Sie den alternativen vCenter Server, ESXi-Host, Datenspeicher und das Netzwerk aus.
+. Geben Sie einen Namen für die VM nach der Wiederherstellung ein und klicken Sie auf *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind, wählen Sie die Priorität *Archivieren Wiederherstellung* aus und klicken Sie auf *Weiter*.
++
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+
+. Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
+
+
+
+
+ a| 
+Von virtuellen Maschinen an den ursprünglichen Speicherort
  a| 
 . Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend der virtuellen Maschine, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
 . Wählen Sie das Backup aus, über das Sie die virtuelle Maschine wiederherstellen möchten.
-. Wählen Sie die Option * Archival Restore Priority* aus und klicken Sie auf *Next*.
+. Stellen Sie sicher, dass *Original* ausgewählt ist, und klicken Sie auf *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind, wählen Sie die Priorität *Archivieren Wiederherstellung* aus und klicken Sie auf *Weiter*.
 +
-Diese Option ist nur verfügbar, wenn die virtuelle Maschine über eine Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind. Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+
+. Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
+
+
+
+
+ a| 
+An einem alternativen Speicherort von virtuellen Maschinen
+ a| 
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend der virtuellen Maschine, die Sie wiederherstellen möchten, und klicken Sie auf *Wiederherstellen*.
+. Wählen Sie das Backup aus, über das Sie die virtuelle Maschine wiederherstellen möchten.
+. Wählen Sie *Alternative*.
+. Wählen Sie den alternativen vCenter Server, ESXi-Host, Datenspeicher und das Netzwerk aus.
+. Geben Sie einen Namen für die VM nach der Wiederherstellung ein und klicken Sie auf *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der die Archivierungseinstellungen konfiguriert sind, wählen Sie die Priorität *Archivieren Wiederherstellung* aus und klicken Sie auf *Weiter*.
++
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
 
 . Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
 
 
 |===
-Die VM wird an demselben Ort wiederhergestellt, von dem das Backup durchgeführt wurde.

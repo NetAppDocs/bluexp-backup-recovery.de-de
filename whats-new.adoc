@@ -18,6 +18,18 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 
 
+== 01 Februar 2024
+
+
+
+=== Verbesserungen bei BlueXP Backup und Recovery für Virtual Machines
+
+* Unterstützung beim Wiederherstellen von Virtual Machines an einem alternativen Speicherort
+* Unterstützung für das Aufheben der Sicherung von Datastores
+
+
+
+
 == Bis 15. Dezember 2023
 
 
@@ -70,14 +82,6 @@ Mit BlueXP Backup und Recovery lassen sich Volumes nun schnell von Cloud-Storage
 Auf dem Cloud Volumes ONTAP Zielsystem muss ONTAP Version 9.13.0 oder höher ausgeführt werden. https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["Weitere Informationen zum Wiederherstellen von Daten"].
 
 Der BlueXP Backup- und Recovery Job Monitor zeigt auch Informationen zum Fortschritt schneller Wiederherstellungsaufträge an.
-
-
-
-=== Das Backup von lokalen ONTAP Daten in StorageGRID Buckets wurde verbessert
-
-StorageGRID kann jetzt bis zu 30 Backups von lokalen ONTAP-Daten aus BlueXP Backup und Recovery in einem einzelnen Bucket speichern. Zuvor betrug das Maximum 7 Backups in einem Bucket.
-
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-private-cloud.html["Weitere Informationen zum Backup von On-Premises-ONTAP-Daten in StorageGRID"].
 
 
 

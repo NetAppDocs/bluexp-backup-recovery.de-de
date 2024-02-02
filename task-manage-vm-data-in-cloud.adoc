@@ -42,6 +42,17 @@ Die Datastores und virtuellen Maschinen, die mit dem Registered SnapCenter Plug-
 
 
 
+== Heben Sie den Schutz von Datenspeichern auf
+
+Sie können den Schutz eines Datastore aufheben, der bereits zuvor geschützt war. Sie können den Schutz eines Datastores aufheben, wenn Sie die Cloud-Backups löschen oder diesen nicht mehr in der Cloud sichern möchten. Der Datastore kann nach erfolgreichem Absichern wieder geschützt werden.
+
+.Schritte
+. Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Klicken Sie Auf image:icon-action.png["Aktion"] Entsprechend dem Datastore, den Sie aufheben möchten, und klicken Sie auf *Unprotect*.
+
+
+
+
 == Bearbeiten Sie das SnapCenter Plug-in für die VMware vSphere-Instanz
 
 Sie können die Details des SnapCenter Plug-ins für VMware vSphere Hosts in BlueXP bearbeiten.

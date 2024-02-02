@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-report-inventory.html 
 keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory 
-summary: Mit den Backup- und Recovery-Berichten von BlueXP können Sie sicherstellen, dass kritische Daten gemäß den definierten Richtlinien Ihres Unternehmens geschützt sind, und Audits für Compliance-Prozesse effizient unterstützen. Mit dem Backup Inventory Report können Sie alle Ihre lokalen Snapshot-Kopien, Replikationen und Backups anzeigen. 
+summary: Mit den Backup- und Recovery-Berichten von BlueXP können Sie sicherstellen, dass kritische Daten gemäß den definierten Richtlinien Ihres Unternehmens geschützt sind, und Audits für Compliance-Prozesse effizient unterstützen. Mit dem Backup-Inventarbericht können Sie alle Ihre Backups für ein bestimmtes Konto, eine Arbeitsumgebung oder einen SVM-Bestand anzeigen. 
 ---
 = Berichte zur Datensicherung
 :hardbreaks:
@@ -41,18 +41,18 @@ Die BlueXP Backup- und Recovery-Berichte bieten Informationen zu folgenden Aspek
 
 == Erstellen Sie einen Bericht zum Backup-Bestand
 
-Auf der Registerkarte BlueXP Backup- und Recovery-Berichte können Sie einen Bericht zum Backup-Inventar erstellen und seinen Inhalt filtern. Mit dem Bericht „Backup Inventory“ können Sie alle lokalen Snapshot-Kopien, Replikationen auf sekundären Speicher und Backups für ein bestimmtes Konto, eine Arbeitsumgebung oder einen SVM-Bestand anzeigen.
+Auf der Registerkarte BlueXP Backup- und Recovery-Berichte können Sie den Bericht „Backup Inventory“ erstellen und seinen Inhalt filtern. Mit dem Bericht „Backup Inventory“ können Sie alle Ihre Backups für ein bestimmtes Konto, eine Arbeitsumgebung oder einen SVM-Bestand anzeigen.
 
 Der Bericht Backup Inventory enthält folgende Informationen und weitere Informationen:
 
 * Konto, Arbeitsumgebung und SVM
 * Geschützte und nicht geschützte Volumes
-* Ziel
-* Angewendete Richtlinie
+* Backup-Ziel
+* Angewandte Backup-Richtlinie
 * Verschlüsselungsstil (Provider-Managed Key oder benutzerverwalteter Key)
 * Data Lock- und Ransomware-Sicherungsstatus (Governance, Compliance oder keine)
 * Status „Archiv aktiviert“
-* Anzahl lokaler Snapshot Kopien, Replikationen oder Backup-Kopien
+* Anzahl der Backup-Kopien
 * Backup-Typ (geplantes oder benutzerinitiiertes Ad-hoc-Backup)
 * Storage-Klasse
 * Snapshot-Etikett
@@ -63,25 +63,28 @@ NOTE: Der Bericht „Backup Inventory“ enthält keine Informationen zu abgelau
 
 Der obere Teil des Berichts enthält ein Diagramm mit den folgenden Informationen:
 
-* Anzahl der Volumes mit mindestens einem lokalen Snapshot, Replikation oder Backup (je nach abgebildete Registerkarte)
+* Anzahl der im Umfang enthaltenen Volumes bei mindestens einem Backup
 * Insgesamt inaktive Volumes plus aktive Volumes
 
 
-image:screenshot-report-backup-accountlevel.png["Ein Beispielbericht zum Backup-Bestand"]
+Der Bericht Backup Inventory enthält die folgenden Diagramme:
+
+* *Volume Backup Status*: Zeigt geschützte im Vergleich zu nicht geschützten Volumes für den ausgewählten Bereich an.
+* *Volumen nach Backup-Anzahl*: Gruppiert Volumes nach der Anzahl der verfügbaren Backup-Kopien für dieses Volume.
+
 
 .Schritte
 . Wählen Sie im oberen Menü *Berichte*.
 . Wählen Sie *Inventarisierung sichern*.
 . Wählen Sie *Bericht erstellen*.
-. Wählen Sie den Berichtsumfang der Kontoebene oder Benutzerdefiniert aus.
-. Wählen Sie die Filter für den Bericht aus:
+. Wählen Sie das Konto, die Arbeitsumgebung und die SVM aus.
 +
-** Volumes
-** Schutz: Wählen Sie den Schutztyp (Lokale Snapshot-Kopien, Replikation oder Backups) aus, den Sie im Bericht angeben möchten. Sie können alle drei auswählen. Wählen Sie außerdem aus, ob nicht geschützte Volumes einbezogen werden sollen.
 
+TIP: Sie können mehrere Arbeitsumgebungen und SVMs auswählen.
 
-. Wählen Sie *Bericht erstellen*.
-. Prüfen Sie die Registerkarten des Berichts (lokaler Snapshot, Replikation oder Backup), abhängig von Ihrer Berichtsauswahl.
+. Wählen Sie den Zeitrahmen aus: Letzte 24 Stunden, Woche oder Monat.
+. Prüfen Sie die Berichtsabschnitte (Snapshot-Richtlinien, Replikationsrichtlinien oder Backup-Richtlinien), abhängig von Ihrer Berichtsauswahl.
+. (Optional) Filtern Sie die Ergebnisse nach Jobstatus.
 . (Optional) Exportieren Sie den Berichtinhalt im CSV-Format, indem Sie *CSV herunterladen* auswählen.
 
 
