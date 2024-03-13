@@ -1,0 +1,3263 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head class="at-element-marker">
+  <title>ONTAP-Daten aus Backup-Dateien wiederherstellen | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="ONTAP-Daten aus Backup-Dateien wiederherstellen | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+	<meta property="og:description" content="Backups der Daten von ONTAP Volumes sind über die Standorte verfügbar, an denen Sie Backups, Snapshot Kopien, replizierte Volumes und/oder im Objekt-Storage ..." />
+  <meta property="og:image" content="https://docs.netapp.com/de-de/bluexp-backup-recovery/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Backups der Daten von ONTAP Volumes sind über die Standorte verfügbar, an denen Sie Backups, Snapshot Kopien, replizierte Volumes und/oder im Objekt-Storage ...">
+  <meta name="keywords" content=" restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, restore snapshot, restore replication, restore backup, ONTAP"><!-- Icons -->
+  <link rel="icon" href="/de-de/bluexp-backup-recovery/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/de-de/bluexp-backup-recovery/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/de-de/bluexp-backup-recovery/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/de-de/bluexp-backup-recovery/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/de-de/bluexp-backup-recovery/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/bluexp-backup-recovery/task-restore-backups-ontap.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/de-de/bluexp-backup-recovery/js/na-search.js'></script><script src='/de-de/bluexp-backup-recovery/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/de-de/bluexp-backup-recovery/js/custom-dropdown.js'></script>
+  <script src='/de-de/bluexp-backup-recovery/js/FileSaver.min.js'></script>
+  <script src='/de-de/bluexp-backup-recovery/js/jszip-utils.min.js'></script>
+  <script src='/de-de/bluexp-backup-recovery/js/jszip.min.js'></script><script src='/de-de/bluexp-backup-recovery/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="aws">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/de-de/bluexp-backup-recovery/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/de/index.aspx">
+                <image id="ie-header-logo" src="/de-de/bluexp-backup-recovery/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/de/support-and-training/documentation/">Dokumente</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/de-de/bluexp-backup-recovery/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">Deutsch</span>
+                    <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/bluexp-backup-recovery/task-restore-backups-ontap.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/de-de/bluexp-backup-recovery/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">NetApp Komplettlösung</span>
+                    <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/de/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">Support</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">Knowledge Base</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/de/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">Training</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/de-de/bluexp-backup-recovery/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/de-de/bluexp-backup-recovery/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">Gesamte Dokumentation</a>
+    </li>
+    
+    
+    <li class="">
+      <a href="https://docs.netapp.com/us-en/cloud/">Cloud-Dokumentation</a>
+    </li>
+    
+
+    
+    <li class="">
+      <a href="https://docs.netapp.com/de-de/bluexp-family/">
+        BlueXP
+      </a>
+    </li>
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/de-de/bluexp-backup-recovery/">-->
+      BlueXP backup and recovery
+    <!--</a>-->
+  </div>
+</div>
+
+            
+<div id="ie-selectors">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html">
+  
+  
+  <div class="custom-dropdown-select selected" title="AWS">
+    <label>Cloud-Provider</label>
+    <div>AWS</div>  
+    <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown flavor invisible" />
+    <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup flavor" />
+    <!--<img src="/de-de/bluexp-backup-recovery/images/dismiss.svg" class="custom-icon selected" id="remove-flavor" alt="" />-->
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/de-de/bluexp-backup-recovery/aws/task-restore-backups-ontap.html">Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/de-de/bluexp-backup-recovery/gcp/task-restore-backups-ontap.html">Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/de-de/bluexp-backup-recovery/azure/task-restore-backups-ontap.html">Microsoft Azure
+    </li>
+    
+    
+    <li data-url="/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html">Alle Cloud-Provider</li>
+  </ul>
+</div>
+</div>
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/de-de/bluexp-backup-recovery/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/de-de/bluexp-backup-recovery/aws/search.html" 
+        data-type="widget"
+        data-placeholder="Dokumentation durchsuchen"
+        data-no-results-found="Keine Ergebnisse gefunden für {query}"
+        data-did-you-mean="Suchen Sie nach {suggestion}."
+        data-no-results-found-did-you-mean="Es wurden keine Ergebnisse für {query} gefunden. Meinten Sie {suggestion}?"
+        data-results-found="{hitCount} Ergebnisse gefunden"
+        data-error-message="Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+        data-error-reset="Suche zurücksetzen"
+        data-sk-es-pf-indexes="" 
+        data-flavor="aws">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="BlueXP Backup- und Recovery-Dokumentation"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/de-de/bluexp-backup-recovery/aws/index.html">
+        BlueXP Backup- und Recovery-Dokumentation
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Versionshinweise"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Versionshinweise</div>-->
+         Versionshinweise
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Was ist neu"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/whats-new.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/whats-new.html">
+        Was ist neu
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Bekannte Einschränkungen"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-limitations.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/reference-limitations.html">
+        Bekannte Einschränkungen
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Los geht's"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Los geht's</div>-->
+         Los geht's
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Erfahren Sie mehr über BlueXP Backup und Recovery"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-backup-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-backup-to-cloud.html">
+        Erfahren Sie mehr über BlueXP Backup und Recovery
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Lizenzierung einrichten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-licensing-cloud-backup.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-licensing-cloud-backup.html">
+        Lizenzierung einrichten
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Überwachen Sie die Datensicherung"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Überwachen Sie die Datensicherung</div>-->
+         Überwachen Sie die Datensicherung
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Berichte zur Datensicherung"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-report-inventory.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-report-inventory.html">
+        Berichte zur Datensicherung
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Überwachen des Status von Backup- und Wiederherstellungsjobs"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-monitor-backup-jobs.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-monitor-backup-jobs.html">
+        Überwachen des Status von Backup- und Wiederherstellungsjobs
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup und Restore von ONTAP Daten"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Backup und Restore von ONTAP Daten</div>-->
+         Backup und Restore von ONTAP Daten
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern von ONTAP Volume-Daten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-ontap-backup-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-ontap-backup-to-cloud.html">
+        Sichern von ONTAP Volume-Daten
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Planen Sie Ihren Weg zum Schutz"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-protection-journey.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-protection-journey.html">
+        Planen Sie Ihren Weg zum Schutz
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Management von Richtlinien für ONTAP Volumes"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-create-policies-ontap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-create-policies-ontap.html">
+        Management von Richtlinien für ONTAP Volumes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP in Amazon S3 sichern"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-to-s3.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-to-s3.html">
+        Cloud Volumes ONTAP in Amazon S3 sichern
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup von On-Premises-ONTAP in Amazon S3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-onprem-to-aws.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-onprem-to-aws.html">
+        Backup von On-Premises-ONTAP in Amazon S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie On-Premises-ONTAP auf ONTAP S3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-onprem-to-ontap-s3.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-onprem-to-ontap-s3.html">
+        Sichern Sie On-Premises-ONTAP auf ONTAP S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie Ihre lokale ONTAP auf StorageGRID"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-onprem-private-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-onprem-private-cloud.html">
+        Sichern Sie Ihre lokale ONTAP auf StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ONTAP-Backups managen"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-manage-backups-ontap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-manage-backups-ontap.html">
+        ONTAP-Backups managen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restore aus ONTAP-Backups"
+      data-li-level="2#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-backups-ontap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-restore-backups-ontap.html">
+        Restore aus ONTAP-Backups
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Managen von Objekteinstellungen für das Backup auf Cluster-Ebene"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-manage-backup-settings-ontap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-manage-backup-settings-ontap.html">
+        Managen von Objekteinstellungen für das Backup auf Cluster-Ebene
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup und Restore von On-Premises-Applikationsdaten"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Backup und Restore von On-Premises-Applikationsdaten</div>-->
+         Backup und Restore von On-Premises-Applikationsdaten
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie Ihre lokalen Applikationsdaten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-protect-app-data-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-protect-app-data-to-cloud.html">
+        Sichern Sie Ihre lokalen Applikationsdaten
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Registrieren Sie den SnapCenter-Server"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-register-snapcenter-server.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-register-snapcenter-server.html">
+        Registrieren Sie den SnapCenter-Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Erstellen einer Richtlinie für das Backup von Applikationen"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-create-policies-apps.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-create-policies-apps.html">
+        Erstellen einer Richtlinie für das Backup von Applikationen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie On-Premises-Applikationsdaten in Amazon Web Services"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-app-data-to-aws.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-app-data-to-aws.html">
+        Sichern Sie On-Premises-Applikationsdaten in Amazon Web Services
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie On-Premises-Applikationsdaten in StorageGRID"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-app-data-to-storagegrid.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-app-data-to-storagegrid.html">
+        Sichern Sie On-Premises-Applikationsdaten in StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Management der Sicherung von Applikationen"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-manage-app-backups.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-manage-app-backups.html">
+        Management der Sicherung von Applikationen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wiederherstellung von lokalen Applikationsdaten"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Wiederherstellung von lokalen Applikationsdaten</div>-->
+         Wiederherstellung von lokalen Applikationsdaten
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Oracle Datenbank wiederherstellen"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-oracle-data.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-restore-oracle-data.html">
+        Oracle Datenbank wiederherstellen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SQL Server Datenbank wiederherstellen"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-sql-data.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-restore-sql-data.html">
+        SQL Server Datenbank wiederherstellen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wiederherstellung der SAP HANA Datenbank"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-hana-backup.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-restore-hana-backup.html">
+        Wiederherstellung der SAP HANA Datenbank
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Stellen Sie MongoDB-, MySQL- und PostgreSQL-Datenbanken wieder her"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-customplugin-backup.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-restore-customplugin-backup.html">
+        Stellen Sie MongoDB-, MySQL- und PostgreSQL-Datenbanken wieder her
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup und Wiederherstellung von Cloud-nativen Applikationsdaten"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Backup und Wiederherstellung von Cloud-nativen Applikationsdaten</div>-->
+         Backup und Wiederherstellung von Cloud-nativen Applikationsdaten
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie Ihre Cloud-nativen Applikationsdaten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-protect-cloud-app-data-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-protect-cloud-app-data-to-cloud.html">
+        Sichern Sie Ihre Cloud-nativen Applikationsdaten
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup von Cloud-nativen Oracle-Datenbanken"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Backup von Cloud-nativen Oracle-Datenbanken</div>-->
+         Backup von Cloud-nativen Oracle-Datenbanken
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Schnellstart"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-quick-start-oracle.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-quick-start-oracle.html">
+        Schnellstart
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Konfigurieren Sie FSX für ONTAP"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-configure-fsx-for-ontap.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/reference-configure-fsx-for-ontap.html">
+        Konfigurieren Sie FSX für ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Konfigurieren Sie Cloud Volumes ONTAP"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-configure-cloud-volumes-ontap.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/reference-configure-cloud-volumes-ontap.html">
+        Konfigurieren Sie Cloud Volumes ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installieren Sie das SnapCenter Plug-in für Oracle und fügen Sie Datenbank-Hosts hinzu"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-add-host-discover-oracle-databases.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-add-host-discover-oracle-databases.html">
+        Installieren Sie das SnapCenter Plug-in für Oracle und fügen Sie Datenbank-Hosts hinzu
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup von Oracle Datenbanken"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-cloud-native-oracle-data.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-backup-cloud-native-oracle-data.html">
+        Backup von Oracle Datenbanken
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie Cloud-native SQL Server-Datenbanken mit REST-APIs"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Sichern Sie Cloud-native SQL Server-Datenbanken mit REST-APIs</div>-->
+         Sichern Sie Cloud-native SQL Server-Datenbanken mit REST-APIs
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Schnellstart"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-quick-start-sql.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-quick-start-sql.html">
+        Schnellstart
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Konfigurieren Sie FSX für ONTAP"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-configure-fsx-for-ontap.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/reference-configure-fsx-for-ontap.html">
+        Konfigurieren Sie FSX für ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Fügen Sie Host hinzu und installieren Sie das SnapCenter-Plug-in für SQL Server"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-add-sqlhost-install-plugin-sql.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-add-sqlhost-install-plugin-sql.html">
+        Fügen Sie Host hinzu und installieren Sie das SnapCenter-Plug-in für SQL Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup von SQL Server-Datenbanken"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-cloud-native-sql-data.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-backup-cloud-native-sql-data.html">
+        Backup von SQL Server-Datenbanken
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Stellen Sie Cloud-native Oracle-Datenbanken wieder her"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Stellen Sie Cloud-native Oracle-Datenbanken wieder her</div>-->
+         Stellen Sie Cloud-native Oracle-Datenbanken wieder her
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wiederherstellung am ursprünglichen Speicherort"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-cloud-native-oracle-data-to-original-location.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-restore-cloud-native-oracle-data-to-original-location.html">
+        Wiederherstellung am ursprünglichen Speicherort
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wiederherstellung an einem alternativen Speicherort"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-cloud-native-oracle-data-to-alternate-location.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-restore-cloud-native-oracle-data-to-alternate-location.html">
+        Wiederherstellung an einem alternativen Speicherort
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wiederherstellung von Cloud-nativen SQL Server-Datenbanken"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-cloud-native-sql-data.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-restore-cloud-native-sql-data.html">
+        Wiederherstellung von Cloud-nativen SQL Server-Datenbanken
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Klonen Cloud-nativer Oracle-Datenbanken"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Klonen Cloud-nativer Oracle-Datenbanken</div>-->
+         Klonen Cloud-nativer Oracle-Datenbanken
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Klonkonzepte und -Anforderungen"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-clone-cloud-native-oracle-concepts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/concept-clone-cloud-native-oracle-concepts.html">
+        Klonkonzepte und -Anforderungen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Klonen Cloud-nativer Oracle-Datenbanken"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-clone-cloud-native-oracle-data.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/de-de/bluexp-backup-recovery/aws/task-clone-cloud-native-oracle-data.html">
+        Klonen Cloud-nativer Oracle-Datenbanken
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Management der Sicherung von Cloud-nativen Applikationsdaten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-manage-cloud-native-app-data.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-manage-cloud-native-app-data.html">
+        Management der Sicherung von Cloud-nativen Applikationsdaten
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Daten von Virtual Machines sichern und wiederherstellen"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Daten von Virtual Machines sichern und wiederherstellen</div>-->
+         Daten von Virtual Machines sichern und wiederherstellen
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie Ihre Daten von Virtual Machines"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-protect-vm-data.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-protect-vm-data.html">
+        Sichern Sie Ihre Daten von Virtual Machines
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Registrieren Sie das SnapCenter Plug-in für VMware vSphere Host"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-register-snapCenter-plug-in-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-register-snapCenter-plug-in-for-vmware-vsphere.html">
+        Registrieren Sie das SnapCenter Plug-in für VMware vSphere Host
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Erstellen Sie eine Richtlinie zum Backup von Datastores"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-create-policies-vms.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-create-policies-vms.html">
+        Erstellen Sie eine Richtlinie zum Backup von Datastores
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Erstellen Sie Backups von Datastores in Amazon Web Services"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-vm-data-to-aws.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-vm-data-to-aws.html">
+        Erstellen Sie Backups von Datastores in Amazon Web Services
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sichern Sie Datenspeicher in StorageGRID"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-vm-data-to-storagegrid.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-vm-data-to-storagegrid.html">
+        Sichern Sie Datenspeicher in StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Managen Sie die Sicherung von Data Stores und Virtual Machines"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-manage-vm-data-in-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-manage-vm-data-in-cloud.html">
+        Managen Sie die Sicherung von Data Stores und Virtual Machines
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Stellen Sie die Daten von Virtual Machines wieder her"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-vm-data.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-restore-vm-data.html">
+        Stellen Sie die Daten von Virtual Machines wieder her
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup und Wiederherstellung von Kubernetes-Daten"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Backup und Wiederherstellung von Kubernetes-Daten</div>-->
+         Backup und Wiederherstellung von Kubernetes-Daten
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sicherung von Kubernetes-Daten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-kubernetes-backup-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-kubernetes-backup-to-cloud.html">
+        Sicherung von Kubernetes-Daten
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup in Amazon S3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-backup-kubernetes-to-s3.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-backup-kubernetes-to-s3.html">
+        Backup in Amazon S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Kubernetes-Backups managen"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-manage-backups-kubernetes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-manage-backups-kubernetes.html">
+        Kubernetes-Backups managen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wiederherstellung aus Kubernetes-Backups"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-restore-backups-kubernetes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-restore-backups-kubernetes.html">
+        Wiederherstellung aus Kubernetes-Backups
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mit DER REST-API automatisieren"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/api-backup-restore.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/de-de/bluexp-backup-recovery/aws/api-backup-restore.html">
+        Mit DER REST-API automatisieren
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Referenz"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Referenz</div>-->
+         Referenz
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Einstellungen für Backup-Richtlinien"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/concept-cloud-backup-policies.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/concept-cloud-backup-policies.html">
+        Einstellungen für Backup-Richtlinien
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Unterstützte AWS Archiv-Storage Tiers"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-aws-backup-tiers.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/reference-aws-backup-tiers.html">
+        Unterstützte AWS Archiv-Storage Tiers
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Unterstützte Azure-Archiv-Zugriffsebenen"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-azure-backup-tiers.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/reference-azure-backup-tiers.html">
+        Unterstützte Azure-Archiv-Zugriffsebenen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Unterstützte Google-Archiv-Storage Tiers"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-google-backup-tiers.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/reference-google-backup-tiers.html">
+        Unterstützte Google-Archiv-Storage Tiers
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Stellen Sie BlueXP Backup- und Recovery-Datenbanken an einem dunklen Standort wieder her"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-backup-cbs-db-in-dark-site.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/reference-backup-cbs-db-in-dark-site.html">
+        Stellen Sie BlueXP Backup- und Recovery-Datenbanken an einem dunklen Standort wieder her
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="BlueXP Backup und Recovery neu starten"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/reference-restart-backup.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/reference-restart-backup.html">
+        BlueXP Backup und Recovery neu starten
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Wissen und Support"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/de-de/bluexp-backup-recovery/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/de-de/bluexp-backup-recovery/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Wissen und Support</div>-->
+         Wissen und Support
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Für den Support anmelden"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-support-registration.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-support-registration.html">
+        Für den Support anmelden
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Holen Sie sich Hilfe"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/task-get-help.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/de-de/bluexp-backup-recovery/aws/task-get-help.html">
+        Holen Sie sich Hilfe
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Rechtliche Hinweise"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/task-restore-backups-ontap.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/de-de/bluexp-backup-recovery/aws/legal-notices.html">
+        Rechtliche Hinweise
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/de-de/bluexp-backup-recovery"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/de-de/bluexp-backup-recovery"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/de-de/bluexp-backup-recovery/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> Die deutsche Sprachversion wurde als Serviceleistung für Sie durch maschinelle Übersetzung erstellt. Bei eventuellen Unstimmigkeiten hat die englische Sprachversion Vorrang. </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">ONTAP-Daten aus Backup-Dateien wiederherstellen</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2024-03-13 14:19:20 +0000">03/13/2024</time>
+        
+    
+    
+        <span>Beitragende
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/de-de/bluexp-backup-recovery/images/discuss-sm.svg" alt="" class="github-icon" />Änderungen vorschlagen</span>
+        <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/bluexp-backup-recovery.de-de/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/de-de/bluexp-backup-recovery/task-restore-backups-ontap.html&page-title=ONTAP-Daten aus Backup-Dateien wiederherstellen" class="page-nav-contribute-link" role="button">Dokumentationsänderungen anfordern</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/bluexp-backup-recovery/blob/main/task-restore-backups-ontap.adoc" class="page-nav-contribute-link" role="button">Diese Seite bearbeiten</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >So können Sie beitragen</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>PDFs<img src="/de-de/bluexp-backup-recovery/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/de-de/bluexp-backup-recovery/pdfs/aws/fullsite-sidebar/BlueXP_Backup__und_Recovery_Dokumentation.pdf" >
+                    <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>PDF dieser Dokumentationssite</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Versionshinweise.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Versionshinweise
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Los_geht_s.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Los geht's
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Überwachen_Sie_die_Datensicherung.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Überwachen Sie die Datensicherung
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Backup_und_Restore_von_ONTAP_Daten.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Backup und Restore von ONTAP Daten
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Backup_und_Restore_von_On_Premises_Applikationsdaten.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Backup und Restore von On-Premises-Applikationsdaten
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Wiederherstellung_von_lokalen_Applikationsdaten.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Wiederherstellung von lokalen Applikationsdaten
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Backup_und_Wiederherstellung_von_Cloud_nativen_Applikationsdaten.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Backup und Wiederherstellung von Cloud-nativen Applikationsdaten
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Backup_von_Cloud_nativen_Oracle_Datenbanken.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Backup von Cloud-nativen Oracle-Datenbanken
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Backup_von_Cloud_nativen_SAP_HANA_Datenbanken.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Backup von Cloud-nativen SAP HANA-Datenbanken
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Sichern_Sie_Cloud_native_SQL_Server_Datenbanken_mit_REST_APIs.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Sichern Sie Cloud-native SQL Server-Datenbanken mit REST-APIs
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Stellen_Sie_Cloud_native_Oracle_Datenbanken_wieder_her.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Stellen Sie Cloud-native Oracle-Datenbanken wieder her
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Klonen_Cloud_nativer_Oracle_Datenbanken.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Klonen Cloud-nativer Oracle-Datenbanken
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Daten_von_Virtual_Machines_sichern_und_wiederherstellen.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Daten von Virtual Machines sichern und wiederherstellen
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Backup_und_Wiederherstellung_von_Kubernetes_Daten.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Backup und Wiederherstellung von Kubernetes-Daten
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Referenz.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Referenz
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/de-de/bluexp-backup-recovery/pdfs/aws/sidebar/Wissen_und_Support.pdf" 
+            
+          >
+            <img src="/de-de/bluexp-backup-recovery/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Wissen und Support
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/de-de/bluexp-backup-recovery/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>Sammlung separater PDF-Dokumente<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Backups Ihrer ONTAP Volume-Daten sind über die Standorte Ihrer Backups verfügbar: Snapshot Kopien, replizierte Volumes und im Objekt-Storage gespeicherte Backups. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Sie können ein gesamtes ONTAP-Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige wenige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sie können ein <strong>Volume</strong> (als neues Volume) in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem lokalen ONTAP System wiederherstellen.</p>
+</li>
+<li>
+<p>Sie können einen <strong>Ordner</strong> auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, die denselben Cloud-Account verwendet, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.</p>
+</li>
+<li>
+<p>Sie können <strong>Dateien</strong> auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Zum Wiederherstellen von Daten von Backup-Dateien auf ein Produktionssystem ist eine gültige BlueXP Backup- und Recovery-Lizenz erforderlich.</p>
+</div>
+<div class="paragraph">
+<p>Zusammenfassend sind dies die gültigen Datenflüsse, die Sie verwenden können, um Volume-Daten in einer ONTAP Arbeitsumgebung wiederherzustellen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sicherungsdatei &#8594; wiederhergestelltes Volume</p>
+</li>
+<li>
+<p>Repliziertes Volume &#8594; wiederhergestelltes Volume</p>
+</li>
+<li>
+<p>Snapshot Kopie &#8594; wiederhergestelltes Volume</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="das-restore-dashboard">Das Restore Dashboard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mit dem Restore Dashboard können Sie Volume-, Ordner- und Dateiwiederherstellungsvorgänge durchführen. Sie öffnen das Restore Dashboard, indem Sie im BlueXP-Menü auf <strong>Backup und Recovery</strong> klicken und dann auf die Registerkarte <strong>Restore</strong> klicken. Sie können auch auf klicken <span class="image"><img src="./media/screenshot_gallery_options.gif" alt="Schaltfläche „Mehr“"></span> &gt; <strong>Ansicht Restore Dashboard</strong> vom Backup- und Recovery-Dienst aus dem Fenster Dienste.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+BlueXP Backup und Recovery müssen bereits für mindestens eine Arbeitsumgebung aktiviert sein und erste Backup-Dateien müssen vorhanden sein.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_dashboard.png" alt="Das Restore Dashboard zeigt die Optionen für die Funktion Browse  Restore oder Search  Restore an."></span></p>
+</div>
+<div class="paragraph">
+<p>Wie Sie sehen können, bietet das Restore Dashboard 2 verschiedene Möglichkeiten, Daten aus Sicherungsdateien wiederherzustellen: <strong>Durchsuchen &amp; Wiederherstellen</strong> und <strong>Suchen &amp; Wiederherstellen</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vergleichen-von-durchsuchen-und-wiederherstellen-und-suchen-und-wiederherstellen">Vergleichen von Durchsuchen und Wiederherstellen und Suchen und Wiederherstellen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In der Regel ist <em>Browse &amp; Restore</em> besser, wenn Sie ein bestimmtes Volume, einen Ordner oder eine Datei aus der letzten Woche oder einem Monat wiederherstellen müssen - und Sie kennen den Namen und den Speicherort der Datei und das Datum, an dem sie zuletzt in gutem Zustand war. <em>Search &amp; Restore</em> ist in der Regel besser, wenn Sie ein Volume, einen Ordner oder eine Datei wiederherstellen müssen, aber Sie können sich nicht an den genauen Namen oder das Volumen, in dem es sich befindet, oder an das Datum erinnern, an dem es zuletzt in gutem Zustand war.</p>
+</div>
+<div class="paragraph">
+<p>Diese Tabelle enthält einen Funktionsvergleich der 2 Methoden.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Suchen Und Wiederherstellen</th>
+<th class="tableblock halign-left valign-top">Suche Und Wiederherstellung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Durchsuchen Sie eine Ordnerstruktur, um das Volume, den Ordner oder die Datei in einer einzelnen Sicherungsdatei zu finden.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suchen Sie nach einem Volume, Ordner oder einer Datei über <strong>alle Sicherungsdateien</strong> nach einem teilweisen oder vollständigen Datenträgernamen, einem teilweisen oder vollständigen Ordner-/Dateinamen, einem Größenbereich und zusätzlichen Suchfiltern.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Führt keine Dateiwiederherstellung durch, wenn die Datei gelöscht oder umbenannt wurde, und der Benutzer den ursprünglichen Dateinamen nicht kennt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es sind keine zusätzlichen Ressourcen für Cloud-Provider erforderlich</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Beim Restore aus der Cloud werden pro Konto zusätzliche Bucket- und Public-Cloud-Provider-Ressourcen benötigt.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es sind keine zusätzlichen Kosten für Cloud-Provider erforderlich</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wenn Sie Daten aus der Cloud wiederherstellen, sind zusätzliche Kosten erforderlich, wenn Sie Ihre Backups und Volumes zur Suche nach Suchergebnissen scannen.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schnelle Wiederherstellung wird unterstützt.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schnelle Wiederherstellung wird nicht unterstützt.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Diese Tabelle enthält eine Liste gültiger Wiederherstellungsvorgänge, die auf dem Speicherort der Sicherungsdateien basieren.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Backup-Typ</th>
+<th class="tableblock halign-left valign-top" colspan="3">Suchen Und Wiederherstellen</th>
+<th class="tableblock halign-left valign-top" colspan="3">Suche Und Wiederherstellung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lautstärke wiederherstellen</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Dateien wiederherstellen*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ordner wiederherstellen</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lautstärke wiederherstellen</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Dateien wiederherstellen*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ordner wiederherstellen</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Snapshot Kopie</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nein</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nein</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Repliziertes Volume</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nein</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nein</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Sicherungsdatei</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ja.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Bevor Sie eine der beiden Wiederherstellungsmethoden verwenden können, sollten Sie sicherstellen, dass Sie Ihre Umgebung für die speziellen Ressourcenanforderungen konfiguriert haben. Diese Anforderungen werden in den Abschnitten unten beschrieben.</p>
+</div>
+<div class="paragraph">
+<p>Siehe Anforderungen und Wiederherstellungsschritte für den Typ der Wiederherstellungsoperation, die Sie verwenden möchten:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;&lt;Restoring volumes using Browse &amp; Restore,Stellen Sie Volumes mithilfe von Browse  Restore wieder her</p>
+</li>
+<li>
+<p>&lt;&lt;Restoring folders and files using Browse &amp; Restore,Wiederherstellen von Ordnern und Dateien mit Durchsuchen  Restore</p>
+</li>
+<li>
+<p>&lt;&lt;Restoring ONTAP data using Search &amp; Restore,Stellen Sie Volumes, Ordner und Dateien mithilfe von Search  Restore wieder her</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="stellen-sie-ontap-daten-mithilfe-von-durchsuchen-und-wiederherstellen-wieder-her">Stellen Sie ONTAP-Daten mithilfe von Durchsuchen und Wiederherstellen wieder her</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bevor Sie mit der Wiederherstellung eines Volumes, Ordners oder einer Datei beginnen, sollten Sie den Namen des Volumes, von dem aus Sie wiederherstellen möchten, den Namen der Arbeitsumgebung und SVM, auf dem sich das Volume befindet, sowie das ungefähre Datum der Sicherungsdatei, aus der Sie wiederherstellen möchten, kennen. Sie können ONTAP Daten von einer Snapshot Kopie, einem replizierten Volume oder von Backups im Objektspeicher wiederherstellen.</p>
+</div>
+<div class="paragraph">
+<p><strong>Hinweis:</strong> Wenn sich die Sicherungsdatei mit den Daten, die Sie wiederherstellen möchten, im Archiv-Cloud-Speicher befindet (beginnend mit ONTAP 9.10.1), dauert der Wiederherstellungsvorgang länger und verursacht Kosten. Zusätzlich muss auf dem Ziel-Cluster für die Volume-Wiederherstellung ONTAP 9.10.1 oder höher, 9.11.1 für die Wiederherstellung von Dateien, 9.12.1 für Google Archive und StorageGRID und 9.13.1 für die Wiederherstellung von Ordnern ausgeführt werden.</p>
+</div>
+<div class="paragraph">
+<p><a href="reference-aws-backup-tiers.html">"Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+Die hohe Priorität wird nicht unterstützt, wenn Daten aus dem Azure Archiv-Storage auf StorageGRID Systeme wiederhergestellt werden.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="unterstützte-arbeitsumgebungen-und-objekt-storage-anbieter-durchsuchen-und-wiederherstellen">Unterstützte Arbeitsumgebungen und Objekt-Storage-Anbieter durchsuchen und wiederherstellen</h3>
+<div class="paragraph">
+<p>Sie können ONTAP-Daten aus einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) oder im Objektspeicher (einer Backup-Datei) in den folgenden Arbeitsumgebungen wiederherstellen. Snapshot Kopien befinden sich in der Quell-Arbeitsumgebung, sie können nur auf demselben System wiederhergestellt werden.</p>
+</div>
+<div class="paragraph">
+<p><strong>Hinweis:</strong> Sie können ein Volume von jeder Art von Sicherungsdatei wiederherstellen, aber Sie können einen Ordner oder einzelne Dateien nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Aus Objektspeicher (Backup)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Von Primär (Snapshot)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vom Sekundären System (Replikation)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zum Ziel Der Arbeitsumgebung<br>
+<br>
+Ifdef::aws[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in AWS<br>
+Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in AWS<br>
+Lokales ONTAP System<br>
+<br>
+Endif::aws[]<br>
+<br>
+<br>
+<br>
+Ifdef::azurblau[]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Blob</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Azure<br>
+Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Azure<br>
+Lokales ONTAP System<br>
+<br>
+Endif::azurblau[]<br>
+<br>
+<br>
+<br>
+Ifdef::gcp[]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud Storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Google<br>
+Lokales ONTAP System</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp StorageGRID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System<br>
+Cloud Volumes ONTAP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zum lokalen ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System<br>
+Cloud Volumes ONTAP</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Für Browse &amp; Restore kann der Connector an folgenden Orten installiert werden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bei Amazon S3 kann der Connector in AWS oder lokal implementiert werden</p>
+</li>
+<li>
+<p>Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden</p>
+</li>
+<li>
+<p>Bei ONTAP S3 kann der Connector (mit oder ohne Internetzugang) vor Ort oder in einer Cloud-Provider-Umgebung implementiert werden</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+Wenn die ONTAP-Version auf Ihrem System kleiner als 9.13.1 ist, können Sie keine Ordner oder Dateien wiederherstellen, wenn die Sicherungsdatei mit DataLock &amp; Ransomware konfiguriert wurde. In diesem Fall können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und anschließend auf die von Ihnen benötigten Dateien zugreifen.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stellen-sie-volumes-mithilfe-von-browse-restore-wieder-her">Stellen Sie Volumes mithilfe von Browse &amp; Restore wieder her</h3>
+<div class="paragraph">
+<p>Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein <em>New</em> Volume. Wenn Sie ein Backup aus dem Objekt-Storage verwenden, können Sie die Daten auf einem Volume in der ursprünglichen Arbeitsumgebung wiederherstellen, in einer anderen Arbeitsumgebung, die sich in demselben Cloud-Konto wie die ursprüngliche Arbeitsumgebung befindet, oder auf einem lokalen ONTAP System.</p>
+</div>
+<div class="paragraph">
+<p>Bei der Wiederherstellung eines Cloud-Backups auf einem Cloud Volumes ONTAP-System mit ONTAP 9.13.0 oder höher oder auf einem lokalen ONTAP-System mit ONTAP 9.14.1 haben Sie die Möglichkeit, eine schnelle Wiederherstellung durchzuführen. Die schnelle Wiederherstellung ist ideal für Disaster Recovery-Situationen, in denen Sie so schnell wie möglich Zugriff auf ein Volume gewährleisten müssen. Bei einer schnellen Wiederherstellung werden die Metadaten aus der Backup-Datei auf einem Volume wiederhergestellt, anstatt die gesamte Backup-Datei wiederherzustellen. Die schnelle Wiederherstellung ist weder für Performance- noch für latenzkritische Applikationen empfehlenswert und wird bei Backups in archiviertem Storage nicht unterstützt.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+Die schnelle Wiederherstellung wird für FlexGroup Volumes nur dann unterstützt, wenn das Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.12.1 oder höher ausgeführt wurde. Sie wird nur für SnapLock Volumes unterstützt, wenn auf dem Quellsystem ONTAP 9.11.0 oder höher ausgeführt wurde.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Bei der Wiederherstellung von einem replizierten Volume können Sie das Volume in der ursprünglichen Arbeitsumgebung oder in einem Cloud Volumes ONTAP oder einem lokalen ONTAP System wiederherstellen.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_browse_restore_volume.png" alt="Ein Diagramm, das den Fluss zeigt, um einen Datenträger-Wiederherstellungsvorgang mit Durchsuchen  Restore durchzuführen."></span></p>
+</div>
+<div class="paragraph">
+<p>Wie Sie sehen können, müssen Sie den Namen der Quellarbeitsumgebung, die Storage-VM, den Volume-Namen und das Datum der Backup-Datei kennen, um eine Volume-Wiederherstellung durchzuführen.</p>
+</div>
+<div class="paragraph">
+<p>Das folgende Video zeigt einen kurzen Spaziergang zur Wiederherstellung eines Volumens:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="848" height="480" src="https://www.youtube.com/embed/9Og5agUWyRk?rel=0&amp;end=164" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Schritte</div>
+<ol class="arabic">
+<li>
+<p>Wählen Sie im Menü BlueXP die Option <strong>Schutz &gt; Sicherung und Wiederherstellung</strong>.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Registerkarte <strong>Wiederherstellen</strong>, und das Dashboard wiederherstellen wird angezeigt.</p>
+</li>
+<li>
+<p>Klicken Sie im Abschnitt „<em>Browse &amp; Restore</em>“ auf <strong>Volume wiederherstellen</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_volume_selection.png" alt="Ein Screenshot, in dem Sie die Schaltfläche „Volumes wiederherstellen“ aus dem Dashboard „Wiederherstellen“ auswählen."></span></p>
+</div>
+</li>
+<li>
+<p>Navigieren Sie auf der Seite <em>Quelle auswählen</em> zur Sicherungsdatei für das Volume, das Sie wiederherstellen möchten. Wählen Sie die Datei * Working Environment*, <strong>Volume</strong> und die Datei <strong>Backup</strong> aus, die den Datums-/Zeitstempel enthält, aus dem Sie wiederherstellen möchten.</p>
+<div class="paragraph">
+<p>Die Spalte <strong>Location</strong> zeigt an, ob die Sicherungsdatei (Snapshot) <strong>lokal</strong> (eine Snapshot-Kopie auf dem Quellsystem), <strong>sekundär</strong> (ein repliziertes Volume auf einem sekundären ONTAP-System) oder <strong>Objektspeicher</strong> (eine Sicherungsdatei im Objektspeicher) ist. Wählen Sie die Datei aus, die Sie wiederherstellen möchten.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_select_volume_snapshot.png" alt="Ein Screenshot zur Auswahl der Arbeitsumgebung, des Volumes und der Sicherungsdatei des Volumes, die wiederhergestellt werden soll"></span></p>
+</div>
+</li>
+<li>
+<p>Klicken Sie Auf <strong>Weiter</strong>.</p>
+<div class="paragraph">
+<p>Wenn Sie eine Backup-Datei im Objekt-Storage auswählen und für dieses Backup der Ransomware-Schutz aktiv ist (wenn Sie DataLock und Ransomware-Schutz in der Backup-Richtlinie aktiviert haben), werden Sie vor der Wiederherstellung der Daten aufgefordert, einen zusätzlichen Ransomware-Scan für die Backup-Datei auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen. (Für den Zugriff auf die Inhalte der Backup-Datei entstehen zusätzliche Kosten durch Ihren Cloud-Provider.)</p>
+</div>
+</li>
+<li>
+<p>Wählen Sie auf der Seite <em>Ziel auswählen</em> die Option <strong>Arbeitsumgebung</strong> aus, in der Sie das Volume wiederherstellen möchten.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_select_work_env_volume.png" alt="Ein Screenshot der Auswahl der Zielumgebung für das Volume, das wiederhergestellt werden soll."></span></p>
+</div>
+</li>
+<li>
+<p>Wenn Sie beim Wiederherstellen einer Backup-Datei aus dem Objekt-Storage ein lokales ONTAP-System auswählen und noch nicht die Cluster-Verbindung zum Objekt-Storage konfiguriert haben, werden Sie zur Eingabe weiterer Informationen aufgefordert:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wählen Sie bei der Wiederherstellung aus Amazon S3 den IPspace im ONTAP Cluster aus, auf dem sich das Ziel-Volume befindet, und geben Sie den Zugriffsschlüssel und den geheimen Schlüssel für den Benutzer ein, den Sie erstellt haben, um dem ONTAP Cluster Zugriff auf den S3-Bucket zu geben. Wählen Sie optional einen privaten VPC-Endpunkt für den sicheren Datentransfer aus.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, der für den Zugriff auf den Objektspeicher erforderlich ist, und den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet.</p>
+</li>
+<li>
+<p>Geben Sie beim Wiederherstellen aus ONTAP S3 den FQDN des ONTAP S3-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit ONTAP S3 verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, die für den Zugriff auf den Objektspeicher erforderlich sind. und den IPspace im ONTAP Cluster, wo sich das Ziel-Volume befinden soll.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Geben Sie den Namen ein, den Sie für das wiederhergestellte Volume verwenden möchten, und wählen Sie die Storage VM und das Aggregat aus, auf dem sich das Volume befinden soll. Bei der Wiederherstellung eines FlexGroup Volumes müssen Sie mehrere Aggregate auswählen. Standardmäßig wird <strong>&lt;source_Volume_Name&gt;_restore</strong> als Volume-Name verwendet.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_new_vol_name.png" alt="Ein Screenshot, in den der Name des neuen Volumes eingegeben wird, das wiederhergestellt werden soll."></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Bei der Wiederherstellung eines Backups vom Objektspeicher auf ein Cloud Volumes ONTAP System mit ONTAP 9.13.0 oder neuer oder auf ein lokales ONTAP System mit ONTAP 9.14.1 haben Sie die Möglichkeit, eine <em>Quick Restore</em> -Operation durchzuführen.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Wenn Sie das Volume aus einer Sicherungsdatei wiederherstellen, die sich in einer Archiv-Storage-Ebene befindet (verfügbar ab ONTAP 9.10.1), können Sie die Restore-Priorität auswählen.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="reference-aws-backup-tiers.html#restoring-data-from-archival-storage">"Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Klicken Sie auf <strong>Weiter</strong>, um auszuwählen, ob Sie eine normale Wiederherstellung oder einen Schnellwiederherstellungsprozess durchführen möchten:</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_browse_quick_restore.png" alt="Ein Screenshot mit den normalen und schnellen Wiederherstellungsprozessen."></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Normale Wiederherstellung</strong>: Verwenden Sie normale Wiederherstellung auf Volumes, die hohe Leistung erfordern. Volumes sind erst verfügbar, wenn der Wiederherstellungsvorgang abgeschlossen ist.</p>
+</li>
+<li>
+<p><strong>Quick Restore</strong>: Wiederhergestellte Volumes und Daten werden sofort verfügbar sein. Verwenden Sie dies nicht auf Volumes, die eine hohe Performance erfordern, da der Zugriff auf die Daten während der schnellen Wiederherstellung möglicherweise langsamer als gewöhnlich sein kann.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Klicken Sie auf <strong>Wiederherstellen</strong> und Sie werden wieder zum Restore Dashboard zurückgekehrt, damit Sie den Fortschritt des Wiederherstellungsvorgangs überprüfen können.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Ergebnis</div>
+<p>Mit BlueXP Backup und Recovery wird auf Basis des von Ihnen ausgewählten Backups ein neues Volume erstellt.</p>
+</div>
+<div class="paragraph">
+<p>Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im Archiv-Storage je nach Archivebene und Restore-Priorität viele Minuten oder Stunden in Anspruch nehmen kann. Sie können auf die Registerkarte <strong>Job Monitoring</strong> klicken, um den Wiederherstellungsfortschritt anzuzeigen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wiederherstellen-von-ordnern-und-dateien-mit-durchsuchen-restore">Wiederherstellen von Ordnern und Dateien mit Durchsuchen &amp; Restore</h3>
+<div class="paragraph">
+<p>Wenn Sie nur einige Dateien aus einem ONTAP Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Wenn Sie mehrere Dateien auswählen, werden alle Dateien auf dem gleichen Ziellaufwerk wiederhergestellt, das Sie auswählen. Wenn Sie also Dateien auf unterschiedlichen Volumes wiederherstellen möchten, müssen Sie den Wiederherstellungsprozess mehrmals ausführen.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen mit allen darin enthaltenen Dateien und Unterordnern wiederherstellen. Wenn Sie eine Version von ONTAP vor 9.13.0 verwenden, werden nur Dateien aus diesem Ordner wiederhergestellt - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn die Sicherungsdatei mit DataLock &amp; Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.</p>
+</li>
+<li>
+<p>Wenn sich die Backup-Datei im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="voraussetzungen">Voraussetzungen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Die ONTAP-Version muss mindestens 9.6 sein, um <em>File</em> Restore-Vorgänge durchzuführen.</p>
+</li>
+<li>
+<p>Die ONTAP-Version muss mindestens 9.11.1 sein, um Vorgänge <em>folder</em> wiederherstellen zu können. ONTAP Version 9.13.1 ist erforderlich, wenn sich die Daten im Archiv-Storage befinden oder wenn die Backup-Datei DataLock- und Ransomware-Schutz verwendet.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="wiederherstellung-von-ordnern-und-dateien">Wiederherstellung von Ordnern und Dateien</h4>
+<div class="paragraph">
+<p>Der Prozess geht wie folgt vor:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wenn Sie einen Ordner oder eine oder mehrere Dateien aus einem Volume-Backup wiederherstellen möchten, klicken Sie auf die Registerkarte <strong>Wiederherstellen</strong> und klicken Sie unter <em>Durchsuchen &amp; Wiederherstellen</em> auf <strong>Dateien oder Ordner</strong>.</p>
+</li>
+<li>
+<p>Wählen Sie die Arbeitsumgebung, das Volume und die Sicherungsdatei aus, in der sich der Ordner oder die Datei(en) befinden.</p>
+</li>
+<li>
+<p>Bei BlueXP Backup und Recovery werden die Ordner und Dateien angezeigt, die in der ausgewählten Backup-Datei vorhanden sind.</p>
+</li>
+<li>
+<p>Wählen Sie den Ordner oder die Datei(en) aus, die Sie aus diesem Backup wiederherstellen möchten.</p>
+</li>
+<li>
+<p>Wählen Sie den Zielspeicherort aus, an dem der Ordner oder die Dateien wiederhergestellt werden sollen (Arbeitsumgebung, Volume und Ordner), und klicken Sie auf <strong>Wiederherstellen</strong>.</p>
+</li>
+<li>
+<p>Die Datei(en) wird(n) wiederhergestellt.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_browse_restore_file.png" alt="Ein Diagramm, das den Fluss zeigt, um einen Dateiwiederherstellungsvorgang mit Durchsuchen  Restore durchzuführen."></span></p>
+</div>
+<div class="paragraph">
+<p>Wie Sie sehen, müssen Sie den Namen der Arbeitsumgebung, den Namen des Volumes, das Datum der Sicherungsdatei und den Ordner-/Dateinamen kennen, um einen Ordner oder eine Dateiwiederherstellung durchzuführen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="wiederherstellung-von-ordnern-und-dateien-2">Wiederherstellung von Ordnern und Dateien</h4>
+<div class="paragraph">
+<p>Führen Sie diese Schritte aus, um Ordner oder Dateien auf einem Volume von einem ONTAP Volume-Backup wiederherzustellen. Sie sollten den Namen des Volumes und das Datum der Sicherungsdatei kennen, die Sie zum Wiederherstellen des Ordners oder der Datei(en) verwenden möchten. Diese Funktion verwendet Live Browsing, so dass Sie die Liste der Verzeichnisse und Dateien innerhalb jeder Backup-Datei anzeigen können.</p>
+</div>
+<div class="paragraph">
+<p>Das folgende Video zeigt einen kurzen Rundgang durch die Wiederherstellung einer einzelnen Datei:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="848" height="480" src="https://www.youtube.com/embed/9Og5agUWyRk?rel=0&amp;start=165" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Schritte</div>
+<ol class="arabic">
+<li>
+<p>Wählen Sie im Menü BlueXP die Option <strong>Schutz &gt; Sicherung und Wiederherstellung</strong>.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Registerkarte <strong>Wiederherstellen</strong>, und das Dashboard wiederherstellen wird angezeigt.</p>
+</li>
+<li>
+<p>Klicken Sie im Abschnitt <em>Durchsuchen &amp; Wiederherstellen</em> auf <strong>Dateien oder Ordner wiederherstellen</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_files_selection.png" alt="Ein Screenshot, in dem Sie die Schaltfläche Dateien oder Ordner wiederherstellen im Dashboard wiederherstellen auswählen."></span></p>
+</div>
+</li>
+<li>
+<p>Navigieren Sie auf der Seite <em>Quelle auswählen</em> zur Sicherungsdatei für das Volume, das den Ordner oder die Dateien enthält, die wiederhergestellt werden sollen. Wählen Sie die <strong>Arbeitsumgebung</strong>, das <strong>Volume</strong> und den <strong>Backup</strong> aus, der den Datums-/Zeitstempel enthält, aus dem Sie Dateien wiederherstellen möchten.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_select_source.png" alt="Ein Screenshot zur Auswahl des Volumes und der Sicherung für die Elemente, die wiederhergestellt werden sollen."></span></p>
+</div>
+</li>
+<li>
+<p>Klicken Sie auf <strong>Weiter</strong> und die Liste der Ordner und Dateien aus der Volume-Sicherung wird angezeigt.</p>
+<div class="paragraph">
+<p>Wenn Sie Ordner oder Dateien aus einer Sicherungsdatei wiederherstellen, die sich in einem Archiv-Storage-Tier befindet, können Sie die Wiederherstellungspriorität auswählen.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="reference-aws-backup-tiers.html#restoring-data-from-archival-storage">"Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"</a>.</p>
+</div>
+<div class="paragraph">
+<p>+<br>
+Und wenn für die Backup-Datei ein Ransomware-Schutz aktiv ist (wenn Sie in der Backup-Richtlinie DataLock und Ransomware-Schutz aktiviert haben), werden Sie vor dem Wiederherstellen der Daten aufgefordert, einen zusätzlichen Ransomware-Scan der Backup-Datei auszuführen. Wir empfehlen, die Backup-Datei nach Ransomware zu scannen. (Für den Zugriff auf die Inhalte der Backup-Datei entstehen zusätzliche Kosten durch Ihren Cloud-Provider.)</p>
+</div>
+<div class="paragraph">
+<p>+<span class="image"><img src="./media/screenshot_restore_select_files.png" alt="Ein Screenshot der Seite „Elemente auswählen“, sodass Sie zu den Elementen navigieren können, die wiederhergestellt werden sollen."></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wählen Sie auf der Seite „ Elemente auswählen_“ den Ordner oder die Datei(en) aus, die wiederhergestellt werden sollen, und klicken Sie auf <strong>Weiter</strong>. So finden Sie das Element:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sie können auf den Ordner oder den Dateinamen klicken, wenn Sie ihn sehen.</p>
+</li>
+<li>
+<p>Sie können auf das Suchsymbol klicken und den Namen des Ordners oder der Datei eingeben, um direkt zum Element zu navigieren.</p>
+</li>
+<li>
+<p>Sie können Ebenen in Ordnern mithilfe des nach unten navigieren <span class="image"><img src="./media/button_subfolder.png" alt=""></span> Schaltfläche am Ende der Zeile, um bestimmte Dateien zu finden.</p>
+<div class="paragraph">
+<p>Wenn Sie Dateien auswählen, werden sie auf der linken Seite der Seite hinzugefügt, damit Sie die Dateien sehen können, die Sie bereits ausgewählt haben. Sie können bei Bedarf eine Datei aus dieser Liste entfernen, indem Sie neben dem Dateinamen auf das <strong>x</strong> klicken.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Wählen Sie auf der Seite <em>Ziel auswählen</em> die Option <strong>Arbeitsumgebung</strong> aus, in der Sie die Elemente wiederherstellen möchten.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_select_work_env.png" alt="Ein Screenshot der Auswahl der Arbeitsumgebung für die Elemente, die wiederhergestellt werden sollen."></span></p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ein On-Premises-Cluster auswählen und noch nicht die Cluster-Verbindung mit dem Objekt-Storage konfiguriert haben, werden zusätzliche Informationen benötigt:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bei der Wiederherstellung aus Amazon S3 geben Sie den IPspace im ONTAP Cluster ein, in dem sich das Ziel-Volume befindet, sowie den AWS Zugriffsschlüssel und den geheimen Schlüssel, die für den Zugriff auf den Objekt-Storage erforderlich sind. Sie können auch eine private Link-Konfiguration für die Verbindung zum Cluster auswählen.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, geben Sie den Zugriffsschlüssel und den geheimen Schlüssel ein, der für den Zugriff auf den Objektspeicher erforderlich ist, sowie den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Wählen Sie dann den <strong>Volume</strong> und den <strong>Ordner</strong> aus, in dem Sie den Ordner oder die Datei(en) wiederherstellen möchten.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_select_dest.png" alt="Ein Screenshot, in dem Sie das Volume und den Ordner für die Dateien auswählen, die Sie wiederherstellen möchten."></span></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sie haben ein paar Optionen für den Speicherort beim Wiederherstellen von Ordnern und Dateien.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn Sie <strong>Zielordner auswählen</strong>, wie oben gezeigt:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sie können einen beliebigen Ordner auswählen.</p>
+</li>
+<li>
+<p>Sie können den Mauszeiger auf einen Ordner bewegen und auf klicken <span class="image"><img src="./media/button_subfolder.png" alt=""></span> Am Ende der Zeile, um in Unterordner zu bohren, und wählen Sie dann einen Ordner aus.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Wenn Sie dieselbe Arbeitsumgebung und dasselbe Volume ausgewählt haben, als wo sich der Quellordner/die Datei befand, können Sie <strong>Quellordner-Pfad verwalten</strong> auswählen, um den Ordner oder die Datei(en) in demselben Ordner wiederherzustellen, in dem sie sich in der Quellstruktur befanden. Alle Ordner und Unterordner müssen bereits vorhanden sein; Ordner werden nicht erstellt. Beim Wiederherstellen der Dateien an ihrem ursprünglichen Speicherort können Sie die Quelldatei(en) überschreiben oder neue Dateien erstellen.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Klicken Sie auf <strong>Wiederherstellen</strong> und Sie werden wieder zum Restore Dashboard zurückgekehrt, damit Sie den Fortschritt des Wiederherstellungsvorgangs überprüfen können. Sie können auch auf die Registerkarte <strong>Job Monitoring</strong> klicken, um den Wiederherstellungsfortschritt anzuzeigen.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="wiederherstellen-von-ontap-daten-mithilfe-von-suche-und-wiederherstellung">Wiederherstellen von ONTAP-Daten mithilfe von Suche und Wiederherstellung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search &amp; Restore können Sie aus allen Backups nach einem bestimmten Volume, Ordner oder einer bestimmten Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung, den Namen des Volumes oder den Dateinamen kennen - die Suche durchsucht alle Backup-Dateien des Volumes.</p>
+</div>
+<div class="paragraph">
+<p>Bei diesem Suchvorgang werden alle lokalen Snapshot Kopien für Ihre ONTAP Volumes, alle replizierten Volumes auf sekundären Storage-Systemen und alle Backup-Dateien im Objekt-Storage angezeigt. Da das Wiederherstellen von Daten von einer lokalen Snapshot Kopie oder einem replizierten Volume schneller und kostengünstiger sein kann als die Wiederherstellung von einer Backup-Datei im Objektspeicher, sollten Sie Daten von diesen anderen Standorten wiederherstellen.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ein <em>vollständiges Volume</em> aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery unter Verwendung der Daten aus dem Backup ein <em>neues</em> Volume. Sie können Daten als Volume in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, die sich in demselben Cloud-Konto wie die ursprüngliche Arbeitsumgebung befindet, oder auf einem lokalen ONTAP System wiederherstellen.</p>
+</div>
+<div class="paragraph">
+<p>Sie können <em>Ordner oder Dateien</em> am ursprünglichen Speicherort des Volumes, auf einem anderen Volume in derselben Arbeitsumgebung, in einer anderen Arbeitsumgebung, die dasselbe Cloud-Konto verwendet, oder auf einem Volume auf einem lokalen ONTAP-System wiederherstellen.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen mit allen darin enthaltenen Dateien und Unterordnern wiederherstellen. Wenn Sie eine Version von ONTAP vor 9.13.0 verwenden, werden nur Dateien aus diesem Ordner wiederhergestellt - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.</p>
+</div>
+<div class="paragraph">
+<p>Wenn die Backup-Datei für das wiederherzustellende Volume im Archiv-Storage (ab ONTAP 9.10.1 verfügbar) gespeichert ist, dauert der Restore-Vorgang länger und es entstehen zusätzliche Kosten. Beachten Sie, dass auf dem Ziel-Cluster für die Volume-Wiederherstellung auch ONTAP 9.10.1 oder höher, 9.11.1 für die Dateiwiederherstellung, 9.12.1 für Google Archive und StorageGRID und 9.13.1 für die Wiederherstellung von Ordnern ausgeführt werden muss.</p>
+</div>
+<div class="paragraph">
+<p><a href="reference-aws-backup-tiers.html">"Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/bluexp-backup-recovery/images/note.svg" alt="Hinweis">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn die Backup-Datei im Objektspeicher mit DataLock &amp; Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.</p>
+</li>
+<li>
+<p>Wenn sich die Backup-Datei im Objektspeicher im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.</p>
+</li>
+<li>
+<p>Die Priorität bei der Wiederherstellung „hoch“ wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID Systeme nicht unterstützt.</p>
+</li>
+<li>
+<p>Das Wiederherstellen von Ordnern wird derzeit nicht von Volumes in ONTAP S3 Objekt-Storage unterstützt.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Bevor Sie beginnen, sollten Sie eine Vorstellung von dem Namen oder Speicherort des Volumes oder der Datei haben, die Sie wiederherstellen möchten.</p>
+</div>
+<div class="paragraph">
+<p>Das folgende Video zeigt einen kurzen Rundgang durch die Wiederherstellung einer einzelnen Datei:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="848" height="480" src="https://www.youtube.com/embed/RZktLe32hhQ?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unterstützte-arbeitsumgebungen-und-objektspeicheranbieter-suchen-und-wiederherstellen">Unterstützte Arbeitsumgebungen und Objektspeicheranbieter suchen und wiederherstellen</h3>
+<div class="paragraph">
+<p>Sie können ONTAP-Daten aus einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) oder im Objektspeicher (einer Backup-Datei) in den folgenden Arbeitsumgebungen wiederherstellen. Snapshot Kopien befinden sich in der Quell-Arbeitsumgebung, sie können nur auf demselben System wiederhergestellt werden.</p>
+</div>
+<div class="paragraph">
+<p><strong>Hinweis:</strong> Sie können Volumes und Dateien von jeder Art von Sicherungsdatei wiederherstellen, aber Sie können einen Ordner nur von Sicherungsdateien im Objektspeicher zu diesem Zeitpunkt wiederherstellen.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2">Speicherort Der Sicherungsdatei</th>
+<th class="tableblock halign-left valign-top">Zielarbeitsumgebung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Objektspeicher (Sicherung)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sekundärsystem (Replikation)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ifdef::aws[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in AWS<br>
+Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in AWS On-Premises ONTAP System endif::aws[] ifdef::azurAzure[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Blob</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Azure<br>
+Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Azure On-Premises ONTAP System endif::Azure[] ifdef::gcp[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud Storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Google<br>
+Lokales ONTAP System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp StorageGRID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System<br>
+Cloud Volumes ONTAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System<br>
+Cloud Volumes ONTAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lokales ONTAP System</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Für die Suche und Wiederherstellung kann der Connector an folgenden Orten installiert werden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bei Amazon S3 kann der Connector in AWS oder lokal implementiert werden</p>
+</li>
+<li>
+<p>Für StorageGRID muss der Connector in Ihrem Betrieb mit oder ohne Internetzugang bereitgestellt werden</p>
+</li>
+<li>
+<p>Bei ONTAP S3 kann der Connector (mit oder ohne Internetzugang) vor Ort oder in einer Cloud-Provider-Umgebung implementiert werden</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Beachten Sie, dass Verweise auf „On-Premises ONTAP Systeme“ Systeme mit FAS, AFF und ONTAP Select Systemen enthalten.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="voraussetzungen-2">Voraussetzungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cluster-Anforderungen:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die ONTAP-Version muss 9.8 oder höher sein.</p>
+</li>
+<li>
+<p>Die Storage-VM (SVM), auf der sich das Volume befindet, muss über eine konfigurierte Daten-LIF verfügen.</p>
+</li>
+<li>
+<p>NFS muss auf dem Volume aktiviert sein (NFS und SMB/CIFS Volumes werden unterstützt).</p>
+</li>
+<li>
+<p>Der SnapDiff RPC Server muss auf der SVM aktiviert sein. BlueXP führt diese Funktion automatisch aus, wenn Sie die Indexierung in der Arbeitsumgebung aktivieren. (SnapDiff ist die Technologie, die die Datei- und Verzeichnisunterschiede zwischen Snapshot Kopien schnell identifiziert.)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AWS-Anforderungen:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Spezifische Berechtigungen für Amazon Athena, AWS Glue und AWS S3 müssen der Benutzerrolle hinzugefügt werden, die BlueXP Berechtigungen bietet. <a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"Stellen Sie sicher, dass alle Berechtigungen korrekt konfiguriert sind"</a>.</p>
+<div class="paragraph">
+<p>Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie jetzt die Berechtigungen Athena und Glue zur BlueXP Benutzerrolle hinzufügen. Sie sind für Search &amp; Restore erforderlich.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>StorageGRID- und ONTAP S3-Anforderungen:</p>
+<div class="paragraph">
+<p>Je nach Konfiguration gibt es zwei Möglichkeiten, die Suche und Wiederherstellung zu implementieren:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn Ihr Konto keine Anmeldedaten für Cloud-Provider enthält, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert.</p>
+</li>
+<li>
+<p>Wenn Sie einen Connector auf einer privaten (dunklen) Site verwenden, werden die indizierten Kataloginformationen auf dem Connector gespeichert (erfordert Connector Version 3.9.25 oder höher).</p>
+</li>
+<li>
+<p>Wenn Sie haben <a href="https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html" target="_blank" rel="noopener">"AWS Zugangsdaten"</a> Oder <a href="https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html" target="_blank" rel="noopener">"Azure Zugangsdaten"</a> Im Konto wird der indizierte Katalog wie bei einem in der Cloud implementierten Connector beim Cloud-Provider gespeichert. (Bei beiden Anmeldedaten ist standardmäßig AWS ausgewählt.)</p>
+<div class="paragraph">
+<p>Obwohl Sie einen On-Premises-Connector nutzen, müssen die Anforderungen an einen Cloud-Provider sowohl im Hinblick auf die Berechtigungen von Connector als auch auf Ressourcen von Cloud-Providern erfüllt werden. AWS und Azure Anforderungen können Sie sich bei der Verwendung dieser Implementierung oben anzeigen lassen.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="such-und-wiederherstellungsvorgang">Such- und Wiederherstellungsvorgang</h3>
+<div class="paragraph">
+<p>Der Prozess geht wie folgt vor:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Bevor Sie Suche und Wiederherstellung verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volume-Daten wiederherstellen möchten. So kann der indizierte Katalog die Backup-Dateien für jedes Volume nachverfolgen.</p>
+</li>
+<li>
+<p>Wenn Sie ein Volume oder Dateien aus einem Volume-Backup wiederherstellen möchten, klicken Sie unter <em>Search &amp; Restore</em> auf <strong>Suchen &amp; Wiederherstellen</strong>.</p>
+</li>
+<li>
+<p>Geben Sie die Suchkriterien für ein Volume, einen Ordner oder eine Datei nach einem teilweisen oder vollständigen Datenträgernamen, einem teilweisen oder vollständigen Dateinamen, einem Sicherungsverzeichnis, einem Größenbereich, einem Erstellungsdatumbereich, anderen Suchfiltern ein. Und klicken Sie auf <strong>Suche</strong>.</p>
+<div class="paragraph">
+<p>Auf der Seite Suchergebnisse werden alle Standorte angezeigt, die eine Datei oder ein Volume haben, die Ihren Suchkriterien entsprechen.</p>
+</div>
+</li>
+<li>
+<p>Klicken Sie auf <strong>Alle Backups</strong> für den Speicherort, den Sie verwenden möchten, um den Datenträger oder die Datei wiederherzustellen, und klicken Sie dann auf <strong>Wiederherstellen</strong> für die eigentliche Sicherungsdatei, die Sie verwenden möchten.</p>
+</li>
+<li>
+<p>Wählen Sie den Speicherort aus, an dem die Volume-, Ordner- oder Datei(en) wiederhergestellt werden sollen, und klicken Sie auf <strong>Wiederherstellen</strong>.</p>
+</li>
+<li>
+<p>Volume, Ordner oder Datei(en) werden wiederhergestellt.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_search_restore_vol_file.png" alt="Ein Diagramm, das den Fluss zeigt, der einen Vorgang zur Wiederherstellung von Volumes, Ordnern oder Dateien mithilfe von Search  Restore durchführt."></span></p>
+</div>
+<div class="paragraph">
+<p>Wie Sie sehen, müssen Sie wirklich nur einen Teil des Namens kennen und BlueXP Backup- und Recovery-Suchen in allen Backup-Dateien durchführen, die Ihrer Suche entsprechen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aktivieren-sie-den-indizierten-katalog-für-jede-arbeitsumgebung">Aktivieren Sie den indizierten Katalog für jede Arbeitsumgebung</h3>
+<div class="paragraph">
+<p>Bevor Sie Search &amp; Restore verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volumes oder Dateien wiederherstellen möchten. So kann der indexierte Katalog jedes Volume und jede Backup-Datei nachverfolgen, was Ihre Suchvorgänge sehr schnell und effizient macht.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie diese Funktionalität aktivieren, ermöglicht BlueXP Backup und Recovery SnapDiff v3 auf der SVM für Ihre Volumes und führt folgende Aktionen aus:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Für Backups, die in AWS gespeichert werden, stellt die Software einen neuen S3-Bucket und den bereit <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Interaktive Abfrage-Service von Amazon Athena"</a> Und <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS Glue serverloser Datenintegrations-Service"</a>.</p>
+</li>
+<li>
+<p>Für in StorageGRID oder ONTAP S3 gespeicherte Backups stellt er Speicherplatz auf dem Connector oder in der Cloud-Provider-Umgebung bereit.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Wenn die Indexierung bereits für Ihre Arbeitsumgebung aktiviert wurde, rufen Sie den nächsten Abschnitt auf, um Ihre Daten wiederherzustellen.</p>
+</div>
+<div class="paragraph">
+<p>So aktivieren Sie die Indizierung für eine Arbeitsumgebung:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn keine Arbeitsumgebungen indiziert wurden, klicken Sie im Restore Dashboard unter <em>Search &amp; Restore</em> auf <strong>Indizierung für Arbeitsumgebungen aktivieren</strong> und klicken Sie für die Arbeitsumgebung auf <strong>Indizierung aktivieren</strong>.</p>
+</li>
+<li>
+<p>Wenn mindestens eine Arbeitsumgebung indiziert wurde, klicken Sie auf dem Restore Dashboard unter <em>Search &amp; Restore</em> auf <strong>Indexing Settings</strong> und klicken Sie für die Arbeitsumgebung auf <strong>Indizierung aktivieren</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nachdem alle Services bereitgestellt und der indizierte Katalog aktiviert wurde, wird die Arbeitsumgebung als „aktiv“ angezeigt.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_enable_indexing.png" alt="Ein Screenshot mit den Arbeitsumgebungen, die den indizierten Katalog aktiviert haben."></span></p>
+</div>
+<div class="paragraph">
+<p>Abhängig von der Größe der Volumes in der Arbeitsumgebung und der Anzahl der Backup-Dateien an allen 3 Backup-Standorten kann die anfängliche Indizierung bis zu einer Stunde dauern. Danach wird es stündlich transparent mit inkrementellen Änderungen aktualisiert, um auf dem Laufenden zu bleiben.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stellen-sie-volumes-ordner-und-dateien-mithilfe-von-search-restore-wieder-her">Stellen Sie Volumes, Ordner und Dateien mithilfe von Search &amp; Restore wieder her</h3>
+<div class="paragraph">
+<p>Nachdem Sie den haben <a href="#Enabling the Indexed Catalog for each working environment">Indexierung für Ihre Arbeitsumgebung aktiviert</a>, Sie können Volumes, Ordner und Dateien mit Search &amp; Restore wiederherstellen. So können Sie mithilfe verschiedener Filter genau die Datei oder das Volume finden, die Sie aus allen Backup-Dateien wiederherstellen möchten.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Schritte</div>
+<ol class="arabic">
+<li>
+<p>Wählen Sie im Menü BlueXP die Option <strong>Schutz &gt; Sicherung und Wiederherstellung</strong>.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Registerkarte <strong>Wiederherstellen</strong>, und das Dashboard wiederherstellen wird angezeigt.</p>
+</li>
+<li>
+<p>Klicken Sie im Abschnitt <em>Suchen &amp; Wiederherstellen</em> auf <strong>Suchen &amp; Wiederherstellen</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_start_search_restore.png" alt="Ein Screenshot, in dem Sie die Schaltfläche Suchen  Wiederherstellen im Dashboard wiederherstellen auswählen."></span></p>
+</div>
+</li>
+<li>
+<p>Auf der Seite „Suche nach Wiederherstellung“:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Geben Sie in der <em>Suchleiste</em> einen vollständigen oder teilweisen Volumennamen, Ordnernamen oder Dateinamen ein.</p>
+</li>
+<li>
+<p>Wählen Sie den Ressourcentyp aus: <strong>Volumes</strong>, <strong>Dateien</strong>, <strong>Ordner</strong> oder <strong>Alle</strong>.</p>
+</li>
+<li>
+<p>Wählen Sie im Bereich <em>Filter by</em> die Filterkriterien aus. Sie können beispielsweise die Arbeitsumgebung auswählen, in der sich die Daten befinden, und den Dateityp, z. B. eine JPEG-Datei. Sie können auch den Typ des Backup-Speicherorts auswählen, wenn Sie nur innerhalb der verfügbaren Snapshot-Kopien oder Backup-Dateien im Objektspeicher nach Ergebnissen suchen möchten.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Klicken Sie auf <strong>Suchen</strong> und im Bereich Suchergebnisse werden alle Ressourcen angezeigt, die eine Datei, einen Ordner oder ein Volume haben, das Ihrer Suche entspricht.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_step1_search_restore.png" alt="Ein Screenshot mit den Suchkriterien und Suchergebnissen auf der Seite Suche  Restore."></span></p>
+</div>
+</li>
+<li>
+<p>Suchen Sie die Ressource mit den Daten, die Sie wiederherstellen möchten, und klicken Sie auf <strong>Alle Backups anzeigen</strong>, um alle Sicherungsdateien anzuzeigen, die das passende Volume, den passenden Ordner oder die entsprechende Datei enthalten.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_step2_search_restore.png" alt="Ein Screenshot zeigt, wie alle Backups angezeigt werden, die Ihren Suchkriterien entsprechen."></span></p>
+</div>
+</li>
+<li>
+<p>Suchen Sie die Sicherungsdatei, die Sie zum Wiederherstellen der Daten verwenden möchten, und klicken Sie auf <strong>Wiederherstellen</strong>.</p>
+<div class="paragraph">
+<p>Die Ergebnisse identifizieren lokale Snapshot-Kopien des Volumes und replizierte Remote-Volumes, die die Datei in Ihrer Suche enthalten. Sie können zwischen der Backup-Datei in der Cloud, der Snapshot Kopie oder dem replizierten Volume auswählen.</p>
+</div>
+</li>
+<li>
+<p>Wählen Sie den Zielspeicherort aus, an dem die Volumes, Ordner oder Dateien wiederhergestellt werden sollen, und klicken Sie auf <strong>Wiederherstellen</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Für Volumes können Sie die ursprüngliche Ziel-Arbeitsumgebung auswählen oder eine andere Arbeitsumgebung auswählen. Bei der Wiederherstellung eines FlexGroup Volumes müssen Sie mehrere Aggregate auswählen.</p>
+</li>
+<li>
+<p>Für Ordner können Sie den ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich der Arbeitsumgebung, des Volumes und des Ordners.</p>
+</li>
+<li>
+<p>Bei Dateien können Sie sie am ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich Arbeitsumgebung, Volume und Ordner. Wenn Sie den ursprünglichen Speicherort auswählen, können Sie die Quelldatei(en) überschreiben oder neue(n) Dateien erstellen.</p>
+<div class="paragraph">
+<p>Wenn Sie ein lokales ONTAP System auswählen und die Cluster-Verbindung mit dem Objekt-Storage nicht bereits konfiguriert haben, werden zusätzliche Informationen benötigt:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wählen Sie bei der Wiederherstellung aus Amazon S3 den IPspace im ONTAP Cluster aus, auf dem sich das Ziel-Volume befindet, und geben Sie den Zugriffsschlüssel und den geheimen Schlüssel für den Benutzer ein, den Sie erstellt haben, um dem ONTAP Cluster Zugriff auf den S3-Bucket zu geben. Wählen Sie optional einen privaten VPC-Endpunkt für den sicheren Datentransfer aus. <a href="task-backup-onprem-to-aws.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage">"Siehe Details zu diesen Anforderungen"</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Geben Sie beim Wiederherstellen aus StorageGRID den FQDN des StorageGRID-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit StorageGRID verwenden soll, geben Sie den Zugriffsschlüssel und den geheimen Schlüssel ein, der für den Zugriff auf den Objektspeicher erforderlich ist, sowie den IPspace im ONTAP-Cluster, in dem sich das Ziel-Volume befindet. <a href="task-backup-onprem-private-cloud.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage">"Siehe Details zu diesen Anforderungen"</a>.</p>
+</li>
+<li>
+<p>Geben Sie beim Wiederherstellen aus ONTAP S3 den FQDN des ONTAP S3-Servers und den Port ein, den ONTAP für die HTTPS-Kommunikation mit ONTAP S3 verwenden soll, wählen Sie den Zugriffsschlüssel und den geheimen Schlüssel aus, die für den Zugriff auf den Objektspeicher erforderlich sind. und den IPspace im ONTAP Cluster, wo sich das Ziel-Volume befinden soll. <a href="task-backup-onprem-to-ontap-s3.html#verify-ontap-networking-requirements-for-backing-up-data-to-object-storage">"Siehe Details zu diesen Anforderungen"</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Ergebnisse</div>
+<p>Die Volume-, Ordner- oder Datei(en) werden wiederhergestellt und Sie werden zum Restore Dashboard zurückgebracht, damit Sie den Fortschritt des Wiederherstellungsvorgangs überprüfen können. Sie können auch auf die Registerkarte <strong>Job Monitoring</strong> klicken, um den Wiederherstellungsfortschritt anzuzeigen.</p>
+</div>
+<div class="paragraph">
+<p>Für wiederhergestellte Volumes ist möglich <a href="task-manage-backups-ontap.html">"Verwalten Sie die Backup-Einstellungen für dieses neue Volume"</a> Nach Bedarf.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/de-de/bluexp-backup-recovery/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/de-de/bluexp-backup-recovery/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">Auf dieser seite</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Nutzungsbedingungen</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Datenschutzrichtlinie</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Richtlinie zu Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie-Einstellungen</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">Feedback zu dieser Seite senden</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/de-de/bluexp-backup-recovery/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/de-de/bluexp-backup-recovery/js/prism.js'></script>
+      <script type="text/javascript" src='/de-de/bluexp-backup-recovery/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/de-de/bluexp-backup-recovery/js/ie-tabbed-blocks.js'></script>
+    <script src='/de-de/bluexp-backup-recovery/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
