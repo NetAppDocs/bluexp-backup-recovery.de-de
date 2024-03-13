@@ -18,6 +18,30 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 
 
+== 12 März 2024
+
+
+
+=== Möglichkeit zur „schnellen Wiederherstellung“ von Cloud-Backups auf lokale ONTAP Volumes
+
+Jetzt können Sie eine _schnelle Wiederherstellung_ eines Volumes aus dem Cloud-Storage in ein lokales ONTAP-Ziel-Volume durchführen. Bisher konnten Sie nur eine schnelle Wiederherstellung auf einem Cloud Volumes ONTAP System durchführen. Die schnelle Wiederherstellung ist ideal für Disaster Recovery-Situationen, in denen Sie so schnell wie möglich Zugriff auf ein Volume gewährleisten müssen. Eine schnelle Wiederherstellung ist viel schneller als die vollständige Volume-Wiederherstellung. Die Metadaten aus einem Cloud-Snapshot werden auf einem ONTAP-Ziel-Volume wiederhergestellt. Die Quelle könnte von AWS S3, Azure Blob, Google Cloud Services oder NetApp StorageGRID stammen.
+
+Auf dem lokalen ONTAP Zielsystem muss ONTAP Version 9.14.1 oder höher ausgeführt werden.
+
+Sie können dies mithilfe des Such- und Wiederherstellungsprozesses tun, nicht mit dem Such- und Wiederherstellungsprozess.
+
+Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["ONTAP-Daten aus Backup-Dateien wiederherstellen"].
+
+
+
+=== Möglichkeit zur Wiederherstellung von Dateien und Ordnern von Snapshot und Replizierungskopien
+
+Bisher konnten Dateien und Ordner nur von Backup-Kopien in AWS, Azure und Google Cloud Services wiederhergestellt werden. Sie können jetzt Dateien und Ordner von lokalen Snapshot Kopien und von Replizierungskopien wiederherstellen.
+
+Sie können diese Funktion mithilfe des Such- und Wiederherstellungsprozesses durchführen, nicht mit dem Durchsuchen- und Wiederherstellungsprozess.
+
+
+
 == 01 Februar 2024
 
 

@@ -78,7 +78,7 @@ Siehe link:reference-limitations.html#replication-limitations["Einschränkungen 
 * Stellen Sie Daten von einem bestimmten Zeitpunkt aus lokalen Snapshot Kopien, replizierten Volumes oder Backup von Volumes im Objekt-Storage wieder her.
 * Stellen Sie ein Volume, einen Ordner oder einzelne Dateien auf dem Quellsystem oder einem anderen System wieder her.
 * Wiederherstellung von Daten in einer Arbeitsumgebung mit einem anderen Abonnement/Konto oder in einer anderen Region.
-* Möglichkeit zur „schnellen Wiederherstellung“ von Volumes von Cloud-Storage auf ein Cloud Volumes ONTAP-System; perfekt für Disaster-Recovery-Situationen, in denen möglichst bald Zugriff auf ein Volume erforderlich ist.
+* Möglichkeit der _schnellen Wiederherstellung_ von Volumes aus dem Cloud Storage auf ein Cloud Volumes ONTAP-System oder auf ein On-Premises-System; perfekt für Disaster-Recovery-Situationen, in denen möglichst bald Zugriff auf ein Volume erfolgen muss.
 * Daten werden auf Blockebene wiederhergestellt und die Daten direkt an dem von Ihnen angegebenen Speicherort platziert, während die ursprünglichen ACLs beibehalten werden.
 * Durchsuchbare und durchsuchbare Dateikataloge zur einfachen Auswahl einzelner Ordner und Dateien für die Wiederherstellung einzelner Dateien.
 

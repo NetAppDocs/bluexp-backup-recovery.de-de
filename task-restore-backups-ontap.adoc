@@ -56,16 +56,19 @@ Diese Tabelle enthält einen Funktionsvergleich der 2 Methoden.
 | Suchen Und Wiederherstellen | Suche Und Wiederherstellung 
 
 
-| Durchsuchen Sie eine Struktur im Ordnerstil, um nach Volumes, Ordnern oder Dateien in einer einzelnen Backup-Datei zu suchen | Suchen Sie nach einem Volume, einem Ordner oder einer Datei über *alle Backup-Dateien* nach einem partiellen oder vollständigen Volume-Namen, einem Teil- oder vollständigen Ordner-/Dateinamen, einem Größenbereich und zusätzlichen Suchfiltern 
+| Durchsuchen Sie eine Ordnerstruktur, um das Volume, den Ordner oder die Datei in einer einzelnen Sicherungsdatei zu finden. | Suchen Sie nach einem Volume, Ordner oder einer Datei über *alle Sicherungsdateien* nach einem teilweisen oder vollständigen Datenträgernamen, einem teilweisen oder vollständigen Ordner-/Dateinamen, einem Größenbereich und zusätzlichen Suchfiltern. 
 
 
 | Führt keine Dateiwiederherstellung durch, wenn die Datei gelöscht oder umbenannt wurde, und der Benutzer den ursprünglichen Dateinamen nicht kennt | Verarbeitet neu erstellte/gelöschte/umbenannte Verzeichnisse und neu erstellte/gelöschte/umbenannte Dateien 
 
 
-| Es sind keine zusätzlichen Ressourcen für Cloud-Provider erforderlich | Beim Restore aus der Cloud werden pro Konto zusätzliche Bucket- und Public-Cloud-Provider-Ressourcen benötigt 
+| Es sind keine zusätzlichen Ressourcen für Cloud-Provider erforderlich | Beim Restore aus der Cloud werden pro Konto zusätzliche Bucket- und Public-Cloud-Provider-Ressourcen benötigt. 
 
 
-| Es sind keine zusätzlichen Kosten für Cloud-Provider erforderlich | Bei der Wiederherstellung aus der Cloud sind zusätzliche Kosten erforderlich, wenn Backups und Volumes für die Suchergebnisse gescannt werden 
+| Es sind keine zusätzlichen Kosten für Cloud-Provider erforderlich | Wenn Sie Daten aus der Cloud wiederherstellen, sind zusätzliche Kosten erforderlich, wenn Sie Ihre Backups und Volumes zur Suche nach Suchergebnissen scannen. 
+
+
+| Schnelle Wiederherstellung wird unterstützt. | Schnelle Wiederherstellung wird nicht unterstützt. 
 |===
 Diese Tabelle enthält eine Liste gültiger Wiederherstellungsvorgänge, die auf dem Speicherort der Sicherungsdateien basieren.
 
@@ -77,10 +80,10 @@ Diese Tabelle enthält eine Liste gültiger Wiederherstellungsvorgänge, die auf
 |  | *Lautstärke wiederherstellen* | * Dateien wiederherstellen* | *Ordner wiederherstellen* | *Lautstärke wiederherstellen* | * Dateien wiederherstellen* | *Ordner wiederherstellen* 
 
 
-| Snapshot Kopie | Ja. | Nein | Nein | Ja. | Ja. | Nein 
+| Snapshot Kopie | Ja. | Nein | Nein | Ja. | Ja. | Ja. 
 
 
-| Repliziertes Volume | Ja. | Nein | Nein | Ja. | Ja. | Nein 
+| Repliziertes Volume | Ja. | Nein | Nein | Ja. | Ja. | Ja. 
 
 
 | Sicherungsdatei | Ja. | Ja. | Ja. | Ja. | Ja. | Ja. 
@@ -131,32 +134,42 @@ Sie können ONTAP-Daten aus einer Backup-Datei in einer sekundären Arbeitsumgeb
 
 *Hinweis:* Sie können ein Volume von jeder Art von Sicherungsdatei wiederherstellen, aber Sie können einen Ordner oder einzelne Dateien nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen.
 
-[cols="33,33,33"]
+[cols="25,25,25,25"]
 |===
-2+| Speicherort Der Sicherungsdatei | Zielarbeitsumgebung 
+| *Aus Objektspeicher (Backup)* | *Von Primär (Snapshot)* | *Vom Sekundären System (Replikation)* | Zum Ziel Der Arbeitsumgebung
 
-
-| *Objektspeicher (Sicherung)* | *Sekundärsystem (Replikation)* | ifdef::aws[] 
+Ifdef::aws[] 
 
 
 | Amazon S3 | Cloud Volumes ONTAP in AWS
-Lokales ONTAP System | Cloud Volumes ONTAP in AWS On-Premises ONTAP System endif::aws[] ifdef::azurAzure[] 
+Lokales ONTAP System | Cloud Volumes ONTAP in AWS
+Lokales ONTAP System
+
+Endif::aws[]
 
 
-| Azure Blob | Cloud Volumes ONTAP in Azure
-Lokales ONTAP System | Cloud Volumes ONTAP in Azure On-Premises ONTAP System endif::Azure[] ifdef::gcp[] 
+
+Ifdef::azurblau[] | Azure Blob 
 
 
-| Google Cloud Storage | Cloud Volumes ONTAP in Google
-Lokales ONTAP System | Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[] 
+| Cloud Volumes ONTAP in Azure
+Lokales ONTAP System | Cloud Volumes ONTAP in Azure
+Lokales ONTAP System
+
+Endif::azurblau[]
 
 
-| NetApp StorageGRID | Lokales ONTAP System
-Cloud Volumes ONTAP | Lokales ONTAP System 
+
+Ifdef::gcp[] | Google Cloud Storage | Cloud Volumes ONTAP in Google
+Lokales ONTAP System 
 
 
-| ONTAP S3 | Lokales ONTAP System
-Cloud Volumes ONTAP | Lokales ONTAP System 
+| Cloud Volumes ONTAP in Google On-Premises ONTAP System endif::gcp[] | NetApp StorageGRID | Lokales ONTAP System | Lokales ONTAP System
+Cloud Volumes ONTAP 
+
+
+| Zum lokalen ONTAP System | ONTAP S3 | Lokales ONTAP System | Lokales ONTAP System
+Cloud Volumes ONTAP 
 |===
 ifdef::aws[]
 
@@ -208,7 +221,7 @@ NOTE: Wenn die ONTAP-Version auf Ihrem System kleiner als 9.13.1 ist, können Si
 
 Wenn Sie ein Volume aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery mithilfe der Daten aus dem Backup ein _New_ Volume. Wenn Sie ein Backup aus dem Objekt-Storage verwenden, können Sie die Daten auf einem Volume in der ursprünglichen Arbeitsumgebung wiederherstellen, in einer anderen Arbeitsumgebung, die sich in demselben Cloud-Konto wie die ursprüngliche Arbeitsumgebung befindet, oder auf einem lokalen ONTAP System.
 
-Bei der Wiederherstellung eines Cloud-Backups auf einem Cloud Volumes ONTAP System mit ONTAP 9.13.0 oder höher haben Sie die Möglichkeit, eine „schnelle Wiederherstellung“ durchzuführen. Die schnelle Wiederherstellung ist ideal für Disaster Recovery-Situationen, in denen Sie so schnell wie möglich Zugriff auf ein Volume gewährleisten müssen. Bei einer schnellen Wiederherstellung werden die Metadaten aus der Backup-Datei auf einem Volume wiederhergestellt, anstatt die gesamte Backup-Datei wiederherzustellen. Die schnelle Wiederherstellung ist weder für Performance- noch für latenzkritische Applikationen empfehlenswert und wird bei Backups in archiviertem Storage nicht unterstützt.
+Bei der Wiederherstellung eines Cloud-Backups auf einem Cloud Volumes ONTAP-System mit ONTAP 9.13.0 oder höher oder auf einem lokalen ONTAP-System mit ONTAP 9.14.1 haben Sie die Möglichkeit, eine schnelle Wiederherstellung durchzuführen. Die schnelle Wiederherstellung ist ideal für Disaster Recovery-Situationen, in denen Sie so schnell wie möglich Zugriff auf ein Volume gewährleisten müssen. Bei einer schnellen Wiederherstellung werden die Metadaten aus der Backup-Datei auf einem Volume wiederhergestellt, anstatt die gesamte Backup-Datei wiederherzustellen. Die schnelle Wiederherstellung ist weder für Performance- noch für latenzkritische Applikationen empfehlenswert und wird bei Backups in archiviertem Storage nicht unterstützt.
 
 
 NOTE: Die schnelle Wiederherstellung wird für FlexGroup Volumes nur dann unterstützt, wenn das Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.12.1 oder höher ausgeführt wurde. Sie wird nur für SnapLock Volumes unterstützt, wenn auf dem Quellsystem ONTAP 9.11.0 oder höher ausgeführt wurde.
@@ -278,7 +291,7 @@ endif::gcp[]
 image:screenshot_restore_new_vol_name.png["Ein Screenshot, in den der Name des neuen Volumes eingegeben wird, das wiederhergestellt werden soll."]
 
 +
-Beim Wiederherstellen eines Backups vom Objektspeicher auf ein Cloud Volumes ONTAP System mit ONTAP 9.13.0 oder höher haben Sie die Möglichkeit, eine „schnelle Wiederherstellung“ durchzuführen.
+Bei der Wiederherstellung eines Backups vom Objektspeicher auf ein Cloud Volumes ONTAP System mit ONTAP 9.13.0 oder neuer oder auf ein lokales ONTAP System mit ONTAP 9.14.1 haben Sie die Möglichkeit, eine _Quick Restore_ -Operation durchzuführen.
 
 +
 Wenn Sie das Volume aus einer Sicherungsdatei wiederherstellen, die sich in einer Archiv-Storage-Ebene befindet (verfügbar ab ONTAP 9.10.1), können Sie die Restore-Priorität auswählen.
@@ -305,6 +318,15 @@ ifdef::gcp[]
 link:reference-google-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Google Archiv-Storage"]. Backup-Dateien werden auf der Google Archiv Storage Tier nahezu sofort wiederhergestellt und müssen keine Restore-Priorität erhalten.
 
 endif::gcp[]
+
+. Klicken Sie auf *Weiter*, um auszuwählen, ob Sie eine normale Wiederherstellung oder einen Schnellwiederherstellungsprozess durchführen möchten:
++
+image:screenshot_restore_browse_quick_restore.png["Ein Screenshot mit den normalen und schnellen Wiederherstellungsprozessen."]
+
++
+** *Normale Wiederherstellung*: Verwenden Sie normale Wiederherstellung auf Volumes, die hohe Leistung erfordern. Volumes sind erst verfügbar, wenn der Wiederherstellungsvorgang abgeschlossen ist.
+** *Quick Restore*: Wiederhergestellte Volumes und Daten werden sofort verfügbar sein. Verwenden Sie dies nicht auf Volumes, die eine hohe Performance erfordern, da der Zugriff auf die Daten während der schnellen Wiederherstellung möglicherweise langsamer als gewöhnlich sein kann.
+
 
 . Klicken Sie auf *Wiederherstellen* und Sie werden wieder zum Restore Dashboard zurückgekehrt, damit Sie den Fortschritt des Wiederherstellungsvorgangs überprüfen können.
 
@@ -486,8 +508,6 @@ Bei diesem Suchvorgang werden alle lokalen Snapshot Kopien für Ihre ONTAP Volum
 
 Wenn Sie ein _vollständiges Volume_ aus einer Backup-Datei wiederherstellen, erstellt BlueXP Backup und Recovery unter Verwendung der Daten aus dem Backup ein _neues_ Volume. Sie können Daten als Volume in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, die sich in demselben Cloud-Konto wie die ursprüngliche Arbeitsumgebung befindet, oder auf einem lokalen ONTAP System wiederherstellen.
 
-Bei der Wiederherstellung eines Cloud-Backups auf einem Cloud Volumes ONTAP System mit ONTAP 9.13.0 oder höher haben Sie die Möglichkeit, eine „schnelle Wiederherstellung“ durchzuführen. Die schnelle Wiederherstellung ist ideal für Disaster Recovery-Situationen, in denen Sie so schnell wie möglich Zugriff auf ein Volume gewährleisten müssen. Bei einer schnellen Wiederherstellung werden die Metadaten aus der Backup-Datei auf einem Volume wiederhergestellt, anstatt die gesamte Backup-Datei wiederherzustellen. Die schnelle Wiederherstellung ist weder für Performance- noch für latenzkritische Applikationen empfehlenswert und wird bei Backups in archiviertem Storage nicht unterstützt.
-
 Sie können _Ordner oder Dateien_ am ursprünglichen Speicherort des Volumes, auf einem anderen Volume in derselben Arbeitsumgebung, in einer anderen Arbeitsumgebung, die dasselbe Cloud-Konto verwendet, oder auf einem Volume auf einem lokalen ONTAP-System wiederherstellen.
 
 Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen mit allen darin enthaltenen Dateien und Unterordnern wiederherstellen. Wenn Sie eine Version von ONTAP vor 9.13.0 verwenden, werden nur Dateien aus diesem Ordner wiederhergestellt - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.
@@ -516,7 +536,6 @@ endif::gcp[]
 ====
 * Wenn die Backup-Datei im Objektspeicher mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
 * Wenn sich die Backup-Datei im Objektspeicher im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
-* Die schnelle Wiederherstellung wird für FlexGroup Volumes nur dann unterstützt, wenn das Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.12.1 oder höher ausgeführt wurde. Die schnelle Wiederherstellung von SnapLock Volumes wird nur unterstützt, wenn das Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.11.0 oder höher ausgeführt wurde. Es gibt keine Mindestanforderungen für FlexVol Volumes.
 * Die Priorität bei der Wiederherstellung „hoch“ wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID Systeme nicht unterstützt.
 * Das Wiederherstellen von Ordnern wird derzeit nicht von Volumes in ONTAP S3 Objekt-Storage unterstützt.
 
@@ -761,14 +780,11 @@ image:screenshot_restore_step2_search_restore.png["Ein Screenshot zeigt, wie all
 
 . Suchen Sie die Sicherungsdatei, die Sie zum Wiederherstellen der Daten verwenden möchten, und klicken Sie auf *Wiederherstellen*.
 +
-Beachten Sie, dass die Ergebnisse auch lokale Volume-Snapshot-Kopien identifizieren, die die Datei in Ihrer Suche enthalten. Sie können zwischen der Backup-Datei in der Cloud oder der Snapshot Kopie wählen.
+Die Ergebnisse identifizieren lokale Snapshot-Kopien des Volumes und replizierte Remote-Volumes, die die Datei in Ihrer Suche enthalten. Sie können zwischen der Backup-Datei in der Cloud, der Snapshot Kopie oder dem replizierten Volume auswählen.
 
 . Wählen Sie den Zielspeicherort aus, an dem die Volumes, Ordner oder Dateien wiederhergestellt werden sollen, und klicken Sie auf *Wiederherstellen*.
 +
 ** Für Volumes können Sie die ursprüngliche Ziel-Arbeitsumgebung auswählen oder eine andere Arbeitsumgebung auswählen. Bei der Wiederherstellung eines FlexGroup Volumes müssen Sie mehrere Aggregate auswählen.
-+
-Beim Wiederherstellen eines Backups vom Objektspeicher auf ein Cloud Volumes ONTAP System mit ONTAP 9.13.0 oder höher haben Sie die Möglichkeit, eine „schnelle Wiederherstellung“ durchzuführen.
-
 ** Für Ordner können Sie den ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich der Arbeitsumgebung, des Volumes und des Ordners.
 ** Bei Dateien können Sie sie am ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich Arbeitsumgebung, Volume und Ordner. Wenn Sie den ursprünglichen Speicherort auswählen, können Sie die Quelldatei(en) überschreiben oder neue(n) Dateien erstellen.
 +
