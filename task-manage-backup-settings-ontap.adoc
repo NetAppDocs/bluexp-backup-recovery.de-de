@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-manage-backup-settings-ontap.html 
-keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots 
-summary: Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dies schließt das Ändern von Storage-Schlüsseln, die Übertragungsrate von Backups in den Objekt-Storage ein, unabhängig davon, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und vieles mehr. 
+keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots, ransomware scans, scans 
+summary: Sie können viele von Ihnen bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festgelegte Backup-to-Objekt-Einstellungen auf Cluster-Ebene ändern. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dies schließt das Ändern von Storage-Schlüsseln, die Übertragungsrate von Backups in den Objekt-Storage ein, unabhängig davon, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und vieles mehr. Außerdem können Sie Ransomware-Scans für eine Arbeitsumgebung aktivieren oder deaktivieren. 
 ---
-= Management von Backup-Einstellungen auf Cluster-Ebene
+= Verwalten Sie die Optionen für die Sicherung auf Objekt-Storage auf der Seite Erweiterte Einstellungen
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,23 +14,22 @@ summary: Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die S
 
 
 [role="lead"]
-Sie können viele Backup-Einstellungen auf Cluster-Ebene ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dazu gehört auch die Änderung der Übertragungsrate von Backups in den Objekt-Storage, die Frage, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und mehr.
+Über die Seite „Erweiterte Einstellungen“ können Sie Einstellungen für Storage auf Cluster-Ebene und Backup-to-Objekt-Storage ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dazu gehört auch die Änderung der Übertragungsrate von Backups in Objekt-Storage, unabhängig davon, ob historische Snapshot Kopien als Backup-Dateien exportiert werden, und die Aktivierung oder Deaktivierung geplanter Ransomware-Scans für eine Arbeitsumgebung.
 
 
-NOTE: Diese Einstellungen sind nur für das Backup auf Objektspeicher verfügbar. Keine dieser Einstellungen wirkt sich auf Ihre Snapshot- oder Replikationseinstellungen aus. Ähnliche Einstellungen für die Replikation auf Cluster-Ebene für Snapshots und Replikationen werden in Zukunft hinzugefügt.
+NOTE: Diese Einstellungen sind nur für Backup-to-Object-Speicher verfügbar. Keine dieser Einstellungen wirkt sich auf Ihre Snapshot- oder Replikationseinstellungen aus. Ähnliche Einstellungen für die Replikation auf Cluster-Ebene für Snapshots und Replikationen werden in Zukunft hinzugefügt.
 
-Die Backup-Einstellungen auf Cluster-Ebene sind auf der Seite „_Advanced Settings_“ verfügbar.
+Auf der Seite Erweiterte Einstellungen können Sie die folgenden Optionen ändern:
 
-Die vollständigen Backup-Einstellungen, die Sie ändern können, umfassen:
-
-* Ändern der Netzwerkbandbreite, die für das Hochladen von Backups in den Objektspeicher zugewiesen ist
+* Ändern der zum Hochladen von Backups auf den Objektspeicher zugewiesenen Netzwerkbandbreite mit der Option Max. Übertragungsrate
 Ifdef::aws[]
 
 
 endif::aws[]
 
-* Änderung, ob historische Snapshot-Kopien in Ihren ersten Basis-Backup-Dateien für zukünftige Volumes enthalten sind
+* Es ändert sich, ob historische Snapshot Kopien als Backup-Dateien exportiert und in den ersten Basis-Backup-Dateien für zukünftige Volumes enthalten sind
 * Es wird geändert, ob „jährliche“ Snapshots aus dem Quellsystem entfernt werden
+* Aktivieren oder Deaktivieren von geplanten Ransomware-Scans für eine Arbeitsumgebung
 
 
 
@@ -53,11 +52,12 @@ image:screenshot_backup_advanced_settings_button.png["Ein Screenshot, in dem die
 Auf der Seite _Erweiterte Einstellungen_ werden die aktuellen Einstellungen für diese Arbeitsumgebung angezeigt.
 
 +
-image:screenshot_backup_advanced_settings_page.png["Ein Screenshot mit den Werten für die erweiterten Einstellungen für Backups für eine bestimmte Arbeitsumgebung."]
+image:screenshot_backup_advanced_settings_page2.png["Ein Screenshot mit den Werten für die erweiterten Einstellungen für Backups für eine bestimmte Arbeitsumgebung."]
+
+. Erweitern Sie die Option, und nehmen Sie die Änderung vor.
 
 
-
-Wenn Sie Änderungen vornehmen möchten, erweitern Sie einfach die Option und nehmen Sie die Änderung vor. Alle Backup-Vorgänge nach der Änderung verwenden die neuen Werte.
+Alle Backup-Vorgänge nach der Änderung verwenden die neuen Werte.
 
 Beachten Sie, dass einige Optionen basierend auf der Version von ONTAP auf dem Quell-Cluster nicht verfügbar sind und auf dem Ziel des Cloud-Providers, in dem sich die Backups befinden, basieren.
 
@@ -65,11 +65,19 @@ Beachten Sie, dass einige Optionen basierend auf der Version von ONTAP auf dem Q
 
 == Ändern Sie die verfügbare Netzwerkbandbreite zum Hochladen von Backups in den Objektspeicher
 
-Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, kann ONTAP standardmäßig eine unbegrenzte Bandbreite verwenden, um die Backup-Daten von den Volumes in der Arbeitsumgebung in den Objekt-Storage zu übertragen. Wenn der Backup-Traffic sich auf normale Benutzer-Workloads auswirkt, kann die Menge an Netzwerkbandbreite, die während des Transfers verwendet wird, drosselt werden. Sie können einen Wert zwischen 1 und 1,000 Mbit/s als maximale Übertragungsrate auswählen.
+Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, kann ONTAP standardmäßig eine unbegrenzte Bandbreite verwenden, um die Backup-Daten von den Volumes in der Arbeitsumgebung in den Objekt-Storage zu übertragen. Wenn Sie feststellen, dass der Backup-Verkehr normale Benutzer-Workloads beeinträchtigt, können Sie die während der Übertragung verwendete Netzwerkbandbreite mithilfe der Option maximale Übertragungsrate auf der Seite Erweiterte Einstellungen drosseln.
 
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
+. Klicken Sie auf der Seite „ Backup Settings “ auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für die Arbeitsumgebung die Option *Erweiterte Einstellungen* aus.
+. Erweitern Sie auf der Seite Erweiterte Einstellungen den Abschnitt *Max. Übertragungsrate*.
++
 image:screenshot_backup_edit_transfer_rate.png["Ein Screenshot des Eintrags „maximale Übertragungsrate“ auf der Seite „Erweiterte Einstellungen“."]
 
-Wählen Sie das Optionsfeld *begrenzt* und geben Sie die maximale Bandbreite ein, die verwendet werden kann, oder wählen Sie *unbegrenzt*, um anzuzeigen, dass keine Begrenzung vorhanden ist.
+. Wählen Sie einen Wert zwischen 1 und 1,000 Mbit/s als maximale Übertragungsrate.
+. Wählen Sie das Optionsfeld *begrenzt* und geben Sie die maximale Bandbreite ein, die verwendet werden kann, oder wählen Sie *unbegrenzt*, um anzuzeigen, dass keine Begrenzung vorhanden ist.
+. Wählen Sie *Anwenden*.
+
 
 Diese Einstellung wirkt sich nicht auf die Bandbreite aus, die anderen Replikationsbeziehungen zugewiesen ist, die für Volumes in der Arbeitsumgebung konfiguriert werden können.
 
@@ -85,9 +93,16 @@ Wenn es lokale Snapshot-Kopien für Volumes gibt, die mit dem Backup-Schedule-La
 
 Beachten Sie, dass diese Option nur für neue Backup-Dateien für neue Lese-/Schreib-Volumes gilt und nicht für Datensicherungs-Volumes unterstützt wird.
 
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
+. Klicken Sie auf der Seite „ Backup Settings “ auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für die Arbeitsumgebung die Option *Erweiterte Einstellungen* aus.
+. Erweitern Sie auf der Seite Erweiterte Einstellungen den Abschnitt *vorhandene Snapshot-Kopien exportieren*.
++
 image:screenshot_backup_edit_export_snapshots.png["Ein Screenshot des Eintrags „vorhandene Snapshot Kopien exportieren“ auf der Seite „Erweiterte Einstellungen“."]
 
-Wählen Sie einfach aus, ob vorhandene Snapshot Kopien exportiert werden sollen, und klicken Sie auf *Apply*.
+. Wählen Sie, ob vorhandene Snapshot Kopien exportiert werden sollen.
+. Wählen Sie *Anwenden*.
+
 
 
 
@@ -95,6 +110,38 @@ Wählen Sie einfach aus, ob vorhandene Snapshot Kopien exportiert werden sollen,
 
 Wenn Sie das „jährliche“ Backup-Label für eine Backup Richtlinie für ein beliebiges Ihrer Volumes auswählen, ist die erstellte Snapshot-Kopie sehr groß. Standardmäßig werden diese jährlichen Snapshots nach der Übertragung an den Objektspeicher automatisch aus dem Quellsystem gelöscht. Sie können dieses Standardverhalten im Abschnitt Jährlicher Snapshot-Löschvorgang ändern.
 
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
+. Klicken Sie auf der Seite „ Backup Settings “ auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für die Arbeitsumgebung die Option *Erweiterte Einstellungen* aus.
+. Erweitern Sie auf der Seite Erweiterte Einstellungen den Abschnitt *jährliches Löschen von Snapshots*.
++
 image:screenshot_backup_edit_yearly_snap_delete.png["Ein Screenshot des Eintrags „jährliche Snapshots“ auf der Seite „Erweiterte Einstellungen“."]
 
-Wählen Sie *deaktiviert* und klicken Sie auf *Anwenden*, wenn Sie die jährlichen Snapshots auf dem Quellsystem beibehalten möchten.
+. Wählen Sie *disabled* aus, um die jährlichen Snapshots auf dem Quellsystem beizubehalten.
+. Wählen Sie *Anwenden*.
+
+
+
+
+== Aktivieren oder deaktivieren Sie geplante Ransomware-Scans
+
+Geplante Scans zum Schutz vor Ransomware sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Sie können geplante Ransomware-Scans für die neueste Snapshot Kopie über die Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig alle 7 Tage gescannt. Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.
+
+
+TIP: Bei der Aktivierung von Ransomware-Scans können je nach Cloud-Provider zusätzliche Gebühren anfallen.
+
+Geplante Ransomware-Scans werden nur mit der neuesten Snapshot Kopie ausgeführt.
+
+Wenn die geplanten Ransomware-Scans deaktiviert sind, können Sie dennoch On-Demand-Scans durchführen und während der Wiederherstellung einen Scan durchführen.
+
+Siehe link:task-create-policies-ontap.html["Management von Richtlinien"] Finden Sie Details zum Management von Richtlinien, die Ransomware-Erkennung implementieren.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
+. Klicken Sie auf der Seite „ Backup Settings “ auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für die Arbeitsumgebung die Option *Erweiterte Einstellungen* aus.
+. Erweitern Sie auf der Seite Erweiterte Einstellungen den Abschnitt *Ransomware-Scan*.
+. Wählen Sie * geplante Ransomware-Scan*.
+. Ändern Sie optional den Standardscan jede Woche in Tage oder Wochen.
+. Legen Sie fest, wie oft der Scan in Tagen oder Wochen ausgeführt werden soll.
+. Wählen Sie *Anwenden*.
+

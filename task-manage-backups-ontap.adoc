@@ -261,7 +261,7 @@ Nachdem Sie eine Aktion ausgewählt haben, aktualisiert BlueXP die Beziehung.
 
 
 
-== Vorhandene Richtlinie für das Backup in der Cloud bearbeiten
+== Bearbeiten Sie eine vorhandene Richtlinie für Backups in der Cloud
 
 Sie können die Attribute für eine Backup-Richtlinie ändern, die derzeit auf Volumes in einer Arbeitsumgebung angewendet wird. Die Änderung der Backup-Richtlinie wirkt sich auf alle vorhandenen Volumes aus, die diese Richtlinie verwenden.
 
@@ -319,7 +319,7 @@ endif::gcp[]
 
 
 
-== Neue Richtlinie für Backup in der Cloud hinzufügen
+== Neue Richtlinie für das Backup in die Cloud hinzufügen
 
 Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, werden alle Volumes, die Sie ursprünglich ausgewählt haben, mithilfe der von Ihnen definierten Standard-Backup-Richtlinie gesichert. Um bestimmten Volumes mit verschiedenen Recovery Point Objectives (RPOs) unterschiedliche Backup-Richtlinien zuzuweisen, können Sie zusätzliche Richtlinien für diesen Cluster erstellen und diese Richtlinien anderen Volumes zuweisen.
 

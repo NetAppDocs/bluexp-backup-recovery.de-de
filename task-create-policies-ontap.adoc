@@ -20,7 +20,7 @@ Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungs
 
 Weitere Informationen zu den standardmäßigen Backup-Richtlinien finden Sie unter link:concept-protection-journey.html["Planen Sie Ihren Weg zum Schutz"].
 
-BlueXP Backup und Recovery bietet drei Arten von Backups von ONTAP Daten: Snapshots, Replizierungen und Backups in Objekt-Storage. Ihre Richtlinien befinden sich aufgrund der verwendeten Architektur und der Art des Backups an verschiedenen Standorten:
+BlueXP Backup und Recovery bietet drei Arten von Backups von ONTAP Daten: Snapshots, Replizierungen und Backups in Objekt-Storage. Ihre Richtlinien befinden sich an verschiedenen Orten, basierend auf der von Ihnen verwendeten Architektur und der Art des Backups:
 
 [cols="25,25,25,25"]
 |===
@@ -62,7 +62,18 @@ Snapshot-Richtlinien werden standardmäßig angezeigt.
 
 
 
-== Erstellen Sie eine Snapshot-Richtlinie, bevor Sie den Snapshot initiieren
+== Erstellen von Richtlinien
+
+Sie können Richtlinien erstellen, die Ihre Snapshot Kopien, Replizierungen und Backups in Objekt-Storage regeln:
+
+* <<Erstellen Sie eine Snapshot-Richtlinie, bevor Sie den Snapshot initiieren>>
+* <<Erstellen Sie eine Replikationsrichtlinie, bevor Sie die Replikation starten>>
+* <<Erstellen Sie vor dem Initiieren des Backups eine Richtlinie für Backup-to-Object-Storage>>
+
+
+
+
+=== Erstellen Sie eine Snapshot-Richtlinie, bevor Sie den Snapshot initiieren
 
 Ein Teil Ihrer 3-2-1-5-Strategie umfasst die Erstellung einer Snapshot Kopie des Volumes auf dem *primären* Storage-System.
 
@@ -88,9 +99,7 @@ Die Seite Richtlinienverwaltung wird angezeigt.
 . Wählen Sie *Erstellen*.
 
 
-
-
-=== Snapshot-Richtlinienbeispiel mit einer kaskadierenden Architektur
+*Snapshot Policy Beispiel mit Kaskadenarchitektur*
 
 In diesem Beispiel wird eine Snapshot-Richtlinie mit zwei Clustern erstellt:
 
@@ -112,7 +121,7 @@ In diesem Beispiel wird eine Snapshot-Richtlinie mit zwei Clustern erstellt:
 
 
 
-== Erstellen Sie eine Replikationsrichtlinie, bevor Sie die Replikation starten
+=== Erstellen Sie eine Replikationsrichtlinie, bevor Sie die Replikation starten
 
 Ihre Strategie für 3-2-1-1 kann auch die Replizierung eines Volumes auf einem anderen Storage-System umfassen. Die Replikationsrichtlinie befindet sich auf dem *sekundären* Speichersystem.
 
@@ -126,7 +135,7 @@ Ihre Strategie für 3-2-1-1 kann auch die Replizierung eines Volumes auf einem a
 
 
 
-== Erstellen Sie vor dem Initiieren des Backups eine Richtlinie für Backup-to-Object-Storage
+=== Erstellen Sie vor dem Initiieren des Backups eine Richtlinie für Backup-to-Object-Storage
 
 Ihre 3-2-1-1-Strategie umfasst unter Umständen auch Backups von Volumes auf Objekt-Storage.
 

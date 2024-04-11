@@ -470,23 +470,32 @@ Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führe
 +
 *** Geben Sie den Namen der Richtlinie ein.
 *** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
-*** Wählen Sie *Erstellen*.
+*** Legen Sie für Backup-to-Object-Richtlinien die Einstellungen für DataLock und Ransomware-Schutz fest. Weitere Informationen zu DataLock und Ransomware-Schutz finden Sie unter link:concept-cloud-backup-policies.html["Richtlinieneinstellungen für Backup-to-Object"].
 +
-Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie _DataLock und Ransomware Protection_ konfigurieren. _DataLock_ schützt Ihre Backup-Dateien vor Modified oder Deleted, und _Ransomware Protection_ scannt Ihre Backup-Dateien, um nach Anzeichen für einen Ransomware-Angriff in Ihren Backup-Dateien zu suchen. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"^].
+Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vor dem Löschen und Ransomware-Angriffen schützen, indem Sie _DataLock und Ransomware Protection_ konfigurieren. _DataLock_ schützt Ihre Backup-Dateien vor Änderung oder Löschung, und _Ransomware Protection_ scannt Ihre Backup-Dateien, um Beweise für einen Ransomware-Angriff in Ihren Backup-Dateien zu suchen.
 
+
+
+
+
+
+
+* Wählen Sie *Erstellen*.
 +
 Wenn in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird und Ihr StorageGRID System Version 11.4 oder höher verwendet, können Sie ältere Backups nach einer bestimmten Anzahl von Tagen in Tiers aus Public-Cloud-Archiven verschieben. Aktuell werden weitere Support für AWS S3 Glacier/S3 Glacier Deep Archive oder Azure Archive Storage Tiers unterstützt. <<Preparing to archive older backup files to public cloud storage,Lesen Sie, wie Sie Ihre Systeme für diese Funktion konfigurieren>>.
 
-
-
++
 ** *Tiering Backup in Public Cloud*: Wählen Sie den Cloud-Provider aus, zu dem Sie Backups verschieben möchten, und geben Sie die Provider-Details ein.
 +
 Wählen Sie einen neuen StorageGRID-Cluster aus oder erstellen Sie ihn. Weitere Informationen zum Erstellen eines StorageGRID Clusters, damit BlueXP ihn erkennen kann, finden Sie unter https://docs.netapp.com/us-en/storagegrid-117/["StorageGRID-Dokumentation"^].
 
 ** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
++
+... Wählen Sie *Weiter*.
 
 
-. Wählen Sie *Weiter*.
+
+
 
 
 

@@ -58,7 +58,7 @@ Bei Bedarf können Sie ein ganzes _Volume_, einen _Ordner_ oder eine oder mehrer
 
 Siehe link:reference-limitations.html#replication-limitations["Einschränkungen bei der Replizierung"] Sie erhalten eine Liste mit Replizierungsfunktionen, die bei BlueXP Backup und Recovery nicht verfügbar sind.
 
-*Backup to object Features:*
+*Backup-to-Object-Funktionen:*
 
 * Erstellen Sie Backups unabhängiger Kopien Ihrer Datenvolumen auf kostengünstigem Objekt-Storage.
 * Anwendung einer einzelnen Backup-Richtlinie auf alle Volumes in einem Cluster oder Zuweisen verschiedener Backup-Richtlinien zu Volumes mit eindeutigen Recovery-Punkten
@@ -78,9 +78,9 @@ Siehe link:reference-limitations.html#replication-limitations["Einschränkungen 
 * Stellen Sie Daten von einem bestimmten Zeitpunkt aus lokalen Snapshot Kopien, replizierten Volumes oder Backup von Volumes im Objekt-Storage wieder her.
 * Stellen Sie ein Volume, einen Ordner oder einzelne Dateien auf dem Quellsystem oder einem anderen System wieder her.
 * Wiederherstellung von Daten in einer Arbeitsumgebung mit einem anderen Abonnement/Konto oder in einer anderen Region.
-* Möglichkeit der _schnellen Wiederherstellung_ von Volumes aus dem Cloud Storage auf ein Cloud Volumes ONTAP-System oder auf ein On-Premises-System; perfekt für Disaster-Recovery-Situationen, in denen möglichst bald Zugriff auf ein Volume erfolgen muss.
-* Daten werden auf Blockebene wiederhergestellt und die Daten direkt an dem von Ihnen angegebenen Speicherort platziert, während die ursprünglichen ACLs beibehalten werden.
-* Durchsuchbare und durchsuchbare Dateikataloge zur einfachen Auswahl einzelner Ordner und Dateien für die Wiederherstellung einzelner Dateien.
+* Durchführung einer _schnellen Wiederherstellung_ eines Volumes aus dem Cloud Storage auf ein Cloud Volumes ONTAP-System oder auf ein On-Premises-System; perfekt für Disaster-Recovery-Situationen, in denen möglichst bald Zugriff auf ein Volume ermöglicht werden muss.
+* Stellen Sie Daten auf Blockebene wieder her, indem Sie die Daten direkt an dem von Ihnen angegebenen Speicherort platzieren, wobei die ursprünglichen ACLs erhalten bleiben.
+* Durchsuchen und Suchen von Dateikatalogen zur einfachen Auswahl einzelner Ordner und Dateien für die Wiederherstellung einzelner Dateien.
 
 
 
@@ -389,13 +389,23 @@ TIP: Die Aufbewahrungsdauer für Backups von Datensicherungs-Volumes ist identis
 
 === Sicherungseinstellungen für Dateien sichern
 
-Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups in Objekt-Storage vor Löschen und Ransomware-Angriffen schützen. Jede Backup-Richtlinie enthält einen Abschnitt für _DataLock und Ransomware-Schutz_, der für einen bestimmten Zeitraum auf Ihre Backup-Dateien angewendet werden kann - die _Aufbewahrungsfrist_. _DataLock_ schützt Ihre Sicherungsdateien vor Änderungen oder Löschung. _Ransomware Protection_ scannt Ihre Backup-Dateien, um nach einem Ransomware-Angriff zu suchen, wenn eine Backup-Datei erstellt wird und wann die Daten aus einer Backup-Datei wiederhergestellt werden.
+Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups in Objekt-Storage vor Löschen und Ransomware-Angriffen schützen. Jede Backup-Richtlinie enthält einen Abschnitt für _DataLock und Ransomware-Schutz_, der für einen bestimmten Zeitraum auf Ihre Backup-Dateien angewendet werden kann - die _Aufbewahrungsfrist_.
+
+* _DataLock_ schützt Ihre Sicherungsdateien vor Änderungen oder Löschung.
+* _Ransomware Protection_ scannt Ihre Backup-Dateien, um nach einem Ransomware-Angriff zu suchen, wenn eine Backup-Datei erstellt wird und wann die Daten aus einer Backup-Datei wiederhergestellt werden.
+
+
+Geplante Scans zum Schutz vor Ransomware sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Die geplanten Scans können deaktiviert werden, um Ihre Kosten zu senken. Sie können geplante Ransomware-Scans für die neueste Snapshot Kopie über die Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig wöchentliche Scans durchgeführt. Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.
 
 Die Backup-Aufbewahrungsdauer ist identisch mit der Aufbewahrungsfrist des Backup-Zeitplans plus 14 Tage. Beispielsweise werden bei _Weekly_ Backups mit gespeicherten _5_ Kopien jede Backup-Datei 5 Wochen lang gesperrt. _Monatliche_ Backups mit _6_ Kopien zurückbehaltenen Kopien werden jede Backup-Datei 6 Monate lang gesperrt.
 
 Unterstützung ist derzeit verfügbar, wenn Ihr Backup-Ziel Amazon S3, Azure Blob oder NetApp StorageGRID ist. In zukünftigen Versionen werden weitere Ziele für Storage-Provider hinzugefügt.
 
-Siehe link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["DataLock- und Ransomware-Schutz"^] Für weitere Informationen, wie DataLock und Ransomware-Schutz funktioniert.
+Weitere Informationen finden Sie unter:
+
+* link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Funktionsweise von DataLock und Ransomware-Schutz"].
+* link:manage-backup-settings-ontap.html["So aktualisieren Sie Ransomware-Schutzoptionen auf der Seite Erweiterte Einstellungen"].
+
 
 
 TIP: DataLock kann nicht aktiviert werden, wenn Sie Backups in Archiv-Storage Tiering sind.

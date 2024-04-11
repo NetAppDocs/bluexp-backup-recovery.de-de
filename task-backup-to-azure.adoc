@@ -463,14 +463,23 @@ Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führe
 
 +
 *** Geben Sie den Namen der Richtlinie ein.
-*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
-*** Wählen Sie *Erstellen*.
+*** Legen Sie für Backup-to-Object-Richtlinien die Einstellungen für DataLock und Ransomware-Schutz fest. Weitere Informationen zu DataLock und Ransomware-Schutz finden Sie unter link:concept-cloud-backup-policies.html["Richtlinieneinstellungen für Backup-to-Object"].
 
 
+
+
+
+
+* Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+* Wählen Sie *Erstellen*.
++
 ** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
++
+... Wählen Sie *Weiter*.
 
 
-. Wählen Sie *Weiter*.
+
+
 
 
 

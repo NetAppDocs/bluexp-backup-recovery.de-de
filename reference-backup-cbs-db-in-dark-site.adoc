@@ -14,7 +14,7 @@ summary: Wenn Sie BlueXP Backup und Recovery an einer Site ohne Internetzugang n
 
 
 [role="lead"]
-Wenn Sie BlueXP Backup und Recovery an einer Site ohne Internetzugang nutzen, bekannt als „privater Modus“, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID oder ONTAP S3 Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen.
+Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang nutzen, den sogenannten _Private Mode_, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den StorageGRID oder ONTAP S3 Bucket gesichert, auf dem die Backups gespeichert werden. Wenn Sie in Zukunft Probleme mit dem BlueXP Connector-Host-System haben, können Sie einen neuen Connector implementieren und die kritischen BlueXP Backup- und Recovery-Daten wiederherstellen.
 
 Beachten Sie, dass wenn Sie BlueXP Backup und Recovery in einer SaaS-Umgebung nutzen, bei der BlueXP Connector bei Ihrem Cloud-Provider oder in Ihrem eigenen Host-System mit Internetzugang implementiert wird, alle wichtigen BlueXP Backup- und Recovery-Konfigurationsdaten gesichert und in der Cloud gesichert werden. Wenn Sie ein Problem mit dem Connector haben, erstellen Sie einfach einen neuen Connector und fügen Sie Ihre Arbeitsumgebungen hinzu. Die Sicherungsdetails werden automatisch wiederhergestellt.
 
