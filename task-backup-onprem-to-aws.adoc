@@ -598,9 +598,7 @@ Einzelheiten zu diesen Architekturen finden Sie unter link:concept-protection-jo
 
 TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung des Snapshots finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
 
-+
-Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
-
+. Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
 +
 ** Geben Sie den Namen der Richtlinie ein.
 ** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
@@ -608,17 +606,13 @@ Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führe
 *** Legen Sie für Backup-to-Object-Richtlinien die Einstellungen für DataLock und Ransomware-Schutz fest. Weitere Informationen zu DataLock und Ransomware-Schutz finden Sie unter link:concept-cloud-backup-policies.html["Richtlinieneinstellungen für Backup-to-Object"].
 
 
+** Wählen Sie *Erstellen*.
 
 
-
-
-* Wählen Sie *Erstellen*.
+. *Replikation*: Stellen Sie die folgenden Optionen ein:
 +
-.. *Replikation*: Stellen Sie die folgenden Optionen ein:
-
-
-* *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat oder die Aggregate und das Präfix oder Suffix aus, die dem Namen des replizierten Volumes hinzugefügt werden sollen.
-* *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine Policy.
+** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat oder die Aggregate und das Präfix oder Suffix aus, die dem Namen des replizierten Volumes hinzugefügt werden sollen.
+** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine Policy.
 +
 
 TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Replikation finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
@@ -627,33 +621,36 @@ TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Ak
 Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
 
 +
-** Geben Sie den Namen der Richtlinie ein.
-** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
-** Wählen Sie *Erstellen*.
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
+
+
+
+
+. *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
 +
-... *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
-
-
-
-
-* *Anbieter*: Wählen Sie *Amazon Web Services*.
-* *Provider-Einstellungen*: Geben Sie die Provider-Details und die AWS-Region ein, in der die Backups gespeichert werden sollen.
+** *Anbieter*: Wählen Sie *Amazon Web Services*.
+** *Provider-Einstellungen*: Geben Sie die Provider-Details und die AWS-Region ein, in der die Backups gespeichert werden sollen.
 +
 Der Zugriffsschlüssel und der geheime Schlüssel gelten für den von Ihnen erstellten IAM-Benutzer, um dem ONTAP-Cluster Zugriff auf den S3-Bucket zu geben.
 
-* *Bucket*: Wählen Sie entweder einen vorhandenen S3-Bucket aus oder erstellen Sie einen neuen. Siehe https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html["S3-Buckets hinzufügen"^].
-* *Verschlüsselungsschlüssel*: Wenn Sie einen neuen S3-Bucket erstellt haben, geben Sie die Verschlüsselungsschlüsselinformationen ein, die Sie vom Provider erhalten haben. Entscheiden Sie, ob Sie für das Management der Verschlüsselung Ihrer Daten die standardmäßigen Verschlüsselungsschlüssel von Amazon S3 oder Ihre eigenen von Kunden gemanagten Schlüssel in Ihrem AWS-Konto verwenden werden.
+** *Bucket*: Wählen Sie entweder einen vorhandenen S3-Bucket aus oder erstellen Sie einen neuen. Siehe https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html["S3-Buckets hinzufügen"^].
+** *Verschlüsselungsschlüssel*: Wenn Sie einen neuen S3-Bucket erstellt haben, geben Sie die Verschlüsselungsschlüsselinformationen ein, die Sie vom Provider erhalten haben. Entscheiden Sie, ob Sie für das Management der Verschlüsselung Ihrer Daten die standardmäßigen Verschlüsselungsschlüssel von Amazon S3 oder Ihre eigenen von Kunden gemanagten Schlüssel in Ihrem AWS-Konto verwenden werden.
+
+
 +
 
 NOTE: Wenn Sie einen vorhandenen Bucket ausgewählt haben, sind Verschlüsselungsinformationen bereits verfügbar, sodass Sie ihn jetzt nicht mehr eingeben müssen.
 
-* *Netzwerk*: Wählen Sie den IPspace und ob Sie einen privaten Endpunkt verwenden. Der private Endpunkt ist standardmäßig deaktiviert.
 +
-.. Der IPspace im ONTAP Cluster, in dem sich die Volumes, die Sie sichern möchten, befinden. Die Intercluster-LIFs für diesen IPspace müssen über Outbound-Internetzugang verfügen.
-.. Wählen Sie optional aus, ob Sie einen AWS PrivateLink verwenden möchten, den Sie zuvor konfiguriert haben. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Weitere Informationen zur Verwendung von AWS PrivateLink für Amazon S3 finden Sie unter"^].
+** *Netzwerk*: Wählen Sie den IPspace und ob Sie einen privaten Endpunkt verwenden. Der private Endpunkt ist standardmäßig deaktiviert.
++
+... Der IPspace im ONTAP Cluster, in dem sich die Volumes, die Sie sichern möchten, befinden. Die Intercluster-LIFs für diesen IPspace müssen über Outbound-Internetzugang verfügen.
+... Wählen Sie optional aus, ob Sie einen AWS PrivateLink verwenden möchten, den Sie zuvor konfiguriert haben. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Weitere Informationen zur Verwendung von AWS PrivateLink für Amazon S3 finden Sie unter"^].
 
 
-* *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus oder erstellen Sie eine Policy.
+** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus oder erstellen Sie eine Policy.
 +
 
 TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Aktivierung der Sicherung finden Sie unter link:task-create-policies-ontap.html["Erstellen einer Richtlinie"].
@@ -662,16 +659,15 @@ TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie vor der Ak
 Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
 
 +
-** Geben Sie den Namen der Richtlinie ein.
-** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
-** Wählen Sie *Erstellen*.
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu 5 Schichtpläne aus, die in der Regel unterschiedliche Frequenzen haben.
+*** Wählen Sie *Erstellen*.
 
 
-* *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
-+
-.. Wählen Sie *Weiter*.
+** *Exportieren vorhandener Snapshot-Kopien als Backup-Kopien in den Objektspeicher*: Wenn es lokale Snapshot-Kopien für Volumes in dieser Arbeitsumgebung gibt, die mit dem Backup-Zeitplan-Label übereinstimmen, das Sie gerade für diese Arbeitsumgebung ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
 
 
+. Wählen Sie *Weiter*.
 
 
 

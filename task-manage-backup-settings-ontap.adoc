@@ -14,7 +14,7 @@ summary: Sie können viele von Ihnen bei der Aktivierung von BlueXP Backup und R
 
 
 [role="lead"]
-Über die Seite „Erweiterte Einstellungen“ können Sie Einstellungen für Storage auf Cluster-Ebene und Backup-to-Objekt-Storage ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dazu gehört auch die Änderung der Übertragungsrate von Backups in Objekt-Storage, unabhängig davon, ob historische Snapshot Kopien als Backup-Dateien exportiert werden, und die Aktivierung oder Deaktivierung geplanter Ransomware-Scans für eine Arbeitsumgebung.
+Über die Seite „Erweiterte Einstellungen“ können Sie Einstellungen für Storage auf Cluster-Ebene und Backup-to-Objekt-Storage ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dazu gehört auch die Änderung der Übertragungsrate von Backups in Objekt-Storage, unabhängig davon, ob historische Snapshot Kopien als Backup-Dateien exportiert werden, und die Aktivierung oder Deaktivierung von Ransomware-Scans für eine Arbeitsumgebung.
 
 
 NOTE: Diese Einstellungen sind nur für Backup-to-Object-Speicher verfügbar. Keine dieser Einstellungen wirkt sich auf Ihre Snapshot- oder Replikationseinstellungen aus. Ähnliche Einstellungen für die Replikation auf Cluster-Ebene für Snapshots und Replikationen werden in Zukunft hinzugefügt.
@@ -29,7 +29,7 @@ endif::aws[]
 
 * Es ändert sich, ob historische Snapshot Kopien als Backup-Dateien exportiert und in den ersten Basis-Backup-Dateien für zukünftige Volumes enthalten sind
 * Es wird geändert, ob „jährliche“ Snapshots aus dem Quellsystem entfernt werden
-* Aktivieren oder Deaktivieren von geplanten Ransomware-Scans für eine Arbeitsumgebung
+* Aktivieren oder Deaktivieren von Ransomware-Scans für eine Arbeitsumgebung
 
 
 
@@ -123,16 +123,12 @@ image:screenshot_backup_edit_yearly_snap_delete.png["Ein Screenshot des Eintrags
 
 
 
-== Aktivieren oder deaktivieren Sie geplante Ransomware-Scans
+== Aktivieren oder deaktivieren Sie Ransomware-Scans
 
-Geplante Scans zum Schutz vor Ransomware sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Sie können geplante Ransomware-Scans für die neueste Snapshot Kopie über die Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig alle 7 Tage gescannt. Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.
+Scans nach Ransomware-Schutz sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Sie können Ransomware-Scans auf der letzten Snapshot Kopie mit der Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig alle 7 Tage gescannt.
 
 
 TIP: Bei der Aktivierung von Ransomware-Scans können je nach Cloud-Provider zusätzliche Gebühren anfallen.
-
-Geplante Ransomware-Scans werden nur mit der neuesten Snapshot Kopie ausgeführt.
-
-Wenn die geplanten Ransomware-Scans deaktiviert sind, können Sie dennoch On-Demand-Scans durchführen und während der Wiederherstellung einen Scan durchführen.
 
 Siehe link:task-create-policies-ontap.html["Management von Richtlinien"] Finden Sie Details zum Management von Richtlinien, die Ransomware-Erkennung implementieren.
 
@@ -140,8 +136,5 @@ Siehe link:task-create-policies-ontap.html["Management von Richtlinien"] Finden 
 . Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
 . Klicken Sie auf der Seite „ Backup Settings “ auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für die Arbeitsumgebung die Option *Erweiterte Einstellungen* aus.
 . Erweitern Sie auf der Seite Erweiterte Einstellungen den Abschnitt *Ransomware-Scan*.
-. Wählen Sie * geplante Ransomware-Scan*.
-. Ändern Sie optional den Standardscan jede Woche in Tage oder Wochen.
-. Legen Sie fest, wie oft der Scan in Tagen oder Wochen ausgeführt werden soll.
-. Wählen Sie *Anwenden*.
+. Aktivieren oder deaktivieren Sie *Ransomware Scan*.
 

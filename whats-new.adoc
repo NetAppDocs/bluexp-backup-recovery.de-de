@@ -26,13 +26,13 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 Wenn Sie bisher die Ransomware-Erkennung in einer Backup-Richtlinie aktiviert haben, wurden automatisch Scans durchgeführt, als das erste Backup erstellt und ein Backup wiederhergestellt wurde. Zuvor hat der Service alle Snapshot Kopien gescannt, und Sie konnten die Scans nicht deaktivieren.
 
-Mit dieser Version können Sie jetzt Ransomware-Scans auf der neuesten Snapshot-Kopie aktivieren oder deaktivieren, indem Sie die Option auf der Seite Erweiterte Einstellungen. Wenn Sie diese Option aktivieren, werden standardmäßig wöchentliche Scans durchgeführt. Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.
+Mit dieser Version können Sie jetzt Ransomware-Scans auf der neuesten Snapshot-Kopie aktivieren oder deaktivieren, indem Sie die Option auf der Seite Erweiterte Einstellungen. Wenn Sie diese Option aktivieren, werden standardmäßig wöchentliche Scans durchgeführt.
 
 Weitere Informationen finden Sie in den folgenden Informationen:
 
-* link:task-manage-backup-settings-ontap.html["Verwalten von Backup-Einstellungen"]
-* link:task-create-policies-ontap.html["Management von Richtlinien für ONTAP Volumes"]
-* link:concept-cloud-backup-policies.html["Richtlinieneinstellungen für Backup-to-Object"]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings-ontap.html["Verwalten von Backup-Einstellungen"]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html["Management von Richtlinien für ONTAP Volumes"]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html["Richtlinieneinstellungen für Backup-to-Object"]
 
 
 
