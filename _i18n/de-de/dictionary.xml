@@ -890,7 +890,6 @@
   <block id="4f326e1a4453cc79600c1df4374d2c22" category="list-text">Wenn Sie eine Sicherungsrichtlinie erstellen, die 30 tägliche, 7 wöchentliche, 12 monatliche Backups erstellt, gibt es drei Aufbewahrungsfristen. Die „30 täglichen“ Backups würden 44 Tage (30 Tage plus 14 Tage Puffer), die „7 wöchentlichen“ Backups würden 9 Wochen (7 Wochen plus 14 Tage) aufbewahrt und die „12 monatlichen“ Backups würden 12 Monate (plus 14 Tage) aufbewahrt.</block>
   <block id="bf7c437191fdcde55e7d7e2fc049c230" category="list-text">Wenn Sie einen stündlichen Backup-Zeitplan mit 24 Aufbewahrung erstellen, könnten Sie denken, dass Backups für 24 Stunden gesperrt sind. Da dies jedoch weniger als 30 Tage beträgt, wird jedes Backup für 44 Tage gesperrt und aufbewahrt (30 Tage plus 14 Tage Puffer).</block>
   <block id="57f10edfffe2adcbce7ee7a76dc7702f" category="section-title">Was ist Ransomware-Schutz</block>
-  <block id="6178bb3c1b6a8af3ec3a7000d38df00e" category="paragraph">Ransomware-Scans erfolgen an 3 Punkten im Backup- und Restore-Prozess:</block>
   <block id="c545a26c4ed6190e3a8c71826161a528" category="paragraph">Der Scan wird nicht auf der Sicherungsdatei durchgeführt, wenn er zum ersten Mal in den Cloud-Speicher geschrieben wird, sondern wenn die *nächste* Sicherungsdatei geschrieben wird. Wenn Sie beispielsweise einen wöchentlichen Backup-Zeitplan für Dienstag eingestellt haben, wird am Dienstag den 14. Ein Backup erstellt. Dann am Dienstag der 21. Eine weitere Sicherung erstellt wird. Der Ransomware-Scan wird derzeit auf der Backup-Datei vom 14. Juni durchgeführt.</block>
   <block id="f656e9389b65beefa5f22506a262c68a" category="list-text">Wenn Sie versuchen, Daten aus einer Sicherungsdatei wiederherzustellen</block>
   <block id="d71c7fafb5eead8d41c2869b8c551f6a" category="paragraph">Sie können einen Scan ausführen, bevor Sie Daten aus einer Sicherungsdatei wiederherstellen, oder diesen Scan überspringen.</block>
@@ -4832,7 +4831,6 @@ Ifdef::aws[]</block>
   <block id="8bf75ab26f222aaa987f761ede723ee0" category="list-text">DataLock- und Ransomware-Schutz können für einen Cluster deaktiviert werden, nachdem er konfiguriert wurde, um Kosten zu sparen.</block>
   <block id="943aed8f26021fcc91ef6a9745099eea" category="list-text">Wenn eine Sicherungsdatei erstellt wird.</block>
   <block id="645f12199dae2b82a1985743cbc3e647" category="section-title">DataLock- und Ransomware-Schutzoptionen</block>
-  <block id="637724eb17b7ab6645d22693fe456ad6" category="paragraph">Siehe <block ref="2afb661236a3c9beb84de46fcd5481e6" category="inline-link-macro-rx"></block>.</block>
   <block id="28393e8d0c5d4d42b764689c3d805dd0" category="example-title">AWS S3 Berechtigungen</block>
   <block id="1ddec8739d8c1b2f7db7d9f2fe4b6069" category="example-title">StorageGRID S3 Berechtigungen</block>
   <block id="5f77078b118458f75a8520575b6a518e" category="list-text">DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktion später über die Option Erweiterte Einstellungen aktivieren oder deaktivieren.</block>
@@ -4881,7 +4879,19 @@ Ifdef::aws[]</block>
   <block id="b33f77825564d0f55040ed5d93e2c980" category="paragraph">Sie können Ransomware-Scans optional aktivieren oder deaktivieren.</block>
   <block id="3d2cb9cb8024f89584734e08517bb28b" category="paragraph">Scans nach Ransomware-Schutz sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Sie können Ransomware-Scans auf der letzten Snapshot Kopie mit der Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig alle 7 Tage gescannt.</block>
   <block id="957d64bd15bd14f95e14523883ec693d" category="paragraph">Über die Seite „Erweiterte Einstellungen“ können Sie Einstellungen für Storage auf Cluster-Ebene und Backup-to-Objekt-Storage ändern, die Sie bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festlegen. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dazu gehört auch die Änderung der Übertragungsrate von Backups in Objekt-Storage, unabhängig davon, ob historische Snapshot Kopien als Backup-Dateien exportiert werden, und die Aktivierung oder Deaktivierung von Ransomware-Scans für eine Arbeitsumgebung.</block>
-  <block id="1de2d42f8d4e8f2645cb745b40a766d0" category="list-text">Aktivieren oder Deaktivieren von Ransomware-Scans für eine Arbeitsumgebung</block>
   <block id="32a5c26baa0363b9a3a4a05896b16fd9" category="section-title">Aktivieren oder deaktivieren Sie Ransomware-Scans</block>
   <block id="141cfd8e9a336cee5d12da1ba56da9be" category="list-text">Aktivieren oder deaktivieren Sie *Ransomware Scan*.</block>
+  <block id="036182c87f807859656a494ecad4b91a" category="paragraph">Ransomware-Scans finden an den folgenden Punkten des Backup- und Wiederherstellungsprozesses statt:</block>
+  <block id="823af9cc6541e49164fb4b1c88f90a63" category="paragraph">Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.</block>
+  <block id="55649d2d8f62541abb30107f9893fa87" category="paragraph">Siehe <block ref="f39da789221971f7f372bd122012c224" category="inline-link-macro-rx"></block>.</block>
+  <block id="b7f7a148311340334982dc88e5a67d85" category="list-text">Aktivieren oder Deaktivieren von Ransomware-Scans für eine Arbeitsumgebung, einschließlich geplanter Scans</block>
+  <block id="2e6f82dd9de52a1127366dd526b46fcb" category="paragraph">Geplante Ransomware-Scans werden nur mit der neuesten Snapshot Kopie ausgeführt.</block>
+  <block id="753626f8e1f5bd64d141de3a2128da9a" category="paragraph">Wenn die geplanten Ransomware-Scans deaktiviert sind, können Sie dennoch On-Demand-Scans durchführen und während der Wiederherstellung einen Scan durchführen.</block>
+  <block id="e80157cb62f595a86effb45e1dfb4df2" category="list-text">Wählen Sie * geplante Ransomware-Scan*.</block>
+  <block id="1491d983e19f493f0131d8289237002e" category="list-text">Ändern Sie optional den Standardscan jede Woche in Tage oder Wochen.</block>
+  <block id="67c431ab59134db0cd95c9d00af66831" category="list-text">Legen Sie fest, wie oft der Scan in Tagen oder Wochen ausgeführt werden soll.</block>
+  <block id="701c188698e8adc8e0dffa2a107bf9f4" category="section-title">Bis 30. April 2024</block>
+  <block id="24c8d17b3d2e5d56e90675c0755252e0" category="section-title">Möglichkeit zur Aktivierung oder Deaktivierung geplanter Ransomware-Scans</block>
+  <block id="1d5d9f598ed0ef9d579321fc5f2dea76" category="paragraph">Zuvor könnten Sie Ransomware-Scans aktivieren oder deaktivieren, aber bei geplanten Scans nicht.</block>
+  <block id="c05a6e1c401ef496decb0a82c8e569e3" category="paragraph">Mit dieser Version können Sie jetzt geplante Ransomware-Scans für die neueste Snapshot-Kopie aktivieren oder deaktivieren, indem Sie die Option auf der Seite Erweiterte Einstellungen verwenden. Wenn Sie diese Option aktivieren, werden standardmäßig wöchentliche Scans durchgeführt. Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.</block>
 </blocks>

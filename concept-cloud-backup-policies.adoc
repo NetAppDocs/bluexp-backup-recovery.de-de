@@ -94,7 +94,7 @@ Sie können in diesem letzten Fall sehen, dass, wenn jede Backup-Datei für 44 T
 
 Ransomware-Schutz scannt Ihre Backup-Dateien, um einen Ransomware-Angriff auf einen Nachweis zu untersuchen. Die Erkennung von Ransomware-Angriffen erfolgt über einen Prüfsummenvergleich. Wenn potenzielle Ransomware-Angriffe in einer neuen Backup-Datei oder in einer vorherigen Backup-Datei erkannt werden, wird diese neuere Backup-Datei durch die neueste Backup-Datei ersetzt, die keine Anzeichen eines Ransomware-Angriffs zeigt. (Die Datei, die als Ransomware-Angriff gekennzeichnet ist, wird 1 Tag nach ihrer Ersetzung gelöscht.)
 
-Ransomware-Scans erfolgen an 3 Punkten im Backup- und Restore-Prozess:
+Ransomware-Scans finden an den folgenden Punkten des Backup- und Wiederherstellungsprozesses statt:
 
 * Wenn eine Sicherungsdatei erstellt wird.
 +
@@ -123,7 +123,9 @@ image:screenshot_datalock_ransomware_settings.png["Screenshot mit den Einstellun
 
 Scans nach Ransomware-Schutz sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Sie können Ransomware-Scans auf der letzten Snapshot Kopie mit der Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig alle 7 Tage gescannt.
 
-Siehe link:manage-backup-settings-ontap.html["So aktualisieren Sie Ransomware-Schutzoptionen auf der Seite Erweiterte Einstellungen"].
+Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.
+
+Siehe link:task-manage-backup-settings-ontap.html["So aktualisieren Sie Ransomware-Schutzoptionen auf der Seite Erweiterte Einstellungen"].
 
 Für jede Backup-Richtlinie stehen folgende Einstellungen zur Verfügung:
 
