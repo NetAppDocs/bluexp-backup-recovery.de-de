@@ -33,17 +33,17 @@ Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector inte
 |===
 . Geben Sie den Befehl ein, um den Service neu zu starten.
 +
-[cols="45,45"]
+[cols="40,30,30"]
 |===
-| Position des Steckers | Befehl 
+| Position des Steckers | Docker-Befehl | Podman-Befehl 
 
 
-| Cloud-Implementierung | `docker restart cloudmanager_cbs` 
+| Cloud-Implementierung | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs`` 
 
 
-| Manuelle Installation mit Internetzugang | `docker restart cloudmanager_cbs` 
+| Manuelle Installation mit Internetzugang | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs`` 
 
 
-| Manuelle Installation ohne Internetzugang | `docker restart ds_cloudmanager_cbs_1` 
+| Manuelle Installation ohne Internetzugang | `docker restart ds_cloudmanager_cbs_1` | `podman restart ds_cloudmanager_cbs_1`` 
 |===
 

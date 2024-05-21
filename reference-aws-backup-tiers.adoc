@@ -24,7 +24,7 @@ Beim ersten Erstellen von Backup-Dateien werden sie im S3 _Standard_ Storage ges
 
 Wenn in den Quellclustern ONTAP 9.10.1 oder neuer ausgeführt wird, können Sie Backups entweder nach einer bestimmten Anzahl von Tagen (normalerweise über 30 Tage) als Tiering zu _S3 Glacier Deep Archive_ oder _S3 Glacier Deep Archive_ Storage abstufen, um die Kosten weiter zu optimieren. Sie können dies auf „0“ oder auf 1-999 Tage einstellen. Wenn Sie den Wert auf „0“ Tage setzen, können Sie ihn später nicht mehr in 1-999 Tage ändern.
 
-Auf Daten in diesen Tiers kann bei Bedarf nicht sofort zugegriffen werden und verursachen höhere Abrufkosten. Daher müssen Sie bedenken, wie oft Sie Daten aus diesen archivierten Backup-Dateien wiederherstellen müssen. Siehe Abschnitt zu <<Wiederherstellen von Daten aus Archiv-Storage,Wiederherstellen von Daten aus Archiv-Storage>>.
+Auf Daten in diesen Tiers kann bei Bedarf nicht sofort zugegriffen werden und verursachen höhere Abrufkosten. Daher müssen Sie bedenken, wie oft Sie Daten aus diesen archivierten Backup-Dateien wiederherstellen müssen. Siehe Abschnitt zu <<restore data from archival storage,Wiederherstellen von Daten aus Archiv-Storage>>.
 
 * Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery in Ihrer ersten Backup-Richtlinie keinen Archiv-Tier auswählen, wird _S3 Glacier_ Ihre einzige Archivierungsoption für zukünftige Richtlinien sein.
 * Wenn Sie in Ihrer ersten Backup-Richtlinie _S3 Glacier_ auswählen, können Sie für zukünftige Backup-Richtlinien für diesen Cluster in die _S3 Glacier Deep Archive_-Ebene wechseln.
@@ -37,7 +37,7 @@ https://aws.amazon.com/s3/storage-classes/["Erfahren Sie mehr über S3-Storage-K
 
 
 
-== Wiederherstellen von Daten aus Archiv-Storage
+== Daten aus Archiv-Storage wiederherstellen
 
 Das Speichern älterer Backup-Dateien im Archiv-Storage ist viel kostengünstiger als Standard- oder Standard-IA-Storage. Der Zugriff auf Daten aus einer Backup-Datei im Archiv-Storage für Wiederherstellungsvorgänge dauert viel länger und kostet mehr Geld.
 

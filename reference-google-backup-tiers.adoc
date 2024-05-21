@@ -22,7 +22,7 @@ BlueXP Backup und Recovery unterstützen eine einzige Google Archiv-Storage-Klas
 
 Beim ersten Erstellen von Backup-Dateien werden sie im _Standard_ Storage gespeichert. Diese Tier ist für die Speicherung von Daten optimiert, auf die selten zugegriffen wird. Dadurch können Sie jedoch auch sofort auf die Daten zugreifen.
 
-Wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet, können Sie nach einer bestimmten Anzahl von Tagen (in der Regel länger als 30 Tage) ältere Backups in den _Archiv_ Storage in der BlueXP Backup- und Recovery-UI verschieben, um weitere Kosten zu optimieren. Für Daten in dieser Tier fallen höhere Abrufkosten an. Daher müssen Sie bedenken, wie oft Sie Daten aus diesen archivierten Backup-Dateien wiederherstellen müssen. Siehe Abschnitt zu <<Wiederherstellen von Daten aus Archiv-Storage,Wiederherstellen von Daten aus Archiv-Storage>>.
+Wenn Ihr On-Premises-Cluster ONTAP 9.12.1 oder höher verwendet, können Sie nach einer bestimmten Anzahl von Tagen (in der Regel länger als 30 Tage) ältere Backups in den _Archiv_ Storage in der BlueXP Backup- und Recovery-UI verschieben, um weitere Kosten zu optimieren. Für Daten in dieser Tier fallen höhere Abrufkosten an. Daher müssen Sie bedenken, wie oft Sie Daten aus diesen archivierten Backup-Dateien wiederherstellen müssen. Siehe Abschnitt zu <<restore data from archival storage,Wiederherstellen von Daten aus Archiv-Storage>>.
 
 Wenn Sie BlueXP Backup und Recovery mit dieser Lebenszyklusregel konfigurieren, dürfen Sie beim Einrichten des Buckets in Ihrem Google-Konto keine Lebenszyklusregeln konfigurieren.
 
@@ -30,7 +30,7 @@ https://cloud.google.com/storage/docs/storage-classes["Erfahren Sie mehr über G
 
 
 
-== Wiederherstellen von Daten aus Archiv-Storage
+== Daten aus Archiv-Storage wiederherstellen
 
 Das Speichern älterer Backup-Dateien im Archiv-Storage ist viel kostengünstiger als Standard-Storage. Der Zugriff auf Daten von einer Backup-Datei im Archiv-Storage für Wiederherstellungsvorgänge dauert etwas länger und kostet mehr Geld.
 

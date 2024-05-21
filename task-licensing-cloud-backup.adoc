@@ -32,7 +32,7 @@ link:concept-ontap-backup-to-cloud.html#cost["Erfahren Sie mehr über die Kosten
 
 Wenn Sie sich für ein Pay-as-you-go-Abonnement auf dem Marketplace Ihres Cloud-Providers anmelden, ist eine kostenlose Testversion von BlueXP Backup und Recovery für 30 Tage verfügbar. Die kostenlose Testversion beginnt zu dem Zeitpunkt, zu dem Sie die Marketplace-Liste abonnieren. Beachten Sie, dass Sie bei der Implementierung eines Cloud Volumes ONTAP Systems, wenn Sie für das Marketplace-Abonnement zahlen und dann 10 Tage später die kostenlose Testversion von BlueXP Backup und Recovery starten, noch 20 Tage für die kostenlose Testversion haben.
 
-Nach Ablauf der kostenlosen Testversion werden Sie automatisch und ohne Unterbrechung auf das PAYGO-Abonnement umgeschaltet. Wenn Sie BlueXP Backup und Recovery nicht weiterhin nutzen möchten, einfach nur link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment["Heben Sie die Registrierung von BlueXP Backup und Recovery aus der Betriebsumgebung auf"] Vor Ablauf der Testversion wird Ihnen keine Rechnung erhoben.
+Nach Ablauf der kostenlosen Testversion werden Sie automatisch und ohne Unterbrechung auf das PAYGO-Abonnement umgeschaltet. Wenn Sie BlueXP Backup und Recovery nicht weiterhin nutzen möchten, einfach nur link:task-manage-backups-ontap.html#unregister-bluexp-backup-and-recovery-for-a-working-environment["Heben Sie die Registrierung von BlueXP Backup und Recovery aus der Betriebsumgebung auf"] Vor Ablauf der Testversion wird Ihnen keine Rechnung erhoben.
 
 
 
@@ -213,7 +213,7 @@ BlueXP fügt die Lizenz hinzu, sodass Backup und Recovery von BlueXP aktiv sind.
 
 === Aktualisieren einer BlueXP BYOL-Lizenz für Backup und Recovery
 
-Wenn sich Ihre Lizenzlaufzeit dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität die Grenze erreicht, werden Sie in der Backup-Benutzeroberfläche benachrichtigt. Dieser Status wird auch auf der BlueXP Digital Wallet-Seite und in angezeigt https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["Benachrichtigungen"].
+Wenn sich Ihre Lizenzlaufzeit dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität die Grenze erreicht, werden Sie in der Backup-Benutzeroberfläche benachrichtigt. Dieser Status wird auch auf der BlueXP Digital Wallet-Seite und in angezeigt https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitor-operations-status-using-the-notification-center["Benachrichtigungen"].
 
 image:screenshot_services_license_expire.png["Ein Screenshot mit einer abgelaufenen Lizenz auf der BlueXP Digital Wallet-Seite."]
 

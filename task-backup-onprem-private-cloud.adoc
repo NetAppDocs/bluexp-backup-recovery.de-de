@@ -480,7 +480,7 @@ Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vo
 
 
 +
-Wenn in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird und Ihr StorageGRID System Version 11.4 oder höher verwendet, können Sie ältere Backups nach einer bestimmten Anzahl von Tagen in Tiers aus Public-Cloud-Archiven verschieben. Aktuell werden weitere Support für AWS S3 Glacier/S3 Glacier Deep Archive oder Azure Archive Storage Tiers unterstützt. <<Preparing to archive older backup files to public cloud storage,Lesen Sie, wie Sie Ihre Systeme für diese Funktion konfigurieren>>.
+Wenn in Ihrem Cluster ONTAP 9.12.1 oder höher verwendet wird und Ihr StorageGRID System Version 11.4 oder höher verwendet, können Sie ältere Backups nach einer bestimmten Anzahl von Tagen in Tiers aus Public-Cloud-Archiven verschieben. Aktuell werden weitere Support für AWS S3 Glacier/S3 Glacier Deep Archive oder Azure Archive Storage Tiers unterstützt. <<Bereiten Sie die Archivierung älterer Backup-Dateien im Public-Cloud-Storage vor,Lesen Sie, wie Sie Ihre Systeme für diese Funktion konfigurieren>>.
 
 +
 ** *Tiering Backup in Public Cloud*: Wählen Sie den Cloud-Provider aus, zu dem Sie Backups verschieben möchten, und geben Sie die Provider-Details ein.

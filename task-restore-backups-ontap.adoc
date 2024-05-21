@@ -92,9 +92,9 @@ Bevor Sie eine der beiden Wiederherstellungsmethoden verwenden können, sollten 
 
 Siehe Anforderungen und Wiederherstellungsschritte für den Typ der Wiederherstellungsoperation, die Sie verwenden möchten:
 
-* <<Restoring volumes using Browse & Restore,Stellen Sie Volumes mithilfe von Browse  Restore wieder her
-* <<Restoring folders and files using Browse & Restore,Wiederherstellen von Ordnern und Dateien mit Durchsuchen  Restore
-* <<Restoring ONTAP data using Search & Restore,Stellen Sie Volumes, Ordner und Dateien mithilfe von Search  Restore wieder her
+* <<Stellen Sie Volumes mithilfe von Browse  Restore wieder her,Stellen Sie Volumes mithilfe von Browse  Restore wieder her
+* <<Wiederherstellen von Ordnern und Dateien mit Durchsuchen  Restore,Wiederherstellen von Ordnern und Dateien mit Durchsuchen  Restore
+* <<restore-ontap-data-using-search-restore,Stellen Sie Volumes, Ordner und Dateien mithilfe von Search  Restore wieder her
 
 
 
@@ -303,19 +303,19 @@ ifdef::aws[]
 
 
 
-link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"].
+link:reference-aws-backup-tiers.html#restore-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"].
 
 endif::aws[]
 
 ifdef::azure[]
 
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Azure Archiv-Storage"].
+link:reference-azure-backup-tiers.html#restore-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Azure Archiv-Storage"].
 
 endif::azure[]
 
 ifdef::gcp[]
 
-link:reference-google-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Google Archiv-Storage"]. Backup-Dateien werden auf der Google Archiv Storage Tier nahezu sofort wiederhergestellt und müssen keine Restore-Priorität erhalten.
+link:reference-google-backup-tiers.html#restore-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Google Archiv-Storage"]. Backup-Dateien werden auf der Google Archiv Storage Tier nahezu sofort wiederhergestellt und müssen keine Restore-Priorität erhalten.
 
 endif::gcp[]
 
@@ -411,19 +411,19 @@ ifdef::aws[]
 
 
 
-link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"].
+link:reference-aws-backup-tiers.html#restore-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus AWS Archiv-Storage"].
 
 endif::aws[]
 
 ifdef::azure[]
 
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Azure Archiv-Storage"].
+link:reference-azure-backup-tiers.html#restore-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Azure Archiv-Storage"].
 
 endif::azure[]
 
 ifdef::gcp[]
 
-link:reference-google-backup-tiers.html#restoring-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Google Archiv-Storage"]. Backup-Dateien werden auf der Google Archiv Storage Tier nahezu sofort wiederhergestellt und müssen keine Restore-Priorität erhalten.
+link:reference-google-backup-tiers.html#restore-data-from-archival-storage["Erfahren Sie mehr über die Wiederherstellung aus Google Archiv-Storage"]. Backup-Dateien werden auf der Google Archiv Storage Tier nahezu sofort wiederhergestellt und müssen keine Restore-Priorität erhalten.
 
 endif::gcp[]
 
@@ -500,7 +500,7 @@ Sie haben ein paar Optionen für den Speicherort beim Wiederherstellen von Ordne
 
 
 
-== Wiederherstellen von ONTAP-Daten mithilfe von Suche und Wiederherstellung
+== Stellen Sie ONTAP-Daten mithilfe von Suchen und Wiederherstellen wieder her
 
 Sie können ein Volume, einen Ordner oder Dateien aus einer ONTAP-Sicherungsdatei mithilfe von Suchen und Wiederherstellen wiederherstellen wiederherstellen. Mit Search & Restore können Sie aus allen Backups nach einem bestimmten Volume, Ordner oder einer bestimmten Datei suchen und anschließend eine Wiederherstellung durchführen. Sie müssen nicht den genauen Namen der Arbeitsumgebung, den Namen des Volumes oder den Dateinamen kennen - die Suche durchsucht alle Backup-Dateien des Volumes.
 
@@ -754,7 +754,7 @@ Abhängig von der Größe der Volumes in der Arbeitsumgebung und der Anzahl der 
 
 === Stellen Sie Volumes, Ordner und Dateien mithilfe von Search & Restore wieder her
 
-Nachdem Sie den haben <<Enabling the Indexed Catalog for each working environment,Indexierung für Ihre Arbeitsumgebung aktiviert>>, Sie können Volumes, Ordner und Dateien mit Search & Restore wiederherstellen. So können Sie mithilfe verschiedener Filter genau die Datei oder das Volume finden, die Sie aus allen Backup-Dateien wiederherstellen möchten.
+Nachdem Sie den haben <<enable-the-indexed-catalog-for-each-working-environment,Indexierung für Ihre Arbeitsumgebung aktiviert>>, Sie können Volumes, Ordner und Dateien mit Search & Restore wiederherstellen. So können Sie mithilfe verschiedener Filter genau die Datei oder das Volume finden, die Sie aus allen Backup-Dateien wiederherstellen möchten.
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.

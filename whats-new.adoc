@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore' 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery' 
 summary: Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery. 
 ---
 = Neuerungen bei BlueXP Backup und Recovery
@@ -15,6 +15,24 @@ summary: Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 [role="lead"]
 Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
+
+
+
+== 17 Mai 2024
+
+
+
+=== Einschränkungen bei der Verwendung von RHEL 8 und RHEL 9 für den lokalen Connector
+
+BlueXP Connector Version 3.9.40 unterstützt bestimmte Versionen von Red hat Enterprise Linux Version 8 und 9 für jede manuelle Installation der Connector-Software auf einem RHEL 8- oder 9-Host, unabhängig vom Speicherort zusätzlich zu den in genannten Betriebssystemen https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["Host-Anforderungen erfüllt"^]. Diese neueren RHEL-Versionen benötigen die Podman-Engine anstelle der Docker Engine. Derzeit unterliegt das Backup und Recovery von BlueXP zwei Einschränkungen, wenn die Podman Engine verwendet wird.
+
+Siehe https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-limitations.html["Einschränkungen bei Backup und Restore"] Entsprechende Details.
+
+Die folgenden Verfahren enthalten neue Podman-Anweisungen:
+
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-restart-backup.html["BlueXP Backup und Recovery neu starten"]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html["Stellen Sie BlueXP Backup- und Recovery-Daten an einem dunklen Standort wieder her"]
+
 
 
 

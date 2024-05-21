@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-manage-backups-ontap.html 
-keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
+keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp 
 summary: Sie können die Backups für Ihre Cloud Volumes ONTAP und lokalen ONTAP Systeme verwalten, indem Sie den Backup-Zeitplan ändern, neue Backup-Richtlinien erstellen, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen und vieles mehr. Dies umfasst alle Arten von Backups, einschließlich Snapshot Kopien, replizierte Volumes und Backup-Dateien im Objektspeicher. 
 ---
 = Verwalten Sie Backups für Ihre ONTAP Systeme
@@ -136,7 +136,7 @@ Sie können eine Ad-hoc Snapshot Kopie oder ein Backup im Objekt eines Volume er
 
 Der Backup-Name enthält den Zeitstempel, sodass Sie Ihr On-Demand Backup aus anderen geplanten Backups identifizieren können.
 
-Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery für diesen Cluster _DataLock und Ransomware-Schutz_ aktiviert haben, wird das On-Demand-Backup auch mit DataLock konfiguriert, und die Aufbewahrungsfrist beträgt 30 Tage. Ransomware-Scans werden für Ad-hoc-Backups nicht unterstützt. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über DataLock und Ransomware-Schutz"^].
+Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery für diesen Cluster _DataLock und Ransomware-Schutz_ aktiviert haben, wird das On-Demand-Backup auch mit DataLock konfiguriert, und die Aufbewahrungsfrist beträgt 30 Tage. Ransomware-Scans werden für Ad-hoc-Backups nicht unterstützt. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["Erfahren Sie mehr über DataLock und Ransomware-Schutz"^].
 
 Beachten Sie, dass beim Erstellen eines Ad-hoc-Backups ein Snapshot auf dem Quell-Volume erstellt wird. Da dieser Snapshot nicht Teil eines normalen Snapshot-Zeitplans ist, wird er nicht rotiert. Nach Abschluss des Backups kann dieser Snapshot manuell vom Quell-Volume gelöscht werden. Dadurch werden Blöcke freigegeben, die mit diesem Snapshot verbunden sind. Der Name des Snapshots beginnt mit `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Informationen zum Löschen eines Snapshots mit der ONTAP-CLI finden Sie unter"^].
 
@@ -323,7 +323,7 @@ endif::gcp[]
 
 Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, werden alle Volumes, die Sie ursprünglich ausgewählt haben, mithilfe der von Ihnen definierten Standard-Backup-Richtlinie gesichert. Um bestimmten Volumes mit verschiedenen Recovery Point Objectives (RPOs) unterschiedliche Backup-Richtlinien zuzuweisen, können Sie zusätzliche Richtlinien für diesen Cluster erstellen und diese Richtlinien anderen Volumes zuweisen.
 
-Wenn Sie eine neue Sicherungsrichtlinie auf bestimmte Volumes in einer Arbeitsumgebung anwenden möchten, müssen Sie zunächst die Sicherungsrichtlinie zur Arbeitsumgebung hinzufügen. Dann können Sie das <<Changing the policy assigned to existing volumes,Wenden Sie die Richtlinie auf Volumes in dieser Arbeitsumgebung an>>.
+Wenn Sie eine neue Sicherungsrichtlinie auf bestimmte Volumes in einer Arbeitsumgebung anwenden möchten, müssen Sie zunächst die Sicherungsrichtlinie zur Arbeitsumgebung hinzufügen. Dann können Sie das <<Ändern Sie die Backup-Einstellungen, die vorhandenen Volumes zugewiesen sind,Wenden Sie die Richtlinie auf Volumes in dieser Arbeitsumgebung an>>.
 
 [NOTE]
 ====
@@ -390,7 +390,7 @@ CAUTION: Wenn Sie planen, eine Arbeitsumgebung oder ein Cluster mit Backups zu l
 
 === Löschen Sie alle Sicherungsdateien für eine funktionierende Umgebung
 
-Durch das Löschen aller Backups auf dem Objektspeicher für eine Arbeitsumgebung werden zukünftige Backups von Volumes in dieser Arbeitsumgebung nicht deaktiviert. Wenn Sie die Erstellung von Backups aller Volumes in einer Arbeitsumgebung beenden möchten, können Sie Backups deaktivieren <<Deactivating BlueXP backup and recovery for a working environment,Wie hier beschrieben>>.
+Durch das Löschen aller Backups auf dem Objektspeicher für eine Arbeitsumgebung werden zukünftige Backups von Volumes in dieser Arbeitsumgebung nicht deaktiviert. Wenn Sie die Erstellung von Backups aller Volumes in einer Arbeitsumgebung beenden möchten, können Sie Backups deaktivieren <<BlueXP Backup und Recovery für eine funktionierende Umgebung deaktivieren,Wie hier beschrieben>>.
 
 Beachten Sie, dass diese Aktion keine Auswirkungen auf Snapshot-Kopien oder replizierte Volumes hat. Diese Arten von Backup-Dateien werden nicht gelöscht.
 
@@ -449,7 +449,7 @@ Diese Funktion ist nur verfügbar, wenn Ihr System ONTAP 9.12.1 oder höher ausf
 Das Quell-Volume kann nicht von der BlueXP Backup- und Recovery-Benutzeroberfläche gelöscht werden. Sie können jedoch die Seite Volume Details auf dem Bildschirm öffnen, und https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Löschen Sie das Volume von dort"].
 
 
-NOTE: Sie können einzelne Sicherungsdateien des Volumes nicht löschen, sobald die Beziehung gelöscht wurde. Sie können es jedoch link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["Löschen Sie alle Backups für das Volume"] Wenn Sie alle Sicherungsdateien entfernen möchten.
+NOTE: Sie können einzelne Sicherungsdateien des Volumes nicht löschen, sobald die Beziehung gelöscht wurde. Sie können jedoch alle Backups für das Volume löschen.
 
 .Schritte
 . Klicken Sie auf der Registerkarte *Volumes* auf image:screenshot_horizontal_more_button.gif["Weitere Symbole"] Wählen Sie für das Quellvolume *Backup* > *Beziehung löschen*.
@@ -464,7 +464,7 @@ image:screenshot_delete_relationship_single.png["Ein Screenshot, der zeigt, wie 
 
 Durch die Deaktivierung von BlueXP Backup- und Recovery-Funktionen für eine funktionierende Umgebung werden die Backups jedes Volumes auf dem System deaktiviert. Zudem wird die Möglichkeit zur Wiederherstellung eines Volumes deaktiviert. Vorhandene Backups werden nicht gelöscht. Dadurch wird die Registrierung des Backup-Service in dieser Arbeitsumgebung nicht aufgehoben. Im Grunde können Sie alle Backup- und Wiederherstellungsaktivitäten für einen bestimmten Zeitraum anhalten.
 
-Beachten Sie, dass Cloud-Provider Ihnen weiterhin die Kosten für Objekt-Storage für die Kapazität in Ihrem Backup in Rechnung stellen, es sei denn, Sie sind erforderlich <<Löschen aller Sicherungsdateien für eine Arbeitsumgebung,Löschen Sie die Backups>>.
+Beachten Sie, dass Cloud-Provider Ihnen weiterhin die Kosten für Objekt-Storage für die Kapazität in Ihrem Backup in Rechnung stellen, es sei denn, Sie sind erforderlich <<Backups löschen,Löschen Sie die Backups>>.
 
 .Schritte
 . Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.

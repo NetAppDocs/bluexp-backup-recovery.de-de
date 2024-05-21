@@ -152,14 +152,14 @@ Diese Storage-Richtlinie befindet sich abhängig von der Backup-Architektur an v
 . Geben Sie die Einstellungen an, einschließlich des Übertragungszeitplans und des Zeitplans für die Archivierung von Backups.
 . (Optional) um ältere Sicherungsdateien nach einer bestimmten Anzahl von Tagen in eine kostengünstigere Speicherklasse oder Zugriffsebene zu verschieben, wählen Sie die Option *Archiv* aus und geben die Anzahl der Tage an, die vergehen sollen, bevor die Daten archiviert werden. Geben Sie *0* als „Archiv nach Tagen“ ein, um Ihre Sicherungsdatei direkt an den Archivspeicher zu senden.
 +
-link:concept-cloud-backup-policies.html#archival-storage-settings["Erfahren Sie mehr über die Storage-Einstellungen für Archive"].
+link:concept-cloud-backup-policies.html#archival-storage-options["Erfahren Sie mehr über die Storage-Einstellungen für Archive"].
 
 . (Optional) Wählen Sie die Option *DataLock & Ransomware Protection* aus, um Ihre Backups vor Änderungen oder Löschungen zu schützen.
 +
 Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vor dem Löschen schützen, indem Sie _DataLock_ und _Ransomware-Schutz_ konfigurieren.
 
 +
-link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"^].
+link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"^].
 
 . Wählen Sie *Erstellen*.
 

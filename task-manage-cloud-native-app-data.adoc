@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-cloud-native-app-data.html 
 keywords: manage, view backup, monitor jobs, monitor, Cloud Manager, BlueXP, delete clone, audit data, CA certificate, host maintenance 
-summary: Sie können die Sicherungsdetails anzeigen, den Status aller Jobs überwachen, den Klon löschen, Überwachungsdaten, Verbindungsdetails aktualisieren, CA-Zertifikate konfigurieren, Und managen von Hosts. 
+summary: Sie können die Sicherungsdetails anzeigen, den Status aller Jobs überwachen, den Klon löschen, Überwachungsdaten, Verbindungsdetails aktualisieren, CA-Zertifikate konfigurieren, und managen von Hosts. 
 ---
 = Management der Sicherung von Cloud-nativen Applikationsdaten
 :hardbreaks:

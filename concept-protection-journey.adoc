@@ -64,7 +64,7 @@ NOTE: Die anfängliche Erstellung eines replizierten Volumes oder einer Backup-D
 
 Die folgende Tabelle zeigt einen generalisierten Vergleich der drei Backup-Methoden. Obwohl Objektspeicher in der Regel kostengünstiger ist als Ihr lokaler Festplatten-Storage, wenn Sie denken, dass Sie Daten häufig aus der Cloud wiederherstellen könnten, können die Kosten für ausgehenden Datenverkehr von Cloud-Providern einige Einsparungen reduzieren. Sie müssen ermitteln, wie oft Sie Daten aus den Backup-Dateien in der Cloud wiederherstellen müssen.
 
-Zusätzlich zu diesem Kriterium bietet Cloud Storage zusätzliche Sicherheitsoptionen, wenn Sie die DataLock- und Ransomware-Schutzfunktion verwenden. Außerdem werden durch Auswahl von Archiv-Storage-Klassen für ältere Backup-Dateien zusätzliche Kosteneinsparungen erzielt. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr über DataLock und Ransomware-Schutz"] Und link:concept-cloud-backup-policies.html#archival-storage-settings["Einstellungen für Archiv-Storage"].
+Zusätzlich zu diesem Kriterium bietet Cloud Storage zusätzliche Sicherheitsoptionen, wenn Sie die DataLock- und Ransomware-Schutzfunktion verwenden. Außerdem werden durch Auswahl von Archiv-Storage-Klassen für ältere Backup-Dateien zusätzliche Kosteneinsparungen erzielt. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["Erfahren Sie mehr über DataLock und Ransomware-Schutz"] Und link:concept-cloud-backup-policies.html#archival-storage-options["Einstellungen für Archiv-Storage"].
 
 [cols="18,18,22,18,22"]
 |===
@@ -120,7 +120,7 @@ Sie können Ihre Backups entweder über die von NetApp bereitgestellten Standard
 
 Wenn Sie benutzerdefinierte Richtlinien für Replizierung oder Backup erstellen, müssen die Richtlinienbeschriftungen (z. B. „täglich“ oder „wöchentlich“) mit den Etiketten der Snapshot-Richtlinien oder replizierten Volumes übereinstimmen und Backup-Dateien werden nicht erstellt.
 
-In der BlueXP Backup- und Recovery-UI können Sie Richtlinien für Snapshot, Replizierung und Backup in Objekt-Storage erstellen. Siehe Abschnitt für link:task-manage-backups-ontap.html#add-a-new-backup-policy["Hinzufügen einer neuen Backup-Richtlinie"] Entsprechende Details.
+In der BlueXP Backup- und Recovery-UI können Sie Richtlinien für Snapshot, Replizierung und Backup in Objekt-Storage erstellen. Siehe Abschnitt für link:task-manage-backups-ontap.html#add-a-new-backup-to-cloud-policy["Hinzufügen einer neuen Backup-Richtlinie"] Entsprechende Details.
 
 Neben der Nutzung von BlueXP Backup Recovery zum Erstellen individueller Richtlinien können Sie auch System Manager oder die ONTAP Befehlszeilenschnittstelle (CLI) verwenden.
 

@@ -40,7 +40,7 @@ Es gibt keine Beschränkung für FlexVol Volumes: Sie können alle FlexVol Volum
 
 
 
-=== Einschränkungen bei Backups auf Objekte
+=== Einschränkungen bei Backups an Objekte
 
 * Wenn Sie eine Backup-Richtlinie erstellen oder bearbeiten, wenn dieser Richtlinie keine Volumes zugewiesen sind, kann die Anzahl der behielten Backups maximal 1018 sein. Nachdem Sie der Richtlinie Volumes zugewiesen haben, können Sie die Richtlinie für die Erstellung von bis zu 4000 Backups bearbeiten.
 * Bei der Sicherung von Datensicherungs-Volumes (DP):
@@ -103,3 +103,24 @@ Wenn Sie eine Version von ONTAP vor 9.11.1 verwenden, wird die Wiederherstellung
 
 
 
+
+
+
+=== Einschränkungen bei der Verwendung von RHEL 8+ mit Podman
+
+
+
+==== Die Wiederherstellung einzelner Dateien wird nicht unterstützt
+
+Die Funktionen zum Durchsuchen und Wiederherstellen einzelner Dateien und zur Wiederherstellung von Verzeichnissen werden bei Verwendung von Podman nicht unterstützt. Alle anderen Arten von Wiederherstellungsvorgängen werden bei Verwendung von Podman unterstützt, sodass Sie Ihre Daten mit diesen anderen Methoden wiederherstellen können, bis dieses Problem behoben ist:
+
+* Stellen Sie die Dateien oder Ordner von einem replizierten Volume wieder her, wenn ein repliziertes Volume vorhanden ist.
+* Stellen Sie die Dateien oder Ordner mithilfe der Funktion Suchen & Wiederherstellen aus einem Cloud-Backup wieder her.
+* Stellen Sie das Volume mithilfe von Browse & Restore aus einem Cloud-Backup wieder her und greifen Sie dann auf die benötigten Dateien oder Ordner zu.
+
+
+
+
+==== Das Scannen von Ransomware in Ihre Cloud-Backups wird nicht unterstützt
+
+Das Scannen von Cloud-Backups auf Ransomware wird mit der Podman Engine nicht unterstützt. Wenn Sie die DataLock & Ransomware-Funktion für Ihre Cloud-Backups verwenden, müssen Sie Ransomware-Scans deaktivieren. link:task-manage-backup-settings-ontap.html#enable-or-disable-ransomware-scans["So deaktivieren Sie Ransomware-Scans"].
