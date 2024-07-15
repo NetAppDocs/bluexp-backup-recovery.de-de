@@ -31,6 +31,9 @@ Zusammenfassend sind dies die gültigen Datenflüsse, die Sie verwenden können,
 
 
 
+NOTE: Einschränkungen im Zusammenhang mit der Wiederherstellung von ONTAP-Daten finden Sie unter link:reference-limitations.html["Einschränkungen bei Backup und Restore für ONTAP Volumes"].
+
+
 
 == Das Restore Dashboard
 
