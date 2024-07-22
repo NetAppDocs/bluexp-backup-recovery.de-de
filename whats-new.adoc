@@ -18,6 +18,48 @@ Erfahren Sie mehr über die Neuerungen bei BlueXP Backup und Recovery.
 
 
 
+== 22 Juli 2024
+
+
+
+=== Stellen Sie Volumes unter 1 GB wieder her
+
+Mit diesem Release können Sie jetzt Volumes wiederherstellen, die Sie in ONTAP mit weniger als 1 GB erstellt haben. Die minimale Volume-Größe, die Sie mit ONTAP erstellen können, beträgt 20 MB.
+
+
+
+=== Tipps zur Senkung von DataLock-Kosten
+
+Die DataLock-Funktion schützt Ihre Sicherungsdateien davor, für einen bestimmten Zeitraum geändert oder gelöscht zu werden. Dies ist hilfreich, um Ihre Dateien vor Ransomware-Angriffen zu schützen.
+
+Weitere Informationen zu DataLock und Tipps zur Reduzierung der damit verbundenen Kosten finden Sie unter link:concept-cloud-backup-policies.html["Richtlinieneinstellungen für Backup-to-Object"].
+
+
+
+=== AWS IAM Rollen Anywhere Integration
+
+Der Dienst Amazon Web Services (AWS) Identity and Access Management (IAM) Roles Anywhere ermöglicht Ihnen, IAM-Rollen und kurzfristige Zugangsdaten für Ihre Workloads _außerhalb von AWS für den sicheren Zugriff auf AWS-APIs zu verwenden, wie Sie IAM-Rollen für Workloads _on_ AWS verwenden. Wenn Sie IAM Roles Anywhere Private Key-Infrastruktur und AWS Token verwenden, benötigen Sie keine langfristigen AWS-Zugriffsschlüssel und geheimen Schlüssel. Dadurch können Sie die Anmeldeinformationen häufiger drehen, was die Sicherheit erhöht.
+
+Mit dieser Version ist die Unterstützung für den AWS IAM Roles Anywhere Service eine Technologievorschau.
+
+Dies gilt für die Sicherung link:task-backup-to-s3.html["Backup von Cloud Volumes ONTAP auf AWS"] und link:task-backup-onprem-to-aws.html["Backup von lokalen ONTAP-Daten in AWS"].
+
+Siehe https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP Backup und Recovery – Blog vom 2024. Juli"].
+
+
+
+=== FlexGroup Ordner oder Verzeichnis Wiederherstellung jetzt verfügbar
+
+Früher konnten FlexVol-Volumes wiederhergestellt werden, aber FlexGroup-Ordner oder -Verzeichnisse können nicht wiederhergestellt werden. Mit ONTAP 9.15.1 p2 können Sie FlexGroup-Ordner mithilfe der Option Durchsuchen und Wiederherstellen wiederherstellen.
+
+Mit dieser Version ist die Unterstützung für die Wiederherstellung von FlexGroup-Ordnern eine Technologievorschau.
+
+Weitere Informationen finden Sie unter link:task-restore-backups-ontap.html#restore-folders-and-files-using-browse-restore["Wiederherstellen von Ordnern und Dateien mit Durchsuchen  Restore"].
+
+Weitere Informationen zur manuellen Aktivierung finden Sie unter https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP Backup und Recovery – Blog vom 2024. Juli"].
+
+
+
 == 17 Mai 2024
 
 

@@ -275,7 +275,7 @@ image:screenshot_backup_cvo_enable.png["Ein Screenshot, der die Schaltfläche zu
 
 
 
-TIP: Informationen zum Ändern von Backup-Einstellungen oder Hinzufügen von Replikationen finden Sie unter link:../task-manage-backups-ontap.html["ONTAP-Backups managen"].
+TIP: Informationen zum Ändern von Backup-Einstellungen oder Hinzufügen von Replikationen finden Sie unter link:task-manage-backups-ontap.html["ONTAP-Backups managen"].
 
 
 

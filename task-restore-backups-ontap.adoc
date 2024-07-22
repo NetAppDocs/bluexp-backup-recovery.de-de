@@ -343,7 +343,7 @@ Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im
 
 === Wiederherstellen von Ordnern und Dateien mit Durchsuchen & Restore
 
-Wenn Sie nur einige Dateien aus einem ONTAP Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
+Wenn Sie nur einige wenige Dateien aus einem ONTAP-Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
 
 
 NOTE: Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
@@ -356,6 +356,7 @@ Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen m
 ====
 * Wenn die Sicherungsdatei mit DataLock & Ransomware-Schutz konfiguriert wurde, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie das gesamte Volume aus der Sicherungsdatei wiederherstellen und dann auf den gewünschten Ordner und die benötigten Dateien zugreifen.
 * Wenn sich die Backup-Datei im Archiv-Storage befindet, wird die Wiederherstellung auf Ordnerebene nur unterstützt, wenn die ONTAP-Version 9.13.1 oder höher ist. Wenn Sie eine frühere Version von ONTAP verwenden, können Sie den Ordner aus einer neueren Sicherungsdatei wiederherstellen, die nicht archiviert wurde, oder Sie können das gesamte Volume aus dem archivierten Backup wiederherstellen und dann auf den Ordner und die Dateien zugreifen, die Sie benötigen.
+* Mit ONTAP 9.15.1 p2 können Sie FlexGroup-Ordner mithilfe der Option Durchsuchen und Wiederherstellen wiederherstellen.
 
 
 ====
@@ -365,6 +366,7 @@ Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner zusammen m
 
 * Die ONTAP-Version muss mindestens 9.6 sein, um _File_ Restore-Vorgänge durchzuführen.
 * Die ONTAP-Version muss mindestens 9.11.1 sein, um Vorgänge _folder_ wiederherstellen zu können. ONTAP Version 9.13.1 ist erforderlich, wenn sich die Daten im Archiv-Storage befinden oder wenn die Backup-Datei DataLock- und Ransomware-Schutz verwendet.
+* Die ONTAP-Version muss 9.15.1 p2 oder höher sein, um FlexGroup-Verzeichnisse mithilfe der Option „Durchsuchen und Wiederherstellen“ wiederherzustellen.
 
 
 

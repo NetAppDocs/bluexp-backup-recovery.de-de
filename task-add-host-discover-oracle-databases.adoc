@@ -19,10 +19,10 @@ Sie sollten das SnapCenter-Plug-in für Oracle auf jedem der Oracle-Datenbank-Ho
 * Wenn SSH für den Datenbank-Host aktiviert ist, können Sie das Plug-in mithilfe einer der folgenden Methoden installieren:
 +
 ** Installieren Sie das Plug-in, und fügen Sie den Host über die Benutzeroberfläche mithilfe der SSH-Option hinzu. <<Fügen Sie den Host über die Benutzeroberfläche mithilfe der SSH-Option hinzu,Weitere Informationen .>>.
-** Installieren Sie das Plug-in mithilfe des Skripts und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu. <<Install the plug-in using script and add host from UI using manual option,Weitere Informationen .>>.
+** Installieren Sie das Plug-in mithilfe des Skripts und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu. <<Fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu, und installieren Sie das Plug-in mithilfe des Skripts,Weitere Informationen .>>.
 
 
-* Wenn SSH deaktiviert ist, installieren Sie das Plug-in manuell und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu. <<Install the plug-in manually and add host from UI using manual option,Weitere Informationen .>>.
+* Wenn SSH deaktiviert ist, installieren Sie das Plug-in manuell und fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu. <<Fügen Sie den Host über die Benutzeroberfläche mithilfe der manuellen Option hinzu, und installieren Sie das Plug-in manuell,Weitere Informationen .>>.
 
 
 

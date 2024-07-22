@@ -321,9 +321,36 @@ endif::azure[]
 * Die bei der Aktivierung von BlueXP ausgewählte DataLock Option für Backup und Recovery muss für alle Backup-Richtlinien für dieses Cluster verwendet werden.
 * Sie können nicht mehrere DataLock-Modi auf einem einzelnen Cluster verwenden.
 * Wenn Sie DataLock aktivieren, werden alle Volume-Backups gesperrt. Es können keine gesperrten und nicht gesperrten Volume-Backups für einen einzelnen Cluster kombiniert werden.
-* DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktion später über die Option Erweiterte Einstellungen aktivieren oder deaktivieren.
+* DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktionen später über die Option Erweiterte Einstellungen aktivieren oder deaktivieren.
 * FlexGroup Volumes können DataLock- und Ransomware-Schutz nur verwenden, wenn ONTAP 9.13.1 oder höher verwendet wird.
 
+
+
+
+=== Tipps zur Senkung von DataLock-Kosten
+
+Sie können die Ransomware-Scan-Funktion aktivieren oder deaktivieren, während die DataLock-Funktion aktiv bleibt. Um zusätzliche Kosten zu vermeiden, können Sie geplante Ransomware-Scans deaktivieren. Auf diese Weise können Sie Ihre Sicherheitseinstellungen anpassen und Kosten durch den Cloud-Provider vermeiden.
+
+Selbst wenn geplante Ransomware-Scans deaktiviert sind, können Sie bei Bedarf trotzdem On-Demand-Scans durchführen.
+
+Sie können verschiedene Schutzstufen wählen:
+
+* *DataLock _ohne_ Ransomware-Scans*: Bietet Schutz für Backup-Daten im Zielspeicher, die sich entweder im Governance- oder im Compliance-Modus befinden können.
++
+** *Governance-Modus*: Bietet Administratoren Flexibilität, geschützte Daten zu überschreiben oder zu löschen.
+** *Compliance-Modus*: Bietet vollständige Unlöschbarkeit bis zum Ablauf der Aufbewahrungsfrist. So lassen sich auch die strengsten Datensicherheitsanforderungen hochgradig regulierter Umgebungen erfüllen. Die Daten können während ihres Lebenszyklus nicht überschrieben oder geändert werden. Dies bietet den bestmöglichen Schutz für Ihre Backup-Kopien.
++
+
+NOTE: Microsoft Azure verwendet stattdessen einen Sperrmodus und einen Entsperrmodus.
+
+
+
+* *DataLock _mit_ Ransomware-Scans*: Bietet eine zusätzliche Sicherheitsschicht für Ihre Daten. Diese Funktion hilft bei der Erkennung von Versuchen, Sicherungskopien zu ändern. Bei einem Versuch wird diskret eine neue Version der Daten erstellt. Die Scanfrequenz kann in 1, 2, 3, 4, 5 geändert werden. 6 oder 7 Tage. Werden Scans alle 7 Tage eingestellt, sinken die Kosten deutlich.
+
+
+Weitere Tipps zur Senkung der DataLock-Kosten finden Sie unter https://community.netapp.com/t5/Tech-ONTAP-Blogs/Understanding-BlueXP-Backup-and-Recovery-DataLock-and-Ransomware-Feature-TCO/ba-p/453475[]
+
+Darüber hinaus können Sie Schätzungen für die mit DataLock verbundenen Kosten erhalten, indem Sie die https://bluexp.netapp.com/cloud-backup-service-tco-calculator["BlueXP Rechner für Backup und Recovery für Gesamtbetriebskosten (TCO)"].
 
 
 
