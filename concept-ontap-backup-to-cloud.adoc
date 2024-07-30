@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-ontap-backup-to-cloud.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, bluexp, bluexp backup and recovery 
 summary: Der BlueXP Backup- und Recovery-Service bietet Backup- und Restore-Funktionen zum Schutz und zur langfristigen Archivierung Ihrer ONTAP Volume-Daten. Sie können eine 3-2-1-1-Strategie implementieren, bei der Sie 3 Kopien Ihrer Quelldaten auf 2 verschiedenen Storage-Systemen und 1 Kopie in der Cloud haben. 
 ---
 = Sichern Sie Ihre ONTAP Volume-Daten mit BlueXP Backup und Recovery
@@ -191,7 +191,6 @@ BlueXP Backup und Recovery unterstützt folgende Volume-Typen:
 * FlexVol Volumes für Lese- und Schreibvorgänge
 * FlexGroup Volumes (erfordert ONTAP 9.12.1 oder höher)
 * SnapLock Enterprise Volumes (erfordert ONTAP 9.11.1 oder höher)
-* SnapLock Compliance Volumes (ONTAP 9.14 oder höher erforderlich)
 * SnapMirror Data Protection (DP) Ziel-Volumes
 
 
