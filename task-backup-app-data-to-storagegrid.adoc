@@ -21,7 +21,7 @@ BlueXP unterstützt Datensperrung und Ransomware-Schutz. Wenn der ONTAP Cluster 
 .Bevor Sie beginnen
 Beim Daten-Backup in StorageGRID muss am Standort ein Connector verfügbar sein. Sie müssen entweder einen neuen Konnektor installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector auf der Prem befindet. Der Connector kann auf einer Website mit oder ohne Internetzugang installiert werden.
 
-Weitere Informationen finden Sie unter link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors["Anschlüsse für StorageGRID erstellen"].
+Weitere Informationen finden Sie unter link:task-backup-onprem-private-cloud.html#create-or-switch-connectors["Anschlüsse für StorageGRID erstellen"].
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.

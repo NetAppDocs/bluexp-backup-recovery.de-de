@@ -53,7 +53,6 @@ Es gibt einige PAYGO-Pläne für das Backup und Recovery von BlueXP:
 +
 Beachten Sie, dass für diese Option auch ein PAYGO-Abonnement für Backup und Recovery erforderlich ist, für qualifizierte Cloud Volumes ONTAP-Systeme fallen jedoch keine Gebühren an.
 
-* Ein „CVO Edge Cache“-Paket verfügt über die gleichen Funktionen wie das „CVO Professional“-Paket, enthält aber auch Unterstützung für das https://docs.netapp.com/us-en/bluexp-edge-caching/concept-gfc.html["BlueXP Edge-Caching"^] Service: Sie können ein Edge Caching Edge System von BlueXP für jeweils 3 tib bereitgestellter Kapazität auf dem Cloud Volumes ONTAP System implementieren. Diese Option ist über Azure und Google Marketplaces verfügbar und ermöglicht Ihnen nicht das Backup von On-Premises-ONTAP-Daten.
 
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["Erfahren Sie mehr über diese kapazitätsbasierten Lizenzpakete"].
