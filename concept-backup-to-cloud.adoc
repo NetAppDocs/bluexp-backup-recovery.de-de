@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-backup-to-cloud.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, kubernetes, applications, virtual machines, backup and recovery 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
 summary: Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP Daten, Datenbanken und Virtual Machines sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert. 
 ---
 = Erfahren Sie mehr über BlueXP Backup und Recovery
@@ -14,7 +14,7 @@ summary: Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und 
 
 
 [role="lead"]
-Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP-Daten, persistente Kubernetes-Volumes, Datenbanken und Virtual Machines – sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.
+Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP Daten, Datenbanken und Virtual Machines sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.
 
 Der Service führt eine dauerhaft inkrementelle Replizierung auf Blockebene durch und erhält die gesamte Storage-Effizienz aufrecht, wodurch sich die Menge der replizierten und gespeicherten Daten erheblich verringert. Darüber hinaus zahlen Sie nur für das, was geschützt ist, und verwenden die kostengünstigsten verfügbaren Storage-Tiers, was BlueXP Backup und Recovery zu einer sehr kostengünstigen Lösung macht.
 
@@ -25,7 +25,6 @@ https://bluexp.netapp.com/cloud-backup["Erfahren Sie mehr über Backup und Recov
 Backup und Recovery können für folgende Zwecke genutzt werden:
 
 * Backup und Restore von ONTAP Volume-Daten aus Cloud Volumes ONTAP und lokalen ONTAP Systemen link:concept-ontap-backup-to-cloud.html["Detaillierte Funktionen finden Sie hier"].
-* Persistente Kubernetes Volumes können gesichert und wiederhergestellt werden. link:concept-kubernetes-backup-to-cloud.html["Detaillierte Funktionen finden Sie hier"].
 * Mit BlueXP Backup und Recovery für Applikationen erstellen Sie Backups applikationskonsistenter Snapshots aus lokalen ONTAP Systemen. link:concept-protect-app-data-to-cloud.html["Detaillierte Funktionen finden Sie hier"].
 * Erstellen Sie Backups von Datastores in der Cloud und stellen Sie Virtual Machines wieder in lokales vCenter mithilfe von BlueXP Backup und Recovery für VMware wieder her. link:concept-protect-vm-data.html["Detaillierte Funktionen finden Sie hier"].
 
@@ -33,7 +32,7 @@ Backup und Recovery können für folgende Zwecke genutzt werden:
 https://www.youtube.com/watch?v=DF0knrH2a80["Sehen Sie sich eine kurze Demo an"^]
 
 
-TIP: Wenn der BlueXP Connector in einer Regierungsregion in der Cloud oder an einem Standort ohne Internetzugang (einem Dark Site) implementiert wird, unterstützt BlueXP Backup und Recovery nur Backup- und Restore-Vorgänge aus ONTAP Systemen. Wenn Sie diese Implementierungsmethoden verwenden, unterstützt das BlueXP Backup und Recovery Backup- und Restore-Vorgänge von Kubernetes-Clustern, Applikationen oder Virtual Machines nicht.
+TIP: Wenn der BlueXP Connector in einer Regierungsregion in der Cloud oder an einem Standort ohne Internetzugang (einem Dark Site) implementiert wird, unterstützt BlueXP Backup und Recovery nur Backup- und Restore-Vorgänge aus ONTAP Systemen. Bei Verwendung dieser Bereitstellungsmethoden unterstützt BlueXP  Backup und Recovery keine Backup- und Wiederherstellungsvorgänge von Applikationen oder Virtual Machines.
 
 
 

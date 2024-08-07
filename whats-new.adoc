@@ -560,7 +560,7 @@ Sie können jetzt Daten aus Cloud Volumes ONTAP Systemen in kommerziellen Region
 
 === Mehrere Verbesserungen am Job Monitor
 
-* Die Seite Job Monitoring hat erweiterte Filterfunktionen hinzugefügt, mit denen Sie nach Backup- und Restore-Jobs nach Zeit, Workload (Volumes, Applikationen, Virtual Machines oder Kubernetes) suchen können. Jobtyp, Status, Arbeitsumgebung und Storage-VM. Sie können auch Freitext eingeben, um nach einer beliebigen Ressource zu suchen, z. B. „Application_3“.  https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs["Lesen Sie, wie Sie die erweiterten Filter verwenden"].
+* Auf der Seite Jobüberwachung wurde eine erweiterte Filterung hinzugefügt, sodass Sie nach Backup- und Wiederherstellungsjobs nach Zeit, Arbeitslast (Volumes, Anwendungen oder virtuelle Maschinen), Jobtyp, Status, Arbeitsumgebung und Storage-VM. Sie können auch Freitext eingeben, um nach einer beliebigen Ressource zu suchen, z. B. „Application_3“.  https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs["Lesen Sie, wie Sie die erweiterten Filter verwenden"].
 * Sowohl vom Benutzer initiierte Backup- und Wiederherstellungsvorgänge, die von der BlueXP Backup- und Recovery-Benutzeroberfläche und -API initiiert wurden, als auch systeminitiierte Jobs, wie z. B. laufende Backup-Vorgänge, sind jetzt auf der Registerkarte *Jobüberwachung* für Cloud Volumes ONTAP-Systeme mit ONTAP 9.13.0 oder höher verfügbar. Bei früheren Versionen von Cloud Volumes ONTAP Systemen und On-Premises-ONTAP-Systemen werden derzeit nur vom Benutzer initiierte Jobs angezeigt.
 
 
@@ -789,7 +789,7 @@ Derzeit muss der Connector in der Google Cloud Platform bereitgestellt werden, w
 
 Die folgenden Aktualisierungen wurden an der vorgenommen https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["Seite Job-Überwachung"]:
 
-* Es steht eine Spalte für „Workload“ zur Verfügung, damit Sie die Seite filtern können, um Jobs für die folgenden Backup-Services anzuzeigen: Volumes, Applikationen, Virtual Machines und Kubernetes.
+* Eine Spalte für „Workload“ ist verfügbar, sodass Sie die Seite filtern können, um Jobs für die folgenden Backup-Services anzuzeigen: Volumes, Anwendungen und virtuelle Maschinen.
 * Sie können neue Spalten für „Benutzername“ und „Jobtyp“ hinzufügen, wenn Sie diese Details für einen bestimmten Backup-Job anzeigen möchten.
 * Auf der Seite Jobdetails werden alle untergeordneten Jobs angezeigt, die ausgeführt werden, um den Hauptjob abzuschließen.
 * Die Seite wird automatisch alle 15 Minuten aktualisiert, sodass Sie immer die aktuellsten Ergebnisse des Jobstatus sehen. Und Sie können auf die Schaltfläche *Aktualisieren* klicken, um die Seite sofort zu aktualisieren.

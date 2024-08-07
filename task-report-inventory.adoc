@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-report-inventory.html 
-keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory 
+keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory, bluexp 
 summary: Mit den Backup- und Recovery-Berichten von BlueXP können Sie sicherstellen, dass kritische Daten gemäß den definierten Richtlinien Ihres Unternehmens geschützt sind, und Audits für Compliance-Prozesse effizient unterstützen. Mit dem Backup-Inventarbericht können Sie alle Ihre Backups für ein bestimmtes Konto, eine Arbeitsumgebung oder einen SVM-Bestand anzeigen. 
 ---
 = Berichte zur Datensicherung
@@ -32,7 +32,7 @@ NOTE: Berichtsaktivitäten werden im Job Monitoring-Protokoll überwacht, sodass
 Die BlueXP Backup- und Recovery-Berichte bieten Informationen zu folgenden Aspekten:
 
 * *Standort des Connectors*: On-premise oder in der Cloud
-* *Quelle*: Cloud Volumes ONTAP-Volumes, lokale ONTAP-Volumes, Applikationen oder persistente Kubernetes-Volumes
+* *Quelle*: Cloud Volumes ONTAP-Volumes, lokale ONTAP-Volumes oder Applikationen
 * *Ziel*: Jeder der Cloud-Provider, NetApp StorageGRID oder ONTAP S3
 * *ONTAP-Versionen*: 9.13.0
 
@@ -94,7 +94,7 @@ TIP: Sie können mehrere Arbeitsumgebungen und SVMs auswählen.
 
 Proaktives Monitoring kann den Aufwand reduzieren, der für das Monitoring aller Ressourcen in Ihrem System erforderlich ist. Ab ONTAP 9.13.0 bietet der Bericht Aktivitäten zu Datensicherungsjobs Informationen zu Snapshot-, Backup-, Klon- und Wiederherstellungsvorgängen. Diese können Sie mit der SLA-Überwachung verwenden und die Backup- und Recovery-Raten nachverfolgen.
 
-Der Bericht bezieht sich auf Backup- und Recovery-Vorgänge von BlueXP für Cloud Volumes ONTAP Daten, lokal ebenso wie für Applikationen und Kubernetes.
+Der Bericht bezieht sich auf BlueXP  Backup- und Recovery-Vorgänge für Cloud Volumes ONTAP-, On-Premises- und Applikationsdaten.
 
 Der Bericht „Data Protection Job Activity“ enthält die folgenden Informationen und weitere Informationen:
 
@@ -114,7 +114,6 @@ Die Diagramme oben auf der Seite zeigen die folgenden Informationen:
 ** Anzahl der Backup- und Restore-Jobs von ONTAP Volumes
 ** Anzahl der Backup- und Wiederherstellungsjobs für Anwendungen
 ** Anzahl der Backup- und Wiederherstellungsjobs für virtuelle Maschinen
-** Anzahl der Kubernetes-Backup- und Restore-Jobs
 
 
 * Tägliche Jobaktivität

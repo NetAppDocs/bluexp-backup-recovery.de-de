@@ -20,7 +20,7 @@ Sie können den Status von lokalen Snapshots, Replikationen und von Ihnen initii
 
 == Anzeigen des Jobstatus auf dem Job-Monitor
 
-Sie können eine Liste aller Snapshot-, Replikations-, Backup-to-Object-Speicher- und Wiederherstellungsvorgänge sowie deren aktuellen Status auf der Registerkarte *Job-Überwachung* anzeigen. Dazu gehören Vorgänge von Ihren Cloud Volumes ONTAP, On-Premises-ONTAP, Applikationen, Virtual Machines und Kubernetes-Systemen. Jeder Vorgang oder Job hat eine eindeutige ID und einen Status.
+Sie können eine Liste aller Snapshot-, Replikations-, Backup-to-Object-Speicher- und Wiederherstellungsvorgänge sowie deren aktuellen Status auf der Registerkarte *Job-Überwachung* anzeigen. Dazu gehören Vorgänge aus Ihrem Cloud Volumes ONTAP, ONTAP vor Ort, Applikationen und Virtual Machines. Jeder Vorgang oder Job hat eine eindeutige ID und einen Status.
 
 Der Status kann lauten:
 
@@ -76,7 +76,6 @@ Die meisten Filter sind selbsterklärend. Mit dem Filter für „Workload“ kö
 ** Volumes (Cloud Volumes ONTAP und lokale ONTAP Volumes)
 ** Applikationen Unterstützt
 ** Virtual Machines
-** Kubernetes
 
 
 +
