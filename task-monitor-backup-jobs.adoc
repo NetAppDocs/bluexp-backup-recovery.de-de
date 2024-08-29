@@ -169,7 +169,7 @@ Das Notification Center zeigt zahlreiche Snapshots, Replikationen, Backups in de
 | Replizierung | BlueXP Backup- und Recovery-Replizierung hält Job-Fehler an | Fehler | Nein 
 
 
-| Replizierung | BlueXP Backup- und Recovery-Replizierung bremst Job-Fehler | Fehler | Nein 
+| Replizierung | Fehler bei der BlueXP -Backup- und Recovery-Replizierung | Fehler | Nein 
 
 
 | Replizierung | Fehler bei der BlueXP Backup- und Recovery-Replizierung bei der Neusynchronisierung von Jobs | Fehler | Nein 

@@ -3043,7 +3043,6 @@ ONTAP S3</block>
   <block id="3b2352f9f987ea3f850c59d97818e5b2" category="cell">Bei BlueXP Backup und Recovery besteht ein Ad-hoc-Fehler bei der Snapshot Erstellung</block>
   <block id="7dfd6144b0880ea61dc9ca44cde23608" category="cell">Ausfall von BlueXP Backup und Recovery bei einer Ad-hoc-Replizierung</block>
   <block id="44fb2635a11260b2cc484928766b933c" category="cell">BlueXP Backup- und Recovery-Replizierung hält Job-Fehler an</block>
-  <block id="ebc078a09fc4b31b91b35b54aa44f5c4" category="cell">BlueXP Backup- und Recovery-Replizierung bremst Job-Fehler</block>
   <block id="c55e60943b328ba5333135136a72eed3" category="cell">Fehler bei der BlueXP Backup- und Recovery-Replizierung bei der Neusynchronisierung von Jobs</block>
   <block id="5e67cebd99d17acfd6723171138a26c0" category="cell">Die BlueXP Backup- und Recovery-Replizierung stoppt Jobausfälle</block>
   <block id="148858fe75d91455e16176a0e57a23a4" category="cell">Bei der BlueXP Backup- und Recovery-Replizierung ist eine umgekehrte Neusynchronisierung von Jobs fehlgeschlagen</block>
@@ -3735,4 +3734,5 @@ Ifdef::aws[]</block>
   <block id="0d80ea71f9929ca6943ff4f16a27de3e" category="list-text">Eine Spalte für „Workload“ ist verfügbar, sodass Sie die Seite filtern können, um Jobs für die folgenden Backup-Services anzuzeigen: Volumes, Anwendungen und virtuelle Maschinen.</block>
   <block id="756733f39050e99f4221fe80d10ea604" category="sidebar">Der BlueXP Backup- und Recovery-Service bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP Daten, Datenbanken und Virtual Machines sowohl vor Ort als auch in der Cloud.</block>
   <block id="e117f11185531a360eff8bfed09af453" category="sidebar">Der Backup- und Recovery-Service von BlueXP  bietet effiziente, sichere und kostengünstige Datensicherung für NetApp ONTAP Daten, Datenbanken und Virtual Machines (VMs) vor Ort und in der Cloud.</block>
+  <block id="0760245e68680af16b611d238a130354" category="cell">Fehler bei der BlueXP -Backup- und Recovery-Replizierung</block>
 </blocks>
