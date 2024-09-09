@@ -191,7 +191,7 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 
 Sie können im Aktivierungsassistenten Ihre eigenen, vom Kunden gemanagten Schlüssel für die Datenverschlüsselung verwenden, anstatt die von Microsoft verwalteten Standardschlüssel zu verwenden. In diesem Fall benötigen Sie das Azure-Abonnement, den Key Vault-Namen und den Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Sehen Sie, wie Sie Ihre eigenen Schlüssel verwenden"^].
 
-BlueXP Backup und Recovery unterstützt _Azure Zugriffsrichtlinien_ als Berechtigungsmodell. Das rollenbasierte Berechtigungsmodell _Azure RBAC (Role-Based Access Control_) wird derzeit nicht unterstützt.
+BlueXP  Backup und Recovery unterstützt _Azure Access Policies_, das _Azure Role-Based Access Control_ (Azure RBAC) Berechtigungsmodell und das _Managed Hardware Security Model_ (HSM) (siehe https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview["Was ist ein von Azure Key Vault gemanagter HSM?"] ).
 
 
 
