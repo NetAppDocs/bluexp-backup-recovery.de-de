@@ -291,7 +291,7 @@ Beachten Sie, dass bei der Anmeldung mit einem PAYGO-Abonnement eine kostenlose 
 
 ifdef::aws[]
 
-Bei der Nutzung von AWS sind zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren erhältlich:
+Bei Nutzung von AWS sind zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren erhältlich:
 
 * Ein Plan für „Cloud Backup“, mit dem Sie Backups von Cloud Volumes ONTAP Daten und ONTAP Daten vor Ort erstellen können
 * Ein „CVO Professional“-Plan, mit dem Sie Backup und Recovery von Cloud Volumes ONTAP und BlueXP bündeln können. Dazu zählen unbegrenzte Backups für Cloud Volumes ONTAP Volumes, die gegen diese Lizenz verrechnet werden (die Backup-Kapazität wird nicht von der Lizenz angerechnet).
@@ -301,7 +301,7 @@ endif::aws[]
 
 ifdef::azure[]
 
-Bei Verwendung von Azure stehen zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren zur Verfügung:
+Bei Nutzung von Azure stehen zwei Jahresverträge mit Laufzeiten von 1, 2 oder 3 Jahren zur Verfügung:
 
 * Ein Plan für „Cloud Backup“, mit dem Sie Backups von Cloud Volumes ONTAP Daten und ONTAP Daten vor Ort erstellen können
 * Ein „CVO Professional“-Plan, mit dem Sie Backup und Recovery von Cloud Volumes ONTAP und BlueXP bündeln können. Dazu zählen unbegrenzte Backups für Cloud Volumes ONTAP Volumes, die gegen diese Lizenz verrechnet werden (die Backup-Kapazität wird nicht von der Lizenz angerechnet).
@@ -311,7 +311,7 @@ endif::azure[]
 
 ifdef::gcp[]
 
-Bei der Verwendung von GCP können Sie bei NetApp ein privates Angebot anfordern und anschließend einen Plan auswählen, wenn Sie während der Aktivierung von BlueXP Backup und Recovery im Google Cloud Marketplace abonnieren.
+Wenn Sie GCP nutzen, können Sie ein privates Angebot von NetApp anfordern und anschließend den Plan auswählen, wenn Sie während der Aktivierung von BlueXP  für Backup und Recovery im Google Cloud Marketplace abonnieren.
 
 endif::gcp[]
 
@@ -404,7 +404,7 @@ Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups in
 
 Geplante Scans zum Schutz vor Ransomware sind standardmäßig aktiviert. Die Standardeinstellung für die Scanfrequenz beträgt 7 Tage. Der Scan wird nur auf der letzten Snapshot Kopie durchgeführt. Die geplanten Scans können deaktiviert werden, um Ihre Kosten zu senken. Sie können geplante Ransomware-Scans für die neueste Snapshot Kopie über die Option auf der Seite „Erweiterte Einstellungen“ aktivieren oder deaktivieren. Wenn Sie diese Option aktivieren, werden standardmäßig wöchentliche Scans durchgeführt. Sie können diesen Zeitplan auf Tage oder Wochen ändern oder deaktivieren, um Kosten zu sparen.
 
-Die Backup-Aufbewahrungsdauer ist identisch mit der Aufbewahrungsfrist des Backup-Zeitplans plus 14 Tage. Beispielsweise werden bei _Weekly_ Backups mit gespeicherten _5_ Kopien jede Backup-Datei 5 Wochen lang gesperrt. _Monatliche_ Backups mit _6_ Kopien zurückbehaltenen Kopien werden jede Backup-Datei 6 Monate lang gesperrt.
+Die Backup-Aufbewahrungsfrist entspricht dem Aufbewahrungszeitraum des Backup-Plans plus einem Puffer von maximal 31 Tagen. Beispielsweise werden bei _Weekly_ Backups mit gespeicherten _5_ Kopien jede Backup-Datei 5 Wochen lang gesperrt. _Monatliche_ Backups mit _6_ Kopien zurückbehaltenen Kopien werden jede Backup-Datei 6 Monate lang gesperrt.
 
 Unterstützung ist derzeit verfügbar, wenn Ihr Backup-Ziel Amazon S3, Azure Blob oder NetApp StorageGRID ist. In zukünftigen Versionen werden weitere Ziele für Storage-Provider hinzugefügt.
 

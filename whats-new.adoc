@@ -283,7 +283,7 @@ Jetzt können Sie die Backup-Dateien sofort an den Archiv-Storage senden, anstat
 
 === Zusätzliche Unterstützung für das Backup und die Wiederherstellung von SnapLock Volumes
 
-Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.
+Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup Volumes sichern, die im SnapLock Enterprise-Schutzmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["Erfahren Sie mehr zum Schutz von ONTAP Daten"].
 
