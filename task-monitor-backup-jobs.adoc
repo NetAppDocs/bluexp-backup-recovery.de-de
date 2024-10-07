@@ -186,7 +186,7 @@ Das Notification Center zeigt zahlreiche Snapshots, Replikationen, Backups in de
 
 NOTE: Ab ONTAP 9.13.0 werden alle Warnmeldungen für Cloud Volumes ONTAP und lokale ONTAP Systeme angezeigt. Bei Systemen mit Cloud Volumes ONTAP 9.13.0 und On-Premises-ONTAP wird nur die Warnmeldung im Zusammenhang mit „Wiederherstellungsjob abgeschlossen, aber mit Warnungen“ angezeigt.
 
-BlueXP Account-Administratoren erhalten standardmäßig E-Mails für alle Warnmeldungen „kritisch“ und „Empfehlungen“. Alle anderen Benutzer und Empfänger sind standardmäßig so eingerichtet, dass sie keine Benachrichtigungs-E-Mails erhalten. E-Mails können an alle BlueXP Benutzer, die Teil Ihres NetApp Cloud Kontos sind, oder an andere Empfänger gesendet werden, die Backup- und Wiederherstellungsaktivitäten kennen müssen.
+Standardmäßig erhalten die BlueXP  Organisations- und Account-Administratoren E-Mails für alle Warnmeldungen zu „kritisch“ und „Empfehlung“. Alle anderen Benutzer und Empfänger sind standardmäßig so eingerichtet, dass sie keine Benachrichtigungs-E-Mails erhalten. E-Mails können an alle BlueXP Benutzer, die Teil Ihres NetApp Cloud Kontos sind, oder an andere Empfänger gesendet werden, die Backup- und Wiederherstellungsaktivitäten kennen müssen.
 
 Um die BlueXP Backup- und Recovery-E-Mail-Warnungen zu erhalten, müssen Sie auf der Seite „Alerts and Notifications Settings“ die Schweregrade „Critical“, „Warning“ und „Error“ für die Benachrichtigung auswählen.
 

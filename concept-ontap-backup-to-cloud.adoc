@@ -271,7 +271,7 @@ Eine Backup-Lizenz ist nur für Backup und Restore aus dem Objektspeicher erford
 
 Byol ist längerfristig (1, 2 oder 3 Jahre) und kapazitätsbasiert in 1-tib-Schritten. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.
 
-Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle mit dem verbundenen Quellsysteme https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["BlueXP-Konto"^].
+Sie erhalten eine Seriennummer, die Sie auf der BlueXP Digital Wallet-Seite eingeben, um den Service zu aktivieren. Wenn eine der beiden Limits erreicht ist, müssen Sie die Lizenz erneuern. Die BYOL-Lizenz für Backup gilt für alle Quellsysteme, die mit Ihrer-Organisation oder Ihrem BlueXP -Konto verbunden sind.
 
 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
 

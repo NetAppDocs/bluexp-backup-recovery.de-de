@@ -19,7 +19,7 @@ Sie können BlueXP Backup und Recovery lizenzieren, indem Sie ein Pay-as-you-go-
 Ein paar Notizen, bevor Sie weitere lesen:
 
 * Wenn Sie auf dem Marketplace Ihres Cloud-Providers für ein Cloud Volumes ONTAP-System bereits ein PAYGO-Abonnement (Pay-as-you-go) abonniert haben, haben Sie auch das Backup und Recovery von BlueXP automatisch abonniert. Sie müssen sich nicht erneut anmelden.
-* Das BYOL (Bring-Your-Own-License) von BlueXP für Backup und Recovery ist eine Floating Lizenz, die Sie über alle mit Ihrem BlueXP Konto verknüpften Systeme hinweg verwenden können. Wenn also über ausreichende Backup-Kapazität mit einer bestehenden BYOL-Lizenz verfügen, müssen Sie keine weitere BYOL-Lizenz erwerben.
+* Das BYOL (Bring-Your-Own-License) von BlueXP  für Backup und Recovery ist eine Floating Lizenz, die Sie über alle Systeme Ihres BlueXP  Unternehmens oder Kontos hinweg verwenden können. Wenn also über ausreichende Backup-Kapazität mit einer bestehenden BYOL-Lizenz verfügen, müssen Sie keine weitere BYOL-Lizenz erwerben.
 * Wenn Sie eine BYOL-Lizenz verwenden, empfehlen wir Ihnen, auch ein PAYGO Abonnement zu abonnieren. Wenn Sie mehr Daten sichern, als durch Ihre BYOL-Lizenz zulässig ist, oder wenn die Laufzeit Ihrer Lizenz abläuft, wird das Backup über Ihr Pay-as-you-go-Abonnement fortgesetzt – der Service wird nicht unterbrochen.
 * Beim Backup von lokalen ONTAP-Daten in StorageGRID ist eine BYOL-Lizenz erforderlich. Es entstehen jedoch keine Kosten für Cloud-Provider-Storage.
 
@@ -140,7 +140,7 @@ endif::gcp[]
 
 Mit den Bring-Your-Own-License-Lizenzen von NetApp erhalten Sie Vertragsbedingungen mit 1, 2 oder 3 Jahren. Sie bezahlen nur für die Daten, die Sie sichern, berechnet sich anhand der genutzten logischen Kapazität (_before_ any Effizienzfunktionen) der zu sichernden ONTAP Quell-Volumes. Diese Kapazität wird auch als Front-End Terabyte (FETB) bezeichnet.
 
-Die BYOL BlueXP Backup- und Recovery-Lizenz ist eine Floating-Lizenz, bei der die Gesamtkapazität über alle Systeme Ihres BlueXP Kontos hinweg gemeinsam genutzt wird. Bei ONTAP Systemen wird die erforderliche Kapazität durch Ausführen des CLI-Befehls grob geschätzt `volume show -fields logical-used-by-afs` Für die Volumes, die Sie sichern möchten.
+Die BYOL BlueXP  Backup- und Recovery-Lizenz ist eine Floating-Lizenz, bei der die Gesamtkapazität über alle Systeme, die Ihrer Organisation oder Ihrem BlueXP  Konto zugeordnet sind, hinweg gemeinsam genutzt wird. Bei ONTAP Systemen können Sie eine ungefähre Schätzung der Kapazität erhalten, die Sie benötigen, indem Sie den CLI-Befehl für die Volumes ausführen `volume show -fields logical-used-by-afs`, die Sie sichern möchten.
 
 Wenn Sie keine BlueXP BYOL-Lizenz für Backup und Recovery besitzen, klicken Sie rechts unten in BlueXP auf das Chat-Symbol, um eine zu kaufen.
 
@@ -157,19 +157,34 @@ Nachdem Sie Ihre BlueXP Lizenz für Backup und Recovery (Cloud-Backup) erworben 
 Wenn Sie BlueXP Backup und Recovery auf einer lokalen Site ohne Internetzugang ausführen, haben Sie den BlueXP Connector in implementiert https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode["Privater Modus"^], Sie müssen die Lizenzdatei von einem mit dem Internet verbundenen System beziehen. Die Aktivierung der Lizenz unter Verwendung der Seriennummer und des NetApp Support-Website-Kontos ist für Installationen im privaten Modus nicht verfügbar.
 
 .Bevor Sie beginnen
-Sie müssen die folgenden Informationen haben, bevor Sie beginnen:
-
-* BlueXP Seriennummer für Backup und Recovery
-+
-Suchen Sie diese Nummer in Ihrem Auftrag, oder wenden Sie sich an das Account Team, um diese Informationen zu erhalten.
-
-* BlueXP Konto-ID
-+
-Sie können Ihre BlueXP-Konto-ID finden, indem Sie oben in BlueXP das Dropdown-Menü *Konto* auswählen und dann neben Ihrem Konto auf *Konto verwalten* klicken. Ihre Account-ID wird auf der Registerkarte „Übersicht“ angezeigt. Verwenden Sie *Account-DARKSITE1* für die Seite im Privatmodus ohne Internetzugang.
-
-
+Sie benötigen dafür Ihre Seriennummer für BlueXP  Backup und Recovery. Suchen Sie diese Nummer in Ihrem Auftrag, oder wenden Sie sich an das Account Team, um diese Informationen zu erhalten.
 
 .Schritte
+. Finden Sie Ihre BlueXP  Konto-ID:
++
+.. Wählen Sie oben rechts in der BlueXP -Konsole > *Identitäts- und Zugriffsmanagement* ausimage:icon-settings-option.png["Das Einstellungssymbol, das oben rechts in der BlueXP -Webkonsole angezeigt wird."].
+.. Suchen Sie auf der Seite Organisation nach Ihrer Account-ID, und kopieren Sie diese.
++
+Wenn keine Konto-ID aufgeführt ist und Sie nur eine Organisations-ID haben, müssen Sie die ersten acht Zeichen der Organisations-ID kopieren und an _Account-_ anhängen
+
++
+Nehmen wir beispielsweise an, dies ist Ihre Unternehmens-ID:
+
++
+Ea10e1c6-80cc-4219-8e99-3c3e6b161ba5
+
++
+Ihre Konto-ID lautet wie folgt:
+
++
+Account-ea10e1c6
+
++
+
+NOTE: Verwenden Sie für eine Seite im Privatmodus ohne Internetzugang *Account-DARKSITE1*.
+
+
+
 . Melden Sie sich beim an https://mysupport.netapp.com["NetApp Support Website"^] Klicken Sie anschließend auf *Systeme > Softwarelizenzen*.
 . Geben Sie die Seriennummer Ihrer BlueXP Backup- und Recovery-Lizenz ein.
 +
