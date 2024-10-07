@@ -3506,8 +3506,6 @@ Ifdef::aws[]</block>
   <block id="216ef706f9f25f4eb179f940b530a4d5" category="admonition">Diese Richtlinieneinstellungen sind nur für den Objekt-Storage relevant. Keine dieser Einstellungen wirkt sich auf Ihre Snapshot- oder Replikationsrichtlinien aus. Ähnliche Richtlinieneinstellungen für Snapshots und Replikationen werden in Zukunft hinzugefügt.</block>
   <block id="a2e6f50bd5494a56ee0794883aeee5e5" category="section-title">Optionen für den Backup-Zeitplan</block>
   <block id="051658be4ba182ab30138c3d0fa07f2b" category="section-title">DataLock- und Ransomware-Schutzoptionen</block>
-  <block id="5eab2e069820454037ee67f5a8712f35" category="list-text">Wenn Sie DataLock- und Ransomware-Schutz verwenden möchten, können Sie diese beim Erstellen Ihrer ersten Backup-Richtlinie und beim Aktivieren von BlueXP Backup und Recovery für diesen Cluster aktivieren. Sie können sie später mit den erweiterten Einstellungen für BlueXP Backup und Recovery aktivieren.</block>
-  <block id="8bf75ab26f222aaa987f761ede723ee0" category="list-text">DataLock- und Ransomware-Schutz können für einen Cluster deaktiviert werden, nachdem er konfiguriert wurde, um Kosten zu sparen.</block>
   <block id="943aed8f26021fcc91ef6a9745099eea" category="list-text">Wenn eine Sicherungsdatei erstellt wird.</block>
   <block id="645f12199dae2b82a1985743cbc3e647" category="section-title">DataLock- und Ransomware-Schutzoptionen</block>
   <block id="28393e8d0c5d4d42b764689c3d805dd0" category="example-title">AWS S3 Berechtigungen</block>
@@ -3757,4 +3755,5 @@ Ifdef::aws[]</block>
   <block id="8d9ab45267715f2ac0f3956dcc48c029" category="paragraph">Siehe<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block>.</block>
   <block id="78d043c8f38ceca4388c8f7251b8d0a4" category="paragraph">Frühere Versionen benötigten die Rolle „Storage-Administrator“ für das Servicekonto, das BlueXP Backup und Recovery für den Zugriff auf Google Cloud Storage Buckets ermöglicht. Jetzt können Sie eine benutzerdefinierte Rolle mit einem reduzierten Satz von Berechtigungen erstellen, die dem Servicekonto zugewiesen werden sollen.</block>
   <block id="c3fc4078f4f9169223583aa65515bc3a" category="paragraph"><block ref="dc783245fae5a9dea930533d2d02d38a" category="inline-link-rx"></block>.</block>
+  <block id="5b932b14c237e03588a415b41b9a0b43" category="list-text">Wenn Sie DataLock- und Ransomware-Schutz verwenden möchten, können Sie diese beim Erstellen Ihrer ersten Backup-Richtlinie und beim Aktivieren von BlueXP Backup und Recovery für diesen Cluster aktivieren. Sie können Ransomware-Scans später mithilfe der erweiterten Einstellungen für BlueXP  Backup und Recovery aktivieren oder deaktivieren.</block>
 </blocks>

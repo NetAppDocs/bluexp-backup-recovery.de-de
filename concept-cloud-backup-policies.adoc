@@ -64,8 +64,7 @@ Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für di
 
 [CAUTION]
 ====
-* Wenn Sie DataLock- und Ransomware-Schutz verwenden möchten, können Sie diese beim Erstellen Ihrer ersten Backup-Richtlinie und beim Aktivieren von BlueXP Backup und Recovery für diesen Cluster aktivieren. Sie können sie später mit den erweiterten Einstellungen für BlueXP Backup und Recovery aktivieren.
-* DataLock- und Ransomware-Schutz können für einen Cluster deaktiviert werden, nachdem er konfiguriert wurde, um Kosten zu sparen.
+* Wenn Sie DataLock- und Ransomware-Schutz verwenden möchten, können Sie diese beim Erstellen Ihrer ersten Backup-Richtlinie und beim Aktivieren von BlueXP Backup und Recovery für diesen Cluster aktivieren. Sie können Ransomware-Scans später mithilfe der erweiterten Einstellungen für BlueXP  Backup und Recovery aktivieren oder deaktivieren.
 * Wenn BlueXP beim Wiederherstellen von Volume-Daten eine Backup-Datei auf Ransomware scannt, fallen für den Zugriff auf die Inhalte der Backup-Datei zusätzliche Kosten von Ihrem Cloud-Provider an.
 
 
