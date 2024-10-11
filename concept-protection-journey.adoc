@@ -194,7 +194,7 @@ Wenn Sie die Standardrichtlinien verwenden, die auf allen ONTAP Systemen vorhand
 
 Wenn Sie Backup-Dateien im Objektspeicher für eine Arbeitsumgebung erstellen, erstellt der Backup- und Recovery-Service standardmäßig den Container (Bucket oder Storage-Konto) für die Backup-Dateien im von Ihnen konfigurierten Objekt-Storage-Konto. Der AWS- oder GCP-Bucket hat standardmäßig den Namen „netapp-Backup-<uuid>“. Das Azure Blob Storage-Konto trägt die Bezeichnung „netappsausw <uuid>“.
 
-Sie können den Container selbst im Objekt-Provider-Konto erstellen, wenn Sie ein bestimmtes Präfix verwenden oder besondere Eigenschaften zuweisen möchten. Wenn Sie einen eigenen Container erstellen möchten, müssen Sie ihn erstellen, bevor Sie den Aktivierungsassistenten starten. Der Container darf ausschließlich zum Speichern von ONTAP-Volume-Backup-Dateien verwendet werden - er kann nicht für andere Zwecke verwendet werden. Der Assistent für die Backup-Aktivierung erkennt automatisch die bereitgestellten Container für das ausgewählte Konto und die Anmeldeinformationen, sodass Sie das gewünschte Konto auswählen können.
+Sie können den Container selbst im Objekt-Provider-Konto erstellen, wenn Sie ein bestimmtes Präfix verwenden oder besondere Eigenschaften zuweisen möchten. Wenn Sie einen eigenen Container erstellen möchten, müssen Sie ihn erstellen, bevor Sie den Aktivierungsassistenten starten. Für BlueXP  Backup und Recovery können beliebige Buckets und Share Buckets verwendet werden. Der Assistent für die Backup-Aktivierung erkennt automatisch die bereitgestellten Container für das ausgewählte Konto und die Anmeldeinformationen, sodass Sie das gewünschte Konto auswählen können.
 
 Sie können den Bucket von BlueXP oder von Ihrem Cloud-Provider erstellen.
 
