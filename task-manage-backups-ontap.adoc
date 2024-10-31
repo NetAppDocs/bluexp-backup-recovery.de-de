@@ -96,6 +96,8 @@ Bei der Arbeit mit mehreren Volumes müssen alle Volumes die folgenden gemeinsam
 * Gleicher Typ (Lese-/Schreibzugriff oder Data Protection Volume)
 
 
+Wenn mehr als fünf Volumes für Backups aktiviert sind, werden mit BlueXP  Backup und Recovery nur fünf Volumes gleichzeitig initialisiert. Wenn diese abgeschlossen sind, erstellt es den nächsten Stapel von fünf untergeordneten Jobs, um den nächsten Satz zu starten, und wird fortgesetzt, bis alle Volumes initialisiert werden.
+
 .Schritte
 . Filtern Sie auf der Registerkarte *Volumes* nach der Arbeitsumgebung, in der sich die Volumes befinden.
 . Wählen Sie alle Volumes aus, auf denen Sie die Backup-Einstellungen verwalten möchten.

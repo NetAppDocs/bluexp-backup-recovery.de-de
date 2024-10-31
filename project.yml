@@ -21,7 +21,7 @@ settings:
     - name: Microsoft Azure
       alias: Azure
       id: azure
-  langs: de-de,us-en,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
+  langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,es-es,fr-fr,it-it
 sidebar:
   entries:
   - title: BlueXP Backup- und Recovery-Dokumentation
