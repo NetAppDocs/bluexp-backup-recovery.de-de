@@ -191,6 +191,7 @@ BlueXP Backup und Recovery unterstützt folgende Volume-Typen:
 * FlexVol Volumes für Lese- und Schreibvorgänge
 * FlexGroup Volumes (erfordert ONTAP 9.12.1 oder höher)
 * SnapLock Enterprise Volumes (erfordert ONTAP 9.11.1 oder höher)
+* SnapLock Compliance für On-Premises Volumes (ONTAP 9 14 oder höher erforderlich)
 * SnapMirror Data Protection (DP) Ziel-Volumes
 
 

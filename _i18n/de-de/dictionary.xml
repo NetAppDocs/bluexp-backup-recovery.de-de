@@ -3757,4 +3757,16 @@ Ifdef::aws[]</block>
   <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
   <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Wenn mehr als fünf Volumes für Backups aktiviert sind, werden mit BlueXP  Backup und Recovery nur fünf Volumes gleichzeitig initialisiert. Wenn diese abgeschlossen sind, erstellt es den nächsten Stapel von fünf untergeordneten Jobs, um den nächsten Satz zu starten, und wird fortgesetzt, bis alle Volumes initialisiert werden.</block>
+  <block id="46206fcd0fa4af78eefe04f1bd8d42c6" category="list-text">SnapLock Compliance für On-Premises Volumes (ONTAP 9 14 oder höher erforderlich)</block>
+  <block id="07c8845dbdef949b860ebfc99bd558ac" category="section-title">Bis 6. November 2024</block>
+  <block id="a5fd9c132798873e9eb6aafb58e50034" category="section-title">SnapLock Compliance- und SnapLock Enterprise-Schutzmodi</block>
+  <block id="139da935670a9f985194d3241917c359" category="paragraph">BlueXP  Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup On-Premises Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.</block>
+  <block id="9ddb3e6714694f5c7f619d474fec8169" category="paragraph">Eine vollständige Liste der unterstützten Volumes finden Sie im<block ref="9e68a582cc487ad29425f5a4796c9e45" category="inline-link-rx"></block>.</block>
+  <block id="fec92c3dfb6a0b3db498488c7f4d2f29" category="section-title">Indizierung für Such- und Wiederherstellungsprozess auf der Seite Volumes</block>
+  <block id="20d3b0b7cfe7a9f3dcfdb0faa9398efd" category="paragraph">Bevor Sie Suche und Wiederherstellung verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volume-Daten wiederherstellen möchten. So kann der indizierte Katalog die Backup-Dateien für jedes Volume nachverfolgen. Auf der Seite Volumes wird nun der Indexierungsstatus angezeigt:</block>
+  <block id="cd9b31737e78e0a0a755acc12151f766" category="list-text">Indiziert: Volumes wurden indiziert.</block>
+  <block id="02e4eb80c967f3b9add2ba16a690eef2" category="list-text">In Bearbeitung</block>
+  <block id="838534d879f74e7af515a7de57e72b71" category="list-text">Nicht Indiziert</block>
+  <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indizierung angehalten</block>
+  <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Nicht Aktiviert</block>
 </blocks>
