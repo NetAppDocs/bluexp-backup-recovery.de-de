@@ -690,9 +690,7 @@
   <block id="1d7733f94633408426a8b5de97f97f13" category="list-text">Am 13. Monat wird das erste monatliche Backup entfernt, und das neue monatliche Backup für den 13. Monat wird hinzugefügt (maximal 12 monatliche Backups)</block>
   <block id="c669c23edafe470b3fd44da0d90e43a1" category="inline-link-macro">Klicken Sie auf der Seite Erweiterte Einstellungen auf</block>
   <block id="71dc99a235b204c380fc1f0d4ff3d988" category="paragraph">Beachten Sie, dass die jährlichen Backups nach der Übertragung in den Objektspeicher automatisch aus dem Quellsystem gelöscht werden. Dieses Standardverhalten kann geändert werden <block ref="84fdcd8fda5ef8d60546cc911ec3f8e9" category="inline-link-macro-rx"></block> Für die Arbeitsumgebung.</block>
-  <block id="aa254718f2c52dc147bfd8f98b0c4840" category="inline-link">Cloud Insights und Cloud Secure</block>
   <block id="86fef274eb09e789513af0922e579b5a" category="inline-link">Ransomware-Schutz durch ONTAP</block>
-  <block id="105cf1dd74d7a9079245d031f91df8b0" category="paragraph">Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für die Backups dieser Quell-Volumes. Mit NetApp<block ref="2e57621b97dadc1cef3dd80d75e83676" category="inline-link-rx"></block>, Oder einige der<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block> Um Ihre Quell-Volumes zu schützen.</block>
   <block id="921b747c1abfd997d26a273c0b62011b" category="section-title">Was ist DataLock</block>
   <block id="dc52d5a83e31ec66da3344056a4e4e39" category="paragraph">Beachten Sie, dass alte Backups nach Ablauf des Aufbewahrungszeitraums von DataLock gelöscht werden, nicht nach Ablauf der Aufbewahrungsfrist für Backups.</block>
   <block id="f6494bde8c5d58e1a40bf174c8083f96" category="paragraph">Sehen wir uns einige Beispiele an, wie das funktioniert:</block>
@@ -3757,16 +3755,6 @@ Ifdef::aws[]</block>
   <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
   <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Wenn mehr als fünf Volumes für Backups aktiviert sind, werden mit BlueXP  Backup und Recovery nur fünf Volumes gleichzeitig initialisiert. Wenn diese abgeschlossen sind, erstellt es den nächsten Stapel von fünf untergeordneten Jobs, um den nächsten Satz zu starten, und wird fortgesetzt, bis alle Volumes initialisiert werden.</block>
-  <block id="46206fcd0fa4af78eefe04f1bd8d42c6" category="list-text">SnapLock Compliance für On-Premises Volumes (ONTAP 9 14 oder höher erforderlich)</block>
-  <block id="07c8845dbdef949b860ebfc99bd558ac" category="section-title">Bis 6. November 2024</block>
-  <block id="a5fd9c132798873e9eb6aafb58e50034" category="section-title">SnapLock Compliance- und SnapLock Enterprise-Schutzmodi</block>
-  <block id="139da935670a9f985194d3241917c359" category="paragraph">BlueXP  Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup On-Premises Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.</block>
-  <block id="9ddb3e6714694f5c7f619d474fec8169" category="paragraph">Eine vollständige Liste der unterstützten Volumes finden Sie im<block ref="9e68a582cc487ad29425f5a4796c9e45" category="inline-link-rx"></block>.</block>
-  <block id="fec92c3dfb6a0b3db498488c7f4d2f29" category="section-title">Indizierung für Such- und Wiederherstellungsprozess auf der Seite Volumes</block>
-  <block id="20d3b0b7cfe7a9f3dcfdb0faa9398efd" category="paragraph">Bevor Sie Suche und Wiederherstellung verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volume-Daten wiederherstellen möchten. So kann der indizierte Katalog die Backup-Dateien für jedes Volume nachverfolgen. Auf der Seite Volumes wird nun der Indexierungsstatus angezeigt:</block>
-  <block id="cd9b31737e78e0a0a755acc12151f766" category="list-text">Indiziert: Volumes wurden indiziert.</block>
-  <block id="02e4eb80c967f3b9add2ba16a690eef2" category="list-text">In Bearbeitung</block>
-  <block id="838534d879f74e7af515a7de57e72b71" category="list-text">Nicht Indiziert</block>
-  <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indizierung angehalten</block>
-  <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Nicht Aktiviert</block>
+  <block id="542b4404b0cd2b4cf01b81a3a97b2c20" category="inline-link">Einblicke aus Dateninfrastrukturen und Cloud Secure</block>
+  <block id="5212f7d39ed0f1c16c365beda23afc75" category="paragraph">Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für die Backups dieser Quell-Volumes. Verwenden Sie NetApp<block ref="17959d7def942fae173290691e2a40ae" category="inline-link-rx"></block> , oder einige der<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block>, um Ihre Quell-Volumes zu schützen.</block>
 </blocks>
