@@ -122,9 +122,3 @@ Die Funktionen zum Durchsuchen und Wiederherstellen einzelner Dateien und zur Wi
 * Stellen Sie die Dateien oder Ordner mithilfe der Funktion Suchen & Wiederherstellen aus einem Cloud-Backup wieder her.
 * Stellen Sie das Volume mithilfe von Browse & Restore aus einem Cloud-Backup wieder her und greifen Sie dann auf die benötigten Dateien oder Ordner zu.
 
-
-
-
-==== Das Scannen von Ransomware in Ihre Cloud-Backups wird nicht unterstützt
-
-Das Scannen von Cloud-Backups auf Ransomware wird mit der Podman Engine nicht unterstützt. Wenn Sie die DataLock & Ransomware-Funktion für Ihre Cloud-Backups verwenden, müssen Sie Ransomware-Scans deaktivieren. link:task-manage-backup-settings-ontap.html#enable-or-disable-ransomware-scans["So deaktivieren Sie Ransomware-Scans"].
