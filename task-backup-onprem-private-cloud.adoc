@@ -231,6 +231,8 @@ Da Sie Daten auf Cloud Volumes ONTAP oder auf lokale Systeme replizieren können
 
 StorageGRID muss folgende Anforderungen erfüllen: Siehe https://docs.netapp.com/us-en/storagegrid-117/["StorageGRID-Dokumentation"^] Finden Sie weitere Informationen.
 
+Weitere Informationen zu DataLock und Ransomware-Schutz-Anforderungen für StorageGRID, siehe link:concept-cloud-backup-policies.html["Richtlinienoptionen für das Backup an ein Objekt"].
+
 Unterstützte StorageGRID-Versionen:: StorageGRID 10.3 und höher wird unterstützt.
 +
 --
