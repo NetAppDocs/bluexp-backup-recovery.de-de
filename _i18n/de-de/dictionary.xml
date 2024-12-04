@@ -1444,7 +1444,6 @@
   <block id="06ac0cb7b7615ba7b7f08032fcc97c6a" category="summary">Registrieren Sie das SnapCenter Plug-in für den VMware vSphere Host in BlueXP.</block>
   <block id="437ae89009b207d1aafce3d11e58f524" category="doc">Registrieren Sie das SnapCenter Plug-in für VMware vSphere Host</block>
   <block id="8d69a4a1581a5dfb55d085bec9816e72" category="paragraph">Sie sollten das SnapCenter-Plug-in für den VMware vSphere-Host in BlueXP registrieren, damit die Datastores und Virtual Machines angezeigt werden. Das SnapCenter-Plug-in für den VMware vSphere-Host kann nur von einem Benutzer mit Administratorzugriff registriert werden.</block>
-  <block id="f352f7544724f99ab1b27e3e40291b49" category="admonition">Sie können mehrere SnapCenter Plug-in für VMware vSphere Hosts in BlueXP registrieren. Nach der Registrierung können Sie das SnapCenter-Plug-in für VMware vSphere-Host jedoch nicht entfernen.</block>
   <block id="ebeea6bd6cc46b0c9f463f2b01659606" category="list-text">Geben Sie im Feld SnapCenter-Plug-in für VMware vSphere den FQDN oder die IP-Adresse des SnapCenter-Plug-ins für VMware vSphere-Hosts an.</block>
   <block id="463d350eb6c9887e5addb9a6561a47ad" category="list-text">Geben Sie im Feld Port die Portnummer an, auf der das SnapCenter-Plug-in für VMware vSphere-Host ausgeführt wird.</block>
   <block id="1e88a362bd23950ee5a102f645348ac8" category="paragraph">Klicken Sie auf *Sicherung und Wiederherstellung* &gt; *Virtuelle Maschinen*, um alle Datastores und virtuellen Maschinen anzuzeigen, die mit dem registrierten SnapCenter-Plug-in für VMware vSphere-Host geschützt sind.</block>
@@ -3769,4 +3768,5 @@ Ifdef::aws[]</block>
   <block id="838534d879f74e7af515a7de57e72b71" category="list-text">Nicht Indiziert</block>
   <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indizierung angehalten</block>
   <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Nicht Aktiviert</block>
+  <block id="8ce617f9e6329a3aea4d9a3a19e56086" category="list-text">Wenn ein Volume, das einen Datenspeicher sichert, bereits über die Registerkarte Volumes geschützt ist (BlueXP  Sicherung und Wiederherstellung -&gt; Volumes), dann kann derselbe Datenspeicher nicht wieder über die Registerkarte Virtuelle Maschinen geschützt werden (BlueXP  Sicherung und Wiederherstellung -&gt; Virtuelle Maschinen).</block>
 </blocks>

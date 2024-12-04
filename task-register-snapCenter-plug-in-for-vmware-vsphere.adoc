@@ -16,9 +16,6 @@ summary: Registrieren Sie das SnapCenter Plug-in für den VMware vSphere Host in
 [role="lead"]
 Sie sollten das SnapCenter-Plug-in für den VMware vSphere-Host in BlueXP registrieren, damit die Datastores und Virtual Machines angezeigt werden. Das SnapCenter-Plug-in für den VMware vSphere-Host kann nur von einem Benutzer mit Administratorzugriff registriert werden.
 
-
-NOTE: Sie können mehrere SnapCenter Plug-in für VMware vSphere Hosts in BlueXP registrieren. Nach der Registrierung können Sie das SnapCenter-Plug-in für VMware vSphere-Host jedoch nicht entfernen.
-
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
 . Klicken Sie im Dropdown-Menü *Einstellungen* auf *SnapCenter Plug-in für VMware vSphere*.

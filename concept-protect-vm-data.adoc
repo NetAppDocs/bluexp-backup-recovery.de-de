@@ -38,6 +38,7 @@ Lesen Sie die folgenden Anforderungen, um sicherzustellen, dass Sie über eine u
 * Stellen Sie sicher, dass der Ziel-Datastore, auf dem die virtuelle Maschine wiederhergestellt wird, genügend Speicherplatz für eine Kopie aller VM-Dateien wie VMDK, VMX, VMSD usw. hat.
 * Stellen Sie sicher, dass im Zieldatenspeicher keine veralteten Dateien der virtuellen Maschine im Format restore_xxx_xxxxxx_filename aus dem vorherigen Wiederherstellungsvorgang vorliegen. Sie sollten die veralteten Dateien löschen, bevor Sie eine Wiederherstellung durchführen.
 * Um einen Konnektor mit konfiguriertem Proxy bereitzustellen, stellen Sie sicher, dass alle ausgehenden Verbindungsaufrufe über den Proxyserver weitergeleitet werden.
+* Wenn ein Volume, das einen Datenspeicher sichert, bereits über die Registerkarte Volumes geschützt ist (BlueXP  Sicherung und Wiederherstellung -> Volumes), dann kann derselbe Datenspeicher nicht wieder über die Registerkarte Virtuelle Maschinen geschützt werden (BlueXP  Sicherung und Wiederherstellung -> Virtuelle Maschinen).
 
 
 Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die zwischen den Komponenten vorbereitet werden müssen:
