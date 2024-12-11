@@ -1,0 +1,25 @@
+= SnapLock Compliance- und SnapLock Enterprise-Schutzmodi
+:allow-uri-read: 
+
+
+
+
+=== SnapLock Compliance- und SnapLock Enterprise-Schutzmodi
+
+BlueXP  Backup und Recovery können jetzt sowohl FlexVol als auch FlexGroup On-Premises Volumes sichern, die entweder im SnapLock Compliance- oder im SnapLock Enterprise-Sicherungsmodus konfiguriert sind. Ihre Cluster müssen ONTAP 9.14 oder höher verwenden, um diese Unterstützung zu ermöglichen. Das Sichern von FlexVol Volumes mit dem SnapLock Enterprise-Modus wird seit ONTAP Version 9.11.1 unterstützt. Frühere ONTAP Versionen bieten keine Unterstützung für Backups von SnapLock Protection Volumes.
+
+Eine vollständige Liste der unterstützten Volumes finden Sie im https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["Erfahren Sie mehr über BlueXP Backup und Recovery"].
+
+
+
+=== Indizierung für Such- und Wiederherstellungsprozess auf der Seite Volumes
+
+Bevor Sie Suche und Wiederherstellung verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volume-Daten wiederherstellen möchten. So kann der indizierte Katalog die Backup-Dateien für jedes Volume nachverfolgen. Auf der Seite Volumes wird nun der Indexierungsstatus angezeigt:
+
+* Indiziert: Volumes wurden indiziert.
+* In Bearbeitung
+* Nicht Indiziert
+* Indizierung angehalten
+* Fehler
+* Nicht Aktiviert
+
