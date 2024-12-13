@@ -142,8 +142,12 @@ Wenn Sie *Speicherort ändern* auswählen, können Sie ein Suffix an das Ziel-Vo
 . Überprüfen Sie die Details und klicken Sie auf *Wiederherstellen*.
 
 
+.Ergebnisse
 Die Option *Restore to alternative location* hängt das ausgewählte Backup auf dem angegebenen Host an. Sie sollten die Datenbank manuell aufrufen.
 
 Nach dem Mounten des Backups können Sie es erst wieder mounten, nachdem es abgehängt wurde. Sie können die Option *Unmount* von der Benutzeroberfläche aus verwenden, um das Backup zu entsperren.
 
 Informationen zum Einrichten der Oracle-Datenbank finden Sie unter: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["Knowledge Base-Artikel"].
+
+
+NOTE: Wenn der Wiederherstellungsvorgang nicht abgeschlossen ist, versuchen Sie den Wiederherstellungsvorgang erst dann erneut, wenn die Jobüberwachung anzeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist. Wenn Sie den Wiederherstellungsvorgang erneut versuchen, bevor der Job Monitor zeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist, schlägt der Wiederherstellungsvorgang erneut fehl. Wenn der Job-Monitor als „Fehlgeschlagen“ angezeigt wird, können Sie den Wiederherstellungsvorgang erneut versuchen.

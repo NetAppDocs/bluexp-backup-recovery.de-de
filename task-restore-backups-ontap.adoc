@@ -31,6 +31,9 @@ Zusammenfassend sind dies die gültigen Datenflüsse, die Sie verwenden können,
 
 
 
+NOTE: Wenn der Wiederherstellungsvorgang nicht abgeschlossen ist, versuchen Sie den Wiederherstellungsvorgang erst dann erneut, wenn die Jobüberwachung anzeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist. Wenn Sie den Wiederherstellungsvorgang erneut versuchen, bevor der Job Monitor zeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist, schlägt der Wiederherstellungsvorgang erneut fehl. Wenn der Job-Monitor als „Fehlgeschlagen“ angezeigt wird, können Sie den Wiederherstellungsvorgang erneut versuchen.
+
+
 NOTE: Einschränkungen im Zusammenhang mit der Wiederherstellung von ONTAP-Daten finden Sie unter link:reference-limitations.html["Einschränkungen bei Backup und Restore für ONTAP Volumes"].
 
 

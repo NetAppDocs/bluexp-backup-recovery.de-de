@@ -41,3 +41,6 @@ Wenn Sie *Speicherort ändern* auswählen, können Sie ein Suffix an das Ziel-Vo
 Dieser Vorgang führt nur den Speicherexport des ausgewählten Backups auf dem angegebenen Host aus. Sie sollten das Dateisystem manuell mounten und die Datenbank aufrufen. Nach der Nutzung des Volumes kann der Speicheradministrator das Volume aus dem ONTAP-Cluster löschen.
 
 Informationen zum Einrichten der SAP HANA-Datenbank finden Sie unter, https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667: Automatisierung von SAP HANA Systemkopie und Klonvorgängen mit SnapCenter"^].
+
+
+NOTE: Wenn der Wiederherstellungsvorgang nicht abgeschlossen ist, versuchen Sie den Wiederherstellungsvorgang erst dann erneut, wenn die Jobüberwachung anzeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist. Wenn Sie den Wiederherstellungsvorgang erneut versuchen, bevor der Job Monitor zeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist, schlägt der Wiederherstellungsvorgang erneut fehl. Wenn der Job-Monitor als „Fehlgeschlagen“ angezeigt wird, können Sie den Wiederherstellungsvorgang erneut versuchen.
