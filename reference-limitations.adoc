@@ -89,7 +89,6 @@ Wenn Sie eine Version von ONTAP vor 9.11.1 verwenden, wird die Wiederherstellung
 
 * Die Wiederherstellung von Verzeichnissen/Ordnern wird nur bei Daten unterstützt, die sich im Archiv-Storage befinden, wenn auf dem Cluster ONTAP 9.13.1 und höher ausgeführt wird.
 * Die Wiederherstellung von Verzeichnissen/Ordnern wird nur für Daten unterstützt, die mit DataLock geschützt sind, wenn auf dem Cluster ONTAP 9.13.1 und höher ausgeführt wird.
-* Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit nicht von FlexGroup-Volume-Backups unterstützt.
 * Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit nicht von Replikationen und/oder lokalen Snapshots unterstützt.
 * Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.
 * Die wiederherzustellende Datei muss die gleiche Sprache verwenden wie die Sprache auf dem Zielvolume. Wenn die Sprachen nicht identisch sind, wird eine Fehlermeldung angezeigt.
@@ -103,22 +102,4 @@ Wenn Sie eine Version von ONTAP vor 9.11.1 verwenden, wird die Wiederherstellung
 ** SnapLock Volumes werden nur unterstützt, wenn auf dem Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.11.0 oder höher ausgeführt wurde.
 
 
-
-
-
-
-=== Einschränkungen bei der Verwendung von RHEL 8+ mit Podman
-
-
-
-==== Unterstützung für die Wiederherstellung einzelner Dateien
-
-
-IMPORTANT: Ab der Version 30. September 2024 wurde diese Beschränkung aufgehoben.
-
-Die Funktionen zum Durchsuchen und Wiederherstellen einzelner Dateien und zur Wiederherstellung von Verzeichnissen werden bei Verwendung von BlueXP Connectors in Podman nicht unterstützt (manuell erstellte BlueXP Connectors bei Ausführung von RHEL 8 oder 9). Alle anderen Arten von Wiederherstellungsvorgängen werden bei Verwendung von Podman unterstützt, sodass Sie Ihre Daten mit diesen anderen Methoden wiederherstellen können, bis dieses Problem behoben ist:
-
-* Stellen Sie die Dateien oder Ordner von einem replizierten Volume wieder her, wenn ein repliziertes Volume vorhanden ist.
-* Stellen Sie die Dateien oder Ordner mithilfe der Funktion Suchen & Wiederherstellen aus einem Cloud-Backup wieder her.
-* Stellen Sie das Volume mithilfe von Browse & Restore aus einem Cloud-Backup wieder her und greifen Sie dann auf die benötigten Dateien oder Ordner zu.
 
