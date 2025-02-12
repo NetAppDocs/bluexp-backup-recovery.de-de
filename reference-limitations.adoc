@@ -20,6 +20,19 @@ Bekannte Einschränkungen identifizieren Funktionen, die von dieser Version des 
 
 == Einschränkungen bei Backup und Restore für ONTAP Volumes
 
+* BlueXP  Backup und Recovery Backup von Cloud Volume ONTAP in einem Objektspeicher in den Regionen AWS China (einschließlich Peking und Ningxia); unter Umständen müssen Sie jedoch zuerst die Richtlinien für das Identitäts- und Zugriffsmanagement (Identity and Access Management, IAM) manuell ändern.
++
+Weitere Informationen zum Erstellen eines Connectors in AWS finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["Installieren eines Connectors in AWS"^].
+
++
+Weitere Details in einem Blogbeitrag finden Sie unter https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-May-23-Updates/ba-p/444052["BlueXP -Feature-Blog „Backup und Recovery“ Mai 2023"^].
+
+* BlueXP  Backup und Recovery unterstützt keine Regionen in Microsoft Azure China.
++
+Weitere Informationen zum Erstellen eines Connectors in Azure finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html["Installieren eines Connectors in Azure"^].
+
+
+
 
 
 === Einschränkungen bei der Replizierung
@@ -55,6 +68,7 @@ Es gibt keine Beschränkung für FlexVol Volumes: Sie können alle FlexVol Volum
 +
 ** Backups werden nur von der sekundären ONTAP unterstützt.
 ** Die auf das Volume angewendete Snapshot-Richtlinie muss eine der durch BlueXP Backup- und Recovery-Richtlinien sein, einschließlich täglich, wöchentlich, monatlich usw. Die standardmäßige „SM_created“-Richtlinie (verwendet für *Mirror All Snapshots*) wird nicht erkannt und das DP-Volume wird nicht in der Liste der Volumes angezeigt, die gesichert werden können.
+** SVM-DR und Volume-Backup und -Recovery funktionieren vollständig unabhängig, wenn das Backup vom Quell- oder Zielsystem erstellt wird. Die einzige Einschränkung ist, dass SVM-DR die SnapMirror Cloud-Beziehung nicht repliziert. Wenn die SVM im DR-Szenario am sekundären Standort online geschaltet wird, müssen Sie die SnapMirror-Cloud-Beziehung manuell aktualisieren.
 
 
 
