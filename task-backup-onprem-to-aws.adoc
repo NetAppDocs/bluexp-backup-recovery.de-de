@@ -374,7 +374,11 @@ Wenn Sie eigene Buckets erstellen, sollten Sie den Bucket-Namen „netapp-Backup
 
 Falls Sie die standardmäßigen Amazon S3-Verschlüsselungsschlüssel verwenden möchten, um die Daten zu verschlüsseln, die zwischen Ihrem On-Premises-Cluster und dem S3-Bucket übergeben wurden, sind die Daten für die Standardinstallation über diesen Verschlüsselungstyp festgelegt.
 
-Wenn Sie stattdessen Ihre eigenen von Kunden gemanagten Schlüssel zur Datenverschlüsselung verwenden möchten, statt die Standardschlüssel zu verwenden, müssen Sie die für die Verschlüsselung gemanagten Schlüssel bereits einrichten, bevor Sie den BlueXP Backup- und Recovery-Assistenten starten. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Lesen Sie, wie Sie Ihre eigenen Tasten verwenden"^].
+Wenn Sie stattdessen Ihre eigenen von Kunden gemanagten Schlüssel zur Datenverschlüsselung verwenden möchten, statt die Standardschlüssel zu verwenden, müssen Sie die für die Verschlüsselung gemanagten Schlüssel bereits einrichten, bevor Sie den BlueXP Backup- und Recovery-Assistenten starten.
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Weitere Informationen zur Verwendung Ihrer eigenen Amazon-Verschlüsselungen mit Cloud Volumes ONTAP finden Sie unter"^].
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings["Erfahren Sie, wie Sie Ihre eigenen Amazon Verschlüsselungsschlüssel für BlueXP  Backup und Recovery verwenden"^].
 
 
 

@@ -685,6 +685,9 @@ Je nach Konfiguration gibt es zwei Möglichkeiten, die Suche und Wiederherstellu
 
 +
 ** Wenn Ihr Konto keine Anmeldedaten für Cloud-Provider enthält, werden die Informationen zum indexierten Katalog auf dem Connector gespeichert.
++
+Informationen zum indizierten Katalog v2 finden Sie im folgenden Abschnitt zum Aktivieren des indizierten Katalogs.
+
 ** Wenn Sie einen Connector auf einer privaten (dunklen) Site verwenden, werden die indizierten Kataloginformationen auf dem Connector gespeichert (erfordert Connector Version 3.9.25 oder höher).
 ** Wenn Sie haben https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html["AWS Zugangsdaten"^] Oder https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html["Azure Zugangsdaten"^] Im Konto wird der indizierte Katalog wie bei einem in der Cloud implementierten Connector beim Cloud-Provider gespeichert. (Bei beiden Anmeldedaten ist standardmäßig AWS ausgewählt.)
 +
@@ -721,6 +724,30 @@ Wie Sie sehen, müssen Sie wirklich nur einen Teil des Namens kennen und BlueXP 
 
 Bevor Sie Search & Restore verwenden können, müssen Sie „Indizierung“ in jeder Arbeitsumgebung aktivieren, aus der Sie Volumes oder Dateien wiederherstellen möchten. So kann der indexierte Katalog jedes Volume und jede Backup-Datei nachverfolgen, was Ihre Suchvorgänge sehr schnell und effizient macht.
 
+Der indizierte Katalog ist eine Datenbank, in der Metadaten zu allen Volumes und Backup-Dateien in Ihrer Arbeitsumgebung gespeichert werden. Es wird von der Such- und Wiederherstellungsfunktion verwendet, um schnell die Sicherungsdateien zu finden, die die wiederherzustellenden Daten enthalten.
+
+.Merkmale des indizierten Katalogs v2
+Der indizierte Katalog v2, der im Februar 2025 veröffentlicht wurde, verfügt über neue Funktionen, die ihn effizienter und benutzerfreundlicher machen. Diese Version hat eine erhebliche Leistungssteigerung und ist standardmäßig für alle neuen Kunden aktiviert.
+
+Lesen Sie die folgenden Überlegungen zu v2:
+
+* Der indizierte Katalog v2 ist im Vorschaumodus verfügbar.
+* Wenn Sie bereits Kunde sind und den Catalog v2 verwenden möchten, müssen Sie Ihre Umgebung vollständig neu indizieren.
+* Der Catalog v2 indiziert nur die Snapshots, die eine Snapshot-Beschriftung haben.
+* BlueXP  Backup und Recovery indexiert Snapshots nicht mit „stündlichen“ SnapMirror-Etiketten. Wenn Sie Schnappschüsse mit dem „stündlichen“ SnapMirror-Label indexieren möchten, müssen Sie es manuell aktivieren, während sich der v2 im Vorschaumodus befindet.
+* BlueXP  Backup und Recovery indiziert Volumes und Snapshots, die mit Arbeitsumgebungen verbunden sind, die durch BlueXP  Backup und Recovery geschützt sind, nur mit dem Katalog v2. Andere auf der BlueXP -Plattform erkannte Arbeitsumgebungen werden nicht indiziert.
+
+
+Der indizierte Katalog v2 unterstützt Folgendes:
+
+* Globale Sucheffizienz in weniger als 3 Minuten
+* Bis zu 5 Milliarden Dateien
+* Bis zu 5000 Volumes pro Cluster
+* Bis zu 100.000 Snapshots pro Volume
+* Die maximale Zeit für die Indizierung der Basislinie beträgt weniger als 7 Tage. Die tatsächliche Zeit variiert je nach Umgebung.
+
+
+.Aktivieren des indizierten Katalogs für eine Arbeitsumgebung
 Wenn Sie diese Funktionalität aktivieren, ermöglicht BlueXP Backup und Recovery SnapDiff v3 auf der SVM für Ihre Volumes und führt folgende Aktionen aus:
 
 ifdef::aws[]
@@ -749,12 +776,17 @@ endif::gcp[]
 
 Wenn die Indexierung bereits für Ihre Arbeitsumgebung aktiviert wurde, rufen Sie den nächsten Abschnitt auf, um Ihre Daten wiederherzustellen.
 
-So aktivieren Sie die Indizierung für eine Arbeitsumgebung:
+.Schritte zum Aktivieren der Indizierung für eine Arbeitsumgebung:
+. Führen Sie einen der folgenden Schritte aus:
++
+** Wenn keine Arbeitsumgebungen indiziert wurden, wählen Sie im Restore Dashboard unter _Search & Restore_ *Enable Indexing for working Environments* aus.
+** Wenn mindestens eine Arbeitsumgebung bereits indiziert wurde, klicken Sie im Restore Dashboard unter _Suchen & Wiederherstellen_ auf *Indexierungseinstellungen*.
 
-* Wenn keine Arbeitsumgebungen indiziert wurden, klicken Sie im Restore Dashboard unter _Search & Restore_ auf *Indizierung für Arbeitsumgebungen aktivieren* und klicken Sie für die Arbeitsumgebung auf *Indizierung aktivieren*.
-* Wenn mindestens eine Arbeitsumgebung indiziert wurde, klicken Sie auf dem Restore Dashboard unter _Search & Restore_ auf *Indexing Settings* und klicken Sie für die Arbeitsumgebung auf *Indizierung aktivieren*.
+
+. Wählen Sie *Indizierung aktivieren* für die Arbeitsumgebung aus.
 
 
+.Ergebnis
 Nachdem alle Services bereitgestellt und der indizierte Katalog aktiviert wurde, wird die Arbeitsumgebung als „aktiv“ angezeigt.
 
 image:screenshot_restore_enable_indexing.png["Ein Screenshot mit den Arbeitsumgebungen, die den indizierten Katalog aktiviert haben."]

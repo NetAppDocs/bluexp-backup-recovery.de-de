@@ -55,6 +55,13 @@ Es gibt keine Beschränkung für FlexVol Volumes: Sie können alle FlexVol Volum
 
 === Einschränkungen bei Backups an Objekte
 
+* BlueXP  Backup und Recovery erstellt keine Backups von Volumes auf Objektspeicher, für die NetApp Volume Encryption (NVE) aktiviert und die NetApp Aggregate Encryption (NAE) in ONTAP aktiviert sind.
++
+Eine Erläuterung zu diesen Verschlüsselungstypen finden Sie unter https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["NetApp Volume Encryption Übersicht konfigurieren"^].
+
+
+
+* Wenn Snapshots für langfristige Datenaufbewahrung auf einem SnapMirror Ziel-Volume mithilfe des Zeitplans in der SnapMirror-Richtlinie aktiviert werden, werden Snapshots direkt auf dem Ziel-Volume erstellt. In diesem Fall sollten Sie diese Volumes nicht mit BlueXP  Backup und Recovery sichern, da diese Snapshots nicht in den Objektspeicher verschoben werden.
 * Wenn Sie eine Backup-Richtlinie erstellen oder bearbeiten, wenn dieser Richtlinie keine Volumes zugewiesen sind, kann die Anzahl der behielten Backups maximal 1018 sein. Nachdem Sie der Richtlinie Volumes zugewiesen haben, können Sie die Richtlinie für die Erstellung von bis zu 4000 Backups bearbeiten.
 * Bei der Sicherung von Datensicherungs-Volumes (DP):
 +
