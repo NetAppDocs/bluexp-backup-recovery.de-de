@@ -3208,7 +3208,6 @@ Und wenn für die Backup-Datei ein Ransomware-Schutz aktiv ist (wenn Sie in der 
   <block id="b7cee6af996f21267fdad2eebd5f4c54" category="paragraph">Wenn Sie diese Option nutzen möchten, können Sie den Jahresvertrag einrichten, wenn Sie eine Cloud Volumes ONTAP Arbeitsumgebung erstellen und BlueXP Sie auffordert, den Azure Marketplace zu abonnieren.</block>
   <block id="ab788bf4fa445771d4446e36e923ffe4" category="paragraph">Bei der Nutzung von GCP können Sie Ihren NetApp Vertriebsmitarbeiter kontaktieren, um einen Jahresvertrag zu erwerben. Der Vertrag ist als Privatangebot im Google Cloud Marketplace erhältlich.</block>
   <block id="c71d991dee047ce8fa870270654b44c0" category="paragraph">Nachdem NetApp das private Angebot an Sie weitergibt, können Sie den Jahresplan auswählen, wenn Sie während der Aktivierung von BlueXP Backup und Recovery im Google Cloud Marketplace abonnieren.</block>
-  <block id="727c837c47e40b96ddd39f15636181fe" category="list-text">Verwalten von Replikationsrichtlinien</block>
   <block id="61f06895b4fcad7d6460158ccfc33c17" category="paragraph">Byol ist längerfristig (1, 2 oder 3 Jahre) und kapazitätsbasiert in 1-tib-Schritten. Sie bezahlen NetApp für einen Zeitraum, sagen wir 1 Jahr und für eine maximale Kapazität, sagen wir 10 tib.</block>
   <block id="aa4c67fd3731395f4450c9686b20f799" category="section-title">Unterstützung für geplante Jobs im Job Monitor</block>
   <block id="314b40130d46a229c3a19dc5e2e23aa4" category="paragraph">Der BlueXP Backup- und Recovery Job Monitor überwachte zuvor geplante Backup- und Restore-Jobs von Volumes zu Objektspeichern, jedoch keine lokalen Snapshot-, Replizierungs-, Backup- und Restore-Jobs, die über die UI oder die API geplant wurden.</block>
@@ -3730,7 +3729,6 @@ Ifdef::aws[]</block>
   <block id="ba7df4741bd77385c236fcf981dd357a" category="paragraph">Beachten Sie die folgenden Überlegungen zur globalen Suche:</block>
   <block id="03602fc4621dad9ee00f9e5d533ff5ea" category="list-text">Der neue Index wird nicht für Snapshots ausgeführt, die als stündlich gekennzeichnet sind.</block>
   <block id="2bacd7c8c96302172c5d0324d784cf03" category="list-text">Die neue Indexierungsfunktion funktioniert nur für Snapshots auf FlexVols und nicht für Snapshots auf FlexGroups.</block>
-  <block id="9a817228de7a6ae8f0c7de31a40bf58e" category="list-text">BlueXP  Backup und Recovery erstellt keine Backups von Volumes auf Objektspeicher, für die NetApp Volume Encryption (NVE) aktiviert und die NetApp Aggregate Encryption (NAE) in ONTAP aktiviert sind.</block>
   <block id="c638f77e97a62d0d11f775816222d62a" category="inline-link">NetApp Volume Encryption Übersicht konfigurieren</block>
   <block id="3553f96cf9281793975488d9cea2ab17" category="paragraph">Eine Erläuterung zu diesen Verschlüsselungstypen finden Sie unter <block ref="4e5be28408ee7dfd001133bf87f0a28f" category="inline-link-rx"></block>.</block>
   <block id="e00d7f7aeae26763ad3c75c98433f2e9" category="list-text">Wenn Snapshots für langfristige Datenaufbewahrung auf einem SnapMirror Ziel-Volume mithilfe des Zeitplans in der SnapMirror-Richtlinie aktiviert werden, werden Snapshots direkt auf dem Ziel-Volume erstellt. In diesem Fall sollten Sie diese Volumes nicht mit BlueXP  Backup und Recovery sichern, da diese Snapshots nicht in den Objektspeicher verschoben werden.</block>
@@ -3757,4 +3755,14 @@ Ifdef::aws[]</block>
   <block id="4d15abe2ea84fc45daf040e94beae3f3" category="list-text">Wenn mindestens eine Arbeitsumgebung bereits indiziert wurde, klicken Sie im Restore Dashboard unter _Suchen &amp; Wiederherstellen_ auf *Indexierungseinstellungen*.</block>
   <block id="96c51ce828ef9cc79ee2121bdd9dc630" category="list-text">Wählen Sie *Indizierung aktivieren* für die Arbeitsumgebung aus.</block>
   <block id="09d7c2dac047caa965175fead07159aa" category="section-title">21 Februar 2025</block>
+  <block id="30ba4ee29fda0b7285b4297943459cf9" category="doc">SMB-Snapshot-Browsing</block>
+  <block id="024bc4989e66777454fa98cbaf9a7d3e" category="paragraph">Dieses BlueXP  Backup und Recovery Update löste ein Problem, das Kunden daran hinderte, lokale Snapshots in einer SMB-Umgebung zu durchsuchen.</block>
+  <block id="151a83fcfdad3b420d256dbc19095068" category="section-title">Update zur AWS GovCloud Umgebung</block>
+  <block id="c4ff0af994997811a9867969c1b26bf3" category="paragraph">Dieses BlueXP  Backup- und Recovery-Update hat ein Problem behoben, das die UI aufgrund von TLS-Zertifikatfehlern daran gehindert hat, eine Verbindung zu einer AWS GovCloud Umgebung herzustellen. Das Problem wurde behoben, indem der Hostname des BlueXP -Connectors anstelle der IP-Adresse verwendet wurde.</block>
+  <block id="a758068ed72f0a6858316a7ff791b4ba" category="section-title">Grenzen der Aufbewahrung von Backup-Richtlinien</block>
+  <block id="7937af8bb9aecdab11a666bfc7946c61" category="paragraph">Zuvor beschränkte die Benutzeroberfläche von BlueXP  für Backup und Recovery Backups auf 999 Kopien, während die CLI mehr erlaubte. Jetzt können Sie bis zu 4,000 Volumes zu einer Backup-Richtlinie hinzufügen und 1,018 Volumes einbeziehen, die nicht an eine Backup-Richtlinie gebunden sind. Dieses Update enthält zusätzliche Validierungen, die eine Überschreitung dieser Grenzwerte verhindern.</block>
+  <block id="d5479e738a91b3a64956ed9f9e81bc5a" category="section-title">SnapMirror Cloud-Neusynchronisierung</block>
+  <block id="06476618a5631fabf79c4d5ebe8b60b0" category="paragraph">Dieses Update sorgt dafür, dass SnapMirror Cloud Resync nicht aus BlueXP  Backup und Recovery für nicht unterstützte ONTAP Versionen gestartet werden kann, nachdem eine SnapMirror Beziehung gelöscht wurde.</block>
+  <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">Beim Backup von Daten bleibt bei BlueXP  Backup und Recovery die NetApp Volume Encryption (NVE) nicht erhalten. Das bedeutet, dass verschlüsselte Daten auf dem NVE-Volume entschlüsselt werden, während die Daten an das Ziel übertragen werden, wobei die Verschlüsselung nicht erhalten bleibt.</block>
+  <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">17 März 2025</block>
 </blocks>

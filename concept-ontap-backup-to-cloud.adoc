@@ -51,7 +51,6 @@ Bei Bedarf können Sie ein ganzes _Volume_, einen _Ordner_ oder eine oder mehrer
 +
 ** Replizierung mehrerer FlexVol Volumes zu einem Zeitpunkt auf ein sekundäres System
 ** Wiederherstellung eines replizierten Volumes auf dem Quellsystem oder auf einem anderen System über die Benutzeroberfläche.
-** Verwalten von Replikationsrichtlinien
 
 
 

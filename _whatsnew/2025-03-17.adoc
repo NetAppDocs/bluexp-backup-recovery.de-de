@@ -1,0 +1,27 @@
+= SMB-Snapshot-Browsing
+:allow-uri-read: 
+
+
+
+
+=== SMB-Snapshot-Browsing
+
+Dieses BlueXP  Backup und Recovery Update löste ein Problem, das Kunden daran hinderte, lokale Snapshots in einer SMB-Umgebung zu durchsuchen.
+
+
+
+=== Update zur AWS GovCloud Umgebung
+
+Dieses BlueXP  Backup- und Recovery-Update hat ein Problem behoben, das die UI aufgrund von TLS-Zertifikatfehlern daran gehindert hat, eine Verbindung zu einer AWS GovCloud Umgebung herzustellen. Das Problem wurde behoben, indem der Hostname des BlueXP -Connectors anstelle der IP-Adresse verwendet wurde.
+
+
+
+=== Grenzen der Aufbewahrung von Backup-Richtlinien
+
+Zuvor beschränkte die Benutzeroberfläche von BlueXP  für Backup und Recovery Backups auf 999 Kopien, während die CLI mehr erlaubte. Jetzt können Sie bis zu 4,000 Volumes zu einer Backup-Richtlinie hinzufügen und 1,018 Volumes einbeziehen, die nicht an eine Backup-Richtlinie gebunden sind. Dieses Update enthält zusätzliche Validierungen, die eine Überschreitung dieser Grenzwerte verhindern.
+
+
+
+=== SnapMirror Cloud-Neusynchronisierung
+
+Dieses Update sorgt dafür, dass SnapMirror Cloud Resync nicht aus BlueXP  Backup und Recovery für nicht unterstützte ONTAP Versionen gestartet werden kann, nachdem eine SnapMirror Beziehung gelöscht wurde.

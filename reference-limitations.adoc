@@ -55,7 +55,7 @@ Es gibt keine Beschränkung für FlexVol Volumes: Sie können alle FlexVol Volum
 
 === Einschränkungen bei Backups an Objekte
 
-* BlueXP  Backup und Recovery erstellt keine Backups von Volumes auf Objektspeicher, für die NetApp Volume Encryption (NVE) aktiviert und die NetApp Aggregate Encryption (NAE) in ONTAP aktiviert sind.
+* Beim Backup von Daten bleibt bei BlueXP  Backup und Recovery die NetApp Volume Encryption (NVE) nicht erhalten. Das bedeutet, dass verschlüsselte Daten auf dem NVE-Volume entschlüsselt werden, während die Daten an das Ziel übertragen werden, wobei die Verschlüsselung nicht erhalten bleibt.
 +
 Eine Erläuterung zu diesen Verschlüsselungstypen finden Sie unter https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["NetApp Volume Encryption Übersicht konfigurieren"^].
 
