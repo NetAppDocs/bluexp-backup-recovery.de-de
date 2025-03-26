@@ -3641,7 +3641,6 @@ Ifdef::aws[]</block>
   <block id="3a66ab30f960deed7e2d6dbe5675eebc" category="paragraph">BlueXP Backup und Recovery können an einem Standort mit eingeschränkter Internet-Konnektivität (auch als _eingeschränkter Modus_ bezeichnet) verwendet werden, um Volume-Daten zu sichern. In diesem Fall müssen Sie den BlueXP  Connector in der Ziel-Cloud-Region implementieren.</block>
   <block id="c042a7ac26c00953bd87e1129908e5c7" category="list-text">Sie können Daten von lokalen ONTAP Systemen oder Cloud Volumes ONTAP Systemen in AWS Geschäftsregionen in Amazon S3 sichern. <block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>.</block>
   <block id="eb908336fca360ed35207a1e198562b2" category="list-text">Sie können Daten aus lokalen ONTAP Systemen oder Cloud Volumes ONTAP Systemen in Azure kommerzielle Regionen in Azure Blob sichern. <block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>.</block>
-  <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
   <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Wenn mehr als fünf Volumes für Backups aktiviert sind, werden mit BlueXP  Backup und Recovery nur fünf Volumes gleichzeitig initialisiert. Wenn diese abgeschlossen sind, erstellt es den nächsten Stapel von fünf untergeordneten Jobs, um den nächsten Satz zu starten, und wird fortgesetzt, bis alle Volumes initialisiert werden.</block>
   <block id="542b4404b0cd2b4cf01b81a3a97b2c20" category="inline-link">Einblicke aus Dateninfrastrukturen und Cloud Secure</block>
@@ -3765,4 +3764,5 @@ Ifdef::aws[]</block>
   <block id="06476618a5631fabf79c4d5ebe8b60b0" category="paragraph">Dieses Update sorgt dafür, dass SnapMirror Cloud Resync nicht aus BlueXP  Backup und Recovery für nicht unterstützte ONTAP Versionen gestartet werden kann, nachdem eine SnapMirror Beziehung gelöscht wurde.</block>
   <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">Beim Backup von Daten bleibt bei BlueXP  Backup und Recovery die NetApp Volume Encryption (NVE) nicht erhalten. Das bedeutet, dass verschlüsselte Daten auf dem NVE-Volume entschlüsselt werden, während die Daten an das Ziel übertragen werden, wobei die Verschlüsselung nicht erhalten bleibt.</block>
   <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">17 März 2025</block>
+  <block id="c11347a85201b35f4b0302aff21bc226" category="cell"><block ref="c9017d174080d415365a112c68422e95" prefix="" category="inline-code"></block></block>
 </blocks>
