@@ -1216,7 +1216,6 @@
   <block id="47088be6cbcb439bd7241ec72edf3a91" category="section-title">Erkennen Sie Ihre ONTAP Cluster und StorageGRID Systeme</block>
   <block id="8a817b57889a6e642ad7fb06e7b26c80" category="section-title">Richten Sie die Details zur StorageGRID Umgebung ein</block>
   <block id="95405ad3ad814456093255e6d36ee69e" category="inline-link">BlueXP APIs</block>
-  <block id="ed28e31454bb8c9849e6271a030b2762" category="paragraph">Sie müssen diese Schritte für jedes ONTAP System durchführen, das Daten in StorageGRID sichert.</block>
   <block id="3f1b9decb18d57a001f26c7273adeddc" category="list-text">Extrahieren Sie das Autorisierungs-Token mithilfe der folgenden oauth/Token-API.</block>
   <block id="f2b2dd8a7061a4f2836de5feda40a45e" category="paragraph">Diese API gibt eine Antwort wie die folgende zurück. Sie können das Autorisierungs-Token wie unten gezeigt abrufen.</block>
   <block id="74e96d8b9d4abdf183199553dd665e53" category="list-text">Extrahieren Sie die ID der Arbeitsumgebung und die X-Agent-ID mithilfe der Tenancy/External/Resource API.</block>
@@ -3800,6 +3799,7 @@ Ifdef::aws[]</block>
   <block id="6c9913da2722f6c96e97b9d6aa37bb46" category="paragraph">Führen Sie die folgenden Aufgaben aus, um Ihr BlueXP  Backup- und Recovery-System wieder in den Betriebszustand zu versetzen:</block>
   <block id="da2ba8762d0dcb78945a22c9a375fffa" category="inline-link">DarkSite Cloud Backup: MySQL und indizierter Katalog Backup und Restore</block>
   <block id="bb10a63044b830cc42091d93b78fd668" category="paragraph">Die folgenden Informationen gelten für Installationen im Privatmodus ab BlueXP  3.9.xx. Bei älteren Versionen gehen Sie wie folgt vor:<block ref="2da286ce66fc5078574abb0f7864085c" category="inline-link-rx"></block>.</block>
-  <block id="e29798cefe7dc354983bc30c2c9fccdf" category="paragraph">Obwohl die IP-Adresse, der Benutzername und die Passwörter benutzerdefinierte Werte sind, ist der Kontoname nicht. Der Kontoname ist immer "Account-DARKSITE1".</block>
   <block id="2decbd35e1c4f4abc73df06a5256970a" category="list-text">Aktualisieren Sie die BlueXP  Backup- und Recovery-Datenbank mit den Details des StorageGRID-Systems, das den Arbeitsumgebungen zugeordnet ist. Stellen Sie sicher, dass Sie den vollständig qualifizierten Domänennamen der StorageGRID sowie den Zugriffsschlüssel und den Speicherschlüssel wie unten dargestellt eingeben:</block>
+  <block id="241380d8d42b823d8bd7c25c9fc3014f" category="paragraph">Sie müssen diese Schritte für jedes System durchführen, das Daten auf StorageGRID sichert.</block>
+  <block id="cd6c5272ababe8075a9145908c571172" category="paragraph">Obwohl die IP-Adresse, der Benutzername und die Passwörter benutzerdefinierte Werte sind, ist der Kontoname nicht. Der Kontoname ist immer "Account-DARKSITE1". Außerdem muss der Benutzername einen Namen im E-Mail-Format verwenden.</block>
 </blocks>
