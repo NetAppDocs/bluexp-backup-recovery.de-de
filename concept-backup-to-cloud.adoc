@@ -76,6 +76,9 @@ endif::gcp[]
 
 
 
+NOTE: Mit BlueXP  Backup und Recovery wird die Unterstützung für Objektspeicher anderer Hersteller als Vorschauoption erweitert. Mit dieser Vorschaufunktion können Sie jeden S3-kompatiblen Objektspeicher für Ihre Backup- und Recovery-Anforderungen nutzen. Weitere Informationen zum Aktivieren dieser Vorschaufunktion finden Sie im link:whats-new.html["Unterstützung für Objektspeicher von Drittanbietern"] Abschnitt.
+
+
 
 === Wann werden Backups erstellt
 

@@ -1,12 +1,6 @@
-= Verbessertes Volume Dashboard (Vorschau)
+= UI-Verbesserungen
 :allow-uri-read: 
 
-
-
-
-=== Verbessertes Volume Dashboard (Vorschau)
-
-Das Volume Dashboard kann jetzt in weniger als 10 Sekunden geladen werden und bietet damit eine wesentlich schnellere und effizientere Schnittstelle. Diese Vorschau-Version ist für ausgewählte Kunden verfügbar und bietet ihnen einen ersten Blick auf diese Verbesserungen.
 
 
 
@@ -23,6 +17,12 @@ Diese Version verbessert die Benutzerfreundlichkeit durch die Vereinfachung der 
 
 
 
+=== Verbessertes Volume Dashboard (Vorschau)
+
+Das Volume Dashboard kann jetzt in weniger als 10 Sekunden geladen werden und bietet damit eine wesentlich schnellere und effizientere Schnittstelle. Diese Vorschau-Version ist für ausgewählte Kunden verfügbar und bietet ihnen einen ersten Blick auf diese Verbesserungen.
+
+
+
 === Unterstützung für Wasabi-Objektspeicher von Drittanbietern (Vorschau)
 
 BlueXP  Backup und Recovery erweitert jetzt ihre Unterstützung auf Objektspeicher von Drittanbietern, wobei der Schwerpunkt primär auf Wasabi liegt. Mit dieser neuen Vorschaufunktion können Sie jeden S3-kompatiblen Objektspeicher für Ihre Backup- und Recovery-Anforderungen nutzen.
@@ -31,7 +31,30 @@ BlueXP  Backup und Recovery erweitert jetzt ihre Unterstützung auf Objektspeic
 
 ==== Erste Schritte mit Wasabi
 
-Um diese Funktion zu verwenden, müssen Sie ein Flag in der BlueXP -Benutzeroberfläche aktivieren. Anschließend können Sie die Verbindungsdetails für einen Objektspeicher eines Drittanbieters eingeben und in Ihre Backup- und Recovery-Workflows integrieren.
+Um Drittanbieter-Storage als Objektspeicher zu verwenden, müssen Sie im BlueXP -Connector ein Flag aktivieren. Anschließend können Sie die Verbindungsdetails für einen Objektspeicher eines Drittanbieters eingeben und in Ihre Backup- und Recovery-Workflows integrieren.
+
+.Schritte
+. SSH in den Connector.
+. Gehen Sie zum cbs-Server-Container für Backup und Recovery von BlueXP :
++
+[listing]
+----
+docker exec -it cloudmanager_cbs sh
+----
+. Öffnen Sie die `default.json` Datei im `config` Ordner über VIM oder einen anderen Editor:
++
+[listing]
+----
+vi default.json
+----
+. Ändern `allow-s3-compatible`: false zu `allow-s3-compatible`: true.
+. Speichern Sie die Änderungen.
+. Verlassen Sie den Container.
+. Starten Sie den cbs-Server-Container für BlueXP  Backup und Recovery neu.
+
+
+.Ergebnis
+Nachdem der Container wieder EINGESCHALTET ist, öffnen Sie die BlueXP  Backup and Recovery UI. Wenn Sie ein Backup initiieren oder eine Backup-Strategie bearbeiten, wird der neue Provider zusammen mit anderen Backup-Providern von AWS, Microsoft Azure, Google Cloud, StorageGRID und ONTAP S3 als „S3-kompatibel“ aufgeführt.
 
 
 
