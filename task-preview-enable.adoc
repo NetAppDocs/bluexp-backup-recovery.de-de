@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: task-preview-enable.html 
+keywords: cloud backup, bluexp backup and recovery, backup, restore, preview, enable, object storage, third-party, MinIO, S3-compatible 
+summary: Sie können den Status von lokalen Snapshots, Replikationen und Backup-to-Object-Speicherjobs überwachen, die Sie initiiert oder geplant haben, und die von Ihnen initiierten oder geplanten Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt. 
+---
+= Aktivieren Sie Vorschaufunktionen für BlueXP  Backup und Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP  Backup und Recovery bietet Vorschaufunktionen, mit denen Sie neue Funktionen testen können, bevor diese vollständig veröffentlicht werden. Diese Funktionen wurden entwickelt, um Ihre Backup- und Recovery-Erfahrung zu verbessern, aber sie sind möglicherweise nicht vollständig unterstützt oder stabil.
+
+
+IMPORTANT: Diese Funktionen befinden sich im Vorschaumodus und sollten nicht in Produktionsumgebungen verwendet werden. Sie dienen ausschließlich zu Test- und Feedback-Zwecken.
+
+
+
+== Vorschaufunktionen aktivieren
+
+Um Vorschaufunktionen in BlueXP -Backup und -Recovery zu aktivieren, müssen Sie ein Flag auf dem BlueXP -Connector festlegen. Mit diesem Flag können Sie auf die im Dienst verfügbaren Vorschaufunktionen zugreifen und diese testen.
+
+.Schritte
+. Melden Sie sich beim BlueXP -Connector an.
+. Wechseln Sie zum Superuser. Führen Sie den Befehl aus:
++
+`sudo su`
+
+. Listen Sie Docker Volumes auf, und identifizieren Sie das CBS-Volume. Führen Sie den Befehl aus:
++
+[listing]
+----
+podman volume ls | grep cbs
+----
++
+Erwartete Ausgabe:
+
++
+[listing]
+----
+local service-manager-2_cloudmanager_cbs_volume
+----
+. Überprüfen Sie das Volumen, um den Mountpoint zu erhalten. Führen Sie den Befehl aus:
++
+[listing]
+----
+podman volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
+----
+. Führen Sie den Befehl aus:
++
+[listing]
+----
+podman volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
+----
++
+Erwartete Ausgabe:
+
++
+[listing]
+----
+Mountpoint:
+/var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
+----
+. Navigieren Sie zum Verzeichnis Docker Volumes. Verzeichnis auf den im vorherigen Schritt erhaltenen Mountpunkt ändern:
++
+[listing]
+----
+cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_config
+
+----
+. Suchen und bearbeiten Sie die `production-customer.json` Datei.
+. Stellen Sie sicher, dass Sie sich im richtigen Verzeichnis befinden und die `production-customer.json` Datei vorhanden ist.
+. Öffnen Sie die `production-customer.json` Datei in Ihrem bevorzugten Texteditor, und fügen Sie den folgenden JSON-Snippet hinzu, um sicherzustellen, dass die JSON-Struktur ordnungsgemäß gepflegt wird:
++
+[listing]
+----
+{
+   "feature-flags":
+    {
+        "volumes-dashboard-v2": true
+     }
+}
+----
+. Speichern Sie die Änderungen in der Datei.
+. Starten Sie BlueXP  Backup and Recovery Cloud Manager CBS Service neu. Führen Sie den Befehl aus:
++
+[listing]
+----
+podman restart cloudmanager_cbs
+----
+
