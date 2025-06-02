@@ -4,7 +4,7 @@ permalink: concept-protect-app-data-to-cloud.html
 keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, backup and recovery 
 summary: Integrieren Sie BlueXP Backup und Recovery für Applikationen mit BlueXP und On-Premises SnapCenter, um die applikationskonsistenten Snapshots von lokalen ONTAP-Systemen in die Cloud zu sichern. 
 ---
-= Sichern Sie Ihre lokalen Applikationsdaten
+= Schützen Sie Ihre lokalen Anwendungsdaten mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -20,7 +20,6 @@ Backups von Oracle, Microsoft SQL, SAP HANA, MongoDB, MySQL, PostgreSQL-Applikat
 
 Weitere Informationen zu BlueXP Backup und Recovery für Applikationen finden Sie unter:
 
-* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["Applikationsspezifisches Backup mit BlueXP Backup und Recovery sowie SnapCenter"^]
 * https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["Podcast zu BlueXP Backup und Recovery für Applikationen"^]
 
 

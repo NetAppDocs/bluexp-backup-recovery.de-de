@@ -4,7 +4,7 @@ permalink: task-backup-to-s3.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, aws, aws s3, amazon s3, s3 bucket, back up volumes, cloud backup 
 summary: Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten von Ihren Cloud Volumes ONTAP Systemen in Amazon S3 zu sichern. 
 ---
-= Backup von Cloud Volumes ONTAP Daten in Amazon S3
+= Sichern Sie Cloud Volumes ONTAP-Daten mit BlueXP Backup und Recovery auf Amazon S3
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten von Ihr
 
 
 [role="lead"]
-Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten von Ihren Cloud Volumes ONTAP Systemen in Amazon S3 zu sichern.
+Führen Sie einige Schritte zur Sicherung und Wiederherstellung mit BlueXP durch, um mit der Sicherung von Volume-Daten von Ihren Cloud Volumes ONTAP-Systemen auf Amazon S3 zu beginnen.
 
 
 
@@ -176,7 +176,7 @@ Erforderliche AWS Cloud Volumes ONTAP Berechtigungen:: Wenn auf Ihrem Cloud Volu
 Wenn Sie die Cloud Volumes ONTAP-Arbeitsumgebung mit BlueXP Version 3.9.23 oder höher erstellt haben, sollten diese Berechtigungen bereits Teil der IAM-Rolle sein. Andernfalls müssen Sie die fehlenden Berechtigungen hinzufügen.
 
 --
-Unterstützte AWS-Regionen:: BlueXP Backup und Recovery wird in allen AWS Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^], Einschließlich AWS GovCloud Regionen.
+Unterstützte AWS-Regionen:: BlueXP-Sicherung und -Wiederherstellung wird in allen AWS-Regionen unterstützt, einschließlich der AWS GovCloud-Regionen.
 Einrichtung zur Erstellung von Backups in einem anderen AWS Konto erforderlich:: Standardmäßig werden Backups mit demselben Konto erstellt wie für das Cloud Volumes ONTAP-System. Falls Sie ein anderes AWS Konto für Ihre Backups verwenden möchten, müssen Sie folgende Anforderungen erfüllen:
 +
 --

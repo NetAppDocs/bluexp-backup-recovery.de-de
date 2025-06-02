@@ -4,7 +4,7 @@ permalink: task-backup-vm-data-to-gcp.html
 keywords: back up, backup, backup datastore, gcp, google cloud platform, backup datastores 
 summary: Erstellen Sie Backups Ihrer Datastores von On-Premises-ONTAP auf der Google Cloud Platform. 
 ---
-= Erstellen Sie Backups von Datastores auf Google Cloud Platform
+= Sichern Sie Datenspeicher auf der Google Cloud Platform mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Erstellen Sie Backups Ihrer Datastores von On-Premises-ONTAP auf der Go
 
 
 [role="lead"]
-Durch Integration des SnapCenter Plug-ins für VMware vSphere Hosts in BlueXP können Sie Backups eines oder mehrerer Datastores in die Google Cloud Platform erstellen. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
+Sie können einen oder mehrere Datenspeicher auf der Google Cloud Platform sichern, indem Sie das SnapCenter-Plug-in für VMware vSphere-Hosts mit BlueXP-Sicherung und -Wiederherstellung integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
 
 .Bevor Sie beginnen
 Stellen Sie sicher, dass Sie alle erfüllt haben link:concept-protect-vm-data.html["Anforderungen"] Vor dem Backup von Datastores in der Cloud.

@@ -4,7 +4,7 @@ permalink: task-backup-app-data-to-aws.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Führen Sie einige Schritte durch, um Applikationsdaten von ONTAP in AWS zu sichern. 
 ---
-= Sichern Sie On-Premises-Applikationsdaten in Amazon Web Services
+= Sichern Sie lokale Anwendungsdaten mit BlueXP Backup und Recovery auf Amazon Web Services
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: Führen Sie einige Schritte durch, um Applikationsdaten von ONTAP in AW
 
 
 [role="lead"]
-Führen Sie ein paar Schritte durch, um die Anwendungsdaten von ONTAP auf Amazon Web Services zu sichern.
+Führen Sie einige Schritte zur Sicherung und Wiederherstellung mit BlueXP durch, um die Anwendungsdaten von ONTAP auf Amazon Web Services zu sichern.
 
-BlueXP unterstützt Datensperrung und Ransomware-Schutz. Wenn der ONTAP Cluster unter ONTAP 9.11.1 oder höher ausgeführt wird und Sie den Archiv-Storage nicht konfiguriert haben, können Sie die Backups vor dem Überschreiben, Löschen und Ransomware-Bedrohungen schützen.
+BlueXP Backup und Recovery unterstützt Datensperre und Ransomware-Schutz. Wenn der ONTAP Cluster unter ONTAP 9.11.1 oder höher ausgeführt wird und Sie den Archiv-Storage nicht konfiguriert haben, können Sie die Backups vor dem Überschreiben, Löschen und Ransomware-Bedrohungen schützen.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.

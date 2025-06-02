@@ -4,7 +4,7 @@ permalink: reference-backup-multi-account-azure.html
 keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple regions, backup 
 summary: Mit BlueXP Backup und Recovery können Sie Backup-Dateien in einem Azure Konto erstellen, das sich von dem unterscheidet, wo sich Ihre Cloud Volumes ONTAP Quell-Volumes befinden. Diese Dateien unterscheiden sich von den Konten, in denen der BlueXP Connector residiert. 
 ---
-= Backup für Multi-Account-Zugriff in Azure konfigurieren
+= Konfigurieren Sie die Sicherung für den Zugriff mehrerer Konten in Azure mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

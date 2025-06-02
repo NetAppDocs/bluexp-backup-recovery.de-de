@@ -4,7 +4,7 @@ permalink: task-create-policies-ontap.html
 keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: Sie können Ihre Backups entweder mit den von NetApp bereitgestellten standardmäßigen Backup-Richtlinien oder mit benutzerdefinierten Richtlinien erstellen. Richtlinien regeln den Typ des Backups, die Backup-Architektur, die Speichersysteme und die Backup-Häufigkeit. 
 ---
-= Managen von Backup-Richtlinien für ONTAP Volumes
+= Verwalten Sie Sicherungsrichtlinien für ONTAP-Volumes mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können Ihre Backups entweder mit den von NetApp bereitgestellten s
 
 
 [role="lead"]
-Sie können Ihre Backups entweder mit den von NetApp bereitgestellten standardmäßigen Backup-Richtlinien oder mit benutzerdefinierten Richtlinien erstellen. Richtlinien regeln die Sicherungshäufigkeit, die Dauer der Sicherung und die Anzahl der Sicherungsdateien, die aufbewahrt werden.
+Verwenden Sie mit BlueXP Backup und Recovery die von NetApp bereitgestellten Standard-Backup-Richtlinien zum Erstellen Ihrer Backups oder erstellen Sie benutzerdefinierte Richtlinien. Richtlinien regeln die Sicherungshäufigkeit, die Dauer der Sicherung und die Anzahl der Sicherungsdateien, die aufbewahrt werden.
 
 Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, können Sie die Richtlinie vor oder während der Verwendung des Aktivierungsassistenten erstellen.
 

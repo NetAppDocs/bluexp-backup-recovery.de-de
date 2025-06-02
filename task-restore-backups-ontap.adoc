@@ -4,7 +4,7 @@ permalink: task-restore-backups-ontap.html
 keywords: restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, restore snapshot, restore replication, restore backup, ONTAP 
 summary: Backups der Daten von ONTAP Volumes sind über die Standorte verfügbar, an denen Sie Backups, Snapshot Kopien, replizierte Volumes und/oder im Objekt-Storage gespeicherte Backups erstellt haben. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Sie können ein gesamtes ONTAP-Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige wenige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen. 
 ---
-= ONTAP-Daten aus Backup-Dateien wiederherstellen
+= Stellen Sie ONTAP-Daten aus Sicherungsdateien mit BlueXP Backup und Recovery wieder her
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Backups der Daten von ONTAP Volumes sind über die Standorte verfügbar
 
 
 [role="lead"]
-Backups Ihrer ONTAP Volume-Daten sind über die Standorte Ihrer Backups verfügbar: Snapshot Kopien, replizierte Volumes und im Objekt-Storage gespeicherte Backups. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Sie können ein gesamtes ONTAP-Volume aus einer Backup-Datei wiederherstellen. Wenn Sie aber nur einige wenige Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen.
+Backups Ihrer ONTAP Volume-Daten sind über die Standorte Ihrer Backups verfügbar: Snapshot Kopien, replizierte Volumes und im Objekt-Storage gespeicherte Backups. Sie können von jedem dieser Backup-Standorte aus Daten zu einem bestimmten Zeitpunkt wiederherstellen. Mit BlueXP Backup und Recovery können Sie ein komplettes ONTAP-Volume aus einer Sicherungsdatei wiederherstellen. Wenn Sie nur ein paar Dateien wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen.
 
 * Sie können ein *Volume* (als neues Volume) in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung, in der dieselben Cloud-Konten verwendet werden, oder auf einem lokalen ONTAP System wiederherstellen.
 * Sie können einen *Ordner* auf einem Volume in der ursprünglichen Arbeitsumgebung, auf einem Volume in einer anderen Arbeitsumgebung, die denselben Cloud-Account verwendet, oder auf einem Volume in einem lokalen ONTAP System wiederherstellen.
@@ -55,7 +55,7 @@ Wie Sie sehen können, bietet das Restore Dashboard 2 verschiedene Möglichkeite
 
 In der Regel ist _Browse & Restore_ besser, wenn Sie ein bestimmtes Volume, einen Ordner oder eine Datei aus der letzten Woche oder einem Monat wiederherstellen müssen - und Sie kennen den Namen und den Speicherort der Datei und das Datum, an dem sie zuletzt in gutem Zustand war. _Search & Restore_ ist in der Regel besser, wenn Sie ein Volume, einen Ordner oder eine Datei wiederherstellen müssen, aber Sie können sich nicht an den genauen Namen oder das Volumen, in dem es sich befindet, oder an das Datum erinnern, an dem es zuletzt in gutem Zustand war.
 
-Diese Tabelle enthält einen Funktionsvergleich der 2 Methoden.
+Diese Tabelle bietet einen Funktionsvergleich der beiden Methoden.
 
 [cols="50,50"]
 |===
@@ -349,7 +349,7 @@ Beachten Sie, dass die Wiederherstellung eines Volumes aus einer Backup-Datei im
 Wenn Sie nur einige wenige Dateien aus einem ONTAP-Volume-Backup wiederherstellen müssen, können Sie einen Ordner oder einzelne Dateien wiederherstellen, anstatt das gesamte Volume wiederherzustellen. Sie können Ordner und Dateien in einem vorhandenen Volume in der ursprünglichen Arbeitsumgebung oder in einer anderen Arbeitsumgebung wiederherstellen, die dasselbe Cloud-Konto verwendet. Ordner und Dateien können auch auf einem Volume auf einem lokalen ONTAP System wiederhergestellt werden.
 
 
-NOTE: Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Die Wiederherstellung von Dateien und Ordnern wird derzeit nicht von einer lokalen Snapshot Kopie oder von einer Backup-Datei in einer sekundären Arbeitsumgebung (einem replizierten Volume) unterstützt.
+NOTE: Sie können einen Ordner oder einzelne Dateien derzeit nur aus einer Sicherungsdatei im Objektspeicher wiederherstellen. Das Wiederherstellen von Dateien und Ordnern aus einer lokalen Snapshot-Kopie oder aus einer Sicherungsdatei, die sich in einer sekundären Arbeitsumgebung (einem replizierten Volume) befindet, wird derzeit nicht unterstützt.
 
 Wenn Sie mehrere Dateien auswählen, werden alle Dateien auf dem gleichen Ziellaufwerk wiederhergestellt, das Sie auswählen. Wenn Sie also Dateien auf unterschiedlichen Volumes wiederherstellen möchten, müssen Sie den Wiederherstellungsprozess mehrmals ausführen.
 
@@ -658,7 +658,7 @@ ifdef::azure[]
 +
 Wenn Sie bereits BlueXP Backup und Recovery mit einem Connector genutzt haben, den Sie in der Vergangenheit konfiguriert haben, müssen Sie der BlueXP Benutzerrolle jetzt die Berechtigungen für Azure Synapse Workspace und Data Lake Storage Account hinzufügen. Sie sind für Search & Restore erforderlich.
 
-** Der Connector muss *ohne* einen Proxy-Server für die HTTP-Kommunikation mit dem Internet konfiguriert werden. Wenn Sie einen HTTP-Proxyserver für Ihren Connector konfiguriert haben, können Sie die Funktion Suchen und Ersetzen nicht verwenden.
+** Der Connector muss *ohne* einen Proxy-Server für die HTTP-Kommunikation mit dem Internet konfiguriert werden. Wenn Sie einen HTTP-Proxyserver für Ihren Connector konfiguriert haben, können Sie die Such- und Wiederherstellungsfunktion nicht verwenden.
 
 
 

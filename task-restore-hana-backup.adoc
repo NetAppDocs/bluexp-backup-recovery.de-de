@@ -4,7 +4,7 @@ permalink: task-restore-hana-backup.html
 keywords: restore, mount application backups, SAP HANA database 
 summary: Sie können SAP HANA-Datenbanken aus der Cloud auf dem lokalen SnapCenter-Server wiederherstellen. 
 ---
-= Wiederherstellung der SAP HANA Datenbank
+= Stellen Sie die SAP HANA-Datenbank mit BlueXP Backup und Recovery wieder her
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können SAP HANA-Datenbanken aus der Cloud auf dem lokalen SnapCent
 
 
 [role="lead"]
-Sie können die SAP HANA-Datenbank auf einem beliebigen Host wiederherstellen.
+Sie können die SAP HANA-Datenbank mit BlueXP Backup und Recovery auf jedem Host wiederherstellen
 
 *Schritte*
 

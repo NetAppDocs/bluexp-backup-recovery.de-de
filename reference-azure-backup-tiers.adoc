@@ -4,7 +4,7 @@ permalink: reference-azure-backup-tiers.html
 keywords: microsoft azure, azure, cool, access tier, archive 
 summary: BlueXP Backup und Recovery unterstützt nur eine Azure Zugriffsebene für Archivierung und in den meisten Regionen. 
 ---
-= Azure-Archivierungsebenen und Wiederherstellungszeiten
+= Azure-Archivierungsebenen und Wiederherstellungszeiten mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

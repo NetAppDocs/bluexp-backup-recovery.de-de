@@ -4,7 +4,7 @@ permalink: task-backup-onprem-private-cloud.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, StorageGRID 
 summary: Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten von Ihren lokalen ONTAP Systemen im Objekt-Storage in Ihren NetApp StorageGRID Systemen. 
 ---
-= Sichern Sie On-Premises-ONTAP-Daten in StorageGRID
+= Sichern Sie lokale ONTAP-Daten mit BlueXP Backup und Recovery auf StorageGRID
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von 
 
 
 [role="lead"]
-Führen Sie ein paar Schritte durch und starten Sie mit dem Backup von Volume-Daten von Ihren primären ONTAP Systemen vor Ort auf ein sekundäres Storage-System sowie auf Objektspeicher in Ihren NetApp StorageGRID Systemen.
+Führen Sie einige Schritte in der Sicherung und Wiederherstellung von BlueXP durch, um mit der Sicherung von Volume-Daten von Ihren primären ONTAP-Systemen vor Ort auf ein sekundäres Speichersystem und auf Objektspeicher in Ihren NetApp StorageGRID-Systemen zu beginnen.
 
 
 NOTE: „On-Premises ONTAP Systeme“ umfassen FAS, AFF und ONTAP Select Systeme.
@@ -239,6 +239,10 @@ Unterstützte StorageGRID-Versionen:: StorageGRID 10.3 und höher wird unterstü
 Damit Sie für Ihre Backups DataLock & Ransomware Protection verwenden können, müssen Ihre StorageGRID Systeme ab Version 11.6.0.3 laufen.
 
 Für das Tiering älterer Backups in einen Cloud-Archiv-Storage müssen Ihre StorageGRID Systeme Version 11.3 oder höher ausführen. Darüber hinaus müssen Ihre StorageGRID-Systeme im BlueXP Bildschirm erkannt werden.
+
+Zur Nutzung des Archivspeichers ist ein IP-Zugriff auf den Admin-Knoten erforderlich.
+
+Gateway-IP-Zugriff ist immer erforderlich.
 
 --
 S3-Anmeldedaten:: Sie müssen ein S3-Mandantenkonto erstellt haben, um den Zugriff auf Ihren StorageGRID Storage zu kontrollieren. https://docs.netapp.com/us-en/storagegrid-117/admin/creating-tenant-account.html["Weitere Informationen finden Sie in der StorageGRID Dokumentation"^].

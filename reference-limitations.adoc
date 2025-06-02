@@ -4,7 +4,7 @@ permalink: reference-limitations.html
 keywords: limitations, backup, restore, backup and recovery 
 summary: Bekannte Einschränkungen identifizieren Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit ihr zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch. 
 ---
-= Bekannte Einschränkungen
+= Bekannte Einschränkungen bei der Sicherung und Wiederherstellung mit BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

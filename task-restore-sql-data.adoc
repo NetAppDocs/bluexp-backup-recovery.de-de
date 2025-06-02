@@ -4,7 +4,7 @@ permalink: task-restore-sql-data.html
 keywords: restore, Azure, Amazon Web services, Microsoft SQL Server database 
 summary: Sie können eine SQL Server Datenbank aus der Cloud auf dem lokalen SnapCenter Server wiederherstellen. 
 ---
-= SQL Server Datenbank wiederherstellen
+= Stellen Sie SQL Server-Datenbanken mit BlueXP Backup und Recovery wieder her
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können eine SQL Server Datenbank aus der Cloud auf dem lokalen Sna
 
 
 [role="lead"]
-Sie können die SQL Server Datenbank entweder am ursprünglichen Speicherort oder an einem alternativen Speicherort wiederherstellen.
+Sie können SQL Server-Datenbanken mit BlueXP Backup und Recovery entweder am ursprünglichen Speicherort oder an einem alternativen Speicherort wiederherstellen.
 
 
 NOTE: Single File Restore (SFR), Recovery von Protokoll-Backups und erneutes Seeding von Verfügbarkeitsgruppen werden nicht unterstützt.

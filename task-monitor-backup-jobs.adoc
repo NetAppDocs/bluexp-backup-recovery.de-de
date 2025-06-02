@@ -4,7 +4,7 @@ permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
 summary: Sie können den Status von lokalen Snapshots, Replikationen und Backup-to-Object-Speicherjobs überwachen, die Sie initiiert oder geplant haben, und die von Ihnen initiierten oder geplanten Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt. 
 ---
-= Überwachen des Status von Backup- und Wiederherstellungsjobs
+= Überwachen Sie den Status von Backup- und Recovery-Sicherungs- und Wiederherstellungsaufträgen von BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können den Status von lokalen Snapshots, Replikationen und Backup-
 
 
 [role="lead"]
-Sie können den Status von lokalen Snapshots, Replikationen und von Ihnen initiierten Backup-to-Object-Speicherjobs überwachen und von Ihnen initiierte Jobs wiederherstellen. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt.
+Überwachen Sie mit BlueXP Backup und Recovery den Status lokaler Snapshots, Replikationen und Backups auf Objektspeicherjobs, die Sie initiiert haben, und stellen Sie die von Ihnen initiierten Jobs wieder her. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt.
 
 
 

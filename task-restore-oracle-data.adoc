@@ -4,7 +4,7 @@ permalink: task-restore-oracle-data.html
 keywords: restore, Azure, Amazon Web services, Oracle database 
 summary: Sie können Oracle Datenbanken aus der Cloud auf dem lokalen SnapCenter Server wiederherstellen. 
 ---
-= Oracle Datenbank wiederherstellen
+= Stellen Sie Oracle-Datenbanken mit BlueXP Backup und Recovery wieder her
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können Oracle Datenbanken aus der Cloud auf dem lokalen SnapCenter
 
 
 [role="lead"]
-Sie können Oracle Datenbanken entweder am ursprünglichen Speicherort oder an einem alternativen Speicherort wiederherstellen. Bei einer RAC-Datenbank werden die Daten auf dem lokalen Knoten wiederhergestellt, auf dem das Backup erstellt wurde.
+Sie können Oracle-Datenbanken mit BlueXP Backup und Recovery entweder am ursprünglichen Speicherort oder an einem alternativen Speicherort wiederherstellen. Bei einer RAC-Datenbank werden die Daten auf dem lokalen Knoten wiederhergestellt, auf dem das Backup erstellt wurde.
 
 Es wird nur eine vollständige Datenbank mit Wiederherstellung der Kontrolldatei unterstützt. Wenn die Archivprotokolle nicht im AFS vorhanden sind, müssen Sie den Speicherort angeben, der die für die Wiederherstellung erforderlichen Archivprotokolle enthält.
 

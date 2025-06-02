@@ -4,7 +4,7 @@ permalink: task-create-policies-vms.html
 keywords: create policy, protection policies, predefined policies, custom policies 
 summary: Erstellen Sie eine Richtlinie zum Backup von Datastores 
 ---
-= Erstellen Sie eine Richtlinie zum Backup von Datastores
+= Erstellen Sie eine Richtlinie zum Sichern von Datenspeichern mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Erstellen Sie eine Richtlinie zum Backup von Datastores
 
 
 [role="lead"]
-Sie können eine Richtlinie erstellen oder eine der folgenden vordefinierten Richtlinien verwenden, die in BlueXP verfügbar sind.
+Sie können eine Richtlinie erstellen oder eine der folgenden vordefinierten Richtlinien verwenden, die in BlueXP Backup and Recovery verfügbar sind.
 
 .Bevor Sie beginnen
 * Sie sollten Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht bearbeiten möchten.

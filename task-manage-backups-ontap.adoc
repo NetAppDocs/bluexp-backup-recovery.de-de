@@ -4,7 +4,7 @@ permalink: task-manage-backups-ontap.html
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp 
 summary: Sie können die Backups für Ihre Cloud Volumes ONTAP und lokalen ONTAP Systeme verwalten, indem Sie den Backup-Zeitplan ändern, neue Backup-Richtlinien erstellen, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen und vieles mehr. Dies umfasst alle Arten von Backups, einschließlich Snapshot Kopien, replizierte Volumes und Backup-Dateien im Objektspeicher. 
 ---
-= Verwalten Sie Backups für Ihre ONTAP Systeme
+= Verwalten Sie Backups für Ihre ONTAP-Systeme mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sie können die Backups für Ihre Cloud Volumes ONTAP und lokalen ONTAP
 
 
 [role="lead"]
-Sie können Backups für Ihre Cloud Volumes ONTAP und On-Premises ONTAP Systeme managen, indem Sie den Backup-Zeitplan ändern, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen und vieles mehr. Dies umfasst alle Arten von Backups, einschließlich Snapshot Kopien, replizierte Volumes und Backup-Dateien im Objektspeicher.
+Verwalten Sie mit BlueXP Backup und Recovery Backups für Ihre Cloud Volumes ONTAP- und lokalen ONTAP-Systeme, indem Sie den Backup-Zeitplan ändern, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen und mehr. Dies umfasst alle Arten von Backups, einschließlich Snapshot Kopien, replizierte Volumes und Backup-Dateien im Objektspeicher.
 
 
 CAUTION: Backup-Dateien dürfen nicht direkt auf Ihren Storage-Systemen oder in Ihrer Cloud-Provider-Umgebung gemanagt oder geändert werden. Dies kann die Dateien beschädigen und zu einer nicht unterstützten Konfiguration führen.

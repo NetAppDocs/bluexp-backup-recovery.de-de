@@ -4,7 +4,7 @@ permalink: task-backup-to-gcp.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, gcp, google cloud, back up volumes, cloud backup, bluexp, bluexp backup and recovery 
 summary: Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten von Ihren Cloud Volumes ONTAP Systemen auf Google Cloud Storage zu sichern. 
 ---
-= Backup von Cloud Volumes ONTAP Daten auf Google Cloud Storage
+= Sichern Sie Cloud Volumes ONTAP-Daten mit BlueXP Backup und Recovery in Google Cloud Storage
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Führen Sie einige Schritte durch, um zu beginnen, Volume-Daten von Ihr
 
 
 [role="lead"]
-Führen Sie ein paar Schritte durch, um zu beginnen, Volume-Daten von Ihren Cloud Volumes ONTAP-Systemen in Google Cloud Storage zu sichern.
+Führen Sie einige Schritte zur Sicherung und Wiederherstellung mit BlueXP durch, um mit der Sicherung von Volume-Daten von Ihren Cloud Volumes ONTAP-Systemen in Google Cloud Storage zu beginnen.
 
 
 
@@ -74,7 +74,7 @@ Optional können Sie für replizierte Volumes auch eine Verbindung zu einem seku
 image:diagram_cloud_backup_cvo_google.png["Diagramm, das die Kommunikation von BlueXP Backup und Recovery mit den Volumes auf dem Quellsystem und dem Ziel-Storage zeigt, auf dem sich die Backup-Dateien befinden."]
 
 Unterstützte ONTAP-Versionen:: Mindestens ONTAP 9.8; ONTAP 9.8P13 und höher wird empfohlen.
-Unterstützte GCP-Regionen:: BlueXP Backup und Recovery wird in allen GCP-Regionen unterstützt https://cloud.netapp.com/cloud-volumes-global-regions["Wobei Cloud Volumes ONTAP unterstützt wird"^].
+Unterstützte GCP-Regionen:: BlueXP-Sicherung und -Wiederherstellung wird in allen GCP-Regionen unterstützt.
 GCP-Service-Konto:: Sie benötigen ein Servicekonto in Ihrem Google Cloud Project, das die benutzerdefinierte Rolle hat. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html["Erfahren Sie, wie Sie ein Servicekonto erstellen"^]
 
 

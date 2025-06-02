@@ -4,7 +4,7 @@ permalink: task-report-inventory.html
 keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory, bluexp 
 summary: Mit den Backup- und Recovery-Berichten von BlueXP können Sie sicherstellen, dass kritische Daten gemäß den definierten Richtlinien Ihres Unternehmens geschützt sind, und Audits für Compliance-Prozesse effizient unterstützen. Mit dem Backup-Inventarbericht können Sie alle Ihre Backups für ein bestimmtes Konto, eine Arbeitsumgebung oder einen SVM-Bestand anzeigen. 
 ---
-= Berichte zur Datensicherung
+= Bericht zum Datenschutzumfang mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Mit den Backup- und Recovery-Berichten von BlueXP können Sie sicherste
 
 
 [role="lead"]
-Mit den Backup- und Recovery-Berichten von BlueXP können Sie sicherstellen, dass kritische Daten gemäß den definierten Richtlinien Ihres Unternehmens geschützt sind, und Audits für Compliance-Anforderungen durchführen.
+Stellen Sie mit den Sicherungs- und Wiederherstellungsberichten von BlueXP sicher, dass kritische Daten gemäß den festgelegten Richtlinien Ihres Unternehmens geschützt sind, und führen Sie Audits zur Erfüllung der Compliance-Anforderungen durch.
 
 BlueXP Backup- und Recovery-Berichte ermöglichen Ihnen Folgendes:
 

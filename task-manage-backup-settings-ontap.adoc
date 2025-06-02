@@ -4,7 +4,7 @@ permalink: task-manage-backup-settings-ontap.html
 keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots, ransomware scans, scans 
 summary: Sie können viele von Ihnen bei der Aktivierung von BlueXP Backup und Recovery für jedes ONTAP System festgelegte Backup-to-Objekt-Einstellungen auf Cluster-Ebene ändern. Sie können auch einige Einstellungen ändern, die als „Standard“-Backup-Einstellungen angewendet werden. Dies schließt das Ändern von Storage-Schlüsseln, die Übertragungsrate von Backups in den Objekt-Storage ein, unabhängig davon, ob historische Snapshot-Kopien als Backup-Dateien exportiert werden, und vieles mehr. Außerdem können Sie Ransomware-Scans für eine Arbeitsumgebung aktivieren oder deaktivieren. 
 ---
-= Verwalten Sie die Optionen für die Sicherung auf Objekt-Storage auf der Seite Erweiterte Einstellungen
+= Verwalten Sie die Optionen für die Sicherung auf Objektspeicher auf der Seite „Erweiterte Einstellungen“ von BlueXP Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

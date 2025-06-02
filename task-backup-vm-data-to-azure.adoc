@@ -4,7 +4,7 @@ permalink: task-backup-vm-data-to-azure.html
 keywords: back up, backup, backup datastore, Microsoft Azure, backup datastores 
 summary: Sichern Sie Ihre Datenspeicher von On-Premises ONTAP nach Azure. 
 ---
-= Sichern Sie Datastores in Microsoft Azure
+= Sichern Sie Datenspeicher in Microsoft Azure mit BlueXP Backup und Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Sichern Sie Ihre Datenspeicher von On-Premises ONTAP nach Azure.
 
 
 [role="lead"]
-Sie können Backups eines oder mehrerer Datastores in Microsoft Azure erstellen, indem Sie das SnapCenter Plug-in für den VMware vSphere Host in BlueXP integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
+Sie können einen oder mehrere Datenspeicher in Microsoft Azure sichern, indem Sie das SnapCenter-Plug-in für VMware vSphere-Hosts mit BlueXP-Sicherung und -Wiederherstellung integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
 
 Wenn der Datenspeicher einer Archivierungsrichtlinie zugeordnet ist, erhalten Sie eine Option zur Auswahl der Archivebene. Die unterstützte Archivierungs-Tier ist Azure Archive Blob Storage.
 

@@ -4,7 +4,7 @@ permalink: task-backup-app-data-to-gcp.html
 keywords: backing up, back up, backup, backup application data, Google Cloud Platform, GCP, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: In wenigen Schritten wird ein Backup von Applikationsdaten von ONTAP in GCP durchgeführt. 
 ---
-= Sichern Sie On-Premises-Applikationsdaten auf der Google Cloud Platform
+= Sichern Sie lokale Anwendungsdaten mit BlueXP Backup und Recovery auf der Google Cloud Platform
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: In wenigen Schritten wird ein Backup von Applikationsdaten von ONTAP in
 
 
 [role="lead"]
-Führen Sie ein paar Schritte durch, um das Backup der Applikationsdaten von ONTAP auf der Google Cloud Platform zu erstellen.
+Führen Sie einige Schritte zur Sicherung und Wiederherstellung mit BlueXP aus, um die Anwendungsdaten von ONTAP auf der Google Cloud Platform zu sichern.
 
 .Schritte
 . Klicken Sie in BlueXP UI auf *Schutz* > *Sicherung und Wiederherstellung* > *Anwendungen*.
