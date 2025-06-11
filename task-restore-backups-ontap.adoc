@@ -749,29 +749,13 @@ Der indizierte Katalog v2 unterstützt Folgendes:
 
 
 .Aktivieren des indizierten Katalogs für eine Arbeitsumgebung
-Wenn Sie diese Funktionalität aktivieren, ermöglicht BlueXP Backup und Recovery SnapDiff v3 auf der SVM für Ihre Volumes und führt folgende Aktionen aus:
+Der Dienst stellt keinen separaten Bucket bereit, wenn Sie den Indexed Catalog v2 verwenden. Stattdessen stellt der Dienst für Backups, die in AWS, Azure, Google Cloud Platform, StorageGRID oder ONTAP S3 gespeichert sind, Speicherplatz auf dem Connector oder in der Umgebung des Cloud-Anbieters bereit.
 
-ifdef::aws[]
+Wenn Sie den indizierten Katalog vor der Version 2 aktiviert haben, geschieht Folgendes mit Arbeitsumgebungen:
 
 * Für Backups, die in AWS gespeichert werden, stellt die Software einen neuen S3-Bucket und den bereit https://aws.amazon.com/athena/faqs/["Interaktive Abfrage-Service von Amazon Athena"^] Und https://aws.amazon.com/glue/faqs/["AWS Glue serverloser Datenintegrations-Service"^].
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 * Für Backups, die in Azure gespeichert sind, stellt sie einen Azure Synapse Workspace und ein Data Lake Dateisystem als Container bereit, in dem die Workspace-Daten gespeichert werden.
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 * Für Backups, die in Google Cloud gespeichert sind, stellt die IT einen neuen Bucket bereit und https://cloud.google.com/bigquery["Google Cloud BigQuery Services"^] Werden auf Konto-/Projektebene bereitgestellt.
-
-
-endif::gcp[]
-
 * Für in StorageGRID oder ONTAP S3 gespeicherte Backups stellt er Speicherplatz auf dem Connector oder in der Cloud-Provider-Umgebung bereit.
 
 

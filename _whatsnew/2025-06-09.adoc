@@ -23,6 +23,8 @@ Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/bluexp-back
 
 Normalerweise richtet BlueXP Backup & Recovery einen privaten Endpunkt beim Cloud-Anbieter ein, um verschiedene Schutzaufgaben zu übernehmen. Diese Version bietet eine optionale Einstellung, mit der Sie die automatische Erstellung eines privaten Endpunkts durch BlueXP Backup & Recovery aktivieren oder deaktivieren können. Dies ist hilfreich, wenn Sie mehr Kontrolle über die Erstellung des privaten Endpunkts wünschen.
 
+Sie können diese Option aktivieren oder deaktivieren, wenn Sie den Schutz aktivieren oder den Wiederherstellungsprozess starten.
+
 Wenn Sie diese Einstellung deaktivieren, müssen Sie den privaten Endpunkt manuell erstellen, damit die BlueXP-Sicherung und -Wiederherstellung ordnungsgemäß funktioniert. Ohne die richtige Konnektivität können Sie Sicherungs- und Wiederherstellungsaufgaben möglicherweise nicht erfolgreich durchführen.
 
 
