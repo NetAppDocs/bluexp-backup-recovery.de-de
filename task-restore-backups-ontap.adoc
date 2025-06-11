@@ -47,7 +47,7 @@ NOTE: BlueXP Backup und Recovery müssen bereits für mindestens eine Arbeitsumg
 
 image:screenshot_restore_dashboard.png["Das Restore Dashboard zeigt die Optionen für die Funktion Browse  Restore oder Search  Restore an."]
 
-Wie Sie sehen können, bietet das Restore Dashboard 2 verschiedene Möglichkeiten, Daten aus Sicherungsdateien wiederherzustellen: *Durchsuchen & Wiederherstellen* und *Suchen & Wiederherstellen*.
+Wie Sie sehen, bietet das Wiederherstellungs-Dashboard zwei verschiedene Möglichkeiten zum Wiederherstellen von Daten aus Sicherungsdateien: *Durchsuchen und Wiederherstellen* und *Suchen und Wiederherstellen*.
 
 
 
@@ -246,7 +246,7 @@ video::9Og5agUWyRk[youtube,width=848,height=480,end=164]
 . Klicken Sie auf die Registerkarte *Wiederherstellen*, und das Dashboard wiederherstellen wird angezeigt.
 . Klicken Sie im Abschnitt „_Browse & Restore_“ auf *Volume wiederherstellen*.
 +
-image:screenshot_restore_volume_selection.png["Ein Screenshot, in dem Sie die Schaltfläche „Volumes wiederherstellen“ aus dem Dashboard „Wiederherstellen“ auswählen."]
+image:screenshot_restore_dashboard.png["Das Restore Dashboard zeigt die Optionen für die Funktion Browse  Restore oder Search  Restore an."]
 
 . Navigieren Sie auf der Seite _Quelle auswählen_ zur Sicherungsdatei für das Volume, das Sie wiederherstellen möchten. Wählen Sie die Datei * Working Environment*, *Volume* und die Datei *Backup* aus, die den Datums-/Zeitstempel enthält, aus dem Sie wiederherstellen möchten.
 +
@@ -407,7 +407,7 @@ video::9Og5agUWyRk[youtube,width=848,height=480,start=165]
 . Klicken Sie auf die Registerkarte *Wiederherstellen*, und das Dashboard wiederherstellen wird angezeigt.
 . Klicken Sie im Abschnitt _Durchsuchen & Wiederherstellen_ auf *Dateien oder Ordner wiederherstellen*.
 +
-image:screenshot_restore_files_selection.png["Ein Screenshot, in dem Sie die Schaltfläche Dateien oder Ordner wiederherstellen im Dashboard wiederherstellen auswählen."]
+image:screenshot_restore_dashboard.png["Das Restore Dashboard zeigt die Optionen für die Funktion Browse  Restore oder Search  Restore an."]
 
 . Navigieren Sie auf der Seite _Quelle auswählen_ zur Sicherungsdatei für das Volume, das den Ordner oder die Dateien enthält, die wiederhergestellt werden sollen. Wählen Sie die *Arbeitsumgebung*, das *Volume* und den *Backup* aus, der den Datums-/Zeitstempel enthält, aus dem Sie Dateien wiederherstellen möchten.
 +
@@ -727,7 +727,7 @@ Bevor Sie Search & Restore verwenden können, müssen Sie „Indizierung“ in j
 Der indizierte Katalog ist eine Datenbank, in der Metadaten zu allen Volumes und Backup-Dateien in Ihrer Arbeitsumgebung gespeichert werden. Es wird von der Such- und Wiederherstellungsfunktion verwendet, um schnell die Sicherungsdateien zu finden, die die wiederherzustellenden Daten enthalten.
 
 .Merkmale des indizierten Katalogs v2
-Der indizierte Katalog v2, der im Februar 2025 veröffentlicht wurde, verfügt über neue Funktionen, die ihn effizienter und benutzerfreundlicher machen. Diese Version hat eine erhebliche Leistungssteigerung und ist standardmäßig für alle neuen Kunden aktiviert.
+Der im Februar 2025 veröffentlichte und im Juni 2025 aktualisierte Indexed Catalog v2 enthält Funktionen, die ihn effizienter und benutzerfreundlicher machen. Diese Version hat eine erhebliche Leistungssteigerung und ist standardmäßig für alle neuen Kunden aktiviert.
 
 Lesen Sie die folgenden Überlegungen zu v2:
 
@@ -736,6 +736,7 @@ Lesen Sie die folgenden Überlegungen zu v2:
 * Der Catalog v2 indiziert nur die Snapshots, die eine Snapshot-Beschriftung haben.
 * BlueXP  Backup und Recovery indexiert Snapshots nicht mit „stündlichen“ SnapMirror-Etiketten. Wenn Sie Schnappschüsse mit dem „stündlichen“ SnapMirror-Label indexieren möchten, müssen Sie es manuell aktivieren, während sich der v2 im Vorschaumodus befindet.
 * BlueXP  Backup und Recovery indiziert Volumes und Snapshots, die mit Arbeitsumgebungen verbunden sind, die durch BlueXP  Backup und Recovery geschützt sind, nur mit dem Katalog v2. Andere auf der BlueXP -Plattform erkannte Arbeitsumgebungen werden nicht indiziert.
+* Die Datenindizierung mit Catalog v2 erfolgt in lokalen Umgebungen sowie in Amazon Web Services-, Microsoft Azure- und Google Cloud Platform (GCP)-Umgebungen.
 
 
 Der indizierte Katalog v2 unterstützt Folgendes:
@@ -801,31 +802,34 @@ Nachdem Sie den haben <<enable-the-indexed-catalog-for-each-working-environment,
 
 .Schritte
 . Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
-. Klicken Sie auf die Registerkarte *Wiederherstellen*, und das Dashboard wiederherstellen wird angezeigt.
-. Klicken Sie im Abschnitt _Suchen & Wiederherstellen_ auf *Suchen & Wiederherstellen*.
+. Klicken Sie auf die Registerkarte *Wiederherstellen*.
 +
-image:screenshot_restore_start_search_restore.png["Ein Screenshot, in dem Sie die Schaltfläche Suchen  Wiederherstellen im Dashboard wiederherstellen auswählen."]
+Das Wiederherstellungs-Dashboard wird angezeigt.
 
-. Auf der Seite „Suche nach Wiederherstellung“:
+. Wählen Sie im Abschnitt _Suchen und Wiederherstellen_ die Option *Suchen und Wiederherstellen* aus.
++
+image:screenshot_restore_dashboard.png["Das Restore Dashboard zeigt die Optionen für die Funktion Browse  Restore oder Search  Restore an."]
+
+. Auf der Seite „Suchen und Wiederherstellen“:
 +
 .. Geben Sie in der _Suchleiste_ einen vollständigen oder teilweisen Volumennamen, Ordnernamen oder Dateinamen ein.
 .. Wählen Sie den Ressourcentyp aus: *Volumes*, *Dateien*, *Ordner* oder *Alle*.
 .. Wählen Sie im Bereich _Filter by_ die Filterkriterien aus. Sie können beispielsweise die Arbeitsumgebung auswählen, in der sich die Daten befinden, und den Dateityp, z. B. eine JPEG-Datei. Sie können auch den Typ des Backup-Speicherorts auswählen, wenn Sie nur innerhalb der verfügbaren Snapshot-Kopien oder Backup-Dateien im Objektspeicher nach Ergebnissen suchen möchten.
 
 
-. Klicken Sie auf *Suchen* und im Bereich Suchergebnisse werden alle Ressourcen angezeigt, die eine Datei, einen Ordner oder ein Volume haben, das Ihrer Suche entspricht.
+. Wählen Sie *Suchen* und im Bereich „Suchergebnisse“ werden alle Ressourcen angezeigt, die über eine Datei, einen Ordner oder ein Volume verfügen, das Ihrer Suche entspricht.
 +
 image:screenshot_restore_step1_search_restore.png["Ein Screenshot mit den Suchkriterien und Suchergebnissen auf der Seite Suche  Restore."]
 
-. Suchen Sie die Ressource mit den Daten, die Sie wiederherstellen möchten, und klicken Sie auf *Alle Backups anzeigen*, um alle Sicherungsdateien anzuzeigen, die das passende Volume, den passenden Ordner oder die entsprechende Datei enthalten.
+. Suchen Sie die Ressource mit den Daten, die Sie wiederherstellen möchten, und wählen Sie *Alle Sicherungen anzeigen* aus, um alle Sicherungsdateien anzuzeigen, die das entsprechende Volume, den entsprechenden Ordner oder die entsprechende Datei enthalten.
 +
 image:screenshot_restore_step2_search_restore.png["Ein Screenshot zeigt, wie alle Backups angezeigt werden, die Ihren Suchkriterien entsprechen."]
 
-. Suchen Sie die Sicherungsdatei, die Sie zum Wiederherstellen der Daten verwenden möchten, und klicken Sie auf *Wiederherstellen*.
+. Suchen Sie die Sicherungsdatei, die Sie zum Wiederherstellen der Daten verwenden möchten, und wählen Sie *Wiederherstellen*.
 +
 Die Ergebnisse identifizieren lokale Snapshot-Kopien des Volumes und replizierte Remote-Volumes, die die Datei in Ihrer Suche enthalten. Sie können zwischen der Backup-Datei in der Cloud, der Snapshot Kopie oder dem replizierten Volume auswählen.
 
-. Wählen Sie den Zielspeicherort aus, an dem die Volumes, Ordner oder Dateien wiederhergestellt werden sollen, und klicken Sie auf *Wiederherstellen*.
+. Wählen Sie den Zielspeicherort aus, an dem das Volume, der Ordner oder die Datei(en) wiederhergestellt werden sollen, und wählen Sie *Wiederherstellen*.
 +
 ** Für Volumes können Sie die ursprüngliche Ziel-Arbeitsumgebung auswählen oder eine andere Arbeitsumgebung auswählen. Bei der Wiederherstellung eines FlexGroup Volumes müssen Sie mehrere Aggregate auswählen.
 ** Für Ordner können Sie den ursprünglichen Speicherort wiederherstellen oder einen alternativen Speicherort auswählen, einschließlich der Arbeitsumgebung, des Volumes und des Ordners.
@@ -865,6 +869,6 @@ endif::gcp[]
 
 
 .Ergebnisse
-Die Volume-, Ordner- oder Datei(en) werden wiederhergestellt und Sie werden zum Restore Dashboard zurückgebracht, damit Sie den Fortschritt des Wiederherstellungsvorgangs überprüfen können. Sie können auch auf die Registerkarte *Job Monitoring* klicken, um den Wiederherstellungsfortschritt anzuzeigen.
+Die Volume-, Ordner- oder Datei(en) werden wiederhergestellt und Sie werden zum Restore Dashboard zurückgebracht, damit Sie den Fortschritt des Wiederherstellungsvorgangs überprüfen können. Sie können auch die Registerkarte *Jobüberwachung* auswählen, um den Wiederherstellungsfortschritt anzuzeigen.
 
 Für wiederhergestellte Volumes ist möglich link:task-manage-backups-ontap.html["Verwalten Sie die Backup-Einstellungen für dieses neue Volume"] Nach Bedarf.
