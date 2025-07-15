@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: br-limitations.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Der BlueXP backup and recovery -Dienst muss zunächst Daten erkennen, bevor Sie ihn nutzen können. Während der Erkennung analysiert BlueXP backup and recovery alle Volumes und Dateien in den Arbeitsumgebungen Ihres Unternehmens. 
+---
+= Bekannte Einschränkungen bei BlueXP backup and recovery für Microsoft SQL Server Workloads
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit dem Produkt zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch.
+
+
+
+== Nur Standardbereitstellungsmodus
+
+Die BlueXP backup and recovery funktioniert nur im Standardbereitstellungsmodus, nicht im eingeschränkten oder privaten Modus.
+
+
+
+== Einschränkung des Windows-Clusternamens
+
+Der Windows-Clustername darf keinen Unterstrich (_) enthalten.
+
+
+
+== Probleme bei der SnapCenter -Migration
+
+Die Migration von Ressourcen von SnapCenter in die BlueXP backup and recovery unterliegt den folgenden Einschränkungen.
+
+Weitere Informationen zur Migration von SnapCenter -Richtlinien zu BlueXP backup and recovery und Wiederherstellungsrichtlinien finden Sie unter link:reference-policy-differences-snapcenter.html["Richtlinien in SnapCenter im Vergleich zu denen in BlueXP backup and recovery"] .
+
+
+
+=== Einschränkungen der Ressourcengruppe
+
+Wenn alle Ressourcen in einer Ressourcengruppe geschützt sind und eine dieser Ressourcen auch außerhalb der Ressourcengruppe geschützt ist, wird die Migration von SnapCenter blockiert.
+
+*Problemumgehung*: Schützen Sie die Ressource entweder in einer Ressourcengruppe oder einzeln, aber nicht in beiden.
+
+
+
+=== Ressourcen mit mehreren Richtlinien, die dieselbe Zeitplanebene verwenden, werden nicht unterstützt
+
+Sie können einer Ressource nicht mehrere Richtlinien zuweisen, die dieselbe Zeitplanstufe verwenden (z. B. stündlich, täglich, wöchentlich usw.). BlueXP backup and recovery importiert diese Ressourcen nicht aus SnapCenter.
+
+*Problemumgehung*: Fügen Sie einer Ressource nur eine Richtlinie mit derselben Zeitplanebene hinzu.
+
+
+
+=== Stundenrichtlinien müssen zu Beginn der Stunde beginnen
+
+Wenn Sie eine SnapCenter -Richtlinie haben, die stündlich wiederholt wird, die Stunden jedoch nicht in Intervallen zu Beginn der Stunde liegen, importiert BlueXP backup and recovery die Ressource nicht. Beispielsweise werden Richtlinien mit Zeitplänen von 1:30, 2:30, 3:30 usw. nicht unterstützt, während Richtlinien mit Zeitplänen von 1:00, 2:00, 3:00 usw. unterstützt werden.
+
+*Problemumgehung*: Verwenden Sie eine Richtlinie, die sich ab jeder vollen Stunde in 1-Stunden-Intervallen wiederholt.
+
+
+
+=== Sowohl tägliche als auch monatliche Richtlinien, die einer Ressource zugeordnet sind, werden nicht unterstützt
+
+Wenn sich eine SnapCenter -Richtlinie sowohl in Tages- als auch in Monatsintervallen wiederholt, importiert BlueXP backup and recovery die Richtlinie nicht.
+
+Sie können beispielsweise einer Ressource nicht gleichzeitig eine Tagesrichtlinie (mit weniger als oder gleich 7 Tagen oder mehr als 7 Tagen) und gleichzeitig eine Monatsrichtlinie zuordnen.
+
+*Problemumgehung*: Verwenden Sie eine Richtlinie, die ein tägliches oder ein monatliches Intervall verwendet, aber nicht beides.
+
+
+
+=== On-Demand-Backup-Richtlinien nicht migriert
+
+BlueXP backup and recovery importiert keine On-Demand-Backup-Richtlinien aus SnapCenter.
+
+
+
+=== Nur-Protokoll-Sicherungsrichtlinien werden nicht migriert
+
+BlueXP backup and recovery importiert keine Nur-Protokoll-Sicherungsrichtlinien aus SnapCenter. Wenn eine SnapCenter -Richtlinie Nur-Protokoll-Sicherungen enthält, importiert BlueXP backup and recovery die Ressource nicht.
+
+*Problemumgehung*: Verwenden Sie in SnapCenter eine Richtlinie, die mehr als nur reine Protokollsicherungen verwendet.
+
+
+
+=== Host-Zuordnung
+
+SnapCenter verfügt nicht über die Möglichkeit, Speichercluster oder SVMs für Ressourcen Hosts zuzuordnen, BlueXP backup and recovery hingegen schon. Der lokale ONTAP Cluster oder die SVM wird in der Vorschauversion von BlueXP backup and recovery keinem Host zugeordnet. BlueXP unterstützt zudem keine SVMs.
+
+*Problemumgehung*: Erstellen Sie vor dem Importieren von Ressourcen aus SnapCenter eine Arbeitsumgebung in BlueXP backup and recovery für alle lokalen ONTAP Speichersysteme, die im lokalen SnapCenter registriert sind. Importieren Sie anschließend die Ressourcen für diesen Cluster aus SnapCenter in BlueXP backup and recovery.
+
+
+
+=== Fahrpläne nicht im 15-Minuten-Takt
+
+Wenn Sie einen SnapCenter -Richtlinienzeitplan haben, der zu einer bestimmten Zeit beginnt und sich alle paar Minuten wiederholt, die Minuten jedoch nicht in 15-Minuten-Intervallen liegen, importiert BlueXP backup and recovery den Zeitplan nicht.
+
+*Problemumgehung*: Passen Sie die Richtlinie mithilfe von SnapCenter so an, dass sie in 15-Minuten-Intervallen wiederholt wird.
+
+
+
+=== Aufbewahrungsdauer der Protokollsicherung
+
+Mit SnapCenter können Sie mehrere Aufbewahrungswerte für mehrere Richtlinien einer Ressource festlegen. Die Vorschauversion von BlueXP backup and recovery unterstützt jedoch nur einen einzigen Aufbewahrungswert für alle Richtlinien einer Ressource.

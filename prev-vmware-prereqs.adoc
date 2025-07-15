@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-prereqs.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Voraussetzungen für die Workloads virtueller Maschinen in BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bevor Sie mit dem Schutz der Workloads Ihrer virtuellen Maschinen mit BlueXP backup and recovery beginnen, stellen Sie sicher, dass Sie die folgenden Voraussetzungen erfüllen:
+
+* SnapCenter Plug-in für VMware vSphere 4.6P1 oder höher
++
+** Sie sollten das SnapCenter Plug-in für VMware vSphere 4.7P1 oder höher verwenden, um Datastores aus dem lokalen Sekundärspeicher zu sichern.
+
+
+* ONTAP 9.8 oder höher
+* BlueXP
+* NFS- und VMFS-Datastores werden unterstützt. VVols werden nicht unterstützt.
+* Für die VMFS-Unterstützung sollte das SnapCenter Plug-in for VMware vSphere Host unter 4.9 oder höher ausgeführt werden. Stellen Sie sicher, dass Sie ein Backup des VMFS-Datastore erstellen, wenn das SnapCenter-Plug-in für VMware vSphere-Host von einer früheren Version auf die Version 4.9 aktualisiert wurde.
+* In SnapCenter-Plug-in für VMware vSphere 4.6P1 sollte mindestens ein Backup erstellt werden.
+* SnapCenter Plug-in für VMware vSphere enthält mindestens eine tägliche, wöchentliche oder monatliche Richtlinie ohne Etikett und dieselbe Bezeichnung wie die Virtual Machines-Richtlinie in BlueXP.
+* Im Rahmen einer vordefinierten Richtlinie sollte die Zeitplanebene für den Datenspeicher im SnapCenter Plug-in für VMware vSphere und in der Cloud identisch sein.
+* Stellen Sie sicher, dass keine FlexGroup Volumes im Datenspeicher vorhanden sind, da Backup und Wiederherstellung von FlexGroup Volumes nicht unterstützt werden.
+* Deaktivieren Sie „*_recent*“ für die erforderlichen Ressourcengruppen. Wenn Sie für die Ressourcengruppe „*_recent*“ aktiviert haben, können die Backups dieser Ressourcengruppen nicht für den Datenschutz in der Cloud verwendet und können anschließend nicht für den Wiederherstellungsvorgang verwendet werden.
+* Stellen Sie sicher, dass der Ziel-Datastore, auf dem die virtuelle Maschine wiederhergestellt wird, genügend Speicherplatz für eine Kopie aller VM-Dateien wie VMDK, VMX, VMSD usw. hat.
+* Stellen Sie sicher, dass im Zieldatenspeicher keine veralteten Dateien der virtuellen Maschine im Format restore_xxx_xxxxxx_filename aus dem vorherigen Wiederherstellungsvorgang vorliegen. Sie sollten die veralteten Dateien löschen, bevor Sie eine Wiederherstellung durchführen.
+* Um einen Konnektor mit konfiguriertem Proxy bereitzustellen, stellen Sie sicher, dass alle ausgehenden Verbindungsaufrufe über den Proxyserver weitergeleitet werden.
+* Wenn ein Volume, das einen Datenspeicher sichert, bereits über die Registerkarte Volumes geschützt ist (BlueXP  Sicherung und Wiederherstellung -> Volumes), dann kann derselbe Datenspeicher nicht wieder über die Registerkarte Virtuelle Maschinen geschützt werden (BlueXP  Sicherung und Wiederherstellung -> Virtuelle Maschinen).
+
+
+Die folgende Abbildung zeigt die einzelnen Komponenten und die Verbindungen, die zwischen den Komponenten vorbereitet werden müssen:
+
+image:cloud_backup_vm.png["Architekturdiagramm"]

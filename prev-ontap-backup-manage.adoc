@@ -1,0 +1,482 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-backup-manage.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Mit BlueXP backup and recovery verwalten Sie Backups für Ihre Cloud Volumes ONTAP und lokalen ONTAP Systeme. Sie können den Backup-Zeitplan ändern, Volume-Backups aktivieren, Backups pausieren, Backups löschen und vieles mehr. Sie können BlueXP backup and recovery auch abmelden. 
+---
+= Verwalten Sie Backups für Ihre ONTAP-Systeme mit BlueXP Backup und Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Verwalten Sie mit BlueXP Backup und Recovery Backups für Ihre Cloud Volumes ONTAP- und lokalen ONTAP-Systeme, indem Sie den Backup-Zeitplan ändern, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen und mehr. Dies umfasst alle Arten von Backups, einschließlich Snapshot-Kopien, replizierten Volumes und Backup-Dateien im Objektspeicher. Sie können die Registrierung von BlueXP backup and recovery auch aufheben.
+
+
+CAUTION: Backup-Dateien dürfen nicht direkt auf Ihren Storage-Systemen oder in Ihrer Cloud-Provider-Umgebung gemanagt oder geändert werden. Dies kann die Dateien beschädigen und zu einer nicht unterstützten Konfiguration führen.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+
+
+== Anzeigen des Backup-Status von Volumes in Ihren Arbeitsumgebungen
+
+Sie können eine Liste aller Volumes anzeigen, die derzeit im Volume Backup Dashboard gesichert werden. Dies umfasst alle Arten von Backups, einschließlich Snapshot-Kopien, replizierter Volumes und Backup-Dateien im Objektspeicher. Sie können auch die Volumes in den Arbeitsumgebungen anzeigen, die derzeit nicht gesichert werden.
+
+.Schritte
+. Wählen Sie im Menü BlueXP die Option *Schutz > Sicherung und Wiederherstellung*.
+. Wählen Sie die Registerkarte *Volumes* aus, um die Liste der gesicherten Volumes für Ihre Cloud Volumes ONTAP und lokalen ONTAP Systeme anzuzeigen.
+. Wenn Sie nach bestimmten Volumes in bestimmten Arbeitsumgebungen suchen, können Sie die Liste nach Arbeitsumgebung und Volumen verfeinern. Sie können auch den Suchfilter verwenden oder die Spalten nach Volume-Stil (FlexVol oder FlexGroup), Volume-Typ und mehr sortieren.
++
+Um zusätzliche Spalten anzuzeigen (Aggregate, Sicherheitsstil (Windows oder UNIX), Snapshot-Richtlinie, Replikationsrichtlinie und Sicherungsrichtlinie), wählen Sie das Pluszeichen aus.
+
+. Überprüfen Sie den Status der Schutzoptionen in der Spalte „bestehender Schutz“. Die 3 Symbole stehen für „Lokale Snapshot-Kopien“, „Replizierte Volumes“ und „Backups im Objektspeicher“.
++
+image:screenshot_backup_protection_status.png["Ein Screenshot mit dem Status der drei Arten von Schutz: Snapshots, Replikationen und Backups."]
+
++
+Jedes Symbol ist blau, wenn dieser Sicherungstyp aktiviert ist, und es ist grau, wenn der Sicherungstyp inaktiv ist. Sie können den Mauszeiger über jedes Symbol bewegen, um die verwendete Backup-Richtlinie sowie weitere relevante Informationen für jeden Backup-Typ anzuzeigen.
+
+
+
+
+
+== Aktivieren Sie Backups auf zusätzlichen Volumes in einer funktionierenden Umgebung
+
+Wenn Sie bei der ersten Aktivierung von BlueXP Backup und Recovery nur auf einigen Volumes in einer Arbeitsumgebung das Backup aktiviert haben, können Sie Backups auf weiteren Volumes später aktivieren.
+
+.Schritte
+. Geben Sie auf der Registerkarte *Volumes* das Volume an, auf dem Sie Backups aktivieren möchten, und wählen Sie das Menü Aktionen aus image:icon-action.png["Aktionssymbol"] Am Ende der Zeile, und wählen Sie *Backup aktivieren*.
++
+image:screenshot_backup_additional_volume.png["Ein Screenshot, der zeigt, wie Backups auf zusätzlichen Volumes in einer Arbeitsumgebung aktiviert werden."]
+
+. Wählen Sie auf der Seite _define Backup Strategy_ die Backup-Architektur aus, und definieren Sie dann die Richtlinien und andere Details für lokale Snapshot-Kopien, replizierte Volumes und Backup-Dateien. Weitere Informationen zu Backup-Optionen der ersten Volumes, die Sie in dieser Arbeitsumgebung aktiviert haben, finden Sie unter. Wählen Sie dann *Weiter*.
+. Überprüfen Sie die Sicherungseinstellungen für dieses Volume und wählen Sie dann *Sicherung aktivieren*.
+
+
+
+
+== Ändern Sie die Backup-Einstellungen, die vorhandenen Volumes zugewiesen sind
+
+Die Backup-Richtlinien, die Ihren vorhandenen Volumes mit zugewiesenen Richtlinien zugewiesen sind, können geändert werden. Sie können die Richtlinien für Ihre lokalen Snapshot-Kopien, replizierten Volumes und Sicherungsdateien ändern. Neue Snapshot-, Replikations- oder Sicherungsrichtlinien, die Sie auf die Volumes anwenden möchten, müssen bereits vorhanden sein.
+
+
+
+=== Bearbeiten Sie die Backup-Einstellungen auf einem einzelnen Volume
+
+.Schritte
+. Geben Sie auf der Registerkarte *Volumes* das Volume an, das Sie Richtlinienänderungen vornehmen möchten, und wählen Sie das Menü Aktionen aus image:icon-action.png["Aktionssymbol"] Am Ende der Zeile, und wählen Sie *Backup-Strategie bearbeiten*.
++
+image:screenshot_edit_backup_strategy.png["Ein Screenshot mit der Schaltfläche „Backup-Strategie bearbeiten“, die nach der Auswahl eines Volumes verfügbar ist."]
+
+. Nehmen Sie auf der Seite „Sicherungsstrategie bearbeiten“ Änderungen an den vorhandenen Sicherungsrichtlinien für lokale Snapshot-Kopien, replizierte Volumes und Sicherungsdateien vor und wählen Sie „Weiter“ aus.
++
+Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery für diesen Cluster in der anfänglichen Backup-Richtlinie _DataLock und Ransomware-Schutz_ für Cloud-Backups aktiviert haben, werden nur weitere Richtlinien angezeigt, die mit DataLock konfiguriert wurden. Und wenn Sie bei der Aktivierung von BlueXP Backup und Recovery _DataLock und Ransomware-Schutz_ nicht aktiviert haben, werden Sie nur andere Cloud-Backup-Richtlinien sehen, für die DataLock nicht konfiguriert ist.
+
+. Überprüfen Sie die Sicherungseinstellungen für dieses Volume und wählen Sie dann *Sicherung aktivieren*.
+
+
+
+
+=== Bearbeiten Sie die Backup-Einstellungen auf mehreren Volumes
+
+Wenn Sie dieselben Backup-Einstellungen auf mehreren Volumes verwenden möchten, können Sie die Backup-Einstellungen auf mehreren Volumes gleichzeitig aktivieren oder bearbeiten. Sie können Volumes auswählen, die keine Sicherungseinstellungen, nur Snapshot-Einstellungen, nur Einstellungen für die Sicherung in der Cloud usw. haben, und Massenänderungen an allen diesen Volumes mit unterschiedlichen Sicherungseinstellungen vornehmen.
+
+Bei der Arbeit mit mehreren Volumes müssen alle Volumes die folgenden gemeinsamen Merkmale aufweisen:
+
+* Gleiche Arbeitsumgebung
+* Gleicher Stil (FlexVol oder FlexGroup Volume)
+* Gleicher Typ (Lese-/Schreibzugriff oder Data Protection Volume)
+
+
+Wenn mehr als fünf Volumes für Backups aktiviert sind, werden mit BlueXP  Backup und Recovery nur fünf Volumes gleichzeitig initialisiert. Wenn diese abgeschlossen sind, erstellt es den nächsten Stapel von fünf untergeordneten Jobs, um den nächsten Satz zu starten, und wird fortgesetzt, bis alle Volumes initialisiert werden.
+
+.Schritte
+. Filtern Sie auf der Registerkarte *Volumes* nach der Arbeitsumgebung, in der sich die Volumes befinden.
+. Wählen Sie alle Volumes aus, auf denen Sie die Backup-Einstellungen verwalten möchten.
+. Je nach Art der zu konfigurierenden Sicherungsaktion klicken Sie im Menü Massenaktionen auf die Schaltfläche:
++
+[cols="50,30"]
+|===
+| Sicherungsaktion... | Wählen Sie diese Schaltfläche... 
+
+
+| Verwalten der Snapshot-Backup-Einstellungen | *Lokale Snapshots Verwalten* 
+
+
+| Verwalten der Replikationssicherungseinstellungen | *Replikation Verwalten* 
+
+
+| Verwalten der Backup-Einstellungen in der Cloud | *Sicherung Verwalten* 
+
+
+| Verwalten Sie mehrere Arten von Backup-Einstellungen. Mit dieser Option können Sie auch die Backup-Architektur ändern. | *Backup und Recovery verwalten* 
+|===
+. Nehmen Sie auf der angezeigten Sicherungsseite Änderungen an den vorhandenen Sicherungsrichtlinien für lokale Snapshot-Kopien, replizierte Volumes oder Sicherungsdateien vor und wählen Sie *Speichern*.
++
+Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery für diesen Cluster in der anfänglichen Backup-Richtlinie _DataLock und Ransomware-Schutz_ für Cloud-Backups aktiviert haben, werden nur weitere Richtlinien angezeigt, die mit DataLock konfiguriert wurden. Und wenn Sie bei der Aktivierung von BlueXP Backup und Recovery _DataLock und Ransomware-Schutz_ nicht aktiviert haben, werden Sie nur andere Cloud-Backup-Richtlinien sehen, für die DataLock nicht konfiguriert ist.
+
+
+
+
+
+== Erstellen Sie jederzeit eine manuelle Volume-Sicherung
+
+Sie können jederzeit ein On-Demand-Backup erstellen, um den aktuellen Status des Volumes zu erfassen. Dies ist nützlich, wenn sehr wichtige Änderungen an einem Volume vorgenommen wurden und Sie nicht auf das nächste geplante Backup warten möchten, um diese Daten zu sichern. Sie können diese Funktion auch verwenden, um ein Backup für ein Volume zu erstellen, das derzeit nicht gesichert wird und den aktuellen Status erfassen soll.
+
+Sie können eine Ad-hoc-Snapshot-Kopie oder ein Backup auf ein Objekt eines Volumes erstellen. Sie können kein ad-hoc repliziertes Volume erstellen.
+
+Der Backup-Name enthält den Zeitstempel, sodass Sie Ihr On-Demand Backup aus anderen geplanten Backups identifizieren können.
+
+Wenn Sie bei der Aktivierung von BlueXP Backup und Recovery für diesen Cluster _DataLock und Ransomware-Schutz_ aktiviert haben, wird das On-Demand-Backup auch mit DataLock konfiguriert, und die Aufbewahrungsfrist beträgt 30 Tage. Ransomware-Scans werden für Ad-hoc-Backups nicht unterstützt. link:prev-ontap-policy-object-options.html["Erfahren Sie mehr über DataLock und Ransomware-Schutz"^].
+
+Bei einer Ad-hoc-Sicherung wird ein Snapshot auf dem Quellvolume erstellt. Da dieser Snapshot nicht Teil eines normalen Snapshot-Zeitplans ist, wird er nicht gelöscht. Sie können diesen Snapshot nach Abschluss der Sicherung manuell vom Quellvolume löschen. Dadurch werden die mit diesem Snapshot verknüpften Blöcke freigegeben. Der Name des Snapshots beginnt mit  `cbs-snapshot-adhoc-` .  https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Informationen zum Löschen eines Snapshots mit der ONTAP-CLI finden Sie unter"^] .
+
+
+NOTE: Volume-Backups werden auf Datensicherungs-Volumes nicht unterstützt.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* image:icon-actions-horizontal.gif["Aktionssymbol"] für das Volume und wählen Sie *Backup* > *Ad-hoc-Backup erstellen*.
+
+
+In der Spalte Backup Status für dieses Volume wird „in progress“ angezeigt, bis das Backup erstellt wird.
+
+
+
+== Sehen Sie sich die Liste der Backups für jedes Volume an
+
+Sie können eine Liste aller Backup-Dateien anzeigen, die für jedes Volume vorhanden sind. Auf dieser Seite werden Details zum Quell-Volume, zum Zielort und zu Backup-Details wie zum Beispiel zum letzten Backup, zur aktuellen Backup-Richtlinie, zur Größe der Sicherungsdatei und mehr angezeigt.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* image:icon-actions-horizontal.gif["Aktionssymbol"] für das Quellvolume und wählen Sie *Volumedetails anzeigen*.
++
+image:screenshot_backup_view_backups_button.png["Ein Screenshot, der die Schaltfläche Volume-Details anzeigen zeigt, die für ein einzelnes Volume verfügbar ist."]
+
++
+Die Details zum Volume und die Liste der Snapshot-Kopien werden angezeigt.
+
+. Wählen Sie *Snapshot*, *Replication* oder *Backup*, um die Liste aller Sicherungsdateien für jeden Sicherungstyp anzuzeigen.
+
+
+
+
+== Führen Sie einen Ransomware-Scan bei einem Volume-Backup im Objekt-Storage durch
+
+BlueXP backup and recovery scannt Ihre Backup-Dateien auf Hinweise auf einen Ransomware-Angriff, wenn ein Backup in eine Objektdatei erstellt wird und wenn Daten aus einer Backup-Datei wiederhergestellt werden. Sie können jederzeit einen On-Demand-Scan durchführen, um die Nutzbarkeit einer bestimmten Backup-Datei im Objektspeicher zu überprüfen. Die Folgen sind besonders dann hilfreich, wenn Ransomware-Probleme auf einem bestimmten Volume gehabt haben und man überprüfen möchte, ob die Backups für das Volume nicht betroffen sind.
+
+Diese Funktion ist nur verfügbar, wenn die Volume-Sicherung von einem System mit ONTAP 9.11.1 oder höher erstellt wurde und Sie in der Backup-to-Object-Richtlinie _DataLock und Ransomware-Schutz_ aktiviert haben.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* image:icon-actions-horizontal.gif["Aktionssymbol"] für das Quellvolume und wählen Sie *Volumedetails anzeigen*.
++
+image:screenshot_backup_view_backups_button.png["Ein Screenshot, der die Schaltfläche Volume-Details anzeigen zeigt, die für ein einzelnes Volume verfügbar ist."]
+
++
+Die Details für das Volume werden angezeigt.
+
+. Wählen Sie *Backup*, um die Liste der Sicherungsdateien im Objektspeicher anzuzeigen.
+. Wählen image:icon-actions-horizontal.gif["Aktionssymbol"] für die Volume-Sicherungsdatei, die Sie auf Ransomware scannen möchten, und klicken Sie auf *Nach Ransomware scannen*.
++
+image:screenshot_scan_one_backup.png["Ein Screenshot, der zeigt, wie ein Ransomware-Scan auf einer einzelnen Backup-Datei ausgeführt wird"]
+
++
+In der Spalte „Ransomware-Schutz“ wird angezeigt, dass der Scan läuft.
+
+
+
+
+
+== Verwalten der Replikationsbeziehung mit dem Quell-Volume
+
+Nachdem Sie die Datenreplizierung zwischen zwei Systemen eingerichtet haben, können Sie die Datenreplikationsbeziehung verwalten.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* image:icon-actions-horizontal.gif["Aktionssymbol"] für das Quellvolume und wählen Sie die Option *Replikation*. Sie können alle verfügbaren Optionen sehen.
+. Wählen Sie die Replikationsaktion aus, die Sie durchführen möchten.
++
+image:screenshot_replication_managing.png["Ein Screenshot mit einer Liste der Aktionen, die über das Aktionsmenü Replikation verfügbar sind."]
+
++
+Die folgende Tabelle beschreibt die verfügbaren Aktionen:
+
++
+[cols="15,85"]
+|===
+| Aktion | Beschreibung 
+
+
+| Replikation Anzeigen | Zeigt Details zur Volume-Beziehung an: Übertragungsinformationen, Informationen zur letzten Übertragung, Details zum Volume und Informationen zur Schutzrichtlinie, die der Beziehung zugeordnet sind. 
+
+
+| Replikation Aktualisieren | Startet eine inkrementelle Übertragung, um das Ziel-Volume zu aktualisieren, das mit dem Quell-Volume synchronisiert werden soll. 
+
+
+| Replikation Anhalten | Unterbrechen Sie die inkrementelle Übertragung von Snapshot Kopien, um das Ziel-Volume zu aktualisieren. Wenn Sie die inkrementellen Aktualisierungen neu starten möchten, können Sie die Aktualisierung zu einem späteren Zeitpunkt fortsetzen. 
+
+
+| Replikation Unterbrechen | Bricht die Beziehung zwischen den Quell- und Ziel-Volumes und aktiviert das Ziel-Volume für den Datenzugriff - macht es Lese-und Schreibzugriff.
+
+Diese Option wird in der Regel verwendet, wenn das Quell-Volume aufgrund von Ereignissen wie Datenbeschädigung, versehentlichem Löschen oder einem Offline-Status keine Daten bereitstellen kann.
+
+https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["Erfahren Sie, wie Sie ein Ziel-Volume für Datenzugriff konfigurieren und ein Quell-Volume in der ONTAP Dokumentation neu aktivieren"^] 
+
+
+| Replikation Abbrechen | Deaktiviert die Backups dieses Volumes auf dem Zielsystem und deaktiviert auch die Möglichkeit zur Wiederherstellung eines Volumes. Vorhandene Backups werden nicht gelöscht. Dadurch wird die Datensicherungsbeziehung zwischen den Quell- und Ziel-Volumes nicht gelöscht. 
+
+
+| Reverse Resync | Kehrt die Rollen der Quell- und Ziel-Volumes um. Der Inhalt des ursprünglichen Quell-Volumes wird durch den Inhalt des Ziel-Volumes überschrieben. Dies ist hilfreich, wenn Sie ein Quell-Volume, das offline gegangen ist, reaktivieren möchten.
+
+Alle Daten, die zwischen der letzten Datenreplizierung und dem Zeitpunkt, zu dem das Quell-Volume deaktiviert wurde, auf das ursprüngliche Quell-Volume geschrieben wurden, bleiben nicht erhalten. 
+
+
+| Beziehung Löschen | Löscht die Data-Protection-Beziehung zwischen Quell- und Ziel-Volumes, d. H., die Datenreplizierung findet nicht mehr zwischen den Volumes statt. Diese Aktion aktiviert nicht das Zielvolume für den Datenzugriff - das bedeutet, dass es nicht Lese- und Schreibvorgänge macht. Durch diese Aktion werden auch die Cluster-Peer-Beziehung und die SVM-Peer-Beziehung (Storage VM) gelöscht, falls keine anderen Datensicherungsbeziehungen zwischen den Systemen bestehen. 
+|===
+
+
+.Ergebnis
+Nachdem Sie eine Aktion ausgewählt haben, aktualisiert BlueXP die Beziehung.
+
+
+
+== Bearbeiten Sie eine vorhandene Richtlinie für Backups in der Cloud
+
+Sie können die Attribute für eine Backup-Richtlinie ändern, die derzeit auf Volumes in einer Arbeitsumgebung angewendet wird. Die Änderung der Backup-Richtlinie wirkt sich auf alle vorhandenen Volumes aus, die diese Richtlinie verwenden.
+
+[NOTE]
+====
+* Wenn Sie _DataLock und Ransomware-Schutz_ in der ursprünglichen Richtlinie aktiviert haben, wenn BlueXP Backup und Recovery für diesen Cluster aktiviert wurde, müssen alle von Ihnen bearbeitenden Richtlinien mit derselben DataLock-Einstellung (Governance oder Compliance) konfiguriert werden. Und wenn Sie bei der Aktivierung von BlueXP Backup und Recovery _DataLock und Ransomware-Schutz_ nicht aktiviert haben, können Sie DataLock jetzt nicht aktivieren.
+* Wenn Sie bei der Erstellung von Backups auf AWS bei der ersten Backup-Richtlinie bei der Aktivierung von BlueXP Backup und Recovery _S3 Glacier_ oder _S3 Glacier Deep Archive_ ausgewählt haben, ist diese Tier bei der Bearbeitung von Backup-Richtlinien die einzige Archivebene. Falls Sie in Ihrer ersten Backup-Richtlinie keine Archivebene ausgewählt haben, ist _S3 Glacier_ die einzige Archivoption beim Bearbeiten einer Richtlinie.
+
+
+====
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
++
+image:screenshot_backup_settings_button.png["Ein Screenshot, in dem die Schaltfläche Backup Settings auf der Registerkarte Volumes angezeigt wird."]
+
+. Wählen Sie auf der Seite _Backup-Einstellungen_ image:icon-actions-horizontal.gif["Aktionssymbol"] für die Arbeitsumgebung, in der Sie die Richtlinieneinstellungen ändern möchten, und wählen Sie *Richtlinien verwalten*.
+. Wählen Sie auf der Seite „Richtlinien verwalten“ *Bearbeiten* für die Sicherungsrichtlinie aus, die Sie in dieser Arbeitsumgebung ändern möchten.
+. Wählen Sie auf der Seite „Richtlinie bearbeiten“ den Abwärtspfeil aus, um den Abschnitt „Beschriftungen und Aufbewahrung“ zu erweitern und den Zeitplan und/oder die Sicherungsaufbewahrung zu ändern, und wählen Sie „Speichern“ aus.
++
+image:screenshot_backup_edit_policy.png["Ein Screenshot, der die Einstellungen für die Backup-Richtlinien zeigt, in dem Sie den Backup-Zeitplan und die Einstellung für die Backup-Aufbewahrung ändern können."]
+
++
+Wenn in Ihrem Cluster ONTAP 9.10.1 oder höher ausgeführt wird, haben Sie außerdem die Möglichkeit, das Tiering von Backups in Archiv-Storage nach einer bestimmten Anzahl von Tagen zu aktivieren oder zu deaktivieren.
+
++
+ifdef::aws[]
+
+
+
+link:prev-reference-aws-archive-storage-tiers.html["Erfahren Sie mehr über die Verwendung von AWS Archiv-Storage"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["Erfahren Sie mehr über den Azure Archiv-Storage"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["Erfahren Sie mehr über die Verwendung von Google Archivspeicher"]. (ONTAP 9.12.1 erforderlich.)
+
+endif::gcp[]
+
++ Beachten Sie, dass alle Backup-Dateien, die in einen Archiv-Storage verschoben wurden, in diesem Tier belassen werden, wenn Sie die Tiering-Backups zur Archivierung anhalten - sie werden nicht automatisch zurück in die Standard-Tier verschoben. Es werden nur neue Volume-Backups in der Standard-Tier gespeichert.
+
+
+
+== Neue Richtlinie für das Backup in die Cloud hinzufügen
+
+Wenn Sie BlueXP Backup und Recovery für eine funktionierende Umgebung aktivieren, werden alle Volumes, die Sie ursprünglich ausgewählt haben, mithilfe der von Ihnen definierten Standard-Backup-Richtlinie gesichert. Um bestimmten Volumes mit verschiedenen Recovery Point Objectives (RPOs) unterschiedliche Backup-Richtlinien zuzuweisen, können Sie zusätzliche Richtlinien für diesen Cluster erstellen und diese Richtlinien anderen Volumes zuweisen.
+
+Wenn Sie eine neue Sicherungsrichtlinie auf bestimmte Volumes in einer Arbeitsumgebung anwenden möchten, müssen Sie zunächst die Sicherungsrichtlinie zur Arbeitsumgebung hinzufügen. Dann können Sie das <<Ändern Sie die Backup-Einstellungen, die vorhandenen Volumes zugewiesen sind,Wenden Sie die Richtlinie auf Volumes in dieser Arbeitsumgebung an>>.
+
+[NOTE]
+====
+* Wenn Sie _DataLock und Ransomware Protection_ in der ursprünglichen Richtlinie aktiviert haben, wenn BlueXP Backup und Recovery für diesen Cluster aktiviert wurde, müssen alle zusätzlich erstellten Richtlinien mit derselben DataLock-Einstellung (Governance oder Compliance) konfiguriert werden. Und wenn Sie bei der Aktivierung von BlueXP Backup und Recovery _DataLock und Ransomware-Schutz_ nicht aktiviert haben, können Sie keine neuen Richtlinien erstellen, die DataLock verwenden.
+* Wenn Sie bei der Erstellung von Backups auf AWS bei der ersten Backup-Richtlinie bei der Aktivierung von BlueXP Backup und Recovery _S3 Glacier_ oder _S3 Glacier Deep Archive_ ausgewählt haben, ist diese Tier die einzige Archiv-Tier, die für zukünftige Backup-Richtlinien für diesen Cluster verfügbar ist. Falls Sie in Ihrer ersten Backup-Richtlinie keine Archiv-Tier ausgewählt haben, ist _S3 Glacier_ die einzige Archivoption für zukünftige Richtlinien.
+
+
+====
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
++
+image:screenshot_backup_settings_button.png["Ein Screenshot, in dem die Schaltfläche Backup Settings auf der Registerkarte Volumes angezeigt wird."]
+
+. Wählen Sie auf der Seite _Backup-Einstellungen_ image:icon-actions-horizontal.gif["Aktionssymbol"] für die Arbeitsumgebung, in der Sie die neue Richtlinie hinzufügen möchten, und wählen Sie *Richtlinien verwalten*.
++
+image:screenshot_backup_modify_policy.png["Ein Screenshot, in dem die Option Richtlinien verwalten auf der Seite Backup Settings angezeigt wird."]
+
+. Wählen Sie auf der Seite „Richtlinien verwalten“ die Option „Neue Richtlinie hinzufügen“ aus.
+. Wählen Sie auf der Seite „Neue Richtlinie hinzufügen“ den Abwärtspfeil aus, um den Abschnitt „Beschriftungen und Aufbewahrung“ zu erweitern und den Zeitplan und die Sicherungsaufbewahrung festzulegen, und wählen Sie „Speichern“ aus.
++
+image:screenshot_backup_add_new_policy.png["Ein Screenshot, der die Einstellungen für die Backup-Richtlinien zeigt, in denen Sie den Backup-Zeitplan und die Einstellung für die Backup-Aufbewahrung hinzufügen können."]
+
++
+Wenn in Ihrem Cluster ONTAP 9.10.1 oder höher ausgeführt wird, haben Sie außerdem die Möglichkeit, das Tiering von Backups in Archiv-Storage nach einer bestimmten Anzahl von Tagen zu aktivieren oder zu deaktivieren.
+
++
+ifdef::aws[]
+
+
+
+link:prev-reference-aws-archive-storage-tiers.html["Erfahren Sie mehr über die Verwendung von AWS Archiv-Storage"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["Erfahren Sie mehr über den Azure Archiv-Storage"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["Erfahren Sie mehr über die Verwendung von Google Archivspeicher"]. (ONTAP 9.12.1 erforderlich.)
+
+endif::gcp[]
+
+
+
+== Backups löschen
+
+Mit BlueXP Backup und Recovery können Sie eine einzelne Backup-Datei löschen, alle Backups eines Volumes löschen oder alle Backups aller Volumes in einer funktionierenden Umgebung löschen. Sie möchten eventuell alle Backups löschen, wenn Sie die Backups nicht mehr benötigen, oder wenn Sie das Quell-Volume gelöscht haben und alle Backups entfernen möchten.
+
+Sie können keine Sicherungsdateien löschen, die Sie mit DataLock und Ransomware-Schutz gesperrt haben. Die Option „Löschen“ ist in der Benutzeroberfläche nicht verfügbar, wenn Sie eine oder mehrere gesperrte Sicherungsdateien ausgewählt haben.
+
+
+CAUTION: Wenn Sie planen, eine Arbeitsumgebung oder ein Cluster mit Backups zu löschen, müssen Sie die Backups *löschen, bevor Sie das System löschen. BlueXP Backup und Recovery löscht Backups nicht automatisch, wenn Sie ein System löschen. Die Benutzeroberfläche bietet derzeit keine Unterstützung zum Löschen der Backups nach dem Löschen des Systems. Für alle verbleibenden Backups werden weiterhin die Kosten für Objekt-Storage in Rechnung gestellt.
+
+
+
+=== Löschen Sie alle Sicherungsdateien für eine funktionierende Umgebung
+
+Durch das Löschen aller Backups auf dem Objektspeicher für eine Arbeitsumgebung werden zukünftige Backups von Volumes in dieser Arbeitsumgebung nicht deaktiviert. Wenn Sie die Erstellung von Backups aller Volumes in einer Arbeitsumgebung beenden möchten, können Sie Backups deaktivieren <<BlueXP Backup und Recovery für eine funktionierende Umgebung deaktivieren,Wie hier beschrieben>>.
+
+Beachten Sie, dass diese Aktion keine Auswirkungen auf Snapshot-Kopien oder replizierte Volumes hat. Diese Arten von Backup-Dateien werden nicht gelöscht.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
++
+image:screenshot_backup_settings_button.png["Ein Screenshot, der die Schaltfläche Backup Settings zeigt, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
+
+. Wählen image:icon-actions-horizontal.gif["Aktionssymbol"] für die Arbeitsumgebung, in der Sie alle Backups löschen möchten, und wählen Sie *Alle Backups löschen*.
+. Geben Sie im Bestätigungsdialogfeld den Namen der Arbeitsumgebung ein und wählen Sie *Löschen*.
+
+
+
+
+=== Löschen aller Sicherungsdateien für ein Volume
+
+Durch das Löschen aller Backups für ein Volume werden auch künftige Backups für dieses Volume deaktiviert.
+
+.Schritte
+. Klicken Sie auf der Registerkarte *Volumes* auf image:icon-actions-horizontal.gif["Weitere Symbole"] für das Quellvolume und wählen Sie *Details & Sicherungsliste*.
++
+image:screenshot_backup_view_backups_button.png["Ein Screenshot, der die Schaltfläche „Details und Sicherungsliste“ zeigt, die für ein einzelnes Volume verfügbar ist."]
+
++
+Die Liste aller Sicherungsdateien wird angezeigt.
+
+. Wählen Sie *Aktionen* > *Alle Backups löschen*.
++
+image:screenshot_backup_delete_all_backups.png["Ein Screenshot, der die Option „Alle Backups löschen“ zeigt"]
+
+. Geben Sie den Datenträgernamen ein und geben Sie an, ob Sie das Löschen aller Sicherungen erzwingen möchten oder nicht.
+. Wählen Sie *Löschen*.
+
+
+
+
+=== Eine einzelne Sicherungsdatei für ein Volume löschen
+
+Sie können eine einzelne Sicherungsdatei löschen, wenn Sie sie nicht mehr benötigen. Dazu gehört auch das Löschen eines einzelnen Backups einer Volume-Snapshot-Kopie oder eines Backups im Objektspeicher.
+
+Replizierte Volumes (Data Protection Volumes) können nicht gelöscht werden.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* image:icon-actions-horizontal.gif["Weitere Symbole"] für das Quellvolume und wählen Sie *Volumedetails anzeigen*.
++
+image:screenshot_backup_view_backups_button.png["Ein Screenshot, der die Schaltfläche Volume-Details anzeigen zeigt, die für ein einzelnes Volume verfügbar ist."]
+
++
+Die Details für das Volume werden angezeigt, und Sie können *Snapshot*, *Replication* oder *Backup* auswählen, um die Liste aller Sicherungsdateien für das Volume anzuzeigen. Standardmäßig werden die verfügbaren Snapshot-Kopien angezeigt.
+
+. Wählen Sie *Snapshot* oder *Backup*, um den Typ der zu löschenden Sicherungsdateien anzuzeigen.
+. Wählen image:icon-actions-horizontal.gif["Aktionssymbol"] für die Volume-Sicherungsdatei, die Sie löschen möchten, und wählen Sie *Löschen*.
+. Wählen Sie im Bestätigungsdialogfeld *Löschen* aus.
+
+
+
+
+== Löschen von Volume-Backup-Beziehungen
+
+Wenn Sie die Backup-Beziehung für ein Volume löschen, erhalten Sie einen Archivierungsmechanismus, wenn Sie die Erstellung neuer Backup-Dateien beenden und das Quell-Volume löschen möchten, aber alle bestehenden Backup-Dateien behalten möchten. So können Sie das Volume bei Bedarf später aus der Backup-Datei wiederherstellen und gleichzeitig Speicherplatz aus dem Quell-Storage-System löschen.
+
+Das Quell-Volume muss nicht unbedingt gelöscht werden. Sie können die Backup-Beziehung für ein Volume löschen und das Quell-Volume behalten. In diesem Fall können Sie die Backups auf dem Volume zu einem späteren Zeitpunkt „aktivieren“. Die ursprüngliche Backup-Kopie des Basisplans wird in diesem Fall weiterhin verwendet. Eine neue Basis-Backup-Kopie wird nicht erstellt und in die Cloud exportiert. Beachten Sie, dass beim Reaktivieren einer Backup-Beziehung dem Volume die standardmäßige Backup-Richtlinie zugewiesen wird.
+
+Diese Funktion ist nur verfügbar, wenn Ihr System ONTAP 9.12.1 oder höher ausführt.
+
+Das Quell-Volume kann nicht von der BlueXP Backup- und Recovery-Benutzeroberfläche gelöscht werden. Sie können jedoch die Seite Volume Details auf dem Bildschirm öffnen, und https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["Löschen Sie das Volume von dort"].
+
+
+NOTE: Sie können einzelne Sicherungsdateien des Volumes nicht löschen, sobald die Beziehung gelöscht wurde. Sie können jedoch alle Backups für das Volume löschen.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* image:icon-actions-horizontal.gif["Aktionssymbol"] für das Quellvolume und wählen Sie *Backup* > *Beziehung löschen*.
+
+
+
+
+== BlueXP Backup und Recovery für eine funktionierende Umgebung deaktivieren
+
+Durch die Deaktivierung von BlueXP Backup- und Recovery-Funktionen für eine funktionierende Umgebung werden die Backups jedes Volumes auf dem System deaktiviert. Zudem wird die Möglichkeit zur Wiederherstellung eines Volumes deaktiviert. Vorhandene Backups werden nicht gelöscht. Dadurch wird die Registrierung des Backup-Service in dieser Arbeitsumgebung nicht aufgehoben. Im Grunde können Sie alle Backup- und Wiederherstellungsaktivitäten für einen bestimmten Zeitraum anhalten.
+
+Beachten Sie, dass Cloud-Provider Ihnen weiterhin die Kosten für Objekt-Storage für die Kapazität in Ihrem Backup in Rechnung stellen, es sei denn, Sie sind erforderlich <<Backups löschen,Löschen Sie die Backups>>.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
++
+image:screenshot_backup_settings_button.png["Ein Screenshot, der die Schaltfläche Backup Settings zeigt, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
+
+. Wählen Sie auf der Seite „Backup-Einstellungen“ image:icon-actions-horizontal.gif["Aktionssymbol"] für die Arbeitsumgebung, in der Sie Backups deaktivieren möchten, und wählen Sie *Backup deaktivieren*.
+. Wählen Sie im Bestätigungsdialogfeld *Deaktivieren* aus.
+
+
+
+NOTE: Für diese Arbeitsumgebung wird während der Sicherung eine *Sicherung aktivieren*-Schaltfläche angezeigt. Sie können diese Schaltfläche auswählen, wenn Sie die Sicherungsfunktion für diese Arbeitsumgebung erneut aktivieren möchten.
+
+
+
+== Heben Sie die Registrierung von BlueXP Backup und Recovery für eine funktionierende Umgebung auf
+
+Wenn Sie die Backup-Funktionen nicht mehr nutzen möchten und Sie die Kosten für Backups in dieser Arbeitsumgebung abschaffen möchten, können Sie die Registrierung für das BlueXP Backup und Recovery für eine Arbeitsumgebung aufheben. Diese Funktion wird normalerweise verwendet, wenn Sie planen, eine Arbeitsumgebung zu löschen, und Sie möchten den Backup-Service abbrechen.
+
+Sie können diese Funktion auch verwenden, wenn Sie den Zielobjektspeicher ändern möchten, in dem Ihre Cluster-Backups gespeichert werden. Nachdem Sie BlueXP Backup und Recovery für die Arbeitsumgebung entfernt haben, können Sie BlueXP Backup und Recovery für dieses Cluster mithilfe der Informationen des neuen Cloud-Providers aktivieren.
+
+Bevor Sie das Backup- und Recovery-System von BlueXP aufheben können, müssen Sie in der folgenden Reihenfolge vorgehen:
+
+* BlueXP Backup und Recovery für die Arbeitsumgebung deaktivieren
+* Löschen Sie alle Backups für die Arbeitsumgebung
+
+
+Die Option zum Aufheben der Registrierung ist erst verfügbar, wenn diese beiden Aktionen abgeschlossen sind.
+
+.Schritte
+. Wählen Sie auf der Registerkarte *Volumes* die Option *Backup-Einstellungen* aus.
++
+image:screenshot_backup_settings_button.png["Ein Screenshot, der die Schaltfläche Backup Settings zeigt, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
+
+. Wählen Sie auf der Seite „Backup-Einstellungen“ image:icon-actions-horizontal.gif["Aktionssymbol"] für die Arbeitsumgebung, in der Sie die Registrierung des Sicherungsdienstes aufheben möchten, und wählen Sie *Registrierung aufheben*.
+. Wählen Sie im Bestätigungsdialogfeld *Abmelden* aus.
+

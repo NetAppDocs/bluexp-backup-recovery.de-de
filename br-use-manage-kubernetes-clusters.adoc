@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: br-use-manage-kubernetes-clusters.html 
+keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory 
+summary: Mit BlueXP backup and recovery können Sie Ihre Kubernetes-Cluster erkennen und verwalten, sodass Sie die von den Clustern gehosteten Ressourcen schützen können. 
+---
+= Managen Sie Kubernetes-Cluster
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Mit BlueXP backup and recovery können Sie Ihre Kubernetes-Cluster erkennen und verwalten, sodass Sie die von den Clustern gehosteten Ressourcen schützen können.
+
+.Erforderliche BlueXP -Rolle
+Organisationsadministrator oder SnapCenter Administrator. link:reference-roles.html["Erfahren Sie mehr über die Zugriffsrollen für BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
+
+
+
+== Kubernetes-Clusterinformationen bearbeiten
+
+Sie können einen Cluster bearbeiten, wenn Sie seinen Namen ändern müssen.
+
+.Schritte
+. Wählen Sie in BlueXP backup and recovery*Inventar* > *Cluster*.
+. Wählen Sie in der Clusterliste einen Cluster aus, den Sie bearbeiten möchten, und wählen Sie das zugehörige Aktionsmenü aus.
+. Wählen Sie *Cluster bearbeiten*.
+. Nehmen Sie die erforderlichen Änderungen am Clusternamen vor.
+. Wählen Sie * Fertig*.
+
+
+
+
+== Entfernen eines Kubernetes-Clusters
+
+Wenn Sie die von einem Kubernetes-Cluster gehosteten Ressourcen nicht mehr schützen müssen, können Sie ihn aus BlueXP backup and recovery entfernen. Das Entfernen eines Clusters löscht weder den Cluster noch seine Ressourcen, sondern lediglich den Cluster aus dem BlueXP Inventar. Bevor Sie einen Cluster entfernen können, müssen Sie den Schutz deaktivieren und die zugehörigen Anwendungen aus BlueXP backup and recovery löschen.
+
+.Schritte
+. Wählen Sie in BlueXP backup and recovery*Inventar* > *Cluster*.
+. Wählen Sie in der Clusterliste einen Cluster aus, den Sie bearbeiten möchten, und wählen Sie das zugehörige Aktionsmenü aus.
+. Wählen Sie *Cluster entfernen*.
+. Überprüfen Sie die Informationen im Bestätigungsdialogfeld und wählen Sie *Entfernen*.
+

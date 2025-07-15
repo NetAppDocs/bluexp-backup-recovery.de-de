@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: br-use-previous-version.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Mit der vorherigen Version von BlueXP backup and recovery können Sie mehrere Workload-Typen schützen, darunter VMware-Workloads und ONTAP -Workloads. 
+---
+= Verwenden Sie eine frühere Version von BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Mit der vorherigen Version von BlueXP backup and recovery können Sie mehrere Workload-Typen schützen, darunter VMware-Workloads und ONTAP -Workloads.
+
+Sie können zwischen der neuen und der vorherigen BlueXP backup and recovery und BlueXP backup and recovery wechseln. Die neue Benutzeroberfläche ist für alle verfügbar. Sie können zur vorherigen Benutzeroberfläche zurückkehren, wenn Sie Workloads sichern müssen, die in der neuen Benutzeroberfläche noch nicht verfügbar sind.
+
+*Welche Workloads können Sie in jeder Benutzeroberfläche sichern?*
+
+[cols="40,30,30"]
+|===
+| Workload | Neue Benutzeroberfläche | Vorherige Benutzeroberfläche 
+
+
+| Microsoft SQL Server-Workloads | Verfügbar | Nicht verfügbar 
+
+
+| VMware-Workloads | Noch nicht verfügbar | Verfügbar 
+
+
+| Volumes | Noch nicht verfügbar | Verfügbar 
+
+
+| Kubernetes-Workloads | Noch nicht verfügbar | Nicht verfügbar 
+|===
+*Woher wissen Sie, welche Benutzeroberfläche Sie verwenden?* Die neue Benutzeroberfläche verwendet eine Menüstruktur, die sich von der vorherigen Benutzeroberfläche unterscheidet.
+
+Die neue Benutzeroberfläche: image:screen-br-menu-unified.png["Neuer UI-Screenshot für BlueXP backup and recovery"]
+
+Die vorherige Benutzeroberfläche: image:screen-br-menu-legacy.png["Vorheriger UI-Screenshot für BlueXP backup and recovery"]
+
+
+
+== Wechseln Sie zu einer anderen Arbeitslast
+
+Sie können in der BlueXP backup and recovery zu einer anderen Arbeitslast wechseln.
+
+.Schritte
+. Wählen Sie in der linken Navigation von BlueXP *Schutz* > *Sicherung und Wiederherstellung*.
+. Wählen Sie oben rechts auf der Seite die Dropdown-Liste *Workload wechseln* aus.
+. Wählen Sie die Arbeitslast aus, zu der Sie wechseln möchten. image:screen-br-menu-switch-ui.png["Screenshot der Switch-Arbeitslast für BlueXP backup and recovery"]
++
+Die Seite wird aktualisiert und zeigt die ausgewählte Arbeitslast in der entsprechenden Benutzeroberfläche an.
+
+

@@ -1,0 +1,40 @@
+= Verbessertes ONTAP Volume Dashboard
+:allow-uri-read: 
+
+
+
+
+=== Verbessertes ONTAP Volume Dashboard
+
+Im April 2025 haben wir eine Vorschau eines verbesserten ONTAP Volume Dashboards veröffentlicht, das viel schneller und effizienter ist.
+
+Dieses Dashboard wurde speziell für Unternehmenskunden mit hohen Workloads entwickelt. Selbst für Kunden mit 20.000 Volumes wird das neue Dashboard in weniger als 10 Sekunden geladen.
+
+Nach einer erfolgreichen Vorschau und dem großartigen Feedback unserer Kunden machen wir es nun zur Standarderfahrung für alle unsere Kunden. Freuen Sie sich auf ein blitzschnelles Dashboard.
+
+Weitere Informationen finden Sie unter link:br-use-dashboard.html["Anzeigen des Schutzstatus im Dashboard"].
+
+
+
+=== Microsoft SQL Server-Workload-Unterstützung als Public Technology Preview
+
+Diese Version von BlueXP backup and recovery bietet eine aktualisierte Benutzeroberfläche, mit der Sie Microsoft SQL Server-Workloads mithilfe der 3-2-1-Schutzstrategie verwalten können, die Sie vom BlueXP backup and recovery Dienst kennen. Mit der neuen Version können Sie diese Workloads auf dem Primärspeicher sichern, auf dem Sekundärspeicher replizieren und in einem Cloud-Objektspeicher sichern.
+
+Sie können sich für die Vorschau anmelden, indem Sie dieses Formular ausfüllen.  https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl["Vorschau des Anmeldeformulars"^] .
+
+
+NOTE: DIESE DOKUMENTATION ZUM SCHUTZ VON MICROSOFT SQL SERVER-WORKLOADS WIRD ALS TECHNOLOGIEVORSCHAU BEREITGESTELLT. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
+
+Diese Version von BlueXP backup and recovery enthält die folgenden Updates:
+
+* *3-2-1-Backup-Funktion*: Diese Version integriert SnapCenter -Funktionen und ermöglicht Ihnen die Verwaltung und den Schutz Ihrer SnapCenter Ressourcen mit einer 3-2-1-Datensicherungsstrategie über die BlueXP backup and recovery .
+* *Import aus SnapCenter*: Sie können SnapCenter -Sicherungsdaten und -Richtlinien in BlueXP backup and recovery importieren.
+* *Eine neu gestaltete Benutzeroberfläche* ermöglicht eine intuitivere Verwaltung Ihrer Sicherungs- und Wiederherstellungsaufgaben.
+* *Sicherungsziele*: Sie können Buckets in Amazon Web Services (AWS), Microsoft Azure Blob Storage, StorageGRID und ONTAP S3-Umgebungen hinzufügen, um sie als Sicherungsziele für Ihre Microsoft SQL Server-Workloads zu verwenden.
+* *Workload-Unterstützung*: Mit dieser Version können Sie Microsoft SQL Server-Datenbanken und Verfügbarkeitsgruppen sichern, wiederherstellen, überprüfen und klonen. (Die Unterstützung für weitere Workloads wird in zukünftigen Versionen hinzugefügt.)
+* *Flexible Wiederherstellungsoptionen*: Mit dieser Version können Sie Datenbanken im Falle einer Beschädigung oder eines versehentlichen Datenverlusts sowohl am ursprünglichen als auch an alternativen Speicherorten wiederherstellen.
+* *Sofortige Produktionskopien*: Erstellen Sie platzsparende Produktionskopien für Entwicklung, Tests oder Analysen in Minuten statt in Stunden oder Tagen.
+* Diese Version beinhaltet die Möglichkeit, detaillierte Berichte zu erstellen.
+
+
+Weitere Informationen zum Schutz von Microsoft SQL Server-Workloads finden Sie unter link:br-use-mssql-protect-overview.html["Übersicht zum Schützen von Microsoft SQL Server-Workloads"] .

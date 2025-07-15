@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-clone-overview.html 
+keywords: backing up, restoring, back up, backup, clone, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Klonen Sie Microsoft SQL Server-Anwendungen zu Entwicklungs-, Test- oder Sicherheitszwecken. Sie können Klone aus Instant Snapshots oder vorhandenen Snapshots Ihrer Microsoft SQL Server-Workloads erstellen. 
+---
+= Übersicht über Microsoft SQL Server-Workloads klonen mit BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Klonen Sie Microsoft SQL Server-Anwendungsdaten mit BlueXP backup and recovery auf derselben oder einer anderen VM für Entwicklungs-, Test- oder Sicherungszwecke. Sie können Klone aus Instant Snapshots oder vorhandenen Snapshots Ihrer Microsoft SQL Server-Workloads erstellen.
+
+* Erstellen eines Klons
+* Aktualisieren Sie einen Klon
+* Teilen Sie einen Klon auf
+* Löschen eines Klons
+

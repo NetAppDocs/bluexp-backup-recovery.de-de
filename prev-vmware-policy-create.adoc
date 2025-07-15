@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-policy-create.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Erstellen Sie eine Richtlinie zum Sichern von Datenspeichern in BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können eine Richtlinie erstellen oder eine der folgenden vordefinierten Richtlinien verwenden, die in BlueXP Backup and Recovery verfügbar sind.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+.Bevor Sie beginnen
+* Sie sollten Richtlinien erstellen, wenn Sie die vordefinierten Richtlinien nicht bearbeiten möchten.
+* Um die Backups vom Objektspeicher in den Archiv-Storage zu verschieben, sollten Sie ONTAP 9.10.1 oder höher ausführen und Amazon Web Services oder Microsoft Azure als Cloud-Provider einsetzen.
+* Sie sollten die Zugriffsebene für den Archiv für jeden Cloud-Provider konfigurieren.
+
+
+.Über diese Aufgabe
+Die folgenden vordefinierten Richtlinien sind in BlueXP verfügbar:
+
+|===
+| Name Der Richtlinie | Etikett | Aufbewahrungswert 
+
+
+ a| 
+1 Jahr tägliche LTR (langfristige Aufbewahrung)
+ a| 
+Täglich
+ a| 
+366
+
+
+
+ a| 
+5 Jahre tägliche LTR
+ a| 
+Täglich
+ a| 
+1830
+
+
+
+ a| 
+7 Jahre wöchentlicher LTR
+ a| 
+Wöchentlich
+ a| 
+370
+
+
+
+ a| 
+10 Jahre Monatliche LTR
+ a| 
+Monatlich
+ a| 
+120
+
+|===
+.Schritte
+. Wählen Sie auf der Seite Virtuelle Maschinen aus der Dropdown-Liste Einstellungen die Option *Richtlinien* aus.
+. Wählen Sie *Richtlinie erstellen*.
+. Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.
+. Wählen Sie im Abschnitt Aufbewahrung einen Aufbewahrungstyp aus und geben Sie die Anzahl der zu behaltenden Backups an.
+. Wählen Sie Primary oder Secondary als Backup-Speicherquelle aus.
+. (Optional) Wenn Sie Backups nach einer bestimmten Anzahl von Tagen zur Kostenoptimierung vom Objektspeicher in den Archivspeicher verschieben möchten, aktivieren Sie das Kontrollkästchen *Tiering Backups in Archival* und geben Sie die Anzahl der Tage ein, nach denen das Backup archiviert werden soll.
+. Wählen Sie *Erstellen*.
++
+
+NOTE: Sie können keine Richtlinie bearbeiten oder löschen, die einem Datastore zugeordnet ist.
+
+

@@ -1,0 +1,206 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-clone.html 
+keywords: backing up, restoring, back up, backup, clone, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Klonen Sie Microsoft SQL Server-Anwendungsdaten zu Entwicklungs-, Test- oder Sicherheitszwecken. Sie können Klone aus Instant Snapshots oder vorhandenen Snapshots Ihrer Microsoft SQL Server-Workloads erstellen. 
+---
+= Klonen Sie Microsoft SQL Server-Workloads mit BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Klonen Sie Microsoft SQL Server-Anwendungsdaten für Entwicklungs-, Test- oder Sicherungszwecke mit BlueXP backup and recovery auf dieselbe oder eine andere VM. Sie können Klone aus Instant Snapshots oder vorhandenen Snapshots Ihrer Microsoft SQL Server-Workloads erstellen.
+
+Wählen Sie zwischen den folgenden Klontypen:
+
+* *Sofortiger Snapshot und Klon*: Sie können einen Klon Ihrer Microsoft SQL Server-Workloads aus einem sofortigen Snapshot erstellen. Ein sofortiger Snapshot ist eine zeitpunktbezogene Kopie der Quelldaten, die aus einem Backup erstellt wird. Der Klon wird in einem Objektspeicher in Ihrem öffentlichen oder privaten Cloud-Konto gespeichert. Mit dem Klon können Sie Ihre Workloads im Falle von Datenverlust oder -beschädigung wiederherstellen.
+* *Von einem vorhandenen Snapshot klonen*: Sie können einen vorhandenen Snapshot aus einer Liste verfügbarer Snapshots für den Workload auswählen. Diese Option ist nützlich, wenn Sie einen Klon von einem bestimmten Zeitpunkt erstellen möchten. Klonen Sie entweder auf den primären oder sekundären Speicher.
+
+
+Sie können die folgenden Schutzziele erreichen:
+
+* Erstellen eines Klons
+* Aktualisieren Sie einen Klon
+* Teilen Sie einen Klon auf
+* Löschen eines Klons
+
+
+*Erforderliche BlueXP Rolle* Organisationsadministrator, Ordner- oder Projektadministrator, Superadministrator für Backup und Wiederherstellung oder Administratorrolle für Backup- und Wiederherstellungsklone.  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
+
+
+
+== Erstellen eines Klons
+
+Sie können einen Klon Ihrer Microsoft SQL Server-Workloads erstellen. Ein Klon ist eine Kopie der Quelldaten, die aus einer Sicherung erstellt wird. Der Klon wird in einem Objektspeicher in Ihrem öffentlichen oder privaten Cloud-Konto gespeichert. Mit dem Klon können Sie Ihre Workloads im Falle von Datenverlust oder -beschädigung wiederherstellen.
+
+Sie können einen Klon aus einem vorhandenen Snapshot oder einem Instant-Snapshot erstellen. Ein Instant-Snapshot ist eine zeitpunktbezogene Kopie der Quelldaten, die aus einer Sicherung erstellt wird. Mit dem Klon können Sie Ihre Workloads im Falle von Datenverlust oder -beschädigung wiederherstellen.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery“ die Option „Klonen“ aus.
++
+image:screen-br-sql-clone-nomenu.png["Screenshot der Klonseite für BlueXP backup and recovery"]
+
+. Wählen Sie *Neuen Klon erstellen*.
+. Wählen Sie den Klontyp aus:
++
+** *Klonen und Datenbankaktualisierung aus vorhandenem Snapshot*: Wählen Sie den Snapshot für den Klon aus und konfigurieren Sie die Optionen für den Klon. Dies ist hilfreich, wenn Sie den Snapshot für den Klon auswählen und die Optionen konfigurieren möchten.
+** *Sofortiger Snapshot und Klon*: Erstellen Sie jetzt einen Snapshot der Quelldaten und erstellen Sie daraus einen Klon. Diese Option ist nützlich, wenn Sie einen Klon aus den neuesten Daten im Quell-Workload erstellen möchten.
+
+
+. Füllen Sie den Abschnitt *Datenbankquelle* aus:
++
+** *Einzelklon oder Massenklon*: Wählen Sie, ob Sie einen einzelnen Klon oder mehrere Klone erstellen möchten. Mit *Massenklon* können Sie mehrere Klone gleichzeitig mithilfe einer bereits erstellten Schutzgruppe erstellen. Diese Option ist nützlich, wenn Sie mehrere Klone für unterschiedliche Workloads erstellen möchten.
+** *Host, Instanz und Name der Quelldatenbank*: Wählen Sie den Host, die Instanz und den Namen der Quelldatenbank für den Klon aus. Die Quelldatenbank ist die Datenbank, aus der der Klon erstellt wird.
+
+
+. Füllen Sie den Abschnitt *Datenbankziel* aus:
++
+** *Zieldatenbankhost, -instanz und -name*: Wählen Sie den Zieldatenbankhost, die -instanz und den Namen für den Klon aus. Die Zieldatenbank ist der Speicherort, an dem der Klon erstellt wird.
++
+Wählen Sie optional *Suffix* aus der Dropdown-Liste „Zielname“ aus und hängen Sie ein Suffix an den Namen der geklonten Datenbank an. Wenn Sie kein Suffix angeben, ist der Name der geklonten Datenbank identisch mit dem Namen der Quelldatenbank.
+
+** *QoS (maximaler Durchsatz)*: Wählen Sie den maximalen Quality of Service (QoS)-Durchsatz in MBit/s für den Klon. Die QoS definiert die Leistungsmerkmale des Klons, wie z. B. den maximalen Durchsatz und die IOPS.
+
+
+. Füllen Sie den Abschnitt *Mount* aus:
++
+** *Mount-Punkt automatisch zuweisen*: Wählen Sie diese Option, um dem Klon automatisch einen Mount-Punkt zuzuweisen. Der Mount-Punkt ist der Ort, an dem der Klon im Objektspeicher eingebunden wird.
+** *Mount-Point-Pfad definieren*: Geben Sie einen Mount-Point für den Klon ein. Der Mount-Point ist der Ort, an dem der Klon im Objektspeicher gemountet wird. Wählen Sie den Laufwerksbuchstaben, den Datendateipfad und den Protokolldateipfad aus.
+
+
+. Wählen Sie *Weiter*.
+. Wählen Sie den Wiederherstellungspunkt aus:
++
+** *Vorhandene Snapshots*: Wählen Sie einen vorhandenen Snapshot aus der Liste der für den Workload verfügbaren Snapshots aus. Diese Option ist nützlich, wenn Sie einen Klon von einem bestimmten Zeitpunkt erstellen möchten.
+** *Sofortiger Snapshot und Klon*: Wählen Sie den neuesten Snapshot aus der Liste der für den Workload verfügbaren Snapshots aus. Diese Option ist nützlich, wenn Sie einen Klon aus den neuesten Daten im Quell-Workload erstellen möchten.
+
+
+. Wenn Sie sich für die Erstellung eines *Sofort-Snapshots und Klons* entschieden haben, wählen Sie den Speicherort für den Klon:
++
+** *Lokaler Speicher*: Wählen Sie diese Option, um den Klon im lokalen Speicher des ONTAP Systems zu erstellen. Der lokale Speicher ist der Speicher, der direkt an das ONTAP System angeschlossen ist.
+** *Sekundärspeicher*: Wählen Sie diese Option, um den Klon im Sekundärspeicher des ONTAP -Systems zu erstellen. Der Sekundärspeicher wird für Backup- und Wiederherstellungs-Workloads verwendet.
+
+
+. Wählen Sie den Zielspeicherort für die Daten und Protokolle aus.
+. Wählen Sie *Weiter*.
+. Füllen Sie den Abschnitt *Erweiterte Optionen* aus:
++
+image:screen-br-sql-clone-create-advanced.png["Erweiterte Einstellungen zum Erstellen eines Klons in BlueXP backup and recovery"]
+
+. Wenn Sie *Sofortiger Snapshot und Klon* gewählt haben, führen Sie die folgenden Optionen aus:
++
+image:screen-br-sql-clone-create-instantsnapshot-advanced.png["Erweiterte Einstellungen zum Erstellen eines sofortigen Snapshots und Klons in BlueXP backup and recovery"]
+
++
+** *Zeitplan und Ablauf der Klonaktualisierung*: Wenn Sie *Sofortklon* gewählt haben, geben Sie das Datum ein, an dem mit der Aktualisierung des Klons begonnen werden soll. Der Klonzeitplan legt fest, wann der Klon erstellt wird.
++
+*** *Klon löschen, wenn Zeitplan abläuft*: Wenn Sie den Klon am Ablaufdatum des Klons löschen möchten.
+*** *Klon aktualisieren alle*: Wählen Sie aus, wie oft der Klon aktualisiert werden soll. Sie können den Klon stündlich, täglich, wöchentlich, monatlich oder vierteljährlich aktualisieren. Diese Option ist nützlich, wenn Sie den Klon auf dem neuesten Stand des Quell-Workloads halten möchten.
+
+
+** *Prescripts und Postscripts*: Optional können Sie Pre- und Post-Clone-Skripte angeben, die vor und nach der Klon-Erstellung ausgeführt werden sollen. Diese Skripte können für zusätzliche Aufgaben verwendet werden, z. B. zum Konfigurieren des Klons oder zum Senden von Benachrichtigungen.
+** *Benachrichtigung*: Optional können Sie E-Mail-Adressen angeben, die zusammen mit dem Jobbericht über den Status der Klonerstellung benachrichtigt werden sollen. Sie können auch eine Webhook-URL angeben, um Benachrichtigungen zum Status der Klonerstellung zu erhalten. Sie können angeben, ob Sie Benachrichtigungen über Erfolg und Misserfolg oder nur über beides erhalten möchten.
+** *Tags*: Wählen Sie eine oder mehrere Bezeichnungen aus, die Ihnen später bei der Suche nach der Ressourcengruppe helfen, und klicken Sie auf *Übernehmen*. Wenn Sie beispielsweise „HR“ als Tag zu mehreren Ressourcengruppen hinzufügen, können Sie später alle Ressourcengruppen finden, die dem HR-Tag zugeordnet sind.
+
+
+. Wählen Sie *Erstellen*.
+. Wenn der Klon erstellt ist, können Sie ihn auf der Seite *Inventar* anzeigen. image:screen-br-inventory.png["Screenshot der Inventarseite für BlueXP backup and recovery"]
+
+
+
+
+== Aktualisieren Sie einen Klon
+
+Sie können einen Klon Ihrer Microsoft SQL Server-Workloads aktualisieren. Durch die Aktualisierung wird der Klon mit den neuesten Daten des Quell-Workloads aktualisiert. Dies ist nützlich, wenn der Klon auf dem aktuellen Stand des Quell-Workloads bleiben soll.
+
+Sie haben die Möglichkeit, den Datenbanknamen zu ändern, den neuesten Sofort-Snapshot zu verwenden oder von einem vorhandenen Produktions-Snapshot zu aktualisieren.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery“ die Option „Klonen“ aus.
+. Wählen Sie den Klon aus, den Sie aktualisieren möchten.
+. Wählen Sie das Symbol Aktionen image:../media/icon-action.png["Aktionsoption"] > *Klon aktualisieren*.
++
+image:screen-br-sql-clone-refresh-options.png["Aktualisieren Sie die Klonoptionen für die BlueXP backup and recovery"]
+
+. Füllen Sie den Abschnitt *Erweiterte Einstellungen* aus:
++
+** *Wiederherstellungsbereich*: Wählen Sie, ob alle Protokollsicherungen oder nur die Protokollsicherungen bis zu einem bestimmten Zeitpunkt wiederhergestellt werden sollen. Diese Option ist nützlich, wenn Sie den Klon zu einem bestimmten Zeitpunkt wiederherstellen möchten.
+** *Zeitplan und Ablauf der Klonaktualisierung*: Wenn Sie *Sofortklon* gewählt haben, geben Sie das Datum ein, an dem mit der Aktualisierung des Klons begonnen werden soll. Der Klonzeitplan legt fest, wann der Klon erstellt wird.
++
+*** *Klon löschen, wenn Zeitplan abläuft*: Wenn Sie den Klon am Ablaufdatum des Klons löschen möchten.
+*** *Klon aktualisieren alle*: Wählen Sie aus, wie oft der Klon aktualisiert werden soll. Sie können den Klon stündlich, täglich, wöchentlich, monatlich oder vierteljährlich aktualisieren. Diese Option ist nützlich, wenn Sie den Klon auf dem neuesten Stand des Quell-Workloads halten möchten.
+
+
+** *iGroup-Einstellungen*: Wählen Sie die iGroup für den Klon. Die iGroup ist eine logische Gruppierung von Initiatoren, die für den Zugriff auf den Klon verwendet werden. Sie können eine vorhandene iGroup auswählen oder eine neue erstellen. Wählen Sie die iGroup des primären oder sekundären ONTAP Speichersystems aus.
+** *Prescripts und Postscripts*: Optional können Sie Pre- und Post-Clone-Skripte angeben, die vor und nach der Klon-Erstellung ausgeführt werden sollen. Diese Skripte können für zusätzliche Aufgaben verwendet werden, z. B. zum Konfigurieren des Klons oder zum Senden von Benachrichtigungen.
+** *Benachrichtigung*: Optional können Sie E-Mail-Adressen angeben, die zusammen mit dem Jobbericht über den Status der Klonerstellung benachrichtigt werden sollen. Sie können auch eine Webhook-URL angeben, um Benachrichtigungen zum Status der Klonerstellung zu erhalten. Sie können angeben, ob Sie Benachrichtigungen über Erfolg und Misserfolg oder nur über beides erhalten möchten.
+** *Tags*: Geben Sie ein oder mehrere Labels ein, die Ihnen später bei der Suche nach der Ressourcengruppe helfen. Wenn Sie beispielsweise „HR“ als Tag zu mehreren Ressourcengruppen hinzufügen, können Sie später alle Ressourcengruppen finden, die dem Tag „HR“ zugeordnet sind.
+
+
+. Wählen Sie im Bestätigungsdialogfeld „Aktualisieren“ die Option „*Aktualisieren*“ aus, um fortzufahren.
+
+
+
+
+== Überspringen einer Klonaktualisierung
+
+Sie können die Klonaktualisierung überspringen, wenn Sie den Klon nicht mit den neuesten Daten aus dem Ursprungs-Workload aktualisieren möchten. Durch das Überspringen der Klonaktualisierung können Sie den Klon unverändert lassen, ohne ihn zu aktualisieren.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery“ die Option „Klonen“ aus.
+. Wählen Sie den Klon aus, für den Sie die Aktualisierung überspringen möchten.
+. Wählen Sie das Symbol Aktionen image:../media/icon-action.png["Aktionsoption"] > *Aktualisierung überspringen*.
+. Führen Sie im Dialogfeld „Bestätigung für Aktualisierung überspringen“ die folgenden Schritte aus:
++
+.. Um nur den nächsten Aktualisierungszeitplan zu überspringen, wählen Sie *Nur den nächsten Aktualisierungszeitplan überspringen*.
+.. Um fortzufahren, wählen Sie *Überspringen*.
+
+
+
+
+
+
+== Teilen Sie einen Klon auf
+
+Sie können einen Klon Ihrer Microsoft SQL Server-Workloads aufteilen. Dabei wird ein neues Backup des Klons erstellt. Mit dem neuen Backup können Sie die Workloads wiederherstellen.
+
+Sie können einen Klon wahlweise in unabhängige oder langfristige Klone aufteilen. Ein Assistent zeigt die Liste der Aggregate, die Teil der SVM sind, deren Größe und den Speicherort des geklonten Volumes an. BlueXP backup and recovery zeigt außerdem an, ob genügend Speicherplatz für die Aufteilung des Klons vorhanden ist. Nach der Aufteilung wird der Klon zu einer unabhängigen Datenbank und schützt ihn.
+
+Der Klonauftrag wird nicht gelöscht und kann für andere Klone erneut verwendet werden.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery“ die Option „Klonen“ aus.
+. Wählen Sie einen Klon aus.
+. Wählen Sie das Symbol Aktionen image:../media/icon-action.png["Aktionsoption"] > *Geteilter Klon*.
++
+image:screen-br-sql-clone-split.png["Geteilte Klonseite für BlueXP backup and recovery"]
+
+. Überprüfen Sie die Details zum geteilten Klon und wählen Sie *Teilen* aus.
+. Wenn der geteilte Klon erstellt ist, können Sie ihn auf der Seite *Inventar* anzeigen. image:screen-br-inventory.png["Screenshot der Inventarseite für BlueXP backup and recovery"]
+
+
+
+
+== Löschen eines Klons
+
+Sie können einen Klon Ihrer Microsoft SQL Server-Workloads löschen. Durch das Löschen eines Klons wird dieser aus dem Objektspeicher entfernt und Speicherplatz freigegeben.
+
+Wenn der Klon durch eine Richtlinie geschützt ist, wird der Klon einschließlich des Auftrags gelöscht.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery“ die Option „Klonen“ aus.
+. Wählen Sie einen Klon aus.
+. Wählen Sie das Symbol Aktionen image:../media/icon-action.png["Aktionsoption"] > *Klon löschen*.
+. Überprüfen Sie im Bestätigungsdialogfeld zum Löschen des Klons die Löschdetails.
++
+.. Um die geklonten Ressourcen aus SnapCenter zu löschen, auch wenn auf die Klone oder ihren Speicher nicht zugegriffen werden kann, wählen Sie *Löschen erzwingen*.
+.. Wählen Sie *Löschen*.
+
+
+. Wenn der Klon gelöscht wird, wird er von der Seite *Inventar* entfernt.
+

@@ -1,0 +1,425 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-backup-onprem-ontaps3.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Sichern Sie lokale ONTAP-Daten auf ONTAP S3 mit BlueXP Backup und Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte in der Sicherung und Wiederherstellung von BlueXP durch, um mit der Sicherung von Volumedaten von Ihren primären lokalen ONTAP-Systemen zu beginnen. Sie können Backups an ein sekundäres ONTAP Storage-System (ein repliziertes Volume) oder an einen Bucket auf einem ONTAP System senden, das als S3-Server (eine Backup-Datei) konfiguriert ist oder beides.
+
+Das primäre lokale ONTAP System kann ein FAS, AFF oder ONTAP Select System sein. Das sekundäre ONTAP System kann ein On-Premises ONTAP oder Cloud Volumes ONTAP System sein. Der Objekt-Storage kann sich auf einem lokalen ONTAP System oder auf einem Cloud Volumes ONTAP System befinden, auf dem Sie einen S3-Objekt-Storage-Server (Simple Storage Service) aktiviert haben.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+
+
+== Identifizieren Sie die Verbindungsmethode
+
+Es gibt viele Konfigurationen, in denen Sie Backups auf einem S3-Bucket auf einem ONTAP-System erstellen können. Im Folgenden werden zwei Szenarien dargestellt.
+
+Die folgende Abbildung zeigt jede Komponente beim Backup eines primären On-Premises-ONTAP-Systems auf einem für S3 konfigurierten On-Premises-ONTAP-System sowie die Verbindungen, die Sie zwischen ihnen vorbereiten müssen. Sie zeigt außerdem eine Verbindung zu einem sekundären ONTAP-System am selben lokalen Standort, um Volumes zu replizieren.
+
+image:diagram_cloud_backup_onprem_ontap_s3.png["Diagramm, das die Kommunikation von BlueXP Backup und Recovery mit den Volumes auf den Quellsystemen und dem Ziel-Storage zeigt, auf dem sich die Backup-Dateien befinden."]
+
+Wenn der Connector und das primäre On-Premises-ONTAP-System an einem On-Premises-Standort ohne Internetzugang installiert sind (eine „private“ Mode-Implementierung), muss sich das ONTAP S3 System im selben On-Premises-Datacenter befinden.
+
+Das folgende Bild zeigt jede Komponente beim Backup eines primären On-Premises-ONTAP-Systems auf einem für S3 konfigurierten Cloud Volumes ONTAP-System und die Verbindungen, die Sie zwischen ihnen vorbereiten müssen. Sie zeigt außerdem eine Verbindung zu einem sekundären Cloud Volumes ONTAP-System in derselben Cloud-Provider-Umgebung zur Replizierung von Volumes.
+
+image:diagram_cloud_backup_onprem_ontap_s3_cloud.png["Diagramm, das die Kommunikation von BlueXP Backup und Recovery mit den Volumes auf den Quellsystemen und dem Ziel-Storage zeigt, auf dem sich die Backup-Dateien befinden."]
+
+In diesem Szenario sollte der Connector in derselben Cloud-Provider-Umgebung eingesetzt werden, in der die Cloud Volumes ONTAP-Systeme eingesetzt werden.
+
+
+
+== Bereiten Sie Ihren BlueXP Connector vor
+
+Der BlueXP Connector ist die Hauptsoftware für BlueXP-Funktionen. Zum Sichern und Wiederherstellen Ihrer ONTAP-Daten ist ein Connector erforderlich.
+
+
+
+=== Erstellen oder Schalten von Anschlüssen
+
+Bei Daten-Backups in ONTAP S3 muss ein BlueXP Connector vor Ort oder in der Cloud verfügbar sein. Sie müssen entweder einen neuen Connector installieren oder sicherstellen, dass sich der aktuell ausgewählte Connector an einem dieser Standorte befindet. Der On-Premise Connector kann an einem Standort mit oder ohne Internetzugang installiert werden.
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#how-to-create-a-connector["Installieren Sie den Connector in Ihrer Cloud-Umgebung"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["Installieren des Connectors auf einem Linux-Host mit Internetzugang"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["Installieren des Connectors auf einem Linux-Host ohne Internetzugang"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-multiple-connectors.html#switch-between-connectors["Wechseln zwischen den Anschlüssen"^]
+
+
+
+
+=== Bereiten Sie die Netzwerkanforderungen für den Connector vor
+
+Stellen Sie sicher, dass das Netzwerk, in dem der Connector installiert ist, folgende Verbindungen ermöglicht:
+
+* Eine HTTPS-Verbindung über Port 443 zum ONTAP S3-Server
+* Eine HTTPS-Verbindung über Port 443 zur ONTAP Quell-Cluster-Management-LIF
+* Eine Outbound-Internetverbindung über Port 443 zu BlueXP Backup und Recovery (nicht erforderlich, wenn der Connector an einer „dunklen“ Stelle installiert ist)
+
+
+
+
+==== Überlegungen zum privaten Modus (dunkle Seite)
+
+Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector integriert. Wenn die Connector-Software im privaten Modus installiert ist, müssen Sie sie regelmäßig aktualisieren, um auf neue Funktionen zugreifen zu können. Prüfen Sie die link:whats-new.html["BlueXP Backup und Recovery Was ist neu"] Um die neuen Funktionen in jeder BlueXP Backup- und Recovery-Version anzuzeigen. Wenn Sie die neuen Funktionen verwenden möchten, führen Sie die Schritte bis aus https://docs.netapp.com/us-en/bluexp-setup-admin/task-upgrade-connector.html["Aktualisieren Sie die Connector-Software"^].
+
+Wenn Sie das Backup und Recovery von BlueXP in einer standardmäßigen SaaS-Umgebung nutzen, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP in der Cloud gesichert. Wenn Sie BlueXP Backup und Recovery an einem Standort ohne Internetzugang nutzen, werden die Backup- und Recovery-Konfigurationsdaten von BlueXP auf den ONTAP S3 Bucket gesichert, auf dem die Backups gespeichert werden.
+
+
+
+== Lizenzanforderungen prüfen
+
+Bevor Sie das Backup und Recovery von BlueXP für Ihr Cluster aktivieren können, müssen Sie eine BYOL-Lizenz für BlueXP Backup und Recovery von NetApp erwerben und aktivieren. Die Lizenz gilt für Backup und Wiederherstellung im Objekt-Storage – zum Erstellen von Snapshot Kopien oder replizierten Volumes ist keine Lizenz erforderlich. Diese Lizenz gilt für das Konto und kann auf mehreren Systemen verwendet werden.
+
+Sie benötigen die Seriennummer von NetApp, mit der Sie den Service für die Dauer und die Kapazität der Lizenz nutzen können. link:br-start-licensing.html["Erfahren Sie, wie Sie Ihre BYOL-Lizenzen managen"].
+
+
+TIP: PAYGO-Lizenzierung wird beim Backup von Dateien in ONTAP S3 nicht unterstützt.
+
+
+
+== Bereiten Sie Ihre ONTAP-Cluster vor
+
+Sie müssen Ihr On-Premises-Quell-ONTAP-System und alle sekundären lokalen ONTAP oder Cloud Volumes ONTAP Systeme vorbereiten.
+
+Zur Vorbereitung Ihrer ONTAP-Cluster sind folgende Schritte erforderlich:
+
+* Ihre ONTAP-Systeme in BlueXP erkennen
+* Überprüfen Sie die Systemanforderungen für ONTAP
+* ONTAP Netzwerkanforderungen für Daten-Backups im Objekt-Storage prüfen
+* Überprüfen Sie die ONTAP Netzwerkanforderungen für die Replizierung von Volumes
+
+
+
+
+=== Ihre ONTAP-Systeme in BlueXP erkennen
+
+Sowohl das On-Premises-Quell-ONTAP-System als auch alle sekundären ONTAP- oder Cloud Volumes ONTAP-Systeme vor Ort müssen auf der BlueXP Leinwand verfügbar sein.
+
+Sie müssen die Cluster-Management-IP-Adresse und das Passwort kennen, mit dem das Admin-Benutzerkonto den Cluster hinzufügen kann.
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Entdecken Sie ein Cluster"^].
+
+
+
+=== Überprüfen Sie die Systemanforderungen für ONTAP
+
+Stellen Sie sicher, dass die folgenden ONTAP-Anforderungen erfüllt sind:
+
+* Mindestens ONTAP 9.8; ONTAP 9.8P13 und höher wird empfohlen.
+* SnapMirror Lizenz (im Rahmen des Premium Bundle oder Datensicherungs-Bundles enthalten)
++
+*Hinweis:* das „Hybrid Cloud Bundle“ ist bei Backup und Recovery von BlueXP nicht erforderlich.
+
++
+Erfahren Sie, wie Sie https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Management Ihrer Cluster-Lizenzen"^].
+
+* Zeit und Zeitzone sind korrekt eingestellt. Erfahren Sie, wie Sie https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["Konfigurieren Sie die Cluster-Zeit"^].
+* Wenn Sie Daten replizieren möchten, sollten Sie vor der Replizierung von Daten überprüfen, ob auf den Quell- und Zielsystemen kompatible ONTAP-Versionen ausgeführt werden.
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Zeigen Sie kompatible ONTAP Versionen für SnapMirror Beziehungen an"^].
+
+
+
+
+
+=== ONTAP Netzwerkanforderungen für Daten-Backups im Objekt-Storage prüfen
+
+Sie müssen sicherstellen, dass die folgenden Anforderungen für das System erfüllt sind, das eine Verbindung zum Objekt-Storage herstellt.
+
+[NOTE]
+====
+* Wenn Sie eine Fan-out-Backup-Architektur verwenden, müssen die Einstellungen auf dem _primary_-Speichersystem konfiguriert werden.
+* Wenn Sie eine kaskadierte Backup-Architektur verwenden, müssen die Einstellungen auf dem _Secondary_-Speichersystem konfiguriert werden.
++
+link:prev-ontap-protect-journey.html["Erfahren Sie mehr über die Arten der Backup-Architektur"].
+
+
+
+====
+Die folgenden Netzwerkanforderungen für ONTAP-Cluster sind erforderlich:
+
+* Das ONTAP Cluster initiiert für Backup- und Restore-Vorgänge eine HTTPS-Verbindung über einen benutzerdefinierten Port von der Intercluster LIF zum ONTAP S3 Server. Der Port kann während der Backup-Einrichtung konfiguriert werden.
++
+ONTAP liest und schreibt Daten auf und aus dem Objekt-Storage. Objekt-Storage startet nie, er reagiert einfach nur.
+
+* ONTAP erfordert eine eingehende Verbindung vom Connector zur Cluster-Management-LIF.
+* Auf jedem ONTAP Node ist eine Intercluster-LIF erforderlich, die die Volumes hostet, die Sie sichern möchten. Die LIF muss dem _IPspace_ zugewiesen sein, den ONTAP zur Verbindung mit Objekt-Storage verwenden sollte. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Erfahren Sie mehr über IPspaces"^].
++
+Wenn Sie BlueXP Backup und Recovery einrichten, werden Sie aufgefordert, den IPspace zu verwenden. Sie sollten den IPspace auswählen, dem jede LIF zugeordnet ist. Dies kann der „Standard“-IPspace oder ein benutzerdefinierter IPspace sein, den Sie erstellt haben.
+
+* Die Intercluster-LIFs der Nodes können auf den Objektspeicher zugreifen (nicht erforderlich, wenn der Connector an einem „dunklen“ Standort installiert ist).
+* DNS-Server wurden für die Storage-VM konfiguriert, auf der sich die Volumes befinden. Informieren Sie sich darüber https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["Konfigurieren Sie DNS-Services für die SVM"^].
+* Wenn Sie einen anderen IPspace als Standard verwenden, müssen Sie möglicherweise eine statische Route erstellen, um Zugriff auf den Objektspeicher zu erhalten.
+* Aktualisieren Sie bei Bedarf die Firewall-Regeln, um die Verbindungen des BlueXP Backup- und Recovery-Service von ONTAP zu dem Objekt-Storage über den angegebenen Port (normalerweise Port 443) und den Datenverkehr der Namensauflösung von der Storage-VM zum DNS-Server über Port 53 (TCP/UDP) zu ermöglichen.
+
+
+
+
+=== Überprüfen Sie die ONTAP Netzwerkanforderungen für die Replizierung von Volumes
+
+Wenn Sie planen, mithilfe von BlueXP Backup und Recovery replizierte Volumes auf einem sekundären ONTAP System zu erstellen, stellen Sie sicher, dass die Quell- und Zielsysteme die folgenden Netzwerkanforderungen erfüllen.
+
+
+
+==== Netzwerkanforderungen für On-Premises-ONTAP
+
+* Wenn sich der Cluster an Ihrem Standort befindet, sollten Sie über eine Verbindung zwischen Ihrem Unternehmensnetzwerk und Ihrem virtuellen Netzwerk des Cloud-Providers verfügen. Hierbei handelt es sich in der Regel um eine VPN-Verbindung.
+* ONTAP Cluster müssen zusätzliche Subnetz-, Port-, Firewall- und Cluster-Anforderungen erfüllen.
++
+Da Sie Daten auf Cloud Volumes ONTAP oder auf lokale Systeme replizieren können, prüfen Sie Peering-Anforderungen für lokale ONTAP Systeme. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Anzeigen von Voraussetzungen für Cluster-Peering in der ONTAP-Dokumentation"^].
+
+
+
+
+
+==== Netzwerkanforderungen für Cloud Volumes ONTAP
+
+* Die Sicherheitsgruppe der Instanz muss die erforderlichen ein- und ausgehenden Regeln enthalten: Speziell Regeln für ICMP und die Ports 11104 und 11105. Diese Regeln sind in der vordefinierten Sicherheitsgruppe enthalten.
+
+
+
+
+== ONTAP S3 als Backup-Ziel vorbereiten
+
+Sie müssen im ONTAP Cluster einen S3-Objekt-Storage-Server (Simple Storage Service) aktivieren, den Sie für Objekt-Storage-Backups verwenden möchten. Siehe https://docs.netapp.com/us-en/ontap/s3-config/index.html["ONTAP S3 Dokumentation"^] Entsprechende Details.
+
+*Hinweis:* Sie können diesen Cluster auf dem BlueXP Canvas erkennen, aber er wird nicht als S3-Objekt-Storage-Server identifiziert. Sie können keine Quell-Arbeitsumgebung per Drag & Drop in diese S3-Arbeitsumgebung ziehen, um eine Backup-Aktivierung zu initiieren.
+
+Dieses ONTAP-System muss die folgenden Anforderungen erfüllen:
+
+Unterstützte ONTAP-Versionen:: Für lokale ONTAP Systeme ist ONTAP 9.8 oder eine höhere Version erforderlich.
+Für Cloud Volumes ONTAP Systeme ist ONTAP 9.9.1 und höher erforderlich.
+S3-Anmeldedaten:: Sie müssen einen S3-Benutzer erstellt haben, um den Zugriff auf Ihren ONTAP S3-Storage zu steuern. https://docs.netapp.com/us-en/ontap/s3-config/create-s3-user-task.html["Weitere Informationen finden Sie in der Dokumentation zu ONTAP S3"^].
++
+--
+Wenn Sie ein Backup auf ONTAP S3 einrichten, werden Sie vom Backup-Assistenten zur Eingabe eines S3-Zugriffsschlüssels und eines geheimen Schlüssels für ein Benutzerkonto aufgefordert. Das Benutzerkonto ermöglicht BlueXP Backup und Recovery zur Authentifizierung und zum Zugriff auf die ONTAP S3 Buckets, die zum Speichern von Backups verwendet werden. Die Schlüssel sind erforderlich, damit ONTAP S3 weiß, wer die Anforderung stellt.
+
+Diese Zugriffsschlüssel müssen einem Benutzer mit den folgenden Berechtigungen zugeordnet sein:
+
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject",
+"s3:CreateBucket"
+----
+--
+
+
+
+
+== Aktivieren Sie Backups auf Ihren ONTAP Volumes
+
+Sie können Backups jederzeit direkt aus Ihrer On-Premises-Arbeitsumgebung heraus aktivieren.
+
+Ein Assistent führt Sie durch die folgenden wichtigen Schritte:
+
+* Wählen Sie die Volumes aus, die Sie sichern möchten
+* Backup-Strategie und -Richtlinien definieren
+* Überprüfen Sie Ihre Auswahl
+
+
+Das können Sie auch <<Zeigt die API-Befehle an>> Kopieren Sie im Überprüfungsschritt den Code, um die Backup-Aktivierung für zukünftige Arbeitsumgebungen zu automatisieren.
+
+
+
+=== Starten Sie den Assistenten
+
+.Schritte
+. Greifen Sie auf eine der folgenden Arten auf den Assistenten zur Aktivierung von Backup und Recovery zu:
++
+** Wählen Sie auf dem BlueXP-Bildschirm die Arbeitsumgebung aus, und wählen Sie im rechten Bereich neben dem Sicherungs- und Wiederherstellungsdienst die Option *Enable > Backup Volumes* aus.
+** Wählen Sie in der Sicherungs- und Wiederherstellungsleiste *Volumes* aus. Wählen Sie auf der Registerkarte Volumes die Option *actions (...)* aus und wählen Sie *Activate Backup* für ein einzelnes Volume (das noch nicht über Replikation oder Backup auf Objektspeicher verfügt).
+
+
++
+Auf der Einführungsseite des Assistenten werden die Schutzoptionen einschließlich lokaler Snapshots, Replikationen und Backups angezeigt. Wenn Sie die zweite Option in diesem Schritt gewählt haben, wird die Seite „Backup-Strategie definieren“ mit einem ausgewählten Volume angezeigt.
+
+. Fahren Sie mit den folgenden Optionen fort:
++
+** Wenn Sie bereits einen BlueXP Connector haben, sind Sie fertig. Wählen Sie einfach *Weiter*.
+** Wenn Sie keinen BlueXP Connector haben, wird die Option *Connector hinzufügen* angezeigt. Siehe <<Bereiten Sie Ihren BlueXP Connector vor>>.
+
+
+
+
+
+
+=== Wählen Sie die Volumes aus, die Sie sichern möchten
+
+Wählen Sie die Volumes aus, die Sie schützen möchten. Ein geschütztes Volume verfügt über eine oder mehrere der folgenden Optionen: Snapshot-Richtlinie, Replikationsrichtlinie, Backup-to-Object-Richtlinie.
+
+Sie können FlexVol- oder FlexGroup-Volumes schützen. Sie können jedoch keine Kombination dieser Volumes auswählen, wenn Sie Backups für eine funktionierende Umgebung aktivieren. Erfahren Sie, wie Sie link:prev-ontap-backup-manage.html["Aktivieren Sie das Backup für zusätzliche Volumes in der Arbeitsumgebung"] (FlexVol oder FlexGroup), nachdem Sie die Sicherung für die ersten Volumes konfiguriert haben.
+
+[NOTE]
+====
+* Sie können ein Backup nur auf einem einzelnen FlexGroup Volume gleichzeitig aktivieren.
+* Die ausgewählten Volumes müssen dieselbe SnapLock-Einstellung aufweisen. Auf allen Volumes muss SnapLock Enterprise aktiviert oder SnapLock deaktiviert sein.
+
+
+====
+.Schritte
+Beachten Sie, dass die Richtlinien, die Sie später auswählen, diese vorhandenen Richtlinien überschreiben, wenn die von Ihnen ausgewählten Volumes bereits Snapshot- oder Replikationsrichtlinien angewendet haben.
+
+. Wählen Sie auf der Seite Volumes auswählen das Volume oder die Volumes aus, die Sie schützen möchten.
++
+** Optional können Sie die Zeilen so filtern, dass nur Volumes mit bestimmten Volumentypen, Stilen und mehr angezeigt werden, um die Auswahl zu erleichtern.
+** Nachdem Sie das erste Volume ausgewählt haben, können Sie alle FlexVol Volumes auswählen (FlexGroup Volumes können nur einzeln ausgewählt werden). Um alle vorhandenen FlexVol-Volumes zu sichern, aktivieren Sie zuerst ein Volume und dann das Kontrollkästchen in der Titelzeile.
+** Um einzelne Volumes zu sichern, aktivieren Sie das Kontrollkästchen für jedes Volume.
+
+
+. Wählen Sie *Weiter*.
+
+
+
+
+=== Backup-Strategie definieren
+
+Die Definition der Backup-Strategie umfasst die Konfiguration der folgenden Optionen:
+
+* Schutzoptionen: Ob Sie eine oder alle der Backup-Optionen implementieren möchten: lokale Snapshots, Replikation und Backup auf Objektspeicher
+* Architektur: Unabhängig davon, ob Sie eine Fan-out- oder kaskadierende Backup-Architektur nutzen möchten
+* Richtlinie für lokale Snapshots
+* Replikationsziel und -Richtlinie
+* Backup von Objekt-Storage-Informationen (Provider-, Verschlüsselungs-, Netzwerk-, Backup-Richtlinien- und Exportoptionen)
+
+
+.Schritte
+. Wählen Sie auf der Seite „Backup-Strategie definieren“ eine oder alle der folgenden Optionen aus. Alle drei sind standardmäßig ausgewählt:
++
+** *Lokale Snapshots*: Erstellt lokale Snapshot-Kopien.
+** *Replikation*: Erstellt replizierte Volumes auf einem anderen ONTAP-Speichersystem.
+** *Backup*: Sichert Volumes auf einem Bucket auf einem für S3 konfigurierten ONTAP-System.
+
+
+. *Architektur*: Wenn Sie sowohl Replikation als auch Backup gewählt haben, wählen Sie einen der folgenden Informationsflüsse:
++
+** *Kaskadierung*: Backup-Daten fließen vom primären zum sekundären System und dann vom sekundären zum Objektspeicher.
+** *Fan Out*: Backup-Daten werden vom primären zum sekundären System _und_ vom primären zum Objekt-Storage geleitet.
++
+Weitere Informationen zu diesen Architekturen finden Sie unter link:prev-ontap-protect-journey.html["Planen Sie Ihren Weg zum Schutz"] .
+
+
+
+. *Lokaler Snapshot*: Wählen Sie eine vorhandene Snapshot-Richtlinie oder erstellen Sie eine neue.
++
+
+TIP: Wenn Sie vor dem Aktivieren des Snapshots eine benutzerdefinierte Richtlinie erstellen möchten, können Sie System Manager oder die ONTAP CLI verwenden `snapmirror policy create` Befehl. Siehe.
+
++
+
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie mithilfe dieses Dienstes finden Sie unter link:br-use-policies-create.html["Erstellen einer Richtlinie"] .
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+** Geben Sie den Namen der Richtlinie ein.
+** Wählen Sie bis zu fünf Zeitpläne aus, normalerweise mit unterschiedlicher Häufigkeit.
+** Wählen Sie *Erstellen*.
+
+
+. *Replikation*: Wenn Sie *Replikation* ausgewählt haben, stellen Sie die folgenden Optionen ein:
++
+** *Replikationsziel*: Wählen Sie die Zielarbeitsumgebung und SVM aus. Wählen Sie optional das Zielaggregat (oder Aggregate für FlexGroup Volumes) und ein Präfix oder Suffix aus, das dem Namen des replizierten Volumes hinzugefügt wird.
+** *Replikationsrichtlinie*: Wählen Sie eine vorhandene Replikationsrichtlinie oder erstellen Sie eine neue.
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu fünf Zeitpläne aus, normalerweise mit unterschiedlicher Häufigkeit.
+*** Wählen Sie *Erstellen*.
+
+
+
+
+. *Backup auf Objekt*: Wenn Sie *Backup* ausgewählt haben, stellen Sie die folgenden Optionen ein:
++
+** *Anbieter*: Wählen Sie *ONTAP S3*.
+** *Provider-Einstellungen*: Geben Sie die FQDN-Details des S3-Servers, den Port und den Zugriffsschlüssel des Benutzers und den geheimen Schlüssel ein.
++
+Der Zugriffsschlüssel und der geheime Schlüssel gelten für den Benutzer, den Sie erstellt haben, um dem ONTAP Cluster Zugriff auf den S3-Bucket zu geben.
+
+** *Netzwerk*: Wählen Sie den IPspace im Quell-ONTAP-Cluster, wo sich die Volumes, die Sie sichern möchten, befinden. Die Intercluster-LIFs für diesen IPspace müssen über Outbound-Internetzugang verfügen (nicht erforderlich, wenn der Connector auf einer „dunklen“ Seite installiert ist).
++
+
+TIP: Durch Auswahl des korrekten IPspaces wird sichergestellt, dass BlueXP Backup und Recovery eine Verbindung von ONTAP zu Ihrem ONTAP S3 Objekt-Storage einrichten können.
+
+** *Backup Policy*: Wählen Sie eine vorhandene Backup Policy aus oder erstellen Sie eine neue.
++
+
+TIP: Sie können eine Richtlinie mit System Manager oder der ONTAP CLI erstellen. Zum Erstellen einer benutzerdefinierten Richtlinie mithilfe der ONTAP-CLI `snapmirror policy create` Befehl, siehe.
+
++
+
+TIP: Informationen zum Erstellen einer benutzerdefinierten Richtlinie mithilfe dieses Dienstes finden Sie unter link:br-use-policies-create.html["Erstellen einer Richtlinie"] .
+
++
+Um eine Richtlinie zu erstellen, wählen Sie *Create New Policy* aus, und führen Sie die folgenden Schritte aus:
+
++
+*** Geben Sie den Namen der Richtlinie ein.
+*** Wählen Sie bis zu fünf Zeitpläne aus, normalerweise mit unterschiedlicher Häufigkeit.
+*** Legen Sie für Backup-to-Object-Richtlinien die Einstellungen für DataLock und Ransomware-Schutz fest. Weitere Informationen zu DataLock und Ransomware-Schutz finden Sie unter link:prev-ontap-policy-object-options.html["Richtlinieneinstellungen für Backup-to-Object"] .
+*** Wählen Sie *Erstellen*.
+
+
+
+
++
+** *Exportieren Sie vorhandene Snapshot-Kopien als Sicherungsdateien in den Objektspeicher*: Wenn es in dieser Arbeitsumgebung lokale Snapshot-Kopien für Volumes gibt, die mit der Bezeichnung des Sicherungszeitplans übereinstimmen, die Sie gerade ausgewählt haben (z. B. täglich, wöchentlich usw.), wird diese zusätzliche Eingabeaufforderung angezeigt. Aktivieren Sie dieses Kontrollkästchen, damit alle historischen Snapshots als Backup-Dateien in den Objektspeicher kopiert werden, um einen möglichst vollständigen Schutz für Ihre Volumes zu gewährleisten.
+
+
+. Wählen Sie *Weiter*.
+
+
+
+
+=== Überprüfen Sie Ihre Auswahl
+
+Dies ist die Möglichkeit, Ihre Auswahl zu überprüfen und gegebenenfalls Anpassungen vorzunehmen.
+
+.Schritte
+. Überprüfen Sie auf der Seite „Überprüfen“ Ihre Auswahl.
+. Aktivieren Sie optional das Kontrollkästchen, um * die Snapshot-Policy-Labels automatisch mit den Label der Replikations- und Backup-Policy* zu synchronisieren. Dadurch werden Snapshots mit einem Label erstellt, das den Labels in den Replizierungs- und Backup-Richtlinien entspricht. Wenn die Richtlinien nicht übereinstimmen, werden keine Backups erstellt.
+. Wählen Sie *Sicherung Aktivieren*.
+
+
+.Ergebnis
+Mit BlueXP Backup und Recovery werden erste Backups Ihrer Volumes erstellt. Der Basistransfer des replizierten Volumes und der Backup-Datei beinhaltet eine vollständige Kopie der Quelldaten. Nachfolgende Übertragungen enthalten differenzielle Kopien der in Snapshot-Kopien enthaltenen primären Speicherdaten.
+
+Ein repliziertes Volume wird im Zielcluster erstellt, das mit dem primären Storage Volume synchronisiert wird.
+
+Ein S3-Bucket wird in dem Servicekonto erstellt, das durch den eingegebenen S3-Zugriffsschlüssel und geheimen Schlüssel angegeben ist, und die Backup-Dateien werden dort gespeichert.
+
+Das Dashboard für Volume Backup wird angezeigt, sodass Sie den Status der Backups überwachen können.
+
+Sie können den Status von Sicherungs- und Wiederherstellungsaufträgen auch mithilfe der link:br-use-monitor-tasks.html["Seite Job-Überwachung"] .
+
+
+
+=== Zeigt die API-Befehle an
+
+Möglicherweise möchten Sie die API-Befehle anzeigen und optional kopieren, die im Assistenten Sicherung und Wiederherstellung aktivieren verwendet werden. Dies ist möglicherweise sinnvoll, um die Backup-Aktivierung in zukünftigen Arbeitsumgebungen zu automatisieren.
+
+.Schritte
+. Wählen Sie im Assistenten Backup und Recovery aktivieren *API-Anforderung anzeigen* aus.
+. Um die Befehle in die Zwischenablage zu kopieren, wählen Sie das Symbol *Kopieren*.
+

@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-manage.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Verwalten Sie den Schutz von Datenspeichern und VMs in BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können Richtlinien, Datenspeicher und virtuelle Maschinen anzeigen, bevor Sie Daten mit BlueXP Backup and Recovery sichern und wiederherstellen. Je nach Änderung in Datenbanken, Richtlinien oder Ressourcengruppen können Sie die Updates über die BlueXP UI anzeigen.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+
+
+== Anzeigen von Richtlinien
+
+Sie können alle vordefinierten Standardrichtlinien anzeigen. Wenn Sie die Details für jede dieser Richtlinien anzeigen, werden alle zugehörigen Richtlinien und virtuellen Maschinen aufgelistet.
+
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen Sie im Dropdown-Menü *Einstellungen* die Option *Richtlinien* aus.
+. Wählen Sie *Details anzeigen* für die Richtlinie aus, deren Details Sie anzeigen möchten.
+
+
+Die zugehörigen Richtlinien und Virtual Machines werden aufgelistet.
+
+
+
+== Anzeigen von Datastores und Virtual Machines
+
+Die Datastores und virtuellen Maschinen, die mit dem Registered SnapCenter Plug-in für VMware vSphere-Host geschützt sind, werden angezeigt.
+
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *Einstellungen* > * SnapCenter Plug-in for VMware vSphere*.
+. Wählen Sie das SnapCenter Plug-in for VMware vSphere Host aus, für den Sie die Datenspeicher und virtuellen Maschinen anzeigen möchten.
+
+
+
+
+== Heben Sie den Schutz von Datenspeichern auf
+
+Sie können den Schutz eines Datastore aufheben, der bereits zuvor geschützt war. Sie können den Schutz eines Datastores aufheben, wenn Sie die Cloud-Backups löschen oder diesen nicht mehr in der Cloud sichern möchten. Der Datastore kann nach erfolgreichem Absichern wieder geschützt werden.
+
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend dem Datenspeicher, dessen Schutz Sie aufheben möchten, und wählen Sie *Schutz aufheben*.
+
+
+
+
+== Bearbeiten Sie das SnapCenter Plug-in für die VMware vSphere-Instanz
+
+Sie können die Details des SnapCenter Plug-ins für VMware vSphere Hosts in BlueXP bearbeiten.
+
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > *Einstellungen* > * SnapCenter Plug-in for VMware vSphere*.
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] und wählen Sie *Bearbeiten*.
+. Ändern Sie die Details nach Bedarf.
+. Wählen Sie *Speichern*.
+
+
+
+
+== Ressourcen und Backups aktualisieren
+
+Wenn Sie die neuesten Datastores und Backups anzeigen möchten, die der Anwendung hinzugefügt wurden, sollten Sie die Ressourcen und Backups aktualisieren. Dadurch wird die Ermittlung der Ressourcen und Backups gestartet, und die neuesten Details werden angezeigt.
+
+. Wählen Sie *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen Sie im Dropdown-Menü *Einstellungen* die Option * SnapCenter Plug-in for VMware vSphere* aus.
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend dem SnapCenter Plug-in for VMware vSphere Host und wählen Sie *Ressourcen und Backups aktualisieren*.
+
+
+
+
+== Richtlinie oder Ressourcengruppe aktualisieren
+
+Wenn eine Änderung an der Richtlinie oder Ressourcengruppe erfolgt, sollten Sie die Schutzbeziehung aktualisieren.
+
+. Wählen Sie *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend dem Datenspeicher und wählen Sie *Schutz aktualisieren*.
+
+
+
+
+== Heben Sie die Registrierung des SnapCenter-Plug-ins für den VMware vSphere-Host auf
+
+Alle Datastores und virtuellen Maschinen, die mit dem SnapCenter-Plug-in für den VMware vSphere-Host verbunden sind, sind ungeschützt.
+
+. Wählen Sie *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen Sie im Dropdown-Menü *Einstellungen* die Option * SnapCenter Plug-in for VMware vSphere* aus.
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend dem SnapCenter Plug-in for VMware vSphere Host und wählen Sie *Registrierung aufheben*.
+
+
+
+
+== Überwachen Von Jobs
+
+Jobs werden für alle Backup- und Recovery-Vorgänge von BlueXP erstellt. Sie können alle Jobs und alle Unteraufgaben, die als Teil jeder Aufgabe ausgeführt werden, überwachen.
+
+. Wählen Sie *Sicherung und Wiederherstellung* > *Jobüberwachung*.
++
+Wenn Sie einen Vorgang starten, wird ein Fenster angezeigt, in dem Sie angeben, dass der Job gestartet wird. Sie können den Link auswählen, um den Job zu überwachen.
+
+. Wählen Sie die Hauptaufgabe aus, um die Unteraufgaben und den Status jeder dieser Unteraufgaben anzuzeigen.
+

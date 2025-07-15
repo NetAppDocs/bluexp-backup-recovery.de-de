@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: br-start-discover-backup-targets.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Microsoft SQL Server database, 
+summary: 'Führen Sie einige Schritte aus, um externe Sicherungsziele in BlueXP backup and recovery zu ermitteln. Zu diesen Zielen können Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage und StorageGRID gehören.' 
+---
+= Entdecken Sie externe Sicherungsziele in BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte aus, um externe Sicherungsziele in BlueXP backup and recovery zu ermitteln oder manuell hinzuzufügen.
+
+
+
+== Ermitteln eines Sicherungsziels
+
+Bevor Sie BlueXP backup and recovery verwenden, sollten Sie Ihre Backup-Ziele Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage oder StorageGRID konfigurieren.
+
+Sie können diese Ziele automatisch erkennen oder manuell hinzufügen.
+
+Geben Sie die erforderlichen Anmeldeinformationen für den Zugriff auf das Speicherkontosystem ein. Diese Anmeldeinformationen werden verwendet, um die Workloads zu ermitteln, die Sie sichern möchten.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery “ die Option „Inventar“ aus.
+. Wählen Sie die Registerkarte *Offsite-Sicherungsziele*.
++
+image:screen-br-inventory-offsite-backup-targets.png["Registerkarte „Offsite-Sicherungsziele“"]
+
+. Wählen Sie *Sicherungsziel ermitteln*.
+. Wählen Sie einen der Sicherungszieltypen aus: *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, * StorageGRID* oder * ONTAP S3*.
+. Geben Sie die Informationen ein. Die Informationen variieren je nach Art des ausgewählten Sicherungsziels.
++
+** Für AWS:
++
+*** *Anmeldeinformationsname*: Geben Sie den AWS-Anmeldeinformationsnamen ein.
+*** *Zugriffsschlüssel*: Geben Sie das AWS-Geheimnis ein.
+*** *Geheimschlüssel*: Geben Sie den geheimen AWS-Schlüssel ein.
+
+
+** Für Azure:
++
+*** *Anmeldeinformationsname*: Geben Sie den Anmeldeinformationsnamen für Azure Blob Storage ein.
+*** *Clientgeheimnis*: Geben Sie das Clientgeheimnis von Azure Blob Storage ein.
+*** *Anwendungs-ID (Client)*: Wählen Sie die Azure Blob Storage-Anwendungs-ID aus.
+*** *Verzeichnis-Mandanten-ID*: Geben Sie die Azure Blob Storage-Mandanten-ID ein.
+
+
+** Für StorageGRID:
++
+*** *Anmeldeinformationsname*: Geben Sie den Anmeldeinformationsnamen von StorageGRID ein.
+*** *Gateway-Knoten-FQDN*: Geben Sie einen FQDN-Namen für StorageGRID ein.
+*** *Port*: Geben Sie die Portnummer für StorageGRID ein.
+*** *Zugriffsschlüssel*: Geben Sie den StorageGRID S3-Zugriffsschlüssel ein.
+*** *Geheimschlüssel*: Geben Sie den geheimen StorageGRID S3-Schlüssel ein.
+
+
+** Für ONTAP S3:
++
+*** *Anmeldeinformationsname*: Geben Sie den Anmeldeinformationsnamen für ONTAP S3 ein.
+*** *Gateway-Knoten-FQDN*: Geben Sie einen FQDN-Namen für ONTAP S3 ein.
+*** *Port*: Geben Sie die Portnummer für ONTAP S3 ein.
+*** *Zugriffsschlüssel*: Geben Sie den ONTAP S3-Zugriffsschlüssel ein.
+*** *Geheimschlüssel*: Geben Sie den geheimen ONTAP S3-Schlüssel ein.
+
+
+
+
+. Wählen Sie * Entdecken*.
+
+
+
+
+== Einen Bucket für ein Sicherungsziel hinzufügen
+
+Anstatt Buckets automatisch von BlueXP backup and recovery erkennen zu lassen, können Sie einem externen Sicherungsziel manuell einen Bucket hinzufügen.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery “ die Option „Inventar“ aus.
+. Wählen Sie *Offsite-Sicherungsziele*.
+. Wählen Sie das Ziel aus und wählen Sie rechts die *Aktionen* image:icon-action.png["Aktionssymbol"] Symbol und wählen Sie *Bucket hinzufügen*.
+. Geben Sie die Bucket-Informationen ein. Die Informationen variieren je nach Art des ausgewählten Sicherungsziels.
++
+** Für AWS:
++
+*** *Bucket-Name*: Geben Sie den Namen des S3-Buckets ein.
+*** *AWS-Konto*: Geben Sie den AWS-Kontonamen ein.
+*** *Bucket-Region*: Geben Sie die AWS-Region für den Bucket ein.
+*** *S3-Objektsperre aktivieren*: Wählen Sie diese Option, um die S3-Objektsperre für den Bucket zu aktivieren. Die S3-Objektsperre verhindert das Löschen oder Überschreiben von Objekten für einen bestimmten Aufbewahrungszeitraum und bietet so zusätzlichen Datenschutz. Sie können diese Option nur beim Erstellen eines Buckets aktivieren und später nicht mehr deaktivieren.
++
+**** *Governance-Modus*: Wählen Sie diese Option, um den Governance-Modus für den S3 Object Lock-Bucket zu aktivieren. Der Governance-Modus schützt Objekte vor dem Löschen oder Überschreiben durch die meisten Benutzer, ermöglicht es jedoch bestimmten Benutzern, die Aufbewahrungseinstellungen zu ändern.
+**** *Compliance-Modus*: Wählen Sie diese Option, um den Compliance-Modus für den S3 Object Lock-Bucket zu aktivieren. Der Compliance-Modus verhindert, dass Benutzer, einschließlich des Root-Benutzers, die Aufbewahrungseinstellungen ändern oder Objekte löschen, bis die Aufbewahrungsfrist abgelaufen ist.
+
+
+*** *Versionierung*: Wählen Sie diese Option, um die Versionierung für den S3-Bucket zu aktivieren. Mit der Versionierung können Sie mehrere Versionen von Objekten im Bucket speichern, was für Backup- und Wiederherstellungszwecke nützlich sein kann.
+*** *Tags*: Wählen Sie Tags für den S3-Bucket aus. Tags sind Schlüssel-Wert-Paare, mit denen Sie Ihre S3-Ressourcen organisieren und verwalten können.
+*** *Verschlüsselung*: Wählen Sie die Verschlüsselungsart für den S3-Bucket. Zur Auswahl stehen entweder von AWS S3 verwaltete Schlüssel oder AWS Key Management Service-Schlüssel. Wenn Sie AWS Key Management Service-Schlüssel auswählen, müssen Sie die Schlüssel-ID angeben.
+
+
+** Für Azure:
++
+*** *Abonnement*: Wählen Sie den Namen des Azure Blob Storage-Containers aus.
+*** *Ressourcengruppe*: Wählen Sie den Namen der Azure-Ressourcengruppe aus.
+*** *Instanzdetails*:
++
+**** *Speicherkontoname*: Geben Sie den Namen des Azure Blob Storage-Containers ein.
+**** *Azure-Region*: Geben Sie die Azure-Region für den Container ein.
+**** *Leistungstyp*: Wählen Sie den Leistungstyp „Standard“ oder „Premium“ für den Azure Blob Storage-Container aus, der das erforderliche Leistungsniveau angibt.
+**** *Verschlüsselung*: Wählen Sie den Verschlüsselungstyp für den Azure Blob Storage-Container aus. Zur Auswahl stehen entweder von Microsoft oder vom Kunden verwaltete Schlüssel. Wenn Sie vom Kunden verwaltete Schlüssel auswählen, müssen Sie den Namen des Schlüsseltresors und den Schlüsselnamen angeben.
+
+
+
+
+** Für StorageGRID:
++
+*** *Name des Sicherungsziels*: Wählen Sie den Namen des StorageGRID Buckets aus.
+*** *Bucket-Name*: Geben Sie den Namen des StorageGRID Buckets ein.
+*** *Region*: Geben Sie die StorageGRID -Region für den Bucket ein.
+*** *Versionierung aktivieren*: Wählen Sie diese Option, um die Versionierung für den StorageGRID Bucket zu aktivieren. Mit der Versionierung können Sie mehrere Versionen von Objekten im Bucket speichern, was für Backup- und Wiederherstellungszwecke nützlich sein kann.
+*** *Objektsperre*: Wählen Sie diese Option, um die Objektsperre für den StorageGRID Bucket zu aktivieren. Die Objektsperre verhindert das Löschen oder Überschreiben von Objekten für einen bestimmten Aufbewahrungszeitraum und bietet so zusätzlichen Datenschutz. Sie können diese Option nur beim Erstellen eines Buckets aktivieren und später nicht mehr deaktivieren.
+*** *Kapazität*: Geben Sie die Kapazität für den StorageGRID Bucket ein. Dies ist die maximale Datenmenge, die im Bucket gespeichert werden kann.
+
+
+** Für ONTAP S3:
++
+*** *Name des Sicherungsziels*: Wählen Sie den Namen des ONTAP S3-Buckets aus.
+*** *Bucket-Zielname*: Geben Sie den Namen des ONTAP S3-Buckets ein.
+*** *Kapazität*: Geben Sie die Kapazität für den ONTAP S3-Bucket ein. Dies ist die maximale Datenmenge, die im Bucket gespeichert werden kann.
+*** *Versionierung aktivieren*: Wählen Sie diese Option, um die Versionierung für den ONTAP S3-Bucket zu aktivieren. Mit der Versionierung können Sie mehrere Versionen von Objekten im Bucket speichern, was für Backup- und Wiederherstellungszwecke nützlich sein kann.
+*** *Objektsperre*: Wählen Sie diese Option, um die Objektsperre für den ONTAP S3 Bucket zu aktivieren. Die Objektsperre verhindert das Löschen oder Überschreiben von Objekten für einen bestimmten Aufbewahrungszeitraum und bietet so zusätzlichen Datenschutz. Sie können diese Option nur beim Erstellen eines Buckets aktivieren und später nicht mehr deaktivieren.
+
+
+
+
+. Wählen Sie *Hinzufügen*.
+
+
+
+
+== Ändern der Anmeldeinformationen für ein Sicherungsziel
+
+Geben Sie die für den Zugriff auf das Sicherungsziel erforderlichen Anmeldeinformationen ein.
+
+.Schritte
+. Wählen Sie im BlueXP backup and recovery “ die Option „Inventar“ aus.
+. Wählen Sie *Offsite-Sicherungsziele*.
+. Wählen Sie das Ziel aus und wählen Sie rechts die *Aktionen* image:icon-action.png["Aktionssymbol"] Symbol und wählen Sie *Anmeldeinformationen ändern*.
+. Geben Sie die neuen Anmeldeinformationen für das Sicherungsziel ein. Die Informationen variieren je nach Art des ausgewählten Sicherungsziels.
+. Wählen Sie * Fertig*.
+

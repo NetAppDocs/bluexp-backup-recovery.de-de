@@ -16,7 +16,7 @@ summary: Unter bestimmten Umständen muss der BlueXP Backup- und Recovery-Servic
 [role="lead"]
 Unter bestimmten Umständen muss der BlueXP Backup- und Recovery-Service neu gestartet werden.
 
-Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector integriert. Sie müssen verschiedene erste Schritte ausführen, um den Dienst neu zu starten, je nachdem, ob Sie den Connector in der Cloud bereitgestellt haben oder ob Sie den Connector manuell auf einem Linux-System installiert haben.
+Die Backup- und Recovery-Funktionen von BlueXP sind in den BlueXP Connector integriert.
 
 .Schritte
 . Stellen Sie eine Verbindung zum Linux-System her, auf dem der Connector ausgeführt wird.

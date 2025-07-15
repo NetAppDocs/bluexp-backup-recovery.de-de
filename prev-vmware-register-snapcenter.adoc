@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-register-snapcenter.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Registrieren Sie das SnapCenter Plug-in for VMware vSphere Host zur Verwendung mit BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie sollten das SnapCenter-Plug-in für den VMware vSphere-Host in BlueXP Backup and Recovery registrieren, damit die Datenspeicher und virtuellen Maschinen angezeigt werden. Das SnapCenter-Plug-in für den VMware vSphere-Host kann nur von einem Benutzer mit Administratorzugriff registriert werden.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen Sie im Dropdown-Menü *Einstellungen* die Option * SnapCenter Plug-in for VMware vSphere* aus.
+. Wählen Sie * SnapCenter Plug-in for VMware vSphere registrieren*.
+. Geben Sie folgende Details an:
++
+.. Geben Sie im Feld SnapCenter-Plug-in für VMware vSphere den FQDN oder die IP-Adresse des SnapCenter-Plug-ins für VMware vSphere-Hosts an.
+.. Geben Sie im Feld Port die Portnummer an, auf der das SnapCenter-Plug-in für VMware vSphere-Host ausgeführt wird.
++
+Sie sollten sicherstellen, dass die Kommunikation zwischen dem lokalen SnapCenter-Plug-in für VMware vSphere Host, der auf der standardmäßigen 8144-Port- und BlueXP Connector-Instanz ausgeführt wird, offen ist. Diese kann bei einem beliebigen Cloud-Provider (Amazon Web Services, Microsoft Azure, Google Cloud Platform) oder lokal ausgeführt werden.
+
+.. Geben Sie im Feld Benutzername und Kennwort die Anmeldeinformationen des vCenter-Benutzers mit der Administratorrolle an.
+
+
+. Wählen Sie *Registrieren*.
+
+
+*Nach Ihrer Beendigung*
+
+Wählen Sie *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*, um alle Datenspeicher und virtuellen Maschinen anzuzeigen, die mit dem registrierten SnapCenter Plug-in for VMware vSphere Host geschützt sind.

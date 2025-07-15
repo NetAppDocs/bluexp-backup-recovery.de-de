@@ -1,0 +1,269 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-restore.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Stellen Sie Datenbank-Workloads aus einer Snapshot-Kopie, einem auf einen sekundären Speicher replizierten Workload-Backup oder aus im Objektspeicher gespeicherten Backups wieder her. 
+---
+= Stellen Sie Microsoft SQL Server-Workloads mit BlueXP backup and recovery wieder her
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Stellen Sie Microsoft SQL Server-Workloads aus Snapshot-Kopien, aus einem auf einem sekundären Speicher replizierten Workload-Backup oder aus im Objektspeicher gespeicherten Backups mit BlueXP backup and recovery wieder her. Sie können einen Workload in der ursprünglichen Arbeitsumgebung, in einer anderen Arbeitsumgebung mit demselben Cloud-Konto oder auf einem lokalen ONTAP -System wiederherstellen.
+
+.Von diesen Speicherorten wiederherstellen
+Sie können Workloads von verschiedenen Startorten wiederherstellen:
+
+* Wiederherstellung von einem primären Speicherort
+* Wiederherstellen aus einer replizierten Ressource
+* Wiederherstellen aus einer Objektspeichersicherung
+
+
+.Stellen Sie diese Punkte wieder her
+Sie können Daten bis zum letzten Snapshot oder bis zu diesen Punkten wiederherstellen:
+
+* Wiederherstellen aus Snapshots
+* Stellen Sie die Datei zu einem bestimmten Zeitpunkt wieder her. Dies ist hilfreich, wenn Sie den Namen und Speicherort der Datei sowie das Datum kennen, an dem sie zuletzt in gutem Zustand war.
+* Wiederherstellen der neuesten Sicherung
+
+
+.Überlegungen zur Wiederherstellung aus dem Objektspeicher
+Wenn Sie eine Sicherungsdatei im Objektspeicher auswählen und für diese Sicherung der Ransomware-Schutz aktiviert ist (sofern Sie DataLock und Ransomware-Schutz in der Sicherungsrichtlinie aktiviert haben), werden Sie aufgefordert, vor der Wiederherstellung der Daten eine zusätzliche Integritätsprüfung der Sicherungsdatei durchzuführen. Wir empfehlen Ihnen, den Scan durchzuführen.
+
+
+TIP: Für den Zugriff auf den Inhalt der Sicherungsdatei fallen bei Ihrem Cloud-Anbieter zusätzliche Kosten an.
+
+
+
+== So funktioniert die Wiederherstellung von Workloads
+
+Beim Wiederherstellen von Workloads geschieht Folgendes:
+
+* Wenn Sie eine Arbeitslast aus einer Sicherungsdatei wiederherstellen, erstellt BlueXP backup and recovery eine _neue_ Ressource unter Verwendung der Daten aus der Sicherung.
+* Wenn Sie eine Wiederherstellung aus einem replizierten Workload durchführen, können Sie den Workload in der ursprünglichen Arbeitsumgebung oder auf einem lokalen ONTAP System wiederherstellen.
++
+image:diagram_browse_restore_volume-unified.png["Ein Diagramm, das den Ablauf zum Wiederherstellen einer Ressource zeigt"]
+
+* Wenn Sie ein Backup aus dem Objektspeicher wiederherstellen, können Sie die Daten in der ursprünglichen Arbeitsumgebung oder auf einem lokalen ONTAP System wiederherstellen.
+
+
+
+
+== Wiederherstellungsmethoden
+
+Sie können Workloads mit einer der folgenden Methoden wiederherstellen. Wählen Sie je nach Wiederherstellungsbedarf in der Regel eine der folgenden Methoden aus:
+
+* *Von der Seite „Wiederherstellen“*: Verwenden Sie diese Option, wenn Sie eine Ressource wiederherstellen müssen, sich aber nicht an den genauen Namen, den Speicherort oder das Datum erinnern, an dem sie zuletzt in einwandfreiem Zustand war. Sie können mithilfe von Filtern nach dem Snapshot suchen.
+* *Von der Inventarseite*: Verwenden Sie diese Option, wenn Sie eine bestimmte Ressource der letzten Woche oder des letzten Monats wiederherstellen müssen – und Sie den Namen und Standort der Ressource sowie das Datum kennen, an dem sie zuletzt in gutem Zustand war. Sie durchsuchen eine Liste von Ressourcen, um die gewünschte Ressource zu finden.
+
+
+*Erforderliche BlueXP Rolle* Organisationsadministrator, Ordner- oder Projektadministrator, Superadministrator für Backup und Wiederherstellung, Administratorrolle für Backup- und Wiederherstellungswiederherstellung.  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
+
+
+
+== Wiederherstellen von Workload-Daten über die Option „Wiederherstellen“
+
+Stellen Sie Datenbank-Workloads mit der Option „Wiederherstellen“ wieder her.
+
+.Schritte
+. Wählen Sie im BlueXP -Sicherung- und Wiederherstellungsmenü *Wiederherstellen* aus.
++
+image:screen-br-restore.png["Ein Screenshot, der die Seite „Wiederherstellen“ zeigt."]
+
+. Wählen Sie die Datenbank aus, die Sie wiederherstellen möchten. Verwenden Sie die Filter für die Suche.
+. Wählen Sie die Wiederherstellungsoption:
++
+** Wiederherstellen aus Snapshots
+** Stellen Sie die Datei zu einem bestimmten Zeitpunkt wieder her. Dies ist hilfreich, wenn Sie den Namen und Speicherort der Datei sowie das Datum kennen, an dem sie zuletzt in gutem Zustand war.
+** Wiederherstellen der neuesten Sicherung
++
+image:screen-br-restore-options2.png["Ein Screenshot, der die Wiederherstellungsoptionen zeigt."]
+
+
+
+
+
+
+
+=== Wiederherstellen von Workloads aus Snapshots
+
+. Fahren Sie auf der Seite „Wiederherstellungsoptionen“ fort und wählen Sie „Aus Snapshots wiederherstellen“ aus.
++
+Es wird eine Liste mit Snapshots angezeigt.
+
++
+image:screen-br-restore-snapshots-snapshotlist.png["Ein Screenshot, der die Liste der wiederherzustellenden Snapshots zeigt"]
+
+. Wählen Sie den Snapshot aus, den Sie wiederherstellen möchten.
+. Wählen Sie *Weiter*.
++
+Als Nächstes werden die Zieloptionen angezeigt.
+
++
+image:screen-br-restore-destination-original-location.png["Ein Screenshot, der die Detailseite des Wiederherstellungsziels zeigt."]
+
+. Geben Sie auf der Seite „Zieldetails“ die folgenden Informationen ein:
++
+** *Zieleinstellungen*: Wählen Sie, ob Sie die Daten am ursprünglichen oder an einem alternativen Speicherort wiederherstellen möchten. Wählen Sie für einen alternativen Speicherort den Hostnamen und die Instanz aus, geben Sie den Datenbanknamen ein und geben Sie den Zielpfad ein, in dem Sie den Snapshot wiederherstellen möchten.
+** *Optionen vor der Wiederherstellung*:
++
+*** *Datenbank beim Wiederherstellen mit gleichem Namen überschreiben*: Beim Wiederherstellen bleibt der ursprüngliche Datenbankname erhalten.
+*** *Replikationseinstellungen der SQL-Datenbank beibehalten*: Behält die Replikationseinstellungen für die SQL-Datenbank nach dem Wiederherstellungsvorgang bei.
+*** *Sicherung des Transaktionsprotokolls vor der Wiederherstellung erstellen*: Erstellt vor dem Wiederherstellungsvorgang eine Sicherung des Transaktionsprotokolls.*** *Wiederherstellung beenden, wenn die Sicherung des Transaktionsprotokolls vor der Wiederherstellung fehlschlägt*: Stoppt den Wiederherstellungsvorgang, wenn die Sicherung des Transaktionsprotokolls fehlschlägt.
+*** *Prescript*: Geben Sie den vollständigen Pfad für ein Skript ein, das vor dem Wiederherstellungsvorgang ausgeführt werden soll, alle Argumente, die das Skript benötigt, und wie lange auf die Fertigstellung des Skripts gewartet werden soll.
+
+
+** *Optionen nach der Wiederherstellung*:
++
+*** *Betriebsbereit*, aber nicht für die Wiederherstellung weiterer Transaktionsprotokolle verfügbar. Dadurch wird die Datenbank nach der Anwendung der Transaktionsprotokollsicherungen wieder online geschaltet.
+*** *Nicht betriebsbereit*, aber verfügbar für die Wiederherstellung zusätzlicher Transaktionsprotokolle. Hält die Datenbank nach der Wiederherstellung in einem nicht betriebsbereiten Zustand, während die Sicherungen der Transaktionsprotokolle wiederhergestellt werden. Diese Option ist nützlich für die Wiederherstellung zusätzlicher Transaktionsprotokolle.
+*** *Schreibgeschützter Modus* und verfügbar zum Wiederherstellen zusätzlicher Transaktionsprotokolle. Stellt die Datenbank im schreibgeschützten Modus wieder her und wendet Transaktionsprotokollsicherungen an.
+*** *Postscript*: Geben Sie den vollständigen Pfad für ein Skript ein, das nach dem Wiederherstellungsvorgang ausgeführt werden soll, sowie alle Argumente, die das Skript verwendet.
+
+
+
+
+. Wählen Sie *Wiederherstellen*.
+
+
+
+
+=== Wiederherstellung zu einem bestimmten Zeitpunkt
+
+BlueXP backup and recovery verwendet Protokolle und die aktuellsten Snapshots, um eine zeitpunktbezogene Wiederherstellung Ihrer Daten zu erstellen.
+
+. Wählen Sie auf der Seite „Wiederherstellungsoptionen“ die Option „Zu einem bestimmten Zeitpunkt wiederherstellen“ aus.
+. Wählen Sie *Weiter*.
++
+image:screen-br-restore-point-in-time.png["Ein Screenshot, der die Seite „Zu einem bestimmten Zeitpunkt wiederherstellen“ zeigt"]
+
+. Geben Sie auf der Seite „Zu einem bestimmten Zeitpunkt wiederherstellen“ die folgenden Informationen ein:
++
+** *Datum und Uhrzeit der Datenwiederherstellung*: Geben Sie das genaue Datum und die Uhrzeit der wiederherzustellenden Daten ein. Datum und Uhrzeit stammen vom Microsoft SQL Server-Datenbankhost.
+
+
+. Wählen Sie *Suche*.
+. Wählen Sie den Snapshot aus, den Sie wiederherstellen möchten.
+. Wählen Sie *Weiter*.
+. Geben Sie auf der Seite „Zieldetails“ die folgenden Informationen ein:
++
+** *Zieleinstellungen*: Wählen Sie, ob Sie die Daten am ursprünglichen oder an einem alternativen Speicherort wiederherstellen möchten. Für einen alternativen Speicherort wählen Sie den Hostnamen und die Instanz aus, geben den Datenbanknamen ein und geben den Zielpfad ein.
+** *Optionen vor der Wiederherstellung*:
++
+*** *Ursprünglichen Datenbanknamen beibehalten*: Während der Wiederherstellung bleibt der ursprüngliche Datenbankname erhalten.
+*** *Replikationseinstellungen der SQL-Datenbank beibehalten*: Behält die Replikationseinstellungen für die SQL-Datenbank nach dem Wiederherstellungsvorgang bei.
+*** *Prescript*: Geben Sie den vollständigen Pfad für ein Skript ein, das vor dem Wiederherstellungsvorgang ausgeführt werden soll, alle Argumente, die das Skript benötigt, und wie lange auf die Fertigstellung des Skripts gewartet werden soll.
+
+
+** *Optionen nach der Wiederherstellung*:
++
+*** *Betriebsbereit*, aber nicht für die Wiederherstellung weiterer Transaktionsprotokolle verfügbar. Dadurch wird die Datenbank nach der Anwendung der Transaktionsprotokollsicherungen wieder online geschaltet.
+*** *Nicht betriebsbereit*, aber verfügbar für die Wiederherstellung zusätzlicher Transaktionsprotokolle. Hält die Datenbank nach der Wiederherstellung in einem nicht betriebsbereiten Zustand, während die Sicherungen der Transaktionsprotokolle wiederhergestellt werden. Diese Option ist nützlich für die Wiederherstellung zusätzlicher Transaktionsprotokolle.
+*** *Schreibgeschützter Modus* und verfügbar zum Wiederherstellen zusätzlicher Transaktionsprotokolle. Stellt die Datenbank im schreibgeschützten Modus wieder her und wendet Transaktionsprotokollsicherungen an.
+*** *Postscript*: Geben Sie den vollständigen Pfad für ein Skript ein, das nach dem Wiederherstellungsvorgang ausgeführt werden soll, sowie alle Argumente, die das Skript verwendet.
+
+
+
+
+. Wählen Sie *Wiederherstellen*.
+
+
+
+
+=== Wiederherstellen der neuesten Sicherung
+
+Diese Option verwendet die neuesten vollständigen und Protokollsicherungen, um Ihre Daten in den letzten fehlerfreien Zustand zurückzusetzen. Das System durchsucht Protokolle vom letzten Snapshot bis zum aktuellen. Der Prozess verfolgt Änderungen und Aktivitäten, um die aktuellste und korrekteste Version Ihrer Daten wiederherzustellen.
+
+. Fahren Sie auf der Seite „Wiederherstellungsoptionen“ fort und wählen Sie „Auf die neueste Sicherung wiederherstellen“ aus.
++
+BlueXP backup and recovery zeigt Ihnen die Snapshots, die für den Wiederherstellungsvorgang verfügbar sind.
+
++
+image:screen-br-restore-to-latest-state.png["Ein Screenshot der Seite „Auf neuesten Zustand wiederherstellen“"]
+
+. Wählen Sie auf der Seite „Auf den neuesten Stand wiederherstellen“ den Snapshot-Speicherort des lokalen, sekundären Speichers oder Objektspeichers aus.
+. Wählen Sie *Weiter*.
+. Geben Sie auf der Seite „Zieldetails“ die folgenden Informationen ein:
++
+** *Zieleinstellungen*: Wählen Sie, ob Sie die Daten am ursprünglichen oder an einem alternativen Speicherort wiederherstellen möchten. Für einen alternativen Speicherort wählen Sie den Hostnamen und die Instanz aus, geben den Datenbanknamen ein und geben den Zielpfad ein.
+** *Optionen vor der Wiederherstellung*:
++
+*** *Datenbank beim Wiederherstellen mit gleichem Namen überschreiben*: Beim Wiederherstellen bleibt der ursprüngliche Datenbankname erhalten.
+*** *Replikationseinstellungen der SQL-Datenbank beibehalten*: Behält die Replikationseinstellungen für die SQL-Datenbank nach dem Wiederherstellungsvorgang bei.
+*** *Vor der Wiederherstellung eine Sicherungskopie des Transaktionsprotokolls erstellen*: Erstellt vor dem Wiederherstellungsvorgang eine Sicherungskopie des Transaktionsprotokolls.
+*** *Wiederherstellung beenden, wenn die Sicherung des Transaktionsprotokolls vor der Wiederherstellung fehlschlägt*: Beendet den Wiederherstellungsvorgang, wenn die Sicherung des Transaktionsprotokolls fehlschlägt.
+*** *Prescript*: Geben Sie den vollständigen Pfad für ein Skript ein, das vor dem Wiederherstellungsvorgang ausgeführt werden soll, alle Argumente, die das Skript benötigt, und wie lange auf die Fertigstellung des Skripts gewartet werden soll.
+
+
+** *Optionen nach der Wiederherstellung*:
++
+*** *Betriebsbereit*, aber nicht für die Wiederherstellung weiterer Transaktionsprotokolle verfügbar. Dadurch wird die Datenbank nach der Anwendung der Transaktionsprotokollsicherungen wieder online geschaltet.
+*** *Nicht betriebsbereit*, aber verfügbar für die Wiederherstellung zusätzlicher Transaktionsprotokolle. Hält die Datenbank nach der Wiederherstellung in einem nicht betriebsbereiten Zustand, während die Sicherungen der Transaktionsprotokolle wiederhergestellt werden. Diese Option ist nützlich für die Wiederherstellung zusätzlicher Transaktionsprotokolle.
+*** *Schreibgeschützter Modus* und verfügbar zum Wiederherstellen zusätzlicher Transaktionsprotokolle. Stellt die Datenbank im schreibgeschützten Modus wieder her und wendet Transaktionsprotokollsicherungen an.
+*** *Postscript*: Geben Sie den vollständigen Pfad für ein Skript ein, das nach dem Wiederherstellungsvorgang ausgeführt werden soll, sowie alle Argumente, die das Skript verwendet.
+
+
+
+
+. Wählen Sie *Wiederherstellen*.
+
+
+
+
+== Wiederherstellen von Workload-Daten aus der Inventaroption
+
+Stellen Sie Datenbank-Workloads über die Seite „Inventar“ wieder her. Mit der Option „Inventar“ können Sie nur Datenbanken, keine Instanzen wiederherstellen.
+
+.Schritte
+. Wählen Sie im BlueXP -Sicherung- und Wiederherstellungsmenü *Inventar* aus.
+. Wählen Sie den Host aus, auf dem sich die Ressource befindet, die Sie wiederherstellen möchten.
+. Wählen Sie die *Aktionen* image:icon-action.png["Aktionssymbol"] Symbol und wählen Sie *Details anzeigen*.
+. Wählen Sie auf der Microsoft SQL Server-Seite die Registerkarte *Datenbanken* aus.
+. Wählen Sie auf der Registerkarte „Datenbanken“ die Datenbank aus, die den Status „Geschützt“ aufweist. Dies bedeutet, dass eine Sicherung vorhanden ist, die Sie wiederherstellen können.
++
+image:screen-br-restore-inventory-databases-tab.png["Ein Screenshot der Inventarseite und der Registerkarte „Datenbanken“"]
+
+. Wählen Sie die *Aktionen* image:icon-action.png["Aktionssymbol"] Symbol und wählen Sie *Wiederherstellen*.
++
+Es werden dieselben drei Optionen angezeigt wie beim Wiederherstellen über die Seite „Wiederherstellen“:
+
++
+** Wiederherstellen aus Snapshots
+** Wiederherstellung zu einem bestimmten Zeitpunkt
+** Wiederherstellen der neuesten Sicherung
+
+
+. Fahren Sie mit den gleichen Schritten für die Wiederherstellungsoption auf der Seite „Wiederherstellen“ fort
++
+image:screen-br-restore-options2.png["Ein Screenshot, der die Wiederherstellungsoptionen zeigt."]
+
+
+
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]

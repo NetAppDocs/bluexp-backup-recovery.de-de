@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-protect-overview.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Sie können Microsoft SQL Server-Anwendungsdaten von lokalen ONTAP -Systemen auf Amazon Web Services, Microsoft Azure und StorageGRID sichern und so den Schutz Ihrer Daten gewährleisten. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert. Sie können eine 3-2-1-Strategie implementieren, bei der Sie drei Kopien Ihrer Quelldaten auf zwei verschiedenen Speichersystemen und eine Kopie in der Cloud speichern. 
+---
+= Überblick über Microsoft SQL-Workloads mit BlueXP backup and recovery schützen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Schützen Sie Ihre Microsoft SQL Server-Anwendungsdaten von lokalen ONTAP -Systemen auf Amazon Web Services, Microsoft Azure oder StorageGRID mit BlueXP backup and recovery. Backups werden automatisch erstellt und basierend auf den von Ihnen erstellten Richtlinien in einem Objektspeicher in Ihrem öffentlichen oder privaten Cloud-Konto gespeichert. Sie können eine 3-2-1-Strategie implementieren, bei der Sie drei Kopien Ihrer Quelldaten auf zwei verschiedenen Speichersystemen und eine Kopie in der Cloud speichern.
+
+Der 3-2-1-5-Ansatz bietet unter anderem folgende Vorteile:
+
+* Mehrere Datenkopien bieten mehrschichtigen Schutz vor internen (internen) und externen Cybersicherheitsbedrohungen.
+* Mehrere Medientypen gewährleisten die Failover-Möglichkeit bei einem physischen oder logischen Ausfall eines Medientyps.
+* Die Vor-Ort-Kopie ermöglicht eine schnelle Wiederherstellung, wobei die Offsite-Kopien für den Fall verfügbar sind, dass die Vor-Ort-Kopie kompromittiert wird.
+
+
+BlueXP backup and recovery nutzt die Datenreplikationstechnologie NetApp SnapMirror , um sicherzustellen, dass alle Backups vollständig synchronisiert sind, indem Snapshot-Kopien erstellt und an die Backup-Speicherorte übertragen werden.
+
+Sie können die folgenden Schutzziele erreichen:
+
+* link:concept-start-prereq-snapcenter-import.html["Konfigurieren Sie zusätzliche Elemente beim Importieren aus SnapCenter"]
+* link:br-start-discover.html["Entdecken Sie Microsoft SQL Server-Workloads und importieren Sie optional SnapCenter -Ressourcen"]
+* link:br-use-mssql-backup.html["Sichern Sie Workloads mit lokalen Snapshots auf dem lokalen ONTAP Primärspeicher"]
+* link:br-use-mssql-backup.html["Replizieren Sie Workloads auf den sekundären ONTAP -Speicher"]
+* link:br-use-mssql-backup.html["Sichern Sie Workloads an einem Objektspeicherort"]
+* link:br-use-mssql-backup.html["Sichern Sie Workloads jetzt"]
+* link:br-use-mssql-restore-overview.html["Wiederherstellen von Workloads"]
+* link:br-use-mssql-clone.html["Klonen von Workloads"]
+* link:br-use-manage-inventory.html["Verwalten des Workload-Inventars"]
+* link:br-use-manage-snapshots.html["Verwalten von Snapshots"]
+
+
+Zum Sichern von Workloads erstellen Sie normalerweise Richtlinien, die die Sicherungs- und Wiederherstellungsvorgänge steuern. Weitere Informationen finden Sie unter link:br-use-policies-create.html["Erstellen von Richtlinien"] .
+
+.Unterstützte Backup-Ziele
+Mit BlueXP backup and recovery können Sie Microsoft SQL Server-Instanzen und -Datenbanken aus den folgenden Quellarbeitsumgebungen in die folgenden sekundären Arbeitsumgebungen und Objektspeicher bei öffentlichen und privaten Cloud-Anbietern sichern. Snapshot-Kopien befinden sich in der Quell-Arbeitsumgebung.
+
+[cols="33,33,33"]
+|===
+| Quelle Arbeitsumgebung | Sekundäre Arbeitsumgebung (Replikation) | Zielobjektspeicher (Backup) 
+
+
+| Cloud Volumes ONTAP in AWS | Cloud Volumes ONTAP in AWS
+Lokales ONTAP System | Amazon S3 
+
+
+| Cloud Volumes ONTAP in Azure | Cloud Volumes ONTAP in Azure
+Lokales ONTAP System | Azure Blob 
+
+
+| Lokales ONTAP System | Cloud Volumes ONTAP
+Lokales ONTAP System | Amazon S3 Azure Blob NetApp StorageGRID ifdef::gcp[] endif::gcp[] ifdef::gcp[] endif::gcp[] 
+|===
+.Unterstützte Wiederherstellungsziele
+Sie können Microsoft SQL Server-Instanzen und -Datenbanken aus einer Sicherung, die sich im primären Speicher oder einer sekundären Arbeitsumgebung (einem replizierten Volume) oder im Objektspeicher (einer Sicherungsdatei) befindet, in den folgenden Arbeitsumgebungen wiederherstellen. Snapshot Kopien befinden sich in der Quell-Arbeitsumgebung, sie können nur auf demselben System wiederhergestellt werden.
+
+[cols="33,33,33"]
+|===
+2+| Vom Speicherort der Sicherungsdatei | Zum Ziel Der Arbeitsumgebung 
+
+
+| *Objektspeicher (Sicherung)* | *Sekundärsystem (Replikation)* |  
+
+
+| Amazon S3 | Cloud Volumes ONTAP in AWS
+Lokales ONTAP System | Cloud Volumes im AWS On-Premises ONTAP -System 
+
+
+| Azure Blob | Cloud Volumes ONTAP in Azure
+Lokales ONTAP System | Cloud Volumes ONTAP in Azure Lokales ONTAP -System ifdef::gcp[] endif::gcp[] 
+
+
+| StorageGRID | Cloud Volumes ONTAP
+Lokales ONTAP System | Lokales ONTAP System 
+|===
+
+NOTE: Verweise auf „On-Premises ONTAP -Systeme“ umfassen FAS und AFF Systeme.

@@ -1,0 +1,214 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-manage.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Verwalten Sie Sicherungsrichtlinien für ONTAP-Volumes mit BlueXP Backup und Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Verwenden Sie mit BlueXP Backup und Recovery die von NetApp bereitgestellten Standard-Backup-Richtlinien zum Erstellen Ihrer Backups oder erstellen Sie benutzerdefinierte Richtlinien. Richtlinien regeln die Sicherungshäufigkeit, die Dauer der Sicherung und die Anzahl der Sicherungsdateien, die aufbewahrt werden.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+Wenn Sie den Backup- und Recovery-Service für Ihre Volumes mit dem Aktivierungsassistenten aktivieren, können Sie aus den Standardrichtlinien und anderen Richtlinien auswählen, die bereits in der Arbeitsumgebung (Cloud Volumes ONTAP oder On-Premises ONTAP System) vorhanden sind. Wenn Sie eine andere Richtlinie als die vorhandenen Richtlinien verwenden möchten, können Sie die Richtlinie vor oder während der Verwendung des Aktivierungsassistenten erstellen.
+
+Weitere Informationen zu den bereitgestellten Standard-Sicherungsrichtlinien finden Sie unter link:prev-ontap-protect-journey.html["Planen Sie Ihren Weg zum Schutz"] .
+
+BlueXP Backup und Recovery bietet drei Arten von Backups von ONTAP Daten: Snapshots, Replizierungen und Backups in Objekt-Storage. Ihre Richtlinien befinden sich an verschiedenen Orten, basierend auf der von Ihnen verwendeten Architektur und der Art des Backups:
+
+[cols="25,25,25,25"]
+|===
+| Der Netapp Architektur Sind | Speicherort der Snapshot-Richtlinie | Speicherort der Replizierungsrichtlinie | Speicherort für Backup in Objektrichtlinie 
+
+
+| *Fan-out* | Primär | Sekundär | Primär 
+
+
+| *Kaskade* | Primär | Sekundär | Sekundär 
+|===
+Erstellen Sie anhand der folgenden Tools Backup-Richtlinien, je nach Ihrer Umgebung, Ihren Einstellungen und dem Schutztyp:
+
+* BlueXP UI
+* System Manager-UI
+* CLI VON ONTAP
+
+
+
+TIP: Wenn Sie System Manager verwenden, wählen Sie *Asynchronous* als Richtlinientyp für Replikationsrichtlinien aus, und wählen Sie *Asynchronous* und *Back up to Cloud* für Backup to object Policies aus.
+
+
+
+== Richtlinien für eine Arbeitsumgebung anzeigen
+
+. Wählen Sie in der BlueXP-Benutzeroberfläche *Volumes* > *Backup-Einstellungen* aus.
+. Wählen Sie auf der Seite Backup Settings die Arbeitsumgebung aus und wählen Sie die Option *actions* image:icon-action.png["Aktionssymbol"] Und wählen Sie *Richtlinienverwaltung* aus.
++
+Die Seite Richtlinienverwaltung wird angezeigt.
+
++
+image:screenshot_policies_management.png["Seite für die Richtlinienverwaltung"]
+
++
+Snapshot-Richtlinien werden standardmäßig angezeigt.
+
+. Um andere Richtlinien anzuzeigen, die in der Arbeitsumgebung vorhanden sind, wählen Sie entweder *Replikationsrichtlinien* oder *Backup-Richtlinien* aus. Wenn die bestehenden Richtlinien für Ihre Backup-Pläne verwendet werden können, sind Sie alle bereit. Wenn Sie eine Richtlinie mit unterschiedlichen Merkmalen benötigen, können Sie auf dieser Seite neue Richtlinien erstellen.
+
+
+
+
+== Erstellen von Richtlinien
+
+Sie können Richtlinien erstellen, die Ihre Snapshot-Kopien, Replikationen und Backups im Objektspeicher regeln:
+
+* <<Erstellen Sie eine Snapshot-Richtlinie, bevor Sie den Snapshot starten>>
+* <<Erstellen Sie eine Replikationsrichtlinie, bevor Sie die Replikation starten>>
+* <<Erstellen Sie vor dem Initiieren des Backups eine Richtlinie für Backup-to-Object-Storage>>
+
+
+
+
+=== Erstellen Sie eine Snapshot-Richtlinie, bevor Sie den Snapshot starten
+
+Ein Teil Ihrer 3-2-1-Strategie besteht darin, eine Snapshot-Kopie des Volumes auf dem *primären* Speichersystem zu erstellen.
+
+Ein Teil des Richtlinienerstellungsprozesses umfasst die Identifizierung von Snapshot- und SnapMirror -Bezeichnungen, die den Zeitplan und die Aufbewahrung angeben. Sie können vordefinierte Beschriftungen verwenden oder eigene erstellen.
+
+.Schritte
+. Wählen Sie in der BlueXP-Benutzeroberfläche *Volumes* > *Backup-Einstellungen* aus.
+. Wählen Sie auf der Seite Backup Settings die Arbeitsumgebung aus und wählen Sie die Option *actions* image:icon-action.png["Aktionssymbol"] Und wählen Sie *Richtlinienverwaltung* aus.
++
+Die Seite Richtlinienverwaltung wird angezeigt.
+
+. Wählen Sie auf der Seite Policies *Create Policy* > *Create Snapshot Policy* aus.
+. Geben Sie den Richtliniennamen an.
+. Wählen Sie den oder die Snapshot-Zeitpläne aus. Sie können maximal 5 Etiketten haben. Oder erstellen Sie einen Zeitplan.
+. Wenn Sie einen Zeitplan erstellen möchten:
++
+.. Wählen Sie die Häufigkeit von stündlich, täglich, wöchentlich, monatlich oder jährlich aus.
+.. Geben Sie die Snapshot-Beschriftungen an, die den Zeitplan und die Aufbewahrung kennzeichnen.
+.. Geben Sie ein, wann und wie oft der Schnappschuss gemacht werden soll.
+.. Aufbewahrung: Geben Sie die Anzahl der aufzubewahrenden Snapshots ein.
+
+
+. Wählen Sie *Erstellen*.
+
+
+*Snapshot Policy Beispiel mit Kaskadenarchitektur*
+
+In diesem Beispiel wird eine Snapshot-Richtlinie mit zwei Clustern erstellt:
+
+. Cluster 1:
++
+.. Wählen Sie Cluster 1 auf der Richtlinienseite aus.
+.. Ignorieren Sie die Richtlinienabschnitte „Replikation“ und „Backup to Object“.
+.. Erstellen Sie die Snapshot-Richtlinie.
+
+
+. Cluster 2:
++
+.. Wählen Sie Cluster 2 auf der Seite Policy aus.
+.. Ignorieren Sie den Abschnitt zur Snapshot-Richtlinie.
+.. Konfigurieren Sie die Richtlinien für Replikation und Backup auf Objekt.
+
+
+
+
+
+
+=== Erstellen Sie eine Replikationsrichtlinie, bevor Sie die Replikation starten
+
+Ihre Strategie für 3-2-1-1 kann auch die Replizierung eines Volumes auf einem anderen Storage-System umfassen. Die Replikationsrichtlinie befindet sich auf dem *sekundären* Speichersystem.
+
+.Schritte
+. Wählen Sie auf der Seite Policies *Create Policy* > *Create Replication Policy* aus.
+. Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.
+. Geben Sie die SnapMirror-Labels (maximal 5) an, die die Aufbewahrung für jedes Label kennzeichnen.
+. Geben Sie den Übertragungszeitplan an.
+. Wählen Sie *Erstellen*.
+
+
+
+
+=== Erstellen Sie vor dem Initiieren des Backups eine Richtlinie für Backup-to-Object-Storage
+
+Ihre 3-2-1-1-Strategie umfasst unter Umständen auch Backups von Volumes auf Objekt-Storage.
+
+Diese Storage-Richtlinie befindet sich abhängig von der Backup-Architektur an verschiedenen Speicherorten des Storage-Systems:
+
+* Fan-out: Primäres Storage-System
+* Kaskadierung: Sekundäres Storage-System
+
+
+.Schritte
+. Wählen Sie auf der Seite Policy Management *Create Policy* > *Create Backup Policy* aus.
+. Geben Sie im Abschnitt Richtliniendetails den Richtliniennamen an.
+. Geben Sie die SnapMirror-Labels (maximal 5) an, die die Aufbewahrung für jedes Label kennzeichnen.
+. Geben Sie die Einstellungen an, einschließlich des Übertragungszeitplans und des Zeitplans für die Archivierung von Backups.
+. (Optional) um ältere Sicherungsdateien nach einer bestimmten Anzahl von Tagen in eine kostengünstigere Speicherklasse oder Zugriffsebene zu verschieben, wählen Sie die Option *Archiv* aus und geben die Anzahl der Tage an, die vergehen sollen, bevor die Daten archiviert werden. Geben Sie *0* als „Archiv nach Tagen“ ein, um Ihre Sicherungsdatei direkt an den Archivspeicher zu senden.
++
+link:prev-ontap-policy-object-options.html["Erfahren Sie mehr über die Storage-Einstellungen für Archive"].
+
+. (Optional) Wählen Sie die Option *DataLock & Ransomware Protection* aus, um Ihre Backups vor Änderungen oder Löschungen zu schützen.
++
+Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet, können Sie Ihre Backups vor dem Löschen schützen, indem Sie _DataLock_ und _Ransomware-Schutz_ konfigurieren.
+
++
+link:prev-ontap-policy-object-options.html["Erfahren Sie mehr über die verfügbaren DataLock-Einstellungen"].
+
+. Wählen Sie *Erstellen*.
+
+
+
+
+== Bearbeiten Sie eine Richtlinie
+
+Sie können eine benutzerdefinierte Snapshot-, Replikations- oder Sicherungsrichtlinie bearbeiten.
+
+Eine Änderung der Backup-Richtlinie wirkt sich auf alle Volumes aus, die diese Richtlinie verwenden.
+
+.Schritte
+. Wählen Sie auf der Seite Richtlinienverwaltung die Richtlinie aus, und wählen Sie die Option *actions* aus image:icon-action.png["Aktionssymbol"] Und wählen Sie *Richtlinie bearbeiten*.
++
+
+NOTE: Für Replizierungs- und Backup-Richtlinien ist der gleiche Prozess.
+
+. Nehmen Sie auf der Seite Richtlinie bearbeiten die Änderungen vor.
+. Wählen Sie *Speichern*.
+
+
+
+
+== Löschen Sie eine Richtlinie
+
+Sie können Richtlinien löschen, die keinem Volume zugeordnet sind.
+
+Wenn eine Richtlinie einem Volume zugewiesen ist und Sie die Richtlinie löschen möchten, müssen Sie die Richtlinie zuerst vom Volume entfernen.
+
+.Schritte
+. Wählen Sie auf der Seite Richtlinienverwaltung die Richtlinie aus, und wählen Sie die Option *actions* aus image:icon-action.png["Aktionssymbol"] Und wählen Sie *Snapshot-Richtlinie löschen*.
+. Wählen Sie *Löschen*.
+
+
+
+
+== Weitere Informationen
+
+Anweisungen zum Erstellen von Richtlinien mit System Manager oder der ONTAP CLI finden Sie unter:
+
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["Erstellen Sie mit System Manager eine Snapshot-Richtlinie"^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["Erstellen Sie eine Snapshot-Richtlinie über die ONTAP CLI"^]
+https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["Erstellen Sie mit System Manager eine Replikationsrichtlinie"^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["Erstellen Sie eine Replizierungsrichtlinie mithilfe der ONTAP-CLI"^]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["Erstellen Sie mit System Manager eine Richtlinie für das Backup auf Objekt-Storage"^]
+https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description["Erstellen Sie mithilfe der ONTAP CLI eine Richtlinie für das Backup in Objekt-Storage"^]

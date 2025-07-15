@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: reference-policy-differences-snapcenter.html 
+keywords: backup policy, backup policies, snapcenter, migration 
+summary: Es gibt einige Unterschiede zwischen den in BlueXP backup and recovery verwendeten Richtlinien und denen in SnapCenter. 
+---
+= Richtlinien in SnapCenter im Vergleich zu denen in BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Es gibt einige Unterschiede zwischen den in SnapCenter und denen in BlueXP backup and recovery verwendeten Richtlinien, die sich auf die Anzeige nach dem Importieren von Ressourcen und Richtlinien aus SnapCenter auswirken können.
+
+Für die Sicherung und Wiederherstellung von SnapCenter und BlueXP backup and recovery werden leicht unterschiedliche Richtlinienpläne verwendet.
+
+SnapCenter verwendet die folgenden Zeitplanebenen:
+
+* *Stündlich*: Mehrere Stunden und Minuten mit beliebigen Stunden (0-23) und beliebigen Minuten (0-60).
+* *Täglich*: Enthält eine Option zur Wiederholung alle paar Tage, zum Beispiel alle 3 Tage.
+* *Wöchentlich*: Sonntag bis Montag, mit der Option, am ersten Tag der Woche oder an mehreren Tagen der Woche einen Snapshot durchzuführen.
+* *Monatlich*: Monate Januar bis Dezember, mit der Option, an bestimmten Tagen im Monat aufzutreten, beispielsweise am 7. jedes Monats und sogar an mehreren Tagen im Monat.
+
+
+Für die BlueXP backup and recovery werden die folgenden Zeitplanebenen verwendet, die sich leicht unterscheiden:
+
+* *Stündlich*: Führt Snapshots nur in 15-Minuten-Intervallen aus, beispielsweise alle 1 Stunde oder in 15-Minuten-Intervallen unter 60.
+* *Täglich*: Stunden des Tages (0–23) mit Startzeit beispielsweise um 10:00 Uhr mit der Option, alle paar Stunden eine Ausführung durchzuführen.
+* *Wöchentlich*: Wochentag (Sonntag bis Montag) mit der Option, an einem oder mehreren Tagen durchzuführen. Dies entspricht SnapCenter.
+* *Monatlich*: Daten des Monats (0-30) mit einer Startzeit an mehreren Daten des Monats.
+* *Jährlich*: Monatlich. Dies entspricht dem monatlichen Tarif von SnapCenter.
+
+
+
+
+== Mehrere Richtlinien in SnapCenter mit derselben Zeitplanebene
+
+Sie können einer Ressource in SnapCenter mehrere Richtlinien mit derselben Zeitplanstufe zuweisen. BlueXP backup and recovery unterstützt jedoch nicht mehrere Richtlinien für eine Ressource, die dieselbe Zeitplanstufe verwendet.
+
+*Beispiel*: Wenn Sie in SnapCenter drei Richtlinien (für Daten, Protokoll und Protokoll von Snapshots) verwenden, verwendet BlueXP backup and recovery nach der Migration von SnapCenter eine einzige Richtlinie anstelle aller drei.
+
+
+
+== Importierte SnapCenter -Tagespläne
+
+BlueXP backup and recovery passt die SnapCenter -Zeitpläne wie folgt an:
+
+* Wenn der SnapCenter -Zeitplan auf maximal 7 Tage eingestellt ist, wird er von BlueXP backup and recovery auf wöchentlich festgelegt. Einige Snapshots werden während der Woche übersprungen.
++
+*Beispiel*: Wenn Sie eine SnapCenter -Tagesrichtlinie mit einem Wiederholungsintervall von drei Tagen ab Montag haben, legt BlueXP backup and recovery den Zeitplan auf wöchentlich für Montag, Donnerstag und Sonntag fest. Einige Tage werden übersprungen, da die Daten nicht genau alle drei Tage übertragen werden.
+
+* Wenn der SnapCenter -Zeitplan auf mehr als 7 Tage eingestellt ist, legt BlueXP backup and recovery den Zeitplan auf monatlich fest. Einige Snapshots werden im Laufe des Monats übersprungen.
++
+*Beispiel*: Wenn Sie eine SnapCenter -Tagesrichtlinie mit einem Wiederholungsintervall von 10 Tagen ab dem 2. des Monats haben, setzt BlueXP backup and recovery (nach der Migration) den Zeitplan auf monatlich am 2., 12. und 22. des Monats. Einige Tage werden im nächsten Monat übersprungen.
+
+
+
+
+
+== Importierte SnapCenter -Stundenpläne
+
+Stundenbasierte SnapCenter -Richtlinien mit Wiederholungsintervallen von mehr als einer Stunde werden in BlueXP backup and recovery in eine tägliche Richtlinie umgewandelt.
+
+Bei jeder stündlichen Richtlinie mit Wiederholungsintervallen, die kein Faktor von 24 sind (z. B. 5, 7 usw.), werden einige Snapshots an einem Tag übersprungen.
+
+*Beispiel*: Wenn Sie eine stündliche SnapCenter -Richtlinie mit einem Wiederholungsintervall alle 5 Stunden ab 1:00 Uhr haben, legt BlueXP backup and recovery (nach der Migration) den Zeitplan auf täglich mit 5-Stunden-Intervallen um 1:00 Uhr, 6:00 Uhr, 11:00 Uhr, 16:00 Uhr und 21:00 Uhr fest. Einige Stunden werden übersprungen. Nach 21:00 Uhr sollte es 2:00 Uhr sein, um alle 5 Stunden zu wiederholen, es wird jedoch immer 1:00 Uhr sein.
+
+
+
+== Protokollaufbewahrung aus SnapCenter -Richtlinien
+
+Wenn Sie in SnapCenter über eine Ressource mit mehreren Richtlinien verfügen, verwendet BlueXP backup and recovery die folgende Prioritätsreihenfolge, um den Protokollaufbewahrungswert zuzuweisen:
+
+* Für „Vollständige Sicherung mit Protokollsicherungsrichtlinie“ plus „Nur-Protokoll“-Richtlinien in SnapCenter verwendet BlueXP backup and recovery den Aufbewahrungswert der Nur-Protokoll-Richtlinie.
+* Für die Richtlinien „Vollständige Sicherung nur mit Protokoll“ und „Vollständig und Protokoll“ in SnapCenter verwendet BlueXP backup and recovery den Nur-Protokoll-Aufbewahrungswert.
+* Für „Vollständige Sicherung und Protokoll“ plus „Vollständige Sicherung“ in SnapCenter verwendet BlueXP backup and recovery den Aufbewahrungswert „Vollständige Sicherung und Protokoll“.
+* Wenn Sie in SnapCenter nur über eine vollständige Sicherung verfügen, aktiviert BlueXP backup and recovery die Protokollsicherung nicht.
+
+
+
+
+== Aufbewahrungsanzahl aus SnapCenter -Richtlinien
+
+Wenn Sie über eine Ressource mit aktiviertem sekundärem Schutz in SnapCenter mit mehreren Quellvolumes, mehreren Zielvolumes und mehreren SnapMirror -Beziehungen verfügen, verwendet BlueXP backup and recovery nur die Aufbewahrungsanzahl der ersten Richtlinie.
+
+*Beispiel*: Wenn Sie eine SnapCenter -Richtlinie mit einer Aufbewahrungsanzahl von 5 und eine andere Richtlinie mit einer Aufbewahrungsanzahl von 10 haben, verwendet BlueXP backup and recovery die Aufbewahrungsanzahl von 5.
+
+
+
+== SnapMirror -Labels aus SnapCenter -Richtlinien
+
+SnapMirror -Beschriftungen für jede Richtlinie in SnapCenter bleiben nach der Migration erhalten, auch wenn die Ebene geändert wird.
+
+*Beispiel*: Eine stündliche Richtlinie von SnapCenter kann in BlueXP backup and recovery auf täglich geändert werden. Die SnapMirror -Beschriftungen bleiben jedoch nach der Migration unverändert.

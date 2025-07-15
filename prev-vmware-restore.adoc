@@ -1,0 +1,118 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-restore.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Stellen Sie Daten virtueller Maschinen mit BlueXP backup and recovery wieder her
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Mit BlueXP Backup und Recovery können Sie Daten virtueller Maschinen aus der Cloud zurück in das lokale vCenter wiederherstellen. Sie können die Virtual Machine an genau demselben Speicherort von dem Backup aus oder an einem anderen Speicherort wiederherstellen. Wenn die Virtual Machine über eine Archivierungsrichtlinie gesichert wurde, können Sie die Restore-Priorität für das Archiv festlegen.
+
+
+NOTE: Sie können keine virtuellen Maschinen wiederherstellen, die sich über mehrere Datastores erstrecken.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+.Bevor Sie beginnen
+* Stellen Sie sicher, dass Sie alle link:prev-vmware-prereqs.html["Anforderungen für den Schutz virtueller Maschinen"] bevor Sie Datenspeicher in der Cloud sichern.
+* Wenn Sie an einem anderen Speicherort wiederherstellen:
++
+** Stellen Sie sicher, dass sich die Quell- und Ziel-vCenter im verknüpften Modus befinden.
+** Stellen Sie sicher, dass die Details zum Quell- und Ziel-Cluster in BlueXP Canvas und in Linked Mode vCenter sowohl im SnapCenter-Plug-in für VMware vSphere-Host hinzugefügt werden.
+** Stellen Sie sicher, dass die Arbeitsumgebung (WE) dem alternativen Speicherort in BlueXP Canvas entsprechend hinzugefügt wird.
+
+
+
+
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen* > * SnapCenter Plug-in for VMware vSphere* und wählen Sie das SnapCenter Plug-in for VMware vSphere Host aus.
+
+
+
+NOTE: Wenn die Virtual Machine an einen anderen Speicherort (vMotion) verschoben wird und der Benutzer eine Wiederherstellung dieser Virtual Machine aus BlueXP auslöst, wird die Virtual Machine an den Quellspeicherort wiederhergestellt, von dem aus das Backup erstellt wurde.
+
+. Sie können die Virtual Machine am ursprünglichen Speicherort oder an einem alternativen Speicherort aus dem Datenspeicher oder von den Virtual Machines wiederherstellen:
+
+
+|===
+| Wenn Sie die virtuelle Maschine wiederherstellen möchten... | Tun Sie das... 
+
+
+ a| 
+Vom Datastore an den ursprünglichen Speicherort
+ a| 
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend dem Datenspeicher, den Sie wiederherstellen möchten, und klicken Sie auf *Details anzeigen*.
+. Wählen Sie *Wiederherstellen* entsprechend der Sicherung aus, die Sie wiederherstellen möchten.
+. Wählen Sie die virtuelle Maschine aus, die Sie aus der Sicherung wiederherstellen möchten, und wählen Sie *Weiter*.
+. Stellen Sie sicher, dass *Original* ausgewählt ist, und wählen Sie *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der Archivierungseinstellungen konfiguriert sind, wählen Sie die *Archivierungswiederherstellungspriorität* und dann *Weiter*.
++
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+
+. Überprüfen Sie die Details und wählen Sie *Wiederherstellen*.
+
+
+
+
+ a| 
+An einem alternativen Speicherort vom Datenspeicher aus
+ a| 
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend dem Datenspeicher, den Sie wiederherstellen möchten, und wählen Sie *Details anzeigen*.
+. Wählen Sie *Wiederherstellen* entsprechend der Sicherung aus, die Sie wiederherstellen möchten.
+. Wählen Sie die virtuelle Maschine aus, die Sie aus der Sicherung wiederherstellen möchten, und wählen Sie *Weiter*.
+. Wählen Sie *Alternative*.
+. Wählen Sie den alternativen vCenter Server, ESXi-Host, Datenspeicher und das Netzwerk aus.
+. Geben Sie der VM nach der Wiederherstellung einen Namen und wählen Sie *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der Archivierungseinstellungen konfiguriert sind, wählen Sie die *Archivierungswiederherstellungspriorität* und dann *Weiter*.
++
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+
+. Überprüfen Sie die Details und wählen Sie *Wiederherstellen*.
+
+
+
+
+ a| 
+Von virtuellen Maschinen an den ursprünglichen Speicherort
+ a| 
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend der virtuellen Maschine, die Sie wiederherstellen möchten, und wählen Sie *Wiederherstellen*.
+. Wählen Sie das Backup aus, über das Sie die virtuelle Maschine wiederherstellen möchten.
+. Stellen Sie sicher, dass *Original* ausgewählt ist, und wählen Sie *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der Archivierungseinstellungen konfiguriert sind, wählen Sie die *Archivierungswiederherstellungspriorität* und dann *Weiter*.
++
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+
+. Überprüfen Sie die Details und wählen Sie *Wiederherstellen*.
+
+
+
+
+ a| 
+An einem alternativen Speicherort von virtuellen Maschinen
+ a| 
+. Wählen Sie das Symbol Aktionen image:icon-action.png["Aktion"] entsprechend der virtuellen Maschine, die Sie wiederherstellen möchten, und wählen Sie *Wiederherstellen*.
+. Wählen Sie das Backup aus, über das Sie die virtuelle Maschine wiederherstellen möchten.
+. Wählen Sie *Alternative*.
+. Wählen Sie den alternativen vCenter Server, ESXi-Host, Datenspeicher und das Netzwerk aus.
+. Geben Sie der VM nach der Wiederherstellung einen Namen und wählen Sie *Weiter*.
+. Wenn die virtuelle Maschine mit einer Richtlinie geschützt ist, in der Archivierungseinstellungen konfiguriert sind, wählen Sie die *Archivierungswiederherstellungspriorität* und dann *Weiter*.
++
+Die unterstützte Restore-Priorität bei der Archivierung von Amazon Web Services ist hoch, Standard und niedrig und die unterstützte Restore-Priorität bei der Archivierung für Microsoft Azure ist Standard und hoch.
+
+. Überprüfen Sie die Details und wählen Sie *Wiederherstellen*.
+
+
+|===
+
+NOTE: Wenn der Wiederherstellungsvorgang nicht abgeschlossen ist, versuchen Sie den Wiederherstellungsvorgang erst dann erneut, wenn die Jobüberwachung anzeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist. Wenn Sie den Wiederherstellungsvorgang erneut versuchen, bevor der Job Monitor zeigt, dass der Wiederherstellungsvorgang fehlgeschlagen ist, schlägt der Wiederherstellungsvorgang erneut fehl. Wenn der Job-Monitor als „Fehlgeschlagen“ angezeigt wird, können Sie den Wiederherstellungsvorgang erneut versuchen.

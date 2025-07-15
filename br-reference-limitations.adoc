@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: br-reference-limitations.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Bekannte Einschränkungen identifizieren Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit ihr zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch. 
+---
+= Bekannte Einschränkungen bei BlueXP backup and recovery für ONTAP -Volumes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bekannte Einschränkungen kennzeichnen Funktionen, die von dieser Version von BlueXP backup and recovery nicht unterstützt werden oder nicht ordnungsgemäß damit interagieren. Lesen Sie diese Einschränkungen sorgfältig durch.
+
+* BlueXP  Backup und Recovery Backup von Cloud Volume ONTAP in einem Objektspeicher in den Regionen AWS China (einschließlich Peking und Ningxia); unter Umständen müssen Sie jedoch zuerst die Richtlinien für das Identitäts- und Zugriffsmanagement (Identity and Access Management, IAM) manuell ändern.
++
+Weitere Informationen zum Erstellen eines Connectors in AWS finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["Installieren eines Connectors in AWS"^].
+
++
+Weitere Details in einem Blogbeitrag finden Sie unter https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-May-23-Updates/ba-p/444052["BlueXP -Feature-Blog „Backup und Recovery“ Mai 2023"^].
+
+* BlueXP  Backup und Recovery unterstützt keine Regionen in Microsoft Azure China.
++
+Weitere Informationen zum Erstellen eines Connectors in Azure finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html["Installieren eines Connectors in Azure"^].
+
+* BlueXP  Backup und Recovery unterstützt keine Backups von FlexCache Volumes.
+
+
+
+
+== Replikationsbeschränkungen für ONTAP -Volumes
+
+* Sie können jeweils nur ein FlexGroup-Volume für die Replikation auswählen. Sie müssen Backups für jedes FlexGroup Volume separat aktivieren.
++
+Es gibt keine Beschränkung für FlexVol Volumes: Sie können alle FlexVol Volumes in Ihrer Arbeitsumgebung auswählen und dieselben Backup-Richtlinien zuweisen.
+
+* Die folgenden Funktionen werden in unterstützt https://docs.netapp.com/us-en/bluexp-replication/index.html["BlueXP Replizierungsservice"], Aber nicht, wenn Sie die Replizierungsfunktion von BlueXP Backup und Recovery nutzen:
++
+** Es wird keine Kaskadenkonfiguration unterstützt, bei der die Replikation von Volume A auf Volume B und von Volume B auf Volume C erfolgt Die Unterstützung umfasst die Replikation von Volume A auf Volume B.
+** Es wird keine Unterstützung für die Replizierung von Daten zu und von FSX for ONTAP Systemen geleistet.
+** Es wird nicht unterstützt, eine einmalige Replikation eines Volumes zu erstellen.
+
+
+* Wenn die ONTAP-Version auf dem Cloud Volumes ONTAP-Zielsystem 9.8, 9.9 oder 9.11 ist, sind bei der Erstellung von Replikationen aus lokalen ONTAP-Systemen nur Richtlinien für Spiegelungen zulässig.
+
+
+
+
+== Einschränkungen bei der Sicherung auf Objekte für ONTAP -Volumes
+
+* Beim Backup von Daten bleibt bei BlueXP  Backup und Recovery die NetApp Volume Encryption (NVE) nicht erhalten. Das bedeutet, dass verschlüsselte Daten auf dem NVE-Volume entschlüsselt werden, während die Daten an das Ziel übertragen werden, wobei die Verschlüsselung nicht erhalten bleibt.
++
+Eine Erläuterung zu diesen Verschlüsselungstypen finden Sie unter https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["NetApp Volume Encryption Übersicht konfigurieren"^].
+
+
+
+* Wenn Snapshots für langfristige Datenaufbewahrung auf einem SnapMirror Ziel-Volume mithilfe des Zeitplans in der SnapMirror-Richtlinie aktiviert werden, werden Snapshots direkt auf dem Ziel-Volume erstellt. In diesem Fall sollten Sie diese Volumes nicht mit BlueXP  Backup und Recovery sichern, da diese Snapshots nicht in den Objektspeicher verschoben werden.
+* Beim Backup von Daten bleibt bei BlueXP  Backup und Recovery die NetApp Volume Encryption (NVE) nicht erhalten. Das bedeutet, dass verschlüsselte Daten auf dem NVE-Volume entschlüsselt werden, während die Daten an das Ziel übertragen werden, wobei die Verschlüsselung nicht erhalten bleibt.
++
+Eine Erläuterung zu diesen Verschlüsselungstypen finden Sie unter https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["NetApp Volume Encryption Übersicht konfigurieren"^].
+
+
+
+* Wenn Snapshots für langfristige Datenaufbewahrung auf einem SnapMirror Ziel-Volume mithilfe des Zeitplans in der SnapMirror-Richtlinie aktiviert werden, werden Snapshots direkt auf dem Ziel-Volume erstellt. In diesem Fall sollten Sie diese Volumes nicht mit BlueXP  Backup und Recovery sichern, da diese Snapshots nicht in den Objektspeicher verschoben werden.
+* Wenn Sie eine Backup-Richtlinie erstellen oder bearbeiten, wenn dieser Richtlinie keine Volumes zugewiesen sind, kann die Anzahl der behielten Backups maximal 1018 sein. Nachdem Sie der Richtlinie Volumes zugewiesen haben, können Sie die Richtlinie für die Erstellung von bis zu 4000 Backups bearbeiten.
+* Bei der Sicherung von Datensicherungs-Volumes (DP):
++
+** Beziehungen zu den SnapMirror-Labels `app_consistent` Und `all_source_snapshot` Wird nicht in der Cloud gesichert werden.
+** Wenn Sie lokale Kopien der Snapshots auf dem SnapMirror Ziel-Volume erstellen (unabhängig von den verwendeten SnapMirror Bezeichnungen), werden diese Snapshots nicht als Backups in die Cloud verschoben. Sie müssen derzeit eine Snapshot-Richtlinie mit den gewünschten Labels auf dem DP-Quell-Volume erstellen, damit Backups durch BlueXP Backup und Recovery erstellt werden können.
+
+
+* FlexGroup Volume-Backups können nicht in Archiv-Storage verschoben werden.
+* FlexGroup Volume-Backups können DataLock und Ransomware-Schutz verwenden, wenn auf dem Cluster ONTAP 9.13.1 oder höher ausgeführt wird.
+* SVM-DR-Volume-Backup wird unter den folgenden Einschränkungen unterstützt:
++
+** Backups werden nur von der sekundären ONTAP unterstützt.
+** Die auf das Volume angewendete Snapshot-Richtlinie muss eine der durch BlueXP Backup- und Recovery-Richtlinien sein, einschließlich täglich, wöchentlich, monatlich usw. Die standardmäßige „SM_created“-Richtlinie (verwendet für *Mirror All Snapshots*) wird nicht erkannt und das DP-Volume wird nicht in der Liste der Volumes angezeigt, die gesichert werden können.
+** SVM-DR und Volume-Backup und -Recovery funktionieren vollständig unabhängig, wenn das Backup vom Quell- oder Zielsystem erstellt wird. Die einzige Einschränkung ist, dass SVM-DR die SnapMirror Cloud-Beziehung nicht repliziert. Wenn die SVM im DR-Szenario am sekundären Standort online geschaltet wird, müssen Sie die SnapMirror-Cloud-Beziehung manuell aktualisieren.
+
+
+
+
+* MetroCluster-Unterstützung:
++
+** Wenn Sie ONTAP 9.12.1 GA oder höher verwenden, wird das Backup unterstützt, wenn eine Verbindung zum primären System hergestellt wird. Die gesamte Backup-Konfiguration wird auf das sekundäre System übertragen, sodass Backups in die Cloud nach dem Switchover automatisch fortgesetzt werden. Sie müssen keine Sicherungskopie auf dem sekundären System einrichten (tatsächlich sind Sie darauf beschränkt).
+** Bei Verwendung von ONTAP 9.12.0 und älteren Versionen wird ein Backup nur vom sekundären ONTAP System unterstützt.
+** Backups von FlexGroup-Volumes werden derzeit nicht unterstützt.
+
+
+* Ad-hoc-Volume-Backup mit der *Backup Now*-Taste wird auf Datensicherungs-Volumes nicht unterstützt.
+* SM-BC-Konfigurationen werden nicht unterstützt.
+* ONTAP unterstützt kein Fan-out von SnapMirror Beziehungen von einem einzelnen Volume zu mehreren Objektspeichern. Daher wird diese Konfiguration von BlueXP Backup und Recovery nicht unterstützt.
+* DER WORM-/Compliance-Modus für einen Objektspeicher wird derzeit auf Amazon S3, Azure und StorageGRID unterstützt. Dies ist die sogenannte DataLock-Funktion, die über die Backup- und Recovery-Einstellungen von BlueXP gemanagt werden muss, nicht über die Cloud-Provider-Schnittstelle.
+
+
+
+
+== Wiederherstellungsbeschränkungen für ONTAP -Volumes
+
+Diese Einschränkungen gelten sowohl für die Such- und Wiederherstellungsmethoden als auch für die Such- und Wiederherstellungsmethoden für die Wiederherstellung von Dateien und Ordnern, sofern nicht ausdrücklich genannt.
+
+* Browse & Restore kann bis zu 100 einzelne Dateien gleichzeitig wiederherstellen.
+* Search & Restore kann 1 Datei gleichzeitig wiederherstellen.
+* Wenn Sie ONTAP 9.13.0 oder höher verwenden, können Sie einen Ordner mit allen darin enthaltenen Dateien und Unterordnern durchsuchen und wiederherstellen und suchen und wiederherstellen.
++
+Bei Verwendung einer Version von ONTAP größer als 9.11.1, aber vor 9.13.0, kann der Wiederherstellungsvorgang nur den ausgewählten Ordner und die Dateien in diesem Ordner wiederherstellen - keine Unterordner oder Dateien in Unterordnern werden wiederhergestellt.
+
++
+Wenn Sie eine Version von ONTAP vor 9.11.1 verwenden, wird die Wiederherstellung von Ordnern nicht unterstützt.
+
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird nur bei Daten unterstützt, die sich im Archiv-Storage befinden, wenn auf dem Cluster ONTAP 9.13.1 und höher ausgeführt wird.
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird nur für Daten unterstützt, die mit DataLock geschützt sind, wenn auf dem Cluster ONTAP 9.13.1 und höher ausgeführt wird.
+* Die Wiederherstellung von Verzeichnissen/Ordnern wird derzeit nicht von Replikationen und/oder lokalen Snapshots unterstützt.
+* Die Wiederherstellung von FlexGroup Volumes auf FlexVol Volumes oder FlexVol Volumes auf FlexGroup Volumes wird nicht unterstützt.
+* Die wiederherzustellende Datei muss die gleiche Sprache verwenden wie die Sprache auf dem Zielvolume. Wenn die Sprachen nicht identisch sind, wird eine Fehlermeldung angezeigt.
+* Die Priorität _High_ restore wird beim Wiederherstellen von Daten aus dem Azure Archiv-Storage auf StorageGRID-Systeme nicht unterstützt.
+* Wenn Sie ein DP-Volume sichern und dann die SnapMirror-Beziehung zu diesem Volume unterbrechen, können Sie keine Dateien auf diesem Volume wiederherstellen, es sei denn, Sie löschen auch die SnapMirror-Beziehung oder kehren die SnapMirror-Richtung um.
+* Einschränkungen bei der schnellen Wiederherstellung:
++
+** Der Zielspeicherort muss ein Cloud Volumes ONTAP-System mit ONTAP 9.13.0 oder höher sein.
+** Es wird nicht unterstützt, wenn sich Backups im archivierten Speicher befinden.
+** FlexGroup Volumes werden nur unterstützt, wenn auf dem Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.12.1 oder höher ausgeführt wurde.
+** SnapLock Volumes werden nur unterstützt, wenn auf dem Quellsystem, auf dem das Cloud-Backup erstellt wurde, ONTAP 9.11.0 oder höher ausgeführt wurde.
+
+
+

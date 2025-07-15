@@ -1,0 +1,287 @@
+---
+sidebar: sidebar 
+permalink: reference-roles.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, roles, permissions, access control, role-based access control, rbac 
+summary: BlueXP backup and recovery verwendet Rollen, um den Zugriff jedes Benutzers auf bestimmte Funktionen und Aktionen zu regeln 
+---
+= Rollenbasierter Zugriff auf Funktionen von BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery verwendet Rollen, um den Zugriff jedes Benutzers auf bestimmte Funktionen und Aktionen zu regeln.
+
+Der Dienst verwendet die folgenden Rollen, die spezifisch für die BlueXP backup and recovery sind.
+
+* *Superadministrator für Backup und Wiederherstellung*: Führen Sie beliebige Aktionen im BlueXP backup and recovery durch.
+* *Backup-Administrator*: Führen Sie Sicherungen auf lokalen Snapshots durch, replizieren Sie auf sekundären Speicher und sichern Sie Aktionen im Objektspeicher in BlueXP backup and recovery.
+* *Administrator wiederherstellen*: Stellen Sie Workloads mithilfe von BlueXP backup and recovery wieder her.
+* *Klonadministrator*: Klonen Sie Anwendungen und Daten mithilfe von BlueXP backup and recovery.
+* *Backup- und Wiederherstellungs-Viewer*: Informationen in BlueXP backup and recovery anzeigen, aber keine Aktionen ausführen.
+
+
+Einzelheiten zu allen BlueXP Zugriffsrollen finden Sie unter  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Die BlueXP -Installations- und Administrationsdokumentation"^] .
+
+In der folgenden Tabelle sind die Aktionen aufgeführt, die jede BlueXP backup and recovery ausführen kann.
+
+[cols="20,20,15,15a,15a,15a"]
+|===
+| Funktion und Aktion | Superadministrator für Sicherung und Wiederherstellung | Backup-Admin | Administrator wiederherstellen | Klonadministrator | Prüfer 
+
+
+| Hosts hinzufügen, bearbeiten oder löschen | Ja. | Nein  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Plugins installieren | Ja. | Nein  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Anmeldeinformationen hinzufügen (Host, Instanz, vCenter) | Ja. | Nein  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Dashboard und alle Registerkarten anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+| Kostenlos testen | Ja. | Nein  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Beginnen Sie mit der Erkennung von Workloads | Nein | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Nein
+
+
+
+| Lizenzinformationen anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+| Lizenz aktivieren | Ja. | Nein  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Hosts anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+6+| *Zeitpläne*: 
+
+
+| Zeitpläne aktivieren | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Nein
+
+
+
+| Zeitpläne aussetzen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Nein
+
+
+
+6+| *Richtlinien und Schutz*: 
+
+
+| Schutzpläne anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+| Schutz erstellen, ändern oder löschen | Ja. | Ja.  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Wiederherstellen von Workloads | Ja. | Nein  a| 
+Ja.
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Klon erstellen, Klon teilen oder Klon löschen | Ja. | Nein  a| 
+Nein
+ a| 
+Ja.
+ a| 
+Nein
+
+
+
+| Richtlinie erstellen, ändern oder löschen | Ja. | Ja.  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+6+| *Berichte*: 
+
+
+| Berichte anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+| Erstellen von Berichten | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Nein
+
+
+
+| Berichte löschen | Ja. | Nein  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+6+| *Von SnapCenter importieren und Host verwalten*: 
+
+
+| Importierte SnapCenter -Daten anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+| Daten aus SnapCenter importieren | Ja. | Ja.  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Host verwalten (migrieren) | Ja. | Ja.  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+6+| *Einstellungen konfigurieren*: 
+
+
+| Protokollverzeichnis konfigurieren | Ja. | Ja.  a| 
+Ja.
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Instanzanmeldeinformationen zuordnen oder entfernen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+6+| *Eimer*: 
+
+
+| Buckets anzeigen | Ja. | Ja.  a| 
+Ja.
+ a| 
+Ja.
+ a| 
+Ja.
+
+
+
+| Bucket erstellen, bearbeiten oder löschen | Ja. | Ja.  a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+|===

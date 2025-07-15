@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-protect-overview.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Schützen Sie die Workloads virtueller Maschinen in der BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Schützen Sie die Workloads Ihrer virtuellen Maschinen mit BlueXP backup and recovery. BlueXP backup and recovery bietet schnelle, platzsparende, absturz- und VM-konsistente Sicherungs- und Wiederherstellungsvorgänge für VMs, Datenspeicher und VMDKs.
+
+Sie können Datastores in Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID sichern und Virtual Machines wieder in das lokale SnapCenter Plug-in für den VMware vSphere Host zurücksetzen.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+Anweisungen zum Schützen der Workloads virtueller Maschinen finden Sie in den folgenden Themen:
+
+* link:prev-vmware-policy-create.html["Erstellen einer Richtlinie für VMware-Workloads"]
+* link:prev-vmware-backup-aws.html["Sichern Sie VMware-Datenspeicher auf Amazon Web Services"]
+* link:prev-vmware-backup-azure.html["Sichern Sie VMware-Datenspeicher in Microsoft Azure"]
+* link:prev-vmware-backup-gcp.html["Sichern Sie VMware-Datenspeicher auf der Google Cloud Platform"]
+* link:prev-vmware-backup-storagegrid.html["Sichern Sie VMware-Datenspeicher in StorageGRID"]
+* link:prev-vmware-restore.html["Wiederherstellen von VMware-Workloads"]
+* link:prev-vmware-manage.html["Schutz für VMware-Workloads verwalten"]
+

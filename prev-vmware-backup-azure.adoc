@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-backup-azure.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Sichern Sie Datenspeicher in Microsoft Azure mit BlueXP Backup und Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können einen oder mehrere Datenspeicher in Microsoft Azure sichern, indem Sie das SnapCenter-Plug-in für VMware vSphere-Hosts mit BlueXP-Sicherung und -Wiederherstellung integrieren. So können VM-Administratoren Daten für Storage-Effizienz einfach und schnell sichern und archivieren und die Cloud-Transition beschleunigen.
+
+Wenn der Datenspeicher einer Archivierungsrichtlinie zugeordnet ist, erhalten Sie eine Option zur Auswahl der Archivebene. Die unterstützte Archivierungs-Tier ist Azure Archive Blob Storage.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+.Bevor Sie beginnen
+Stellen Sie sicher, dass Sie alle link:prev-vmware-prereqs.html["Anforderungen für den Schutz virtueller Maschinen"] bevor Sie Datenspeicher in der Cloud sichern.
+
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen image:icon-action.png["Aktion"] entsprechend dem Datenspeicher, den Sie sichern möchten, und wählen Sie *Sicherung aktivieren*.
+. Wählen Sie auf der Seite „Richtlinie zuweisen“ die Richtlinie aus und klicken Sie auf *Weiter*.
+. Fügen Sie die Arbeitsumgebung hinzu.
++
+Konfigurieren Sie die Cluster-Management-LIF, die BlueXP ermitteln soll. Nachdem Sie die Arbeitsumgebung für einen der Datenspeicher hinzugefügt haben, können Sie sie für alle anderen Datenspeicher im selben ONTAP Cluster verwenden.
+
++
+.. Wählen Sie *Arbeitsumgebung hinzufügen* entsprechend der SVM.
+.. Im Assistenten „Arbeitsumgebung hinzufügen“:
++
+... Geben Sie die IP-Adresse der Cluster-Management-LIF an.
+... Geben Sie die Anmeldedaten des ONTAP-Cluster-Benutzers an.
+
+
+.. Wählen Sie *Arbeitsumgebung hinzufügen*.
+
+
+. Wählen Sie *Microsoft Azure* aus, um es als Cloud-Provider zu konfigurieren.
++
+.. Geben Sie die Azure Abonnement-ID an.
+.. Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
+.. Erstellen Sie eine neue Ressourcengruppe oder verwenden Sie eine vorhandene Ressourcengruppe.
+.. Geben Sie die IP-Adressen der Cluster-Management-LIF an, die als Arbeitsumgebungen hinzugefügt wurden.
+.. Wählen Sie die Archivebene aus.
++
+Es wird empfohlen, die Archivierungsebene festzulegen, da dies eine einmalige Aktivität ist und Sie sie später nicht mehr einrichten können.
+
+
+
+. Überprüfen Sie die Details und wählen Sie *Backup aktivieren*.
+

@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-backup-aws.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Sichern Sie Datenspeicher auf Amazon Web Services mit BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können einen oder mehrere Datenspeicher mit BlueXP Backup und Recovery auf Amazon Web Services sichern und archivieren, um die Speichereffizienz und den Cloud-Übergang zu verbessern.
+
+Wenn der Datastore einer Archivierungsrichtlinie zugeordnet ist, können Sie den Archiv-Tier auswählen. Die unterstützten Archiv-Tiers sind Glacier und Glacier Deep.
+
+[]
+====
+*HINWEIS* Informationen zum Umschalten zwischen BlueXP backup and recovery -Workloads finden Sie unter link:br-start-switch-ui.html["Wechseln Sie zu verschiedenen BlueXP backup and recovery -Workloads"] .
+
+====
+.Bevor Sie beginnen
+Stellen Sie sicher, dass Sie alle link:prev-vmware-prereqs.html["Anforderungen für den Schutz virtueller Maschinen"] bevor Sie Datenspeicher in der Cloud sichern.
+
+.Schritte
+. Wählen Sie in der BlueXP -Benutzeroberfläche *Schutz* > *Sicherung und Wiederherstellung* > *Virtuelle Maschinen*.
+. Wählen image:icon-action.png["Aktion"] entsprechend dem Datenspeicher, den Sie sichern möchten, und klicken Sie auf *Sicherung aktivieren*.
+. Wählen Sie auf der Seite „Richtlinie zuweisen“ die Richtlinie aus und klicken Sie auf *Weiter*.
+. Fügen Sie die Arbeitsumgebung hinzu.
++
+Konfigurieren Sie die Cluster-Management-LIF, die BlueXP ermitteln soll. Nachdem Sie die Arbeitsumgebung für einen der Datenspeicher hinzugefügt haben, können Sie sie für alle anderen Datenspeicher im selben ONTAP Cluster verwenden.
+
++
+.. Wählen Sie *Arbeitsumgebung hinzufügen* entsprechend der SVM.
+.. Im Assistenten „Arbeitsumgebung hinzufügen“:
++
+... Geben Sie die IP-Adresse der Cluster-Management-LIF an.
+... Geben Sie die Anmeldedaten des ONTAP-Cluster-Benutzers an.
+
+
+.. Wählen Sie *Arbeitsumgebung hinzufügen*.
+
+
+. Wählen Sie *Amazon Web Services*, um es als Cloud-Provider zu konfigurieren.
++
+.. Geben Sie den AWS Account an.
+.. Geben Sie im Feld AWS Access Key den Schlüssel für die Datenverschlüsselung an.
+.. Geben Sie im Feld AWS Secret Key das Passwort für die Datenverschlüsselung an.
+.. Wählen Sie den Bereich aus, in dem Sie die Backups erstellen möchten.
+.. Geben Sie die IP-Adressen der Cluster-Management-LIF an, die als Arbeitsumgebungen hinzugefügt wurden.
+.. Wählen Sie die Archivebene aus.
++
+Es wird empfohlen, die Archiv-Tier festzulegen, da es sich um eine einmalige Aktivität handelt, die Sie später nicht einrichten können.
+
+
+
+. Überprüfen Sie die Details und wählen Sie *Backup aktivieren*.
+
