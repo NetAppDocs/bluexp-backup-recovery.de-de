@@ -96,24 +96,23 @@ Die Mindestaufbewahrungsdauer für Snapshots beträgt 30 Tage. Sehen wir uns ein
 
 === Was ist das Retention Until Date (RUD) und wie wird es berechnet?
 
-Das Aufbewahrungsdatum (RUD) wird basierend auf der Snapshot-Aufbewahrungsfrist bestimmt.
+Das Aufbewahrungsdatum (RUD) wird basierend auf der Snapshot-Aufbewahrungsfrist bestimmt. Das Aufbewahrungsdatum wird durch die Summe der Snapshot-Aufbewahrungsdauer und eines Puffers berechnet.
 
-* Das Aufbewahrungsdatum wird durch die Summe der Snapshot-Aufbewahrungsdauer und eines Puffers berechnet.
-* Der Puffer ist der Puffer für die Übertragungszeit (6 Tage) + Puffer für die Kostenoptimierung (8 Tage), was insgesamt 14 Tage ergibt.
-* Die Mindestaufbewahrungsdauer beträgt 30 Tage + 14 Tage.
+* Der Puffer ist der Puffer für die Übertragungszeit (3 Tage) + Puffer für die Kostenoptimierung (28 Tage), was insgesamt 31 Tage ergibt.
+* Das Mindestaufbewahrungsdatum beträgt 30 Tage + 31 Tage Puffer = 61 Tage.
 
 
 Hier einige Beispiele:
 
-* Wenn Sie einen monatlichen Sicherungszeitplan mit 12 Aufbewahrungszeiten erstellen, werden Ihre Sicherungen 12 Monate (plus 14 Tage) lang gesperrt, bevor sie gelöscht (durch die nächste Sicherungsdatei ersetzt) werden.
+* Wenn Sie einen monatlichen Sicherungszeitplan mit 12 Aufbewahrungszeiten erstellen, werden Ihre Sicherungen 12 Monate (plus 31 Tage) lang gesperrt, bevor sie gelöscht (durch die nächste Sicherungsdatei ersetzt) werden.
 * Wenn Sie eine Sicherungsrichtlinie erstellen, die 30 tägliche, 7 wöchentliche und 12 monatliche Sicherungen erstellt, gibt es drei gesperrte Aufbewahrungszeiträume:
 +
-** Die „30 täglichen“ Backups werden 44 Tage lang aufbewahrt (30 Tage plus 14 Tage Puffer),
-** Die "7 wöchentlichen" Backups werden 9 Wochen lang (7 Wochen plus 14 Tage) aufbewahrt und
-** Die „12 monatlichen“ Backups werden 12 Monate (plus 14 Tage) aufbewahrt.
+** Die „30 täglichen“ Backups werden 61 Tage lang aufbewahrt (30 Tage plus 31 Tage Puffer),
+** Die "7 wöchentlichen" Backups werden 11 Wochen lang (7 Wochen plus 31 Tage) aufbewahrt und
+** Die „12 monatlichen“ Backups werden 12 Monate (plus 31 Tage) aufbewahrt.
 
 
-* Wenn Sie einen stündlichen Backup-Zeitplan mit 24 Aufbewahrung erstellen, könnten Sie denken, dass Backups für 24 Stunden gesperrt sind. Da dies jedoch weniger als 30 Tage beträgt, wird jedes Backup für 44 Tage gesperrt und aufbewahrt (30 Tage plus 14 Tage Puffer).
+* Wenn Sie einen stündlichen Backup-Zeitplan mit 24 Aufbewahrung erstellen, könnten Sie denken, dass Backups für 24 Stunden gesperrt sind. Da dies jedoch weniger als 30 Tage beträgt, wird jedes Backup für 61 Tage gesperrt und aufbewahrt (30 Tage plus 31 Tage Puffer).
 
 
 

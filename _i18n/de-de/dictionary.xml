@@ -4228,17 +4228,8 @@ Ifdef::aws[]</block>
   <block id="b06c9fd76246f4cfb339125284b25aa5" category="list-text">Wenn Sie die Bezeichnung *Monatlich* mit der Aufbewahrungsanzahl 3 wählen, beträgt die Aufbewahrungsdauer des Snapshots 90 Tage.</block>
   <block id="efdf2d46dfa5c7a9f73d28bb893f836f" category="list-text">Wenn Sie die Bezeichnung *Jährlich* mit der Aufbewahrungsanzahl 1 wählen, beträgt die Aufbewahrungsdauer des Snapshots 365 Tage.</block>
   <block id="a60142749401298f0a788c8439772777" category="section-title">Was ist das Retention Until Date (RUD) und wie wird es berechnet?</block>
-  <block id="eeada300415ab437a13601d2e69f066a" category="paragraph">Das Aufbewahrungsdatum (RUD) wird basierend auf der Snapshot-Aufbewahrungsfrist bestimmt.</block>
-  <block id="6984bab6fc7fe177ce259ff499fada58" category="list-text">Das Aufbewahrungsdatum wird durch die Summe der Snapshot-Aufbewahrungsdauer und eines Puffers berechnet.</block>
-  <block id="95ff93ddc0c74a02cf692e476561a39d" category="list-text">Der Puffer ist der Puffer für die Übertragungszeit (6 Tage) + Puffer für die Kostenoptimierung (8 Tage), was insgesamt 14 Tage ergibt.</block>
-  <block id="ac3a820fa3f3116f54715975be367471" category="list-text">Die Mindestaufbewahrungsdauer beträgt 30 Tage + 14 Tage.</block>
   <block id="c0dc453646abf19770644c4988b76265" category="paragraph">Hier einige Beispiele:</block>
-  <block id="19606e2b227c881953690cfcbb2621ad" category="list-text">Wenn Sie einen monatlichen Sicherungszeitplan mit 12 Aufbewahrungszeiten erstellen, werden Ihre Sicherungen 12 Monate (plus 14 Tage) lang gesperrt, bevor sie gelöscht (durch die nächste Sicherungsdatei ersetzt) werden.</block>
   <block id="19703e6040b3a90f1ca1c6525c9432f8" category="list-text">Wenn Sie eine Sicherungsrichtlinie erstellen, die 30 tägliche, 7 wöchentliche und 12 monatliche Sicherungen erstellt, gibt es drei gesperrte Aufbewahrungszeiträume:</block>
-  <block id="32e9736765675e582a92ea22621346f6" category="list-text">Die „30 täglichen“ Backups werden 44 Tage lang aufbewahrt (30 Tage plus 14 Tage Puffer),</block>
-  <block id="08725775ceb79bf9dd25c482670a47a4" category="list-text">Die "7 wöchentlichen" Backups werden 9 Wochen lang (7 Wochen plus 14 Tage) aufbewahrt und</block>
-  <block id="f0d1e71c852348fd449a59d2b4456479" category="list-text">Die „12 monatlichen“ Backups werden 12 Monate (plus 14 Tage) aufbewahrt.</block>
-  <block id="bf7c437191fdcde55e7d7e2fc049c230" category="list-text">Wenn Sie einen stündlichen Backup-Zeitplan mit 24 Aufbewahrung erstellen, könnten Sie denken, dass Backups für 24 Stunden gesperrt sind. Da dies jedoch weniger als 30 Tage beträgt, wird jedes Backup für 44 Tage gesperrt und aufbewahrt (30 Tage plus 14 Tage Puffer).</block>
   <block id="16ec215ee395a25e960a53b7cdcdc794" category="admonition">Alte Sicherungen werden nach Ablauf der DataLock-Aufbewahrungsfrist gelöscht, nicht nach Ablauf der Aufbewahrungsfrist der Sicherungsrichtlinie.</block>
   <block id="b31b5b22923a2871f33f5a4b77d6be83" category="paragraph">Die DataLock-Aufbewahrungseinstellung überschreibt die Richtlinienaufbewahrungseinstellung Ihrer Sicherungsrichtlinie. Dies könnte sich auf Ihre Storage-Kosten auswirken, da Backup-Dateien über einen längeren Zeitraum im Objektspeicher gespeichert werden.</block>
   <block id="010f0e105bcb6f73ab6c815fef84dd1c" category="section-title">Aktivieren Sie DataLock und Ransomware-Schutz</block>
@@ -4532,11 +4523,19 @@ Ifdef::aws[]</block>
   <block id="79cf38f604ea494dd925df57b6a906b6" category="sidebar">Schützen der Workloads virtueller Maschinen</block>
   <block id="7706cc052aa7120ddac8475709793258" category="sidebar">Übersicht über den Schutz virtueller Maschinen-Workloads</block>
   <block id="9ce88727019b612743000c7bcc2bfd23" category="sidebar">Voraussetzungen für den Schutz der Workloads virtueller Maschinen</block>
-  <block id="6a1574cd5135a4d659f7c25fd4102feb" category="sidebar">Erstellen einer Richtlinie zum Sichern von VMware-Datenspeichern</block>
-  <block id="6cc90c7021ed31cf57b48ce2a8946fd6" category="sidebar">Wiederherstellen von VMware-Datenspeichern</block>
   <block id="4639d0e2e2909a747265c2f704128bca" category="sidebar">Überwachen von Jobs</block>
   <block id="3e8569bed0b50d0e3ac8dd96195c94f1" category="sidebar">Richtlinien in SnapCenter im Vergleich zu BlueXP backup and recovery</block>
   <block id="f1518f15324a3922da2c43bf2d8a6950" category="sidebar">Rollen und Berechtigungen für BlueXP backup and recovery</block>
   <block id="62967cdcfc7912e3c1a9b3870580fe3f" category="sidebar">Unterstützte Azure-Archivspeicherebenen</block>
   <block id="6af2225d62ab9c4b0de4dfa7f9e852f5" category="sidebar">Unterstützte Google Cloud-Archivspeicherebenen</block>
+  <block id="33f34f378ec48f478eda58fa96594aa4" category="paragraph">Das Aufbewahrungsdatum (RUD) wird basierend auf der Snapshot-Aufbewahrungsfrist bestimmt. Das Aufbewahrungsdatum wird durch die Summe der Snapshot-Aufbewahrungsdauer und eines Puffers berechnet.</block>
+  <block id="0b918c8e643ab519717fd0eec681371c" category="list-text">Der Puffer ist der Puffer für die Übertragungszeit (3 Tage) + Puffer für die Kostenoptimierung (28 Tage), was insgesamt 31 Tage ergibt.</block>
+  <block id="10040237b3e7b790c7f0c1983647279e" category="list-text">Das Mindestaufbewahrungsdatum beträgt 30 Tage + 31 Tage Puffer = 61 Tage.</block>
+  <block id="f84724515a26602458b4cabf395689b0" category="list-text">Wenn Sie einen monatlichen Sicherungszeitplan mit 12 Aufbewahrungszeiten erstellen, werden Ihre Sicherungen 12 Monate (plus 31 Tage) lang gesperrt, bevor sie gelöscht (durch die nächste Sicherungsdatei ersetzt) werden.</block>
+  <block id="dc1987905977bd763b00c2a0741b977b" category="list-text">Die „30 täglichen“ Backups werden 61 Tage lang aufbewahrt (30 Tage plus 31 Tage Puffer),</block>
+  <block id="dda5e0548944d946d7ab9e81fdd1296f" category="list-text">Die "7 wöchentlichen" Backups werden 11 Wochen lang (7 Wochen plus 31 Tage) aufbewahrt und</block>
+  <block id="b8400c37ab80692ef1ca26e1fa71d6f7" category="list-text">Die „12 monatlichen“ Backups werden 12 Monate (plus 31 Tage) aufbewahrt.</block>
+  <block id="52d355afb10d30259b33c1f1c1cd46c8" category="list-text">Wenn Sie einen stündlichen Backup-Zeitplan mit 24 Aufbewahrung erstellen, könnten Sie denken, dass Backups für 24 Stunden gesperrt sind. Da dies jedoch weniger als 30 Tage beträgt, wird jedes Backup für 61 Tage gesperrt und aufbewahrt (30 Tage plus 31 Tage Puffer).</block>
+  <block id="776ec5ed6f61de56be98c037c8ca01c9" category="sidebar">Erstellen einer Richtlinie zum Sichern von Daten virtueller Maschinen</block>
+  <block id="9234f5bc35aa09673eacbf8fece508db" category="sidebar">Wiederherstellen von Daten und Datenspeichern virtueller Maschinen</block>
 </blocks>
