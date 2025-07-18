@@ -15,13 +15,13 @@ Bevor Sie die Such- und Wiederherstellungsmethode zum Wiederherstellen von Daten
 
 Der indizierte Katalog kann dann jedes Volume und jede Sicherungsdatei verfolgen, sodass Ihre Suchvorgänge schnell und effizient erfolgen.
 
-Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["Wiederherstellen von ONTAP-Daten mithilfe von Suche  Wiederherstellen"].
+Weitere Informationen finden Sie unter https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Indizierung für Suchen und Wiederherstellen aktivieren"].
 
 
 
 === Azure Private Link-Endpunkte und Dienstendpunkte
 
-Normalerweise richtet BlueXP Backup & Recovery einen privaten Endpunkt beim Cloud-Anbieter ein, um verschiedene Schutzaufgaben zu übernehmen. Diese Version bietet eine optionale Einstellung, mit der Sie die automatische Erstellung eines privaten Endpunkts durch BlueXP Backup & Recovery aktivieren oder deaktivieren können. Dies ist hilfreich, wenn Sie mehr Kontrolle über die Erstellung des privaten Endpunkts wünschen.
+Normalerweise richtet BlueXP backup and recovery einen privaten Endpunkt beim Cloud-Anbieter ein, um Schutzaufgaben zu übernehmen. Diese Version bietet eine optionale Einstellung, mit der Sie die automatische Erstellung eines privaten Endpunkts durch BlueXP Backup & Recovery aktivieren oder deaktivieren können. Dies ist hilfreich, wenn Sie mehr Kontrolle über die Erstellung des privaten Endpunkts wünschen.
 
 Sie können diese Option aktivieren oder deaktivieren, wenn Sie den Schutz aktivieren oder den Wiederherstellungsprozess starten.
 
@@ -39,4 +39,4 @@ Die vorherige Version unterstützte SnapMirror to Cloud Resync (SM-C Resync). Di
 
 Wenn Sie Sicherungsdateien im Objektspeicher für eine Arbeitsumgebung erstellen, erstellt BlueXP Backup & Recovery standardmäßig den Container (Bucket oder Speicherkonto) für die Sicherungsdateien im von Ihnen konfigurierten Objektspeicherkonto. Bisher konnten Sie dies überschreiben und Ihren eigenen Container für Amazon S3, Azure Blob Storage und Google Cloud Storage angeben. Mit dieser Version können Sie nun Ihren eigenen StorageGRID-Objektspeichercontainer verwenden.
 
-Siehe https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Erstellen Sie Ihren eigenen Objektspeichercontainer"].
+Siehe https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protect-journey.html["Erstellen Sie Ihren eigenen Objektspeichercontainer"].

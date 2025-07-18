@@ -26,7 +26,7 @@ Bevor Sie die Such- und Wiederherstellungsmethode zum Wiederherstellen von Daten
 
 Aktivieren Sie die Indizierung der Arbeitsumgebung, indem Sie die Option „Indizierung aktivieren“ auswählen, wenn Sie eine Suche und Wiederherstellung durchführen.
 
-Weitere Informationen finden Sie in der Dokumentation https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["Wiederherstellen von ONTAP-Daten mithilfe von Suche  Wiederherstellen"].
+Weitere Informationen finden Sie in der Dokumentation https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Wiederherstellen von ONTAP-Daten mithilfe von Suche  Wiederherstellen"].
 
 .Unterstützte Skalierung
 Die neue Indexierungsfunktion unterstützt Folgendes:

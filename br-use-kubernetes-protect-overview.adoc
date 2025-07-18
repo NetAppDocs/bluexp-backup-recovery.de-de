@@ -20,10 +20,3 @@ Durch die Verwaltung von Kubernetes-Workloads in BlueXP backup and recovery kön
 NOTE: DIESE DOKUMENTATION WIRD ALS TECHNOLOGIEVORSCHAU BEREITGESTELLT. Während der Vorschau wird die Kubernetes-Funktionalität für Produktionsworkloads nicht empfohlen. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
 
 Sie können die folgenden Aufgaben im Zusammenhang mit der Verwaltung von Kubernetes-Workloads ausführen:
-
-* link:br-start-discover.html#discover-kubernetes-workloads["Entdecken Sie Kubernetes-Workloads"].
-* link:br-use-manage-kubernetes-clusters.html["Managen Sie Kubernetes-Cluster"].
-* link:br-use-protect-kubernetes-applications.html["Kubernetes-Anwendungen hinzufügen und schützen"].
-* link:br-use-manage-kubernetes-applications.html["Verwalten von Kubernetes-Anwendungen"].
-* link:br-use-restore-kubernetes-applications.html["Wiederherstellen von Kubernetes-Anwendungen"].
-
