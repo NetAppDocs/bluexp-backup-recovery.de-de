@@ -17,6 +17,6 @@ summary: Sie können Kubernetes-Anwendungen und Anwendungsdaten von lokalen ONTA
 Durch die Verwaltung von Kubernetes-Workloads in BlueXP backup and recovery können Sie Ihre Kubernetes-Cluster und -Anwendungen zentral verwalten und schützen. Sie können die von Ihren Kubernetes-Clustern gehosteten Ressourcen und Anwendungen verwalten. Außerdem können Sie die Schutzeinstellungen Ihrer Kubernetes-Workloads verwalten.
 
 
-NOTE: DIESE DOKUMENTATION WIRD ALS TECHNOLOGIEVORSCHAU BEREITGESTELLT. Während der Vorschau wird die Kubernetes-Funktionalität für Produktionsworkloads nicht empfohlen. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
+NOTE: Diese Dokumentation wird als Technologievorschau bereitgestellt. Während der Vorschau wird die Kubernetes-Funktionalität für Produktionsworkloads nicht empfohlen. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
 
 Sie können die folgenden Aufgaben im Zusammenhang mit der Verwaltung von Kubernetes-Workloads ausführen:

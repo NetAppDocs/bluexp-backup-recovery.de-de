@@ -9,7 +9,7 @@
 Diese Vorschauversion von BlueXP backup and recovery bietet eine aktualisierte Benutzeroberfläche, mit der Sie Microsoft SQL Server-Workloads mithilfe der 3-2-1-Schutzstrategie verwalten können, die Sie vom BlueXP backup and recovery Dienst kennen. Mit der neuen Version können Sie diese Workloads auf dem Primärspeicher sichern, auf dem Sekundärspeicher replizieren und in einem Cloud-Objektspeicher sichern.
 
 
-NOTE: DIESE DOKUMENTATION WIRD ALS TECHNOLOGIEVORSCHAU BEREITGESTELLT. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
+NOTE: Diese Dokumentation wird als Technologievorschau bereitgestellt. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
 
 Diese Version von BlueXP backup and recovery Preview 2025 enthält die folgenden Updates.
 

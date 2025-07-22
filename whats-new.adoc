@@ -43,7 +43,7 @@ Diese Version von BlueXP backup and recovery bietet eine aktualisierte Benutzero
 Sie können sich für die Vorschau anmelden, indem Sie dieses Formular ausfüllen.  https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl["Vorschau des Anmeldeformulars"^] .
 
 
-NOTE: DIESE DOKUMENTATION ZUM SCHUTZ VON MICROSOFT SQL SERVER-WORKLOADS WIRD ALS TECHNOLOGIEVORSCHAU BEREITGESTELLT. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
+NOTE: Diese Dokumentation zum Schutz von Microsoft SQL Server-Workloads wird als Technologievorschau bereitgestellt. NetApp behält sich das Recht vor, Details, Inhalte und Zeitplan dieses Vorschauangebots vor der allgemeinen Verfügbarkeit zu ändern.
 
 Diese Version von BlueXP backup and recovery enthält die folgenden Updates:
 
@@ -322,7 +322,7 @@ Diese BlueXP -Version für Backup und Recovery enthält die folgenden Updates.
 Diese Vorschauversion von BlueXP backup and recovery bietet eine aktualisierte Benutzeroberfläche, mit der Sie Microsoft SQL Server-Workloads mithilfe der 3-2-1-Schutzstrategie verwalten können, die Sie vom BlueXP backup and recovery Dienst kennen. Mit der neuen Version können Sie diese Workloads auf dem Primärspeicher sichern, auf dem Sekundärspeicher replizieren und in einem Cloud-Objektspeicher sichern.
 
 
-NOTE: DIESE DOKUMENTATION WIRD ALS TECHNOLOGIEVORSCHAU BEREITGESTELLT. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
+NOTE: Diese Dokumentation wird als Technologievorschau bereitgestellt. Mit diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitpläne vor der allgemeinen Verfügbarkeit zu ändern.
 
 Diese Version von BlueXP backup and recovery Preview 2025 enthält die folgenden Updates.
 
