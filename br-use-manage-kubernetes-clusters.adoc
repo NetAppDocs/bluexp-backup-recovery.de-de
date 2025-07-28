@@ -20,6 +20,9 @@ Mit BlueXP backup and recovery können Sie Ihre Kubernetes-Cluster erkennen und 
 Organisationsadministrator oder SnapCenter Administrator. link:reference-roles.html["Erfahren Sie mehr über die Zugriffsrollen für BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
 
 
+NOTE: Informationen zum Erkennen von Kubernetes-Clustern finden Sie unter link:br-start-discover.html["Entdecken Sie Kubernetes-Workloads"] .
+
+
 
 == Kubernetes-Clusterinformationen bearbeiten
 
@@ -29,7 +32,7 @@ Sie können einen Cluster bearbeiten, wenn Sie seinen Namen ändern müssen.
 . Wählen Sie in BlueXP backup and recovery*Inventar* > *Cluster*.
 . Wählen Sie in der Clusterliste einen Cluster aus, den Sie bearbeiten möchten, und wählen Sie das zugehörige Aktionsmenü aus.
 . Wählen Sie *Cluster bearbeiten*.
-. Nehmen Sie die erforderlichen Änderungen am Clusternamen vor.
+. Nehmen Sie alle erforderlichen Änderungen am Clusternamen vor. Der Clustername muss mit dem Namen übereinstimmen, den Sie während des Erkennungsprozesses mit dem Helm-Befehl verwendet haben.
 . Wählen Sie * Fertig*.
 
 

@@ -21,12 +21,6 @@ indexpage:
       url: br-start-setup.html
     - title: Konfigurieren Sie die BlueXP backup and recovery
       url: br-start-configure.html
-  - title: Richtlinien für Backups und Wiederherstellungen verwalten
-    links:
-    - title: Erstellen Sie Richtlinien zur Steuerung von Backups und Wiederherstellungen
-      url: br-use-policies-create.html
-    - title: Anzeigen des Schutzstatus im Dashboard
-      url: br-use-dashboard.html
   - title: Schützen Sie ONTAP Volumes-Workloads
     links:
     - title: Übersicht über Protect ONTAP Volume-Workloads
@@ -60,6 +54,20 @@ indexpage:
       url: prev-vmware-policy-create.html
     - title: Wiederherstellen der Workloads virtueller Maschinen
       url: prev-vmware-restore.html
+  - title: Schützen Sie Kubernetes-Workloads (Vorschau)
+    links:
+    - title: Übersicht zum Schützen von Kubernetes-Workloads
+      url: br-use-kubernetes-protect-overview.html
+    - title: Entdecken Sie Kubernetes-Workloads
+      url: br-start-discover-kubernetes.html
+    - title: Kubernetes-Anwendungen hinzufügen und schützen
+      url: link:br-use-protect-kubernetes-applications.html
+    - title: Managen Sie Kubernetes-Cluster
+      url: br-use-manage-kubernetes-clusters.html
+    - title: Verwalten von Kubernetes-Anwendungen
+      url: br-use-manage-kubernetes-applications.html
+    - title: Wiederherstellen von Kubernetes-Anwendungen
+      url: br-use-restore-kubernetes-applications.html
   - title: Blogs und Community
     links:
     - title: NetApp Community

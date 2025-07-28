@@ -14,14 +14,15 @@ summary: Mit BlueXP backup and recovery können Sie Anwendungen wiederherstellen
 
 
 [role="lead"]
-Mit BlueXP backup and recovery können Sie Anwendungen wiederherstellen, die Sie mit einer Schutzrichtlinie geschützt haben. Voraussetzung für die Wiederherstellung ist der Schutzstatus „Geschützt“ und eine zugehörige Schutzrichtlinie. Die Wiederherstellung erfolgt mithilfe eines Wiederherstellungspunkts, der aus dem lokalen Snapshot, dem sekundären Snapshot und der Sicherung im Objektspeicher besteht. Sie können eine Anwendung mithilfe des lokalen, sekundären oder Objektspeicherarchivs wiederherstellen.
+Mit BlueXP backup and recovery können Sie Anwendungen wiederherstellen, die Sie mit einer Schutzrichtlinie geschützt haben. Zur Wiederherstellung einer Anwendung muss mindestens ein Wiederherstellungspunkt verfügbar sein. Ein Wiederherstellungspunkt besteht entweder aus dem lokalen Snapshot oder der Sicherung im Objektspeicher (oder beidem). Sie können eine Anwendung mithilfe des lokalen, sekundären oder Objektspeicherarchivs wiederherstellen.
 
 .Erforderliche BlueXP -Rolle
 Organisationsadministrator oder SnapCenter Administrator. link:reference-roles.html["Erfahren Sie mehr über die Zugriffsrollen für BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
 
 .Schritte
 . Wählen Sie in BlueXP backup and recovery*Inventar* aus.
-. Wählen Sie eine Kubernetes-Workload aus und wählen Sie in der Spalte „Hosts“ für die Workload „Anzeigen“ aus.
+. Wählen Sie eine Kubernetes-Instanz und wählen Sie *Anzeigen*, um die mit dieser Instanz verknüpften Ressourcen anzuzeigen.
+. Wählen Sie die Registerkarte *Anwendungen*.
 . Wählen Sie in der Anwendungsliste eine Anwendung aus, die Sie wiederherstellen möchten, und wählen Sie das zugehörige Aktionsmenü.
 . Wählen Sie *Anzeigen und wiederherstellen*.
 +
@@ -33,11 +34,11 @@ Die Liste der Wiederherstellungspunkte wird angezeigt.
 [discrete]
 ===== Allgemeine Einstellungen
 
-. Wählen Sie die Quelle für die Wiederherstellung (lokal, sekundär oder Objektspeicher).
+. Wählen Sie die Quelle für die Wiederherstellung (lokaler oder Objektspeicher).
 . Wählen Sie den Zielcluster aus der Liste *Cluster* aus.
-. Wählen Sie den Zielnamespace für die Wiederherstellung (ursprünglich oder neu).
+. Wählen Sie den Namespace für das Wiederherstellungsziel.
 +
-Beachten Sie, dass die Wiederherstellung in einem anderen Cluster und im ursprünglichen Namespace nicht unterstützt wird.
+Sie können den ursprünglichen Namespace oder einen neuen Namespace wiederherstellen.
 
 . Wählen Sie *Weiter*.
 
@@ -67,6 +68,10 @@ Jede Regel kann nach Kriterien wie Ressourcennamespace, Bezeichnungen, Gruppe, V
 
 . Wählen Sie *Speichern*, um jede Regel zu speichern.
 . Wenn Sie alle benötigten Regeln hinzugefügt haben, wählen Sie *Suchen*, um die im Sicherungsarchiv verfügbaren Ressourcen anzuzeigen, die Ihren Filterkriterien entsprechen.
++
+
+NOTE: Bei den angezeigten Ressourcen handelt es sich um die Ressourcen, die derzeit im Cluster vorhanden sind.
+
 . Wenn Sie mit den Ergebnissen zufrieden sind, wählen Sie *Weiter*.
 
 
@@ -76,6 +81,6 @@ Jede Regel kann nach Kriterien wie Ressourcennamespace, Bezeichnungen, Gruppe, V
 ===== Zieleinstellungen
 
 . Wählen Sie zur Wiederherstellung entweder die Standardspeicherklasse oder eine andere Speicherklasse.
-. Wenn Sie die Wiederherstellung in einer anderen Speicherklasse durchführen möchten, wählen Sie optional eine Zielspeicherklasse aus, die jeder Quellspeicherklasse entspricht. Die Zielspeicherklasse muss im Zielcluster verfügbar sein.
+. Wenn Sie die Wiederherstellung in einer anderen Speicherklasse durchführen möchten, wählen Sie optional eine Zielspeicherklasse aus, die jeder Quellspeicherklasse entspricht.
 . Wählen Sie *Wiederherstellen*.
 

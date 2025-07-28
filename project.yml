@@ -134,6 +134,22 @@ sidebar:
         url: "/prev-vmware-manage.html"
       - title: Wiederherstellen von Daten und Datenspeichern virtueller Maschinen
         url: "/prev-vmware-restore.html"
+    - title: Schützen Sie Kubernetes-Workloads (Vorschau)
+      entries:
+      - title: Übersicht zum Schützen von Kubernetes-Workloads
+        url: "/br-use-kubernetes-protect-overview.html"
+      - title: Entdecken Sie Kubernetes-Workloads
+        url: br-start-discover-kubernetes.html
+      - title: Kubernetes-Anwendungen hinzufügen und schützen
+        url: "/br-use-protect-kubernetes-applications.html"
+      - title: Wiederherstellen von Kubernetes-Anwendungen
+        url: "/br-use-restore-kubernetes-applications.html"
+      - title: Managen Sie Kubernetes-Cluster
+        url: "/br-use-manage-kubernetes-clusters.html"
+      - title: Verwalten von Kubernetes-Anwendungen
+        url: "/br-use-manage-kubernetes-applications.html"
+      - title: Verwalten von Ausführungs-Hook-Vorlagen für Kubernetes-Workloads
+        url: "/br-use-manage-execution-hook-templates.html"
     - title: Überwachen von Jobs
       url: "/br-use-monitor-tasks.html"
     - title: BlueXP Backup und Recovery neu starten

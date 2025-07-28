@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-manage-kubernetes-applications.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: Mit BlueXP backup and recovery können Sie Ihre Workload-Host-Informationen, Datenbankinformationen und Instanzen verwalten. Sie können die Schutzeinstellungen für Ihr Inventar anzeigen, bearbeiten und löschen. 
+summary: Mit der BlueXP backup and recovery können Sie den Schutz Ihrer Kubernetes-Anwendungen und der zugehörigen Ressourcen aufheben und diese löschen. 
 ---
 = Verwalten von Kubernetes-Anwendungen
 :hardbreaks:
@@ -14,35 +14,21 @@ summary: Mit BlueXP backup and recovery können Sie Ihre Workload-Host-Informati
 
 
 [role="lead"]
-Mit BlueXP backup and recovery verwalten Sie Ihre Kubernetes-Anwendungen und die zugehörigen Ressourcen. Sie können Schutzeinstellungen Ihrer Kubernetes-Anwendungen erstellen, anzeigen, bearbeiten und löschen.
+Mit der BlueXP backup and recovery können Sie den Schutz Ihrer Kubernetes-Anwendungen und der zugehörigen Ressourcen aufheben und diese löschen.
 
 .Erforderliche BlueXP -Rolle
 Organisationsadministrator oder SnapCenter Administrator. link:reference-roles.html["Erfahren Sie mehr über die Zugriffsrollen für BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
 
 
 
-== Bearbeiten einer Kubernetes-Anwendung
-
-Sie können die Einstellungen einer vorhandenen Kubernetes-Anwendung ändern, wenn sich die mit der Anwendung verknüpften Ressourcen geändert haben.
-
-.Schritte
-. Wählen Sie in BlueXP backup and recovery*Inventar* > *Anwendungen*.
-. Wählen Sie in der Anwendungsliste eine Anwendung aus, die Sie bearbeiten möchten, und wählen Sie das zugehörige Aktionsmenü aus.
-. Wählen Sie *Bearbeiten*.
-. Nehmen Sie alle erforderlichen Änderungen an der Anwendungsdefinition vor, beispielsweise am Namen oder den enthaltenen Ressourcen.
-. Wenn Sie fertig sind, wählen Sie *Weiter*.
-. Nehmen Sie alle erforderlichen Änderungen an den Schutzeinstellungen vor.
-. Wenn Sie fertig sind, wählen Sie *Fertig*.
-
-
-
-
 == Aufheben des Schutzes einer Kubernetes-Anwendung
 
-Sie können den Schutz einer Anwendung aufheben, wenn Sie sie nicht mehr schützen möchten. Wenn Sie den Schutz einer Anwendung aufheben, beendet BlueXP backup and recovery den Schutz der Anwendung, behält jedoch alle zugehörigen Backups und Snapshots bis zu ihrem Ablauf bei.
+Sie können den Schutz einer Anwendung aufheben, wenn Sie sie nicht mehr schützen möchten. Wenn Sie den Schutz einer Anwendung aufheben, beendet BlueXP backup and recovery den Schutz der Anwendung, behält aber alle zugehörigen Backups und Snapshots bei.
 
 .Schritte
-. Wählen Sie in BlueXP backup and recovery*Inventar* > *Anwendungen*.
+. Wählen Sie in BlueXP backup and recovery*Inventar* aus.
+. Wählen Sie eine Kubernetes-Instanz und wählen Sie *Anzeigen*, um die mit dieser Instanz verknüpften Ressourcen anzuzeigen.
+. Wählen Sie die Registerkarte *Anwendungen*.
 . Wählen Sie in der Anwendungsliste eine Anwendung aus, deren Schutz Sie aufheben möchten, und wählen Sie das zugehörige Aktionsmenü.
 . Wählen Sie *Schutz aufheben*.
 . Lesen Sie den Hinweis und wählen Sie anschließend „Schutz aufheben“ aus.
@@ -52,16 +38,18 @@ Sie können den Schutz einer Anwendung aufheben, wenn Sie sie nicht mehr schütz
 
 == Löschen einer Kubernetes-Anwendung
 
-Sie können eine Anwendung löschen, wenn Sie sie nicht mehr benötigen. Wenn Sie eine Anwendung löschen, beendet BlueXP backup and recovery den Schutz der Anwendung und löscht auf Wunsch alle zugehörigen Backups und Snapshots.
+Sie können eine Anwendung löschen, wenn Sie sie nicht mehr benötigen. Wenn Sie eine Anwendung löschen, beendet BlueXP backup and recovery den Schutz der Anwendung und löscht alle zugehörigen Backups und Snapshots.
 
 .Schritte
-. Wählen Sie in BlueXP backup and recovery*Inventar* > *Anwendungen*.
+. Wählen Sie in BlueXP backup and recovery*Inventar* aus.
+. Wählen Sie eine Kubernetes-Instanz und wählen Sie *Anzeigen*, um die mit dieser Instanz verknüpften Ressourcen anzuzeigen.
+. Wählen Sie die Registerkarte *Anwendungen*.
 . Wählen Sie in der Anwendungsliste eine Anwendung aus, die Sie löschen möchten, und wählen Sie das zugehörige Aktionsmenü.
 . Wählen Sie *Löschen*.
-. Aktivieren Sie optional *Snapshots und Backups löschen*, um alle Snapshots und Backups der Anwendung zu entfernen.
+. Aktivieren Sie *Snapshots und Backups löschen*, um alle Snapshots und Backups der Anwendung zu entfernen.
 +
 
-CAUTION: Wenn Sie dies tun, können Sie die Anwendung nicht mehr mithilfe dieser Snapshots und Backups wiederherstellen.
+CAUTION: Sie können die Anwendung mithilfe dieser Snapshots und Backups nicht mehr wiederherstellen.
 
 . Bestätigen Sie die Aktion und wählen Sie *Löschen*.
 

@@ -54,9 +54,6 @@ Wenn Sie mehrere Testausführungshaken desselben Typs erstellen (z. B. Pre-Snaps
 
 
 
-NOTE: Das Beispiel der vorherigen Reihenfolge gilt nur, wenn Sie ein Backup ausführen, das keinen vorhandenen Snapshot verwendet.
-
-
 NOTE: Sie sollten Ihre Hook-Skripte immer testen, bevor Sie sie in einer Produktionsumgebung aktivieren. Mit dem Befehl 'kubectl exec' können Sie die Skripte bequem testen. Nachdem Sie die Testausführungshaken in einer Produktionsumgebung aktiviert haben, testen Sie die erstellten Snapshots und Backups, um sicherzustellen, dass sie konsistent sind. Dazu klonen Sie die Applikation in einem temporären Namespace, stellen den Snapshot oder das Backup wieder her und testen anschließend die App.
 
 
@@ -106,7 +103,7 @@ Sie können eine benutzerdefinierte Ausführungs-Hook-Vorlage erstellen, die Sie
 . Erweitern Sie den Abschnitt *Execution Hook Template*.
 . Wählen Sie *Ausführungs-Hook-Vorlage erstellen*.
 . Geben Sie einen Namen für den Ausführungs-Hook ein.
-. Wählen Sie einen Hook-Typ. Beispielsweise wird ein Post-Restore-Hook ausgeführt, nachdem der Wiederherstellungsvorgang abgeschlossen ist.
+. Wählen Sie optional einen Hook-Typ aus. Beispielsweise wird ein Post-Restore-Hook ausgeführt, nachdem der Wiederherstellungsvorgang abgeschlossen ist.
 . Geben Sie im Textfeld *Skript* das ausführbare Shell-Skript ein, das Sie als Teil der Ausführungs-Hook-Vorlage ausführen möchten. Optional können Sie *Skript hochladen* auswählen, um stattdessen eine Skriptdatei hochzuladen.
 . Wählen Sie *Erstellen*.
 +

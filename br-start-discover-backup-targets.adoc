@@ -34,7 +34,9 @@ image:screen-br-inventory-offsite-backup-targets.png["Registerkarte „Offsite-S
 
 . Wählen Sie *Sicherungsziel ermitteln*.
 . Wählen Sie einen der Sicherungszieltypen aus: *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, * StorageGRID* oder * ONTAP S3*.
-. Geben Sie die Informationen ein. Die Informationen variieren je nach Art des ausgewählten Sicherungsziels.
+. Wählen Sie im Abschnitt *Speicherort der Anmeldeinformationen auswählen* den Speicherort aus, an dem sich die Anmeldeinformationen befinden, und wählen Sie dann aus, wie die Anmeldeinformationen verknüpft werden sollen.
+. Wählen Sie *Weiter*.
+. Geben Sie die Anmeldeinformationen ein. Die Informationen variieren je nach Art des ausgewählten Sicherungsziels und dem von Ihnen gewählten Speicherort der Anmeldeinformationen.
 +
 ** Für AWS:
 +
