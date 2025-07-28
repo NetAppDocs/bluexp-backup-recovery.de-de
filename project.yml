@@ -139,7 +139,7 @@ sidebar:
       - title: Übersicht zum Schützen von Kubernetes-Workloads
         url: "/br-use-kubernetes-protect-overview.html"
       - title: Entdecken Sie Kubernetes-Workloads
-        url: br-start-discover-kubernetes.html
+        url: "/br-start-discover-kubernetes.html"
       - title: Kubernetes-Anwendungen hinzufügen und schützen
         url: "/br-use-protect-kubernetes-applications.html"
       - title: Wiederherstellen von Kubernetes-Anwendungen
