@@ -192,6 +192,7 @@ Der Dienst schützt die folgenden anwendungsbasierten Workloads:
 * ONTAP Volumes
 * Microsoft SQL Server-Instanzen und -Datenbanken für physische, VMware Virtual Machine File System (VMFS) und VMware Virtual Machine Disk (VMDK) NFS (Vorschau)
 * VMware Datenspeicher
+* Kubernetes-Workloads (Vorschau)
 
 
 .Unterstützte Arbeitsumgebungen
