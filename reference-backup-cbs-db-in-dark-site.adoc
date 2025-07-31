@@ -1,0 +1,213 @@
+---
+sidebar: sidebar 
+permalink: reference-backup-cbs-db-in-dark-site.html 
+keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, BlueXP Connector 
+summary: 'Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (bekannt als „privater Modus“), werden die Konfigurationsdaten von BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Backups gespeichert werden.  Wenn in Zukunft ein Problem mit dem BlueXP Connector-Hostsystem auftritt, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.' 
+---
+= Wiederherstellen der BlueXP backup and recovery an einem dunklen Ort
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (bekannt als _privater Modus_), werden die Konfigurationsdaten von BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Backups gespeichert werden.  Wenn Sie ein Problem mit dem BlueXP Connector-Hostsystem haben, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.
+
+
+NOTE: Dieses Verfahren gilt nur für ONTAP Volume-Daten.
+
+Wenn Sie BlueXP backup and recovery in einer SaaS-Umgebung verwenden, in der der BlueXP Connector bei Ihrem Cloud-Anbieter oder auf Ihrem eigenen Hostsystem mit Internetzugang bereitgestellt wird, werden alle wichtigen Konfigurationsdaten von BlueXP backup and recovery in der Cloud gesichert und geschützt.  Wenn Sie ein Problem mit dem Connector haben, erstellen Sie einfach einen neuen Connector und fügen Sie Ihre Arbeitsumgebungen hinzu. Die Sicherungsdetails werden dann automatisch wiederhergestellt.
+
+Es werden zwei Arten von Daten gesichert:
+
+* BlueXP backup and recovery – enthält eine Liste aller Volumes, Backup-Dateien, Backup-Richtlinien und Konfigurationsinformationen.
+* Indizierte Katalogdateien – enthalten detaillierte Indizes, die für die Such- und Wiederherstellungsfunktion verwendet werden und Ihre Suche nach Volumedaten, die Sie wiederherstellen möchten, sehr schnell und effizient machen.
+
+
+Diese Daten werden einmal täglich um Mitternacht gesichert und es werden maximal 7 Kopien jeder Datei aufbewahrt.  Wenn der Connector mehrere lokale ONTAP Arbeitsumgebungen verwaltet, befinden sich die BlueXP backup and recovery im Bucket der Arbeitsumgebung, die zuerst aktiviert wurde.
+
+
+TIP: In der BlueXP backup and recovery oder in den indizierten Katalogdateien sind niemals Volumedaten enthalten.
+
+
+
+== Wiederherstellen von BlueXP backup and recovery auf einem neuen BlueXP Connector
+
+Wenn bei Ihrem lokalen BlueXP Connector ein schwerwiegender Fehler auftritt, müssen Sie einen neuen Connector installieren und dann die BlueXP backup and recovery und Wiederherstellungsdaten auf dem neuen Connector wiederherstellen.
+
+Sie müssen die folgenden Aufgaben ausführen, um Ihr BlueXP backup and recovery wieder in einen funktionsfähigen Zustand zu versetzen:
+
+* Installieren Sie einen neuen BlueXP Connector
+* Stellen Sie die BlueXP backup and recovery wieder her
+* Wiederherstellen der indizierten Katalogdateien
+* Entdecken Sie alle Ihre On-Premise ONTAP -Systeme und StorageGRID Systeme erneut in der BlueXP Benutzeroberfläche
+
+
+Sobald Sie überprüft haben, dass Ihr System wieder funktionsfähig ist, empfehlen wir Ihnen, neue Sicherungsdateien zu erstellen.
+
+.Was du brauchst
+Sie müssen auf die aktuellsten Datenbank- und Indexsicherungen aus dem StorageGRID oder ONTAP S3-Bucket zugreifen, in dem Ihre Sicherungsdateien gespeichert sind:
+
+* BlueXP backup and recovery MySQL-Datenbankdatei
++
+Diese Datei befindet sich am folgenden Speicherort im Bucket `netapp-backup-<GUID>/mysql_backup/` und es heißt `CBS_DB_Backup_<day>_<month>_<year>.sql` .
+
+* ZIP-Sicherungsdatei des indizierten Katalogs
++
+Diese Datei befindet sich am folgenden Speicherort im Bucket `netapp-backup-<GUID>/catalog_backup/` und es heißt `Indexed_Catalog_DB_Backup_<db_name>_<day>_<month>_<year>.zip` .
+
+
+
+
+
+=== Installieren Sie einen neuen Connector auf einem neuen lokalen Linux-Host
+
+Achten Sie beim Installieren eines neuen BlueXP Connectors darauf, dass Sie dieselbe Softwareversion herunterladen, die Sie auf dem ursprünglichen Connector installiert haben.  Regelmäßige Änderungen an der Datenbankstruktur für BlueXP backup and recovery können dazu führen, dass neuere Softwareversionen nicht mehr mit den ursprünglichen Datenbank-Backups kompatibel sind.  Du kannst https://docs.netapp.com/us-en/bluexp-setup-admin/task-upgrade-connector.html["Aktualisieren Sie die Connector-Software auf die neueste Version, nachdem Sie die Backup-Datenbank wiederhergestellt haben."^] .
+
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["Installieren Sie den BlueXP Connector auf einem neuen lokalen Linux-Host"^]
+. Melden Sie sich mit den gerade erstellten Administrator-Benutzeranmeldeinformationen bei BlueXP an.
+
+
+
+
+=== Stellen Sie die BlueXP backup and recovery wieder her
+
+. Kopieren Sie die MySQL-Sicherung vom Sicherungsspeicherort auf den neuen Connector-Host.  Wir verwenden unten den Beispieldateinamen „CBS_DB_Backup_23_05_2023.sql“.
+. Kopieren Sie die Sicherung mit einem der folgenden Befehle in den MySQL-Docker-Container, je nachdem, ob Sie einen Docker- oder Podman-Container verwenden:
++
+[source, cli]
+----
+docker cp CBS_DB_Backup_23_05_2023.sql ds_mysql_1:/.
+----
++
+[source, cli]
+----
+podman cp CBS_DB_Backup_23_05_2023.sql ds_mysql_1:/.
+----
+. Rufen Sie die MySQL-Container-Shell mit einem der folgenden Befehle auf, je nachdem, ob Sie einen Docker- oder Podman-Container verwenden:
++
+[source, cli]
+----
+docker exec -it ds_mysql_1 sh
+----
++
+[source, cli]
+----
+podman exec -it ds_mysql_1 sh
+----
+. Stellen Sie in der Container-Shell die „Umgebung“ bereit.
+. Sie benötigen das MySQL-DB-Passwort. Kopieren Sie daher den Wert des Schlüssels „MYSQL_ROOT_PASSWORD“.
+. Stellen Sie die BlueXP backup and recovery -MySQL-Datenbank mit dem folgenden Befehl wieder her:
++
+[source, cli]
+----
+mysql -u root -p cloud_backup < CBS_DB_Backup_23_05_2023.sql
+----
+. Überprüfen Sie mit den folgenden SQL-Befehlen, ob die MySQL-Datenbank für die BlueXP backup and recovery korrekt wiederhergestellt wurde:
++
+[source, cli]
+----
+mysql -u root -p cloud_backup
+----
++
+Geben Sie das Passwort ein.
+
++
+[source, cli]
+----
+mysql> show tables;
+mysql> select * from volume;
+----
++
+Überprüfen Sie, ob die angezeigten Volumes mit denen in Ihrer ursprünglichen Umgebung übereinstimmen.
+
+
+
+
+
+=== Wiederherstellen der indizierten Katalogdateien
+
+. Kopieren Sie die ZIP-Sicherungsdatei des indizierten Katalogs (wir verwenden den Beispieldateinamen „Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip“) vom Sicherungsspeicherort auf den neuen Connector-Host im Ordner „/opt/application/netapp/cbs“.
+. Entpacken Sie die Datei „Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip“ mit dem folgenden Befehl:
++
+[source, cli]
+----
+unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
+----
+. Führen Sie den Befehl *ls* aus, um sicherzustellen, dass der Ordner „catalogdb1“ mit den darunter liegenden Unterordnern „changes“ und „snapshots“ erstellt wurde.
+
+
+
+
+=== Entdecken Sie Ihre ONTAP -Cluster und StorageGRID Systeme
+
+. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["Entdecken Sie alle On-Premise ONTAP Arbeitsumgebungen"^]die in Ihrer vorherigen Umgebung verfügbar waren.  Dazu gehört auch das ONTAP -System, das Sie als S3-Server verwendet haben.
+. https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["Entdecken Sie Ihre StorageGRID -Systeme"^] .
+
+
+
+
+=== Einrichten der StorageGRID -Umgebungsdetails
+
+Fügen Sie die Details des StorageGRID -Systems hinzu, das mit Ihren ONTAP Arbeitsumgebungen verknüpft ist, so wie sie im ursprünglichen Connector-Setup eingerichtet wurden, mithilfe des https://docs.netapp.com/us-en/bluexp-automation/index.html["BlueXP -APIs"^] .
+
+Die folgenden Informationen gelten für Installationen im privaten Modus ab BlueXP 3.9.xx.  Bei älteren Versionen gehen Sie wie folgt vor: https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["DarkSite Cloud Backup: MySQL und indizierter Katalog sichern und wiederherstellen"^] .
+
+Sie müssen diese Schritte für jedes System ausführen, das Daten auf StorageGRID sichert.
+
+. Extrahieren Sie das Autorisierungstoken mithilfe der folgenden OAuth/Token-API.
++
+[source, http]
+----
+curl 'http://10.193.192.202/oauth/token' -X POST -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
+> '
+----
++
+Während es sich bei der IP-Adresse, dem Benutzernamen und den Passwörtern um benutzerdefinierte Werte handelt, ist dies beim Kontonamen nicht der Fall.  Der Kontoname lautet immer „account-DARKSITE1“.  Außerdem muss der Benutzername einen Namen im E-Mail-Format verwenden.
+
++
+Diese API gibt eine Antwort wie die folgende zurück.  Sie können das Autorisierungstoken wie unten gezeigt abrufen.
+
++
+[source, text]
+----
+{"expires_in":21600,"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzM2MDIzLCJleHAiOjE2NzI3NTc2MjMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9CJtRpRDY23PokyLg1if67bmgnMcYxdCvBOY-ZUYWzhrWbbY_hqUH4T-114v_pNDsPyNDyWqHaKizThdjjHYHxm56vTz_Vdn4NqjaBDPwN9KAnC6Z88WA1cJ4WRQqj5ykODNDmrv5At_f9HHp0-xVMyHqywZ4nNFalMvAh4xESc5jfoKOZc-IOQdWm4F4LHpMzs4qFzCYthTuSKLYtqSTUrZB81-o-ipvrOqSo1iwIeHXZJJV-UsWun9daNgiYd_wX-4WWJViGEnDzzwOKfUoUoe1Fg3ch--7JFkFl-rrXDOjk1sUMumN3WHV9usp1PgBE5HAcJPrEBm0ValSZcUbiA"}
+----
+. Extrahieren Sie die Arbeitsumgebungs-ID und die X-Agent-ID mithilfe der Tenancy/External/Resource-API.
++
+[source, http]
+----
+curl -X GET http://10.193.192.202/tenancy/external/resource?account=account-DARKSITE1 -H 'accept: application/json' -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzIyNzEzLCJleHAiOjE2NzI3NDQzMTMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9X_cQF8xttD0-S7sU2uph2cdu_kN-fLWpdJJX98HODwPpVUitLcxV28_sQhuopjWobozPelNISf7KvMqcoXc5kLDyX-yE0fH9gr4XgkdswjWcNvw2rRkFzjHpWrETgfqAMkZcAukV4DHuxogHWh6-DggB1NgPZT8A_szHinud5W0HJ9c4AaT0zC-sp81GaqMahPf0KcFVyjbBL4krOewgKHGFo_7ma_4mF39B1LCj7Vc2XvUd0wCaJvDMjwp19-KbZqmmBX9vDnYp7SSxC1hHJRDStcFgJLdJHtowweNH2829KsjEGBTTcBdO8SvIDtctNH_GAxwSgMT3zUfwaOimPw'
+----
++
+Diese API gibt eine Antwort wie die folgende zurück.  Der Wert unter „resourceIdentifier“ bezeichnet die _WorkingEnvironment-ID_ und der Wert unter „agentId“ bezeichnet _x-agent-id_.
+
+. Aktualisieren Sie die BlueXP backup and recovery mit den Details des StorageGRID -Systems, das mit den Arbeitsumgebungen verknüpft ist.  Stellen Sie sicher, dass Sie den vollqualifizierten Domänennamen des StorageGRID sowie den Zugriffsschlüssel und den Speicherschlüssel wie unten gezeigt eingeben:
++
+[source, http]
+----
+curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudmanager_cbs/api/v1/sg/credentials/working-environment/OnPremWorkingEnvironment-pMtZND0M' \
+> --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzIyNzEzLCJleHAiOjE2NzI3NDQzMTMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9X_cQF8xttD0-S7sU2uph2cdu_kN-fLWpdJJX98HODwPpVUitLcxV28_sQhuopjWobozPelNISf7KvMqcoXc5kLDyX-yE0fH9gr4XgkdswjWcNvw2rRkFzjHpWrETgfqAMkZcAukV4DHuxogHWh6-DggB1NgPZT8A_szHinud5W0HJ9c4AaT0zC-sp81GaqMahPf0KcFVyjbBL4krOewgKHGFo_7ma_4mF39B1LCj7Vc2XvUd0wCaJvDMjwp19-KbZqmmBX9vDnYp7SSxC1hHJRDStcFgJLdJHtowweNH2829KsjEGBTTcBdO8SvIDtctNH_GAxwSgMT3zUfwaOimPw' \
+> --header 'x-agent-id: vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients' \
+> -d '
+> { "storage-server" : "sr630ip15.rtp.eng.netapp.com:10443", "access-key": "2ZMYOAVAS5E70MCNH9", "secret-password": "uk/6ikd4LjlXQOFnzSzP/T0zR4ZQlG0w1xgWsB" }'
+----
+
+
+
+
+=== Überprüfen Sie die BlueXP backup and recovery und Wiederherstellungseinstellungen
+
+. Wählen Sie jede ONTAP Arbeitsumgebung aus und klicken Sie im rechten Bereich neben dem Sicherungs- und Wiederherstellungsdienst auf *Sicherungen anzeigen*.
++
+Sie sollten alle Sicherungen sehen können, die für Ihre Volumes erstellt wurden.
+
+. Klicken Sie im Wiederherstellungs-Dashboard im Abschnitt „Suchen und Wiederherstellen“ auf *Indizierungseinstellungen*.
++
+Stellen Sie sicher, dass die Arbeitsumgebungen, in denen die indizierte Katalogisierung zuvor aktiviert war, aktiviert bleiben.
+
+. Führen Sie auf der Seite „Suchen und Wiederherstellen“ einige Katalogsuchen durch, um zu bestätigen, dass die Wiederherstellung des indizierten Katalogs erfolgreich abgeschlossen wurde.
+

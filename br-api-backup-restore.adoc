@@ -32,11 +32,20 @@ In BlueXP Backup und Recovery sind zehn Kategorien von Endpunkten definiert:
 
 
 
+== API-Referenz
+
+Dokumentation für jede BlueXP backup and recovery -API ist verfügbar unter https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html["BlueXP Automatisierung für BlueXP backup and recovery"^] .
+
+
+
 == Erste Schritte
 
 Für den Einstieg in die BlueXP Backup- und Recovery-APIs benötigen Sie ein Benutzer-Token, Ihre BlueXP Konto-ID und die BlueXP Connector-ID.
 
 Wenn Sie API-Aufrufe tätigen, fügen Sie das Benutzer-Token in die Autorisierungskopfzeile und die BlueXP Connector-ID in der X-Agent-id-Kopfzeile hinzu. Sie sollten die BlueXP-Konto-ID in den APIs verwenden.
+
+
+NOTE: Wenn Sie ein Dienstkonto verwenden, sollten Sie anstelle eines Benutzertokens das Dienstzugriffstoken verwenden.  Der Wert für „client_id“ („Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC“) ist ein fester Wert und kann nicht geändert werden.  Befolgen Sie in diesem Fall die Anweisungen hier: https://docs.netapp.com/us-en/bluexp-automation/platform/create_service_token.html["Erstellen eines Dienstzugriffstokens"^] .
 
 .Schritte
 . Beziehen Sie ein Benutzer-Token auf die NetApp BlueXP Website.
@@ -180,8 +189,3 @@ curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpT
     ]
 }
 ----
-
-
-== API-Referenz
-
-Die Dokumentation zu den einzelnen BlueXP  Backup- und Recovery-APIs ist unter verfügbar https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html["BlueXP -Automatisierung"^].
