@@ -3809,7 +3809,6 @@ Ifdef::aws[]</block>
   <block id="66e26e427b5784b7adb6655a0b49e57f" category="paragraph">*HINWEIS* Diese Funktion verwendet eine frühere Version der BlueXP backup and recovery . Informationen zum Wechsel zwischen den Versionen der BlueXP backup and recovery finden Sie unter <block ref="906891f55c4c6af31e4cf82ce54f93d9" category="inline-link-macro-rx"></block> .</block>
   <block id="5165c2fbcef4d5b16f189feb7569b43b" category="paragraph">Anweisungen zur Verwendung der vorherigen BlueXP backup and recovery finden Sie in den folgenden Themen:</block>
   <block id="219b1d964760a35bc8ac924733ed0211" category="summary">Der BlueXP backup and recovery bietet effizienten, sicheren und kostengünstigen Datenschutz für NetApp -Datenbanken und -Instanzen, sowohl vor Ort als auch in der Cloud. Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem Public oder Private Cloud-Konto gespeichert.</block>
-  <block id="21a4e084cb9eeae89f7b12a3531b652c" category="paragraph">Der BlueXP backup and recovery bietet effizienten, sicheren und kostengünstigen Datenschutz für ONTAP Volumes, Microsoft SQL Server-Instanzen und -Datenbanken (Vorschau) sowie VMware-Workloads.</block>
   <block id="5ddad1ad8421fb041436bd24f4aea0c5" category="section-title">Was Sie mit BlueXP backup and recovery tun können</block>
   <block id="930ffc736eba485afa459142d19e0a4e" category="paragraph">Verwenden Sie BlueXP backup and recovery, um die folgenden Ziele zu erreichen:</block>
   <block id="5940e90d8d923e2308627f8e190412e8" category="list-text">ONTAP -Volumen-Workloads:</block>
@@ -3857,7 +3856,6 @@ Ifdef::aws[]</block>
   <block id="37265d8bc5bb9d770dbba2833c18f913" category="paragraph">Wenn Sie GCP verwenden, können Sie ein privates Angebot von NetApp anfordern und dann den Plan auswählen, wenn Sie während der Aktivierung von BlueXP backup and recovery ein Abonnement im Google Cloud Marketplace abschließen. endif::gcp[]</block>
   <block id="c8ee5c80af66e9ba0b237679d3ee2962" category="section-title">Unterstützte Datenquellen, Arbeitsumgebungen und Sicherungsziele</block>
   <block id="cec0c370d9c2ef0dbbf7f89c16ef1a90" category="paragraph-title">Unterstützte Workload-Datenquellen</block>
-  <block id="8e9099358934a1f0118f70592242de0e" category="paragraph">Der Dienst schützt die folgenden anwendungsbasierten Workloads:</block>
   <block id="9504b35cbb481ca2332f36aedcf456c8" category="list-text">ONTAP Volumes</block>
   <block id="58f149a832a0f214528ef836d6898835" category="list-text">Microsoft SQL Server-Instanzen und -Datenbanken für physische, VMware Virtual Machine File System (VMFS) und VMware Virtual Machine Disk (VMDK) NFS (Vorschau)</block>
   <block id="ed11408803c4c1aca5fbebbc43d88458" category="list-text">VMware Datenspeicher</block>
@@ -4662,4 +4660,6 @@ Ifdef::aws[]</block>
   <block id="047b5386a7c666d31be5990a4869e7da" category="list-text">*Disk to Disk*: (Nicht verfügbar für Kubernetes-Workloads) Primärspeicher (Disk) zu sekundärem Speicher (Disk).  Die ONTAP -zu- ONTAP Datensicherungsstrategie repliziert Daten zwischen zwei ONTAP Systemen, um hohe Verfügbarkeit und Notfallwiederherstellung sicherzustellen.  Dies wird normalerweise mit SnapMirror erreicht, das sowohl synchrone als auch asynchrone Replikation unterstützt.  Diese Methode stellt sicher, dass Ihre Daten kontinuierlich aktualisiert werden und an mehreren Standorten verfügbar sind, und bietet einen robusten Schutz vor Datenverlust.</block>
   <block id="68348a4aedf069fed0da1ef391e470d8" category="list-text">*Disk-to-Disk-Fanout*: (Nicht verfügbar für Kubernetes-Workloads) Primärspeicher (Disk) zu Sekundärspeicher (Disk) und Primärspeicher (Disk) zu Sekundärspeicher (Disk).</block>
   <block id="52406c3fd83be5518f3dd4d7253e4388" category="paragraph">Geben Sie Informationen zur Replikation auf den Sekundärspeicher an.  Zeitplaninformationen aus den lokalen Snapshot-Einstellungen werden Ihnen in den sekundären Einstellungen angezeigt.  Diese Einstellungen sind für Kubernetes-Workloads nicht verfügbar.</block>
+  <block id="5f62fed28c117ffda0827b12f19c440d" category="paragraph">Der BlueXP backup and recovery und Wiederherstellungsdienst bietet effizienten, sicheren und kostengünstigen Datenschutz für ONTAP Volumes, Microsoft SQL Server-Instanzen und -Datenbanken (Vorschau), VMware-Workloads und Kubernetes-Workloads (Vorschau).</block>
+  <block id="b884440e8464e067fc1993b8e7564b2c" category="paragraph">Der Dienst schützt die folgenden Workloads:</block>
 </blocks>
