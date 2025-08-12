@@ -50,7 +50,7 @@ NOTE: BlueXP speichert die Suchparameter oder Ergebnisse nicht; die Parameter we
 
 . BlueXP zeigt eine Liste der Ressourcen an, die Ihren Suchkriterien entsprechen.
 . Wenn die Liste die Ressourcen enthält, die Sie schützen möchten, wählen Sie *Weiter*.
-. Wählen Sie im Bereich *Richtlinie* optional eine vorhandene Schutzrichtlinie zum Schutz der Anwendung aus oder erstellen Sie eine neue Richtlinie. Wenn Sie keine Richtlinie auswählen, wird die Anwendung ohne Schutzrichtlinie erstellt. Sie können später eine Richtlinie hinzufügen.
+. Wählen Sie im Bereich *Richtlinie* optional eine vorhandene Schutzrichtlinie zum Schutz der Anwendung aus oder erstellen Sie eine neue Richtlinie. Wenn Sie keine Richtlinie auswählen, wird die Anwendung ohne Schutzrichtlinie erstellt. Du kannstlink:br-use-policies-create.html#create-a-policy["Fügen Sie eine Schutzrichtlinie hinzu"] später.
 . Aktivieren und konfigurieren Sie im Bereich *Prescripts und Postscripts* alle Prescript- oder Postscript-Ausführungs-Hooks, die vor oder nach Sicherungsvorgängen ausgeführt werden sollen. Um Prescripts oder Postscripts zu aktivieren, müssen Sie bereits mindestens einen link:br-use-manage-execution-hook-templates.html["Ausführungs-Hook-Vorlage"] .
 . Wählen Sie *Erstellen*.
 
@@ -70,7 +70,7 @@ Aktivieren Sie eine Schutzrichtlinie für eine Kubernetes-Anwendung, die Sie ber
 . Wählen Sie die Registerkarte *Anwendungen*.
 . Wählen Sie in der Anwendungsliste eine Anwendung aus, die Sie schützen möchten, und wählen Sie das zugehörige Aktionsmenü.
 . Wählen Sie *Schutz*.
-. Wählen Sie im Bereich *Richtlinie* eine vorhandene Schutzrichtlinie zum Schutz der Anwendung aus oder erstellen Sie eine neue Richtlinie.
+. Wählen Sie im Bereich *Richtlinie* eine vorhandene Schutzrichtlinie zum Schutz der Anwendung aus oder erstellen Sie eine neue Richtlinie.  Siehelink:br-use-policies-create.html#create-a-policy["Erstellen einer Richtlinie"] Weitere Informationen zum Erstellen von Schutzrichtlinien finden Sie unter.
 . Aktivieren und konfigurieren Sie im Bereich *Prescripts und Postscripts* alle Prescript- oder Postscript-Ausführungs-Hooks, die vor oder nach Sicherungsvorgängen ausgeführt werden sollen. Sie können den Typ des Ausführungs-Hooks, die verwendete Vorlage, Argumente und Label-Selektoren konfigurieren.
 . Wählen Sie * Fertig*.
 
