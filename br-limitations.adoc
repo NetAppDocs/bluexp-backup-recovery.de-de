@@ -18,6 +18,16 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 
 
 
+== Unterstützung des Klon-Lebenszyklus
+
+* Das Klonen aus dem Objektspeicher wird nicht unterstützt.
+* Massenklonvorgänge werden für On-Demand-Klone nicht unterstützt.
+* Die Auswahl von I-Gruppen wird nicht unterstützt.
+* Die Auswahl von QOS-Optionen (maximaler Durchsatz) wird nicht unterstützt.
+
+
+
+
 == Nur Standardbereitstellungsmodus
 
 Die BlueXP backup and recovery funktioniert nur im Standardbereitstellungsmodus, nicht im eingeschränkten oder privaten Modus.

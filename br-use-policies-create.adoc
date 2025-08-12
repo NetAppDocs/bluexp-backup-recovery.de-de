@@ -81,7 +81,15 @@ image:screen-br-policies-new-nodata.png["Screenshot der neuen Richtlinienerstell
 +
 *** *Lokaler Snapshot*: Lokaler Snapshot auf dem ausgewählten Volume. Lokale Snapshots sind ein wichtiger Bestandteil von Datenschutzstrategien und erfassen den Zustand Ihrer Daten zu bestimmten Zeitpunkten. Dadurch werden schreibgeschützte, zeitpunktbezogene Kopien der Produktionsvolumes erstellt, auf denen Ihre Workloads ausgeführt werden. Der Snapshot benötigt nur minimalen Speicherplatz und verursacht kaum Performance-Einbußen, da er nur Dateiänderungen seit dem letzten Snapshot aufzeichnet. Sie können lokale Snapshots zur Wiederherstellung nach Datenverlust oder -beschädigung sowie zur Erstellung von Backups für die Notfallwiederherstellung verwenden.
 *** *3-2-1-Fanout*: (Nicht verfügbar für Kubernetes-Workloads) Primärspeicher (Festplatte) zu Sekundärspeicher (Festplatte) zu Cloud (Objektspeicher).  Erstellt mehrere Kopien von Daten über verschiedene Speichersysteme hinweg, beispielsweise ONTAP zu ONTAP und ONTAP zu-Objektspeicher-Konfigurationen.  Dies kann ein Cloud-Hyperscaler-Objektspeicher oder ein privater Objektspeicher sein – StorageGRID.  Diese Konfigurationen tragen dazu bei, optimalen Datenschutz und Notfallwiederherstellung zu erreichen.
++
+
+NOTE: Diese Option ist für Amazon FSx for NetApp ONTAP nicht verfügbar.
+
 *** *3-2-1 kaskadiert*: (Nicht verfügbar für Kubernetes-Workloads) Primärspeicher (Festplatte) zu Sekundärspeicher (Festplatte) und Primärspeicher (Festplatte) zu Cloud-Speicher (Objektspeicher).  Dies kann ein Cloud-Hyperscaler-Objektspeicher oder ein privater Objektspeicher sein – StorageGRID.  Dadurch wird eine Kette der Datenreplikation über mehrere Systeme hinweg erstellt, um Redundanz und Zuverlässigkeit zu gewährleisten.
++
+
+NOTE: Diese Option ist für Amazon FSx for NetApp ONTAP nicht verfügbar.
+
 *** *Disk to Disk*: (Nicht verfügbar für Kubernetes-Workloads) Primärspeicher (Disk) zu sekundärem Speicher (Disk).  Die ONTAP -zu- ONTAP Datensicherungsstrategie repliziert Daten zwischen zwei ONTAP Systemen, um hohe Verfügbarkeit und Notfallwiederherstellung sicherzustellen.  Dies wird normalerweise mit SnapMirror erreicht, das sowohl synchrone als auch asynchrone Replikation unterstützt.  Diese Methode stellt sicher, dass Ihre Daten kontinuierlich aktualisiert werden und an mehreren Standorten verfügbar sind, und bietet einen robusten Schutz vor Datenverlust.
 *** *Disk-to-Object-Store*: Primärspeicher (Disk) in die Cloud (Objektspeicher). Dabei werden Daten von einem ONTAP System auf ein Objektspeichersystem wie AWS S3, Azure Blob Storage oder StorageGRID repliziert. Dies geschieht typischerweise mit SnapMirror Cloud, das inkrementelle Backups ermöglicht, indem nach der initialen Baseline-Übertragung nur geänderte Datenblöcke übertragen werden. Dies kann ein Cloud-Hyperscaler-Objektspeicher oder ein privater Objektspeicher – StorageGRID– sein. Diese Methode eignet sich ideal für die langfristige Datenaufbewahrung und -archivierung und bietet eine kostengünstige und skalierbare Lösung für den Datenschutz.
 *** *Disk-to-Disk-Fanout*: (Nicht verfügbar für Kubernetes-Workloads) Primärspeicher (Disk) zu Sekundärspeicher (Disk) und Primärspeicher (Disk) zu Sekundärspeicher (Disk).
@@ -135,6 +143,7 @@ Geben Sie Informationen zur Replikation auf den Sekundärspeicher an.  Zeitplani
 ** Weitere Optionen: Wenn Sie eine aufgeschobene Überweisung wählen, erfolgen die Überweisungen nicht sofort und Sie können einen Zeitplan festlegen.
 
 
+* * Sekundäre Beziehung zwischen SnapMirror und SnapVault SMAS*: Verwenden Sie sekundäre Beziehungen zwischen SnapMirror und SnapVault SMAS für SQL Server-Workloads.
 
 
 
@@ -222,7 +231,7 @@ TIP: Wenn die Snapshot-Frequenz auf 1 Stunde eingestellt ist, sollte die maximal
 
 
 
-* *Ransomware-Scan*: Wählen Sie aus, ob Sie für jeden Bucket einen Ransomware-Scan aktivieren möchten. Dadurch wird die Snapshot-Sperre für den lokalen Snapshot, die Snapshot-Sperre für den sekundären Speicher und die DataLock-Sperre für den Objektspeicher aktiviert. Geben Sie die Scan-Häufigkeit in Tagen ein.
+* *Ransomware-Scan*: Wählen Sie aus, ob Sie den Ransomware-Scan für jeden Bucket aktivieren möchten.  Dies erfordert eine DataLock-Sperre auf dem Objektspeicher.  Geben Sie die Häufigkeit des Scans in Tagen ein.  Diese Option gilt für AWS- und Microsoft Azure-Objektspeicher.  Beachten Sie, dass für diese Option je nach Cloud-Anbieter zusätzliche Kosten anfallen können.
 
 
 * *Sicherungsüberprüfung*: Wählen Sie aus, ob die Sicherungsüberprüfung aktiviert werden soll und ob sie sofort oder später erfolgen soll. Diese Funktion stellt sicher, dass die Sicherungen gültig sind und erfolgreich wiederhergestellt werden können. Wir empfehlen, diese Option zu aktivieren, um die Integrität Ihrer Sicherungen zu gewährleisten. Standardmäßig wird die Sicherungsüberprüfung vom sekundären Speicher ausgeführt, sofern ein sekundärer Speicher konfiguriert ist. Wenn kein sekundärer Speicher konfiguriert ist, wird die Sicherungsüberprüfung vom primären Speicher ausgeführt.
@@ -246,6 +255,12 @@ Konfigurieren Sie außerdem die folgenden Optionen:
 
 
 * *Benachrichtigung*: Wählen Sie aus, ob Sie E-Mail-Benachrichtigungen für Sicherungsvorgänge aktivieren möchten. Dies ist nützlich, wenn Sie benachrichtigt werden möchten, wenn ein Sicherungsvorgang startet, abgeschlossen wird oder fehlschlägt.
+
+
+* * SnapMirror und Snapshot-Format*: Geben Sie optional Ihren eigenen Snapshot-Namen in eine Richtlinie ein, die die Sicherungen für Microsoft SQL Server-Workloads regelt.  Geben Sie das Format und den benutzerdefinierten Text ein.  Wenn Sie sich für die Sicherung auf einem sekundären Speicher entschieden haben, können Sie auch ein SnapMirror -Volume-Präfix und -Suffix hinzufügen.
++
+image:screen-br-sql-policy-create-advanced-snapmirror.png["Screenshot der SnapMirror und Snapshot-Formateinstellungen für die BlueXP backup and recovery"]
+
 
 
 

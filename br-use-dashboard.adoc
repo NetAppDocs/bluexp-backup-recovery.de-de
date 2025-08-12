@@ -21,7 +21,7 @@ Durch die Überwachung des Zustands Ihrer Workloads sind Sie über Probleme beim
 .Schritte
 . Wählen Sie im BlueXP backup and recovery“ die Option „Dashboard“ aus.
 +
-image:screen-br-dashboard2.png["BlueXP backup and recovery -Dashboard"]
+image:screen-br-dashboard3.png["BlueXP backup and recovery -Dashboard"]
 
 
 

@@ -153,7 +153,9 @@ image:../media/screen-br-inventory.png["Inventarseite"]
 
 === Wenn Sie SnapCenter nicht installiert haben, fügen Sie ein vCenter hinzu und entdecken Sie Ressourcen
 
-Falls SnapCenter noch nicht installiert ist, fügen Sie vCenter-Informationen hinzu und lassen Sie BlueXP backup and recovery Workloads ermitteln. Wählen Sie in jedem BlueXP Connector die Arbeitsumgebungen aus, in denen Sie Workloads ermitteln möchten.
+Wenn Sie SnapCenter noch nicht installiert haben, können Sie vCenter-Informationen hinzufügen und die Arbeitslasten von BlueXP backup and recovery ermitteln lassen.  Wählen Sie in jedem BlueXP Connector die Arbeitsumgebungen aus, in denen Sie Workloads ermitteln möchten.
+
+Dies ist optional, wenn Sie eine VMware-Umgebung haben.
 
 .Schritte
 . Wählen Sie in der linken Navigation von BlueXP *Schutz* > *Sicherung und Wiederherstellung*.

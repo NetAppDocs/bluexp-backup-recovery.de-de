@@ -94,7 +94,7 @@ sidebar:
         url: "/prev-ontap-backup-manage.html"
       - title: Restore aus ONTAP-Backups
         url: "/prev-ontap-restore.html"
-    - title: Schützen Sie Microsoft SQL Server-Workloads (Vorschau)
+    - title: Schützen Sie Microsoft SQL Server-Workloads
       entries:
       - title: Übersicht zum Schützen von Microsoft SQL Server-Workloads
         url: "/br-use-mssql-protect-overview.html"

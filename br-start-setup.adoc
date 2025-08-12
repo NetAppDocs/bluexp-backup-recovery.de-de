@@ -27,7 +27,7 @@ Bereiten Sie eines oder mehrere der folgenden Sicherungsziele vor:
 Siehe https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["Entdecken Sie StorageGRID"^].
 
 +
-Siehe  https://docs.netapp.com/us-en/storagegrid-117/index.html["StorageGRID-Dokumentation"^] für Details zu StorageGRID.
+Siehe https://docs.netapp.com/us-en/storagegrid/index.html["StorageGRID-Dokumentation"^] für Details zu StorageGRID.
 
 * Amazon Web Services. Siehe https://docs.netapp.com/us-en/bluexp-s3-storage/index.html["Amazon S3-Dokumentation"^].
 +

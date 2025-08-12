@@ -36,6 +36,25 @@ Nach Ablauf der kostenlosen Testversion werden Sie automatisch und ohne Unterbre
 
 
 
+=== Beenden Sie die kostenlose Testversion
+
+Wenn Sie BlueXP backup and recovery nach Ablauf der kostenlosen Testversion weiterhin verwenden möchten, müssen Sie ein kostenpflichtiges Abonnement einrichten.  Sie können dies über die BlueXP Schnittstelle tun, indem Sie zum Abschnitt „Abrechnung“ navigieren und ein Abonnement auswählen, das Ihren Anforderungen entspricht.  Wenn Sie BlueXP backup and recovery nicht weiter verwenden möchten, können Sie die kostenlose Testversion beenden.
+
+Wenn Sie die kostenlose Testversion beenden, ohne einen kostenpflichtigen Plan zu abonnieren, werden Ihre Daten 60 Tage nach Ablauf der kostenlosen Testversion automatisch gelöscht.  Optional können Sie Ihre Daten auch sofort vom System löschen lassen.
+
+.Schritte
+. Wählen Sie auf der Zielseite für BlueXP backup and recovery *Kostenlose Testversion anzeigen* aus.
++
+*FRAGE AN DIE BEWERTER*: Wie gelangen Benutzer auf die Zielseite, wenn sie sich auf anderen BR-Seiten befinden?
+
+. Wählen Sie *Kostenlose Testversion beenden*.
+. Wählen Sie *Daten sofort nach Beendigung meiner kostenlosen Testversion löschen*, um Ihre Daten sofort zu löschen.
+. Geben Sie *Testversion beenden* in das Feld ein.
+. Wählen Sie zur Bestätigung *Ende*.
+
+
+
+
 == Nutzen Sie ein BlueXP PAYGO-Abonnement für Backup und Recovery
 
 Beim nutzungsbasierten Modell bezahlen Sie Ihren Cloud-Provider für Objekt-Storage-Kosten und für NetApp Backup-Lizenzen auf Stundenbasis in einem einzigen Abonnement. Sie sollten *NetApp Intelligente Dienste* auf dem Marktplatz abonnieren, auch wenn Sie eine kostenlose Testversion haben oder wenn Sie Ihre eigene Lizenz (BYOL) mitbringen:

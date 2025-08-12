@@ -26,6 +26,9 @@ Sie können diese Ziele automatisch erkennen oder manuell hinzufügen.
 
 Geben Sie die erforderlichen Anmeldeinformationen für den Zugriff auf das Speicherkontosystem ein. Diese Anmeldeinformationen werden verwendet, um die Workloads zu ermitteln, die Sie sichern möchten.
 
+.Bevor Sie beginnen
+Um ein externes Sicherungsziel hinzuzufügen, muss mindestens eine Arbeitslast erkannt werden.
+
 .Schritte
 . Wählen Sie im BlueXP backup and recovery “ die Option „Inventar“ aus.
 . Wählen Sie die Registerkarte *Offsite-Sicherungsziele*.
@@ -90,7 +93,7 @@ Anstatt Buckets automatisch von BlueXP backup and recovery erkennen zu lassen, k
 +
 ** Für AWS:
 +
-*** *Bucket-Name*: Geben Sie den Namen des S3-Buckets ein.
+*** *Bucketname*: Geben Sie den Namen des S3-Buckets ein.  Das Präfix „netapp-backup“ ist ein erforderliches Präfix und wird automatisch zu dem von Ihnen angegebenen Namen hinzugefügt.
 *** *AWS-Konto*: Geben Sie den AWS-Kontonamen ein.
 *** *Bucket-Region*: Geben Sie die AWS-Region für den Bucket ein.
 *** *S3-Objektsperre aktivieren*: Wählen Sie diese Option, um die S3-Objektsperre für den Bucket zu aktivieren. Die S3-Objektsperre verhindert das Löschen oder Überschreiben von Objekten für einen bestimmten Aufbewahrungszeitraum und bietet so zusätzlichen Datenschutz. Sie können diese Option nur beim Erstellen eines Buckets aktivieren und später nicht mehr deaktivieren.
