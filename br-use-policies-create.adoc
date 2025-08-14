@@ -114,7 +114,7 @@ Geben Sie Informationen für den lokalen Snapshot an.
 * *Aufbewahrung von Snapshots*: Geben Sie die Anzahl der aufzubewahrenden Snapshots ein.
 * *Protokollsicherung aktivieren*: (Nicht verfügbar für Kubernetes-Workloads) Aktivieren Sie die Option zum Sichern von Protokollen und legen Sie die Häufigkeit und Aufbewahrung der Protokollsicherungen fest. Dazu müssen Sie bereits eine Protokollsicherung konfiguriert haben. Siehe link:br-start-configure.html["Konfigurieren von Protokollverzeichnissen"].
 * *Anbieter*: (Nur Kubernetes-Workloads) Wählen Sie den Speicheranbieter aus, der die Kubernetes-Anwendungsressourcen hostet.
-* *Sicherungsziel*: (Nur Kubernetes-Workloads) Wählen Sie den Speicher-Bucket aus, der die Kubernetes-Anwendungsressourcen hostet.  Die Snapshots werden in diesem Bucket gespeichert.  Stellen Sie sicher, dass der Bucket in Ihrer Sicherungsumgebung zugänglich ist.
+* *Sicherungsziel*: (Nur Kubernetes-Workloads) Wählen Sie den Speicher-Bucket aus, der die Kubernetes-Anwendungsressourcen hostet. In diesem Bucket werden die Anwendungsressourcendefinitionen zum Zeitpunkt des Snapshots gespeichert. Stellen Sie sicher, dass der Bucket in Ihrer Sicherungsumgebung zugänglich ist.
 * Wählen Sie optional rechts neben dem Zeitplan *Erweitert* aus, um die Bezeichnung SnapMirror festzulegen und die Snapshot-Sperre zu aktivieren (nicht verfügbar für Kubernetes-Workloads).
 +
 ** * SnapMirror -Label*: Das Label dient als Markierung für die Übertragung eines bestimmten Snapshots gemäß den Aufbewahrungsregeln der Beziehung. Durch das Hinzufügen eines Labels zu einem Snapshot wird dieser als Ziel für die SnapMirror Replikation markiert.

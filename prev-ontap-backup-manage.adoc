@@ -14,7 +14,7 @@ summary: Mit BlueXP backup and recovery verwalten Sie Backups für Ihre Cloud Vo
 
 
 [role="lead"]
-Verwalten Sie mit BlueXP Backup und Recovery Backups für Ihre Cloud Volumes ONTAP- und lokalen ONTAP-Systeme, indem Sie den Backup-Zeitplan ändern, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen und mehr. Dies umfasst alle Arten von Backups, einschließlich Snapshot-Kopien, replizierten Volumes und Backup-Dateien im Objektspeicher. Sie können die Registrierung von BlueXP backup and recovery auch aufheben.
+Verwalten Sie mit BlueXP backup and recovery Backups für Ihre Cloud Volumes ONTAP und lokalen ONTAP Systeme, indem Sie den Backup-Zeitplan ändern, Volume-Backups aktivieren/deaktivieren, Backups anhalten, Backups löschen, das Löschen von Backups erzwingen und mehr.  Dies umfasst alle Arten von Backups, einschließlich Snapshot-Kopien, replizierten Volumes und Backup-Dateien im Objektspeicher.  Sie können die Registrierung von BlueXP backup and recovery auch aufheben.
 
 
 CAUTION: Backup-Dateien dürfen nicht direkt auf Ihren Storage-Systemen oder in Ihrer Cloud-Provider-Umgebung gemanagt oder geändert werden. Dies kann die Dateien beschädigen und zu einer nicht unterstützten Konfiguration führen.
@@ -371,7 +371,20 @@ Beachten Sie, dass diese Aktion keine Auswirkungen auf Snapshot-Kopien oder repl
 image:screenshot_backup_settings_button.png["Ein Screenshot, der die Schaltfläche Backup Settings zeigt, die nach der Auswahl einer Arbeitsumgebung verfügbar ist."]
 
 . Wählen image:icon-actions-horizontal.gif["Aktionssymbol"] für die Arbeitsumgebung, in der Sie alle Backups löschen möchten, und wählen Sie *Alle Backups löschen*.
-. Geben Sie im Bestätigungsdialogfeld den Namen der Arbeitsumgebung ein und wählen Sie *Löschen*.
++
+image:screenshot_backup_delete_all_backups-working-env.png["Ein Screenshot, der die Option „Alle Backups löschen“ zeigt"]
+
+. Geben Sie im Bestätigungsdialogfeld den Namen der Arbeitsumgebung ein.
+. Wählen Sie *Erweiterte Einstellungen*.
+. *Löschen von Backups erzwingen*: Geben Sie an, ob Sie das Löschen aller Backups erzwingen möchten oder nicht.
++
+In einigen extremen Fällen möchten Sie möglicherweise, dass BlueXP backup and recovery keinen Zugriff mehr auf Backups hat. Dies kann beispielsweise passieren, wenn der Dienst keinen Zugriff mehr auf den Backup-Bucket hat oder Backups durch DataLock geschützt sind, Sie diese aber nicht mehr möchten. Bisher konnten Sie diese nicht selbst löschen und mussten den NetApp -Support anrufen. Mit dieser Version können Sie die Option zum erzwungenen Löschen von Sicherungen (auf Volume- und Arbeitsumgebungsebene) verwenden.
+
++
+
+CAUTION: Verwenden Sie diese Option mit Vorsicht und nur bei extremem Reinigungsbedarf.  BlueXP backup and recovery hat keinen Zugriff mehr auf diese Backups, auch wenn sie nicht im Objektspeicher gelöscht werden.  Sie müssen zu Ihrem Cloud-Anbieter gehen und die Backups manuell löschen.
+
+. Wählen Sie *Löschen*.
 
 
 
@@ -392,7 +405,16 @@ Die Liste aller Sicherungsdateien wird angezeigt.
 +
 image:screenshot_backup_delete_all_backups.png["Ein Screenshot, der die Option „Alle Backups löschen“ zeigt"]
 
-. Geben Sie den Datenträgernamen ein und geben Sie an, ob Sie das Löschen aller Sicherungen erzwingen möchten oder nicht.
+. Geben Sie den Datenträgernamen ein.
+. Wählen Sie *Erweiterte Einstellungen*.
+. *Löschen von Backups erzwingen*: Geben Sie an, ob Sie das Löschen aller Backups erzwingen möchten oder nicht.
++
+In einigen extremen Fällen möchten Sie möglicherweise, dass BlueXP backup and recovery keinen Zugriff mehr auf Backups hat.  Dies kann beispielsweise passieren, wenn der Dienst keinen Zugriff mehr auf den Backup-Bucket hat oder Backups durch DataLock geschützt sind, Sie diese aber nicht mehr möchten. Bisher konnten Sie diese nicht selbst löschen und mussten den NetApp -Support anrufen. Mit dieser Version können Sie die Option zum erzwungenen Löschen von Sicherungen (auf Volume- und Arbeitsumgebungsebene) verwenden.
+
++
+
+CAUTION: Verwenden Sie diese Option mit Vorsicht und nur bei extremem Reinigungsbedarf.  BlueXP backup and recovery hat keinen Zugriff mehr auf diese Backups, auch wenn sie nicht im Objektspeicher gelöscht werden.  Sie müssen zu Ihrem Cloud-Anbieter gehen und die Backups manuell löschen.
+
 . Wählen Sie *Löschen*.
 
 

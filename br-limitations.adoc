@@ -109,9 +109,3 @@ SnapCenter verfügt nicht über die Möglichkeit, Speichercluster oder SVMs für
 Wenn Sie einen SnapCenter -Richtlinienzeitplan haben, der zu einer bestimmten Zeit beginnt und sich alle paar Minuten wiederholt, die Minuten jedoch nicht in 15-Minuten-Intervallen liegen, importiert BlueXP backup and recovery den Zeitplan nicht.
 
 *Problemumgehung*: Passen Sie die Richtlinie mithilfe von SnapCenter so an, dass sie in 15-Minuten-Intervallen wiederholt wird.
-
-
-
-=== Aufbewahrungsdauer der Protokollsicherung
-
-Mit SnapCenter können Sie mehrere Aufbewahrungswerte für mehrere Richtlinien einer Ressource festlegen. Die Vorschauversion von BlueXP backup and recovery unterstützt jedoch nur einen einzigen Aufbewahrungswert für alle Richtlinien einer Ressource.

@@ -14,7 +14,9 @@ summary: Es gibt einige Unterschiede zwischen den in BlueXP backup and recovery 
 [role="lead"]
 Es gibt einige Unterschiede zwischen den in SnapCenter und denen in BlueXP backup and recovery verwendeten Richtlinien, die sich auf die Anzeige nach dem Importieren von Ressourcen und Richtlinien aus SnapCenter auswirken können.
 
-Für die Sicherung und Wiederherstellung von SnapCenter und BlueXP backup and recovery werden leicht unterschiedliche Richtlinienpläne verwendet.
+
+
+== Zeitplanstufen
 
 SnapCenter verwendet die folgenden Zeitplanebenen:
 
@@ -78,6 +80,12 @@ Wenn Sie in SnapCenter über eine Ressource mit mehreren Richtlinien verfügen, 
 * Für „Vollständige Sicherung und Protokoll“ plus „Vollständige Sicherung“ in SnapCenter verwendet BlueXP backup and recovery den Aufbewahrungswert „Vollständige Sicherung und Protokoll“.
 * Wenn Sie in SnapCenter nur über eine vollständige Sicherung verfügen, aktiviert BlueXP backup and recovery die Protokollsicherung nicht.
 
+
+
+
+== Aufbewahrungsdauer der Protokollsicherung
+
+Mit SnapCenter können Sie einer Ressource mehrere Aufbewahrungswerte über mehrere Richtlinien hinweg zuordnen.  Allerdings unterstützt BlueXP backup and recovery nur einen einzigen Aufbewahrungswert für alle einer Ressource zugeordneten Richtlinien.
 
 
 
