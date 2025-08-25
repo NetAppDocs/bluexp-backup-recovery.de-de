@@ -29,10 +29,12 @@ sidebar:
     entries:
     - title: Was ist neu
       url: "/whats-new.html"
-    - title: Bekannte Einschränkungen für Microsoft SQL Server-Workloads
-      url: "/br-limitations.html"
     - title: Bekannte Einschränkungen für ONTAP Volumes Workloads
       url: "/br-reference-limitations.html"
+    - title: Bekannte Einschränkungen für Microsoft SQL Server-Workloads
+      url: "/br-limitations.html"
+    - title: Bekannte Einschränkungen für VMware-Workloads
+      url: "/br-limitations-vmware.html"
   - title: Los geht's
     entries:
     - title: Erfahren Sie mehr über BlueXP Backup und Recovery
@@ -114,7 +116,20 @@ sidebar:
         url: "/br-use-manage-snapshots.html"
       - title: Erstellen von Microsoft SQL Server-Berichten
         url: "/br-use-reports.html"
-    - title: Schützen der Workloads virtueller Maschinen
+    - title: Schützen Sie VMware-Workloads (Vorschau ohne SnapCenter -Plug-in für
+        VMware)
+      entries:
+      - title: Übersicht zum Schützen von VMware-Workloads
+        url: "/br-use-vmware-protect-overview.html"
+      - title: Entdecken Sie VMware-Workloads
+        url: "/br-use-vmware-discovery.html"
+      - title: Erstellen und Verwalten von Schutzgruppen für VMware-Workloads
+        url: "/br-use-vmware-protection-groups.html"
+      - title: Sichern Sie VMware-Workloads
+        url: "/br-use-vmware-backup.html"
+      - title: Wiederherstellen von VMware-Workloads
+        url: "/br-use-vmware-restore.html"
+    - title: Schützen Sie VMware-Workloads (mit dem SnapCenter -Plug-in für VMware)
       entries:
       - title: Übersicht über den Schutz virtueller Maschinen-Workloads
         url: "/prev-vmware-protect-overview.html"
@@ -164,6 +179,8 @@ sidebar:
       url: "/reference-policy-differences-snapcenter.html"
     - title: Rollen und Berechtigungen für BlueXP backup and recovery
       url: "/reference-roles.html"
+    - title: Wiederherstellen von BlueXP backup and recovery an einem dunklen Ort
+      url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: Unterstützte AWS Archiv-Storage Tiers
       url: "/prev-reference-aws-archive-storage-tiers.html"
     - title: Unterstützte Azure-Archivspeicherebenen

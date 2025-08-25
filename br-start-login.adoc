@@ -16,7 +16,7 @@ summary: Sie verwenden NetApp BlueXP , um sich beim BlueXP backup and recovery u
 [role="lead"]
 Sie verwenden NetApp BlueXP , um sich beim BlueXP backup and recovery und Wiederherstellungsdienst anzumelden.
 
-BlueXP backup and recovery verwendet eine rollenbasierte Zugriffskontrolle (RBAC), um den Zugriff jedes Benutzers auf bestimmte Aktionen zu regeln.
+BlueXP backup and recovery verwendet Identitäts- und Zugriffsverwaltung, um den Zugriff jedes Benutzers auf bestimmte Aktionen zu regeln.
 
 Weitere Informationen zu den Aktionen, die jede Rolle ausführen kann, finden Sie unter link:reference-roles.html["BlueXP backup and recovery"].
 
@@ -47,6 +47,9 @@ image:screen-br-landing-unified-trial.png["Screenshot der Zielseite für BlueXP 
 
 . Wählen Sie die Option *Erkennen und verwalten* aus, sofern Sie dies noch nicht getan haben.
 +
-Informationen zu Microsoft SQL Server-Workloads finden Sie unter link:br-start-discover.html["Entdecken Sie Microsoft SQL Server-Workloads"] .
+** Informationen zu Microsoft SQL Server-Workloads finden Sie unter link:br-start-discover.html["Entdecken Sie Microsoft SQL Server-Workloads"] .
+** Informationen zu VMware-Workloads finden Sie unterlink:br-use-vmware-discovery.html["Entdecken Sie VMware-Workloads"] .
+** Informationen zu Kubernetes-Workloads finden Sie unterlink:br-start-discover-kubernetes.html["Entdecken Sie Kubernetes-Workloads"] .
+
 
 

@@ -18,9 +18,9 @@ Sie können zwischen den verschiedenen BlueXP backup and recovery -Workloads wec
 
 *Woher wissen Sie, welche Benutzeroberfläche Sie verwenden?*
 
-Die Taskleiste für Microsoft SQL Server- und Kubernetes-Workloads (Vorschau) sieht folgendermaßen aus:image:screen-br-menu-unified.png["Neuer UI-Screenshot für BlueXP backup and recovery"]
+Die Taskleiste für Microsoft SQL Server, VMware-Workloads (Vorschau ohne SnapCenter Plug-in for VMware vSphere) und Kubernetes-Workloads (Vorschau) sieht folgendermaßen aus:image:screen-br-menu-unified.png["Neuer UI-Screenshot für BlueXP backup and recovery"]
 
-Die Menüleiste für ONTAP Volumes und VMware-Workloads sieht folgendermaßen aus: image:screen-br-menu-legacy.png["Vorheriger UI-Screenshot für BlueXP backup and recovery"]
+Die Menüleiste für ONTAP Volumes und VMware-Workloads (mit SnapCenter Plug-in for VMware vSphere) sieht folgendermaßen aus:image:screen-br-menu-legacy.png["Vorheriger UI-Screenshot für BlueXP backup and recovery"]
 
 
 

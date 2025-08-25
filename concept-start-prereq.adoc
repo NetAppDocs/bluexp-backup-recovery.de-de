@@ -28,13 +28,14 @@ Auf der lokalen ONTAP Instanz muss eine ONTAP One-Lizenz aktiviert werden.
 
 Um Objektspeicher als Sicherungsziele zu verwenden, benötigen Sie ein Konto bei AWS S3, Microsoft Azure Blob, StorageGRID oder ONTAP und die entsprechenden konfigurierten Zugriffsberechtigungen.
 
-Sehenlink:br-start-setup.html["Richten Sie Sicherungsziele ein, bevor Sie BlueXP backup and recovery verwenden"] Einzelheiten zum Einrichten der Sicherungsziele finden Sie unter.
+* link:prev-ontap-protect-overview.html["Schützen Sie Ihre ONTAP Volume-Daten"]
 
 
 
-== Microsoft SQL Server-Workloadanforderungen
 
-Um BlueXP backup and recovery für SQL Server-Workloads zu verwenden, benötigen Sie die folgenden Voraussetzungen hinsichtlich Hostsystem, Speicherplatz und Größe.
+== Anforderungen zum Schutz von Microsoft SQL Server-Workloads
+
+Um BlueXP backup and recovery für Microsoft SQL Server-Workloads zu verwenden, benötigen Sie die folgenden Voraussetzungen hinsichtlich Hostsystem, Speicherplatz und Größe.
 
 [cols="33,66a"]
 |===
@@ -81,7 +82,50 @@ Die neuesten Informationen zu unterstützten Versionen finden Sie im https://imt
 |===
 
 
-== Kubernetes-Workloadanforderungen
+== Anforderungen zum Schutz von VMware-Workloads
+
+Sie benötigen bestimmte Anforderungen, um Ihre VMware-Workloads zu erkennen und zu schützen.
+
+*Softwareunterstützung*
+
+* NFS- und VMFS-Datastores werden unterstützt. VVols werden nicht unterstützt.
+* Unterstützte NFS-Versionen: NFS 3 und NFS 4.1
+* Unterstützte VMware ESXi Server-Versionen: 7.0U1 und höher
+* Unterstützte VMware vCenter vSphere-Versionen: 7.0U1 und höher
+* IP-Adressen: IPv4 und IPv6
+* VMware TLS: 1.2, 1.3
+
+
+*Verbindungs- und Portanforderungen zum Schutz von VMware-Workloads*
+
+[cols="33,66a"]
+|===
+| Art des Anschlusses | Vorkonfigurierter Port 
+
+
+| VMware ESXi-Server-Port  a| 
+443 (HTTPS), bidirektional.  Die Funktion „Gastdateiwiederherstellung“ verwendet diesen Port.
+
+
+
+| VMware vSphere vCenter Server-Port  a| 
+Wenn Sie vVol-VMs schützen, müssen Sie Port 443 verwenden.
+
+
+
+| Speichercluster oder Speicher-VM-Port  a| 
+443 (HTTPS), bidirektional.  80 (HTTP), bidirektional.  Dieser Port wird für die Kommunikation zwischen der virtuellen Appliance und der Speicher-VM oder dem Cluster verwendet, der die Speicher-VM enthält.
+
+|===
+*Anforderungen an die rollenbasierte Zugriffskontrolle (RBAC) zum Schutz von VMware-Workloads*
+
+Das vCenter-Administratorkonto muss über die erforderlichen vCenter-Berechtigungen verfügen.
+
+Eine Liste der erforderlichen vCenter-Berechtigungen finden Sie unter https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deployment_planning_and_requirements.html#rbac-privileges-required["SnapCenter Plug-in for VMware vSphere vCenter-Berechtigungen erforderlich"^] .
+
+
+
+== Anforderungen zum Schutz von Kubernetes-Anwendungen
 
 Sie benötigen spezifische Anforderungen, um Kubernetes-Ressourcen zu erkennen und Ihre Kubernetes-Anwendungen zu schützen.
 

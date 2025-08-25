@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, BlueXP Connector 
-summary: 'Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (bekannt als „privater Modus“), werden die Konfigurationsdaten von BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Backups gespeichert werden.  Wenn in Zukunft ein Problem mit dem BlueXP Connector-Hostsystem auftritt, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.' 
+summary: 'Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (bekannt als „privater Modus“), werden die Konfigurationsdaten von BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Backups gespeichert werden. Wenn in Zukunft ein Problem mit dem BlueXP Connector-Hostsystem auftritt, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.' 
 ---
 = Wiederherstellen der BlueXP backup and recovery an einem dunklen Ort
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzug
 
 
 [role="lead"]
-Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (bekannt als _privater Modus_), werden die Konfigurationsdaten von BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Backups gespeichert werden.  Wenn Sie ein Problem mit dem BlueXP Connector-Hostsystem haben, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.
+Wenn Sie die BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (der sogenannte _private Modus_), werden die Konfigurationsdaten der BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Sicherungen gespeichert werden. Wenn Sie ein Problem mit dem BlueXP Connector-Hostsystem haben, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.
 
 
 NOTE: Dieses Verfahren gilt nur für ONTAP Volume-Daten.

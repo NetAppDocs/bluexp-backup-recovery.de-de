@@ -14,10 +14,10 @@ summary: Der BlueXP backup and recovery bietet effizienten, sicheren und kosteng
 
 
 [role="lead"]
-Der BlueXP backup and recovery bietet effizienten, sicheren und kostengünstigen Datenschutz für ONTAP Volumes, Microsoft SQL Server-Instanzen und -Datenbanken, VMware-Workloads und Kubernetes-Workloads (Vorschau).
+Der BlueXP backup and recovery und Wiederherstellungsdienst bietet effizienten, sicheren und kostengünstigen Datenschutz für ONTAP Volumes, Microsoft SQL Server-Instanzen und -Datenbanken, VMware-Workloads (Vorschau) und Kubernetes-Workloads (Vorschau).
 
 
-NOTE: Ein Teil dieser Dokumentation wird als Technologievorschau bereitgestellt.  Bei diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitplan vor der allgemeinen Verfügbarkeit zu ändern.
+NOTE: Dokumentation zum Schutz von VMware- und Kubernetes-Workloads wird als Technologievorschau bereitgestellt. Bei diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitplan vor der allgemeinen Verfügbarkeit zu ändern.
 
 
 
@@ -25,30 +25,47 @@ NOTE: Ein Teil dieser Dokumentation wird als Technologievorschau bereitgestellt.
 
 Verwenden Sie BlueXP backup and recovery, um die folgenden Ziele zu erreichen:
 
-* ONTAP -Volumen-Workloads:
+* * ONTAP -Volumen-Workloads*:
 +
 ** Erstellen Sie lokale Snapshots, replizieren Sie auf sekundären Speicher und sichern Sie ONTAP -Volumes von lokalen ONTAP oder Cloud Volumes ONTAP Systemen auf Objektspeicher in Ihrem öffentlichen oder privaten Cloud-Konto.
 ** Erstellen Sie inkrementelle Backups auf Blockebene, die dauerhaft auf einem anderen ONTAP Cluster und im Objektspeicher in der Cloud gespeichert werden.
+** Verwenden Sie BlueXP backup and recovery zusammen mit SnapCenter.
+** Weitere Informationen finden Sie unter link:prev-ontap-protect-overview.html["Schützen Sie ONTAP Volumes"] .
 
 
-* Microsoft SQL Server-Workloads:
+* *Microsoft SQL Server-Arbeitslasten*:
 +
 ** Sichern Sie Microsoft SQL Server-Instanzen und -Datenbanken von On-Premises ONTAP, Cloud Volumes ONTAP oder Amazon FSx for NetApp ONTAP.
 ** Stellen Sie Microsoft SQL Server-Datenbanken wieder her.
 ** Klonen Sie Microsoft SQL Server-Datenbanken.
+** Verwenden Sie BlueXP backup and recovery ohne SnapCenter.
+** Weitere Informationen finden Sie unter link:br-use-mssql-protect-overview.html["Schützen Sie Microsoft SQL Server-Workloads"] .
 
 
-* VM-Workloads:
+* *VMware-Workloads (Vorschau mit neuer Benutzeroberfläche ohne SnapCenter Plug-in for VMware vSphere)*:
 +
-** Sichern Sie Datenspeicher auf Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID und stellen Sie virtuelle Maschinen auf dem lokalen SnapCenter Plug-in for VMware vSphere Host wieder her.
-** Stellen Sie mit BlueXP backup and recovery die Daten virtueller Maschinen aus der Cloud zurück in das lokale vCenter wieder her.
+** Schützen Sie Ihre VMware-VMs und Datenspeicher mit BlueXP backup and recovery.
+** Sichern Sie VMware-Workloads auf Amazon Web Services S3 oder StorageGRID (für die Vorschau).
+** Stellen Sie VMware-Daten aus der Cloud wieder im lokalen vCenter wieder her.
+** Verwenden Sie BlueXP backup and recovery ohne SnapCenter Plug-in for VMware vSphere.
+** Weitere Informationen finden Sie unter link:br-use-vmware-protect-overview.html["Schutz von VMware-Workloads"] .
 
 
-* Kubernetes-Workloads (Vorschau):
+* *VMware-Workloads (mit SnapCenter Plug-in for VMware vSphere)*:
++
+** Sichern Sie VMs und Datenspeicher auf Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform und StorageGRID und stellen Sie VMs auf dem lokalen SnapCenter Plug-in for VMware vSphere Host wieder her.
+** Stellen Sie VM-Daten mit BlueXP backup and recovery aus der Cloud zurück in das lokale vCenter wieder her.  Sie können die VM an genau demselben Speicherort wiederherstellen, von dem die Sicherung erstellt wurde, oder an einem anderen Speicherort.
+** Verwenden Sie BlueXP backup and recovery zusammen mit dem SnapCenter Plug-in for VMware vSphere.
+** Weitere Informationen finden Sie unter link:prev-vmware-protect-overview.html["Schutz von VMware-Workloads"] .
+
+
+* *Kubernetes-Workloads (Vorschau)*:
 +
 ** Verwalten und schützen Sie Ihre Kubernetes-Anwendungen und -Ressourcen an einem Ort.
 ** Verwenden Sie Schutzrichtlinien, um Ihre inkrementellen Backups zu strukturieren.
 ** Stellen Sie Anwendungen und Ressourcen in denselben oder in anderen Clustern und Namespaces wieder her.
+** Verwenden Sie BlueXP backup and recovery ohne SnapCenter.
+** Weitere Informationen finden Sie unter link:br-use-kubernetes-protect-overview.html["Schützen Sie Kubernetes-Workloads"] .
 
 
 
@@ -195,7 +212,7 @@ Der Dienst schützt die folgenden Workloads:
 
 * ONTAP Volumes
 * Microsoft SQL Server-Instanzen und -Datenbanken für physisches VMware Virtual Machine File System (VMFS) und VMware Virtual Machine Disk (VMDK) NFS
-* VMware Datenspeicher
+* VMware-VMs und -Datenspeicher
 * Kubernetes-Workloads (Vorschau)
 
 
@@ -210,16 +227,10 @@ Der Dienst schützt die folgenden Workloads:
 
 .Unterstützte Backup-Ziele
 * Amazon Web Services (AWS) S3
-* Microsoft Azure Blob
+* Microsoft Azure Blob (nicht verfügbar für VMware-Workloads in der Vorschau)
 * StorageGRID
-* ONTAP S3
+* ONTAP S3 (Nicht verfügbar für VMware-Workloads in der Vorschau)
 
-
-
-
-== BlueXP backup and recovery verwendet das Plug-in für Microsoft SQL Server
-
-BlueXP backup and recovery installiert das Plug-in für Microsoft SQL Server auf dem Server, auf dem Microsoft SQL Server gehostet wird. Das Plug-in ist eine hostseitige Komponente, die eine anwendungsorientierte Datensicherung von Microsoft SQL Server-Datenbanken und -Instanzen ermöglicht.
 
 
 
@@ -273,7 +284,5 @@ Wenn Sie mehrere Connectors in derselben BlueXP -Organisation haben, zeigt jeder
 Es kann für Sie von Vorteil sein, einige Begriffe im Zusammenhang mit dem Schutz zu verstehen.
 
 * *Schutz*: Schutz bei der BlueXP backup and recovery bedeutet, sicherzustellen, dass mithilfe von Schutzrichtlinien regelmäßig Snapshots und unveränderliche Sicherungen in einer anderen Sicherheitsdomäne erfolgen.
-
-
-* *Workload*: Ein Workload in BlueXP backup and recovery kann Microsoft SQL Server-Instanzen und -Datenbanken, VMware-Datenspeicher oder ONTAP -Volumes umfassen.
+* *Workload*: Ein Workload in BlueXP backup and recovery kann ONTAP Volumes, Microsoft SQL Server-Instanzen und -Datenbanken, VMware-VMs und -Datenspeicher oder Kubernetes-Cluster und -Anwendungen umfassen.
 

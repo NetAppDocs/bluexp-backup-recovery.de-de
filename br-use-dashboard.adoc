@@ -44,7 +44,7 @@ Die Systemübersicht enthält die folgenden Informationen:
 
 Überprüfen Sie die folgenden Informationen in der Schutzzusammenfassung:
 
-* Die Gesamtzahl der geschützten und ungeschützten Datenbanken.
+* Die Gesamtzahl der geschützten und ungeschützten Datenbanken, VMs und Datenspeicher.
 +
 
 TIP: Eine geschützte Datenbank ist eine Datenbank, der eine Sicherungsrichtlinie zugewiesen ist. Eine ungeschützte Datenbank ist keine Datenbank, der keine Sicherungsrichtlinie zugewiesen ist.

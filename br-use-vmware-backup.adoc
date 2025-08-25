@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-backup.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Schützen Sie Ihre VMware-Workloads mit NetApp BlueXP backup and recovery. 
+---
+= Sichern Sie VMware-Workloads mit BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sichern Sie VMware-VMs und Datenspeicher von lokalen ONTAP -Systemen auf Amazon Web Services oder StorageGRID , um sicherzustellen, dass Ihre Daten geschützt sind.  Backups werden automatisch erstellt und in einem Objektspeicher in Ihrem öffentlichen oder privaten Cloud-Konto gespeichert.
+
+* Um Workloads nach einem Zeitplan zu sichern, erstellen Sie Richtlinien, die die Sicherungs- und Wiederherstellungsvorgänge steuern. Anweisungen finden Sie unter link:br-use-policies-create.html["Erstellen von Richtlinien"] .
+* Erstellen Sie Schutzgruppen, um die Sicherungs- und Wiederherstellungsvorgänge für eine Reihe von Ressourcen zu verwalten. Sehen link:br-use-vmware-protection-groups.html["Erstellen und verwalten Sie Schutzgruppen für VMware-Workloads mit BlueXP backup and recovery"] für weitere Informationen.
+* Sichern Sie jetzt Workloads (erstellen Sie jetzt ein On-Demand-Backup).
+
+
+
+
+== Sichern Sie Workloads jetzt mit einem On-Demand-Backup
+
+Erstellen Sie sofort ein On-Demand-Backup. Ein On-Demand-Backup empfiehlt sich, wenn Sie Änderungen an Ihrem System vornehmen und vor dem Start sicherstellen möchten, dass Sie über ein Backup verfügen.
+
+*Erforderliche BlueXP -Rolle* Organisationsadministrator, Ordner- oder Projektadministrator, Superadministrator für Backup und Wiederherstellung oder Backup-Administratorrolle für Backup und Wiederherstellung.  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
+
+.Schritte
+. Wählen Sie im Menü *Inventar* aus.
++
+image:screen-vm-inventory-managed.png["Inventar-Screenshot für BlueXP backup and recovery"]
+
+. Wählen Sie eine Arbeitslast aus, um die Schutzdetails anzuzeigen.
+. Wählen Sie das Symbol Aktionen image:../media/icon-action.png["Aktionsoption"] > *Details anzeigen*.
+. Wählen Sie die Registerkarte *Schutzgruppen*, *Datenspeicher* oder *Virtuelle Maschinen*.
++
+image:screen-vm-inventory-protection-groups.png["Screenshot der Registerkarte „Schutzgruppen“ für BlueXP backup and recovery"]
+
+. Wählen Sie die Schutzgruppe, Datenspeicher oder virtuellen Maschinen aus, die Sie sichern möchten.
+. Wählen Sie das Symbol Aktionen image:../media/icon-action.png["Aktionsoption"] > *Jetzt sichern*.
++
+image:screen-vm-inventory-backup-now.png["Screenshot „Jetzt sichern“ für BlueXP backup and recovery"]
+
++
+
+NOTE: Die auf die Sicherung angewendete Richtlinie ist dieselbe Richtlinie, die der Schutzgruppe, dem Datenspeicher oder der virtuellen Maschine zugewiesen ist.
+
+. Wählen Sie die Zeitplanstufe aus.
+. Wählen Sie *Jetzt sichern*.
+
