@@ -4919,11 +4919,11 @@ Ifdef::aws[]</block>
   <block id="40e80975f18e076da51a2f87004f77ab" category="summary">Wenn Sie BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (bekannt als „privater Modus“), werden die Konfigurationsdaten von BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Backups gespeichert werden. Wenn in Zukunft ein Problem mit dem BlueXP Connector-Hostsystem auftritt, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.</block>
   <block id="b1e27f8c2d43223a85b44c94d6a02cc0" category="paragraph">Wenn Sie die BlueXP backup and recovery an einem Standort ohne Internetzugang verwenden (der sogenannte _private Modus_), werden die Konfigurationsdaten der BlueXP backup and recovery im StorageGRID oder ONTAP S3-Bucket gesichert, in dem Ihre Sicherungen gespeichert werden. Wenn Sie ein Problem mit dem BlueXP Connector-Hostsystem haben, können Sie einen neuen Connector bereitstellen und die kritischen BlueXP backup and recovery und Wiederherstellungsdaten wiederherstellen.</block>
   <block id="0428e48e7f58929099e52febd0558232" category="section-title">25. August 2025</block>
-  <block id="b9d888f58b09c4007db0247286e392b5" category="section-title">11. August 2025</block>
   <block id="0d8cae156f9904fac41e4f76eb3502db" category="sidebar">Schutz von VMware-Workloads (Vorschau)</block>
   <block id="79d4e4bc94bda2b257f4190786069be1" category="sidebar">Übersicht zum Schützen von VMware-Workloads</block>
   <block id="fe5216e8c6ca199aaa9802985fb31c17" category="sidebar">Bekannte Einschränkungen für VMware-Workloads</block>
   <block id="f4aa5ca6921e92380246ea7a562973a9" category="sidebar">Schützen Sie VMware-Workloads (Vorschau ohne SnapCenter -Plug-in für VMware)</block>
   <block id="b1b8c22062b7762d4a3c459e880dee3b" category="sidebar">Schützen Sie VMware-Workloads (mit dem SnapCenter -Plug-in für VMware)</block>
   <block id="5e8c098d325749413b23d5eba5837aad" category="sidebar">Wiederherstellen von BlueXP backup and recovery an einem dunklen Ort</block>
+  <block id="2c7a4c64b750d295df0cbadb67206302" category="paragraph">BlueXP backup and recovery speichert Jobinformationen 15 Tage lang. Danach werden sie gelöscht und sind im Job Monitor nicht mehr sichtbar.</block>
 </blocks>

@@ -16,6 +16,8 @@ summary: Überwachen Sie mit BlueXP Backup und Recovery den Status lokaler Snaps
 [role="lead"]
 Überwachen Sie mit BlueXP backup and recovery den Status lokaler Snapshots, Replikationen und Backup-to-Object-Storage-Jobs, die Sie initiiert haben, und stellen Sie die von Ihnen initiierten Jobs wieder her. Sie können die Jobs sehen, die abgeschlossen wurden, in Bearbeitung sind oder fehlgeschlagen sind, sodass Sie Probleme diagnostizieren und beheben können. Mit dem BlueXP Notification Center können Sie das Versenden von Benachrichtigungen per E-Mail aktivieren, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht beim System angemeldet sind. Mithilfe der BlueXP Zeitleiste werden Details zu allen über die UI oder die API initiierten Aktionen angezeigt.
 
+BlueXP backup and recovery speichert Jobinformationen 15 Tage lang. Danach werden sie gelöscht und sind im Job Monitor nicht mehr sichtbar.
+
 *Erforderliche BlueXP -Rolle* Organisationsadministrator, Ordner- oder Projektadministrator, Backup- und Recovery-Superadministrator, Backup- und Recovery-Backup-Administrator, Backup- und Recovery-Wiederherstellungsadministrator, Backup- und Recovery-Klonadministrator oder Backup- und Recovery-Viewer-Rolle. Erfahren Sie mehr über link:reference-roles.html["Rollen und Berechtigungen für Backup und Wiederherstellung"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
 
 
