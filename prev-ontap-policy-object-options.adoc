@@ -69,7 +69,7 @@ Diese Funktion bietet keinen Schutz für Ihre Quell-Volumes, sondern nur für di
 
 [CAUTION]
 ====
-* Wenn Sie DataLock- und Ransomware-Schutz verwenden möchten, können Sie diese beim Erstellen Ihrer ersten Backup-Richtlinie und beim Aktivieren von BlueXP Backup und Recovery für diesen Cluster aktivieren. Sie können Ransomware-Scans später mithilfe der erweiterten Einstellungen für BlueXP  Backup und Recovery aktivieren oder deaktivieren.
+* Wenn Sie DataLock und Ransomware-Schutz verwenden möchten, können Sie diese aktivieren, wenn Sie Ihre erste Sicherungsrichtlinie erstellen und die BlueXP backup and recovery für diesen Cluster aktivieren.  Sie können den Ransomware-Scan später mithilfe der erweiterten Einstellungen für BlueXP backup and recovery aktivieren oder deaktivieren.
 * Wenn BlueXP beim Wiederherstellen von Volume-Daten eine Backup-Datei auf Ransomware scannt, fallen für den Zugriff auf die Inhalte der Backup-Datei zusätzliche Kosten von Ihrem Cloud-Provider an.
 
 
@@ -140,9 +140,9 @@ Siehe link:prev-ontap-policy-object-advanced-settings.html["So aktualisieren Sie
 
 
 
-=== Was ist Ransomware-Schutz
+=== Was ist Ransomware-Schutz in NetApp Backup and Recovery
 
-Ransomware-Schutz scannt Ihre Backup-Dateien, um einen Ransomware-Angriff auf einen Nachweis zu untersuchen. Die Erkennung von Ransomware-Angriffen erfolgt über einen Prüfsummenvergleich. Wenn potenzielle Ransomware-Angriffe in einer neuen Backup-Datei oder in einer vorherigen Backup-Datei erkannt werden, wird diese neuere Backup-Datei durch die neueste Backup-Datei ersetzt, die keine Anzeichen eines Ransomware-Angriffs zeigt. (Die Datei, die als Ransomware-Angriff gekennzeichnet ist, wird 1 Tag nach ihrer Ersetzung gelöscht.)
+Die Ransomware-Schutzoption in NetApp Backup and Recovery durchsucht Ihre Sicherungsdateien nach Hinweisen auf einen Ransomware-Angriff.  Die Erkennung von Ransomware-Angriffen erfolgt über einen Prüfsummenvergleich.  Wenn in einer neuen Sicherungsdatei im Vergleich zur vorherigen Sicherungsdatei potenzielle Ransomware identifiziert wird, wird diese neuere Sicherungsdatei durch die neueste Sicherungsdatei ersetzt, die keine Anzeichen eines Ransomware-Angriffs aufweist.  (Die Datei, bei der ein Ransomware-Angriff festgestellt wurde, wird 1 Tag nach ihrer Ersetzung gelöscht.)
 
 Scans werden in folgenden Situationen durchgeführt:
 
@@ -297,7 +297,7 @@ endif::azure[]
 * Die bei der Aktivierung von BlueXP ausgewählte DataLock Option für Backup und Recovery muss für alle Backup-Richtlinien für dieses Cluster verwendet werden.
 * Sie können nicht mehrere DataLock-Modi auf einem einzelnen Cluster verwenden.
 * Wenn Sie DataLock aktivieren, werden alle Volume-Backups gesperrt. Es können keine gesperrten und nicht gesperrten Volume-Backups für einen einzelnen Cluster kombiniert werden.
-* DataLock- und Ransomware-Schutz ist für neue Volume-Backups mit einer Backup-Richtlinie mit aktiviertem DataLock und Ransomware-Schutz anwendbar. Sie können diese Funktionen später über die Option Erweiterte Einstellungen aktivieren oder deaktivieren.
+* DataLock- und Ransomware-Schutz ist für neue Volume-Backups anwendbar, bei denen eine Backup-Richtlinie mit aktiviertem DataLock- und Ransomware-Schutz verwendet wird.  Sie können die Ransomware-Scan-Option später mithilfe der Option „Erweiterte Einstellungen“ aktivieren oder deaktivieren.
 * FlexGroup Volumes können DataLock- und Ransomware-Schutz nur verwenden, wenn ONTAP 9.13.1 oder höher verwendet wird.
 
 

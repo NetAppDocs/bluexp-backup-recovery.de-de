@@ -44,9 +44,6 @@ Wenn Sie die kostenlose Testversion beenden, ohne einen kostenpflichtigen Plan z
 
 .Schritte
 . Wählen Sie auf der Zielseite für BlueXP backup and recovery *Kostenlose Testversion anzeigen* aus.
-+
-*FRAGE AN DIE BEWERTER*: Wie gelangen Benutzer auf die Zielseite, wenn sie sich auf anderen BR-Seiten befinden?
-
 . Wählen Sie *Kostenlose Testversion beenden*.
 . Wählen Sie *Daten sofort nach Beendigung meiner kostenlosen Testversion löschen*, um Ihre Daten sofort zu löschen.
 . Geben Sie *Testversion beenden* in das Feld ein.
