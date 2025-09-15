@@ -16,6 +16,15 @@ summary: Mit BlueXP backup and recovery können Sie Ausführungs-Hooks verwalten
 [role="lead"]
 Ein Ausführungs-Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren können, dass sie zusammen mit einem Datenschutzvorgang einer verwalteten Kubernetes-Anwendung ausgeführt wird. Wenn Sie beispielsweise über eine Datenbank-App verfügen, können Sie mit einem Execution-Hook alle Datenbanktransaktionen vor einem Snapshot anhalten und die Transaktionen nach Abschluss des Snapshots wieder aufnehmen. Dies gewährleistet applikationskonsistente Snapshots. Beim Erstellen einer Vorlage für einen Ausführungs-Hook können Sie den Hook-Typ, das auszuführende Skript und alle Filter angeben, die bestimmen, auf welche Container der Hook angewendet wird. Anschließend können Sie die Vorlage verwenden, um Ihren Anwendungen Ausführungs-Hooks zuzuordnen.
 
+[NOTE]
+====
+Standardmäßig friert NetApp Backup and Recovery Dateisysteme für bestimmte Anwendungen wie KubeVirt während Datenschutzvorgängen automatisch ein und gibt sie wieder frei.  Sie können dieses Verhalten optional global oder für bestimmte Anwendungen deaktivieren, indem Sie die Anweisungen in der Trident Protect-Dokumentation befolgen:
+
+* Um dieses Verhalten für alle Anwendungen zu deaktivieren, lesen Sie https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html#protecting-data-with-kubevirt-vms["Datenschutz mit KubeVirt-VMs"] .
+* Informationen zum Deaktivieren dieses Verhaltens für eine bestimmte Anwendung finden Sie unter https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-manage-applications.html#define-an-application["Definieren einer Anwendung"] .
+
+
+====
 .Erforderliche BlueXP -Rolle
 Organisationsadministrator oder SnapCenter Administrator. link:reference-roles.html["Erfahren Sie mehr über die Zugriffsrollen für BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über BlueXP-Zugriffsrollen für alle Dienste"^] .
 
